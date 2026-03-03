@@ -164,10 +164,10 @@ async function notify(item: Inquiry, meta: any, id: string, reqId?: string) {
   //   throw new Error('RESEND_API_KEY not configured')
   // }
   const url = process.env.SMTP_URL
-  const host = process.env.SMTP_HOST
-  const port = Number(process.env.SMTP_PORT || 587)
-  const user = process.env.SMTP_USER
-  const pass = process.env.SMTP_PASS
+  const host = process.env.MAIL_HOST || process.env.SMTP_HOST
+  const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
+  const user = process.env.MAIL_USER || process.env.SMTP_USER
+  const pass = process.env.MAIL_PASS || process.env.SMTP_PASS
   const to = 'andy@sungene.net'
   let transporter: any
   
