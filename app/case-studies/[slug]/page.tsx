@@ -1,6 +1,6 @@
 import { t } from '@/lib/i18n'
 import { getLang } from '@/lib/i18n-server'
-import { getCase } from '@/data/cases'
+import cases, { getCase } from '@/data/cases'
 import type { Metadata } from 'next'
 import BreadcrumbJSONLD from '@/components/BreadcrumbJSONLD'
 import Image from 'next/image'
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function CasePage({ params }: { params: { slug: string } }) {
   const lang = getLang()
-  const allCases = getCases(lang)
+  const allCases = cases.filter(c => c.lang === lang)
   const currentIndex = allCases.findIndex(c => c.slug === params.slug)
   const nextCase = allCases[(currentIndex + 1) % allCases.length]
   const data = getCase(lang, params.slug)
