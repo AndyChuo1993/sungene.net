@@ -19,6 +19,7 @@ const dict: Record<Lang, Record<string, string>> = {
     hero_subtitle: '透過市場分析、買家名單與系統化開發流程，協助企業拓展全球市場。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
+    home_cta_title: '立即開始您的外貿增長',
 
     // Home - Services
     home_service_1_title: '客戶名單開發',
@@ -122,6 +123,7 @@ const dict: Record<Lang, Record<string, string>> = {
     hero_subtitle: 'Expanding global markets through market analysis, buyer lists, and systematic outreach processes.',
     hero_cta_start: 'Start Export Growth',
     hero_cta_analysis: 'Get Free Market Analysis',
+    home_cta_title: 'Start Your Export Growth Now',
 
     // Home - Services
     home_service_1_title: 'Lead Generation',

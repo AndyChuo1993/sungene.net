@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* 1. Who We Are */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">01 Who We Are</div>
+          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">Who We Are</div>
           <h2 className="text-3xl font-bold mb-8 text-gray-900">
             {lang === 'zh' ? '我們是誰' : 'Who We Are'}
           </h2>
@@ -71,7 +71,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* 2. What We Believe */}
       <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">02 Our Belief</div>
+          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">Our Belief</div>
           <h2 className="text-3xl font-bold mb-8 text-gray-900">
             {lang === 'zh' ? '我們相信什麼' : 'What We Believe'}
           </h2>
@@ -91,7 +91,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* 3. How We Do It (Methodology) */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">03 Our Methodology</div>
+          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">Our Methodology</div>
           <h2 className="text-3xl font-bold mb-12 text-gray-900">
             {lang === 'zh' ? '我們怎麼做外貿增長' : 'Our Growth Methodology'}
           </h2>
@@ -123,7 +123,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* 4. Vision & Mission */}
       <section className="py-24 bg-blue-900 text-white">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-300 font-bold mb-4 uppercase tracking-wide">04 Our Vision</div>
+          <div className="text-blue-300 font-bold mb-4 uppercase tracking-wide">Our Vision</div>
           <h2 className="text-3xl font-bold mb-12 text-white">
             {lang === 'zh' ? '我們的願景與使命' : 'Our Vision & Mission'}
           </h2>

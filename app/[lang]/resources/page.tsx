@@ -59,13 +59,30 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                     {articles.map((post) => (
                         <Link href={`/${lang}/resources/${post.id}`} key={post.id} className="block group">
                             <div className="bg-white border border-gray-200 rounded-sm hover:shadow-md transition duration-300 flex flex-col h-full">
-                                <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-blue-900/5 group-hover:bg-blue-900/10 transition"></div>
-                                    <div className="text-center p-4">
-                                        <div className="text-4xl text-gray-300 font-serif mb-2 font-bold opacity-30">
-                                            {post.category === (lang === 'zh' ? '市場分析' : 'Market Analysis') ? 'DATA' : 'GUIDE'}
-                                        </div>
-                                        <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">{post.category}</div>
+                                <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden group">
+                                    <div 
+                                      className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition duration-500"
+                                      style={{ 
+                                        backgroundImage: post.id === 'german-hardware-2026' 
+                                          ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Modern industrial hardware factory in Germany, automated production line, high tech, blue and white tone, photorealistic')}&image_size=landscape_16_9)`
+                                          : post.id === 'cold-email-structure'
+                                          ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Professional business email communication, laptop on desk, modern office, focus on screen, blue theme, photorealistic')}&image_size=landscape_16_9)`
+                                          : post.id === 'finding-buyers'
+                                          ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Global trade map connection, business handshake, international logistics, blue technology style, photorealistic')}&image_size=landscape_16_9)`
+                                          : post.id === 'export-dev-guide-2026'
+                                          ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Strategic business planning, compass and charts on table, export growth concept, blue professional style, photorealistic')}&image_size=landscape_16_9)`
+                                          : 'none'
+                                      }}
+                                    >
+                                      {/* Overlay for readability if needed, but here we just want the image */}
+                                      <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/0 transition"></div>
+                                    </div>
+                                    
+                                    {/* Fallback if image fails or loading (though we are using URLs directly) */}
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0">
+                                      <div className="text-4xl text-gray-300 font-serif mb-2 font-bold opacity-30">
+                                          {post.category === (lang === 'zh' ? '市場分析' : 'Market Analysis') ? 'DATA' : 'GUIDE'}
+                                      </div>
                                     </div>
                                 </div>
                                 <div className="p-6 flex-grow flex flex-col">

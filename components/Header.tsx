@@ -13,9 +13,11 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-white/95 border-b border-gray-100 shadow-sm">
+    <header className="fixed top-0 w-full z-50 backdrop-blur bg-white/95 border-b border-gray-100 shadow-sm">
       <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
         <Link href={`/${lang}`} className="text-black font-bold text-2xl flex items-center gap-2">
+          {/* Logo Placeholder - The user asked to put logo before SunGene */}
+          <img src="/logo/sungene.png" alt="SunGene Logo" className="h-8 w-auto" />
           <span className="tracking-tight text-blue-900">SunGene</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8">
