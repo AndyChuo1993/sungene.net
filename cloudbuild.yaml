@@ -4,14 +4,14 @@
     args:
       - 'build'
       - '-t'
-      - 'asia-east1-docker.pkg.dev/ai-trade-prod/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
+      - 'gcr.io/ai-trade-prod/ai-trade-web:$COMMIT_SHA'
       - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push image'
     args:
       - 'push'
-      - 'asia-east1-docker.pkg.dev/ai-trade-prod/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
+      - 'gcr.io/ai-trade-prod/ai-trade-web:$COMMIT_SHA'
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     id: 'Deploy to Cloud Run'
@@ -21,7 +21,7 @@
       - 'deploy'
       - 'ai-trade-web'
       - '--image'
-      - 'asia-east1-docker.pkg.dev/ai-trade-prod/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
+      - 'gcr.io/ai-trade-prod/ai-trade-web:$COMMIT_SHA'
       - '--region'
       - 'asia-east1'
       - '--platform'
@@ -31,7 +31,7 @@
       - '8080'
 
 images:
-  - 'asia-east1-docker.pkg.dev/ai-trade-prod/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
+  - 'gcr.io/ai-trade-prod/ai-trade-web:$COMMIT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY
