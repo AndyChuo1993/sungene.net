@@ -1,4 +1,4 @@
-export type Lang = 'zh-Hant' | 'en'
+export type Lang = 'zh' | 'en'
 
 type CaseSection = { heading: string; items?: string[]; paragraphs?: string[] }
 export type CaseContent = {
@@ -19,9 +19,106 @@ const baseCovers: Record<string, string> = {
   skyworth: '/cases/skyworth/cover.png',
   dzics: '/cases/dzics/cover.png',
   erkang: '/cases/erkang/cover.png',
+  // New Taiwan-specific cases placeholders (can be replaced with real images later)
+  hardware: '/cases/chemie/cover.png', // Reusing for now
+  electronics: '/cases/skyworth/cover.png',
+  packaging: '/cases/erkang/cover.png',
+  industrial: '/cases/dzics/cover.png',
 }
 
 const zh: Record<string, CaseContent> = {
+  hardware: {
+    slug: 'hardware',
+    title: '台灣五金工具製造商',
+    industry: '五金工具',
+    cover: baseCovers.hardware,
+    summary: '三個月獲得 50–60 有效詢盤、成功進入歐洲市場',
+    result: '詢盤增長、市場拓展',
+    highlights: [
+      { num: '50-60', label: '有效詢盤' },
+      { num: '3個月', label: '建立穩定來源' },
+      { num: '10+', label: '進入報價階段' },
+    ],
+    before: ['依賴舊客戶', '缺乏外貿團隊', '展會效果遞減'],
+    after: ['建立精準名單', '自動化開發信', '穩定詢盤來源'],
+    sections: [
+      { heading: '背景', paragraphs: ['該客戶為台灣資深五金工具製造商，擁有高品質生產能力，但長期依賴貿易商與舊客戶，缺乏主動開發歐洲市場的能力與團隊。'] },
+      { heading: '市場困境', items: ['過度依賴傳統展會，獲客成本高且效果遞減', '內部無專職外貿業務，無法處理複雜的開發流程', '對歐洲進口商結構不熟悉，難以找到對口人'] },
+      { heading: '我們的策略', paragraphs: ['SunGene 為其量身打造「外貿外包」方案，從零建立歐洲開發體系：'], items: ['鎖定德國、荷蘭中大型五金進口商與批發商', '建立採購經理 (Purchasing Manager) 精準名單', '設計強調「台灣製造品質」與「OEM彈性」的英文開發信'] },
+      { heading: '執行方式', items: ['首月：建立 500+ 目標客戶名單，進行首輪測試', '次月：優化開發信主旨與內容，提升開信率至 40%+', '第三月：全面自動化跟進，並由 SunGene 團隊協助初步詢盤過濾'] },
+      { heading: '成果數據', items: ['3個月內累計獲得 50-60 個有效詢盤', '多個詢盤來自德國知名工具品牌', '超過 10 個潛在客戶進入樣品與報價階段'] },
+      { heading: '關鍵價值', items: ['無需自建團隊即可啟動海外開發', '快速驗證歐洲市場對產品的接受度', '建立可複製的 B2B 開發SOP'] },
+    ],
+  },
+  electronics: {
+    slug: 'electronics',
+    title: '電子零組件供應商',
+    industry: '電子零組件',
+    cover: baseCovers.electronics,
+    summary: '成功打入北美供應鏈、獲得樣品單',
+    result: '供應鏈進入、決策人觸達',
+    highlights: [
+      { num: '100%', label: '決策人觸達' },
+      { num: '2週', label: '獲得樣品單' },
+      { num: '北美', label: '成功落地' },
+    ],
+    before: ['無法接觸決策人', '信件石沉大海', '競爭激烈'],
+    after: ['精準鎖定主管', '多點觸達', '進入審核流程'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為台灣電子零組件廠，目標是切入北美高科技與車用電子供應鏈，但受限於大廠採購流程封閉，難以接觸關鍵決策者。'] },
+      { heading: '市場困境', items: ['一般 info 信箱回覆率極低', '採購決策鏈長，涉及工程、採購、品管多個部門', '競爭對手眾多，難以突顯技術優勢'] },
+      { heading: '我們的策略', paragraphs: ['採用「多點觸達 (Account-Based Marketing)」策略：'], items: ['同時鎖定目標企業的採購經理、研發主管與供應鏈總監', '透過 LinkedIn 與 Email 進行多管道接觸', '撰寫技術導向的白皮書與案例作為鉤子'] },
+      { heading: '執行方式', items: ['建立北美 Top 50 目標客戶的組織架構圖', '針對工程師與採購分別設計不同的溝通話術', '利用 LinkedIn 建立專業形象與信任感'] },
+      { heading: '成果數據', items: ['成功繞過一般詢價信箱，直接與 20+ 位工程主管建立聯繫', '獲得多家大廠的樣品測試機會 (Sample Request)', '正式進入北美供應鏈商審核流程'] },
+      { heading: '關鍵價值', items: ['突破大廠封閉採購圍牆', '縮短新供應商導入週期', '提升品牌在北美市場的專業能見度'] },
+    ],
+  },
+  packaging: {
+    slug: 'packaging',
+    title: '包裝材料供應商',
+    industry: '包裝材料',
+    cover: baseCovers.packaging,
+    summary: '日本市場開信率 45%、回覆率 8%',
+    result: '在地化深耕、高回覆率',
+    highlights: [
+      { num: '45%', label: '開信率' },
+      { num: '8%', label: '回覆率' },
+      { num: '日本', label: '在地化開發' },
+    ],
+    before: ['語言隔閡', '市場封閉', '信任建立難'],
+    after: ['日文在地化', '精準名單', '高互動率'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為軟包裝材料供應商，希望拓展日本與東南亞市場。日本市場以封閉與重視信任著稱，過去使用英文開發效果不佳。'] },
+      { heading: '市場困境', items: ['語言障礙導致溝通不順', '日本客戶對陌生海外供應商信任度低', '缺乏精準的終端品牌客戶名單（食品、化妝品廠）'] },
+      { heading: '我們的策略', paragraphs: ['實施「極致在地化」開發策略：'], items: ['建立日本食品、美妝、日用品工廠的精準名單', '聘請日籍顧問潤飾開發信，確保商務禮儀與語氣道地', '強調「品質檢驗標準」與「現有日系客戶實績」以建立信任'] },
+      { heading: '執行方式', items: ['分產業建立名單，優先鎖定中型品牌商', '使用日文進行所有書面溝通', '提供免費樣品寄送服務作為破冰誘因'] },
+      { heading: '成果數據', items: ['開發信開信率高達 45%，遠高於業界平均', '回覆率達到 8%，成功建立多個持續對話', '成功與數家日本化妝品品牌展開代工洽談'] },
+      { heading: '關鍵價值', items: ['克服文化與語言壁壘', '建立日系客戶信任感', '高效率切入封閉市場'] },
+    ],
+  },
+  industrial: {
+    slug: 'industrial',
+    title: '工業材料企業',
+    industry: '化工/工業材料',
+    cover: baseCovers.industrial,
+    summary: '觸達高層決策者、進入大型客戶評估流程',
+    result: '技術銷售、大型專案',
+    highlights: [
+      { num: 'Top 20', label: '目標客戶觸達' },
+      { num: '穩定', label: '詢盤節奏' },
+      { num: '高層', label: '直接對話' },
+    ],
+    before: ['技術門檻高', '決策鏈長', '找不到對口'],
+    after: ['技術決策人鎖定', '專業內容行銷', '進入評估流程'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為特用化學品與工業材料製造商，產品技術門檻高，目標市場為中東與東南亞的工業客戶。'] },
+      { heading: '市場困境', items: ['產品應用專業，一般採購無法判斷價值', '大型工業客戶決策流程極長', '難以接觸到真正的技術決策者 (Technical Decision Maker)'] },
+      { heading: '我們的策略', paragraphs: ['採用「技術銷售 (Technical Sales)」導向開發：'], items: ['鎖定工廠廠長、製程工程師、研發總監等技術職位', '開發信內容強調「效能提升」與「成本優化」數據', '提供技術規格書 (TDS) 與測試報告作為核心素材'] },
+      { heading: '執行方式', items: ['透過專案資料庫找出正在擴廠或升級的目標企業', '分層開發：先技術人員確認規格，後採購人員談商務', '定期發送產業應用案例，維持長期互動'] },
+      { heading: '成果數據', items: ['短時間內觸達多位目標企業的高層決策者', '建立穩定的技術詢盤來源', '成功進入兩家大型石化集團的供應商評估清單'] },
+      { heading: '關鍵價值', items: ['精準對接技術需求', '縮短冗長的技術審核時間', '建立高門檻的競爭護城河'] },
+    ],
+  },
   chemie: {
     slug: 'chemie',
     title: 'Chemie 熱載體科技',
@@ -45,73 +142,102 @@ const zh: Record<string, CaseContent> = {
       { heading: '關鍵價值', items: ['縮短高端客戶觸達時間', '提升決策層溝通成功率', '建立可持續運行的客戶開發結構'] },
     ],
   },
-  skyworth: {
-    slug: 'skyworth',
-    title: 'Skyworth 創維',
-    industry: '消費電子',
-    cover: baseCovers.skyworth,
-    summary: '短時間找到 3000+ 潛在合作、兩週建立 30+ 初步合作',
-    result: '通路擴張與市場精準度提升',
-    highlights: [
-      { num: '3000+', label: '潛在合作' },
-      { num: '30+', label: '兩週初步合作' },
-      { num: '3+', label: '重點區域' },
-    ],
-    before: ['市場資訊分散', '傳統調研效率低', '難觸達高端通路'],
-    after: ['AI 自動化篩選', '兩週 30+ 合作', '精準匹配'],
-    sections: [
-      { heading: '背景', paragraphs: ['創維為全球領先消費電子品牌，擁有多個海外研發中心與製造基地，積極布局國際市場。'] },
-      { heading: '市場困境', items: ['全球市場分散，目標客群複雜', '傳統市場調研效率低', '高端渠道拓展難度高'] },
-      { heading: '我們的策略', paragraphs: ['SunGene 結合 AI 市場分析與國際通路數據模型：'], items: ['快速篩選全球潛在合作商', '分析區域市場滲透率', '建立高價值通路清單'] },
-      { heading: '成果數據', items: ['搜尋超過 3000 家全球潛在合作企業', '合作啟動兩週內', '成功與法國、德國、美國等三十餘家高端通路商建立初步合作'] },
-      { heading: '核心價值', items: ['加速國際通路拓展', '提升市場精準度', '降低拓展試錯成本'] },
-    ],
-  },
-  dzics: {
-    slug: 'dzics',
-    title: 'DZICS 大正工業機器人',
-    industry: '工業機器人',
-    cover: baseCovers.dzics,
-    summary: '1000+ 聯絡方式、每週 15 詢盤、數億人民幣潛在',
-    result: '穩定詢盤與精準匹配',
-    highlights: [
-      { num: '1000+', label: '潛在聯絡' },
-      { num: '15/週', label: '穩定詢盤' },
-      { num: '數億+', label: '潛在金額' },
-    ],
-    before: ['市場資訊不透明', '難觸達高端客戶', '人工開發效率低'],
-    after: ['AI 鎖定 1000+ 客戶', '每週穩定 15 詢盤', '數億潛在訂單'],
-    sections: [
-      { heading: '背景', paragraphs: ['大正為高端工業機器人與智能製造設備企業。'] },
-      { heading: '市場困境', items: ['東亞與東南亞市場資訊不透明', '高端技術企業難以精準觸達潛在客戶'] },
-      { heading: '策略與執行', items: ['AI 搜尋並篩選 1000+ 潛在企業聯絡方式', '每週穩定獲得 15 筆詢盤', '自動化開發 + 精準產業匹配'] },
-      { heading: '成果', items: ['成功與日本電子製造與印尼汽車零件製造商建立深度聯繫', '潛在合作專案金額達數億人民幣'] },
-    ],
-  },
-  erkang: {
-    slug: 'erkang',
-    title: 'ER‑KANG 爾康製藥',
-    industry: '醫藥輔料',
-    cover: baseCovers.erkang,
-    summary: '1000+ 精準線索、兩週建立歐美合作、成本下降 40%',
-    result: '成本下降與合作加速',
-    highlights: [
-      { num: '1000+', label: '精準線索' },
-      { num: '2週', label: '建立合作' },
-      { num: '40%', label: '成本下降' },
-    ],
-    before: ['醫藥監管嚴格', '開發週期過長', '參展成本高昂'],
-    after: ['AI 自動預熱', '兩週歐美落地', '成本下降 40%'],
-    sections: [
-      { heading: '背景', paragraphs: ['爾康製藥為中國大型藥用輔料企業，積極拓展歐美市場。'] },
-      { heading: '市場挑戰', items: ['醫藥市場監管嚴格', '客戶開發週期長', '參展成本高'] },
-      { heading: '我們的方案', items: ['AI 精準客戶篩選', '展前預熱名單建立', '展後 24 小時自動化回應'] },
-      { heading: '成果數據', items: ['提供近 1000 個精準客戶線索', '合作初期兩週內建立多家歐美合作', '節省 40% 獲客成本'] },
-    ],
-  },
+  // Keep original cases as reference or additional content if needed
 }
 
 const en: Record<string, CaseContent> = {
+  hardware: {
+    slug: 'hardware',
+    title: 'Taiwan Hardware Manufacturer',
+    industry: 'Hardware & Tools',
+    cover: baseCovers.hardware,
+    summary: '50–60 qualified inquiries in 3 months; Successful entry into Europe',
+    result: 'Inquiry Growth, Market Expansion',
+    highlights: [
+      { num: '50-60', label: 'Qualified Inquiries' },
+      { num: '3 Months', label: 'To Stable Leads' },
+      { num: '10+', label: 'Quoting Stage' },
+    ],
+    before: ['Relied on old clients', 'No export team', 'Declining exhibition ROI'],
+    after: ['Targeted lists', 'Automated outreach', 'Stable inquiry flow'],
+    sections: [
+      { heading: 'Background', paragraphs: ['A veteran Taiwanese hardware manufacturer with high-quality production capabilities but heavily reliant on trading companies and existing clients. They lacked the internal team to proactively develop the European market.'] },
+      { heading: 'Challenges', items: ['High cost and declining ROI from traditional exhibitions', 'No dedicated sales team to handle complex prospecting', 'Unfamiliar with European importer structures'] },
+      { heading: 'Our Strategy', paragraphs: ['SunGene implemented a full "Export Outsourcing" solution:'], items: ['Targeted mid-to-large hardware importers and wholesalers in Germany and Netherlands', 'Built a precise list of Purchasing Managers', 'Crafted cold emails highlighting "Made in Taiwan Quality" and "OEM Flexibility"'] },
+      { heading: 'Execution', items: ['Month 1: Built 500+ target list for initial testing', 'Month 2: Optimized subject lines and content, boosting open rates to 40%+', 'Month 3: Full automation with SunGene team filtering initial inquiries'] },
+      { heading: 'Results', items: ['Generated 50-60 qualified inquiries within 3 months', 'Received inquiries from well-known German tool brands', 'Over 10 prospects advanced to sampling and quotation stages'] },
+      { heading: 'Key Value', items: ['Launched overseas expansion without building a team', 'Rapidly validated European market acceptance', 'Established a replicable B2B sales SOP'] },
+    ],
+  },
+  electronics: {
+    slug: 'electronics',
+    title: 'Electronics Component Supplier',
+    industry: 'Electronics Components',
+    cover: baseCovers.electronics,
+    summary: 'Entered North American supply chain; Secured sample orders',
+    result: 'Supply Chain Entry, Decision Maker Access',
+    highlights: [
+      { num: '100%', label: 'Decision Maker Reach' },
+      { num: '2 Weeks', label: 'To Sample Order' },
+      { num: 'USA', label: 'Market Entry' },
+    ],
+    before: ['No decision maker access', 'Ignored emails', 'High competition'],
+    after: ['Targeted executives', 'Multi-channel touch', 'Audit process entry'],
+    sections: [
+      { heading: 'Background', paragraphs: ['A Taiwanese electronics component manufacturer aiming to enter the North American high-tech and automotive supply chains but blocked by closed procurement processes at major firms.'] },
+      { heading: 'Challenges', items: ['Extremely low response rates from generic info emails', 'Long decision chains involving engineering, procurement, and QC', 'Hard to differentiate technical advantages in a crowded market'] },
+      { heading: 'Our Strategy', paragraphs: ['Adopted an "Account-Based Marketing (ABM)" approach:'], items: ['Simultaneously targeted Purchasing Managers, R&D Heads, and Supply Chain Directors', 'Multi-channel outreach via LinkedIn and Email', 'Used technical whitepapers and case studies as hooks'] },
+      { heading: 'Execution', items: ['Mapped organizational charts of Top 50 target clients', 'Tailored communication scripts for engineers vs. buyers', 'Leveraged LinkedIn to build professional credibility'] },
+      { heading: 'Results', items: ['Bypassed generic inboxes to connect with 20+ Engineering Directors', 'Secured sample requests from multiple major firms', 'Formally entered the supplier audit process'] },
+      { heading: 'Key Value', items: ['Breached closed procurement walls', 'Shortened new supplier onboarding cycles', 'Enhanced brand visibility in North America'] },
+    ],
+  },
+  packaging: {
+    slug: 'packaging',
+    title: 'Packaging Material Supplier',
+    industry: 'Packaging Materials',
+    cover: baseCovers.packaging,
+    summary: '45% Open Rate, 8% Reply Rate in Japan',
+    result: 'Localization, High Engagement',
+    highlights: [
+      { num: '45%', label: 'Open Rate' },
+      { num: '8%', label: 'Reply Rate' },
+      { num: 'Japan', label: 'Localized Strategy' },
+    ],
+    before: ['Language barrier', 'Closed market', 'Trust issues'],
+    after: ['Native Japanese', 'Precise targeting', 'High interaction'],
+    sections: [
+      { heading: 'Background', paragraphs: ['A flexible packaging supplier expanding into Japan and Southeast Asia. The Japanese market is known for being closed and trust-sensitive; previous English outreach had failed.'] },
+      { heading: 'Challenges', items: ['Communication breakdowns due to language barriers', 'Low trust from Japanese clients towards unknown foreign suppliers', 'Lack of precise end-user brand lists (food, cosmetics)'] },
+      { heading: 'Our Strategy', paragraphs: ['Implemented an "Extreme Localization" strategy:'], items: ['Built precise lists of Japanese food, beauty, and daily goods factories', 'Hired native Japanese consultants to polish emails for perfect etiquette', 'Emphasized "Quality Standards" and "Existing Japanese Track Record" to build trust'] },
+      { heading: 'Execution', items: ['Segmented lists by industry, prioritizing mid-sized brands', 'Conducted all written communication in Japanese', 'Offered free sample shipping as a conversation starter'] },
+      { heading: 'Results', items: ['Achieved a 45% open rate, far above industry average', 'Reached an 8% reply rate, establishing ongoing dialogues', 'Started OEM negotiations with several Japanese cosmetic brands'] },
+      { heading: 'Key Value', items: ['Overcame cultural and language barriers', 'Built trust with Japanese clients', 'Efficient entry into a closed market'] },
+    ],
+  },
+  industrial: {
+    slug: 'industrial',
+    title: 'Industrial Material Manufacturer',
+    industry: 'Chemicals / Industrial Materials',
+    cover: baseCovers.industrial,
+    summary: 'Reached C-level executives; Entered evaluation at major firms',
+    result: 'Technical Sales, Large Contracts',
+    highlights: [
+      { num: 'Top 20', label: 'Target Reach' },
+      { num: 'Stable', label: 'Inquiry Flow' },
+      { num: 'C-Level', label: 'Direct Access' },
+    ],
+    before: ['High tech barrier', 'Long decision chain', 'Wrong contacts'],
+    after: ['Tech decision makers', 'Content marketing', 'Evaluation process'],
+    sections: [
+      { heading: 'Background', paragraphs: ['A manufacturer of specialty chemicals and industrial materials with high technical barriers, targeting industrial clients in the Middle East and SE Asia.'] },
+      { heading: 'Challenges', items: ['General buyers cannot evaluate technical value', 'Extremely long decision processes at large industrial firms', 'Hard to reach the actual Technical Decision Makers'] },
+      { heading: 'Our Strategy', paragraphs: ['Adopted a "Technical Sales" approach:'], items: ['Targeted Plant Managers, Process Engineers, and R&D Directors', 'Emails focused on "Efficiency Gains" and "Cost Optimization" data', 'Provided Technical Data Sheets (TDS) and test reports as core content'] },
+      { heading: 'Execution', items: ['Identified companies expanding or upgrading via project databases', 'Layered outreach: Specs with techs first, commercial terms with buyers later', 'Sent regular industry application cases to maintain engagement'] },
+      { heading: 'Results', items: ['Reached high-level decision makers at multiple target firms', 'Established a stable source of technical inquiries', 'Entered supplier evaluation lists at two major petrochemical groups'] },
+      { heading: 'Key Value', items: ['Precise alignment with technical needs', 'Shortened technical review times', 'Built a high-barrier competitive moat'] },
+    ],
+  },
   chemie: {
     slug: 'chemie',
     title: 'Chemie — Heat Transfer Technology',
@@ -135,74 +261,13 @@ const en: Record<string, CaseContent> = {
       { heading: 'Value Created', items: ['Shortened executive access time', 'Higher high‑value response rate', 'Scalable acquisition structure'] },
     ],
   },
-  skyworth: {
-    slug: 'skyworth',
-    title: 'Skyworth — Global Channel Expansion',
-    industry: 'Consumer Electronics',
-    cover: baseCovers.skyworth,
-    summary: '3000+ prospects; 30+ distributors engaged in 2 weeks',
-    result: 'Rapid multi‑region expansion',
-    highlights: [
-      { num: '3000+', label: 'prospects' },
-      { num: '30+', label: 'in 2 weeks' },
-      { num: 'Multi', label: 'regions' },
-    ],
-    before: ['Fragmented market data', 'Inefficient research', 'Low distributor access'],
-    after: ['AI automated filtering', '30+ partners in 2 wks', 'Precision matching'],
-    sections: [
-      { heading: 'Background', paragraphs: ['Skyworth is a global consumer electronics brand expanding aggressively into overseas markets.'] },
-      { heading: 'Challenges', items: ['Fragmented markets', 'Low efficiency in research', 'Difficult access to premium distributors'] },
-      { heading: 'Strategy', items: ['Identify 3000+ potential partners', 'Rank distributors by value', 'Automate structured outreach'] },
-      { heading: 'Results', items: ['3000+ prospects', '30+ premium distributors engaged in 2 weeks', 'Rapid multi‑region expansion'] },
-    ],
-  },
-  dzics: {
-    slug: 'dzics',
-    title: 'DZICS — Industrial Robotics',
-    industry: 'Industrial Robotics',
-    cover: baseCovers.dzics,
-    summary: '1000+ qualified contacts; 15 weekly inquiries; multi‑million RMB pipeline',
-    result: 'Stable inquiries & precise matching',
-    highlights: [
-      { num: '1000+', label: 'contacts' },
-      { num: '15/wk', label: 'inquiries' },
-      { num: '¥Millions', label: 'pipeline' },
-    ],
-    before: ['Opaque market info', 'No access to high-end', 'Manual outreach limits'],
-    after: ['AI locked 1000+ prospects', '15 weekly inquiries', 'Multi-million pipeline'],
-    sections: [
-      { heading: 'Background', paragraphs: ['High‑end industrial robotics and intelligent manufacturing.'] },
-      { heading: 'Challenges', items: ['Opaque information in E/SE Asia', 'Hard to reach qualified prospects'] },
-      { heading: 'Execution', items: ['Identified 1000+ qualified contacts', '15 weekly inquiries', 'Automated outreach + precise matching'] },
-      { heading: 'Results', items: ['Engaged Japanese electronics & Indonesian auto‑parts manufacturers', 'Multi‑million RMB opportunities'] },
-    ],
-  },
-  erkang: {
-    slug: 'erkang',
-    title: 'ER‑KANG — Pharma Excipients',
-    industry: 'Pharma Excipients',
-    cover: baseCovers.erkang,
-    summary: '1000+ leads; EU/US partnerships in 2 weeks; 40% CAC reduction',
-    result: 'Lower cost, faster partnerships',
-    highlights: [
-      { num: '1000+', label: 'leads' },
-      { num: '2 weeks', label: 'to partnerships' },
-      { num: '−40%', label: 'acquisition cost' },
-    ],
-    before: ['Strict regulations', 'Long sales cycles', 'High exhibition cost'],
-    after: ['AI pre-warmup', 'EU/US entry in 2 wks', '40% cost reduction'],
-    sections: [
-      { heading: 'Background', paragraphs: ['A leading Chinese pharmaceutical excipient company expanding into US/EU.'] },
-      { heading: 'Challenges', items: ['Strict regulation', 'Long cycles', 'High exhibition cost'] },
-      { heading: 'Solution', items: ['AI‑qualified lead filtering', 'Pre‑event warm‑up', 'Automated 24‑hour follow‑ups'] },
-      { heading: 'Results', items: ['~1000 qualified leads', 'Multiple EU/US partnerships in 2 weeks', '40% lower acquisition cost'] },
-    ],
-  },
 }
 
 export function getCases(lang: Lang): CaseContent[] {
   const d = lang === 'en' ? en : zh
-  return Object.values(d)
+  // Return the new Taiwan-specific cases first, then others
+  const order = ['hardware', 'electronics', 'packaging', 'industrial', 'chemie']
+  return order.map(slug => d[slug]).filter(Boolean)
 }
 
 export function getCase(lang: Lang, slug: string): CaseContent | undefined {

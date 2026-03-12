@@ -6,7 +6,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 type Inquiry = {
-  type: 'Need Supplier' | 'Need Market' | 'Need AI' | 'Need Custom'
+  type: 'Need Supplier' | 'Need Market' | 'Need AI' | 'Need Custom' | 'Free Analysis' | 'Contact' | 'Lead Gen Service' | 'Lead Generation' | 'Outreach Service' | 'Sales Outsourcing' | 'Partnership Inquiry'
   name: string
   company?: string
   email: string
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   }
   if (body.website) return Response.json({ ok: true })
   const type = body.type
-  if (!['Need Supplier', 'Need Market', 'Need AI', 'Need Custom'].includes(type)) return new Response('Bad Request', { status: 400 })
+  if (!['Need Supplier', 'Need Market', 'Need AI', 'Need Custom', 'Free Analysis', 'Contact', 'Lead Gen Service', 'Lead Generation', 'Outreach Service', 'Sales Outsourcing', 'Partnership Inquiry'].includes(type)) return new Response('Bad Request', { status: 400 })
   // Phone is optional to maximize conversion
   if (!body.name || !body.email) return new Response('Bad Request', { status: 400 })
   const item: Inquiry = {
@@ -207,7 +207,7 @@ UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 時間: ${meta.time}
 `
-  const fromName = process.env.MAIL_FROM || 'SunGene'
+  const fromName = process.env.MAIL_FROM || 'SunGene Team'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
   try {
     await transporter.sendMail({ to, from: fromAddr, subject, text: adminText, headers: { 'X-Request-ID': reqId || '' } })
@@ -224,7 +224,7 @@ IP: ${meta.ip}
 如需補充資訊，直接回覆此信即可。
 
 此致
-SunGene AI 客服`
+SunGene 外貿顧問團隊`
     try {
       await transporter.sendMail({ to: item.email, from: fromAddr, subject: ackSubj, text: ackText, headers: { 'X-Request-ID': reqId || '' } })
     } catch {}

@@ -1,38 +1,33 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+const locales = ['zh', 'en']
+const defaultLocale = 'zh'
+
 export function middleware(request: NextRequest) {
-  const url = new URL(request.url)
-  const langParam = url.searchParams.get('lang')
+  const pathname = request.nextUrl.pathname
+  
+  // Check if there is any supported locale in the pathname
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  )
 
-  // If ?lang=en or ?lang=zh-Hant is present
-  if (langParam === 'en' || langParam === 'zh-Hant') {
-    // Remove lang param for the clean URL
-    url.searchParams.delete('lang')
+  if (pathnameIsMissingLocale) {
+    const locale = defaultLocale
     
-    // Create redirect response
-    const response = NextResponse.redirect(url)
-    
-    // Set the cookie on the redirect response
-    // This ensures the next request (to the clean URL) carries the cookie
-    response.cookies.set('lang', langParam, { 
-        path: '/', 
-        maxAge: 60 * 60 * 24 * 365,
-        sameSite: 'lax'
-    })
-    return response
+    // e.g. incoming request is /products
+    // The new URL is now /zh/products
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
+    )
   }
-
+  
   return NextResponse.next()
 }
 
 export const config = {
   matcher: [
-    // Match all request paths except for the ones starting with:
-    // - api (API routes)
-    // - _next/static (static files)
-    // - _next/image (image optimization files)
-    // - favicon.ico (favicon file)
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    // Skip all internal paths (_next, api, assets)
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)',
   ],
 }

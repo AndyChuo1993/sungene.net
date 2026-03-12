@@ -1,20 +1,27 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { Lang } from '@/lib/i18n'
 
-export default function LanguageSwitcher() {
-  const [lang, setLang] = useState<'zh-Hant' | 'en'>('zh-Hant')
-  useEffect(() => {
-    const v = document.cookie.match(/(?:^|;\s*)lang=([^;]+)/)?.[1]
-    if (v === 'en') setLang('en')
-  }, [])
+export default function LanguageSwitcher({ lang }: { lang: Lang }) {
+  const pathname = usePathname()
+  const router = useRouter()
+
   const toggle = () => {
-    const to = lang === 'zh-Hant' ? 'en' : 'zh-Hant'
-    document.cookie = `lang=${to}; path=/; max-age=31536000; samesite=lax`
-    window.location.reload()
+    if (!pathname) return
+    const segments = pathname.split('/')
+    const currentLang = segments[1]
+    const targetLang = currentLang === 'zh' ? 'en' : 'zh'
+    
+    // Replace the language segment
+    segments[1] = targetLang
+    const newPath = segments.join('/')
+    
+    router.push(newPath)
   }
+
   return (
-    <button onClick={toggle} className="text-white/80 hover:text-white" aria-label="language switch">
-      {lang === 'zh-Hant' ? '繁中' : 'EN'}
+    <button onClick={toggle} className="text-gray-600 hover:text-blue-900 font-medium text-sm transition" aria-label="language switch">
+      {lang === 'zh' ? 'EN' : '繁中'}
     </button>
   )
 }
