@@ -207,7 +207,7 @@ UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 時間: ${meta.time}
 `
-  const fromName = process.env.MAIL_FROM || 'SunGene Team'
+  const fromName = process.env.MAIL_FROM || 'SunGene Export Growth Team'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
   try {
     await transporter.sendMail({ to, from: fromAddr, subject, text: adminText, headers: { 'X-Request-ID': reqId || '' } })
@@ -224,7 +224,7 @@ IP: ${meta.ip}
 如需補充資訊，直接回覆此信即可。
 
 此致
-SunGene 外貿顧問團隊`
+SunGene Export Growth Team`
     try {
       await transporter.sendMail({ to: item.email, from: fromAddr, subject: ackSubj, text: ackText, headers: { 'X-Request-ID': reqId || '' } })
     } catch {}
