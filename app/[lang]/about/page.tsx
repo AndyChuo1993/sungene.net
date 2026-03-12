@@ -39,9 +39,30 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 ? 'SunGene 不只是外貿服務供應商，我們正在建立一套可擴充的外貿增長系統。' 
                 : 'SunGene is not just a service provider; we are building a scalable export growth system.'}
           </p>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{lang === 'zh' ? '我們的服務範圍' : 'Our Service Coverage'}</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-6 rounded-sm border border-gray-100">
+                    <div className="font-bold text-blue-600 mb-2">{lang === 'zh' ? '主要服務客戶' : 'We Serve'}</div>
+                    <ul className="text-gray-600 space-y-1">
+                        <li>• {lang === 'zh' ? '台灣製造商與供應商' : 'Taiwan Manufacturers'}</li>
+                        <li>• {lang === 'zh' ? '中國工廠與外貿企業' : 'China Factories'}</li>
+                        <li>• {lang === 'zh' ? '東南亞供應鏈企業' : 'Southeast Asia Suppliers'}</li>
+                    </ul>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-sm border border-gray-100">
+                    <div className="font-bold text-green-600 mb-2">{lang === 'zh' ? '協助開發市場' : 'Target Markets'}</div>
+                    <ul className="text-gray-600 space-y-1">
+                        <li>• {lang === 'zh' ? '歐洲 (德國/英國/荷蘭)' : 'Europe (Germany/UK/Netherlands)'}</li>
+                        <li>• {lang === 'zh' ? '北美 (美國/加拿大)' : 'North America (USA/Canada)'}</li>
+                        <li>• {lang === 'zh' ? '日本與全球市場' : 'Japan & Global Markets'}</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
           <p className="text-lg text-gray-600 leading-relaxed">
             {lang === 'zh'
-              ? '透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。我們的團隊由資深外貿顧問、數據分析師與商務開發專家組成，致力於解決傳統外貿「找不到人、聯絡不上、談不下來」的痛點。'
+              ? '透過精準的名單與專業的開發流程，我們協助企業拓展全球市場。我們的團隊由資深外貿顧問、數據分析師與商務開發專家組成，致力於解決傳統外貿「找不到人、聯絡不上、談不下來」的痛點。'
               : 'By combining data-driven prospecting with professional outreach, we help manufacturers expand their global footprint efficiently. Our team consists of export consultants, data analysts, and business development experts dedicated to solving the core challenges of "finding, reaching, and closing" overseas buyers.'}
           </p>
         </div>
@@ -99,21 +120,38 @@ export default function Page({ params }: { params: { lang: Lang } }) {
         </div>
       </section>
 
-      {/* 4. Future Vision */}
+      {/* 4. Vision & Mission */}
       <section className="py-24 bg-blue-900 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <div className="text-blue-300 font-bold mb-4 uppercase tracking-wide">04 Our Future</div>
-          <h2 className="text-3xl font-bold mb-8 text-white">
-            {lang === 'zh' ? 'SunGene 未來方向' : 'Our Future Vision'}
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-blue-300 font-bold mb-4 uppercase tracking-wide">04 Our Vision</div>
+          <h2 className="text-3xl font-bold mb-12 text-white">
+            {lang === 'zh' ? '我們的願景與使命' : 'Our Vision & Mission'}
           </h2>
-          <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12">
-            {lang === 'zh'
-              ? 'SunGene 不只是外貿代工團隊，我們正在建立一套更有效率的外貿增長方法。從客戶資料、開發流程、案例方法論，到未來的合作網絡與平台工具，我們希望讓更多製造商更容易進入全球市場。'
-              : 'SunGene is more than a service provider. We are building a more structured way for manufacturers to grow internationally. From buyer data and outreach execution to case-based know-how and future partner infrastructure, our long-term goal is to create a scalable export growth ecosystem.'}
-          </p>
-          <Link href={`/${lang}/contact`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
-            {t(lang, 'cta_start')}
-          </Link>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 className="text-xl font-bold mb-4 text-blue-200">{lang === 'zh' ? '公司使命' : 'Mission'}</h3>
+                <p className="text-lg text-blue-100 leading-relaxed mb-8">
+                  {lang === 'zh' 
+                    ? '建立可規模化的外貿增長系統，讓每一個好產品都能找到對的國際買家。' 
+                    : 'To build a scalable export growth system where every quality product finds its right international buyer.'}
+                </p>
+            </div>
+            <div>
+                <h3 className="text-xl font-bold mb-4 text-blue-200">{lang === 'zh' ? '未來願景' : 'Vision'}</h3>
+                <p className="text-lg text-blue-100 leading-relaxed mb-8">
+                  {lang === 'zh' 
+                    ? '成為亞洲製造商進入全球市場的基礎設施，從數據、工具到服務，打造完整的外貿生態系。' 
+                    : 'To become the infrastructure for Asian manufacturers entering global markets, building a complete export ecosystem from data and tools to services.'}
+                </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12 pt-12 border-t border-blue-800">
+             <Link href={`/${lang}/contact`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
+                {t(lang, 'cta_start')}
+             </Link>
+          </div>
         </div>
       </section>
     </main>

@@ -69,11 +69,54 @@ export default function RootLayout({ children, params }: { children: ReactNode, 
     ]
   }
 
+  const localBusiness = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'SunGene Co., LTD.',
+    image: logoUrl,
+    '@id': site,
+    url: site,
+    telephone: '+886-4-37032705',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'No. 201, Guangfu Rd., Central Dist.',
+      addressLocality: 'Taichung City',
+      postalCode: '400',
+      addressCountry: 'TW'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 24.1433, 
+      longitude: 120.6845 
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday'
+      ],
+      opens: '09:00',
+      closes: '18:00'
+    },
+    areaServed: [
+      'TW',
+      'CN',
+      'US',
+      'DE',
+      'JP'
+    ],
+    priceRange: '$$'
+  }
+
   return (
     <html lang={lang}>
       <body className="min-h-screen bg-white text-gray-900 antialiased font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
         <Header lang={lang} />
         {children}
         <Footer lang={lang} />

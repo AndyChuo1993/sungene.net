@@ -15,8 +15,8 @@ const dict: Record<Lang, Record<string, string>> = {
     cta_consult: '預約諮詢',
 
     // Hero
-    hero_title: '幫台灣企業開發海外買家',
-    hero_subtitle: '從客戶名單建立、開發信，到詢盤跟進與外貿支援，SunGene 提供可落地的外貿客戶開發服務。',
+    hero_title: '幫企業開發海外買家，建立穩定的外貿客戶來源',
+    hero_subtitle: '透過市場分析、買家名單與系統化開發流程，協助企業拓展全球市場。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
 
@@ -118,8 +118,8 @@ const dict: Record<Lang, Record<string, string>> = {
     cta_consult: 'Book Consultation',
 
     // Hero
-    hero_title: 'Your Outsourced Export Sales Team',
-    hero_subtitle: 'We help manufacturers acquire overseas buyers through targeted lead generation, cold outreach, and professional sales support.',
+    hero_title: 'Develop Overseas Buyers & Build Stable Export Revenue',
+    hero_subtitle: 'Expanding global markets through market analysis, buyer lists, and systematic outreach processes.',
     hero_cta_start: 'Start Export Growth',
     hero_cta_analysis: 'Get Free Market Analysis',
 

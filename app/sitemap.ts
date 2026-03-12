@@ -11,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/contact',
     '/free-market-analysis',
+    '/resources',
+    '/export-lead-generation',
+    '/export-outsourcing',
+    '/b2b-lead-generation',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
