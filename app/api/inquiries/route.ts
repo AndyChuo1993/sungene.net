@@ -74,13 +74,13 @@ export async function POST(req: Request) {
   const id = `REQ-${Date.now().toString(36)}`
 
   try {
-    await notify(item, body, meta, id, reqId)
+    const { adminOk, ackOk } = await notify(item, body, meta, id, reqId)
+    if (!adminOk) return new Response('Email Send Failed', { status: 500 })
+    return Response.json({ ok: true, id, ackOk })
   } catch (err) {
     console.error('[inquiries] email send failed:', err)
     return new Response('Email Send Failed', { status: 500 })
   }
-
-  return Response.json({ ok: true, id })
 }
 
 function collectMeta(req: Request) {
@@ -92,7 +92,7 @@ function collectMeta(req: Request) {
   return { ref, lang, ip, utm, time: new Date().toISOString() }
 }
 
-async function notify(item: Inquiry, rawBody: any, meta: any, id: string, reqId?: string) {
+async function notify(item: Inquiry, rawBody: any, meta: any, id: string, reqId?: string): Promise<{ adminOk: boolean; ackOk: boolean }> {
   const url = process.env.SMTP_URL
   const host = process.env.MAIL_HOST || process.env.SMTP_HOST
   const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
@@ -135,7 +135,18 @@ IP: ${meta.ip}
   const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
 
-  await transporter.sendMail({ to, from: fromAddr, subject, text: adminText, headers: { 'X-Request-ID': reqId || '' } })
+  try {
+    await transporter.sendMail({
+      to,
+      from: fromAddr,
+      subject,
+      text: adminText,
+      replyTo: item.email,
+      headers: { 'X-Request-ID': reqId || '' },
+    })
+  } catch {
+    return { adminOk: false, ackOk: false }
+  }
 
   // 自動回覆給客戶
   if (item.email) {
@@ -166,6 +177,19 @@ Tel: ${contactPhone}
 
 Best regards,
 SunGene Service Team`
-    await transporter.sendMail({ to: item.email, from: fromAddr, subject: ackSubj, text: ackText, headers: { 'X-Request-ID': reqId || '' } })
+    try {
+      await transporter.sendMail({
+        to: item.email,
+        from: fromAddr,
+        subject: ackSubj,
+        text: ackText,
+        headers: { 'X-Request-ID': reqId || '' },
+      })
+      return { adminOk: true, ackOk: true }
+    } catch {
+      return { adminOk: true, ackOk: false }
+    }
   }
+
+  return { adminOk: true, ackOk: true }
 }
