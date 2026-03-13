@@ -1,4 +1,3 @@
-import '../../styles/globals.css'
 import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -132,15 +131,13 @@ export default function RootLayout({ children, params }: { children: ReactNode, 
   }
 
   return (
-    <html lang={lang}>
-      <body className="min-h-screen bg-white text-gray-900 antialiased font-sans">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
-        <Header lang={lang} />
-        {children}
-        <Footer lang={lang} />
-      </body>
-    </html>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
+      <Header lang={lang} />
+      {children}
+      <Footer lang={lang} />
+    </>
   )
 }
