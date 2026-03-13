@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
       languages: {
         'en': '/en',
         'zh': '/zh',
+        'x-default': '/en',
       },
     },
   }

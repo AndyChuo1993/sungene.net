@@ -177,7 +177,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     internalLinks: {
-      servicePath: '/export-lead-generation',
+      servicePath: '/services/export-lead-generation',
       caseStudyPath: '/case-studies',
       leadMagnetPath: '/export-market-analysis',
     },
@@ -201,7 +201,7 @@ export const blogPosts: BlogPost[] = [
       { q: { zh: '要先給獨家嗎？', en: 'Should we offer exclusivity?' }, a: { zh: '不建議。可用里程碑換取區域保護，先以試單驗證能力。', en: 'Avoid upfront exclusivity; use milestones and start with trial orders.' } },
       { q: { zh: '經銷商怎麼篩選？', en: 'How to vet distributors?' }, a: { zh: '看產品線是否互補、客群是否匹配、是否有售後能力與在地倉儲。', en: 'Check product fit, customer base, service capacity, and local warehousing.' } },
     ],
-    internalLinks: { servicePath: '/distributor-development', caseStudyPath: '/case-studies', leadMagnetPath: '/distributor-list' },
+    internalLinks: { servicePath: '/services/distributor-development', caseStudyPath: '/case-studies', leadMagnetPath: '/distributor-list' },
   },
 ]
 
@@ -212,4 +212,3 @@ export function getBlogPosts() {
 export function getBlogPost(slug: string) {
   return blogPosts.find(p => p.slug === slug)
 }
-

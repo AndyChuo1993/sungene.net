@@ -11,7 +11,15 @@ const service: ServiceSeo = {
     zh: '用 SEO + GEO 的內容架構，搭配高品質落地頁與內部連結，讓你的網站變成可持續獲客的 inbound 機器。',
     en: 'Turn your site into an inbound machine with SEO + AI-search (GEO) content architecture, landing pages, and internal links.',
   },
-  h1: { zh: '出口行銷（Export Marketing）服務', en: 'Export Marketing Service' },
+  h1: { zh: '出口行銷服務（SEO + GEO）', en: 'Export Marketing (SEO + GEO) for Manufacturers' },
+  problem: {
+    zh: ['你的服務頁太像銷售頁：缺 framework、lists、guides、data，AI 搜尋難引用。', '關鍵字覆蓋太少：只吃到少數詞，缺乏長尾流量（how to / tools / checklist）。', '內部連結規則不清楚，文章與服務、案例、資源磁鐵之間沒有形成集群。'],
+    en: ['Your pages read like sales pages: missing frameworks, lists, guides, and data for AI search to cite.', 'Keyword coverage is too narrow: you miss long-tail “how-to”, tools, and checklist queries.', 'Internal linking is weak: blog, services, cases, and magnets are not clustered.'],
+  },
+  solution: {
+    zh: ['我們用「頁型架構 + 內容模板 + Schema + 內鏈規則」把網站做成可持續獲客的系統，而不是一次性的文章堆疊。', '內容以 GEO 結構寫法（Definition / Methods / Tools / Step-by-step / Checklist / FAQ）讓 AI 搜尋更容易引用與摘要。'],
+    en: ['We build a sustainable acquisition system via architecture, templates, schema, and standardized internal linking.', 'We write with GEO structures (definition, methods, tools, step-by-step, checklist, FAQ) so AI search can cite and summarize.'],
+  },
   whatIs: {
     zh: ['出口行銷是以海外買家搜尋意圖為核心，透過內容、落地頁、結構化資料與內部連結，把自然流量轉成可追蹤的詢盤。'],
     en: ['Export marketing converts buyer-intent searches into trackable inquiries via content, landing pages, schema, and internal linking.'],
@@ -23,6 +31,42 @@ const service: ServiceSeo = {
   process: {
     zh: ['關鍵字與頁型規劃：服務/市場/產業/文章/資源磁鐵。', '建立可轉化的內容模板：TOC、FAQ、案例與 CTA。', '上線結構化資料：Article/FAQ/Breadcrumb/Organization。', '內部連結規則化：文章→服務→案例→資源磁鐵。', '每週迭代：2 篇文章/週，並回補舊文與內鏈。'],
     en: ['Plan keyword clusters and page types (services, markets, industries, blog, magnets).', 'Ship conversion-first templates: TOC, FAQ, proof, CTA.', 'Implement schema: Article, FAQ, Breadcrumb, Organization.', 'Standardize internal linking: blog → service → case → magnet.', 'Iterate weekly: 2 posts/week plus refreshes and internal links.'],
+  },
+  tools: {
+    zh: ['關鍵字研究：以主題群集（Topic Cluster）拆解成服務/方法/成果/產業/市場。', '內容模板：Definition/Framework/Methods/Tools/Checklist/FAQ。', '技術 SEO：sitemap、canonical、hreflang、Schema（FAQ/Article/Breadcrumb）。'],
+    en: ['Keyword research: topic clusters mapped into service/method/outcome/industry/market pages.', 'Templates: definition, framework, methods, tools, checklist, FAQ.', 'Technical SEO: sitemap, canonical, hreflang, schema (FAQ/Article/Breadcrumb).'],
+  },
+  checklist: {
+    zh: ['完成 1 個核心服務頁（含 FAQ schema + 內鏈）。', '完成 1 篇權威文章（3000 字以上）並加 TOC 與 Checklist。', '每篇文章至少連到：服務 + 案例 + 資源磁鐵。', '每週固定產出與回補舊文，維持節奏。'],
+    en: ['Ship 1 core service page with FAQ schema + internal links.', 'Ship 1 authority guide (3,000+ words) with TOC and checklist.', 'Each post links to: a service, a case study, and a lead magnet.', 'Maintain weekly cadence and refresh older posts.'],
+  },
+  results: {
+    zh: [
+      { label: '長尾曝光', value: '持續累積', desc: '以 how-to / tools / checklist 擴大關鍵字覆蓋。' },
+      { label: '可引用內容', value: 'GEO 結構', desc: 'AI 搜尋更容易抓到 framework 與清單。' },
+      { label: '轉換導流', value: '內鏈系統', desc: '文章→服務→案例→磁鐵，形成可追蹤路徑。' },
+    ],
+    en: [
+      { label: 'Long-tail reach', value: 'Compounds', desc: 'Expand coverage via how-to, tools, and checklist queries.' },
+      { label: 'Citable structure', value: 'GEO', desc: 'Frameworks and lists are easier for AI search to quote.' },
+      { label: 'Conversion paths', value: 'Linking', desc: 'Blog → service → case → magnet pathways become trackable.' },
+    ],
+  },
+  funnel: {
+    zh: [
+      { label: '文章曝光', value: '10000' },
+      { label: '點擊', value: '800' },
+      { label: '閱讀', value: '400' },
+      { label: '表單', value: '40' },
+      { label: '詢價', value: '10' },
+    ],
+    en: [
+      { label: 'Impressions', value: '10000' },
+      { label: 'Clicks', value: '800' },
+      { label: 'Readers', value: '400' },
+      { label: 'Forms', value: '40' },
+      { label: 'Inquiries', value: '10' },
+    ],
   },
   industries: {
     zh: ['機械設備', '電子零組件', '塑膠射出/製品', '化工材料', '醫療器材', '汽車零件', '工業設備'],
@@ -48,6 +92,12 @@ const service: ServiceSeo = {
   ],
   ctaTitle: { zh: '把網站做成 inbound 產生器', en: 'Turn your site into an inbound machine' },
   ctaDesc: { zh: '從頁面結構、文章群集到 schema 與內鏈，我們幫你把增長流程做成可持續的系統。', en: 'From architecture and clusters to schema and internal links, we turn growth into a repeatable system.' },
+  relatedLinks: [
+    { label: { zh: '外貿資源：How to find overseas buyers', en: 'Guide: How to find overseas buyers' }, href: '/resources/blog/how-to-find-overseas-buyers' },
+    { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+    { label: { zh: '成功案例（證據）', en: 'Case Studies (Proof)' }, href: '/case-studies' },
+    { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
+  ],
 }
 
 export async function generateMetadata({ params }: { params: { lang: Lang } }) {
@@ -61,7 +111,10 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
 
 export default function Page({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
-  const withCaseLink = { ...service, caseStudy: { ...service.caseStudy, link: `/${lang}/case-studies` } }
+  const withCaseLink = {
+    ...service,
+    caseStudy: { ...service.caseStudy, link: `/${lang}${service.caseStudy.link}` },
+    relatedLinks: service.relatedLinks?.map((x) => ({ ...x, href: `/${lang}${x.href}` })),
+  }
   return <ServiceSeoPage lang={lang} service={withCaseLink} />
 }
-

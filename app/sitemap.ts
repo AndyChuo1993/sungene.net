@@ -8,7 +8,7 @@ import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungene.com.tw'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const langs = ['zh', 'en'] as const
   
   const routes = [
@@ -25,15 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/distributor-list',
     '/export-market-analysis',
     '/resources',
-    '/export-lead-generation',
-    '/export-outsourcing',
-    '/b2b-lead-generation',
-    '/sales-outsourcing',
+    '/services/export-lead-generation',
+    '/services/distributor-development',
+    '/services/export-sales-outsourcing',
     '/export-marketing',
-    '/distributor-development',
-    '/services/lead-generation',
-    '/services/cold-outreach',
-    '/services/sales-outsourcing',
+    '/buyer-database-building',
+    '/cold-email-outreach',
+    '/linkedin-prospecting',
+    '/market-entry-strategy',
+    '/overseas-buyer-lists',
+    '/qualified-b2b-leads',
+    '/distributor-network',
+    '/b2b-lead-generation',
     '/partners',
     '/pricing',
     '/faq',

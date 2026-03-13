@@ -5,30 +5,30 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
   const services = [
     {
       id: 1,
-      title: t(lang, 'home_service_1_title'),
-      desc: t(lang, 'home_service_1_desc'),
-      items: lang === 'zh' ? ['目標市場分析', '買家名單建立', '聯絡人資料'] : ['Market Analysis', 'Buyer List', 'Contact Info'],
-      link: 'lead-generation',
+      title: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
+      desc: lang === 'zh' ? 'Find Overseas Buyers' : 'Find Overseas Buyers',
+      items: lang === 'zh' ? ['買家名單（Excel）', '開發節奏（Cadence）', '合格詢盤交付'] : ['Buyer Lists (Excel)', 'Cadence', 'Qualified Leads'],
+      link: `/${lang}/services/export-lead-generation`,
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
       )
     },
     {
       id: 2,
-      title: t(lang, 'home_service_2_title'),
-      desc: t(lang, 'home_service_2_desc'),
-      items: lang === 'zh' ? ['開發信撰寫', 'LinkedIn 開發', '自動化流程'] : ['Email Outreach', 'LinkedIn', 'Automation'],
-      link: 'cold-outreach',
+      title: lang === 'zh' ? '經銷商開發' : 'Distributor Development',
+      desc: lang === 'zh' ? 'Build Channel Network' : 'Build Channel Network',
+      items: lang === 'zh' ? ['市場分層', '通路地圖', '合作條件與推進'] : ['Market Tiers', 'Channel Map', 'Terms & Cadence'],
+      link: `/${lang}/services/distributor-development`,
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
       )
     },
     {
       id: 3,
-      title: t(lang, 'home_service_3_title'),
-      desc: t(lang, 'home_service_3_desc'),
-      items: lang === 'zh' ? ['詢盤回覆', '報價跟進', '長期維護'] : ['Inquiry Handling', 'Follow-up', 'Long-term Support'],
-      link: 'sales-outsourcing',
+      title: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing',
+      desc: lang === 'zh' ? 'You Quote & Ship' : 'You Quote & Ship',
+      items: lang === 'zh' ? ['除報價與出貨外', '其餘外貿工作我們做', '建立可複製 SOP'] : ['We do the rest', 'Reply triage', 'Repeatable SOP'],
+      link: `/${lang}/services/export-sales-outsourcing`,
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
       )
@@ -59,7 +59,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
                     </li>
                 ))}
               </ul>
-              <Link href={`/${lang}/services/${s.link}`} className="text-gray-900 font-bold border-b-2 border-transparent group-hover:border-blue-600 transition inline-block pb-0.5">
+              <Link href={s.link} className="text-gray-900 font-bold border-b-2 border-transparent group-hover:border-blue-600 transition inline-block pb-0.5">
                 {lang === 'zh' ? '了解更多' : 'Learn More'} →
               </Link>
             </div>

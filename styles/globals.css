@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root { color-scheme: light; }
 html, body {
   height: 100%;
-  background-color: #0B1C2D;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
 }

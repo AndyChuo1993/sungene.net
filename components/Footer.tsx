@@ -29,6 +29,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <li><Link href={`/${lang}/services`} className="hover:text-white transition">{t(lang, 'nav_services')}</Link></li>
               <li><Link href={`/${lang}/how-it-works`} className="hover:text-white transition">{t(lang, 'nav_process')}</Link></li>
               <li><Link href={`/${lang}/case-studies`} className="hover:text-white transition">{t(lang, 'nav_cases')}</Link></li>
+              <li><Link href={`/${lang}/resources`} className="hover:text-white transition">{lang === 'zh' ? '外貿資源' : 'Export Resources'}</Link></li>
               <li><Link href={`/${lang}/about`} className="hover:text-white transition">{t(lang, 'nav_about')}</Link></li>
             </ul>
           </div>

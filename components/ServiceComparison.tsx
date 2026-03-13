@@ -4,58 +4,34 @@ import { Check, Minus } from 'lucide-react'
 interface ComparisonRow {
   feature: { zh: string; en: string }
   leadGen: { zh: string; en: string } | boolean
-  outreach: { zh: string; en: string } | boolean
+  distributor: { zh: string; en: string } | boolean
   outsourcing: { zh: string; en: string } | boolean
 }
 
 const rows: ComparisonRow[] = [
   {
-    feature: { zh: '適合企業', en: 'Best For' },
-    leadGen: { zh: '已有業務團隊，缺名單', en: 'Has sales team, needs leads' },
-    outreach: { zh: '想主動開發，缺方法', en: 'Wants outreach, lacks method' },
-    outsourcing: { zh: '無外貿團隊，缺人手', en: 'No export team, lacks staff' },
+    feature: { zh: '目標（Goal）', en: 'Goal' },
+    leadGen: { zh: '找到海外買家並產出合格詢盤', en: 'Find overseas buyers and generate qualified inquiries' },
+    distributor: { zh: '找到並簽下通路夥伴，建立覆蓋', en: 'Recruit channel partners and build market coverage' },
+    outsourcing: { zh: '把外貿開發與跟進做成可交付系統', en: 'Run export sales operations as a deliverable system' },
   },
   {
-    feature: { zh: '交付內容', en: 'Deliverables' },
-    leadGen: { zh: 'Excel/CSV 客戶名單', en: 'Excel/CSV Lead List' },
-    outreach: { zh: '有興趣的潛在客戶 (Leads)', en: 'Interested Leads' },
-    outsourcing: { zh: '詢盤、樣品單、訂單', en: 'Inquiries, Samples, Orders' },
+    feature: { zh: '流程（Process）', en: 'Process' },
+    leadGen: { zh: 'ICP → 名單 → 訊息 → 跟進節奏 → 回覆分類', en: 'ICP → list → message → cadence → reply triage' },
+    distributor: { zh: '市場分層 → 通路地圖 → 夥伴名單 → Offer → 推進簽約', en: 'Market tiers → channel map → shortlist → offer → agreement' },
+    outsourcing: { zh: '名單＋開發＋跟進＋初步資格審核＋詢盤交付', en: 'Lists + outreach + follow-ups + qualification + inquiry hand-off' },
   },
   {
-    feature: { zh: '包含聯絡人資訊', en: 'Contact Info' },
-    leadGen: true,
-    outreach: true,
-    outsourcing: true,
+    feature: { zh: '交付（Output）', en: 'Output' },
+    leadGen: { zh: '可用名單（Excel）＋詢盤整理', en: 'Usable lists (Excel) + inquiry summaries' },
+    distributor: { zh: '可追蹤通路名單＋合作條件框架＋會議', en: 'Trackable shortlist + term framework + meetings' },
+    outsourcing: { zh: '合格詢盤持續交付＋可追蹤 pipeline', en: 'Ongoing qualified inquiries + trackable pipeline' },
   },
   {
-    feature: { zh: '代發開發信', en: 'Email Sending' },
-    leadGen: false,
-    outreach: true,
-    outsourcing: true,
-  },
-  {
-    feature: { zh: 'LinkedIn 開發', en: 'LinkedIn Outreach' },
-    leadGen: false,
-    outreach: true,
-    outsourcing: true,
-  },
-  {
-    feature: { zh: '回覆詢盤', en: 'Inquiry Response' },
-    leadGen: false,
-    outreach: false,
-    outsourcing: true,
-  },
-  {
-    feature: { zh: '報價與談判', en: 'Quotation & Neg.' },
-    leadGen: false,
-    outreach: false,
-    outsourcing: true,
-  },
-  {
-    feature: { zh: '週期', en: 'Cycle' },
-    leadGen: { zh: '一次性交付 (3-5天)', en: 'One-time (3-5 days)' },
-    outreach: { zh: '專案制 (1-3個月)', en: 'Project (1-3 months)' },
-    outsourcing: { zh: '長期訂閱 (6個月+)', en: 'Retainer (6 months+)' },
+    feature: { zh: '時間線（Timeframe）', en: 'Timeframe' },
+    leadGen: { zh: '2–8 週（視市場/產業）', en: '2–8 weeks (market/industry dependent)' },
+    distributor: { zh: '4–12 週（找人＋談條件）', en: '4–12 weeks (shortlist + terms + meetings)' },
+    outsourcing: { zh: '持續交付（常見 3–6 個月起）', en: 'Ongoing delivery (often 3–6 months+)' },
   },
 ]
 
@@ -80,13 +56,13 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
               {lang === 'zh' ? '比較項目' : 'Feature'}
             </th>
             <th className="p-4 font-bold text-blue-900 bg-blue-50 w-1/4 text-center border-t-4 border-t-blue-600">
-              {lang === 'zh' ? '名單開發' : 'Lead Gen'}
+              {lang === 'zh' ? '外貿客戶開發' : 'Export Lead Gen'}
             </th>
             <th className="p-4 font-bold text-green-900 bg-green-50 w-1/4 text-center border-t-4 border-t-green-600">
-              {lang === 'zh' ? '主動開發' : 'Cold Outreach'}
+              {lang === 'zh' ? '經銷商開發' : 'Distributor Dev'}
             </th>
             <th className="p-4 font-bold text-indigo-900 bg-indigo-50 w-1/4 text-center border-t-4 border-t-indigo-600">
-              {lang === 'zh' ? '外貿外包' : 'Outsourcing'}
+              {lang === 'zh' ? '外貿業務外包' : 'Sales Outsourcing'}
             </th>
           </tr>
         </thead>
@@ -100,7 +76,7 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
                 {renderCell(row.leadGen)}
               </td>
               <td className="p-4 text-center text-gray-600 bg-green-50/30">
-                {renderCell(row.outreach)}
+                {renderCell(row.distributor)}
               </td>
               <td className="p-4 text-center text-gray-600 bg-indigo-50/30">
                 {renderCell(row.outsourcing)}

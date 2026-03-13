@@ -18,9 +18,9 @@ const dict = {
     cta_consult: '預約諮詢',
 
     // Hero
-    hero_title: '幫企業開發海外買家，建立穩定的外貿客戶來源',
-    hero_subtitle: '透過市場分析、買家名單與系統化開發流程，協助企業拓展全球市場。',
-    hero_description: '從買家名單建立、開發信撰寫，到詢盤跟進與外貿支援，SunGene 提供可落地的外貿客戶開發服務。',
+    hero_title: '為你的產品找到海外買家',
+    hero_subtitle: '用可複製的方法，把外貿開發做成穩定的系統。',
+    hero_description: 'SunGene 協助製造商建立海外買家名單、持續獲取合格詢盤，並打造海外經銷通路網絡。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
     home_cta_title: '立即開始您的外貿增長',
@@ -128,9 +128,9 @@ const dict = {
     cta_consult: 'Book Consultation',
 
     // Hero
-    hero_title: 'Develop Overseas Buyers & Build Stable Export Revenue',
-    hero_subtitle: 'Expanding global markets through market analysis, buyer lists, and systematic outreach processes.',
-    hero_description: 'From buyer list building and cold outreach to inquiry follow-up and sales support, SunGene provides actionable export development services.',
+    hero_title: 'Find Overseas Buyers for Your Products',
+    hero_subtitle: 'A repeatable system to generate qualified export leads and build distributor networks.',
+    hero_description: 'SunGene helps manufacturers build overseas buyer lists, run outbound cadences, and deliver qualified inquiries—so your team can focus on quoting and shipping.',
     hero_cta_start: 'Start Export Growth',
     hero_cta_analysis: 'Get Free Market Analysis',
     home_cta_title: 'Start Your Export Growth Now',
