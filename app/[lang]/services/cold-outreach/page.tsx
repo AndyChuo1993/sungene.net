@@ -25,15 +25,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
           <div className="inline-block bg-green-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'zh' ? '海外客戶開發' : 'Cold Outreach Service'}
+             {lang === 'zh' ? '交付海外客戶詢盤' : 'Deliver Overseas Inquiries'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {lang === 'zh' ? '主動出擊，建立商務連結' : 'Proactive Outreach, Building Connections'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             {lang === 'zh' 
-              ? '透過系統化的 Cold Email 與 LinkedIn 開發流程，讓潛在客戶看見您的產品價值。' 
-              : 'Systematic Cold Email and LinkedIn outreach processes to showcase your product value to prospects.'}
+              ? '我們持續進行海外客戶開發，並將客戶詢盤交付給企業跟進。' 
+              : 'We continuously conduct overseas outreach and deliver qualified inquiries for you to follow up.'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/free-market-analysis`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">

@@ -88,6 +88,11 @@ export default function Page({ params }: { params: { lang: Lang } }) {
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{t(lang, 'service_title')}</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t(lang, 'hero_subtitle')}</p>
+          <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
+            {lang === 'zh' 
+              ? '從客戶名單到詢盤獲取，再到完整外貿外包，我們提供不同階段的海外客戶開發方案。' 
+              : 'From lead lists to inquiry generation and full export outsourcing, we offer solutions for every stage of overseas development.'}
+          </p>
         </div>
       </section>
 
@@ -125,7 +130,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                                 label: lang === 'zh' ? '適合對象' : 'Best For',
                                 c1: lang === 'zh' ? '有業務團隊，缺名單' : 'Has Sales Team, Needs Leads',
                                 c2: lang === 'zh' ? '想主動開發，缺方法' : 'Wants Outreach, Needs Strategy',
-                                c3: lang === 'zh' ? '無外貿團隊，缺人手' : 'No Team, Needs Manpower'
+                                c3: lang === 'zh' ? '沒有外貿團隊、缺人手，或希望解放現有業務團隊的企業' : 'No export team, understaffed, or want to free up current sales team'
                             },
                             {
                                 label: lang === 'zh' ? '核心價值' : 'Core Value',
@@ -135,15 +140,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                             },
                             {
                                 label: lang === 'zh' ? '交付內容' : 'Deliverables',
-                                c1: lang === 'zh' ? '決策人名單 (Excel)' : 'Decision Maker List',
-                                c2: lang === 'zh' ? '開發信與回覆' : 'Emails & Replies',
-                                c3: lang === 'zh' ? '詢盤處理與訂單跟進' : 'Inquiry Handling & Closing'
+                                c1: lang === 'zh' ? '寄信名單與開信名單（Excel 交付）' : 'Sending List & Open List (Excel)',
+                                c2: lang === 'zh' ? '海外客戶詢價' : 'Overseas Inquiries',
+                                c3: lang === 'zh' ? '除報價與出貨外的所有外貿業務行為（客戶開發、郵件往來、詢盤處理、客戶跟進）' : 'All export sales activities except quotation and shipping'
                             },
                             {
                                 label: lang === 'zh' ? '執行週期' : 'Duration',
-                                c1: lang === 'zh' ? '單次交付 (1-2週)' : 'One-time (1-2 Weeks)',
-                                c2: lang === 'zh' ? '專案制 (3-6個月)' : 'Project (3-6 Months)',
-                                c3: lang === 'zh' ? '長期合作 (6個月+)' : 'Long-term (6 Months+)'
+                                c1: lang === 'zh' ? '一年' : '1 Year',
+                                c2: lang === 'zh' ? '一年' : '1 Year',
+                                c3: lang === 'zh' ? '一年以上' : '1 Year+'
                             }
                         ].map((row, idx) => (
                             <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50 transition">

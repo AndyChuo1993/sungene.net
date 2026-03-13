@@ -25,15 +25,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
           <div className="inline-block bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'zh' ? '客戶名單開發' : 'Lead Generation Service'}
+             {lang === 'zh' ? '海外客戶名單開發服務' : 'Lead Generation Service'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {lang === 'zh' ? '不再為「找不到客戶」煩惱' : 'Stop Worrying About "Finding Clients"'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             {lang === 'zh' 
-              ? '我們為您建立高精準度的海外買家名單，包含關鍵決策者的直接聯絡方式。' 
-              : 'We build high-precision overseas buyer lists for you, including direct contact details of key decision-makers.'}
+              ? '我們交付可直接使用的海外客戶名單，包含寄信名單與開信名單（Excel）。' 
+              : 'We deliver ready-to-use overseas buyer lists, including sending lists and verified open lists (Excel).'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/free-market-analysis`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">

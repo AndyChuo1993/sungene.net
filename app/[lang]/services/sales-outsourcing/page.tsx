@@ -32,8 +32,8 @@ export default function Page({ params }: { params: { lang: Lang } }) {
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             {lang === 'zh' 
-              ? '從客戶開發到詢盤跟進，我們是您的外部專屬外貿業務部門。' 
-              : 'From lead gen to inquiry follow-up, we are your dedicated external export sales department.'}
+              ? '企業只需負責報價、出貨，其餘外貿工作由我們完成。' 
+              : 'You handle quotation and shipping; we take care of all other export sales activities.'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/contact`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
