@@ -3,6 +3,9 @@ import { markets } from '@/data/markets'
 import { industries } from '@/data/industries'
 import { getArticles } from '@/data/articles'
 import { getCases } from '@/data/cases'
+import { seoMarkets } from '@/data/seoMarkets'
+import { seoIndustries } from '@/data/seoIndustries'
+import { getBlogPosts } from '@/data/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungene.com.tw'
@@ -11,15 +14,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/services',
+    '/industries',
+    '/markets',
+    '/blog',
     '/how-it-works',
     '/case-studies',
     '/about',
     '/contact',
     '/free-market-analysis',
+    '/buyers-list',
+    '/distributor-list',
+    '/export-market-analysis',
     '/resources',
     '/export-lead-generation',
     '/export-outsourcing',
     '/b2b-lead-generation',
+    '/sales-outsourcing',
+    '/export-marketing',
+    '/distributor-development',
     '/services/lead-generation',
     '/services/cold-outreach',
     '/services/sales-outsourcing',
@@ -55,11 +67,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
+  seoMarkets.forEach(m => {
+    langs.forEach(lang => {
+      sitemap.push({
+        url: `${baseUrl}/${lang}/markets/${m.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      })
+    })
+  })
+
   // 3. Industry Pages
   industries.forEach(i => {
     langs.forEach(lang => {
       sitemap.push({
         url: `${baseUrl}/${lang}/industry/${i.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      })
+    })
+  })
+
+  seoIndustries.forEach(i => {
+    langs.forEach(lang => {
+      sitemap.push({
+        url: `${baseUrl}/${lang}/industries/${i.slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.8,
@@ -74,6 +108,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       sitemap.push({
         url: `${baseUrl}/${lang}/resources/${a.id}`,
         lastModified: new Date(a.date),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      })
+    })
+  })
+
+  // 4.5 Blog
+  const posts = getBlogPosts()
+  langs.forEach(lang => {
+    posts.forEach(p => {
+      sitemap.push({
+        url: `${baseUrl}/${lang}/blog/${p.slug}`,
+        lastModified: new Date(p.date),
         changeFrequency: 'monthly',
         priority: 0.7,
       })

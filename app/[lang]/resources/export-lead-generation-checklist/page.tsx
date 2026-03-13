@@ -89,7 +89,7 @@ export default async function LeadMagnetPage({
 
             <div className="relative">
               <div className="absolute -inset-4 bg-blue-600/20 blur-xl rounded-full opacity-50"></div>
-              <DownloadForm dict={dict} resourceId="export-lead-gen-checklist-2025" />
+              <DownloadForm dict={dict} lang={lang} resourceId="export-lead-gen-checklist-2025" />
             </div>
           </div>
         </div>
