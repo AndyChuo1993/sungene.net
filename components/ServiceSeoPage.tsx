@@ -5,6 +5,8 @@ import JsonLd from '@/components/JsonLd'
 
 export type ServiceSeo = {
   slug: string
+  annualPlanTitle?: Record<Lang, string>
+  annualPlan?: Record<Lang, { phase: string; focus: string; deliverables: string[] }[]>
   path?: string
   title: Record<Lang, string>
   description: Record<Lang, string>
@@ -290,6 +292,27 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
                   </div>
                 ))}
               </div>
+            </div>
+          </Section>
+        )}
+
+        {service.annualPlan?.[lang] && service.annualPlan[lang].length > 0 && (
+          <Section title={service.annualPlanTitle?.[lang] ?? (lang === 'zh' ? '一年期合作節奏' : 'One-year engagement plan')}>
+            <div className="grid gap-4 lg:grid-cols-4">
+              {service.annualPlan[lang].map((step, i) => (
+                <div key={i} className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-blue-900">{step.phase}</div>
+                  <div className="mt-2 text-lg font-bold text-gray-900">{step.focus}</div>
+                  <ul className="mt-4 space-y-2 text-sm leading-6 text-gray-700">
+                    {step.deliverables.map((d, j) => (
+                      <li key={j} className="flex gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </Section>
         )}

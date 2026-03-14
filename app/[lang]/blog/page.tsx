@@ -30,8 +30,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">{lang === 'zh' ? '部落格' : 'Blog'}</h1>
           <p className="mt-4 text-lg text-gray-600">
             {lang === 'zh'
-              ? '這裡保留給教學、觀點與方法文章。若你要看產業定位頁，去產業；要看地區切入，去市場；要拿可直接用的內容，再去資源中心。'
-              : 'This section is for guides, commentary, and method articles. For industry positioning, go to Industries; for regional entry pages, go to Markets; for reusable assets, go to Resources.'}
+              ? '部落格放的是教學、觀點與做法拆解；資源中心放可直接套用的指南與檢查表；產業頁與市場頁則用來承接特定搜尋需求。'
+              : 'The blog is for guides, commentary, and method breakdowns. Resources contains reusable guides and checklists, while industry and market pages target specific search intent.'}
           </p>
         </header>
 

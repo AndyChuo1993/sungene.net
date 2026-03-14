@@ -876,8 +876,26 @@ export const coreServices = {
       en: 'Deliverables: trackable pipeline, verified lists, reply triage, and qualified inquiry handoffs.',
     },
     heroTrustSignal: {
-      zh: '適用於不擴編也要穩定產出詢盤的外貿增長需求。',
-      en: 'Built for teams that need consistent inquiries without hiring first.',
+      zh: '適用於以一年為週期，把開發、跟進與交付做成穩定外包流程。',
+      en: 'Designed for a one-year engagement that standardizes outreach, follow-up, and inquiry delivery.',
+    },
+    annualPlanTitle: {
+      zh: '一年期外包合作節奏',
+      en: 'One-year outsourcing plan',
+    },
+    annualPlan: {
+      zh: [
+        { phase: '第 1 季', focus: '交接與流程上線', deliverables: ['完成產品/市場交接', '建立名單與節奏', '開始第一輪詢盤交付'] },
+        { phase: '第 2 季', focus: '穩定詢盤輸出', deliverables: ['固定回覆分類', '優化需求摘要格式', '提高會議與樣品推進效率'] },
+        { phase: '第 3 季', focus: '擴大有效開發組合', deliverables: ['加大高回應市場與角色', '補強案例與證據素材', '降低無效跟進比例'] },
+        { phase: '第 4 季', focus: '沉澱資產與續約規劃', deliverables: ['整理全年管線與詢盤類型', '回顧交付效率', '規劃下一年度 SOP 與市場重點'] },
+      ],
+      en: [
+        { phase: 'Quarter 1', focus: 'Handoff and workflow launch', deliverables: ['Complete product and market handoff', 'Build lists and cadence', 'Start the first inquiry handoffs'] },
+        { phase: 'Quarter 2', focus: 'Steady inquiry output', deliverables: ['Stabilize reply triage', 'Improve summary format', 'Increase meeting and sample progression'] },
+        { phase: 'Quarter 3', focus: 'Scale the best outreach mix', deliverables: ['Expand high-response markets and roles', 'Strengthen proof assets and cases', 'Reduce wasted follow-up effort'] },
+        { phase: 'Quarter 4', focus: 'Consolidate assets and renewal plan', deliverables: ['Organize pipeline and inquiry categories', 'Review delivery efficiency', 'Plan next-year SOP and market priorities'] },
+      ],
     },
     h1: { zh: '外貿業務外包服務', en: 'Export Sales Outsourcing for Manufacturers' },
     whoFor: {
