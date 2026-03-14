@@ -140,7 +140,7 @@ export default async function RootLayout({ children, params }: { children: React
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       <Header lang={lang} />
-      {children}
+      <div id="page-content">{children}</div>
       <Footer lang={lang} />
     </>
   )

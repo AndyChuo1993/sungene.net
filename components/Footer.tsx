@@ -2,10 +2,16 @@ import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
 
 export default function Footer({ lang }: { lang: Lang }) {
+  const serviceLinks = [
+    { href: `/${lang}/services/export-lead-generation`, label: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation' },
+    { href: `/${lang}/services/distributor-development`, label: lang === 'zh' ? '經銷商開發' : 'Distributor Development' },
+    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing' },
+  ]
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="mb-12 grid gap-12 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">
               {/* If you have an image logo, uncomment below and remove text SunGene */}
@@ -24,20 +30,25 @@ export default function Footer({ lang }: { lang: Lang }) {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-6">{lang === 'zh' ? '快速連結' : 'Quick Links'}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{lang === 'zh' ? '快速連結' : 'Quick Links'}</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><Link href={`/${lang}/services`} className="hover:text-white transition">{t(lang, 'nav_services')}</Link></li>
-              <li><Link href={`/${lang}/how-it-works`} className="hover:text-white transition">{t(lang, 'nav_process')}</Link></li>
-              <li><Link href={`/${lang}/case-studies`} className="hover:text-white transition">{t(lang, 'nav_cases')}</Link></li>
-              <li><Link href={`/${lang}/resources`} className="hover:text-white transition">{lang === 'zh' ? '外貿資源' : 'Export Resources'}</Link></li>
-              <li><Link href={`/${lang}/about`} className="hover:text-white transition">{t(lang, 'nav_about')}</Link></li>
+              <li><Link href={`/${lang}/services`} className="transition hover:text-white">{t(lang, 'nav_services')}</Link></li>
+              <li><Link href={`/${lang}/how-it-works`} className="transition hover:text-white">{t(lang, 'nav_process')}</Link></li>
+              <li><Link href={`/${lang}/case-studies`} className="transition hover:text-white">{t(lang, 'nav_cases')}</Link></li>
+              <li><Link href={`/${lang}/resources`} className="transition hover:text-white">{lang === 'zh' ? '外貿資源' : 'Export Resources'}</Link></li>
+              <li><Link href={`/${lang}/about`} className="transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-6">{t(lang, 'contact_title')}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{lang === 'zh' ? '核心服務' : 'Core Services'}</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><Link href={`/${lang}/contact`} className="hover:text-white transition">{t(lang, 'nav_contact')}</Link></li>
-              <li><Link href={`/${lang}/export-market-analysis`} className="hover:text-white transition">{t(lang, 'nav_free_analysis')}</Link></li>
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="transition hover:text-white">{link.label}</Link>
+                </li>
+              ))}
+              <li><Link href={`/${lang}/contact`} className="transition hover:text-white">{t(lang, 'nav_contact')}</Link></li>
+              <li><Link href={`/${lang}/export-market-analysis`} className="transition hover:text-white">{t(lang, 'nav_free_analysis')}</Link></li>
             </ul>
           </div>
         </div>

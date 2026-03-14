@@ -30,7 +30,11 @@ export default function Header({ lang }: { lang: Lang }) {
   ]
 
   return (
-    <header className="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur">
+    <>
+      <a href="#page-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-blue-900 focus:px-4 focus:py-2 focus:text-white">
+        {lang === 'zh' ? '跳到主要內容' : 'Skip to content'}
+      </a>
+      <header className="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href={`/${lang}`} className="flex items-center gap-3 text-2xl font-bold text-black">
           <Image src="/logo/sungene.png" alt="SunGene Logo" width={32} height={32} className="h-8 w-auto" priority />
@@ -104,5 +108,6 @@ export default function Header({ lang }: { lang: Lang }) {
         </details>
       </div>
     </header>
+    </>
   )
 }

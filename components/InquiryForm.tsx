@@ -9,6 +9,9 @@ export type FormField = {
   type: 'text' | 'email' | 'textarea' | 'tel'
   required?: boolean
   rows?: number
+  defaultValue?: string
+  placeholder?: string
+  autoComplete?: string
 }
 
 interface InquiryFormProps {
@@ -155,7 +158,9 @@ export default function InquiryForm({
               name={field.name}
               rows={field.rows || 4}
               required={field.required}
-              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 bg-white"
+              defaultValue={field.defaultValue}
+              placeholder={field.placeholder}
+              className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
           ) : (
             <input
@@ -163,7 +168,10 @@ export default function InquiryForm({
               id={field.name}
               name={field.name}
               required={field.required}
-              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 bg-white"
+              defaultValue={field.defaultValue}
+              placeholder={field.placeholder}
+              autoComplete={field.autoComplete}
+              className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
           )}
         </div>
