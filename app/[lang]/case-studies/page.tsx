@@ -22,6 +22,9 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{t(lang, 'case_title')}</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t(lang, 'hero_subtitle')}</p>
+          <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
+            {lang === 'zh' ? '以下內容為代表性專案情境與常見合作成果，已去識別化與重組，不對應單一客戶名稱或個別合作廠商。' : 'The following content represents anonymized project scenarios and common outcomes. It does not identify any single client or manufacturer by name.'}
+          </div>
         </div>
       </section>
 

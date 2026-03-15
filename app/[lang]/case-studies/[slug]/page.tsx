@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
               <span className="mr-2 text-blue-400">●</span> {lang === 'zh' ? '服務類型' : 'Service'}: {item.serviceType}
             </div>
             <div className="flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-4 py-2">
-              <span className="mr-2 text-green-400">●</span> {lang === 'zh' ? '執行週期' : 'Duration'}: {item.duration}
+              <span className="mr-2 text-green-400">●</span> {lang === 'zh' ? '合作週期' : 'Engagement'}: {item.duration}
             </div>
           </div>
 

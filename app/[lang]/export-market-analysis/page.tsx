@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: { lang: Lang } }) {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">{isZh ? '免費出口市場分析' : 'Free Export Market Analysis'}</h1>
             <p className="mt-4 text-gray-600 leading-7">
               {isZh
-                ? '告訴我們你的產品與目標市場，我們會回覆市場切入、買家角色、與 lead generation 的可行策略。'
+                ? '告訴我們你的產品與目標市場，我們會回覆市場切入方向、買家角色與可行的開發策略。'
                 : 'Tell us your product and target markets. We’ll reply with entry approach, buyer roles, and lead gen strategy.'}
             </p>
             <div className="mt-8 grid gap-4">

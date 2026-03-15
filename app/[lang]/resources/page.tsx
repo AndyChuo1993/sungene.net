@@ -160,8 +160,8 @@ export default async function Page({
                   <div className="text-sm font-bold uppercase tracking-wide text-blue-700">{lang === 'zh' ? '本區定位' : 'What belongs here'}</div>
                   <p className="mt-3 leading-7">
                     {lang === 'zh'
-                      ? '資源中心整理的是可直接參考與應用的內容，例如開發流程指南、買家名單建立方法、開發信範例與市場研究素材。'
-                      : 'The resource center is for reusable assets: process guides, buyer-list methods, cold email examples, and market research materials. If you want commentary or educational posts, go to the blog.'}
+                      ? '資源中心整理的是可直接參考與應用的內容；若目前下載素材較少，會先整合精選文章，方便你先找到可讀、可用的內容。'
+                      : 'The resource center is for reusable assets. When downloadable materials are limited, featured articles are shown here first so visitors still have practical content to explore.'}
                   </p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">

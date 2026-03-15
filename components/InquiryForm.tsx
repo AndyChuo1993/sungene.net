@@ -117,8 +117,11 @@ export default function InquiryForm({
         json = null
       }
 
-      if (!res.ok || json?.ok === false) {
+      if (json?.ok === false) {
         throw new Error(json?.error || 'Submission failed')
+      }
+      if (!res.ok && !json) {
+        throw new Error('Submission failed')
       }
 
       setStatus('success')

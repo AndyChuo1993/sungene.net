@@ -69,7 +69,7 @@ export const seoMarkets: SeoMarket[] = [
     introduction: { zh: ['中東市場常見以代理、專案與通路合作為主。有效開發要把適用場景、合作模式與交付能力說清楚。'], en: ['The Middle East often runs on agents, projects, and channels. Outreach should clarify use cases, partnership model, and delivery capability.'] },
     challenges: { zh: ['通路型態多元（代理/專案/貿易）', '決策受關係與信任影響大', '付款條件與交易風險控管'], en: ['Diverse channels (agents/projects/trading)', 'Trust and relationships matter', 'Payment terms and transaction risk management'] },
     opportunities: { zh: ['基礎建設與工業升級需求', '高溫/高強度場景帶動特規產品', '代理商可加速市場滲透'], en: ['Infrastructure and industrial upgrades', 'Demand for specialized products in harsh environments', 'Agents accelerate market penetration'] },
-    strategy: { zh: ['以國家與產業聚落建名單，聚焦 UAE、沙烏地等關鍵市場。', '訊息框架聚焦：適用場景→供應能力→合作模式。', '增加第二觸點：WhatsApp/LinkedIn，加速回覆。'], en: ['Build lists by country/cluster and focus on key markets.', 'Message framework: use case → capability → partnership model.', 'Add secondary touchpoints like WhatsApp/LinkedIn to speed replies.'] },
+    strategy: { zh: ['以國家與產業聚落建名單，聚焦阿聯、沙烏地等關鍵市場。', '訊息框架聚焦：適用場景、供應能力與合作模式。', '增加第二觸點：WhatsApp、商務社群或電話，加速回覆。'], en: ['Build lists by country/cluster and focus on key markets.', 'Message framework: use case → capability → partnership model.', 'Add secondary touchpoints like WhatsApp/LinkedIn to speed replies.'] },
     ctaTitle: { zh: '想開發中東代理與買家？', en: 'Need Middle East agents and buyers?' },
     ctaDesc: { zh: '提交產品與目標國家，我們回覆可行的開發策略。', en: 'Share your product and target countries. We’ll reply with a strategy.' },
     faq: [

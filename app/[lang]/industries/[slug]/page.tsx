@@ -2,6 +2,7 @@ import { Lang } from '@/lib/i18n'
 import SeoLandingPage from '@/components/SeoLandingPage'
 import { getSeoIndustry, seoIndustries } from '@/data/seoIndustries'
 import JsonLd from '@/components/JsonLd'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   return seoIndustries.map(i => ({ slug: i.slug }))

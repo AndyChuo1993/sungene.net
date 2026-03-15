@@ -47,12 +47,26 @@ export default function HeroSection({ lang }: { lang: Lang }) {
               <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '買家名單、開發節奏、詢問交付' : 'Lists, cadence, and inquiry delivery'}</span>
             </div>
 
-            <div className="mt-16 flex flex-col items-center justify-center gap-8 border-t border-gray-100 pt-8 text-sm font-medium uppercase tracking-wider text-gray-400 md:flex-row md:gap-16 lg:justify-start lg:text-left">
-              <span>{lang === 'zh' ? '已服務超過 50 家工廠' : 'Serving 50+ Factories'}</span>
-              <span className="hidden md:inline-block">•</span>
-              <span>{lang === 'zh' ? '專注企業外銷開發' : 'Focus on B2B Export'}</span>
-              <span className="hidden md:inline-block">•</span>
-              <span>{lang === 'zh' ? '全球市場落地' : 'Global Market Reach'}</span>
+            <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
+              {[
+                {
+                  title: lang === 'zh' ? '已服務超過 50 家工廠' : 'Serving 50+ factories',
+                  desc: lang === 'zh' ? '聚焦製造業與外銷團隊的實際開發需求。' : 'Built around the real needs of manufacturers and export teams.',
+                },
+                {
+                  title: lang === 'zh' ? '專注企業外銷開發' : 'Focused on export growth',
+                  desc: lang === 'zh' ? '從買家名單、開發節奏到詢問交付，流程可追蹤。' : 'Trackable workflow from target lists to outreach and handoff.',
+                },
+                {
+                  title: lang === 'zh' ? '全球市場落地' : 'Global market execution',
+                  desc: lang === 'zh' ? '協助企業切入美國、歐洲、日本與東南亞等市場。' : 'Support for the US, Europe, Japan, and Southeast Asia.',
+                },
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl border border-gray-100 bg-white/80 p-5 shadow-sm backdrop-blur">
+                  <div className="text-base font-bold tracking-normal text-gray-900">{item.title}</div>
+                  <div className="mt-2 text-sm font-normal normal-case tracking-normal text-gray-500">{item.desc}</div>
+                </div>
+              ))}
             </div>
           </div>
 

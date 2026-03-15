@@ -17,6 +17,7 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     product: '',
     targetMarket: '',
@@ -137,6 +138,21 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
             placeholder="name@company.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            {lang === 'zh' ? '聯絡電話' : 'Phone Number'} <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            required
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            placeholder={lang === 'zh' ? '例如：0912-345-678' : 'e.g. +886 912 345 678'}
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           />
         </div>
 
