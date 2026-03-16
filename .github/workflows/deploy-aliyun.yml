@@ -57,6 +57,8 @@ jobs:
           ssh -p "${{ secrets.ALI_PORT }}" -i ~/.ssh/aliyun_key "${{ secrets.ALI_USER }}@${{ secrets.ALI_HOST }}" "
             set -ex
             cd '${{ secrets.ALI_DEPLOY_PATH }}'
+            rm -rf .next
+            rm -rf public
             tar -xzf deploy.tar.gz -C .
             rm -f deploy.tar.gz
             mkdir -p .next/standalone/.next
