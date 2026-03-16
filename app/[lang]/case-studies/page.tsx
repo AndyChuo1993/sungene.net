@@ -13,8 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const dataLang = lang === 'cn' ? 'zh' : lang
-  const cases = getCases(dataLang)
+  const cases = getCases(lang)
 
   return (
     <main className="min-h-screen bg-white">

@@ -11,8 +11,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const dataLang = lang === 'cn' ? 'zh' : lang
-  const item = getCase(dataLang, slug)
+  const item = getCase(lang, slug)
   if (!item) return { title: 'Not Found' }
   return {
     title: `${item.title} | SunGene`,
@@ -22,8 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const dataLang = lang === 'cn' ? 'zh' : lang
-  const item = getCase(dataLang, slug)
+  const item = getCase(lang, slug)
 
   if (!item) {
     notFound()
