@@ -13,6 +13,7 @@ export type SeoMarket = {
   ctaTitle: Record<Lang, string>
   ctaDesc: Record<Lang, string>
   faq: SeoFaq[]
+  heroImage: Record<Lang, string>
 }
 
 export const seoMarkets: SeoMarket[] = [
@@ -27,6 +28,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['名單以通路層級（Importer/Distributor/Brand）分層，訊息與 Offer 不同。', '在開發信中先給「能讓買家快速判斷」的資訊：核心產品、差異點、交期/最小訂購、案例。', '跟進節奏 4–6 次，並搭配 LinkedIn 或電話作為第二觸點。'], en: ['Segment by channel role and tailor offers.', 'Provide fast-evaluation info: hero product, differentiation, lead time/MOQ, proof.', 'Run 4–6 follow-ups and use LinkedIn/calls as a secondary touchpoint.'] },
     ctaTitle: { zh: '想開發美國買家？', en: 'Want US buyers for your products?' },
     ctaDesc: { zh: '提交產品與目標州/產業，我們回覆可行的買家輪廓與開發策略。', en: 'Share your product and target states/industries. We’ll reply with a buyer profile and strategy.' },
+    heroImage: { zh: '/illustrations/market-united-states.svg', en: '/illustrations/market-united-states.svg' },
     faq: [
       { q: { zh: '美國買家最在意什麼？', en: 'What do US buyers care about most?' }, a: { zh: '除了價格，更在意供應穩定、交期、溝通效率與風險（保固、責任）。', en: 'Beyond price: stable supply, lead time, communication speed, and risk management.' } },
     ],
@@ -42,6 +44,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['針對產業聚落與應用場景建名單（機械、工控、汽車等）。', '內容呈現以合規、品質與導入流程為主軸。', '結合展會節奏（展前邀約/展後跟進），提升回覆與轉化。'], en: ['Build lists by clusters and use cases.', 'Emphasize compliance, quality, and onboarding process.', 'Align outreach with trade fair timelines to improve reply and conversion.'] },
     ctaTitle: { zh: '想切入德國工業客戶？', en: 'Want German industrial buyers?' },
     ctaDesc: { zh: '我們可協助你建立合規導向的內容與開發節奏。', en: 'We help build compliance-led content and outreach cadence.' },
+    heroImage: { zh: '/illustrations/market-germany.svg', en: '/illustrations/market-germany.svg' },
     faq: [
       { q: { zh: '需要德文內容嗎？', en: 'Do we need German content?' }, a: { zh: '視產業而定。多數 B2B 採購可用英文，但若能提供關鍵頁面德文版會提高信任與回覆率。', en: 'It depends. English works for many B2B buyers, but key pages in German improve trust and replies.' } },
     ],
@@ -57,6 +60,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['以產業別先找商社/經銷，再切入終端工廠。', '內容強調品質流程、驗證與交期穩定。', '跟進節奏更重視禮貌與長期性。'], en: ['Start with traders/distributors then expand to end factories.', 'Emphasize QC systems, certifications, and lead-time stability.', 'Use polite, long-term follow-up cadence.'] },
     ctaTitle: { zh: '想找到日本合作夥伴？', en: 'Need partners in Japan?' },
     ctaDesc: { zh: '提交產品與目標產業，我們回覆可行的切入路徑。', en: 'Share your product and target industries. We’ll reply with a feasible entry path.' },
+    heroImage: { zh: '/illustrations/market-japan.svg', en: '/illustrations/market-japan.svg' },
     faq: [
       { q: { zh: '日本一定要日文嗎？', en: 'Is Japanese mandatory?' }, a: { zh: '不是一定，但有日文關鍵頁與更符合商務禮儀的信件格式，效果會更好。', en: 'Not always, but Japanese key pages and proper formatting improve effectiveness.' } },
     ],
@@ -72,6 +76,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['以國家與產業聚落建名單，聚焦阿聯、沙烏地等關鍵市場。', '訊息框架聚焦：適用場景、供應能力與合作模式。', '增加第二觸點：WhatsApp、商務社群或電話，加速回覆。'], en: ['Build lists by country/cluster and focus on key markets.', 'Message framework: use case → capability → partnership model.', 'Add secondary touchpoints like WhatsApp/LinkedIn to speed replies.'] },
     ctaTitle: { zh: '想開發中東代理與買家？', en: 'Need Middle East agents and buyers?' },
     ctaDesc: { zh: '提交產品與目標國家，我們回覆可行的開發策略。', en: 'Share your product and target countries. We’ll reply with a strategy.' },
+    heroImage: { zh: '/illustrations/market-middle-east.svg', en: '/illustrations/market-middle-east.svg' },
     faq: [
       { q: { zh: '中東適合哪種合作方式？', en: 'What collaboration model works best?' }, a: { zh: '多數品類別以代理/經銷切入較快，若是工業設備則可搭配 EPC 與專案通路。', en: 'Agents/distributors work well for many categories; industrial equipment can also use EPC/project channels.' } },
     ],
@@ -87,6 +92,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['鎖定產業聚落與關鍵買家角色（採購/老闆）。', '使用 Email + 即時通訊輔助，提高回覆。', '先以小單建立信任，再逐步擴大合作。'], en: ['Target clusters and key roles.', 'Use Email plus IM channels to improve replies.', 'Start small to build trust then scale.'] },
     ctaTitle: { zh: '想抓住東南亞機會？', en: 'Want to capture SEA opportunities?' },
     ctaDesc: { zh: '提交產品與目標國家，我們回覆可行的切入方案。', en: 'Share your product and countries. We’ll reply with an entry plan.' },
+    heroImage: { zh: '/illustrations/market-southeast-asia.svg', en: '/illustrations/market-southeast-asia.svg' },
     faq: [
       { q: { zh: '東南亞需要當地語言嗎？', en: 'Do we need local languages in SEA?' }, a: { zh: '多數可用英文，但提供關鍵資料的在地語言版本能提高信任與效率。', en: 'English often works, but localized key assets improve trust and speed.' } },
     ],
@@ -102,11 +108,13 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['針對國家/產業聚落建名單，並用合規與案例建立信任。', '跟進節奏更強調專業與持續性。', '把資源下載與案例放進內部連結，提升轉化。'], en: ['Build lists by clusters and use compliance + proof.', 'Follow-ups emphasize professionalism and consistency.', 'Use lead magnets and cases as internal links to improve conversions.'] },
     ctaTitle: { zh: '想開發歐洲買家？', en: 'Need European buyers?' },
     ctaDesc: { zh: '提交產品與目標國家，我們回覆可行的開發策略。', en: 'Share your product and countries. We’ll reply with a strategy.' },
+    heroImage: { zh: '/illustrations/market-europe.svg', en: '/illustrations/market-europe.svg' },
     faq: [
       { q: { zh: '歐洲一定要多語嗎？', en: 'Do we need multiple languages in Europe?' }, a: { zh: '英文可先切入，但若能提供德/法等關鍵頁版本，會更容易提高信任與回覆率。', en: 'English can start, but localized key pages in DE/FR increase trust and replies.' } },
     ],
   },
 ]
+
 
 export function getSeoMarket(slug: string) {
   return seoMarkets.find(m => m.slug === slug)

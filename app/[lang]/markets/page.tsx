@@ -61,10 +61,20 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
           {seoMarkets.map((market) => (
             <Link key={market.slug} href={`/${lang}/markets/${market.slug}`} className="group rounded-2xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:border-green-300 hover:shadow-lg">
-              <div className="inline-flex rounded-full bg-green-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-700">
+              <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-gray-50">
+                <Image
+                  src={market.heroImage?.[lang] ?? '/illustrations/markets-hub-hero.svg'}
+                  alt={market.h1[lang]}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+              <div className="inline-flex mt-4 rounded-full bg-green-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-700">
                 {lang === 'zh' ? '市場頁' : 'Market Page'}
               </div>
-              <h2 className="mt-4 text-2xl font-bold text-gray-900 group-hover:text-green-700">
+              <h2 className="mt-3 text-2xl font-bold text-gray-900 group-hover:text-green-700">
                 {market.h1[lang].replace('市場外銷客戶開發', '').replace('Market Export Lead Generation', '').trim()}
               </h2>
               <p className="mt-3 line-clamp-4 text-gray-600">{market.description[lang]}</p>

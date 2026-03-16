@@ -39,12 +39,17 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           {cases.map((item) => (
             <div key={item.slug} className="flex flex-col bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden hover:shadow-xl transition duration-300 group">
               <Link href={`/${lang}/case-studies/${item.slug}`} className="block relative h-64 bg-gray-100 overflow-hidden">
-                 {/* Case Image - Use item.cover if available, otherwise fallback */}
                  {item.cover ? (
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition duration-500"
-                      style={{ backgroundImage: `url(${item.cover})` }}
-                    />
+                    <div className="absolute inset-0">
+                      <Image
+                        src={item.cover}
+                        alt={`${item.title} cover`}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-transparent to-transparent" />
+                    </div>
                  ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-500 group-hover:scale-105 transition duration-500">
                         <div className="text-center">

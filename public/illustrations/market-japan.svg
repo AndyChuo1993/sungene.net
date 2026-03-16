@@ -1,0 +1,14 @@
+<svg width="600" height="360" viewBox="0 0 600 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-jp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="48" fill="url(#grad-jp)" />
+  <circle cx="320" cy="170" r="100" fill="rgba(255,255,255,0.2)" />
+  <circle cx="180" cy="220" r="60" fill="rgba(14,165,233,0.25)" />
+  <path d="M100 280h400" stroke="rgba(255,255,255,0.4)" stroke-width="4" stroke-linecap="round" />
+  <text x="40" y="140" fill="#fff" font-size="48" font-weight="700" letter-spacing="0.15em">JAPAN</text>
+  <text x="40" y="200" fill="#fbcfe8" font-size="22" font-weight="500">Trust & Detail</text>
+</svg>

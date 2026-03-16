@@ -1,0 +1,14 @@
+<svg width="600" height="360" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-me" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="48" fill="url(#grad-me)" />
+  <ellipse cx="320" cy="170" rx="150" ry="80" fill="rgba(255,255,255,0.12)" />
+  <circle cx="120" cy="210" r="70" fill="rgba(248,250,252,0.14)" />
+  <path d="M80 280h440" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round" />
+  <text x="40" y="140" fill="#f8fafc" font-size="46" font-weight="700" letter-spacing="0.12em">MIDDLE EAST</text>
+  <text x="40" y="200" fill="#c4b5fd" font-size="20" font-weight="500">Agents & Projects</text>
+</svg>

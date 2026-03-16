@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
 import { getCases } from '@/data/cases'
@@ -17,7 +18,18 @@ export default function CasePreview({ lang }: { lang: Lang }) {
           {cases.map((item) => (
             <div key={item.slug} className="group bg-white border border-gray-200 rounded-sm hover:border-blue-900 hover:shadow-xl transition duration-300 flex flex-col h-full overflow-hidden">
               <div className="relative h-64 overflow-hidden bg-slate-950">
-                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.38),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.12),_transparent_30%),linear-gradient(135deg,_#0f172a,_#1e3a8a_55%,_#0f172a)] transition duration-500 group-hover:scale-105" />
+                 {item.cover ? (
+                   <Image
+                     src={item.cover}
+                     alt={`${item.title} cover`}
+                     fill
+                     className="object-cover transition duration-500 group-hover:scale-105"
+                     sizes="(min-width: 768px) 50vw, 100vw"
+                   />
+                 ) : (
+                   <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-900 to-slate-800" />
+                 )}
+                 <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(15,23,42,0.9),transparent)]" />
                  <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:22px_22px]" />
                  <div className="absolute left-6 top-6 max-w-[75%]">
                     <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
