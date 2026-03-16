@@ -19,10 +19,12 @@ jobs:
           cache: npm
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit
 
       - name: Build Next.js
         run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
 
       - name: Prepare standalone package
         run: |
