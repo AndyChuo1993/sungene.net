@@ -27,12 +27,19 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     <main className="pt-28">
       <div className="mx-auto max-w-6xl px-6">
         <header className="mb-10">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900">{lang === 'zh' ? '部落格' : 'Blog'}</h1>
-          <p className="mt-4 text-lg text-gray-600">
-            {lang === 'zh'
-              ? '部落格放的是教學、觀點與做法拆解；資源中心放可直接套用的指南與檢查表；產業頁與市場頁則用來承接特定搜尋需求。'
-              : 'The blog is for guides, commentary, and method breakdowns. Resources contains reusable guides and checklists, while industry and market pages target specific search intent.'}
-          </p>
+          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] items-center">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900">{lang === 'zh' ? '部落格' : 'Blog'}</h1>
+              <p className="mt-4 text-lg text-gray-600">
+                {lang === 'zh'
+                  ? '部落格放的是教學、觀點與做法拆解；資源中心放可直接套用的指南與檢查表；產業頁與市場頁則用來承接特定搜尋需求。'
+                  : 'The blog is for guides, commentary, and method breakdowns. Resources contains reusable guides and checklists, while industry and market pages target specific search intent.'}
+              </p>
+            </div>
+            <div className="relative min-h-[220px] overflow-hidden rounded-[2rem] border border-blue-100 bg-white shadow-2xl">
+              <Image src="/illustrations/blog-hero-panel.svg" alt={lang === 'zh' ? '部落格主視覺圖' : 'Blog hero illustration'} fill className="object-cover" />
+            </div>
+          </div>
         </header>
 
         <section className="mb-6 grid gap-6 rounded-3xl border border-blue-100 bg-blue-50/60 p-6 md:grid-cols-3">

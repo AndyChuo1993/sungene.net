@@ -13,10 +13,23 @@ export type SeoSectionedPage = {
   strategy: Record<Lang, string[]>
   ctaTitle: Record<Lang, string>
   ctaDesc: Record<Lang, string>
+  heroImage?: Record<Lang, string>
   faq: { q: Record<Lang, string>; a: Record<Lang, string> }[]
 }
 
+const industryHeroMap: Record<string, string> = {
+  machinery: '/illustrations/industry-machinery.svg',
+  electronics: '/illustrations/industry-electronics.svg',
+  plastic: '/illustrations/industry-plastic.svg',
+  chemical: '/illustrations/industry-chemical.svg',
+  medical: '/illustrations/industry-medical.svg',
+  automotive: '/illustrations/industry-automotive.svg',
+  'industrial-equipment': '/illustrations/industry-industrial-equipment.svg',
+}
+
 export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; page: SeoSectionedPage; basePath: string }) {
+  const heroImage = page.heroImage?.[lang] ?? industryHeroMap[page.slug] ?? '/illustrations/seo-landing-panel.svg'
+
   return (
     <main className="pt-28">
       <div className="mx-auto max-w-5xl px-6">
@@ -53,7 +66,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
           </div>
           <div className="hidden lg:block">
             <div className="overflow-hidden rounded-[1.75rem] border border-blue-100 bg-white shadow-xl">
-              <Image src="/illustrations/seo-landing-panel.svg" alt={page.h1[lang]} width={1200} height={720} className="h-auto w-full" priority />
+              <Image src={heroImage} alt={page.h1[lang]} width={1200} height={720} className="h-auto w-full" priority />
             </div>
           </div>
         </header>

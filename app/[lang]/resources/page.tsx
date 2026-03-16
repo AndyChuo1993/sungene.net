@@ -94,7 +94,7 @@ export default async function Page({
             </p>
           </div>
           <div className="hidden lg:block overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
-            <Image src="/illustrations/resources-hub-panel.svg" alt={lang === 'zh' ? '資源中心主視覺' : 'Resource center hero'} width={1200} height={760} className="h-auto w-full" priority />
+            <Image src="/illustrations/resources-hero-panel.svg" alt={lang === 'zh' ? '資源中心主視覺' : 'Resource center hero'} width={1200} height={760} className="h-auto w-full" priority />
           </div>
         </div>
       </section>

@@ -1,0 +1,16 @@
+<svg width="780" height="460" viewBox="0 0 780 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="plasticGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+  </defs>
+  <rect width="780" height="460" rx="36" fill="url(#plasticGrad)" />
+  <rect x="120" y="140" width="320" height="200" rx="28" fill="rgba(20,184,166,0.3)" />
+  <rect x="520" y="180" width="180" height="140" rx="28" fill="rgba(248,250,252,0.2)" />
+  <circle cx="640" cy="260" r="60" fill="rgba(248,250,252,0.3)" />
+  <path d="M200 360h360" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round" />
+  <text x="140" y="100" fill="#e0f2fe" font-size="32" font-weight="700">PLASTIC</text>
+  <text x="140" y="140" fill="#ccfbf1" font-size="16">Injection, parts, and molds</text>
+  <text x="140" y="170" fill="#ccfbf1" font-size="16">with consistent delivery.</text>
+</svg>
