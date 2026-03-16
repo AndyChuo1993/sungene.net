@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
 import { getArticles } from '@/data/articles'
 import { getCases } from '@/data/cases'
 import { seoMarkets } from '@/data/seoMarkets'
@@ -6,7 +7,8 @@ import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
+  const host = headers().get('host') || 'sungenelite.com'
+  const baseUrl = `https://${host}`
   const langs = ['zh', 'en', 'cn'] as const
   
   const routes = [

@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: {
       canonical: `/${lang}`,
       languages: {
-        en: '/en',
-        zh: '/zh',
-        'zh-CN': '/cn',
-        'x-default': xDefault,
+        en: `https://${host}/en`,
+        zh: 'https://sungenelite.com/zh',
+        'zh-CN': 'https://sungene.net/cn',
+        'x-default': 'https://sungenelite.com/zh',
       },
     },
   }
