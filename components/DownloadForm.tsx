@@ -6,7 +6,7 @@ import { Dictionary } from '@/lib/i18n'
 
 interface DownloadFormProps {
   dict: Dictionary
-  lang: 'zh' | 'en'
+  lang: 'cn' | 'zh' | 'en'
   resourceId: string
 }
 
@@ -77,14 +77,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
           <CheckCircle className="h-8 w-8 text-green-600" />
         </div>
         <h3 className="mb-2 text-2xl font-bold text-gray-900">
-          {dict.success_title || (lang === 'zh' ? '提交成功' : 'Request Received')}
+          {dict.success_title || (lang === 'en' ? 'Request Received' : (lang === 'cn' ? '提交成功' : '提交成功'))}
         </h3>
         <p className="mb-6 text-gray-600">
-          {dict.success_message || (lang === 'zh' ? '我們已收到您的資訊，將寄送至您的信箱。' : 'We received your request and will send it to your email.')}
+          {dict.success_message || (lang === 'en' ? 'We received your request and will send it to your email.' : (lang === 'cn' ? '我們已收到您的信息，將寄送至您的信箱。' : '我們已收到您的資訊，將寄送至您的信箱。'))}
         </p>
         <div className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-6 py-3 text-base font-medium text-white">
           <Download className="mr-2 h-5 w-5" />
-          {lang === 'zh' ? '已送出申請' : 'Request Sent'}
+          {lang === 'en' ? 'Request Sent' : (lang === 'cn' ? '已送出申請' : '已送出申請')}
         </div>
       </div>
     )
@@ -93,9 +93,9 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl border border-gray-100 bg-white p-8 shadow-xl">
       <div className="mb-8 text-center">
-        <h3 className="mb-2 text-xl font-bold text-gray-900">{lang === 'zh' ? '免費索取資源' : 'Get the Free Resource'}</h3>
+        <h3 className="mb-2 text-xl font-bold text-gray-900">{lang === 'en' ? 'Get the Free Resource' : (lang === 'cn' ? '免费索取資源' : '免費索取資源')}</h3>
         <p className="text-sm text-gray-500">
-          {lang === 'zh' ? '填寫資料後，我們會把資源或分析寄到你的信箱。' : 'Enter your details and we’ll send the resource or analysis to your email.'}
+          {lang === 'en' ? 'Enter your details and we’ll send the resource or analysis to your email.' : (lang === 'cn' ? '填寫数据後，我們會把資源或分析寄到你的信箱。' : '填寫資料後，我們會把資源或分析寄到你的信箱。')}
         </p>
       </div>
 
@@ -112,14 +112,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="name" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '姓名' : 'Full Name'} <span className="text-red-500">*</span>
+            {lang === 'en' ? 'Full Name' : (lang === 'cn' ? '姓名' : '姓名')} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="name"
             required
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
-            placeholder={lang === 'zh' ? '王小明' : 'John Doe'}
+            placeholder={lang === 'en' ? 'John Doe' : (lang === 'cn' ? '王小明' : '王小明')}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
@@ -127,7 +127,7 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="email" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '企業信箱' : 'Work Email'} <span className="text-red-500">*</span>
+            {lang === 'en' ? 'Work Email' : (lang === 'cn' ? '企业信箱' : '企業信箱')} <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -142,14 +142,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="phone" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '聯絡電話' : 'Phone Number'} <span className="text-red-500">*</span>
+            {lang === 'en' ? 'Phone Number' : (lang === 'cn' ? '联系電話' : '聯絡電話')} <span className="text-red-500">*</span>
           </label>
           <input
             type="tel"
             id="phone"
             required
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
-            placeholder={lang === 'zh' ? '例如：0912-345-678' : 'e.g. +886 912 345 678'}
+            placeholder={lang === 'en' ? 'e.g. +886 912 345 678' : (lang === 'cn' ? '例如：0912-345-678' : '例如：0912-345-678')}
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           />
@@ -157,13 +157,13 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="company" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '公司名稱' : 'Company Name'}
+            {lang === 'en' ? 'Company Name' : (lang === 'cn' ? '公司名稱' : '公司名稱')}
           </label>
           <input
             type="text"
             id="company"
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
-            placeholder={lang === 'zh' ? 'XX股份有限公司' : 'Acme Corp'}
+            placeholder={lang === 'en' ? 'Acme Corp' : (lang === 'cn' ? 'XX股份有限公司' : 'XX股份有限公司')}
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
           />
@@ -171,14 +171,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="product" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '產品/服務' : 'Product'} <span className="text-red-500">*</span>
+            {lang === 'en' ? 'Product' : (lang === 'cn' ? '產品/服务' : '產品/服務')} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="product"
             required
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
-            placeholder={lang === 'zh' ? '例如：工業設備、塑膠射出件' : 'e.g. industrial equipment, plastic injection parts'}
+            placeholder={lang === 'en' ? 'e.g. industrial equipment, plastic injection parts' : (lang === 'cn' ? '例如：工业设备、塑膠射出件' : '例如：工業設備、塑膠射出件')}
             value={formData.product}
             onChange={(e) => setFormData({ ...formData, product: e.target.value })}
           />
@@ -186,14 +186,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         <div>
           <label htmlFor="targetMarket" className="mb-1 block text-sm font-medium text-gray-700">
-            {lang === 'zh' ? '目標市場' : 'Target Market'} <span className="text-red-500">*</span>
+            {lang === 'en' ? 'Target Market' : (lang === 'cn' ? '目标市场' : '目標市場')} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="targetMarket"
             required
             className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
-            placeholder={lang === 'zh' ? '例如：美國、德國、日本' : 'e.g. USA, Germany, Japan'}
+            placeholder={lang === 'en' ? 'e.g. USA, Germany, Japan' : (lang === 'cn' ? '例如：美国、德国、日本' : '例如：美國、德國、日本')}
             value={formData.targetMarket}
             onChange={(e) => setFormData({ ...formData, targetMarket: e.target.value })}
           />
@@ -202,11 +202,11 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
         {status === 'error' && (
           <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {errorCode === '429'
-              ? lang === 'zh'
-                ? '送出太頻繁，請稍候 1 分鐘後再試。'
-                : 'Too many requests. Please try again in 1 minute.'
+              ? lang === 'en'
+                ? 'Too many requests. Please try again in 1 minute.'
+                : (lang === 'cn' ? '提交过于频繁，请 1 分钟后再试。' : '送出太頻繁，請稍候 1 分鐘後再試。')
               : dict.form_error_desc ||
-                (lang === 'zh' ? '提交失敗，請稍候再試，或是直接聯繫我們。' : 'Submission failed. Please try again later or contact us.')}
+                (lang === 'en' ? 'Submission failed. Please try again later or contact us.' : (lang === 'cn' ? '提交失敗，請稍候再試，或是直接聯繫我們。' : '提交失敗，請稍候再試，或是直接聯繫我們。'))}
           </div>
         )}
 
@@ -218,17 +218,17 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
           {status === 'submitting' ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              {lang === 'zh' ? '送出中...' : 'Processing...'}
+              {lang === 'en' ? 'Processing...' : (lang === 'cn' ? '送出中...' : '送出中...')}
             </>
           ) : (
             <>
-              {lang === 'zh' ? '送出申請' : 'Submit Request'}
+              {lang === 'en' ? 'Submit Request' : (lang === 'cn' ? '送出申請' : '送出申請')}
               <Download className="ml-2 h-5 w-5" />
             </>
           )}
         </button>
 
-        <p className="mt-4 text-center text-xs text-gray-400">{lang === 'zh' ? '我們尊重你的隱私。' : 'We respect your privacy.'}</p>
+        <p className="mt-4 text-center text-xs text-gray-400">{lang === 'en' ? 'We respect your privacy.' : (lang === 'cn' ? '我們尊重你的隱私。' : '我們尊重你的隱私。')}</p>
       </div>
     </form>
   )

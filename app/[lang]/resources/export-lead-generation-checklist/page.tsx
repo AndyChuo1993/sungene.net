@@ -3,60 +3,60 @@ import { getDictionary } from '@/lib/i18n'
 import DownloadForm from '@/components/DownloadForm'
 import { Check, FileText, Target, Shield, HelpCircle } from 'lucide-react'
 
-export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh' } }) {
+export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh' | 'cn' } }) {
   const { lang } = await params
-  const isZh = lang === 'zh'
-  const title = isZh ? '外銷客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
-  const description = isZh
+  const isChinese = lang !== 'en'
+  const title = isChinese ? '外銷客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
+  const description = isChinese
     ? '下載可落地的外銷客戶開發檢查表：從買家畫像、名單建立、開發信到跟進節奏，讓開發更可追蹤。'
     : 'Download a practical checklist to find and convert international buyers: ICP, list building, outreach, and follow-ups.'
   return {
     title,
     description,
-    alternates: { canonical: `/${lang}/resources/export-lead-generation-checklist`, languages: { zh: '/zh/resources/export-lead-generation-checklist', en: '/en/resources/export-lead-generation-checklist', 'x-default': '/en/resources/export-lead-generation-checklist' } },
+    alternates: { canonical: `/${lang}/resources/export-lead-generation-checklist`, languages: { 'zh-CN': '/cn/resources/export-lead-generation-checklist', zh: '/zh/resources/export-lead-generation-checklist', en: '/en/resources/export-lead-generation-checklist', 'x-default': '/en/resources/export-lead-generation-checklist' } },
   }
 }
 
 export default async function LeadMagnetPage({
   params: { lang },
 }: {
-  params: { lang: 'en' | 'zh' }
+  params: { lang: 'en' | 'zh' | 'cn' }
 }) {
   const dict = await getDictionary(lang)
 
-  const isZh = lang === 'zh'
+  const isChinese = lang !== 'en'
 
   const content = {
-    title: isZh ? '2025 外銷客戶開發終極檢查表' : '2025 Export Lead Generation Checklist',
-    subtitle: isZh 
+    title: isChinese ? '2025 外銷客戶開發終極檢查表' : '2025 Export Lead Generation Checklist',
+    subtitle: isChinese 
       ? '不再盲目開發。下載這份經過驗證的步驟清單，系統化地尋找並轉化高品質海外買家。' 
       : 'Stop guessing. Download this proven step-by-step checklist to systematically find and convert high-quality international buyers.',
     features: [
       {
-        title: isZh ? '買家畫像定義' : 'Ideal Customer Profile',
-        desc: isZh ? '精準定位目標客戶，避免無效開發' : 'Pinpoint your target audience to avoid wasted effort.'
+        title: isChinese ? '買家畫像定義' : 'Ideal Customer Profile',
+        desc: isChinese ? '精準定位目標客戶，避免無效開發' : 'Pinpoint your target audience to avoid wasted effort.'
       },
       {
-        title: isZh ? '開發信範本' : 'Outreach Templates',
-        desc: isZh ? '高回覆率的 Cold Email 結構解析' : 'High-response Cold Email structures analyzed.'
+        title: isChinese ? '開發信範本' : 'Outreach Templates',
+        desc: isChinese ? '高回覆率的開發郵件結構解析' : 'High-response Cold Email structures analyzed.'
       },
       {
-        title: isZh ? '工具推薦' : 'Tool Stack',
-        desc: isZh ? '20+ 個外銷必備的資料與自動化工具' : '20+ essential data and automation tools for exporters.'
+        title: isChinese ? '工具推薦' : 'Tool Stack',
+        desc: isChinese ? '20+ 個外銷必備的資料與自動化工具' : '20+ essential data and automation tools for exporters.'
       },
       {
-        title: isZh ? '跟進策略' : 'Follow-up Strategy',
-        desc: isZh ? '確保潛在客戶不流失的 5 步跟進法' : '5-step follow-up method to ensure no lead is left behind.'
+        title: isChinese ? '跟進策略' : 'Follow-up Strategy',
+        desc: isChinese ? '確保潛在客戶不流失的 5 步跟進法' : '5-step follow-up method to ensure no lead is left behind.'
       }
     ],
     faq: [
       {
-        q: isZh ? '這份檢查表適合誰？' : 'Who is this checklist for?',
-        a: isZh ? '適合外銷業務員、外銷經理以及希望拓展海外市場的 B2B 企業主。' : 'It is suitable for sales representatives, export managers, and B2B business owners looking to expand globally.'
+        q: isChinese ? '這份檢查表適合誰？' : 'Who is this checklist for?',
+        a: isChinese ? '適合外銷業務員、外銷經理以及希望拓展海外市場的企業主。' : 'It is suitable for sales representatives, export managers, and B2B business owners looking to expand globally.'
       },
       {
-        q: isZh ? '是免費的嗎？' : 'Is it free?',
-        a: isZh ? '是的，這是我們提供的免費資源，旨在幫助您最佳化外銷流程。' : 'Yes, this is a free resource designed to help you optimize your export process.'
+        q: isChinese ? '是免費的嗎？' : 'Is it free?',
+        a: isChinese ? '是的，這是我們提供的免費資源，旨在幫助您最佳化外銷流程。' : 'Yes, this is a free resource designed to help you optimize your export process.'
       }
     ]
   }
@@ -71,7 +71,7 @@ export default async function LeadMagnetPage({
             <div>
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-medium mb-6">
                 <FileText className="w-4 h-4 mr-2" />
-                {isZh ? '免費下載資源' : 'Free Download Resource'}
+                {isChinese ? '免費下載資源' : 'Free Download Resource'}
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 {content.title}
@@ -108,10 +108,10 @@ export default async function LeadMagnetPage({
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              {isZh ? '為什麼你需要這份檢查表？' : 'Why You Need This Checklist'}
+              {isChinese ? '為什麼你需要這份檢查表？' : 'Why You Need This Checklist'}
             </h2>
             <p className="text-lg text-slate-600">
-              {isZh 
+              {isChinese 
                 ? '外銷開發不是運氣遊戲。成功的關鍵在於細節的執行。這份檢查表將幫助您：' 
                 : 'Export development is not a game of luck. Success lies in execution details. This checklist will help you:'}
             </p>
@@ -122,9 +122,9 @@ export default async function LeadMagnetPage({
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                 <Target className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-3">{isZh ? '提高轉化率' : 'Increase Conversion'}</h3>
+              <h3 className="text-xl font-bold mb-3">{isChinese ? '提高轉化率' : 'Increase Conversion'}</h3>
               <p className="text-slate-600">
-                {isZh 
+                {isChinese 
                   ? '通過標準化的篩選流程，將精力集中在最有可能成交的客戶上。' 
                   : 'Focus your energy on high-potential clients through a standardized qualification process.'}
               </p>
@@ -133,9 +133,9 @@ export default async function LeadMagnetPage({
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                 <Shield className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-3">{isZh ? '減少錯誤' : 'Reduce Mistakes'}</h3>
+              <h3 className="text-xl font-bold mb-3">{isChinese ? '減少錯誤' : 'Reduce Mistakes'}</h3>
               <p className="text-slate-600">
-                {isZh 
+                {isChinese 
                   ? '避免常見的開發信錯誤和文化禁忌，維護品牌專業形象。' 
                   : 'Avoid common outreach errors and cultural taboos to maintain a professional brand image.'}
               </p>
@@ -144,9 +144,9 @@ export default async function LeadMagnetPage({
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                 <Check className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-3">{isZh ? '系統化流程' : 'Systematize Process'}</h3>
+              <h3 className="text-xl font-bold mb-3">{isChinese ? '系統化流程' : 'Systematize Process'}</h3>
               <p className="text-slate-600">
-                {isZh 
+                {isChinese 
                   ? '將個人經驗轉化為團隊可複製的標準作業程式（SOP）。' 
                   : 'Turn personal experience into a Standard Operating Procedure (SOP) replicable by the team.'}
               </p>
@@ -160,7 +160,7 @@ export default async function LeadMagnetPage({
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900">
-              {isZh ? '常見問題' : 'Frequently Asked Questions'}
+              {isChinese ? '常見問題' : 'Frequently Asked Questions'}
             </h2>
           </div>
           

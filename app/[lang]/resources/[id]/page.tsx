@@ -5,7 +5,7 @@ import { getArticle, getArticles } from '@/data/articles'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const langs = ['en', 'zh'] as const
+  const langs = ['en', 'zh', 'cn'] as const
   return langs.flatMap((lang) => getArticles(lang).map((a) => ({ lang, id: a.id })))
 }
 
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
   const { lang, id } = await params
+  const isChinese = lang !== 'en'
   const article = getArticle(lang, id)
 
   if (!article) notFound()
@@ -72,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; i
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mb-10 overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm">
-            <Image src="/illustrations/resource-detail-panel.svg" alt={lang === 'zh' ? '資源詳頁示意圖' : 'Resource detail illustration'} width={1200} height={720} className="h-auto w-full" />
+            <Image src="/illustrations/resource-detail-panel.svg" alt={lang === 'en' ? 'Resource detail illustration' : (lang === 'cn' ? '資源詳頁示意圖' : '資源詳頁示意圖')} width={1200} height={720} className="h-auto w-full" />
           </div>
 
           <div className="prose prose-lg prose-orange mx-auto text-gray-700">
@@ -98,18 +99,18 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; i
           </div>
 
           <div className="mt-16 rounded-2xl border border-orange-100 bg-orange-50 p-8 text-center">
-            <h3 className="mb-4 text-2xl font-bold text-orange-900">{lang === 'zh' ? '想把這個主旨用在你的市場？' : 'Want to apply this to your market?'}</h3>
+            <h3 className="mb-4 text-2xl font-bold text-orange-900">{lang === 'en' ? 'Want to apply this to your market?' : (lang === 'cn' ? '想把這個主题用在你的市场？' : '想把這個主旨用在你的市場？')}</h3>
             <p className="mx-auto mb-8 max-w-xl text-orange-800">
-              {lang === 'zh'
+              {isChinese
                 ? '如果你想把這份內容延伸到自己的產品、產業與目標市場，可以直接申請免費市場分析。'
                 : 'If you want to adapt this content to your own product, industry, and target market, start with a free market analysis.'}
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={`/${lang}/export-market-analysis`} className="inline-block rounded-sm bg-orange-600 px-8 py-3 font-bold text-white transition duration-300 hover:bg-orange-500">
-                {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
+                {lang === 'en' ? 'Free Export Market Analysis' : (lang === 'cn' ? '免费出口市场分析' : '免費出口市場分析')}
               </Link>
               <Link href={`/${lang}/resources`} className="inline-block rounded-sm border border-orange-300 px-8 py-3 font-bold text-orange-700 transition duration-300 hover:bg-white">
-                {lang === 'zh' ? '返回資源中心' : 'Back to Resources'}
+                {lang === 'en' ? 'Back to Resources' : (lang === 'cn' ? '返回資源中心' : '返回資源中心')}
               </Link>
             </div>
           </div>

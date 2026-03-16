@@ -5,7 +5,7 @@ import { t, Lang } from '@/lib/i18n'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (rawLang === 'zh' ? 'zh' : 'en') as Lang
+  const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'zh') as Lang
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'),
     title: t(lang, 'meta_home_title'),
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       languages: {
         'en': '/en',
         'zh': '/zh',
+        'zh-CN': '/cn',
         'x-default': '/zh',
       },
     },
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function RootLayout({ children, params }: { children: ReactNode; params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (rawLang === 'zh' ? 'zh' : 'en') as Lang
+  const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'zh') as Lang
 
   const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const logoUrl = `${site}/logo/sungene.png`

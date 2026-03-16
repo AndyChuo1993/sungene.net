@@ -11,7 +11,7 @@ export default function CTASection({ lang }: { lang: Lang }) {
         <div className="mx-auto max-w-4xl px-6 relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">{t(lang, 'home_cta_title')}</h2>
           <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            {lang === 'zh' ? '不用自建團隊，也能擁有專業的外銷開發能力。' : 'Scale your export sales without building an internal team.'}
+            {lang === 'en' ? 'Scale your export sales without building an internal team.' : (lang === 'cn' ? '不用自建团队，也能擁有專業的外贸開發能力。' : '不用自建團隊，也能擁有專業的外銷開發能力。')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link 

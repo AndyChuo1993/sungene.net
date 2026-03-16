@@ -4,14 +4,15 @@ import { t, Lang } from '@/lib/i18n'
 import { getCases } from '@/data/cases'
 
 export default function CasePreview({ lang }: { lang: Lang }) {
-  const cases = getCases(lang).slice(0, 2) // Show first 2 cases
+  const dataLang = lang === 'cn' ? 'zh' : lang
+  const cases = getCases(dataLang).slice(0, 2)
 
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{lang === 'zh' ? '成功案例' : 'Success Stories'}</h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'zh' ? '看看我們如何幫助企業走向世界' : 'See how we help enterprises go global'}</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{lang === 'en' ? 'Success Stories' : (lang === 'cn' ? '成功案例' : '成功案例')}</h2>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'en' ? 'See how we help enterprises go global' : (lang === 'cn' ? '看看我們如何幫助企业走向世界' : '看看我們如何幫助企業走向世界')}</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -40,7 +41,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
                     </div>
                  </div>
                  <div className="absolute bottom-4 left-4 border border-white/15 bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-900 shadow-sm backdrop-blur">
-                    {lang === 'zh' ? '目標市場：' : 'Market: '} {item.market}
+                    {lang === 'en' ? 'Market: ' : (lang === 'cn' ? '目标市场：' : '目標市場：')} {item.market}
                  </div>
               </div>
               
@@ -55,7 +56,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
                     </p>
                 </div>
                 <Link href={`/${lang}/case-studies/${item.slug}`} className="inline-block text-center w-full bg-gray-900 text-white font-bold py-3 px-6 rounded-sm hover:bg-blue-800 transition duration-300">
-                  {lang === 'zh' ? '閱讀完整案例' : 'Read Case Study'}
+                  {lang === 'en' ? 'Read Case Study' : (lang === 'cn' ? '閱讀完整案例' : '閱讀完整案例')}
                 </Link>
               </div>
             </div>
@@ -64,7 +65,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
         
         <div className="text-center">
           <Link href={`/${lang}/case-studies`} className="inline-flex items-center text-blue-900 font-bold hover:underline text-lg">
-            {lang === 'zh' ? '查看更多成功案例' : 'View More Case Studies'} 
+            {lang === 'en' ? 'View More Case Studies' : (lang === 'cn' ? '查看更多成功案例' : '查看更多成功案例')} 
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
         </div>

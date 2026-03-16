@@ -13,7 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const cases = getCases(lang)
+  const dataLang = lang === 'cn' ? 'zh' : lang
+  const cases = getCases(dataLang)
 
   return (
     <main className="min-h-screen bg-white">
@@ -24,11 +25,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <h1 className="text-4xl font-bold md:text-5xl">{t(lang, 'case_title')}</h1>
             <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-300 lg:mx-0">{t(lang, 'hero_subtitle')}</p>
             <div className="mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
-              {lang === 'zh' ? '以下內容為代表性專案情境與常見合作成果，已去識別化與重組，不對應單一客戶名稱或個別合作廠商。' : 'The following content represents anonymized project scenarios and common outcomes. It does not identify any single client or manufacturer by name.'}
+              {lang === 'en' ? 'The following content represents anonymized project scenarios and common outcomes. It does not identify any single client or manufacturer by name.' : (lang === 'cn' ? '以下内容为代表性项目场景与常见合作成果，已去识别化与重组，不对应单一客户名称或个别合作厂商。' : '以下內容為代表性專案情境與常見合作成果，已去識別化與重組，不對應單一客戶名稱或個別合作廠商。')}
             </div>
           </div>
           <div className="overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
-            <Image src="/illustrations/case-hub-hero.svg" alt={lang === 'zh' ? '成功案例主視覺' : 'Case studies hero illustration'} width={1200} height={760} className="h-auto w-full" priority />
+            <Image src="/illustrations/case-hub-hero.svg" alt={lang === 'en' ? 'Case studies hero illustration' : (lang === 'cn' ? '成功案例主视觉' : '成功案例主視覺')} width={1200} height={760} className="h-auto w-full" priority />
           </div>
         </div>
       </section>
@@ -53,13 +54,13 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
                  ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-500 group-hover:scale-105 transition duration-500">
                         <div className="text-center">
-                            <div className="text-6xl font-bold opacity-10 mb-2">B2B</div>
+                            <div className="text-6xl font-bold opacity-10 mb-2">{lang === 'en' ? 'B2B' : (lang === 'cn' ? '企业' : '企業')}</div>
                             <div className="font-bold text-lg uppercase tracking-wider">{item.industry}</div>
                         </div>
                     </div>
                  )}
                  <div className="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
-                    {lang === 'zh' ? '示意案例' : 'Representative Case'}
+                    {lang === 'en' ? 'Representative Case' : (lang === 'cn' ? '示意案例' : '示意案例')}
                  </div>
                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
                     <div className="text-white font-bold text-sm uppercase tracking-wide flex gap-4">
@@ -88,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
                 )}
 
                 <Link href={`/${lang}/case-studies/${item.slug}`} className="inline-block text-center w-full bg-gray-50 text-gray-900 font-bold py-3 px-6 rounded-sm hover:bg-blue-600 hover:text-white transition duration-300">
-                  {lang === 'zh' ? '查看案例詳情' : 'View Case Study'}
+                  {lang === 'en' ? 'View Case Study' : (lang === 'cn' ? '查看案例详情' : '查看案例詳情')}
                 </Link>
               </div>
             </div>

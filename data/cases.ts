@@ -1,4 +1,4 @@
-export type Lang = 'zh' | 'en'
+export type Lang = 'zh' | 'en' | 'cn'
 
 type CaseSection = { heading: string; items?: string[]; paragraphs?: string[] }
 export type CaseContent = {
@@ -169,6 +169,146 @@ const zh: Record<string, CaseContent> = {
   },
 }
 
+const cn: Record<string, CaseContent> = {
+  hardware: {
+    slug: 'hardware',
+    title: '五金工具製造企业',
+    industry: '五金工具',
+    market: '歐洲',
+    serviceType: '客戶開發與邮箱開發',
+    duration: '3個月',
+    cover: baseCovers.hardware,
+    proofImages: [proofImages.chart],
+    summary: '協助企业建立海外买家名单並進行客戶開發，成功建立多個潜在客戶聯繫與合作机会。',
+    result: '詢問成长與市场拓展',
+    highlights: [
+      { num: '50-60', label: '有效询盘' },
+      { num: '3個月', label: '建立稳定来源' },
+      { num: '10+', label: '進入报价階段' },
+    ],
+    before: ['依赖旧客戶', '缺乏外贸团队', '展会效果遞減'],
+    after: ['建立精准名单', '自動化開發信', '稳定詢問来源'],
+    sections: [
+      { heading: '背景', paragraphs: ['該客戶為資深五金工具制造商，擁有高质量生產能力，但长期依赖贸易商與旧客戶，缺乏主动開發歐洲市场的能力與团队。'] },
+      { heading: '市场困境', items: ['過度依赖傳統展会，獲客成本高且效果遞減', '內部無專職外贸業務，無法處理复杂的開發流程', '對歐洲进口商結構不熟悉，难以找到对接人人'] },
+      { heading: '我們的策略', paragraphs: ['我們為其量身建立外贸外包服务方案，從零建立歐洲開發體系：'], items: ['鎖定德国、荷蘭中大型五金进口商與批发商', '建立采购經理的精准名单', '設計強調製造质量與代工彈性的英文開發信'] },
+      { heading: '执行方式', items: ['首月：建立 500 家以上目标客戶名单，進行首輪测试', '次月：优化開發信主题與內容，提升開啟率至 40% 以上', '第三個月：全面自動化跟进，並由团队協助初步詢問筛选'] },
+      { heading: '成果数据', items: ['3個月內累計获得 50-60 個有效詢問', '多個詢問來自德国知名工具品牌', '超過 10 個潜在客戶進入样品與报价階段'] },
+      { heading: '关键價值', items: ['無需自建团队即可启动海外開發', '快速验证歐洲市场對產品的接受度', '建立可复制的企业客戶開發标准作业流程'] },
+    ],
+  },
+  electronics: {
+    slug: 'electronics',
+    title: '電子零部件供应商',
+    industry: '電子零部件',
+    market: '北美',
+    serviceType: '商務社交接觸與重点客戶開發',
+    duration: '2個月',
+    cover: baseCovers.electronics,
+    proofImages: [proofImages.map],
+    summary: '通过海外客戶開發流程，協助企业接觸采购決策者並建立商務對話。',
+    result: '切入供應鏈並接觸关键决策人',
+    highlights: [
+      { num: '100%', label: '决策人触达' },
+      { num: '2週', label: '获得样品單' },
+      { num: '北美', label: '成功落地' },
+    ],
+    before: ['無法接觸决策人', '信件石沉大海', '竞争激烈'],
+    after: ['精准鎖定主管', '多點触达', '進入审核流程'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為電子零部件廠，目标是切入北美高科技與車用電子供應鏈，但受限於大廠采购流程封閉，难以接觸关键決策者。'] },
+      { heading: '市场困境', items: ['一般 info 信箱回复率極低', '采购決策鏈长，涉及工程、采购、品管多個部門', '竞争對手眾多，难以突顯技術優勢'] },
+      { heading: '我們的策略', paragraphs: ['採用多角色接觸策略：'], items: ['同時鎖定目标企业的采购經理、研發主管與供應鏈总监', '通过商務社交與邮箱進行多管道接觸', '撰寫技術導向的白皮書與案例作為切入素材'] },
+      { heading: '执行方式', items: ['建立北美前 50 家目标客戶的組織架構圖', '針對工程與采购角色分別設計不同的溝通內容', '利用商務社交建立專業形象與信任感'] },
+      { heading: '成果数据', items: ['成功繞過一般询盘信箱，直接與 20 多位工程主管建立聯繫', '获得多家大廠的样品测试机会', '正式進入北美供應鏈审核流程'] },
+      { heading: '关键價值', items: ['成功接觸大廠采购與技術決策角色', '缩短新供应商導入周期', '提升品牌在北美市场的專業能見度'] },
+    ],
+  },
+  packaging: {
+    slug: 'packaging',
+    title: '套件裝材料供应商',
+    industry: '套件裝材料',
+    market: '日本',
+    serviceType: '在地化內容與主动開發',
+    duration: '12個月以上',
+    cover: baseCovers.packaging,
+    proofImages: [proofImages.chart],
+    summary: '日本市场開啟率 45%、回复率 8%，成功克服語言與文化差異。',
+    result: '在地化經營與稳定回复',
+    highlights: [
+      { num: '45%', label: '開信率' },
+      { num: '8%', label: '回复率' },
+      { num: '日本', label: '在地化開發' },
+    ],
+    before: ['語言隔閡', '市场封閉', '信任建立难'],
+    after: ['日文在地化', '精准名单', '高互動率'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為軟套件裝材料供应商，希望拓展日本與东南亚市场。日本市场以封閉與重視信任著稱，過去使用英文開發效果不佳。'] },
+      { heading: '市场困境', items: ['語言障礙導致溝通不順', '日本客戶對陌生海外供应商信任度低', '缺乏精准的终端品牌客戶名单（食品、化妝品廠）'] },
+      { heading: '我們的策略', paragraphs: ['實施深度在地化的開發策略：'], items: ['建立日本食品、美妝與日用品工厂的精准名单', '由日文顧問協助潤飾開發信，確保商務禮儀與語氣自然', '強調质量檢驗标准與既有日系客戶實績，以建立信任'] },
+      { heading: '执行方式', items: ['分行业建立名单，优先鎖定中型品牌商', '使用日文進行所有書面溝通', '提供免费样品寄送服务作為破冰誘因'] },
+      { heading: '成果数据', items: ['開發信開啟率達 45%，高於常見平均水準', '回复率達到 8%，成功建立多個持续對話', '成功與數家日本化妝品品牌展開代工洽談'] },
+      { heading: '关键價值', items: ['克服文化與語言差異', '建立日系客戶的信任感', '更有效率地切入重視信任的市场'] },
+    ],
+  },
+  industrial: {
+    slug: 'industrial',
+    title: '工业材料企业',
+    industry: '化工/工业材料',
+    market: '中东',
+    serviceType: '技術型業務開發',
+    duration: '6個月',
+    cover: baseCovers.industrial,
+    proofImages: [proofImages.map],
+    summary: '触达高層決策者、進入大型客戶评估流程，建立技術銷售管道。',
+    result: '技術銷售、大型项目',
+    highlights: [
+      { num: 'Top 20', label: '目标客戶触达' },
+      { num: '稳定', label: '询盘節奏' },
+      { num: '高層', label: '直接對話' },
+    ],
+    before: ['技術門檻高', '決策鏈长', '找不到对接人'],
+    after: ['技術决策人鎖定', '專業內容营销', '進入评估流程'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為特用化學品與工业材料制造商，產品技術門檻高，目标市场為中东與东南亚的工业客戶。'] },
+      { heading: '市场困境', items: ['產品应用專業，一般采购無法快速判斷價值', '大型工业客戶決策流程極长', '难以接觸到真正的技術決策者'] },
+      { heading: '我們的策略', paragraphs: ['採用技術型業務開發方式：'], items: ['鎖定工厂廠长、製程工程師、研發总监等技術职位', '開發信內容強調效能提升與成本优化数据', '提供技術規格書與测试報告作為核心素材'] },
+      { heading: '执行方式', items: ['通过项目数据数据库找出正在擴廠或升級的目标企业', '分层開發：先技術人員确认規格，後采购人員談商務', '定期寄送行业应用案例，維持长期互動'] },
+      { heading: '成果数据', items: ['短時間內触达多位目标企业的高層決策者', '建立稳定的技術询盘来源', '成功進入兩家大型石化集團的供应商评估清单'] },
+      { heading: '关键價值', items: ['更精准地對應技術需求', '缩短冗长的技術审核時間', '建立較高門檻的技術竞争優勢'] },
+    ],
+  },
+  machinery: {
+    slug: 'machinery',
+    title: '自動化设备制造商',
+    industry: '机械设备',
+    market: '东南亚',
+    serviceType: '客戶開發與会议安排',
+    duration: '5個月',
+    cover: baseCovers.machinery,
+    proofImages: [proofImages.chart],
+    summary: '通过精准名单與電話開發，成功安排 15 場经销商会议，签约 3 家代理。',
+    result: '渠道佈局、代理签约',
+    highlights: [
+      { num: '15', label: '商務会议' },
+      { num: '3', label: '代理签约' },
+      { num: '越南/泰國', label: '市场落地' },
+    ],
+    before: ['找不到经销商', '無當地人脈', '語言不通'],
+    after: ['鎖定进口商', '電話與邮箱開發', '安排視訊会议'],
+    sections: [
+      { heading: '背景', paragraphs: ['客戶為自動化套件裝设备制造商，欲拓展越南與泰國市场，尋找當地有售後服务能力的經銷代理商。'] },
+      { heading: '市场困境', items: ['缺乏當地渠道名单，难以辨識有實力的经销商', '語言隔閡，僅靠英文開發信回复率低', '需要深入溝通才能确认對方的技術服务能力'] },
+      { heading: '我們的策略', paragraphs: ['結合名单開發與会议邀约：'], items: ['建立越南與泰國前 50 大套件裝机械进口商名单', '通过當地語言（越文與泰文）進行陌生開發電話', '目标是直接安排視訊会议，而非僅止於索取报价'] },
+      { heading: '执行方式', items: ['筛选具備維修团队的经销商', '寄送產品演示影片作為開門磚', '由 SunGene 顧問協助初步筛选意願，再安排雙方会议'] },
+      { heading: '成果数据', items: ['成功安排 15 場與潜在经销商的視訊会议', '客戶親自飛往當地拜訪其中 5 家', '最終與 3 家簽署代理合約，完成渠道佈局'] },
+      { heading: '关键價值', items: ['快速筛选優質合作夥伴', '大幅降低差旅與溝通成本', '建立穩固的售後服务网络'] },
+    ],
+  },
+}
+
+
+
 const en: Record<string, CaseContent> = {
   hardware: {
     slug: 'hardware',
@@ -308,12 +448,12 @@ const en: Record<string, CaseContent> = {
 }
 
 export function getCases(lang: Lang): CaseContent[] {
-  const d = lang === 'en' ? en : zh
+  const d = lang === 'en' ? en : (lang === 'cn' ? cn : zh)
   const order = ['hardware', 'electronics', 'packaging', 'industrial', 'machinery']
   return order.map(slug => d[slug]).filter(Boolean)
 }
 
 export function getCase(lang: Lang, slug: string): CaseContent | undefined {
-  const d = lang === 'en' ? en : zh
+  const d = lang === 'en' ? en : (lang === 'cn' ? cn : zh)
   return d[slug]
 }

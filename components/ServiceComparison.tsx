@@ -36,6 +36,7 @@ const rows: ComparisonRow[] = [
 ]
 
 export default function ServiceComparison({ lang }: { lang: Lang }) {
+  const isChinese = lang !== 'en'
   const renderCell = (cell: { zh: string; en: string } | boolean) => {
     if (typeof cell === 'boolean') {
       return cell ? (
@@ -44,7 +45,7 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
         <Minus className="w-5 h-5 text-gray-300 mx-auto" />
       )
     }
-    return lang === 'zh' ? cell.zh : cell.en
+    return isChinese ? cell.zh : cell.en
   }
 
   return (
@@ -53,16 +54,16 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
         <thead>
           <tr className="bg-gray-50 border-b border-gray-200">
             <th className="p-4 font-bold text-gray-900 w-1/4">
-              {lang === 'zh' ? '比較專案' : 'Feature'}
+              {lang === 'en' ? 'Feature' : (lang === 'cn' ? '比較项目' : '比較專案')}
             </th>
             <th className="p-4 font-bold text-blue-900 bg-blue-50 w-1/4 text-center border-t-4 border-t-blue-600">
-              {lang === 'zh' ? '外銷客戶開發' : 'Export Lead Gen'}
+              {lang === 'en' ? 'Export Lead Gen' : (lang === 'cn' ? '外贸客戶開發' : '外銷客戶開發')}
             </th>
             <th className="p-4 font-bold text-green-900 bg-green-50 w-1/4 text-center border-t-4 border-t-green-600">
-              {lang === 'zh' ? '經銷商開發' : 'Distributor Dev'}
+              {lang === 'en' ? 'Distributor Dev' : (lang === 'cn' ? '经销商開發' : '經銷商開發')}
             </th>
             <th className="p-4 font-bold text-indigo-900 bg-indigo-50 w-1/4 text-center border-t-4 border-t-indigo-600">
-              {lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing'}
+              {lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸業務外包服务' : '外銷業務外包服務')}
             </th>
           </tr>
         </thead>
@@ -70,7 +71,7 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
           {rows.map((row, index) => (
             <tr key={index} className="hover:bg-gray-50 transition-colors">
               <td className="p-4 font-medium text-gray-900">
-                {lang === 'zh' ? row.feature.zh : row.feature.en}
+                {isChinese ? row.feature.zh : row.feature.en}
               </td>
               <td className="p-4 text-center text-gray-600 bg-blue-50/30">
                 {renderCell(row.leadGen)}

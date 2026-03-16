@@ -1,6 +1,117 @@
-﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en'
+﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
 
 const dict = {
+  'cn': {
+    // Navigation
+    nav_home: '首页',
+    nav_services: '服务',
+    nav_process: '合作流程',
+    nav_cases: '成功案例',
+    nav_about: '关于我们',
+    nav_contact: '联系我们',
+    nav_industries: '行业',
+    nav_markets: '市场',
+    nav_blog: '博客',
+    nav_free_analysis: '免费市场分析',
+    cta_start: '开始开发海外客户',
+    cta_analysis: '免费市场分析',
+    cta_consult: '预约咨询',
+
+    // Hero
+    hero_title: '为你的产品找到海外买家',
+    hero_subtitle: '用可复制的方法，把外贸开发做成稳定的系统。',
+    hero_description: 'SunGene 协助企业建立海外买家名单、持续获取合格询盘，并建立海外经销渠道网络。',
+    hero_cta_start: '开始开发海外客户',
+    hero_cta_analysis: '免费市场分析',
+    home_cta_title: '立即开始你的外贸增长',
+
+    // Home - Services
+    home_service_1_title: '外贸客户开发',
+    home_service_1_desc: '协助你持续获取海外买家询盘',
+    home_service_2_title: '经销商开发',
+    home_service_2_desc: '建立海外渠道伙伴名单并推进合作',
+    home_service_3_title: '外贸业务外包服务',
+    home_service_3_desc: '你只需报价与出货，其余我们承接',
+    
+    // Home - Why Us
+    why_title: '为什么选择我们',
+    why_1: '精准客户搜索',
+    why_2: '主动市场开发',
+    why_3: '完整外贸支援',
+
+    // Home - Process
+    process_title: '合作流程',
+    process_1_title: '市场分析',
+    process_1_desc: '市场研究与优先顺序',
+    process_2_title: '买家识别',
+    process_2_desc: '建立可投递的买家名单',
+    process_3_title: '开发活动',
+    process_3_desc: '多触点开发与跟进',
+    process_4_title: '询盘交付',
+    process_4_desc: '交付可推进的合格询盘',
+
+    // Home - Cases
+    case_title: '成功案例',
+    case_cta: '查看更多案例',
+    
+    // Services Page
+    service_title: '我们的服务',
+    service_lead_gen_title: '外贸客户开发',
+    service_lead_gen_desc: '为外贸企业找海外买家并交付合格询盘',
+    service_lead_gen_sub1: '买家研究与资料验证',
+    service_lead_gen_sub2: '买家资料库与可用名单',
+    service_lead_gen_sub3: '节奏式跟进与回复分类',
+
+    service_outreach_title: '经销商开发',
+    service_outreach_desc: '建立海外渠道伙伴名单并推进合作',
+    service_outreach_sub1: '市场分层与渠道地图',
+    service_outreach_sub2: '伙伴招募与初步筛选',
+    service_outreach_sub3: '合作条件与方案框架',
+
+    service_sales_title: '外贸业务外包服务',
+    service_sales_desc: '你报价与出货，其余外贸流程我们承接',
+    service_sales_sub1: '开发与跟进节奏',
+    service_sales_sub2: '回复分类与需求确认',
+    service_sales_sub3: '合格询盘交付',
+
+    // Free Market Analysis Page
+    analysis_title: '免费海外市场分析',
+    analysis_subtitle: '提交产品信息，我们将分析海外市场、潜在买家与市场机会。此服务适合初次接触 SunGene 的企业。',
+    form_company: '公司名称',
+    form_product: '主营产品',
+    form_market: '目标市场',
+    form_email: '企业邮箱',
+    form_submit: '获取分析报告',
+    form_submitting: '提交中...',
+    form_success_title: '提交成功',
+    form_success_desc: '我们已收到您的信息，将在 48 小时内发送分析报告至您的邮箱。',
+    form_error_title: '提交失败',
+    form_error_desc: '请稍后再试，或直接联系我们。',
+    success_title: '提交成功',
+    success_message: '我们已收到您的信息，将在 48 小时内发送分析报告至您的邮箱。',
+
+    // About Page
+    about_title: '关于我们',
+    about_desc: 'SunGene 是一家专注于外贸增长的服务公司，我们不卖软件，而是直接帮企业找到买家。通过精准的名单与专业的开发流程，我们协助企业拓展全球市场。',
+    about_stats_title: '我们的成绩',
+
+    // Contact Page
+    contact_title: '联系我们',
+    contact_subtitle: '有具体合作需求？欢迎直接与我们联系。',
+    form_name: '联系人姓名',
+    form_message: '咨询内容',
+    contact_email: '电子邮件',
+    contact_whatsapp: '即时通讯',
+    contact_submit: '发送信息',
+
+    // SEO
+    meta_home_title: 'SunGene 外贸客户开发与外贸外包服务 | 外贸拓展专家',
+    meta_home_desc: 'SunGene 帮助企业开发海外客户，提供从客户名单建立、开发信撰写到询盘跟进的完整外贸外包服务。',
+    meta_keywords: '外贸客户开发, 外贸外包服务, 海外客户开发, B2B业务外包',
+    
+    // Footer
+    footer_copyright: '© 2026 SunGene 版权所有。',
+  },
   'zh': {
     // Navigation
     nav_home: '首頁',

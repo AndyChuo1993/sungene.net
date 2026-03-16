@@ -1,13 +1,14 @@
 import { t, Lang } from '@/lib/i18n'
 
 export default function ProcessSection({ lang }: { lang: Lang }) {
+  const isChinese = lang !== 'en'
   const steps = [
     {
       id: 1,
       title: t(lang, 'process_1_title'),
       desc: t(lang, 'process_1_desc'),
-      week: lang === 'zh' ? '第 1 週' : 'Week 1',
-      details: lang === 'zh' 
+      week: lang === 'en' ? 'Week 1' : (lang === 'cn' ? '第 1 週' : '第 1 週'),
+      details: isChinese 
         ? ['我們做什麼：競爭對手與價格分析', '客戶需提供：產品型錄與目標市場', '交付內容：市場可行性評估報告'] 
         : ['We do: Competitor & Price Analysis', 'You provide: Catalog & Target Market', 'Deliverable: Market Feasibility Report'],
       icon: (
@@ -18,8 +19,8 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       id: 2,
       title: t(lang, 'process_2_title'),
       desc: t(lang, 'process_2_desc'),
-      week: lang === 'zh' ? '第 2 週' : 'Week 2',
-      details: lang === 'zh' 
+      week: lang === 'en' ? 'Week 2' : (lang === 'cn' ? '第 2 週' : '第 2 週'),
+      details: isChinese 
         ? ['我們做什麼：決策人識別與資料驗證', '客戶需提供：理想客戶條件', '交付內容：精準決策人名單（試算表）'] 
         : ['We do: Decision Maker ID & Verification', 'You provide: Ideal Customer Profile', 'Deliverable: Verified Contact List (Excel)'],
       icon: (
@@ -30,8 +31,8 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       id: 3,
       title: t(lang, 'process_3_title'),
       desc: t(lang, 'process_3_desc'),
-      week: lang === 'zh' ? '第 3-6 週' : 'Week 3-6',
-      details: lang === 'zh' 
+      week: lang === 'en' ? 'Week 3-6' : (lang === 'cn' ? '第 3-6 週' : '第 3-6 週'),
+      details: isChinese 
         ? ['我們做什麼：多階段開發信與商務社群接觸', '客戶需提供：產品優勢與案例素材', '交付內容：每週開發進度報告'] 
         : ['We do: Multi-touch Email & LinkedIn Outreach', 'You provide: USP & Case Studies', 'Deliverable: Weekly Progress Reports'],
       icon: (
@@ -42,8 +43,8 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       id: 4,
       title: t(lang, 'process_4_title'),
       desc: t(lang, 'process_4_desc'),
-      week: lang === 'zh' ? '第 6 週起' : 'Week 6+',
-      details: lang === 'zh' 
+      week: lang === 'en' ? 'Week 6+' : (lang === 'cn' ? '第 6 週起' : '第 6 週起'),
+      details: isChinese 
         ? ['我們做什麼：詢價篩選、回覆與樣品跟進', '客戶需提供：報價與技術支援', '交付內容：高意向詢價與商務機會'] 
         : ['We do: Inquiry Screening & Follow-up', 'You provide: Quotation & Tech Support', 'Deliverable: High-intent Inquiries & Opportunities'],
       icon: (
@@ -58,7 +59,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
         <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{t(lang, 'process_title')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-                {lang === 'zh' ? '標準化的外銷開發週期，確保每個階段都有明確產出。' : 'Standardized export development cycle ensuring clear deliverables at every stage.'}
+                {lang === 'en' ? 'Standardized export development cycle ensuring clear deliverables at every stage.' : (lang === 'cn' ? '标准化的外贸開發周期，確保每個階段都有明確產出。' : '標準化的外銷開發週期，確保每個階段都有明確產出。')}
             </p>
         </div>
         

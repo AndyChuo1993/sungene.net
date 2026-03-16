@@ -13,16 +13,16 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const resolved = await searchParams
   const tab = resolved.tab || 'articles'
 
-  let title = lang === 'zh' ? '外銷資源中心' : 'Export Resource Center'
-  if (tab === 'industries') title = lang === 'zh' ? '產業頁精選' : 'Industry Highlights'
-  if (tab === 'markets') title = lang === 'zh' ? '市場頁精選' : 'Market Highlights'
+  let title = lang === 'en' ? 'Export Resource Center' : (lang === 'cn' ? '外贸資源中心' : '外銷資源中心')
+  if (tab === 'industries') title = lang === 'en' ? 'Industry Highlights' : (lang === 'cn' ? '行业頁精選' : '產業頁精選')
+  if (tab === 'markets') title = lang === 'en' ? 'Market Highlights' : (lang === 'cn' ? '市场頁精選' : '市場頁精選')
 
   return {
     title: `${title} | SunGene`,
-    description: lang === 'zh' ? '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。' : 'A unified content hub for export articles, industry pages, market pages, and reusable resources.',
+    description: lang === 'en' ? 'A unified content hub for export articles, industry pages, market pages, and reusable resources.' : (lang === 'cn' ? '整合文章、行业頁、市场頁與可下載素材，方便快速找到外贸開發所需內容。' : '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。'),
     openGraph: {
       title: `${title} | SunGene`,
-      description: lang === 'zh' ? '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。' : 'A unified content hub for export articles, industry pages, market pages, and reusable resources.',
+      description: lang === 'en' ? 'A unified content hub for export articles, industry pages, market pages, and reusable resources.' : (lang === 'cn' ? '整合文章、行业頁、市场頁與可下載素材，方便快速找到外贸開發所需內容。' : '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。'),
       images: ['/og/og.png'],
     },
   }
@@ -36,6 +36,7 @@ export default async function Page({
   searchParams: Promise<{ category?: string; tab?: string }>
 }) {
   const { lang } = await params
+  const isChinese = lang !== 'en'
   const resolvedSearch = await searchParams
   const tab = resolvedSearch.tab || 'articles'
 
@@ -54,7 +55,7 @@ export default async function Page({
     id: `blog-${post.slug}`,
     href: `/${lang}/blog/${post.slug}`,
     title: post.title[lang],
-    category: lang === 'zh' ? '精選文章' : 'Featured Articles',
+    category: lang === 'en' ? 'Featured Articles' : (lang === 'cn' ? '精選文章' : '精選文章'),
     date: post.date,
     excerpt: post.description[lang],
     image: post.heroImage,
@@ -74,9 +75,9 @@ export default async function Page({
   const filteredArticles = currentCategory ? allArticles.filter((a) => a.category === currentCategory) : allArticles
 
   const tabs = [
-    { id: 'articles', label: lang === 'zh' ? '精選內容' : 'Featured Content', icon: FileText },
-    { id: 'industries', label: lang === 'zh' ? '產業頁' : 'Industries', icon: LayoutGrid },
-    { id: 'markets', label: lang === 'zh' ? '市場頁' : 'Markets', icon: Globe },
+    { id: 'articles', label: lang === 'en' ? 'Featured Content' : (lang === 'cn' ? '精選內容' : '精選內容'), icon: FileText },
+    { id: 'industries', label: lang === 'en' ? 'Industries' : (lang === 'cn' ? '行业頁' : '產業頁'), icon: LayoutGrid },
+    { id: 'markets', label: lang === 'en' ? 'Markets' : (lang === 'cn' ? '市场頁' : '市場頁'), icon: Globe },
   ]
 
   return (
@@ -85,16 +86,16 @@ export default async function Page({
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="text-center lg:text-left">
-            <div className="inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-orange-200">{lang === 'zh' ? '內容入口' : 'Content Hub'}</div>
-            <h1 className="mt-5 text-4xl font-bold md:text-5xl">{lang === 'zh' ? '資源中心' : 'Resource Center'}</h1>
+            <div className="inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-orange-200">{lang === 'en' ? 'Content Hub' : (lang === 'cn' ? '內容入口' : '內容入口')}</div>
+            <h1 className="mt-5 text-4xl font-bold md:text-5xl">{lang === 'en' ? 'Resource Center' : (lang === 'cn' ? '資源中心' : '資源中心')}</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-gray-300 lg:mx-0">
-              {lang === 'zh'
+              {isChinese
                 ? '把外銷開發常用的文章、產業頁、市場頁與可下載素材集中在這裡，讓閱讀、比較與下一步行動都更順。'
                 : 'A unified hub for export articles, industry pages, market pages, and reusable resources—so discovery and next steps feel connected.'}
             </p>
           </div>
           <div className="hidden lg:block overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
-            <Image src="/illustrations/resources-hero-panel.svg" alt={lang === 'zh' ? '資源中心主視覺' : 'Resource center hero'} width={1200} height={760} className="h-auto w-full" priority />
+            <Image src="/illustrations/resources-hero-panel.svg" alt={lang === 'en' ? 'Resource center hero' : (lang === 'cn' ? '資源中心主視覺' : '資源中心主視覺')} width={1200} height={760} className="h-auto w-full" priority />
           </div>
         </div>
       </section>
@@ -128,14 +129,14 @@ export default async function Page({
             <div className="grid gap-12 lg:grid-cols-12">
               <div className="space-y-8 lg:col-span-3">
                 <div className="sticky top-40 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                  <h3 className="mb-4 border-b border-gray-100 pb-2 font-bold text-gray-900">{lang === 'zh' ? '分類別瀏覽' : 'Categories'}</h3>
+                  <h3 className="mb-4 border-b border-gray-100 pb-2 font-bold text-gray-900">{lang === 'en' ? 'Categories' : (lang === 'cn' ? '分类瀏覽' : '分類別瀏覽')}</h3>
                   <ul className="space-y-3">
                     <li>
                       <Link
                         href={`/${lang}/resources?tab=articles`}
                         className={`flex items-center justify-between transition ${!currentCategory ? 'font-medium text-orange-600' : 'text-gray-600 hover:text-orange-600'}`}
                       >
-                        <span>{lang === 'zh' ? '全部內容' : 'All Content'}</span>
+                        <span>{lang === 'en' ? 'All Content' : (lang === 'cn' ? '全部內容' : '全部內容')}</span>
                         <span className={`rounded-full px-2 py-1 text-xs ${!currentCategory ? 'bg-orange-50 text-orange-600' : 'bg-gray-100 text-gray-400'}`}>{allArticles.length}</span>
                       </Link>
                     </li>
@@ -161,16 +162,16 @@ export default async function Page({
                 <div className="mb-8 grid gap-6 rounded-3xl border border-orange-100 bg-orange-50/70 p-6 md:grid-cols-3">
                   {[
                     {
-                      title: lang === 'zh' ? '文章先帶路' : 'Articles first',
-                      desc: lang === 'zh' ? '如果下載素材還不多，就先用精選文章承接讀者。' : 'When downloadable assets are limited, featured articles keep the hub useful.',
+                      title: lang === 'en' ? 'Articles first' : (lang === 'cn' ? '文章先帶路' : '文章先帶路'),
+                      desc: lang === 'en' ? 'When downloadable assets are limited, featured articles keep the hub useful.' : (lang === 'cn' ? '如果下載素材還不多，就先用精選文章承接讀者。' : '如果下載素材還不多，就先用精選文章承接讀者。'),
                     },
                     {
-                      title: lang === 'zh' ? '搭配產業 / 市場頁' : 'Pair with industries / markets',
-                      desc: lang === 'zh' ? '把文章閱讀延伸到產業頁與市場頁，補足買家語境。' : 'Extend article reading into industry and market context.',
+                      title: lang === 'en' ? 'Pair with industries / markets' : (lang === 'cn' ? '搭配行业 / 市场頁' : '搭配產業 / 市場頁'),
+                      desc: lang === 'en' ? 'Extend article reading into industry and market context.' : (lang === 'cn' ? '把文章閱讀延伸到行业頁與市场頁，补足买家語境。' : '把文章閱讀延伸到產業頁與市場頁，補足買家語境。'),
                     },
                     {
-                      title: lang === 'zh' ? '最後回到行動' : 'End with action',
-                      desc: lang === 'zh' ? '最終可銜接免費市場分析與聯絡表單。' : 'Guide readers back to analysis requests or contact forms.',
+                      title: lang === 'en' ? 'End with action' : (lang === 'cn' ? '最後回到行動' : '最後回到行動'),
+                      desc: lang === 'en' ? 'Guide readers back to analysis requests or contact forms.' : (lang === 'cn' ? '最終可銜接免费市场分析與联系表單。' : '最終可銜接免費市場分析與聯絡表單。'),
                     },
                   ].map((item) => (
                     <div key={item.title} className="rounded-2xl border border-white bg-white p-5 shadow-sm">
@@ -203,13 +204,13 @@ export default async function Page({
                             </div>
                             <h3 className="mb-3 text-xl font-bold text-gray-900 transition group-hover:text-orange-600">{post.title}</h3>
                             <p className="mb-4 line-clamp-3 flex-grow text-gray-600">{post.excerpt}</p>
-                            <span className="text-sm font-bold text-orange-600">{lang === 'zh' ? '繼續閱讀' : 'Continue reading'} →</span>
+                            <span className="text-sm font-bold text-orange-600">{lang === 'en' ? 'Continue reading' : (lang === 'cn' ? '繼續閱讀' : '繼續閱讀')} →</span>
                           </div>
                         </div>
                       </Link>
                     ))
                   ) : (
-                    <div className="col-span-full py-12 text-center text-gray-500">{lang === 'zh' ? '此分類別暫無內容' : 'No content found in this category'}</div>
+                    <div className="col-span-full py-12 text-center text-gray-500">{lang === 'en' ? 'No content found in this category' : (lang === 'cn' ? '此分类暫無內容' : '此分類別暫無內容')}</div>
                   )}
                 </div>
               </div>
@@ -228,7 +229,7 @@ export default async function Page({
                       {ind.h1[lang].replace('外銷客戶開發', '').replace('Export Lead Generation for ', '')}
                     </h3>
                     <p className="mb-6 line-clamp-3 flex-grow text-gray-600">{ind.description[lang]}</p>
-                    <div className="text-sm font-bold text-blue-600">{lang === 'zh' ? '查看產業頁' : 'View guide'} →</div>
+                    <div className="text-sm font-bold text-blue-600">{lang === 'en' ? 'View guide' : (lang === 'cn' ? '查看行业頁' : '查看產業頁')} →</div>
                   </div>
                 </Link>
               ))}
@@ -247,7 +248,7 @@ export default async function Page({
                       {mkt.h1[lang].replace('市場外銷客戶開發', '').replace('Market Export Lead Generation', '')}
                     </h3>
                     <p className="mb-6 line-clamp-3 flex-grow text-gray-600">{mkt.description[lang]}</p>
-                    <div className="text-sm font-bold text-green-600">{lang === 'zh' ? '查看市場頁' : 'View page'} →</div>
+                    <div className="text-sm font-bold text-green-600">{lang === 'en' ? 'View page' : (lang === 'cn' ? '查看市场頁' : '查看市場頁')} →</div>
                   </div>
                 </Link>
               ))}

@@ -1,17 +1,19 @@
 import { Lang } from '@/lib/i18n'
 import ServiceSeoPage from '@/components/ServiceSeoPage'
 import { coreServices } from '@/data/coreServices'
+import { cnText } from '@/lib/cnText'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const service = coreServices.exportSalesOutsourcing
   const path = service.path || '/services/export-sales-outsourcing'
   return {
-    title: service.title[lang],
-    description: service.description[lang],
+    title: cnText(lang, service.title[lang]),
+    description: cnText(lang, service.description[lang]),
     alternates: {
       canonical: `/${lang}${path}`,
       languages: {
+        cn: `/zh${path}`,
         zh: `/zh${path}`,
         en: `/en${path}`,
         'x-default': `/en${path}`,

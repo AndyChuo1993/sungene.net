@@ -2,16 +2,17 @@ import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
 
 export default function ServicesPreview({ lang }: { lang: Lang }) {
+  const isChinese = lang !== 'en'
   const services = [
     {
       id: 1,
-      title: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
+      title: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客戶開發' : '外銷客戶開發'),
       desc:
-        lang === 'zh'
+        isChinese
           ? '為製造商建立海外買家名單並交付可跟進的詢價'
           : 'Verified buyer lists and qualified inquiries for manufacturers',
       items:
-        lang === 'zh'
+        isChinese
           ? ['買家名單整理與驗證', '電子郵件與商務社群開發節奏', '合格詢價交付']
           : ['Verified buyer list building', 'Email / LinkedIn cadence', 'Qualified inquiry handoff'],
       link: `/${lang}/services/export-lead-generation`,
@@ -23,13 +24,13 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 2,
-      title: lang === 'zh' ? '經銷商開發' : 'Distributor Development',
+      title: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商開發' : '經銷商開發'),
       desc:
-        lang === 'zh'
+        isChinese
           ? '協助你找到海外通路夥伴並推進合作條件'
           : 'Build a distributor pipeline with terms and market mapping',
       items:
-        lang === 'zh'
+        isChinese
           ? ['市場分層與通路地圖', '候選夥伴清單', '合作條件與會議推進']
           : ['Market tiers and channel mapping', 'Partner shortlist', 'Terms and meeting progression'],
       link: `/${lang}/services/distributor-development`,
@@ -41,13 +42,13 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing',
+      title: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸業務外包服务' : '外銷業務外包服務'),
       desc:
-        lang === 'zh'
+        isChinese
           ? '你專注報價與出貨，其餘開發與跟進交給我們'
           : 'You quote and ship. We run the outreach and follow-up system.',
       items:
-        lang === 'zh'
+        isChinese
           ? ['前段開發與跟進外包', '回覆分類別與需求整理', '建立可複製的標準作業流程']
           : ['Managed outreach and follow-ups', 'Reply triage and qualification', 'Repeatable SOP'],
       link: `/${lang}/services/export-sales-outsourcing`,
@@ -65,7 +66,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">{t(lang, 'service_title')}</h2>
           <p className="mx-auto max-w-2xl text-xl text-gray-500">
-            {lang === 'zh'
+            {isChinese
               ? '從買家名單、主動開發到詢價交付，讓外銷增長變成可追蹤流程'
               : 'From buyer research to outreach and inquiry delivery, built as a trackable export workflow'}
           </p>
@@ -88,7 +89,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
                 ))}
               </ul>
               <Link href={s.link} className="inline-block border-b-2 border-transparent pb-0.5 font-bold text-gray-900 transition group-hover:border-blue-600">
-                {lang === 'zh' ? '了解更多' : 'Learn More'} →
+                {lang === 'en' ? 'Learn More' : (lang === 'cn' ? '了解更多' : '了解更多')} →
               </Link>
             </div>
           ))}

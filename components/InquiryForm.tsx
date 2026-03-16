@@ -44,6 +44,7 @@ export default function InquiryForm({
   errorTitle,
   errorDesc
 }: InquiryFormProps) {
+  const isChinese = lang !== 'en'
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'email_error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -150,7 +151,7 @@ export default function InquiryForm({
           onClick={() => setStatus('idle')}
           className="mt-6 text-blue-600 font-medium hover:underline"
         >
-          {lang === 'zh' ? '再次提交需求' : 'Submit another request'}
+          {lang === 'en' ? 'Submit another request' : (lang === 'cn' ? '再次提交需求' : '再次提交需求')}
         </button>
       </div>
     )
@@ -205,7 +206,7 @@ export default function InquiryForm({
 
       {status === 'email_error' && (
         <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
-          <strong>{lang === 'zh' ? '電子郵件格式錯誤' : 'Invalid Email'}</strong>: {lang === 'zh' ? '請輸入有效的電子郵件地址。' : 'Please enter a valid email address.'}
+          <strong>{lang === 'en' ? 'Invalid Email' : (lang === 'cn' ? '邮箱格式错误' : '電子郵件格式錯誤')}</strong>: {lang === 'en' ? 'Please enter a valid email address.' : (lang === 'cn' ? '请输入有效的邮箱地址。' : '請輸入有效的電子郵件地址。')}
         </div>
       )}
 
@@ -220,7 +221,7 @@ export default function InquiryForm({
       </div>
       
       <p className="text-xs text-center text-gray-400 mt-4">
-        {lang === 'zh' 
+        {isChinese 
           ? '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。'
           : 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
       </p>

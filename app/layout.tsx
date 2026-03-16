@@ -14,7 +14,7 @@ export default async function RootLayout({
 }) {
   const h = await headers()
   const lang = h.get('x-lang')
-  const htmlLang = lang === 'en' ? 'en' : 'zh-Hant'
+  const htmlLang = lang === 'en' ? 'en' : (lang === 'cn' ? 'zh-Hans' : 'zh-Hant')
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>

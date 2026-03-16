@@ -786,5 +786,399 @@
       }
     ],
     "lang": "en"
+  },
+  {
+    "id": "export-client-development-process-guide",
+    "title": "外贸客戶開發完整流程（B2B企业指南）",
+    "category": "外贸開發指南",
+    "date": "2026-03-10",
+    "image": "/articles/lead-gen-guide.svg",
+    "content": [
+      "對許多製造企业來說，外贸業務最大的挑战不是產品，而是客戶開發。",
+      "許多公司嘗試過 Alibaba、展会、Google、LinkedIn，但最後仍然發現询盘不稳定、客戶质量參差不齊。",
+      "其實成功的外贸開發通常遵循一套清晰流程。本文將介紹 B2B 外贸客戶開發的完整流程。"
+    ],
+    "sections": [
+      {
+        "heading": "一、市场分析",
+        "content": [
+          "第一步不是寄信，而是市场分析。",
+          "需要确认：目标市场、主要买家类别型、竞争品牌、價格區間。",
+          "例如：五金工具企业可能鎖定歐洲、北美、中东，並研究當地的经销商、进口商與品牌商。",
+          "市场分析的目的，是避免盲目開發。"
+        ]
+      },
+      {
+        "heading": "二、建立买家名单",
+        "content": [
+          "下一步是建立 Buyer List (买家名单)。",
+          "买家来源通常包括：Google、LinkedIn、展会名单、海關数据、行业名录。",
+          "一份好的买家名单通常包含：公司名稱、國家、網站、采购职位、Email、LinkedIn。",
+          "對 B2B 企业而言，名单质量遠比名单數量重要。"
+        ]
+      },
+      {
+        "heading": "三、開發信策略",
+        "content": [
+          "許多外贸開發失敗，是因為開發信寫錯。",
+          "錯誤範例：「We are a professional manufacturer. We have 20 years experience. We hope to cooperate with you.」這種內容對买家沒有價值。",
+          "有效的開發信應該：簡短、具體、有價值。",
+          "例如：「We noticed your company distributes industrial fasteners in Germany. Our factory produces DIN standard bolts for European distributors and currently supplies several EU importers. If you are looking for alternative suppliers in Asia, we would be happy to share product specs and pricing.」"
+        ]
+      },
+      {
+        "heading": "四、持续跟进",
+        "content": [
+          "大部分询盘來自第 3–5 次跟进。",
+          "跟进方式包括：Email、LinkedIn、電話。",
+          "关键原則是：提供新信息，不要只是追問。",
+          "例如提供：產品案例、價格更新、市场信息。"
+        ]
+      },
+      {
+        "heading": "五、询盘轉化",
+        "content": [
+          "當客戶回复後，外贸流程才真正開始。",
+          "接下來需要：报价、样品、谈判、訂單。",
+          "這個階段通常需要：快速回复、清楚文件、專業溝通。"
+        ]
+      },
+      {
+        "heading": "結論",
+        "content": [
+          "成功的外贸客戶開發並不是隨机寄信，而是一套系統：市场分析 → 买家名单 → 開發信 → 跟进 → 询盘轉化。",
+          "對許多企业而言，建立這套系統需要時間與資源。如果企业缺乏外贸团队，也可以考慮外贸開發服务。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "how-to-build-overseas-buyer-list",
+    "title": "如何建立海外买家名单（B2B企业指南）",
+    "category": "外贸開發指南",
+    "date": "2026-03-12",
+    "image": "/articles/lead-gen-guide.svg",
+    "content": [
+      "在外贸客戶開發中，最重要的资产之一就是买家名单。沒有精准名单，就無法進行有效開發。",
+      "許多企业常見的問題包括：名单质量低、Email 錯誤、买家不是決策者。",
+      "因此建立高质量 Buyer List 是外贸開發的核心。"
+    ],
+    "sections": [
+      {
+        "heading": "一、Google 搜尋",
+        "content": [
+          "Google 是最常見的买家来源。",
+          "例如搜尋：「industrial fasteners distributor germany」或「packaging materials importer europe」。",
+          "你可以找到：经销商、进口商、品牌商。"
+        ]
+      },
+      {
+        "heading": "二、LinkedIn",
+        "content": [
+          "LinkedIn 是 B2B 開發的重要工具。",
+          "可以搜尋：Purchasing manager、Sourcing manager、Procurement manager。",
+          "並筛选：Industry、Location、Company size。",
+          "這可以幫助找到真正的決策者。"
+        ]
+      },
+      {
+        "heading": "三、展会名单",
+        "content": [
+          "許多國際展会會公開 Exhibitor list 或 Visitor list。",
+          "例如：Hannover Messe、Canton Fair、Interpack。",
+          "這些名单通常包含大量潜在买家。"
+        ]
+      },
+      {
+        "heading": "四、海關数据",
+        "content": [
+          "海關数据可以看到：进口商、產品类别型、交易量。",
+          "這對於找到「真實买家」非常有價值。"
+        ]
+      },
+      {
+        "heading": "五、行业名录",
+        "content": [
+          "許多行业协会提供企业名录，例如：European trade directories、Industry associations、Chamber of commerce。",
+          "這些数据通常比一般搜尋更精准。"
+        ]
+      },
+      {
+        "heading": "結論",
+        "content": [
+          "建立海外买家名单的主要来源包括：Google、LinkedIn、展会、海關数据、行业名录。",
+          "通过系統化整理，企业可以建立稳定的客戶開發流程。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "cold-email-writing-tips",
+    "title": "B2B 開發信怎麼寫？提高回复率的 5 個技巧",
+    "category": "外贸開發指南",
+    "date": "2026-03-13",
+    "image": "/articles/cold-email-structure.svg",
+    "content": [
+      "許多外贸企业每天寄出大量開發信，但回复率卻非常低。常見原因包括：郵件內容過於泛泛、沒有針對买家需求、开场沒有吸引力、郵件過长。",
+      "對 B2B 采购來說，一封陌生郵件通常只會花幾秒鐘掃過。因此開發信需要做到簡短、清楚、有價值。"
+    ],
+    "sections": [
+      {
+        "heading": "技巧一：用研究過的开场",
+        "content": [
+          "不要使用：「We are a professional manufacturer.」這種开场沒有任何價值。",
+          "更好的方式是：「We noticed your company distributes industrial fasteners in Germany.」",
+          "這代表你：了解對方公司、做過基本研究。這樣會大幅提高閱讀机率。"
+        ]
+      },
+      {
+        "heading": "技巧二：說明具體價值",
+        "content": [
+          "买家真正關心的是：價格、质量、供應能力、交期。",
+          "因此開發信應該說明：產品優勢、已合作客戶类别型、市场經驗。",
+          "例如：「Our factory currently supplies several European distributors with DIN standard bolts.」"
+        ]
+      },
+      {
+        "heading": "技巧三：保持簡短",
+        "content": [
+          "最佳開發信长度：80–120 字。過长郵件通常會被忽略。",
+          "建議結構：开场、價值、簡短 CTA。"
+        ]
+      },
+      {
+        "heading": "技巧四：加入清楚 CTA",
+        "content": [
+          "不要只寫：「Hope to cooperate with you.」",
+          "應該提出清楚行動：「Would you be interested in reviewing our product catalogue?」"
+        ]
+      },
+      {
+        "heading": "技巧五：持续跟进",
+        "content": [
+          "大多數回复來自：第 3–5 封郵件。",
+          "跟进內容可以包括：新產品、案例、市场信息。"
+        ]
+      },
+      {
+        "heading": "結論",
+        "content": [
+          "成功的開發信通常具備：研究過的开场、清楚價值、簡短內容、明確 CTA、持续跟进。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "cold-email-common-mistakes",
+    "title": "外贸開發信常見錯誤（90% 企业都犯）",
+    "category": "外贸開發指南",
+    "date": "2026-03-14",
+    "image": "/articles/cold-email-mistakes.svg",
+    "content": [
+      "外贸開發信為何沒有回复？本文整理最常見的 5 個錯誤與改善方式。"
+    ],
+    "sections": [
+      {
+        "heading": "錯誤一：只介紹公司",
+        "content": [
+          "很多開發信內容是：「We are a manufacturer with 20 years experience.」",
+          "這對买家沒有價值。买家關心的是：能否解決問題。"
+        ]
+      },
+      {
+        "heading": "錯誤二：沒有研究买家",
+        "content": [
+          "寄出與對方業務無關的郵件，是最常見問題。例如：向经销商推銷 OEM。"
+        ]
+      },
+      {
+        "heading": "錯誤三：郵件太长",
+        "content": [
+          "許多郵件长達 300–500 字，但采购通常只會閱讀 10 秒。"
+        ]
+      },
+      {
+        "heading": "錯誤四：沒有 CTA",
+        "content": [
+          "如果沒有明確行動，买家通常不會回复。"
+        ]
+      },
+      {
+        "heading": "錯誤五：沒有跟进",
+        "content": [
+          "很多企业寄一封信就停止。但實際上：回复通常來自第 3 封之後。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "europe-market-guide",
+    "title": "歐洲市场開發指南",
+    "category": "市场分析",
+    "date": "2026-03-01",
+    "image": "/articles/market-eu.svg",
+    "content": [
+      "歐洲是全球重要的工业市场。特點包括：质量要求高、法規嚴格、长期合作。"
+    ],
+    "sections": [
+      {
+        "heading": "歐洲主要买家类别型",
+        "content": [
+          "进口商、经销商、品牌商、OEM。"
+        ]
+      },
+      {
+        "heading": "歐洲市场開發方法",
+        "content": [
+          "展会：例如 Hannover Messe, Interpack。",
+          "LinkedIn：LinkedIn 在歐洲使用率高。",
+          "Email Outreach：仍然是最有效方式之一。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "north-america-market-guide",
+    "title": "北美市场開發指南",
+    "category": "市场分析",
+    "date": "2026-03-02",
+    "image": "/articles/market-na.svg",
+    "content": [
+      "北美市场特點：市场规模大、品牌竞争激烈、质量與服务要求高。"
+    ],
+    "sections": [
+      {
+        "heading": "常見买家",
+        "content": [
+          "Distributor, Importer, Retail brand。"
+        ]
+      },
+      {
+        "heading": "開發方法",
+        "content": [
+          "Google, LinkedIn, Trade shows, Email outreach。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "japan-market-guide",
+    "title": "日本市场開發指南",
+    "category": "市场分析",
+    "date": "2026-03-03",
+    "image": "/articles/market-jp.svg",
+    "content": [
+      "日本市场的特點：质量要求極高、信任建立慢、合作稳定。"
+    ],
+    "sections": [
+      {
+        "heading": "開發重点",
+        "content": [
+          "產品质量、文件完整、长期關係。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "southeast-asia-market-guide",
+    "title": "东南亚市场開發指南",
+    "category": "市场分析",
+    "date": "2026-03-04",
+    "image": "/articles/lead-gen-guide.svg",
+    "content": [
+      "东南亚市场：成长快速、價格敏感、市场多樣。"
+    ],
+    "sections": [
+      {
+        "heading": "熱門市场",
+        "content": [
+          "越南、泰國、印尼、馬來西亞。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "hardware-market-analysis",
+    "title": "五金工具外贸市场分析",
+    "category": "行业分析",
+    "date": "2026-03-05",
+    "image": "/articles/industry-hardware.svg",
+    "content": [
+      "全球五金市场需求主要來自：建築、工业、DIY。"
+    ],
+    "sections": [
+      {
+        "heading": "主要進口市场",
+        "content": [
+          "美国、德国、英國、加拿大。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "electronics-market-analysis",
+    "title": "電子零部件外贸市场",
+    "category": "行业分析",
+    "date": "2026-03-06",
+    "image": "/articles/industry-electronics.svg",
+    "content": [
+      "電子零部件市场特點：更新速度快、價格竞争激烈、技術要求高。"
+    ],
+    "sections": [
+      {
+        "heading": "主要市场",
+        "content": [
+          "北美、歐洲、日本、韓國。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "packaging-market-analysis",
+    "title": "套件裝材料外贸市场",
+    "category": "行业分析",
+    "date": "2026-03-07",
+    "image": "/articles/industry-packaging.svg",
+    "content": [
+      "需求來自：食品、電商、物流。"
+    ],
+    "sections": [
+      {
+        "heading": "熱門產品",
+        "content": [
+          "紙箱、塑膠套件裝、環保包材。"
+        ]
+      }
+    ],
+    "lang": "cn"
+  },
+  {
+    "id": "industrial-materials-market-analysis",
+    "title": "工业材料外贸市场",
+    "category": "行业分析",
+    "date": "2026-03-08",
+    "image": "/articles/lead-gen-guide.svg",
+    "content": [
+      "主要需求：金屬材料、化工材料、建築材料。"
+    ],
+    "sections": [
+      {
+        "heading": "主要市场",
+        "content": [
+          "歐洲、北美、中东。"
+        ]
+      }
+    ],
+    "lang": "cn"
   }
 ]

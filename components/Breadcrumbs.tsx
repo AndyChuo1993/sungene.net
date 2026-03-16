@@ -32,7 +32,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       <ol className="flex items-center space-x-2 text-sm text-gray-500">
         <li>
           <Link href={`/${lang}`} className="hover:text-blue-600 transition">
-            {lang === 'zh' ? '首頁' : 'Home'}
+            {lang === 'en' ? 'Home' : (lang === 'cn' ? '首页' : '首頁')}
           </Link>
         </li>
         {items.map((item, index) => (

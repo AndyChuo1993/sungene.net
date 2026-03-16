@@ -12,30 +12,30 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
     { href: `/${lang}/markets`, label: t(lang, 'nav_markets') },
     { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
-    { href: `/${lang}/resources`, label: lang === 'zh' ? '資源中心' : 'Resources' },
-    { href: `/${lang}/blog`, label: lang === 'zh' ? '部落格' : 'Blog' },
+    { href: `/${lang}/resources`, label: lang === 'en' ? 'Resources' : (lang === 'cn' ? '資源中心' : '資源中心') },
+    { href: `/${lang}/blog`, label: lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
   const serviceLinks = [
     {
       href: `/${lang}/services/export-lead-generation`,
-      label: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
+      label: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客戶開發' : '外銷客戶開發'),
     },
     {
       href: `/${lang}/services/distributor-development`,
-      label: lang === 'zh' ? '經銷商開發' : 'Distributor Development',
+      label: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商開發' : '經銷商開發'),
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      label: lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing',
+      label: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸業務外包服务' : '外銷業務外包服務'),
     },
   ]
 
   return (
     <>
       <a href="#page-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-blue-900 focus:px-4 focus:py-2 focus:text-white">
-        {lang === 'zh' ? '跳到主要內容' : 'Skip to content'}
+        {lang === 'en' ? 'Skip to content' : (lang === 'cn' ? '跳到主要內容' : '跳到主要內容')}
       </a>
       <header className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
@@ -53,7 +53,7 @@ export default function Header({ lang }: { lang: Lang }) {
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
-            <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'zh' ? 'EN' : '繁中'}</span>}>
+            <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'en' ? '繁中' : '英'}</span>}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
             <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-800">
@@ -63,12 +63,12 @@ export default function Header({ lang }: { lang: Lang }) {
 
           <details className="group relative lg:hidden">
             <summary className="flex cursor-pointer list-none items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 transition hover:border-blue-200 hover:text-blue-900">
-              <span>{lang === 'zh' ? '選單' : 'Menu'}</span>
+              <span>{lang === 'en' ? 'Menu' : (lang === 'cn' ? '選單' : '選單')}</span>
               <span className="text-xs text-gray-400 transition group-open:rotate-180">▾</span>
             </summary>
             <div className="absolute right-0 mt-3 w-[min(22rem,calc(100vw-3rem))] rounded-xl border border-gray-200 bg-white p-4 shadow-xl">
               <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-4">
-                <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'zh' ? 'EN' : '繁中'}</span>}>
+                <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'en' ? '繁中' : '英'}</span>}>
                   <LanguageSwitcher lang={lang} />
                 </Suspense>
                 <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800">

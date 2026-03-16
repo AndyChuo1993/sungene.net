@@ -5,13 +5,14 @@ import { getCase, getCases } from '@/data/cases'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const langs = ['en', 'zh'] as const
+  const langs = ['en', 'zh', 'cn'] as const
   return getCases('en').flatMap((c) => langs.map((lang) => ({ lang, slug: c.slug })))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const item = getCase(lang, slug)
+  const dataLang = lang === 'cn' ? 'zh' : lang
+  const item = getCase(dataLang, slug)
   if (!item) return { title: 'Not Found' }
   return {
     title: `${item.title} | SunGene`,
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const item = getCase(lang, slug)
+  const dataLang = lang === 'cn' ? 'zh' : lang
+  const item = getCase(dataLang, slug)
 
   if (!item) {
     notFound()
@@ -43,15 +45,15 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">{item.title}</h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-300">{item.summary}</p>
           <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
-            {lang === 'zh' ? '此頁為代表性案例情境，內容已做去識別化整理，用於說明常見合作流程、執行方式與成果範圍。' : 'This page is a representative case scenario. Details have been anonymized to illustrate common workflows, execution methods, and result ranges.'}
+            {lang === 'en' ? 'This page is a representative case scenario. Details have been anonymized to illustrate common workflows, execution methods, and result ranges.' : (lang === 'cn' ? '此頁為代表性案例场景，內容已做去識別化整理，用於說明常見合作流程、执行方式與成果範圍。' : '此頁為代表性案例情境，內容已做去識別化整理，用於說明常見合作流程、執行方式與成果範圍。')}
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-medium text-gray-400">
             <div className="flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-4 py-2">
-              <span className="mr-2 text-blue-400">●</span> {lang === 'zh' ? '服務類別型' : 'Service'}: {item.serviceType}
+              <span className="mr-2 text-blue-400">●</span> {lang === 'en' ? 'Service' : (lang === 'cn' ? '服务类别型' : '服務類別型')}: {item.serviceType}
             </div>
             <div className="flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-4 py-2">
-              <span className="mr-2 text-green-400">●</span> {lang === 'zh' ? '合作週期' : 'Engagement'}: {item.duration}
+              <span className="mr-2 text-green-400">●</span> {lang === 'en' ? 'Engagement' : (lang === 'cn' ? '合作周期' : '合作週期')}: {item.duration}
             </div>
           </div>
 
@@ -86,13 +88,13 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
         <div className="mx-auto max-w-3xl space-y-16 px-6">
           {item.before && item.after && (
             <div className="rounded-sm border border-gray-200 bg-white p-8 shadow-sm">
-              <h3 className="mb-8 text-center text-2xl font-bold">{lang === 'zh' ? '合作前後對比' : 'Before & After'}</h3>
+              <h3 className="mb-8 text-center text-2xl font-bold">{lang === 'en' ? 'Before & After' : (lang === 'cn' ? '合作前後對比' : '合作前後對比')}</h3>
               <div className="relative grid gap-12 md:grid-cols-2">
                 <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gray-200 md:block"></div>
                 <div>
                   <div className="mb-4 flex items-center font-bold uppercase tracking-wide text-red-500">
                     <span className="mr-2 h-2 w-2 rounded-full bg-red-500"></span>
-                    {lang === 'zh' ? '合作前' : 'Before'}
+                    {lang === 'en' ? 'Before' : (lang === 'cn' ? '合作前' : '合作前')}
                   </div>
                   <ul className="space-y-3">
                     {item.before.map((point, i) => (
@@ -106,7 +108,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                 <div>
                   <div className="mb-4 flex items-center font-bold uppercase tracking-wide text-green-500">
                     <span className="mr-2 h-2 w-2 rounded-full bg-green-500"></span>
-                    {lang === 'zh' ? '合作後' : 'After'}
+                    {lang === 'en' ? 'After' : (lang === 'cn' ? '合作後' : '合作後')}
                   </div>
                   <ul className="space-y-3">
                     {item.after.map((point, i) => (

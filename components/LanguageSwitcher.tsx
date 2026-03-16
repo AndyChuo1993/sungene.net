@@ -7,29 +7,50 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
   const searchParams = useSearchParams()
   const router = useRouter()
 
-  const toggle = () => {
+  const switchLang = (targetLang: string) => {
     if (!pathname) return
+    const segments = pathname.split('/').filter(Boolean)
+    // segments[0] is usually lang (e.g. 'en', 'zh', 'cn')
+    // But pathname starts with / so split gives ['', 'en', ...]
+    // Let's use robust logic.
+    
+    // Check if first segment is a known lang
+    const knownLangs = ['en', 'zh', 'cn']
+    let newPath = pathname
+    if (knownLangs.includes(segments[0])) {
+      segments[0] = targetLang
+      newPath = '/' + segments.join('/')
+    } else {
+      // Maybe no lang prefix? (should not happen in this app structure)
+      newPath = `/${targetLang}${pathname}`
+    }
 
-    const segments = pathname.split('/')
-    const currentLang = segments[1]
-    const targetLang = currentLang === 'zh' ? 'en' : 'zh'
-
-    segments[1] = targetLang
-    const nextPath = segments.join('/') || `/${targetLang}`
     const query = searchParams?.toString()
-
-    router.push(query ? `${nextPath}?${query}` : nextPath)
+    router.push(query ? `${newPath}?${query}` : newPath)
   }
 
   return (
-    <button
-      onClick={toggle}
-      type="button"
-      className="text-sm font-medium text-gray-600 transition hover:text-blue-900"
-      aria-label={lang === 'zh' ? '切換到英文' : 'Switch to Traditional Chinese'}
-      title={lang === 'zh' ? '切換到英文' : 'Switch to Traditional Chinese'}
-    >
-      {lang === 'zh' ? 'EN' : '繁中'}
-    </button>
+    <div className="flex gap-3 text-sm font-medium text-gray-600">
+      <button 
+        onClick={() => switchLang('en')}
+        className={`transition hover:text-blue-900 ${lang === 'en' ? 'text-blue-900 font-bold' : ''}`}
+      >
+        英
+      </button>
+      <span className="text-gray-300">|</span>
+      <button 
+        onClick={() => switchLang('zh')}
+        className={`transition hover:text-blue-900 ${lang === 'zh' ? 'text-blue-900 font-bold' : ''}`}
+      >
+        繁
+      </button>
+      <span className="text-gray-300">|</span>
+      <button 
+        onClick={() => switchLang('cn')}
+        className={`transition hover:text-blue-900 ${lang === 'cn' ? 'text-blue-900 font-bold' : ''}`}
+      >
+        简
+      </button>
+    </div>
   )
 }

@@ -15,7 +15,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
           <div className="mx-auto max-w-5xl lg:mx-0">
             <div className="mb-6 inline-block rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5">
               <span className="text-sm font-bold uppercase tracking-wide text-blue-800">
-                {lang === 'zh' ? '專為外銷企業建立' : 'Designed for Enterprises'}
+                {lang === 'en' ? 'Designed for Enterprises' : (lang === 'cn' ? '專為外贸企业建立' : '專為外銷企業建立')}
               </span>
             </div>
 
@@ -43,24 +43,24 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             </div>
 
             <div className="mt-8 flex justify-center gap-4">
-              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '適合外銷企業與業務團隊' : 'Built for manufacturers and export teams'}</span>
-              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '買家名單、開發信、詢問交付' : 'Lists, Outreach, Leads'}</span>
-              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '流程可追蹤' : 'Trackable process'}</span>
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'en' ? 'Built for manufacturers and export teams' : (lang === 'cn' ? '適合外贸企业與業務团队' : '適合外銷企業與業務團隊')}</span>
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'en' ? 'Lists, Outreach, Leads' : (lang === 'cn' ? '买家名单、開發信、詢問交付' : '買家名單、開發信、詢問交付')}</span>
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'en' ? 'Trackable process' : (lang === 'cn' ? '流程可追踪' : '流程可追蹤')}</span>
             </div>
 
             <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
               {[
                 {
-                  title: lang === 'zh' ? '已服務超過 50 家企業' : 'Serving 50+ enterprises',
-                  desc: lang === 'zh' ? '聚焦外銷企業與業務團隊的實際開發需求。' : 'Built around the real needs of export enterprises and teams.',
+                  title: lang === 'en' ? 'Serving 50+ enterprises' : (lang === 'cn' ? '已服务超過 50 家企业' : '已服務超過 50 家企業'),
+                  desc: lang === 'en' ? 'Built around the real needs of export enterprises and teams.' : (lang === 'cn' ? '聚焦外贸企业與業務团队的實際開發需求。' : '聚焦外銷企業與業務團隊的實際開發需求。'),
                 },
                 {
-                  title: lang === 'zh' ? '專注企業外銷開發' : 'Focused on export growth',
-                  desc: lang === 'zh' ? '從買家名單、開發節奏到詢問交付，流程可追蹤。' : 'Trackable workflow from target lists to outreach and handoff.',
+                  title: lang === 'en' ? 'Focused on export growth' : (lang === 'cn' ? '专注企业外贸開發' : '專注企業外銷開發'),
+                  desc: lang === 'en' ? 'Trackable workflow from target lists to outreach and handoff.' : (lang === 'cn' ? '從买家名单、開發節奏到詢問交付，流程可追踪。' : '從買家名單、開發節奏到詢問交付，流程可追蹤。'),
                 },
                 {
-                  title: lang === 'zh' ? '全球市場落地' : 'Global market execution',
-                  desc: lang === 'zh' ? '協助企業切入美國、歐洲、日本與東南亞等市場。' : 'Support for the US, Europe, Japan, and Southeast Asia.',
+                  title: lang === 'en' ? 'Global market execution' : (lang === 'cn' ? '全球市场落地' : '全球市場落地'),
+                  desc: lang === 'en' ? 'Support for the US, Europe, Japan, and Southeast Asia.' : (lang === 'cn' ? '協助企业切入美国、歐洲、日本與东南亚等市场。' : '協助企業切入美國、歐洲、日本與東南亞等市場。'),
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-gray-100 bg-white/80 p-5 shadow-sm backdrop-blur">
@@ -76,7 +76,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             <div className="relative overflow-hidden rounded-[2rem] border border-blue-100 bg-white p-4 shadow-2xl">
               <Image
                 src="/illustrations/hero-export.svg"
-                alt={lang === 'zh' ? '海外買家開發流程示意圖' : 'Export lead generation workflow illustration'}
+                alt={lang === 'en' ? 'Export lead generation workflow illustration' : (lang === 'cn' ? '海外买家開發流程示意圖' : '海外買家開發流程示意圖')}
                 width={1200}
                 height={900}
                 className="h-auto w-full rounded-[1.5rem]"

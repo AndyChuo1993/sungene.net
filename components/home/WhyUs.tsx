@@ -1,11 +1,12 @@
 import { t, Lang } from '@/lib/i18n'
 
 export default function WhyUs({ lang }: { lang: Lang }) {
+  const isChinese = lang !== 'en'
   const reasons = [
     {
       id: 1,
       title: t(lang, 'why_1'),
-      desc: lang === 'zh' ? '不使用公版名單，我們為每個客戶量身建立精準的採購商與決策人資料函式庫。' : 'No generic lists. We build custom databases of verified buyers and decision-makers for each client.',
+      desc: lang === 'en' ? 'No generic lists. We build custom databases of verified buyers and decision-makers for each client.' : (lang === 'cn' ? '不使用公版名单，我們為每個客戶量身建立精准的采购商與决策人数据数据库。' : '不使用公版名單，我們為每個客戶量身建立精準的採購商與決策人資料函式庫。'),
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
       )
@@ -13,7 +14,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     {
       id: 2,
       title: t(lang, 'why_2'),
-      desc: lang === 'zh' ? '主動開發，而不是被動等待。透過開發信與商務社群多管道接觸，直接把產品資訊送到潛在買家面前。' : 'Proactive outreach, not passive waiting. We put your products directly in front of buyers via Email and LinkedIn.',
+      desc: lang === 'en' ? 'Proactive outreach, not passive waiting. We put your products directly in front of buyers via Email and LinkedIn.' : (lang === 'cn' ? '主动開發，而不是被动等待。通过開發信與商務社交多管道接觸，直接把產品信息送到潜在买家面前。' : '主動開發，而不是被動等待。透過開發信與商務社群多管道接觸，直接把產品資訊送到潛在買家面前。'),
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
@@ -21,7 +22,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     {
       id: 3,
       title: t(lang, 'why_3'),
-      desc: lang === 'zh' ? '從詢問篩選、樣品安排、報價溝通到後續推進，我們協助你把外銷流程做得更穩定、更可追蹤。' : 'From inquiry screening to negotiation and closing, we act as your professional export sales partner.',
+      desc: lang === 'en' ? 'From inquiry screening to negotiation and closing, we act as your professional export sales partner.' : (lang === 'cn' ? '從詢問筛选、样品安排、报价溝通到後續推進，我們協助你把外贸流程做得更稳定、更可追踪。' : '從詢問篩選、樣品安排、報價溝通到後續推進，我們協助你把外銷流程做得更穩定、更可追蹤。'),
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
       )
@@ -38,7 +39,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
                     {t(lang, 'why_title')}
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                    {lang === 'zh' 
+                    {isChinese 
                         ? 'SunGene 專注於製造業外銷開發。我們重視的是可執行的流程：從名單、開發、跟進到詢問交付，建立一套可持續運作的系統。' 
                         : 'SunGene focuses on B2B export growth for manufacturers. We do not sell tool hype. We build a repeatable system for list building, outreach, follow-ups, and inquiry delivery.'}
                 </p>

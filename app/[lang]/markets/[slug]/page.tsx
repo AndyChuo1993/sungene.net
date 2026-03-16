@@ -3,9 +3,10 @@ import SeoLandingPage from '@/components/SeoLandingPage'
 import { getSeoMarket, seoMarkets } from '@/data/seoMarkets'
 import JsonLd from '@/components/JsonLd'
 import { notFound } from 'next/navigation'
+import { cnText } from '@/lib/cnText'
 
 export async function generateStaticParams() {
-  const langs = ['en', 'zh']
+  const langs = ['en', 'zh', 'cn']
   return seoMarkets.flatMap((m) => langs.map((lang) => ({ lang, slug: m.slug })))
 }
 
@@ -14,17 +15,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   const page = getSeoMarket(slug)
   if (!page) return { title: 'Not Found' }
   return {
-    title: page.title[lang],
-    description: page.description[lang],
+    title: cnText(lang, page.title[lang]),
+    description: cnText(lang, page.description[lang]),
     alternates: {
       canonical: `/${lang}/markets/${slug}`,
       languages: {
+        cn: `/zh/markets/${slug}`,
         zh: `/zh/markets/${slug}`,
         en: `/en/markets/${slug}`,
         'x-default': `/en/markets/${slug}`,
       },
     },
-    openGraph: { title: page.title[lang], description: page.description[lang], type: 'article' },
+    openGraph: { title: cnText(lang, page.title[lang]), description: cnText(lang, page.description[lang]), type: 'article' },
   }
 }
 
@@ -39,8 +41,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: lang === 'zh' ? '首頁' : 'Home', item: `${baseUrl}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: lang === 'zh' ? '市場' : 'Markets', item: `${baseUrl}/${lang}/markets` },
+      { '@type': 'ListItem', position: 1, name: lang === 'en' ? 'Home' : (lang === 'cn' ? '首页' : '首頁'), item: `${baseUrl}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: lang === 'en' ? 'Markets' : (lang === 'cn' ? '市场' : '市場'), item: `${baseUrl}/${lang}/markets` },
       { '@type': 'ListItem', position: 3, name: page.h1[lang], item: url },
     ],
   }
