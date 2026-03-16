@@ -1,4 +1,4 @@
-﻿﻿﻿﻿export type Lang = 'zh' | 'en'
+﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en'
 
 const dict = {
   'zh': {
@@ -20,7 +20,7 @@ const dict = {
     // Hero
     hero_title: '為你的產品找到海外買家',
     hero_subtitle: '用可複製的方法，把外銷開發做成穩定的系統。',
-    hero_description: 'SunGene 協助製造商建立海外買家名單、持續獲取合格詢價，並建立海外經銷通路網路。',
+    hero_description: 'SunGene 協助企業建立海外買家名單、持續獲取合格詢價，並建立海外經銷通路網路。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
     home_cta_title: '立即開始你的外銷成長',
@@ -57,7 +57,7 @@ const dict = {
     // Services Page
     service_title: '我們的服務',
     service_lead_gen_title: '外銷客戶開發',
-    service_lead_gen_desc: '為製造業找海外買家並交付合格詢價',
+    service_lead_gen_desc: '為外銷企業找海外買家並交付合格詢價',
     service_lead_gen_sub1: '買家研究與資料驗證',
     service_lead_gen_sub2: '買家資料函式庫與可用名單',
     service_lead_gen_sub3: '節奏式跟進與回覆分類別',
@@ -91,8 +91,9 @@ const dict = {
     success_message: '我們已收到您的資訊，將在 48 小時內寄送分析報告至您的信箱。',
 
     // About Page
-    about_title: '關於 SunGene',
-    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫製造商找到買家。透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。',
+    about_title: '關於我們',
+    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫企業找到買家。透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。',
+    about_stats_title: '我們的成績',
 
     // Contact Page
     contact_title: '聯絡我們',

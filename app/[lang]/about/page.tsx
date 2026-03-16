@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
     description:
       lang === 'zh'
-        ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外銷成交流程。'
+        ? 'SunGene 專注於協助企業建立海外買家名單、主動開發節奏與外銷成交流程。'
         : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
     openGraph: {
       title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
       description:
         lang === 'zh'
-          ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外銷成交流程。'
+          ? 'SunGene 專注於協助企業建立海外買家名單、主動開發節奏與外銷成交流程。'
           : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
       images: ['/og/og.png'],
     },
@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
               {lang === 'zh' ? '關於 SunGene' : 'About SunGene'}
             </div>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'zh' ? '我們幫製造商把外銷開發做成一套可持續的系統' : 'We turn export development into a sustainable system for manufacturers'}</h1>
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'zh' ? '我們幫企業把外銷開發做成一套可持續的系統' : 'We turn export development into a sustainable system for manufacturers'}</h1>
             <p className="text-xl leading-relaxed text-gray-200">
               {lang === 'zh'
                 ? 'SunGene 不是單純賣名單，也不是只寫幾封開發信。我們的角色，是幫你把海外買家開發、經銷商開發與詢價跟進，整理成一套能持續運作的商務流程。'
@@ -85,7 +85,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們服務哪些客戶' : 'Who we work with'}</h2>
             <p className="mt-4 leading-7 text-gray-600">
               {lang === 'zh'
-                ? '我們主要服務有產品、有工廠、有交付能力，但缺少穩定海外開發流程的製造商與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
+                ? '我們主要服務有產品、有工廠、有交付能力，但缺少穩定海外開發流程的外銷企業與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
                 : 'We mainly work with manufacturers and suppliers that already have product and production capacity, but need a steadier export development process—especially for Europe, North America, Japan, and Southeast Asia.'}
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">

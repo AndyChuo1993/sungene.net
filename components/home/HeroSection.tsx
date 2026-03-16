@@ -15,7 +15,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
           <div className="mx-auto max-w-5xl lg:mx-0">
             <div className="mb-6 inline-block rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5">
               <span className="text-sm font-bold uppercase tracking-wide text-blue-800">
-                {lang === 'zh' ? '專為台灣製造商建立' : 'Designed for Manufacturers'}
+                {lang === 'zh' ? '專為台灣外銷企業建立' : 'Designed for Manufacturers'}
               </span>
             </div>
 
@@ -42,16 +42,17 @@ export default function HeroSection({ lang }: { lang: Lang }) {
               </Link>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-gray-500 lg:justify-start">
-              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '適合製造業與外銷團隊' : 'Built for manufacturers and export teams'}</span>
-              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '買家名單、開發節奏、詢問交付' : 'Lists, cadence, and inquiry delivery'}</span>
+            <div className="mt-8 flex justify-center gap-4">
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '適合外銷企業與業務團隊' : 'Built for manufacturers and export teams'}</span>
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '買家名單、開發信、詢問交付' : 'Lists, Outreach, Leads'}</span>
+              <span className="rounded-full bg-gray-100 px-3 py-1">{lang === 'zh' ? '流程可追蹤' : 'Trackable process'}</span>
             </div>
 
             <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
               {[
                 {
                   title: lang === 'zh' ? '已服務超過 50 家工廠' : 'Serving 50+ factories',
-                  desc: lang === 'zh' ? '聚焦製造業與外銷團隊的實際開發需求。' : 'Built around the real needs of manufacturers and export teams.',
+                  desc: lang === 'zh' ? '聚焦外銷企業與業務團隊的實際開發需求。' : 'Built around the real needs of manufacturers and export teams.',
                 },
                 {
                   title: lang === 'zh' ? '專注企業外銷開發' : 'Focused on export growth',

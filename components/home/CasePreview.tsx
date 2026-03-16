@@ -11,7 +11,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{lang === 'zh' ? '成功案例' : 'Success Stories'}</h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'zh' ? '看看我們如何幫助台灣製造商走向世界' : 'See how we help manufacturers go global'}</p>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'zh' ? '看看我們如何幫助台灣企業走向世界' : 'See how we help manufacturers go global'}</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 mb-12">

@@ -19,8 +19,8 @@ export type SeoMarket = {
 export const seoMarkets: SeoMarket[] = [
   {
     slug: 'united-states',
-    title: { zh: '美國市場開發｜出口到 USA 的買家開發與詢價成長', en: 'Export to the United States | Lead Generation for Manufacturers' },
-    description: { zh: '協助製造商開發美國進口商、經銷商與品牌客戶，提升高品質詢價與合作機會。', en: 'Generate qualified US buyer inquiries by targeting importers, distributors, and brands.' },
+    title: { zh: '美國市場開發｜出口到 USA 的買家開發與詢價成長', en: 'Export to the United States | Lead Generation' },
+    description: { zh: '協助外銷企業開發美國進口商、經銷商與品牌客戶，提升高品質詢價與合作機會。', en: 'Generate qualified US buyer inquiries by targeting importers, distributors, and brands.' },
     h1: { zh: '美國市場外銷客戶開發', en: 'US Market Export Lead Generation' },
     introduction: { zh: ['美國市場規模大、供應鏈分層明確。成功關鍵是精準鎖定買家類別型、用清晰價值主張建立信任，並把跟進節奏做成流程。'], en: ['The US is large and channel-driven. Success comes from precise buyer targeting, clear positioning, and structured follow-ups.'] },
     challenges: { zh: ['競爭激烈、買家時間成本高', '需求快速、回覆期待速度快', '產品責任與合規要求'], en: ['Intense competition and low attention', 'Fast-paced buying cycles and response expectations', 'Compliance and product liability concerns'] },
@@ -36,7 +36,7 @@ export const seoMarkets: SeoMarket[] = [
   {
     slug: 'germany',
     title: { zh: '德國市場開發｜出口到 Germany 的工業買家開發', en: 'Export to Germany | Industrial Lead Generation' },
-    description: { zh: '協助製造商切入德國工業市場，開發進口商、OEM 與系統整合商。', en: 'Enter the German industrial market by targeting importers, OEMs, and integrators.' },
+    description: { zh: '協助外銷企業切入德國工業市場，開發進口商、OEM 與系統整合商。', en: 'Enter the German industrial market by targeting importers, OEMs, and integrators.' },
     h1: { zh: '德國市場外銷客戶開發', en: 'Germany Market Export Lead Generation' },
     introduction: { zh: ['德國市場重視品質、合規與長期合作。有效開發要在內容與開發信中主動回答買家的風險疑慮。'], en: ['Germany values quality, compliance, and long-term partnerships. Outreach must proactively address buyer risk concerns.'] },
     challenges: { zh: ['合規與文件要求（CE/RoHS/REACH）', '決策嚴謹、周期較長', '語言與商務文化差異'], en: ['Compliance documentation requirements', 'Rigorous decision-making and longer cycles', 'Language and business culture differences'] },
@@ -51,8 +51,8 @@ export const seoMarkets: SeoMarket[] = [
   },
   {
     slug: 'japan',
-    title: { zh: '日本市場開發｜出口到 Japan 的買家開發', en: 'Export to Japan | Buyer Development for Manufacturers' },
-    description: { zh: '協助製造商開發日本商社、經銷與製造端採購，提升高品質詢價。', en: 'Generate Japanese buyer inquiries by targeting trading companies, distributors, and manufacturers.' },
+    title: { zh: '日本市場開發｜出口到 Japan 的買家開發', en: 'Export to Japan | Buyer Development' },
+    description: { zh: '協助外銷企業開發日本商社、經銷與製造端採購，提升高品質詢價。', en: 'Generate Japanese buyer inquiries by targeting trading companies, distributors, and manufacturers.' },
     h1: { zh: '日本市場外銷客戶開發', en: 'Japan Market Export Lead Generation' },
     introduction: { zh: ['日本市場重視信任與細節。有效開發要用結構清晰、細節到位的內容與開發信，逐步建立專業形象。'], en: ['Japan is trust- and detail-driven. Clear structure and high-quality messaging help build credibility over time.'] },
     challenges: { zh: ['語言與文化門檻', '決策流程多層', '品質與交期要求高'], en: ['Language and cultural barriers', 'Layered decision processes', 'High standards for quality and lead time'] },
@@ -68,7 +68,7 @@ export const seoMarkets: SeoMarket[] = [
   {
     slug: 'middle-east',
     title: { zh: '中東市場開發｜出口到 Middle East 的買家與通路開發', en: 'Export to the Middle East | Buyer and Channel Development' },
-    description: { zh: '協助製造商開發中東進口商、代理商與工程承套件相關通路，提升詢價與合作機會。', en: 'Generate Middle East inquiries by targeting importers, agents, and project channels.' },
+    description: { zh: '協助外銷企業開發中東進口商、代理商與工程承套件相關通路，提升詢價與合作機會。', en: 'Generate Middle East inquiries by targeting importers, agents, and project channels.' },
     h1: { zh: '中東市場外銷客戶開發', en: 'Middle East Market Export Lead Generation' },
     introduction: { zh: ['中東市場常見以代理、專案與通路合作為主。有效開發要把適用場景、合作模式與交付能力說清楚。'], en: ['The Middle East often runs on agents, projects, and channels. Outreach should clarify use cases, partnership model, and delivery capability.'] },
     challenges: { zh: ['通路型態多元（代理/專案/貿易）', '決策受關係與信任影響大', '付款條件與交易風險控管'], en: ['Diverse channels (agents/projects/trading)', 'Trust and relationships matter', 'Payment terms and transaction risk management'] },
@@ -84,7 +84,7 @@ export const seoMarkets: SeoMarket[] = [
   {
     slug: 'southeast-asia',
     title: { zh: '東南亞市場開發｜出口到 Southeast Asia 的買家開發', en: 'Export to Southeast Asia | Buyer Development' },
-    description: { zh: '協助製造商開發東南亞工廠、代理商與通路客戶，承接供應鏈轉移商機。', en: 'Generate SEA inquiries by targeting factories, agents, and channels amid supply chain shifts.' },
+    description: { zh: '協助外銷企業開發東南亞工廠、代理商與通路客戶，承接供應鏈轉移商機。', en: 'Generate SEA inquiries by targeting factories, agents, and channels amid supply chain shifts.' },
     h1: { zh: '東南亞市場外銷客戶開發', en: 'Southeast Asia Market Export Lead Generation' },
     introduction: { zh: ['供應鏈轉移讓東南亞成為新興製造與消費市場。有效開發需兼顧在地溝通方式與風險篩選。'], en: ['Supply chain shifts make SEA a growing hub. Effective outreach requires local communication habits and risk screening.'] },
     challenges: { zh: ['市場分散、語言文化差異', '信用與交易風險', '價格競爭'], en: ['Fragmented markets and language differences', 'Credit and transaction risks', 'Price competition'] },
@@ -99,8 +99,8 @@ export const seoMarkets: SeoMarket[] = [
   },
   {
     slug: 'europe',
-    title: { zh: '歐洲市場開發｜出口到 Europe 的買家開發與合規導向內容', en: 'Export to Europe | Compliance-led Lead Generation' },
-    description: { zh: '協助製造商開發歐洲進口商、經銷與品牌客戶，以合規與品質建立信任。', en: 'Generate Europe inquiries by targeting importers, distributors, and brands with compliance-led messaging.' },
+    title: { zh: '歐洲市場開發｜出口到 Europe 的買家與經銷開發', en: 'Export to Europe | Buyer Development' },
+    description: { zh: '協助外銷企業開發歐洲進口商、經銷與品牌客戶，以合規與品質建立信任。', en: 'Generate Europe inquiries by targeting importers, distributors, and brands with compliance-led messaging.' },
     h1: { zh: '歐洲市場外銷客戶開發', en: 'Europe Market Export Lead Generation' },
     introduction: { zh: ['歐洲市場看重合規、品質與長期合作。內容與開發信需要把證據放在買家最在意的位置。'], en: ['Europe values compliance, quality, and long-term partnership. Put proof where buyers care most.'] },
     challenges: { zh: ['合規法規多', '決策週期長', '多語與文化差異'], en: ['Many compliance regulations', 'Long decision cycles', 'Multi-language and cultural differences'] },

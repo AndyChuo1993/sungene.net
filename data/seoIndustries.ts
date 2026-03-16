@@ -24,8 +24,8 @@ export const seoIndustries: SeoIndustry[] = [
       en: 'Export Lead Generation for Machinery | Machine Tools & Automation Equipment',
     },
     description: {
-      zh: '協助機械與自動化設備製造商開發海外買家，從名單到開發信、到詢價轉化，建立穩定出口訂單來源。',
-      en: 'Help machinery and automation equipment manufacturers generate overseas leads with a proven export outreach system.',
+      zh: '協助機械與自動化設備企業開發海外買家，從名單到開發信、到詢價轉化，建立穩定出口訂單來源。',
+      en: 'Help machinery and automation equipment companies generate overseas leads with a proven export outreach system.',
     },
     h1: { zh: '機械產業外銷客戶開發', en: 'Export Lead Generation for Machinery Companies' },
     introduction: {
@@ -83,7 +83,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'electronics',
     title: { zh: '電子產業外銷開發｜零元件、模組與工控買家開發', en: 'Export Lead Generation for Electronics | Components & Industrial Electronics' },
-    description: { zh: '協助電子零元件與工控相關製造商開發海外買家，提升詢價量與設計導入機會。', en: 'Generate overseas leads for electronic components and industrial electronics manufacturers.' },
+    description: { zh: '協助電子零元件與工控相關企業開發海外買家，提升詢價量與設計導入機會。', en: 'Generate overseas leads for electronic components and industrial electronics companies.' },
     h1: { zh: '電子產業外銷客戶開發', en: 'Export Lead Generation for Electronics Companies' },
     introduction: {
       zh: ['電子產業的採購決策往往同時牽涉工程與採購兩條線。有效開發必須同時能說規格，也能說交期與供應穩定。'],
@@ -104,7 +104,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'plastic',
     title: { zh: '塑膠產業外銷開發｜塑膠件、射出、模具與材料買家開發', en: 'Export Lead Generation for Plastics | Parts, Injection, Molds and Materials' },
-    description: { zh: '協助塑膠射出與塑膠製品廠開發海外 OEM/ODM 買家、代理商與終端客戶。', en: 'Generate overseas leads for plastics manufacturers across OEM/ODM and distribution channels.' },
+    description: { zh: '協助塑膠射出與塑膠製品企業開發海外 OEM/ODM 買家、代理商與終端客戶。', en: 'Generate overseas leads for plastics companies across OEM/ODM and distribution channels.' },
     h1: { zh: '塑膠產業外銷客戶開發', en: 'Export Lead Generation for Plastics Companies' },
     introduction: { zh: ['塑膠產業的核心競爭力在於製程穩定、交期與成本控制。有效開發需要用買家能理解的方式呈現品質與能力。'], en: ['Plastics sourcing is driven by process stability, lead time, and cost. Outreach should translate capabilities into buyer-friendly proof.'] },
     challenges: { zh: ['買家比價快、替代供應商多', '品質不良成本高，買家風險控管嚴格', '大量專案需要工程溝通與打樣'], en: ['Fast price comparisons with many alternatives', 'High quality risk and strict supplier validation', 'Engineering collaboration and sampling required'] },
@@ -119,7 +119,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'chemical',
     title: { zh: '化工產業外銷開發｜化學品、助劑與原料買家開發', en: 'Export Lead Generation for Chemicals | Raw Materials and Additives' },
-    description: { zh: '協助化工原料與助劑供應商開發海外工廠、經銷商與貿易商名單，提升詢價品質。', en: 'Generate overseas leads for chemical suppliers with qualified factories, distributors, and traders.' },
+    description: { zh: '協助化工原料與助劑企業開發海外工廠、經銷商與貿易商名單，提升詢價品質。', en: 'Generate overseas leads for chemical companies with qualified factories, distributors, and traders.' },
     h1: { zh: '化工產業外銷客戶開發', en: 'Export Lead Generation for Chemical Companies' },
     introduction: { zh: ['化工產品涉及合規、運輸與安全資料，買家對供應商可靠性與文件完整度高度敏感。'], en: ['Chemical sourcing requires compliance, logistics, and safety documentation, making reliability and documentation critical.'] },
     challenges: { zh: ['合規與文件（MSDS/TDS）要求高', '物流、危險品運輸限制', '買家重視供貨穩定與風險控管'], en: ['High compliance documentation requirements', 'Logistics and hazardous shipping constraints', 'Buyers focus on stability and risk control'] },
@@ -134,7 +134,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'medical',
     title: { zh: '醫療產業外銷開發｜醫療器材與耗材海外買家開發', en: 'Export Lead Generation for Medical | Devices and Consumables' },
-    description: { zh: '協助醫療器材與耗材製造商開發海外經銷與品牌客戶，聚焦合規、品質與長期合作。', en: 'Generate overseas medical device leads with compliance and trust-focused positioning.' },
+    description: { zh: '協助醫療器材與耗材企業開發海外經銷與品牌客戶，聚焦合規、品質與長期合作。', en: 'Generate overseas medical device leads for companies with compliance and trust-focused positioning.' },
     h1: { zh: '醫療產業外銷客戶開發', en: 'Export Lead Generation for Medical Device Companies' },
     introduction: { zh: ['醫療產業重視驗證與風險管理。開發的關鍵是把品質與合規說清楚，並讓買家知道你能穩定供貨。'], en: ['Medical sourcing is compliance- and risk-driven. Outreach should clarify quality, certification, and supply stability.'] },
     challenges: { zh: ['驗證門檻高（ISO13485 等）', '供應商審核嚴格、決策周期長', '買家重視臨床風險與一致性'], en: ['High certification barriers', 'Strict supplier audits and long cycles', 'High emphasis on clinical risk and consistency'] },
@@ -149,7 +149,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'automotive',
     title: { zh: '汽車產業外銷開發｜車用零件與供應鏈買家開發', en: 'Export Lead Generation for Automotive | Parts and Supply Chain' },
-    description: { zh: '協助車用零件與材料供應商開發海外 Tier 1/Tier 2 與經銷通路，提高高品質詢價。', en: 'Generate overseas automotive leads for parts suppliers with quality and compliance-led outreach.' },
+    description: { zh: '協助車用零件與材料企業開發海外 Tier 1/Tier 2 與經銷通路，提高高品質詢價。', en: 'Generate overseas automotive leads for parts companies with quality and compliance-led outreach.' },
     h1: { zh: '汽車產業外銷客戶開發', en: 'Export Lead Generation for Automotive Suppliers' },
     introduction: { zh: ['車用供應鏈重視驗證、品質與交期。有效開發要把你的製程能力與品質系統具體化。'], en: ['Automotive supply chains require validation, quality and delivery performance. Outreach must quantify your capabilities and systems.'] },
     challenges: { zh: ['IATF 等體系要求', '導入周期長且審核多', '價格壓力與穩定供貨要求'], en: ['Quality system requirements', 'Long onboarding with many audits', 'Price pressure and stable supply expectations'] },
@@ -164,7 +164,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'industrial-equipment',
     title: { zh: '工業設備外銷開發｜工業設備與系統整合買家開發', en: 'Export Lead Generation for Industrial Equipment | OEMs and Integrators' },
-    description: { zh: '協助工業設備與系統供應商開發海外 OEM 與系統整合商，提升詢價品質與成交率。', en: 'Generate overseas leads for industrial equipment suppliers targeting OEMs and integrators.' },
+    description: { zh: '協助工業設備與系統企業開發海外 OEM 與系統整合商，提升詢價品質與成交率。', en: 'Generate overseas leads for industrial equipment companies targeting OEMs and integrators.' },
     h1: { zh: '工業設備外銷客戶開發', en: 'Export Lead Generation for Industrial Equipment' },
     introduction: { zh: ['工業設備的成交關鍵是「適配」與「導入」。開發要讓買家快速理解你能解決什麼、如何導入、導入成本是多少。'], en: ['Industrial equipment deals are won on fit and onboarding. Outreach should clarify use cases, integration steps, and total cost.'] },
     challenges: { zh: ['買家需求差異大、客製化多', '需要技術對接與導入支援', '跨國售後與備品供應要求'], en: ['Diverse requirements and customization', 'Technical integration support needed', 'After-sales and spare parts expectations'] },

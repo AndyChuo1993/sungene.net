@@ -5,24 +5,24 @@ export const coreServices = {
     slug: 'export-lead-generation',
     path: '/services/export-lead-generation',
     title: {
-      zh: '外銷客戶開發服務｜海外買家開發（製造業）',
-      en: 'Export Lead Generation Service for Manufacturers | Find Overseas Buyers',
+      zh: '外銷客戶開發服務｜海外買家開發',
+      en: 'Export Lead Generation Service | Find Overseas Buyers',
     },
     description: {
-      zh: '我們協助製造業識別海外買家、建立可直接使用的名單，並用系統化開發節奏交付合格詢價。',
-      en: 'We help manufacturers identify overseas buyers and generate qualified B2B export leads worldwide.',
+      zh: '我們協助外銷企業識別海外買家、建立可直接使用的名單，並用系統化開發節奏交付合格詢價。',
+      en: 'We help export enterprises identify overseas buyers and generate qualified B2B export leads worldwide.',
     },
     heroSubtitle: {
-      zh: '我們協助製造業識別海外買家、建立精準名單，並交付可跟進的外銷詢價。',
-      en: 'We help manufacturers identify overseas buyers, build targeted prospect lists, and generate qualified export leads.',
+      zh: '我們協助外銷企業識別海外買家、建立精準名單，並交付可跟進的外銷詢價。',
+      en: 'We help export enterprises identify overseas buyers, build targeted prospect lists, and generate qualified export leads.',
     },
     heroPromise: {
       zh: '把海外買家開發做成可追蹤流程，交付可跟進的合格詢價。',
-      en: 'We help manufacturers identify overseas buyers and generate qualified export inquiries.',
+      en: 'We help export enterprises identify overseas buyers and generate qualified export inquiries.',
     },
     heroBestFor: {
-      zh: '最適合製造商、代工工廠與工業供應商，用於切入新市場。',
-      en: 'Best for manufacturers, OEM/ODM factories, and industrial suppliers entering new markets.',
+      zh: '最適合外銷企業、製造商、貿易商與工業供應商，用於切入新市場。',
+      en: 'Best for export enterprises, manufacturers, trading companies, and industrial suppliers entering new markets.',
     },
     heroDeliverablesLine: {
       zh: '交付包含：驗證買家名單、有效回覆整理、可推進的會議/樣品/報價機會。',
@@ -488,10 +488,10 @@ export const coreServices = {
       zh: '適用於市場分層、通路招募與加速試單的經銷開發流程。',
       en: 'Used for market tiers, channel recruitment, and faster trials to partnership.',
     },
-    h1: { zh: '經銷商開發服務', en: 'Distributor Development for Manufacturers' },
+    h1: { zh: '經銷商開發服務', en: 'Distributor Development' },
     whoFor: {
-      zh: ['已有穩定產品線的製造業', '想拓展海外通路的 OEM/ODM', '需要找代理/經銷合作夥伴的企業', '想降低海外市場試錯成本的公司'],
-      en: ['Manufacturers with stable product lines', 'OEM/ODM exporters expanding overseas channels', 'Businesses recruiting distributors/agents', 'Teams reducing market-entry trial-and-error'],
+      zh: ['已有穩定產品線的外銷企業', '製造商', '想拓展海外通路的 OEM/ODM', '需要找代理/經銷合作夥伴的企業', '想降低海外市場試錯成本的公司'],
+      en: ['Export enterprises with stable product lines', 'Manufacturers', 'OEM/ODM exporters expanding overseas channels', 'Businesses recruiting distributors/agents', 'Teams reducing market-entry trial-and-error'],
     },
     whatYouGet: {
       zh: [
@@ -797,7 +797,7 @@ export const coreServices = {
       },
       {
         id: 'why-manufacturers-need-distributor-development',
-        title: { zh: '為什麼製造業需要經銷商開發', en: 'Why manufacturers need distributor development' },
+        title: { zh: '為什麼外銷企業需要經銷商開發', en: 'Why export enterprises need distributor development' },
         content: {
           zh: [
             '當海外市場分散、客群多元時，通路往往是最快擴張槓桿：經銷商提供在地客戶關係、銷售覆蓋與售後能力，能縮短你從「找到買家」到「穩定出貨」的時間。',
@@ -868,8 +868,8 @@ export const coreServices = {
       en: 'You quote and ship. We run outreach, follow-ups, and inquiry delivery as a system.',
     },
     heroBestFor: {
-      zh: '最適合外銷人手不足、想拓展海外但不想先擴編的製造商。',
-      en: 'Best for manufacturers scaling exports without hiring an in-house team first.',
+      zh: '最適合外銷人手不足、想拓展海外但不想先擴編的企業。',
+      en: 'Best for enterprises scaling exports without hiring an in-house team first.',
     },
     heroDeliverablesLine: {
       zh: '交付包含：可追蹤開發管線、驗證名單、回覆分類別與合格詢價交付。',
@@ -897,10 +897,10 @@ export const coreServices = {
         { phase: 'Quarter 4', focus: 'Consolidate assets and renewal plan', deliverables: ['Organize pipeline and inquiry categories', 'Review delivery efficiency', 'Plan next-year SOP and market priorities'] },
       ],
     },
-    h1: { zh: '外銷業務外包服務', en: 'Export Sales Outsourcing for Manufacturers' },
+    h1: { zh: '外銷業務外包服務', en: 'Export Sales Outsourcing' },
     whoFor: {
-      zh: ['外銷人手不足的製造業', '想拓展海外但不想先擴編', '需要把開發與跟進標準化的企業', '希望把詢價交付做成可追蹤流程的團隊'],
-      en: ['Manufacturers short on export sales capacity', 'Teams scaling overseas without hiring first', 'Businesses needing standardized outreach and follow-up SOP', 'Companies wanting trackable inquiry delivery'],
+      zh: ['外銷人手不足的企業', '想拓展海外但不想先擴編', '需要把開發與跟進標準化的企業', '希望把詢價交付做成可追蹤流程的團隊'],
+      en: ['Enterprises short on export sales capacity', 'Teams scaling overseas without hiring first', 'Businesses needing standardized outreach and follow-up SOP', 'Companies wanting trackable inquiry delivery'],
     },
     whatYouGet: {
       zh: [
@@ -959,8 +959,8 @@ export const coreServices = {
       en: ['Export sales outsourcing is a managed workflow that standardizes outreach and follow-up to continuously deliver qualified export inquiries without hiring a full team.'],
     },
     howWorks: {
-      zh: ['製造業要找到海外買家，關鍵不是「寄更多信」，而是：先把理想客戶與市場優先序定清楚，再用可驗證的名單、訊息框架與跟進節奏，建立一條可追蹤的開發管線。'],
-      en: ['Manufacturers win overseas buyers by clarifying ICP and market priorities first, then building a verified list and running a repeatable message + follow-up cadence that creates a trackable pipeline.'],
+      zh: ['企業要找到海外買家，關鍵不是「寄更多信」，而是：先把理想客戶與市場優先序定清楚，再用可驗證的名單、訊息框架與跟進節奏，建立一條可追蹤的開發管線。'],
+      en: ['Enterprises win overseas buyers by clarifying ICP and market priorities first, then building a verified list and running a repeatable message + follow-up cadence that creates a trackable pipeline.'],
     },
     process: {
       zh: ['建立理想客戶與市場優先順序。', '建置買家名單與資料驗證。', '撰寫開發信與多觸點節奏（電子郵件/LinkedIn）。', '回覆分類別與初步需求確認。', '將合格詢價交付給你的團隊推進成交。'],
@@ -1180,14 +1180,14 @@ export const coreServices = {
       },
       {
         id: 'why-manufacturers-outsource-export-sales',
-        title: { zh: '為什麼製造業選擇外銷外包服務', en: 'Why manufacturers outsource export sales' },
+        title: { zh: '為什麼企業選擇外銷外包服務', en: 'Why enterprises outsource export sales' },
         content: {
           zh: [
-            '對多數製造業來說，外銷增長的瓶頸不是「沒有產品」，而是「沒有穩定可追蹤的開發與跟進能力」。建立一支能產出詢價的外銷團隊，需要招募、培訓、管理與系統化，週期長且成本高。',
+            '對多數外銷企業來說，外銷增長的瓶頸不是「沒有產品」，而是「沒有穩定可追蹤的開發與跟進能力」。建立一支能產出詢價的外銷團隊，需要招募、培訓、管理與系統化，週期長且成本高。',
             '外銷業務外包服務的價值在於把前段可標準化工作交給專業團隊：名單、開發、跟進、回覆分類別、詢價交付；你方只需投入最關鍵的成交行為（報價/談判/出貨）。',
           ],
           en: [
-            'For most manufacturers, the bottleneck is not product—it is the lack of a stable, trackable outreach and follow-up system. Building an export team that reliably generates inquiries takes hiring, training, and operations, which is slow and expensive.',
+            'For most export enterprises, the bottleneck is not product—it is the lack of a stable, trackable outreach and follow-up system. Building an export team that reliably generates inquiries takes hiring, training, and operations, which is slow and expensive.',
             'Outsourcing works because it offloads the standardizable front-end work (lists, outreach, follow-ups, triage, delivery) so your team focuses on what matters most: quoting, negotiation, and shipping.',
           ],
         },
