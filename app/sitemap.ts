@@ -7,7 +7,7 @@ import { getBlogPosts } from '@/data/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
-  const langs = ['zh', 'en'] as const
+  const langs = ['zh', 'en', 'cn'] as const
   
   const routes = [
     '',

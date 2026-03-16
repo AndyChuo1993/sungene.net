@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { headers } from 'next/headers'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { t, Lang } from '@/lib/i18n'
@@ -6,20 +7,31 @@ import { t, Lang } from '@/lib/i18n'
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
   const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'zh') as Lang
+
+  const host = (await headers()).get('host') || 'www.sungenelite.com'
+  const protocol = host.includes('localhost') ? 'http' : 'https'
+  const siteUrl = `${protocol}://${host}`
+
+  const xDefault = host.includes('sungene.net') ? '/cn' : '/zh'
+
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'),
+    metadataBase: new URL(siteUrl),
     title: t(lang, 'meta_home_title'),
     description: t(lang, 'meta_home_desc'),
-    openGraph: { title: t(lang, 'meta_home_title'), description: t(lang, 'meta_home_desc'), type: 'website' },
+    openGraph: {
+      title: t(lang, 'meta_home_title'),
+      description: t(lang, 'meta_home_desc'),
+      type: 'website',
+    },
     twitter: { card: 'summary_large_image' },
     icons: { icon: '/logo/sungene.png' },
     alternates: {
       canonical: `/${lang}`,
       languages: {
-        'en': '/en',
-        'zh': '/zh',
+        en: '/en',
+        zh: '/zh',
         'zh-CN': '/cn',
-        'x-default': '/zh',
+        'x-default': xDefault,
       },
     },
   }
