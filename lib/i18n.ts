@@ -92,7 +92,7 @@ const dict = {
 
     // About Page
     about_title: '關於我們',
-    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫企業找到買家。透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。',
+    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫企業找到買家。透過精準的名單與專業的開發流程，我們協助企業拓展全球市場。',
     about_stats_title: '我們的成績',
 
     // Contact Page
@@ -105,8 +105,8 @@ const dict = {
     contact_submit: '寄送訊息',
 
     // SEO
-    meta_home_title: 'SunGene 外銷客戶開發與外銷外包服務 | 台灣外銷拓展專家',
-    meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢價跟進的完整外銷外包服務。',
+    meta_home_title: 'SunGene 外銷客戶開發與外銷外包服務 | 外銷拓展專家',
+    meta_home_desc: 'SunGene 幫助企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢價跟進的完整外銷外包服務。',
     meta_keywords: '外銷客戶開發, 外銷外包服務, 海外客戶開發, 企業對企業業務外包',
     
     // Footer

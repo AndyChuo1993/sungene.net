@@ -24,7 +24,7 @@ export const markets: MarketData[] = [
       en: 'European Market Development | Export to Germany, France, Italy'
     },
     description: {
-      zh: '專為台灣製造商建立的歐洲市場開發服務。針對歐盟法規、GDPR 與商務文化，協助您開發德國、法國、義大利等地的優質買家。',
+      zh: '專為外銷企業建立的歐洲市場開發服務。針對歐盟法規、GDPR 與商務文化，協助您開發德國、法國、義大利等地的優質買家。',
       en: 'Specialized European market development for manufacturers. Navigate EU regulations, GDPR, and business culture to find premium buyers in Germany, France, Italy.'
     },
     h1: {
@@ -73,7 +73,7 @@ export const markets: MarketData[] = [
       en: 'North American Market Development | Export to USA & Canada'
     },
     description: {
-      zh: '協助台灣企業進軍美國與加拿大市場。針對北美大型採購商與批發商，提供精準名單與高效開發服務。',
+      zh: '協助外銷企業進軍美國與加拿大市場。針對北美大型採購商與批發商，提供精準名單與高效開發服務。',
       en: 'Helping companies expand into USA & Canada. Providing precise lists and efficient outreach for North American large-scale buyers and wholesalers.'
     },
     h1: {
@@ -210,6 +210,55 @@ export const markets: MarketData[] = [
       {
         question: { zh: '適合哪些產業？', en: 'Which industries are suitable?' },
         answer: { zh: '機械設備、工業材料、自動化零元件、電子元件等 B2B 產品在東南亞需求強勁。', en: 'Machinery, industrial materials, automation parts, and electronic components have strong demand.' }
+      }
+    ]
+  },
+  {
+    slug: 'middle-east',
+    title: {
+      zh: '中東市場開發服務 | 阿聯酋、沙烏地外銷客戶開發',
+      en: 'Middle East Market Development | Export to UAE & Saudi Arabia'
+    },
+    description: {
+      zh: '協助外銷企業切入中東供應鏈，鎖定代理商、專案商與進口批發。',
+      en: 'Access Middle East supply chains by targeting agents, project contractors, and importers.'
+    },
+    h1: {
+      zh: '中東市場外銷客戶開發服務',
+      en: 'Middle East Market Export Development Service'
+    },
+    content: {
+      zh: '中東市場正在經歷基礎建設與工業化的轉型期。我們協助您在阿聯酋、沙烏地阿拉伯等地，對接當地的代理商、大型工程承包商與政府標案供應商。',
+      en: 'The Middle East is undergoing infrastructure and industrial transformation. We help you connect with local agents, EPC contractors, and government suppliers in UAE and Saudi Arabia.'
+    },
+    challenges: {
+      zh: ['商業文化獨特，高度依賴人際關係', '需要當地代理人才能參與許多專案', '付款條件與信用證較為複雜'],
+      en: ['Unique business culture, relationship-driven', 'Local agents required for many projects', 'Complex payment terms and LC requirements']
+    },
+    solutions: {
+      zh: ['開發當地具備政府關係的代理商', '針對專案承包商進行技術行銷', '協助篩選具備支付能力的買家'],
+      en: ['Developing agents with government ties', 'Technical marketing to project contractors', 'Screening buyers for payment capability']
+    },
+    buyerTypes: {
+      zh: ['專案代理商 (Project Agents)', '工程總包商 (EPC Contractors)', '建材/設備批發商 (Wholesalers)', '國營企業採購 (State-owned Enterprises)'],
+      en: ['Project Agents', 'EPC Contractors', 'Building Material Wholesalers', 'State-owned Enterprises']
+    },
+    strategy: {
+      zh: ['代理商策略：在中東，擁有一個強力的當地夥伴往往比直接銷售更有效。', '展會與拜訪：中東客戶重視見面三分情，我們協助安排展會期間的商務會議。', '認證準備：協助確認 SASO (沙烏地) 或 ESMA (阿聯酋) 等必要認證。'],
+      en: ['Agent Strategy: Strong local partners are often better than direct sales.', 'Fairs & Visits: Face-to-face meetings are crucial; we help arrange them.', 'Certification: Ensure SASO (KSA) or ESMA (UAE) compliance.']
+    },
+    faq: [
+      {
+        question: { zh: '中東市場一定要找代理嗎？', en: 'Is an agent mandatory in the Middle East?' },
+        answer: { zh: '不一定，但對於參與大型標案或政府採購，當地代理商是必要的。一般貿易則可直接與進口商交易。', en: 'Not always, but local agents are essential for government tenders. General trade can go direct to importers.' }
+      },
+      {
+        question: { zh: '主要機會在哪些國家？', en: 'Which countries offer the most opportunity?' },
+        answer: { zh: '阿聯酋（杜拜）是轉口貿易中心，沙烏地阿拉伯則因「願景2030」擁有龐大的內需與建設商機。', en: 'UAE (Dubai) is the re-export hub; Saudi Arabia offers massive domestic demand due to Vision 2030.' }
+      },
+      {
+        question: { zh: '付款風險高嗎？', en: 'Is payment risk high?' },
+        answer: { zh: '中東市場付款週期較長，建議初期使用信用證 (L/C) 或預付訂金來降低風險。', en: 'Payment cycles are longer. We recommend L/C or advance payments initially to mitigate risk.' }
       }
     ]
   }

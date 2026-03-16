@@ -12,8 +12,8 @@ export const faqs: FAQItem[] = [
   // General
   {
     category: 'general',
-    question: { zh: '你們只服務台灣企業嗎？', en: 'Do you only serve Taiwan companies?' },
-    answer: { zh: '不，我們服務全球客戶。雖然總部位於台灣，但團隊具備多語能力，也熟悉北美、歐洲、日本與東南亞等主要市場的商務環境。', en: 'No, we serve clients globally. While HQ is in Taiwan, our team is multilingual and familiar with business cultures in major markets like NA, EU, Japan, and SEA.' },
+    question: { zh: '你們只服務特定國家企業嗎？', en: 'Do you only serve specific countries?' },
+    answer: { zh: '不，我們服務全球客戶。團隊具備多語能力，也熟悉北美、歐洲、日本與東南亞等主要市場的商務環境。', en: 'No, we serve clients globally. Our team is multilingual and familiar with business cultures in major markets like NA, EU, Japan, and SEA.' },
   },
   {
     category: 'general',
