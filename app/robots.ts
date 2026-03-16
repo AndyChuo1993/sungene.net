@@ -1,14 +1,14 @@
-import { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
+import type { MetadataRoute } from 'next'
 
-export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
-  
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const host = (await headers()).get('host') || 'sungenelite.com'
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/_next/'],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `https://${host}/sitemap.xml`,
   }
 }
