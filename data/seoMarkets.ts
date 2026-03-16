@@ -60,7 +60,7 @@ export const seoMarkets: SeoMarket[] = [
     strategy: { zh: ['以產業別先找商社/經銷，再切入終端工廠。', '內容強調品質流程、驗證與交期穩定。', '跟進節奏更重視禮貌與長期性。'], en: ['Start with traders/distributors then expand to end factories.', 'Emphasize QC systems, certifications, and lead-time stability.', 'Use polite, long-term follow-up cadence.'] },
     ctaTitle: { zh: '想找到日本合作夥伴？', en: 'Need partners in Japan?' },
     ctaDesc: { zh: '提交產品與目標產業，我們回覆可行的切入路徑。', en: 'Share your product and target industries. We’ll reply with a feasible entry path.' },
-    heroImage: { zh: '/illustrations/market-japan.svg', en: '/illustrations/market-japan.svg' },
+    heroImage: { zh: '/illustrations/market-japan-v2.svg', en: '/illustrations/market-japan-v2.svg' },
     faq: [
       { q: { zh: '日本一定要日文嗎？', en: 'Is Japanese mandatory?' }, a: { zh: '不是一定，但有日文關鍵頁與更符合商務禮儀的信件格式，效果會更好。', en: 'Not always, but Japanese key pages and proper formatting improve effectiveness.' } },
     ],
