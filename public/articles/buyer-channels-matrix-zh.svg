@@ -5,9 +5,9 @@
   <rect x="100" y="100" width="600" height="400" fill="#f1f5f9" rx="10" />
   <line x1="150" y1="450" x2="650" y2="450" stroke="#cbd5e1" stroke-width="2" />
   <line x1="150" y1="450" x2="150" y2="150" stroke="#cbd5e1" stroke-width="2" />
-  <path d="M150 450 L 275 300 L 400 350 L 525 200 L 650 150" stroke="#3b82f6" stroke-width="4" fill="none" />
-  <circle cx="275" cy="300" r="6" fill="#3b82f6" />
-  <circle cx="400" cy="350" r="6" fill="#3b82f6" />
-  <circle cx="525" cy="200" r="6" fill="#3b82f6" />
-  <circle cx="650" cy="150" r="6" fill="#3b82f6" />
+  <path d="M150 450 L 275 300 L 400 350 L 525 200 L 650 150" stroke="#16a34a" stroke-width="4" fill="none" />
+  <circle cx="275" cy="300" r="6" fill="#16a34a" />
+  <circle cx="400" cy="350" r="6" fill="#16a34a" />
+  <circle cx="525" cy="200" r="6" fill="#16a34a" />
+  <circle cx="650" cy="150" r="6" fill="#16a34a" />
 </svg>
