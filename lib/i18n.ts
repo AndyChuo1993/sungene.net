@@ -19,25 +19,25 @@ const dict = {
 
     // Hero
     hero_title: '為你的產品找到海外買家',
-    hero_subtitle: '用可複製的方法，把外貿開發做成穩定的系統。',
-    hero_description: 'SunGene 協助製造商建立海外買家名單、持續獲取合格詢盤，並打造海外經銷通路網絡。',
+    hero_subtitle: '用可複製的方法，把外銷開發做成穩定的系統。',
+    hero_description: 'SunGene 協助製造商建立海外買家名單、持續獲取合格詢價，並建立海外經銷通路網路。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
-    home_cta_title: '立即開始你的外貿成長',
+    home_cta_title: '立即開始你的外銷成長',
 
     // Home - Services
     home_service_1_title: '外銷客戶開發',
-    home_service_1_desc: '協助你持續獲取海外買家詢盤',
+    home_service_1_desc: '協助你持續獲取海外買家詢價',
     home_service_2_title: '經銷商開發',
     home_service_2_desc: '建立海外通路夥伴名單並推進合作',
-    home_service_3_title: '外貿業務外包',
+    home_service_3_title: '外銷業務外套件',
     home_service_3_desc: '你只需報價與出貨，其餘我們承接',
     
     // Home - Why Us
     why_title: '為什麼選擇我們',
     why_1: '精準客戶搜尋',
     why_2: '主動市場開發',
-    why_3: '完整外貿支援',
+    why_3: '完整外銷支援',
 
     // Home - Process
     process_title: '合作流程',
@@ -47,8 +47,8 @@ const dict = {
     process_2_desc: '建立可投遞的買家名單',
     process_3_title: '開發活動',
     process_3_desc: '多觸點開發與跟進',
-    process_4_title: '詢盤交付',
-    process_4_desc: '交付可推進的合格詢盤',
+    process_4_title: '詢價交付',
+    process_4_desc: '交付可推進的合格詢價',
 
     // Home - Cases
     case_title: '成功案例',
@@ -57,10 +57,10 @@ const dict = {
     // Services Page
     service_title: '我們的服務',
     service_lead_gen_title: '外銷客戶開發',
-    service_lead_gen_desc: '為製造業找海外買家並交付合格詢盤',
+    service_lead_gen_desc: '為製造業找海外買家並交付合格詢價',
     service_lead_gen_sub1: '買家研究與資料驗證',
-    service_lead_gen_sub2: '買家資料庫與可用名單',
-    service_lead_gen_sub3: '節奏式跟進與回覆分類',
+    service_lead_gen_sub2: '買家資料函式庫與可用名單',
+    service_lead_gen_sub3: '節奏式跟進與回覆分類別',
 
     service_outreach_title: '經銷商開發',
     service_outreach_desc: '建立海外通路夥伴名單並推進合作',
@@ -68,11 +68,11 @@ const dict = {
     service_outreach_sub2: '夥伴招募與初步篩選',
     service_outreach_sub3: '合作條件與方案框架',
 
-    service_sales_title: '外貿業務外包',
-    service_sales_desc: '你報價與出貨，其餘外貿流程我們承接',
+    service_sales_title: '外銷業務外套件',
+    service_sales_desc: '你報價與出貨，其餘外銷流程我們承接',
     service_sales_sub1: '開發與跟進節奏',
-    service_sales_sub2: '回覆分類與需求確認',
-    service_sales_sub3: '合格詢盤交付',
+    service_sales_sub2: '回覆分類別與需求確認',
+    service_sales_sub3: '合格詢價交付',
 
     // Free Market Analysis Page
     analysis_title: '免費海外市場分析',
@@ -92,7 +92,7 @@ const dict = {
 
     // About Page
     about_title: '關於 SunGene',
-    about_desc: 'SunGene 是一家專注於外貿增長的服務公司，我們不賣軟體，而是直接幫製造商找到買家。透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。',
+    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫製造商找到買家。透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。',
 
     // Contact Page
     contact_title: '聯絡我們',
@@ -101,12 +101,12 @@ const dict = {
     form_message: '諮詢內容',
     contact_email: '電子郵件',
     contact_whatsapp: '即時通訊',
-    contact_submit: '發送訊息',
+    contact_submit: '寄送訊息',
 
     // SEO
-    meta_home_title: 'SunGene 外貿客戶開發與外貿外包服務 | 台灣外貿拓展專家',
-    meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢盤跟進的完整外貿外包服務。',
-    meta_keywords: '外貿客戶開發, 外貿外包, 海外客戶開發, 企業對企業業務外包',
+    meta_home_title: 'SunGene 外銷客戶開發與外銷外套件服務 | 台灣外銷拓展專家',
+    meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢價跟進的完整外銷外套件服務。',
+    meta_keywords: '外銷客戶開發, 外銷外套件, 海外客戶開發, 企業對企業業務外套件',
     
     // Footer
     footer_copyright: '© 2026 SunGene 版權所有。',

@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: `${lang === 'zh' ? '聯絡我們' : 'Contact Us'} | SunGene`,
     description:
       lang === 'zh'
-        ? '與 SunGene 討論海外買家開發、經銷商開發、外貿業務外包與合作夥伴申請。'
+        ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外套件與合作夥伴申請。'
         : 'Talk to SunGene about export lead generation, distributor development, sales outsourcing, or partnership applications.',
   }
 }
@@ -65,7 +65,7 @@ export default async function Page({
                 ? '留下你的公司資訊與合作方向，我們會由商務團隊跟你接洽。'
                 : 'Share your company details and partnership direction. Our business team will follow up with you.'
               : lang === 'zh'
-                ? '不論你想找海外買家、建立經銷通路，還是規劃一年期的外貿開發合作，都可以直接跟我們談。'
+                ? '不論你想找海外買家、建立經銷通路，還是規劃一年期的外銷開發合作，都可以直接跟我們談。'
                 : 'Whether you want overseas buyers, distributor channels, or an annual export growth engagement, you can talk to us directly.'}
           </p>
         </div>
@@ -92,7 +92,7 @@ export default async function Page({
             </div>
             <div className="rounded-lg bg-blue-50 p-5 text-sm leading-7 text-blue-900">
               {lang === 'zh'
-                ? '如果你已有明確產品與市場，建議在表單內直接寫出目標市場、買家類型與目前遇到的卡點，這樣我們比較容易快速判斷合作方向。'
+                ? '如果你已有明確產品與市場，建議在表單內直接寫出目標市場、買家類別型與目前遇到的卡點，這樣我們比較容易快速判斷合作方向。'
                 : 'If you already have a product and target market in mind, include the buyer type and your current bottleneck in the form so we can suggest the right next step faster.'}
             </div>
           </div>

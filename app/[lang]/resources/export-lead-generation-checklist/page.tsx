@@ -6,9 +6,9 @@ import { Check, FileText, Target, Shield, HelpCircle } from 'lucide-react'
 export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh' } }) {
   const { lang } = await params
   const isZh = lang === 'zh'
-  const title = isZh ? '外貿客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
+  const title = isZh ? '外銷客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
   const description = isZh
-    ? '下載可落地的外貿客戶開發檢查表：從買家畫像、名單建立、開發信到跟進節奏，讓開發更可追蹤。'
+    ? '下載可落地的外銷客戶開發檢查表：從買家畫像、名單建立、開發信到跟進節奏，讓開發更可追蹤。'
     : 'Download a practical checklist to find and convert international buyers: ICP, list building, outreach, and follow-ups.'
   return {
     title,
@@ -27,9 +27,9 @@ export default async function LeadMagnetPage({
   const isZh = lang === 'zh'
 
   const content = {
-    title: isZh ? '2025 外貿客戶開發終極檢查表' : '2025 Export Lead Generation Checklist',
+    title: isZh ? '2025 外銷客戶開發終極檢查表' : '2025 Export Lead Generation Checklist',
     subtitle: isZh 
-      ? '不再盲目開發。下載這份經過驗證的步驟清單，系統化地尋找並轉化高質量海外買家。' 
+      ? '不再盲目開發。下載這份經過驗證的步驟清單，系統化地尋找並轉化高品質海外買家。' 
       : 'Stop guessing. Download this proven step-by-step checklist to systematically find and convert high-quality international buyers.',
     features: [
       {
@@ -38,11 +38,11 @@ export default async function LeadMagnetPage({
       },
       {
         title: isZh ? '開發信範本' : 'Outreach Templates',
-        desc: isZh ? '高回復率的 Cold Email 結構解析' : 'High-response Cold Email structures analyzed.'
+        desc: isZh ? '高回覆率的 Cold Email 結構解析' : 'High-response Cold Email structures analyzed.'
       },
       {
         title: isZh ? '工具推薦' : 'Tool Stack',
-        desc: isZh ? '20+ 個外貿必備的數據與自動化工具' : '20+ essential data and automation tools for exporters.'
+        desc: isZh ? '20+ 個外銷必備的資料與自動化工具' : '20+ essential data and automation tools for exporters.'
       },
       {
         title: isZh ? '跟進策略' : 'Follow-up Strategy',
@@ -52,11 +52,11 @@ export default async function LeadMagnetPage({
     faq: [
       {
         q: isZh ? '這份檢查表適合誰？' : 'Who is this checklist for?',
-        a: isZh ? '適合外貿業務員、外貿經理以及希望拓展海外市場的 B2B 企業主。' : 'It is suitable for sales representatives, export managers, and B2B business owners looking to expand globally.'
+        a: isZh ? '適合外銷業務員、外銷經理以及希望拓展海外市場的 B2B 企業主。' : 'It is suitable for sales representatives, export managers, and B2B business owners looking to expand globally.'
       },
       {
         q: isZh ? '是免費的嗎？' : 'Is it free?',
-        a: isZh ? '是的，這是我們提供的免費資源，旨在幫助您優化外貿流程。' : 'Yes, this is a free resource designed to help you optimize your export process.'
+        a: isZh ? '是的，這是我們提供的免費資源，旨在幫助您最佳化外銷流程。' : 'Yes, this is a free resource designed to help you optimize your export process.'
       }
     ]
   }
@@ -112,7 +112,7 @@ export default async function LeadMagnetPage({
             </h2>
             <p className="text-lg text-slate-600">
               {isZh 
-                ? '外貿開發不是運氣遊戲。成功的關鍵在於細節的執行。這份檢查表將幫助您：' 
+                ? '外銷開發不是運氣遊戲。成功的關鍵在於細節的執行。這份檢查表將幫助您：' 
                 : 'Export development is not a game of luck. Success lies in execution details. This checklist will help you:'}
             </p>
           </div>
@@ -147,7 +147,7 @@ export default async function LeadMagnetPage({
               <h3 className="text-xl font-bold mb-3">{isZh ? '系統化流程' : 'Systematize Process'}</h3>
               <p className="text-slate-600">
                 {isZh 
-                  ? '將個人經驗轉化為團隊可複製的標準作業程序（SOP）。' 
+                  ? '將個人經驗轉化為團隊可複製的標準作業程式（SOP）。' 
                   : 'Turn personal experience into a Standard Operating Procedure (SOP) replicable by the team.'}
               </p>
             </div>

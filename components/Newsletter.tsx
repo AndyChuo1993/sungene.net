@@ -27,7 +27,7 @@ export default function Newsletter({ lang }: { lang: Lang }) {
     <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-6 rounded-sm text-white shadow-lg border border-blue-700">
         <h3 className="font-bold mb-2 text-lg text-white">{lang === 'zh' ? '訂閱電子報' : 'Subscribe'}</h3>
         <p className="text-sm text-blue-100 mb-4 leading-relaxed">
-            {lang === 'zh' ? '每週獲取最新的外貿開發技巧與市場分析。' : 'Get weekly export tips and market analysis.'}
+            {lang === 'zh' ? '每週獲取最新的外銷開發技巧與市場分析。' : 'Get weekly export tips and market analysis.'}
         </p>
         
         {status === 'success' ? (

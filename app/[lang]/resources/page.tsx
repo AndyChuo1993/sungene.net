@@ -128,7 +128,7 @@ export default async function Page({
             <div className="grid gap-12 lg:grid-cols-12">
               <div className="space-y-8 lg:col-span-3">
                 <div className="sticky top-40 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                  <h3 className="mb-4 border-b border-gray-100 pb-2 font-bold text-gray-900">{lang === 'zh' ? '分類瀏覽' : 'Categories'}</h3>
+                  <h3 className="mb-4 border-b border-gray-100 pb-2 font-bold text-gray-900">{lang === 'zh' ? '分類別瀏覽' : 'Categories'}</h3>
                   <ul className="space-y-3">
                     <li>
                       <Link
@@ -209,7 +209,7 @@ export default async function Page({
                       </Link>
                     ))
                   ) : (
-                    <div className="col-span-full py-12 text-center text-gray-500">{lang === 'zh' ? '此分類暫無內容' : 'No content found in this category'}</div>
+                    <div className="col-span-full py-12 text-center text-gray-500">{lang === 'zh' ? '此分類別暫無內容' : 'No content found in this category'}</div>
                   )}
                 </div>
               </div>
@@ -225,7 +225,7 @@ export default async function Page({
                       <LayoutGrid className="h-6 w-6" />
                     </div>
                     <h3 className="mb-3 text-xl font-bold text-gray-900 transition group-hover:text-blue-600">
-                      {ind.h1[lang].replace('外貿客戶開發', '').replace('Export Lead Generation for ', '')}
+                      {ind.h1[lang].replace('外銷客戶開發', '').replace('Export Lead Generation for ', '')}
                     </h3>
                     <p className="mb-6 line-clamp-3 flex-grow text-gray-600">{ind.description[lang]}</p>
                     <div className="text-sm font-bold text-blue-600">{lang === 'zh' ? '查看產業頁' : 'View guide'} →</div>
@@ -244,7 +244,7 @@ export default async function Page({
                       <Globe className="h-6 w-6" />
                     </div>
                     <h3 className="mb-3 text-xl font-bold text-gray-900 transition group-hover:text-green-600">
-                      {mkt.h1[lang].replace('市場外貿客戶開發', '').replace('Market Export Lead Generation', '')}
+                      {mkt.h1[lang].replace('市場外銷客戶開發', '').replace('Market Export Lead Generation', '')}
                     </h3>
                     <p className="mb-6 line-clamp-3 flex-grow text-gray-600">{mkt.description[lang]}</p>
                     <div className="text-sm font-bold text-green-600">{lang === 'zh' ? '查看市場頁' : 'View page'} →</div>

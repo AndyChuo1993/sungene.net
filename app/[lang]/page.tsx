@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
                     {lang === 'zh' ? '先看案例，再決定合作方式' : 'Review the proof before choosing a service'}
                 </h3>
                 <p className="text-gray-600">
-                    {lang === 'zh' ? '先從成功案例了解我們怎麼做，再決定你需要買家開發、經銷商開發，還是外貿業務外包。' : 'Start with case studies to see how we work, then decide whether you need lead generation, distributor development, or export sales outsourcing.'}
+                    {lang === 'zh' ? '先從成功案例了解我們怎麼做，再決定你需要買家開發、經銷商開發，還是外銷業務外套件。' : 'Start with case studies to see how we work, then decide whether you need lead generation, distributor development, or export sales outsourcing.'}
                 </p>
             </div>
             <div className="flex gap-4">

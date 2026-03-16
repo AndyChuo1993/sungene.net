@@ -9,15 +9,15 @@ export const coreServices = {
       en: 'Export Lead Generation Service for Manufacturers | Find Overseas Buyers',
     },
     description: {
-      zh: '我們協助製造業識別海外買家、建立可直接使用的名單，並用系統化開發節奏交付合格詢盤。',
+      zh: '我們協助製造業識別海外買家、建立可直接使用的名單，並用系統化開發節奏交付合格詢價。',
       en: 'We help manufacturers identify overseas buyers and generate qualified B2B export leads worldwide.',
     },
     heroSubtitle: {
-      zh: '我們協助製造業識別海外買家、建立精準名單，並交付可跟進的外銷詢盤。',
+      zh: '我們協助製造業識別海外買家、建立精準名單，並交付可跟進的外銷詢價。',
       en: 'We help manufacturers identify overseas buyers, build targeted prospect lists, and generate qualified export leads.',
     },
     heroPromise: {
-      zh: '把海外買家開發做成可追蹤流程，交付可跟進的合格詢盤。',
+      zh: '把海外買家開發做成可追蹤流程，交付可跟進的合格詢價。',
       en: 'We help manufacturers identify overseas buyers and generate qualified export inquiries.',
     },
     heroBestFor: {
@@ -25,7 +25,7 @@ export const coreServices = {
       en: 'Best for manufacturers, OEM/ODM factories, and industrial suppliers entering new markets.',
     },
     heroDeliverablesLine: {
-      zh: '交付包含：驗證買家名單、有效回覆整理、可推進的會議/樣品/報價機會。',
+      zh: '交付套件含：驗證買家名單、有效回覆整理、可推進的會議/樣品/報價機會。',
       en: 'Deliverables: verified buyer lists, qualified replies, and meeting-ready handoffs.',
     },
     heroTrustSignal: {
@@ -39,11 +39,11 @@ export const coreServices = {
     },
     whatYouGet: {
       zh: [
-        '可直接使用的海外買家資料庫',
+        '可直接使用的海外買家資料函式庫',
         '寄送名單與開信名單（試算表）',
-        '合格詢盤整理表（公司/需求摘要/對話紀錄/下一步）',
+        '合格詢價整理表（公司/需求摘要/對話紀錄/下一步）',
         '可推進的會議、樣品與報價機會',
-        '每週開發數據報表（寄送/開信/回覆/分類/交付）',
+        '每週開發資料報表（寄送/開信/回覆/分類別/交付）',
       ],
       en: [
         'Verified overseas buyer database (ready-to-use prospect data)',
@@ -70,14 +70,14 @@ export const coreServices = {
       ],
     },
     problem: {
-      zh: ['靠展會與平台被動等詢問，品質不穩定、價格競爭激烈。', '名單品質差：找不到決策人、電子郵件無效，或根本不是適合的買家角色。', '寄信一次就停，沒有節奏式跟進與回覆分類，導致大量商機流失。'],
+      zh: ['靠展會與平台被動等詢問，品質不穩定、價格競爭激烈。', '名單品質差：找不到決策人、電子郵件無效，或根本不是適合的買家角色。', '寄信一次就停，沒有節奏式跟進與回覆分類別，導致大量商機流失。'],
       en: ['Inbound from fairs and platforms is unstable and often price-driven.', 'Poor lists: wrong roles, invalid emails, and weak buyer fit.', 'One-and-done outreach without cadence or reply triage causes lead leakage.'],
     },
     whyItMatters: {
       zh: [
-        '當開發沒有系統時，成本會被「無效名單」與「斷點跟進」吃掉：寄得越多，越難知道到底是名單問題、訊息問題，還是跟進節奏問題。',
+        '當開發沒有系統時，成本會被「無效名單」與「中斷點跟進」吃掉：寄得越多，越難知道到底是名單問題、訊息問題，還是跟進節奏問題。',
         '這會直接造成成交週期拉長、回覆品質下降，最後只能回到平台比價或等待展會，成效也變得不可控。',
-        '把流程做成可追蹤與可交付，才能每週優化、持續累積可推進的詢盤，而不是每次都重來。',
+        '把流程做成可追蹤與可交付，才能每週最佳化、持續累積可推進的詢價，而不是每次都重來。',
       ],
       en: [
         'Without a system, outbound cost gets eaten by bad targeting and broken follow-ups—you send more but learn less about what to fix.',
@@ -86,7 +86,7 @@ export const coreServices = {
       ],
     },
     solution: {
-      zh: ['我們把外貿開發做成一套可複製的系統：理想客戶 → 名單 → 訊息 → 跟進 → 轉化，並以「合格詢問」作為可交付成果。', '你會得到可直接使用的名單（寄信名單與開信名單）、可追蹤的開發節奏，以及可交付的詢問整理。'],
+      zh: ['我們把外銷開發做成一套可複製的系統：理想客戶 → 名單 → 訊息 → 跟進 → 轉化，並以「合格詢問」作為可交付成果。', '你會得到可直接使用的名單（寄信名單與開信名單）、可追蹤的開發節奏，以及可交付的詢問整理。'],
       en: ['We make export outreach repeatable with ICP → list → message → follow-up → conversion, and deliver qualified inquiries as outcomes.', 'You receive ready-to-use lists (sent list + opens list), a trackable cadence, and organized inquiry hand-offs.'],
     },
     whatIs: {
@@ -98,7 +98,7 @@ export const coreServices = {
       en: ['Manufacturers win overseas buyers by clarifying ICP and buyer roles first, then using verified lists and structured follow-ups to improve reply rates.'],
     },
     process: {
-      zh: ['定義理想客戶：市場、產業、通路角色、規模與採購方式。', '建立名單：多來源蒐集＋人工/系統驗證（公司、職位、電子郵件）。', '訊息框架：一封信只講一個痛點＋一個證據＋一個下一步。', '跟進節奏：4–6 次節奏式跟進，逐步加證據（案例/規格/應用）。', '回覆分類：合格/待培育/不匹配，並交付詢盤摘要與對話紀錄。'],
+      zh: ['定義理想客戶：市場、產業、通路角色、規模與採購方式。', '建立名單：多來源蒐集＋人工/系統驗證（公司、職位、電子郵件）。', '訊息框架：一封信只講一個痛點＋一個證據＋一個下一步。', '跟進節奏：4–6 次節奏式跟進，逐步加證據（案例/規格/應用）。', '回覆分類別：合格/待培育/不匹配，並交付詢價摘要與對話紀錄。'],
       en: ['Define ICP: market, industry, channel role, size, and buying style.', 'Build lists: multi-source collection with human + system validation.', 'Messaging: one pain point + one proof + one CTA per email.', 'Cadence: 4–6 structured follow-ups with different proof points.', 'Reply triage: qualified / nurture / no-fit, delivered with summaries and logs.'],
     },
     tools: {
@@ -106,13 +106,13 @@ export const coreServices = {
       en: ['Sourcing: Google, LinkedIn, directories/associations, trade fairs, import data (where applicable).', 'Deliverability: validation + sending discipline to reduce bounces and protect domain reputation.', 'Tracking: spreadsheet or CRM (sent/replied/follow-up/hand-off).'],
     },
     checklist: {
-      zh: ['定義理想客戶（市場、產業、角色、規模）。', '建立 100–300 家候選清單並驗證電子郵件。', '準備一頁式產品摘要（規格、差異點、交期、最低訂購量）。', '設計 4–6 次跟進節奏與回覆分類規則。'],
+      zh: ['定義理想客戶（市場、產業、角色、規模）。', '建立 100–300 家候選清單並驗證電子郵件。', '準備一頁式產品摘要（規格、差異點、交期、最低訂購量）。', '設計 4–6 次跟進節奏與回覆分類別規則。'],
       en: ['Define ICP (market, industry, role, size).', 'Build and validate a list of 100–300 prospects.', 'Prepare a one-page product brief (specs, proof, lead time, MOQ).', 'Create a 4–6 follow-up cadence and reply triage rules.'],
     },
     results: {
       zh: [
         { label: '名單交付', value: '試算表', desc: '寄信名單＋開信名單，可直接用於業務開發。' },
-        { label: '詢問交付', value: '可追蹤', desc: '每個詢問包含公司、聯絡方式、需求資訊與對話紀錄。' },
+        { label: '詢問交付', value: '可追蹤', desc: '每個詢問套件含公司、聯絡方式、需求資訊與對話紀錄。' },
         { label: '流程資產', value: '可複製', desc: '把「一次性開發」變成可持續的海外開發系統。' },
       ],
       en: [
@@ -126,7 +126,7 @@ export const coreServices = {
         { label: '目標公司', value: '5000' },
         { label: '候選名單', value: '500' },
         { label: '有效回覆', value: '100' },
-        { label: '合格詢盤', value: '20' },
+        { label: '合格詢價', value: '20' },
         { label: '會議/下一步', value: '10' },
       ],
       en: [
@@ -148,7 +148,7 @@ export const coreServices = {
     marketMapItems: {
       zh: [
         { region: '美國', note: '通路分層明確，適合用「買家角色」做訊息與合作方案分流。' },
-        { region: '德國', note: '重視合規與風險控制，證據點要前置（規格/認證/案例）。' },
+        { region: '德國', note: '重視合規與風險控制，證據點要前置（規格/驗證/案例）。' },
         { region: '日本', note: '決策嚴謹且重視信任，節奏式跟進與資料完整度很關鍵。' },
         { region: '中東', note: '詢價速度快，需快速回覆與清楚條件（最小訂購量/交期/付款）。' },
         { region: '東南亞', note: '價格與交期敏感，適合用應用情境與供應穩定建立差異。' },
@@ -162,12 +162,12 @@ export const coreServices = {
       ],
     },
     industries: {
-      zh: ['機械設備', '電子零組件', '五金工具', '包材/材料', '工業設備'],
+      zh: ['機械設備', '電子零元件', '五金工具', '套件材/材料', '工業設備'],
       en: ['Machinery', 'Electronics', 'Hardware Tools', 'Packaging/Materials', 'Industrial Equipment'],
     },
     caseStudy: {
-      title: { zh: '五金工具製造商：3 個月累計 50–60 個有效詢盤', en: 'Hardware manufacturer: 50–60 qualified inquiries in 3 months' },
-      desc: { zh: '建立 500 家以上目標名單並優化開啟率至 40% 以上，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
+      title: { zh: '五金工具製造商：3 個月累計 50–60 個有效詢價', en: 'Hardware manufacturer: 50–60 qualified inquiries in 3 months' },
+      desc: { zh: '建立 500 家以上目標名單並最佳化開啟率至 40% 以上，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
       link: '/case-studies/hardware',
     },
     caseStudyStats: {
@@ -188,7 +188,7 @@ export const coreServices = {
       zh: [
         { label: '產業', value: '五金工具' },
         { label: '市場', value: '美國/歐洲' },
-        { label: '買家類型', value: '進口商/經銷商' },
+        { label: '買家類別型', value: '進口商/經銷商' },
         { label: '期間', value: '3 個月' },
         { label: '研究公司', value: '2000' },
         { label: '驗證名單', value: '500' },
@@ -208,8 +208,8 @@ export const coreServices = {
     },
     caseStudyBeforeAfter: {
       zh: {
-        before: ['主要靠展會與平台，詢盤量與品質不穩。', '名單角色不對、電子郵件無效，開發效率低。', '回覆缺乏分類與摘要，跟進常漏失。'],
-        after: ['買家角色分層後，訊息更精準、回覆更穩定。', '詢盤交付含需求摘要與對話紀錄，業務可直接推進。', '形成可複製的標準作業流程，便於持續擴張市場。'],
+        before: ['主要靠展會與平台，詢價量與品質不穩。', '名單角色不對、電子郵件無效，開發效率低。', '回覆缺乏分類別與摘要，跟進常漏失。'],
+        after: ['買家角色分層後，訊息更精準、回覆更穩定。', '詢價交付含需求摘要與對話紀錄，業務可直接推進。', '形成可複製的標準作業流程，便於持續擴張市場。'],
       },
       en: {
         before: ['Relied on fairs and platforms with unstable lead quality.', 'Lists had wrong roles and invalid contacts.', 'No reply triage, causing follow-up leakage.'],
@@ -220,12 +220,12 @@ export const coreServices = {
       zh: [
         {
           title: '買家名單樣張（匿名化）',
-          caption: '更接近實際匯出：包含來源、最後驗證與備註欄位',
+          caption: '更接近實際匯出：套件含來源、最後驗證與備註欄位',
           lines: [
             '公司\t國家\t角色\t網站\t對口職稱\t來源\t最後驗證\t狀態\t備註',
             'ACME Industrial\t美國\t進口商\thttps://acme.example\t採購經理\t展會名單\t2026-02-07\t可投遞\t偏好 OEM 供應',
-            'NordWerk GmbH\t德國\t經銷商\thttps://nordwerk.example\t業務總監\t產業目錄\t2026-02-05\t可投遞\t已回覆：需規格/認證',
-            'Kanto Trading\t日本\t進口商\thttps://kanto.example\t採購負責人\t領英\t2026-02-03\t需人工確認\tcatch-all；先補第二對口',
+            'NordWerk GmbH\t德國\t經銷商\thttps://nordwerk.example\t業務總監\t產業目錄\t2026-02-05\t可投遞\t已回覆：需規格/驗證',
+            'Kanto Trading\t日本\t進口商\thttps://kanto.example\t採購負責人\tLinkedIn\t2026-02-03\t需人工確認\tcatch-all；先補第二對口',
             'BlueRiver Supply\t美國\t經銷商\thttps://blueriver.example\t採購\t搜尋引擎\t2026-02-01\t可投遞\t產品線相近，需確認應用',
           ],
         },
@@ -233,14 +233,14 @@ export const coreServices = {
           title: '開發電子郵件樣張（匿名化）',
           caption: '用「證據點＋單一步驟」提高回覆率，並方便你方接手推進',
           lines: [
-            '主旨: {公司}｜{產品類別} 是否適用於 {應用情境}？\n收件人: 採購/產品/供應鏈負責人\n開場: 我們協助製造業在 {市場} 找到進口商/經銷商買家，想確認你們是否有採購 {產品類別}。\n證據點: 30 秒規格摘要（最小訂購量/交期/認證/案例）→ {連結或附件}\n提問: 若你是對口，方便回覆「是/否」或指引正確負責人嗎？\n下一步: 若合適，我們安排 15–20 分鐘確認規格與採購節奏。',
+            '主旨: {公司}｜{產品類別別} 是否適用於 {應用情境}？\n收件人: 採購/產品/供應鏈負責人\n開場: 我們協助製造業在 {市場} 找到進口商/經銷商買家，想確認你們是否有採購 {產品類別別}。\n證據點: 30 秒規格摘要（最小訂購量/交期/驗證/案例）→ {連結或附件}\n提問: 若你是對口，方便回覆「是/否」或指引正確負責人嗎？\n下一步: 若合適，我們安排 15–20 分鐘確認規格與採購節奏。',
           ],
         },
         {
-          title: '詢盤交付樣張（匿名化）',
-          caption: '每筆包含需求摘要、下一步與對話紀錄',
+          title: '詢價交付樣張（匿名化）',
+          caption: '每筆套件含需求摘要、下一步與對話紀錄',
           lines: [
-            '公司: NordWerk GmbH（德國）\n買家角色: 經銷商\n需求: 詢問最小訂購量與交期，並希望取得相容規格表\n下一步: 提供規格/認證並安排 20 分鐘會議\n對話: 2026-02-12 來信 → 2026-02-14 回覆 → 2026-02-18 確認會議',
+            '公司: NordWerk GmbH（德國）\n買家角色: 經銷商\n需求: 詢問最小訂購量與交期，並希望取得相容規格表\n下一步: 提供規格/驗證並安排 20 分鐘會議\n對話: 2026-02-12 來信 → 2026-02-14 回覆 → 2026-02-18 確認會議',
           ],
         },
       ],
@@ -276,14 +276,14 @@ export const coreServices = {
       {
         title: { zh: '客戶背景', en: 'Client background' },
         content: {
-          zh: ['客戶為五金工具製造商，過去主要依賴展會與平台詢盤，海外開發高度不穩定。'],
+          zh: ['客戶為五金工具製造商，過去主要依賴展會與平台詢價，海外開發高度不穩定。'],
           en: ['A hardware tools manufacturer previously relied on fairs and platform inquiries, resulting in unstable inbound volume and quality.'],
         },
       },
       {
         title: { zh: '挑戰', en: 'Challenge' },
         content: {
-          zh: ['名單不精準（買家角色與職位錯誤）、開發節奏不連續、回覆缺乏分類與摘要，導致商機大量流失。'],
+          zh: ['名單不精準（買家角色與職位錯誤）、開發節奏不連續、回覆缺乏分類別與摘要，導致商機大量流失。'],
           en: ['Unverified lists, inconsistent follow-ups, and no reply triage caused lead leakage and low meeting conversion.'],
         },
       },
@@ -297,7 +297,7 @@ export const coreServices = {
       {
         title: { zh: '成果', en: 'Results' },
         content: {
-          zh: ['3 個月累計 50–60 個有效詢盤，超過 10 個潛在客戶進入樣品與報價階段，開發流程沉澱為可複製的標準作業流程。'],
+          zh: ['3 個月累計 50–60 個有效詢價，超過 10 個潛在客戶進入樣品與報價階段，開發流程沉澱為可複製的標準作業流程。'],
           en: ['Within 3 months, the client received 50–60 qualified inquiries, with 10+ prospects progressing to sampling and quoting, supported by a repeatable SOP.'],
         },
       },
@@ -306,14 +306,14 @@ export const coreServices = {
       {
         q: { zh: '你們交付什麼？', en: 'What do you deliver?' },
         a: {
-          zh: '主要交付包含：寄信名單與開信名單（試算表）、詢盤整理（公司/聯絡方式/需求/對話紀錄），以及可追蹤的跟進節奏建議。',
+          zh: '主要交付套件含：寄信名單與開信名單（試算表）、詢價整理（公司/聯絡方式/需求/對話紀錄），以及可追蹤的跟進節奏建議。',
           en: 'Deliverables include: sent list + opens list (Excel), organized inquiries (company/contact/needs/logs), and a trackable follow-up cadence.',
         },
       },
       {
         q: { zh: '多久會看到結果？', en: 'How soon will we see results?' },
         a: {
-          zh: '通常前 2–4 週完成理想客戶、名單與訊息測試；第 4–8 週開始穩定累積回覆與詢盤（視產業/市場而定）。',
+          zh: '通常前 2–4 週完成理想客戶、名單與訊息測試；第 4–8 週開始穩定累積回覆與詢價（視產業/市場而定）。',
           en: 'Typically 2–4 weeks for ICP, lists, and message testing; weeks 4–8 to see consistent replies and inquiries depending on market/industry.',
         },
       },
@@ -346,9 +346,9 @@ export const coreServices = {
         },
       },
       {
-        q: { zh: '你們的「合格詢盤」如何定義？', en: 'How do you define a “qualified lead”?' },
+        q: { zh: '你們的「合格詢價」如何定義？', en: 'How do you define a “qualified lead”?' },
         a: {
-          zh: '至少包含：買家角色符合、需求/應用可描述、下一步可推進（會議/樣品/報價），並附上完整對話紀錄與摘要。',
+          zh: '至少套件含：買家角色符合、需求/應用可描述、下一步可推進（會議/樣品/報價），並附上完整對話紀錄與摘要。',
           en: 'At minimum: correct buyer role, describable need/use case, a clear next step (call/sample/quote), plus full conversation logs and summary.',
         },
       },
@@ -366,7 +366,7 @@ export const coreServices = {
         title: { zh: '什麼是外銷客戶開發', en: 'What is export lead generation?' },
         content: {
           zh: [
-            '外銷客戶開發不是「寄更多信」，而是一套可驗證、可追蹤、可持續的流程：先把目標市場、買家角色與理想客戶條件定義清楚，再建立可用名單，最後用節奏式開發把回覆轉成可交付詢盤。',
+            '外銷客戶開發不是「寄更多信」，而是一套可驗證、可追蹤、可持續的流程：先把目標市場、買家角色與理想客戶條件定義清楚，再建立可用名單，最後用節奏式開發把回覆轉成可交付詢價。',
             '對製造業而言，出口開發最大的風險通常不是沒有需求，而是買家分散、採購鏈複雜、聯絡窗口不透明。你需要把「市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議」做成系統，才能避免每次都重新從零開始。',
           ],
           en: [
@@ -380,8 +380,8 @@ export const coreServices = {
         title: { zh: '為什麼製造業需要外銷客戶開發', en: 'Why manufacturers need export lead generation' },
         content: {
           zh: [
-            '製造業外銷失敗常見不是產品不好，而是「買家分散 + 決策鏈不透明 + 跟進不連續」。外銷客戶開發把開發變成可追蹤系統，讓你能穩定看到名單、回覆、詢盤與下一步，並逐週優化。',
-            '如果你仍只依賴展會與平台，會遇到：詢盤波動大、比價嚴重、可控性低。外銷客戶開發讓你主動選擇市場與買家角色，並把管道變成可放大的流程資產。',
+            '製造業外銷失敗常見不是產品不好，而是「買家分散 + 決策鏈不透明 + 跟進不連續」。外銷客戶開發把開發變成可追蹤系統，讓你能穩定看到名單、回覆、詢價與下一步，並逐週最佳化。',
+            '如果你仍只依賴展會與平台，會遇到：詢價波動大、比價嚴重、可控性低。外銷客戶開發讓你主動選擇市場與買家角色，並把管道變成可放大的流程資產。',
           ],
           en: [
             'Manufacturers often fail overseas not because of product quality, but because buyers are fragmented, decision chains are opaque, and follow-ups are inconsistent. Export lead generation turns outreach into a trackable system you can optimize weekly.',
@@ -394,7 +394,7 @@ export const coreServices = {
         title: { zh: '製造業如何找到海外買家', en: 'How manufacturers find overseas buyers' },
         content: {
           zh: [
-            '製造業找海外買家，通常會同時存在多種買家類型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視認證與規格，有人重視價格與最小訂購量。',
+            '製造業找海外買家，通常會同時存在多種買家類別型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視驗證與規格，有人重視價格與最小訂購量。',
             '有效的做法是先用產品線與市場分層，把「最可能成交」的買家角色放在第一順位，並在名單建置時就把角色標籤與驗證條件加進去，降低無效開發。',
           ],
           en: [
@@ -413,8 +413,8 @@ export const coreServices = {
         content: {
           zh: [
             '我們把流程固定為 5 個步驟，並在每一步都有明確輸出物：市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議。',
-            '這個流程的重點不是華麗的文案，而是「可追蹤」。你可以看到每週名單新增量、寄送量、開信/回覆、以及被判定為合格詢盤的數量，讓你知道下一步該優化名單、訊息，還是跟進節奏。',
-            '如果回覆率偏低，我們會優先檢查「名單角色是否正確」與「證據點是否足夠」。如果開信率偏低，則會回到主旨、寄送規範與名單品質。每個指標都有對應的優化方法，而不是憑感覺改文案。',
+            '這個流程的重點不是華麗的文案，而是「可追蹤」。你可以看到每週名單新增量、寄送量、開信/回覆、以及被判定為合格詢價的數量，讓你知道下一步該最佳化名單、訊息，還是跟進節奏。',
+            '如果回覆率偏低，我們會優先檢查「名單角色是否正確」與「證據點是否足夠」。如果開信率偏低，則會回到主旨、寄送規範與名單品質。每個指標都有對應的最佳化方法，而不是憑感覺改文案。',
           ],
           en: [
             'We run a fixed 5-step process with clear deliverables at each step: Market Research → Target Buyer List → Lead Qualification → Cold Outreach → Meetings.',
@@ -429,7 +429,7 @@ export const coreServices = {
         content: {
           zh: [
             '我們會依產業與市場選擇最合適的資料來源與驗證方式，並把資料整理成你可以直接使用的格式（Excel/Sheet）。重點不是工具名稱，而是「可追蹤」與「可交付」。',
-            '常見來源包含：產業目錄、展會名單、協會名錄、公司網站與新聞、以及可交叉驗證的商業資料庫。',
+            '常見來源套件含：產業目錄、展會名單、協會名錄、公司網站與新聞、以及可交叉驗證的商業資料函式庫。',
           ],
           en: [
             'We choose sources based on industry and market, validate data, and deliver it in a ready-to-use format (Excel/Sheet). The goal is trackability and deliverability—not tool hype.',
@@ -437,7 +437,7 @@ export const coreServices = {
           ],
         },
         bullets: {
-          zh: ['資料來源分群（你知道名單從哪來）', '去重與清洗（避免無效寄送）', '角色標籤（進口商/經銷商/品牌商/代工）', '回覆結果回饋到資料庫（越跑越準）'],
+          zh: ['資料來源分群（你知道名單從哪來）', '去重與清洗（避免無效寄送）', '角色標籤（進口商/經銷商/品牌商/代工）', '回覆結果回饋到資料函式庫（越跑越準）'],
           en: ['Source segmentation (you know where lists come from)', 'Dedup and cleaning (reduce waste)', 'Role tagging (importer/distributor/brand/OEM)', 'Feedback loop from replies (compounding accuracy)'],
         },
       },
@@ -455,15 +455,15 @@ export const coreServices = {
           en: 'A practical checklist that is easy to implement and easy to share across teams.',
         },
         items: {
-          zh: ['企業資料庫', '領英開發', '產業目錄', '產業協會名錄', '展會名單', '節奏式開發', '通路／經銷開發'],
+          zh: ['企業資料函式庫', 'LinkedIn開發', '產業目錄', '產業協會名錄', '展會名單', '節奏式開發', '通路／經銷開發'],
           en: ['B2B databases', 'LinkedIn (decision-chain access)', 'Trade directories', 'Industry associations', 'Trade shows', 'Cold outreach (email/LinkedIn cadence)', 'Distributor search'],
         },
       },
     ],
     relatedLinks: [
       { label: { zh: '經銷商開發（核心服務）', en: 'Distributor Development (Core)' }, href: '/services/distributor-development' },
-      { label: { zh: '外貿業務外包（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
-      { label: { zh: '方法：買家資料庫建立', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
+      { label: { zh: '外銷業務外套件（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
+      { label: { zh: '方法：買家資料函式庫建立', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
       { label: { zh: '指南：如何找到海外買家', en: 'Guide: How to find overseas buyers' }, href: '/blog/how-to-find-overseas-buyers' },
     ],
   } satisfies ServiceSeo,
@@ -481,7 +481,7 @@ export const coreServices = {
       en: 'Best for manufacturers and OEM/ODM exporters building overseas channels.',
     },
     heroDeliverablesLine: {
-      zh: '交付包含：可追蹤候選名單、通路角色地圖、合作條款框架與會議推進。',
+      zh: '交付套件含：可追蹤候選名單、通路角色地圖、合作條款框架與會議推進。',
       en: 'Deliverables: trackable shortlist, channel map, partnership terms framework, and meeting progression.',
     },
     heroTrustSignal: {
@@ -498,7 +498,7 @@ export const coreServices = {
         '可追蹤的經銷夥伴候選名單',
         '通路角色地圖（進口商／經銷商／代理商／系統整合商）',
         '合作條件框架（最小訂購量／區域／價格層級／支援條款）',
-        '多觸點開發節奏（電子郵件＋領英）',
+        '多觸點開發節奏（電子郵件＋LinkedIn）',
         '會議與試單推進建議',
       ],
       en: [
@@ -533,7 +533,7 @@ export const coreServices = {
       zh: [
         '通路開發卡關，多半不是名單不夠，而是「角色不清楚、條件不夠算得出」：對方無法快速評估利潤與風險，自然不會回覆或推進。',
         '如果你沒有一套可談判的條款框架與固定推進節奏，會議很難排、試單很難落地，最後變成隨緣開發。',
-        '把通路招募做成可追蹤的管線，才能穩定累積候選、每週推進，並用數據回饋優化策略與條款。',
+        '把通路招募做成可追蹤的管線，才能穩定累積候選、每週推進，並用資料回饋最佳化策略與條款。',
       ],
       en: [
         'Channel deals stall more from unclear roles and unscorable terms than from lack of contacts—partners can’t evaluate profit and risk fast enough to reply.',
@@ -554,11 +554,11 @@ export const coreServices = {
       en: ['We define products and markets suitable for channels, build a shortlist, design partnership messaging and terms, then drive multi-touch follow-ups.'],
     },
     process: {
-      zh: ['市場分層：優先市場/次要市場與切入策略。', '通路地圖：進口商/經銷商/代理商/系統整合商 角色拆解。', '名單建立：依產品線與地區建立可追蹤清單。', '合作方案設計：最小訂購量、區域保護、價格層級與支援條件。', '跟進節奏：電子郵件＋領英＋會議邀約，推進簽約與試單。'],
+      zh: ['市場分層：優先市場/次要市場與切入策略。', '通路地圖：進口商/經銷商/代理商/系統整合商 角色拆解。', '名單建立：依產品線與地區建立可追蹤清單。', '合作方案設計：最小訂購量、區域保護、價格層級與支援條件。', '跟進節奏：電子郵件＋LinkedIn＋會議邀約，推進簽約與試單。'],
       en: ['Market prioritization with entry tactics.', 'Channel mapping by role type.', 'Trackable distributor list building by product and region.', 'Partnership offer design: MOQ, territory, pricing tiers, support.', 'Multi-touch cadence to drive agreements and trial orders.'],
     },
     tools: {
-      zh: ['通路來源：產業協會/展會名單/經銷目錄/搜尋引擎/領英。', '名單驗證：公司網站/通路範圍/產品線互補性/決策人職位。', '追蹤推進：以表格或客戶管理系統記錄分層（有機會/需培育/不匹配）。'],
+      zh: ['通路來源：產業協會/展會名單/經銷目錄/搜尋引擎/LinkedIn。', '名單驗證：公司網站/通路範圍/產品線互補性/決策人職位。', '追蹤推進：以表格或客戶管理系統記錄分層（有機會/需培育/不匹配）。'],
       en: ['Sourcing: associations, trade fairs, distributor directories, Google, LinkedIn.', 'Verification: websites, territory scope, product-line fit, decision-maker roles.', 'Tracking: spreadsheet or CRM segmentation (fit/nurture/no-fit).'],
     },
     checklist: {
@@ -569,7 +569,7 @@ export const coreServices = {
       zh: [
         { label: '通路名單交付', value: '可追蹤', desc: '依市場/角色分層，讓開發不再亂槍打鳥。' },
         { label: '合作條件框架', value: '可談判', desc: '用可計算的合作方案讓對方能算出利潤與風險。' },
-        { label: '會議與試單推進', value: '可預期', desc: '以多觸點節奏推進會議，縮短信任建立時間。' },
+        { label: '會議與試單推進', value: '可預期', desc: '以多觸點節奏推進會議，縮簡訊任建立時間。' },
       ],
       en: [
         { label: 'Trackable partner shortlist', value: 'Structured', desc: 'Tiered by market and role so outreach is not random.' },
@@ -608,7 +608,7 @@ export const coreServices = {
         { region: '德國', note: '重視合規與文件，offer 要能讓對方快速評估風險。' },
         { region: '日本', note: '信任建立需要時間，節奏式跟進與資料完整度很關鍵。' },
         { region: '中東', note: '決策快但條件敏感，最小訂購量/交期/區域要清楚。' },
-        { region: '東南亞', note: '常見多層代理，需把角色與層級拆解避免談錯對象。' },
+        { region: '東南亞', note: '常見多層代理，需把角色與層級拆解避免談錯物件。' },
       ],
       en: [
         { region: 'Europe (EU)', note: 'Define partner roles and territories before negotiating terms.' },
@@ -619,7 +619,7 @@ export const coreServices = {
         { region: 'Southeast Asia', note: 'Multi-layer agents are common. Map roles to avoid wrong targets.' },
       ],
     },
-    industries: { zh: ['工業設備', '五金工具', '電子零組件', '包材/材料', '醫療耗材'], en: ['Industrial Equipment', 'Hardware Tools', 'Electronics', 'Packaging/Materials', 'Medical Consumables'] },
+    industries: { zh: ['工業設備', '五金工具', '電子零元件', '套件材/材料', '醫療耗材'], en: ['Industrial Equipment', 'Hardware Tools', 'Electronics', 'Packaging/Materials', 'Medical Consumables'] },
     caseStudy: {
       title: { zh: '機械設備：協助在歐洲找到 23 家經銷商候選', en: 'How We Helped a Machinery Manufacturer Find 23 Distributors in Europe' },
       desc: { zh: '用市場分層、通路地圖與合作條件設計，建立可推進的經銷開發管線，並安排關鍵會議。', en: 'We combined market tiers, channel mapping, and offer design to build a progressable distributor pipeline and schedule key meetings.' },
@@ -643,7 +643,7 @@ export const coreServices = {
       zh: [
         { label: '產業', value: '機械設備' },
         { label: '市場', value: '歐洲' },
-        { label: '夥伴類型', value: '經銷商/系統整合商' },
+        { label: '夥伴類別型', value: '經銷商/系統整合商' },
         { label: '期間', value: '8–12 週' },
         { label: '研究公司', value: '2000' },
         { label: '候選名單', value: '350' },
@@ -688,7 +688,7 @@ export const coreServices = {
           title: '通路邀約訊息樣張（匿名化）',
           caption: '把合作條件講清楚，降低對方評估成本，讓回覆更有方向',
           lines: [
-            '主旨: {公司}｜{產品線} 通路合作（{區域}）\n對象: 代理/經銷負責人或 BD\n合作定位: 我們在找 {區域} 的 {角色}（經銷商/代理商/系統整合商）\n條件摘要: 最小訂購量 {MOQ}｜區域 {Territory}｜價格層級 {Tiers}｜支援 {Support}\n提問: 你們目前是否有覆蓋 {應用/客群}？若合適，可以回覆 2 個可通話時段\n下一步: 15–20 分鐘對齊產品線與合作里程碑（試單 → 量 → 區域保護）。',
+            '主旨: {公司}｜{產品線} 通路合作（{區域}）\n物件: 代理/經銷負責人或 BD\n合作定位: 我們在找 {區域} 的 {角色}（經銷商/代理商/系統整合商）\n條件摘要: 最小訂購量 {MOQ}｜區域 {Territory}｜價格層級 {Tiers}｜支援 {Support}\n提問: 你們目前是否有覆蓋 {應用/客群}？若合適，可以回覆 2 個可通話時段\n下一步: 15–20 分鐘對齊產品線與合作里程碑（試單 → 量 → 區域保護）。',
           ],
         },
         {
@@ -752,7 +752,7 @@ export const coreServices = {
       {
         title: { zh: '執行', en: 'Execution' },
         content: {
-          zh: ['研究 2000 家公司，篩出 350 家候選並完成資料驗證；以電子郵件＋領英多觸點推進，完成回覆分類與會議邀約，並沉澱為可複製的標準作業流程。'],
+          zh: ['研究 2000 家公司，篩出 350 家候選並完成資料驗證；以電子郵件＋LinkedIn多觸點推進，完成回覆分類別與會議邀約，並沉澱為可複製的標準作業流程。'],
           en: ['We researched 2000 companies, built and validated 350 prospects, then ran multi-touch outreach (email + LinkedIn) with reply triage and meeting invites, documented as repeatable SOP.'],
         },
       },
@@ -769,9 +769,9 @@ export const coreServices = {
       { q: { zh: '要先給獨家嗎？', en: 'Should we offer exclusivity upfront?' }, a: { zh: '通常不建議。可以用階段性條件（達成量/覆蓋/推廣）來換取區域保護，降低風險。', en: 'Usually no. Use milestone-based terms to earn territory protection and reduce risk.' } },
       { q: { zh: '你們會幫我找到哪一種通路角色？', en: 'Which channel roles do you target?' }, a: { zh: '會先依市場與產品線做通路地圖，再鎖定最適合的角色（進口商/經銷商/代理商/系統整合商）。不同角色用不同條件與訊息推進。', en: 'We map channels by market and product line, then target the best-fit roles (importer/distributor/agent/integrator). Each role needs different terms and messaging.' } },
       { q: { zh: '多久會安排到第一場會議？', en: 'How soon can we get the first meeting?' }, a: { zh: '通常前 2–4 週完成名單與合作條件框架並啟動多觸點推進；會議時間視市場與夥伴回覆速度而定。', en: 'Typically we build the shortlist and terms framework in weeks 2–4 and begin multi-touch outreach; meeting timing depends on market and partner response speed.' } },
-      { q: { zh: '沒有既有案例也能找經銷商嗎？', en: 'Can we recruit distributors without case studies?' }, a: { zh: '可以，但需要用其他證據點補強：規格/認證、交付能力、價格層級與支援條件，以及清楚的試單/里程碑設計。', en: 'Yes, but you need alternative proof: specs/certs, delivery capability, pricing tiers, support terms, and a clear trial + milestone plan.' } },
+      { q: { zh: '沒有既有案例也能找經銷商嗎？', en: 'Can we recruit distributors without case studies?' }, a: { zh: '可以，但需要用其他證據點補強：規格/驗證、交付能力、價格層級與支援條件，以及清楚的試單/里程碑設計。', en: 'Yes, but you need alternative proof: specs/certs, delivery capability, pricing tiers, support terms, and a clear trial + milestone plan.' } },
       { q: { zh: '你們會提供合作條款範本嗎？', en: 'Do you provide a terms template?' }, a: { zh: '會。我們會提供可談判的條款框架（最小訂購量/區域/價格層級/支援/里程碑），讓對方能計算利潤並加速決策。', en: 'Yes. We provide a negotiable terms framework (MOQ, territory, tiers, support, milestones) so partners can evaluate economics and decide faster.' } },
-      { q: { zh: '結果可以保證簽約嗎？', en: 'Do you guarantee signed distributors?' }, a: { zh: '不保證簽約，但可以保證流程可追蹤、可優化：名單品質、角色匹配、條款框架與節奏都能量化調整，讓成功率可被提升。', en: 'We do not guarantee signed agreements, but we make the system trackable and optimizable—list quality, role fit, terms, and cadence can be improved with measurable feedback.' } },
+      { q: { zh: '結果可以保證簽約嗎？', en: 'Do you guarantee signed distributors?' }, a: { zh: '不保證簽約，但可以保證流程可追蹤、可最佳化：名單品質、角色匹配、條款框架與節奏都能量化調整，讓成功率可被提升。', en: 'We do not guarantee signed agreements, but we make the system trackable and optimizable—list quality, role fit, terms, and cadence can be improved with measurable feedback.' } },
     ],
     ctaTitle: { zh: '建立你的海外通路網路', en: 'Build your overseas channel network' },
     ctaDesc: { zh: '我們協助你用市場分層＋合作條件設計，把經銷開發做成可持續的系統。', en: 'We combine market segmentation and partnership terms to make channel development repeatable.' },
@@ -814,7 +814,7 @@ export const coreServices = {
         title: { zh: '如何找到經銷商', en: 'How to find distributors' },
         content: {
           zh: [
-            '找經銷商不是把名單丟進去寄信就會成交。你需要先定義：你要的是區域覆蓋還是專案型推進？你的產品線是否適合通路（可標準化、可庫存、售後可控）？',
+            '找經銷商不是把名單丟進去寄信就會成交。你需要先定義：你要的是區域覆蓋還是專案型推進？你的產品線是否適合通路（可標準化、可函式庫存、售後可控）？',
             '我們通常會先做通路地圖，把市場中的進口商/經銷商/代理商/系統整合商角色分清楚，再以合作條款框架（最小訂購量、區域、價格層級、支援）讓對方能計算利潤，推進會議與試單。',
           ],
           en: [
@@ -837,7 +837,7 @@ export const coreServices = {
         id: 'framework',
         title: { zh: '通路開發做法：市場分層 → 通路角色 → 合作條款 → 推進節奏', en: 'Approach: tiers → roles → offer → cadence' },
         items: {
-          zh: ['優先市場 vs 次要市場（資源先放哪）', '通路角色拆解（進口商/經銷商/代理商/系統整合商）', '合作條款（最小訂購量、區域、價格層級、支援）讓對方算得出利潤', '多觸點推進與會議邀約（電子郵件＋領英）'],
+          zh: ['優先市場 vs 次要市場（資源先放哪）', '通路角色拆解（進口商/經銷商/代理商/系統整合商）', '合作條款（最小訂購量、區域、價格層級、支援）讓對方算得出利潤', '多觸點推進與會議邀約（電子郵件＋LinkedIn）'],
           en: ['Prioritize markets (where to focus)', 'Map roles (importer/distributor/agent/integrator)', 'Define terms (MOQ, territory, tiers, support) so partners can evaluate profit', 'Run multi-touch cadence and meeting invites'],
         },
       },
@@ -846,14 +846,14 @@ export const coreServices = {
         title: { zh: '7 種找海外經銷商的方法', en: '7 ways to find international distributors' },
         note: { zh: '用清單整理來源，方便團隊快速建立候選名單並分工驗證。', en: 'List-format sources help teams build and validate shortlists faster.' },
         items: {
-          zh: ['產業協會名錄', '經銷目錄', '展會名單', '領英開發', '競品通路反查', '國家關鍵字搜尋', '節奏式開發'],
+          zh: ['產業協會名錄', '經銷目錄', '展會名單', 'LinkedIn開發', '競品通路反查', '國家關鍵字搜尋', '節奏式開發'],
           en: ['Industry associations', 'Distributor directories', 'Trade shows', 'LinkedIn prospecting', 'Competitor partner lists', 'Google + country keywords', 'Cadence-based cold outreach'],
         },
       },
     ],
     relatedLinks: [
-      { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
-      { label: { zh: '外貿業務外包（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
+      { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+      { label: { zh: '外銷業務外套件（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
       { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
       { label: { zh: '如何找到海外經銷商（指南）', en: 'How to find international distributors (Guide)' }, href: '/blog/how-to-find-international-distributors' },
     ],
@@ -861,34 +861,34 @@ export const coreServices = {
   exportSalesOutsourcing: {
     slug: 'export-sales-outsourcing',
     path: '/services/export-sales-outsourcing',
-    title: { zh: '外貿業務外包服務｜企業只需報價與出貨', en: 'Export Sales Outsourcing | You Quote & Ship, We Do the Rest' },
-    description: { zh: '我們承接除「報價與出貨」以外的外貿業務行為：名單、開發、跟進、回覆分類與詢盤交付，讓外貿開發變成可複製的系統。', en: 'We run export sales operations except quotation and shipping: lists, outreach, follow-ups, reply triage, and qualified inquiry delivery.' },
+    title: { zh: '外銷業務外套件服務｜企業只需報價與出貨', en: 'Export Sales Outsourcing | You Quote & Ship, We Do the Rest' },
+    description: { zh: '我們承接除「報價與出貨」以外的外銷業務行為：名單、開發、跟進、回覆分類別與詢價交付，讓外銷開發變成可複製的系統。', en: 'We run export sales operations except quotation and shipping: lists, outreach, follow-ups, reply triage, and qualified inquiry delivery.' },
     heroPromise: {
-      zh: '你只需專注報價與出貨，其餘外貿開發與跟進由我們標準化執行。',
+      zh: '你只需專注報價與出貨，其餘外銷開發與跟進由我們標準化執行。',
       en: 'You quote and ship. We run outreach, follow-ups, and inquiry delivery as a system.',
     },
     heroBestFor: {
-      zh: '最適合外貿人手不足、想拓展海外但不想先擴編的製造商。',
+      zh: '最適合外銷人手不足、想拓展海外但不想先擴編的製造商。',
       en: 'Best for manufacturers scaling exports without hiring an in-house team first.',
     },
     heroDeliverablesLine: {
-      zh: '交付包含：可追蹤開發管線、驗證名單、回覆分類與合格詢盤交付。',
+      zh: '交付套件含：可追蹤開發管線、驗證名單、回覆分類別與合格詢價交付。',
       en: 'Deliverables: trackable pipeline, verified lists, reply triage, and qualified inquiry handoffs.',
     },
     heroTrustSignal: {
-      zh: '適用於以一年為週期，把開發、跟進與交付做成穩定外包流程。',
+      zh: '適用於以一年為週期，把開發、跟進與交付做成穩定外套件流程。',
       en: 'Designed for a one-year engagement that standardizes outreach, follow-up, and inquiry delivery.',
     },
     annualPlanTitle: {
-      zh: '一年期外包合作節奏',
+      zh: '一年期外套件合作節奏',
       en: 'One-year outsourcing plan',
     },
     annualPlan: {
       zh: [
-        { phase: '第 1 季', focus: '交接與流程上線', deliverables: ['完成產品/市場交接', '建立名單與節奏', '開始第一輪詢盤交付'] },
-        { phase: '第 2 季', focus: '穩定詢盤輸出', deliverables: ['固定回覆分類', '優化需求摘要格式', '提高會議與樣品推進效率'] },
+        { phase: '第 1 季', focus: '交接與流程上線', deliverables: ['完成產品/市場交接', '建立名單與節奏', '開始第一輪詢價交付'] },
+        { phase: '第 2 季', focus: '穩定詢價輸出', deliverables: ['固定回覆分類別', '最佳化需求摘要格式', '提高會議與樣品推進效率'] },
         { phase: '第 3 季', focus: '擴大有效開發組合', deliverables: ['加大高回應市場與角色', '補強案例與證據素材', '降低無效跟進比例'] },
-        { phase: '第 4 季', focus: '沉澱資產與續約規劃', deliverables: ['整理全年管線與詢盤類型', '回顧交付效率', '規劃下一年度 SOP 與市場重點'] },
+        { phase: '第 4 季', focus: '沉澱資產與續約規劃', deliverables: ['整理全年管線與詢價類別型', '回顧交付效率', '規劃下一年度 SOP 與市場重點'] },
       ],
       en: [
         { phase: 'Quarter 1', focus: 'Handoff and workflow launch', deliverables: ['Complete product and market handoff', 'Build lists and cadence', 'Start the first inquiry handoffs'] },
@@ -897,18 +897,18 @@ export const coreServices = {
         { phase: 'Quarter 4', focus: 'Consolidate assets and renewal plan', deliverables: ['Organize pipeline and inquiry categories', 'Review delivery efficiency', 'Plan next-year SOP and market priorities'] },
       ],
     },
-    h1: { zh: '外貿業務外包服務', en: 'Export Sales Outsourcing for Manufacturers' },
+    h1: { zh: '外銷業務外套件服務', en: 'Export Sales Outsourcing for Manufacturers' },
     whoFor: {
-      zh: ['外貿人手不足的製造業', '想拓展海外但不想先擴編', '需要把開發與跟進標準化的企業', '希望把詢盤交付做成可追蹤流程的團隊'],
+      zh: ['外銷人手不足的製造業', '想拓展海外但不想先擴編', '需要把開發與跟進標準化的企業', '希望把詢價交付做成可追蹤流程的團隊'],
       en: ['Manufacturers short on export sales capacity', 'Teams scaling overseas without hiring first', 'Businesses needing standardized outreach and follow-up SOP', 'Companies wanting trackable inquiry delivery'],
     },
     whatYouGet: {
       zh: [
         '可追蹤的開發管線（已寄/已回/待跟進/已交付）',
         '可直接使用的買家名單（含寄送規範）',
-        '4–6 次節奏式跟進（電子郵件/領英）',
-        '回覆分類（合格/培育/不匹配）',
-        '合格詢盤交付（需求摘要/對話紀錄/下一步）',
+        '4–6 次節奏式跟進（電子郵件/LinkedIn）',
+        '回覆分類別（合格/培育/不匹配）',
+        '合格詢價交付（需求摘要/對話紀錄/下一步）',
       ],
       en: [
         'A trackable outbound pipeline (sent/replied/follow-up/hand-off)',
@@ -924,7 +924,7 @@ export const coreServices = {
         { label: '有效回覆率', value: '5–15%' },
         { label: '合格率（回覆中）', value: '20–40%' },
         { label: '會議率', value: '2–5%' },
-        { label: '合格詢盤', value: '8–25' },
+        { label: '合格詢價', value: '8–25' },
       ],
       en: [
         { label: 'Prospects contacted', value: '300–900' },
@@ -935,14 +935,14 @@ export const coreServices = {
       ],
     },
     problem: {
-      zh: ['外貿人手不足，業務被開發與跟進拖垮，無法專注成交。', '詢盤與名單沒有系統，跟進節奏靠個人記憶，容易流失。', '想拓展海外，但招募/培訓一個可上手的外貿團隊成本太高、週期太長。'],
+      zh: ['外銷人手不足，業務被開發與跟進拖垮，無法專注成交。', '詢價與名單沒有系統，跟進節奏靠個人記憶，容易流失。', '想拓展海外，但招募/培訓一個可上手的外銷團隊成本太高、週期太長。'],
       en: ['Your sales team is overloaded, so follow-ups slip and deals stall.', 'Lists and inquiries are not tracked systematically, causing lead leakage.', 'Hiring and training an export team is expensive and slow.'],
     },
     whyItMatters: {
       zh: [
-        '外貿開發最怕的不是忙，而是「忙了卻沒有累積」：沒有可追蹤的名單、回覆與下一步，就無法復盤，也無法讓結果變得可預期。',
-        '當跟進節奏依賴個人習慣，詢盤很容易在忙碌中流失；而招募與培訓又會拉長空窗期，錯過市場窗口。',
-        '把前段工作標準化並持續交付合格詢盤，才能讓內部團隊把精力留給報價、談判與成交。',
+        '外銷開發最怕的不是忙，而是「忙了卻沒有累積」：沒有可追蹤的名單、回覆與下一步，就無法復盤，也無法讓結果變得可預期。',
+        '當跟進節奏依賴個人習慣，詢價很容易在忙碌中流失；而招募與培訓又會拉長空窗期，錯過市場窗口。',
+        '把前段工作標準化並持續交付合格詢價，才能讓內部團隊把精力留給報價、談判與成交。',
       ],
       en: [
         'The biggest risk is not being busy—it’s being busy without compounding. Without trackable lists, replies, and next steps, you can’t improve predictably.',
@@ -951,11 +951,11 @@ export const coreServices = {
       ],
     },
     solution: {
-      zh: ['我們用「流程＋名單＋節奏＋回覆分類」把外貿開發做成可交付的系統，讓企業只需專注：報價與出貨。', '你會獲得可追蹤的開發管線與可複製的標準作業流程，降低對個人能力的依賴。'],
+      zh: ['我們用「流程＋名單＋節奏＋回覆分類別」把外銷開發做成可交付的系統，讓企業只需專注：報價與出貨。', '你會獲得可追蹤的開發管線與可複製的標準作業流程，降低對個人能力的依賴。'],
       en: ['We turn outbound into a deliverable system (process, lists, cadence, reply triage) so you only focus on quoting and shipping.', 'You get a trackable pipeline and repeatable SOP instead of relying on individual heroics.'],
     },
     whatIs: {
-      zh: ['外貿業務外包是由專業團隊承接海外客戶開發與跟進，把外貿流程標準化並持續交付合格詢盤，讓企業不用先擴編也能做海外增長。'],
+      zh: ['外銷業務外套件是由專業團隊承接海外客戶開發與跟進，把外銷流程標準化並持續交付合格詢價，讓企業不用先擴編也能做海外增長。'],
       en: ['Export sales outsourcing is a managed workflow that standardizes outreach and follow-up to continuously deliver qualified export inquiries without hiring a full team.'],
     },
     howWorks: {
@@ -963,22 +963,22 @@ export const coreServices = {
       en: ['Manufacturers win overseas buyers by clarifying ICP and market priorities first, then building a verified list and running a repeatable message + follow-up cadence that creates a trackable pipeline.'],
     },
     process: {
-      zh: ['建立理想客戶與市場優先順序。', '建置買家名單與資料驗證。', '撰寫開發信與多觸點節奏（電子郵件/領英）。', '回覆分類與初步需求確認。', '將合格詢盤交付給你的團隊推進成交。'],
+      zh: ['建立理想客戶與市場優先順序。', '建置買家名單與資料驗證。', '撰寫開發信與多觸點節奏（電子郵件/LinkedIn）。', '回覆分類別與初步需求確認。', '將合格詢價交付給你的團隊推進成交。'],
       en: ['Define ICP and market priorities.', 'Build and verify buyer lists.', 'Write outreach and multi-touch cadence.', 'Qualify replies and confirm requirements.', 'Hand off qualified inquiries for closing.'],
     },
     tools: {
-      zh: ['買家資料：搜尋引擎/領英/產業目錄/展會名單/進出口資料（依市場適用）。', '電子郵件驗證與投遞：名單驗證與寄送規範，降低跳退與垃圾信風險。', '追蹤：用表格或客戶管理系統記錄狀態（已寄/已回/待跟進/已交付）。'],
+      zh: ['買家資料：搜尋引擎/LinkedIn/產業目錄/展會名單/進出口資料（依市場適用）。', '電子郵件驗證與投遞：名單驗證與寄送規範，降低跳退與垃圾信風險。', '追蹤：用表格或客戶管理系統記錄狀態（已寄/已回/待跟進/已交付）。'],
       en: ['Data sourcing: Google, LinkedIn, directories, trade fairs, import data (where applicable).', 'Deliverability: email validation and sending discipline to reduce bounces.', 'Tracking: spreadsheet or CRM status tracking (sent/replied/follow-up/hand-off).'],
     },
     checklist: {
-      zh: ['定義理想客戶（產業/角色/國家/規模）。', '準備一頁式產品摘要（規格/差異點/交期/最小訂購量）。', '建立 100–300 家候選名單並驗證聯絡方式。', '設計 4–6 次跟進節奏與回覆分類規則。'],
+      zh: ['定義理想客戶（產業/角色/國家/規模）。', '準備一頁式產品摘要（規格/差異點/交期/最小訂購量）。', '建立 100–300 家候選名單並驗證聯絡方式。', '設計 4–6 次跟進節奏與回覆分類別規則。'],
       en: ['Define ICP (industry, role, country, size).', 'Prepare a one-page product brief (specs, proof, lead time, MOQ).', 'Build and validate a list of 100–300 prospects.', 'Create a 4–6 follow-up cadence and reply triage rules.'],
     },
     results: {
       zh: [
-        { label: '合格詢盤交付', value: '持續交付', desc: '回覆分類與下一步標準化，讓團隊可以穩定跟進。' },
+        { label: '合格詢價交付', value: '持續交付', desc: '回覆分類別與下一步標準化，讓團隊可以穩定跟進。' },
         { label: '流程標準化', value: '可複製', desc: '把開發與跟進做成系統，而不是靠運氣或個人。' },
-        { label: '不擴編也能做', value: '降低成本', desc: '不用先招募完整外貿團隊，也能啟動海外開發。' },
+        { label: '不擴編也能做', value: '降低成本', desc: '不用先招募完整外銷團隊，也能啟動海外開發。' },
       ],
       en: [
         { label: 'Qualified inquiry delivery', value: 'Ongoing', desc: 'Standardized triage and next steps for consistent follow-ups.' },
@@ -991,7 +991,7 @@ export const coreServices = {
         { label: '目標公司', value: '5000' },
         { label: '候選名單', value: '500' },
         { label: '有效回覆', value: '100' },
-        { label: '合格詢盤', value: '20' },
+        { label: '合格詢價', value: '20' },
         { label: '會議/下一步', value: '10' },
       ],
       en: [
@@ -1003,7 +1003,7 @@ export const coreServices = {
       ],
     },
     workflow: {
-      zh: ['理想客戶與市場', '名單建立', '開發節奏', '跟進與資格審核', '詢盤交付'],
+      zh: ['理想客戶與市場', '名單建立', '開發節奏', '跟進與資格審核', '詢價交付'],
       en: ['ICP & Markets', 'List Building', 'Outreach Cadence', 'Follow-up & Qualify', 'Inquiry Hand-off'],
     },
     marketMap: {
@@ -1012,8 +1012,8 @@ export const coreServices = {
     },
     marketMapItems: {
       zh: [
-        { region: '美國', note: '節奏與速度很重要，回覆分類要讓業務快速推進。' },
-        { region: '歐洲', note: '合規與文件前置，跟進要帶證據（規格/認證/案例）。' },
+        { region: '美國', note: '節奏與速度很重要，回覆分類別要讓業務快速推進。' },
+        { region: '歐洲', note: '合規與文件前置，跟進要帶證據（規格/驗證/案例）。' },
         { region: '德國', note: '評估嚴謹，需求確認要標準化避免來回消耗。' },
         { region: '日本', note: '信任建立時間長，節奏式跟進與資料完整度關鍵。' },
         { region: '中東', note: '詢價快但條件敏感，最小訂購量/交期/付款要清楚。' },
@@ -1028,10 +1028,10 @@ export const coreServices = {
         { region: 'Southeast Asia', note: 'Lead time and reliability are key. Use use cases and service proof.' },
       ],
     },
-    industries: { zh: ['機械設備', '電子零組件', '塑膠/材料', '工業設備'], en: ['Machinery', 'Electronics', 'Plastics/Materials', 'Industrial Equipment'] },
+    industries: { zh: ['機械設備', '電子零元件', '塑膠/材料', '工業設備'], en: ['Machinery', 'Electronics', 'Plastics/Materials', 'Industrial Equipment'] },
     caseStudy: {
-      title: { zh: '工業零組件：不擴編也能穩定交付詢盤', en: 'Industrial components: consistent inquiries without hiring' },
-      desc: { zh: '用名單＋節奏＋回覆分類，把外貿開發變成可追蹤的開發管線，讓企業只需專注報價與出貨。', en: 'We ran lists, cadence, and reply triage to deliver a trackable pipeline so the client focused on quoting and shipping.' },
+      title: { zh: '工業零元件：不擴編也能穩定交付詢價', en: 'Industrial components: consistent inquiries without hiring' },
+      desc: { zh: '用名單＋節奏＋回覆分類別，把外銷開發變成可追蹤的開發管線，讓企業只需專注報價與出貨。', en: 'We ran lists, cadence, and reply triage to deliver a trackable pipeline so the client focused on quoting and shipping.' },
       link: '/case-studies/components',
     },
     caseStudyStats: {
@@ -1039,7 +1039,7 @@ export const coreServices = {
         { label: '研究公司', value: '1500' },
         { label: '寄送', value: '600' },
         { label: '有效回覆', value: '35' },
-        { label: '合格詢盤', value: '12' },
+        { label: '合格詢價', value: '12' },
       ],
       en: [
         { label: 'Companies researched', value: '1500' },
@@ -1050,14 +1050,14 @@ export const coreServices = {
     },
     caseStudyEvidence: {
       zh: [
-        { label: '產業', value: '工業零組件' },
+        { label: '產業', value: '工業零元件' },
         { label: '市場', value: '美國/歐洲' },
-        { label: '買家類型', value: '進口商/品牌商' },
+        { label: '買家類別型', value: '進口商/品牌商' },
         { label: '期間', value: '8–12 週' },
         { label: '研究公司', value: '1500' },
         { label: '寄送', value: '600' },
         { label: '有效回覆', value: '35' },
-        { label: '合格詢盤', value: '12' },
+        { label: '合格詢價', value: '12' },
       ],
       en: [
         { label: 'Industry', value: 'Industrial components' },
@@ -1072,8 +1072,8 @@ export const coreServices = {
     },
     caseStudyBeforeAfter: {
       zh: {
-        before: ['外貿跟進靠個人記憶，常漏掉下一步。', '詢盤資訊分散，報價與樣品推進慢。', '招募/培訓週期長，短期無法擴張海外開發。'],
-        after: ['開發與跟進流程標準化，狀態可追蹤。', '合格詢盤交付含摘要/紀錄/下一步，推進更快。', '不用先擴編也能穩定產出詢盤與會議。'],
+        before: ['外銷跟進靠個人記憶，常漏掉下一步。', '詢價資訊分散，報價與樣品推進慢。', '招募/培訓週期長，短期無法擴張海外開發。'],
+        after: ['開發與跟進流程標準化，狀態可追蹤。', '合格詢價交付含摘要/紀錄/下一步，推進更快。', '不用先擴編也能穩定產出詢價與會議。'],
       },
       en: {
         before: ['Follow-ups relied on memory and missed next steps.', 'Lead context was scattered, slowing quoting and samples.', 'Hiring/training was too slow for near-term scaling.'],
@@ -1093,7 +1093,7 @@ export const coreServices = {
           ],
         },
         {
-          title: '回覆分類樣張（摘要）',
+          title: '回覆分類別樣張（摘要）',
           caption: '降低無效跟進，讓業務時間花在可成交機會',
           lines: [
             '合格：需求明確/有時間表/願意提供規格\n培育：暫時沒需求/等預算/等規格確認\n不匹配：產品不符/區域不符/僅比價無下一步',
@@ -1121,40 +1121,40 @@ export const coreServices = {
       {
         title: { zh: '客戶背景', en: 'Client background' },
         content: {
-          zh: ['客戶為工業零組件製造商，產品力不錯但外貿人力不足，導致跟進斷點與詢盤流失。'],
+          zh: ['客戶為工業零元件製造商，產品力不錯但外銷人力不足，導致跟進中斷點與詢價流失。'],
           en: ['An industrial components manufacturer had strong products but insufficient export sales capacity, leading to follow-up gaps and lost inquiries.'],
         },
       },
       {
         title: { zh: '挑戰', en: 'Challenge' },
         content: {
-          zh: ['招募與培訓週期長，短期內無法補齊外貿團隊；同時需要把名單與跟進做成可追蹤流程。'],
+          zh: ['招募與培訓週期長，短期內無法補齊外銷團隊；同時需要把名單與跟進做成可追蹤流程。'],
           en: ['Hiring and onboarding would take months, but the business needed a trackable pipeline immediately.'],
         },
       },
       {
         title: { zh: '執行', en: 'Execution' },
         content: {
-          zh: ['建置驗證名單、撰寫訊息框架、執行 4–6 次跟進節奏；回覆分類與初步需求確認後交付合格詢盤。'],
+          zh: ['建置驗證名單、撰寫訊息框架、執行 4–6 次跟進節奏；回覆分類別與初步需求確認後交付合格詢價。'],
           en: ['We built verified lists, wrote messaging, ran a 4–6 touch cadence, triaged replies, confirmed initial requirements, and delivered qualified inquiries.'],
         },
       },
       {
         title: { zh: '成果', en: 'Results' },
         content: {
-          zh: ['在不擴編前提下建立可追蹤的開發管線，並持續交付合格詢盤，讓內部團隊集中在報價與成交。'],
+          zh: ['在不擴編前提下建立可追蹤的開發管線，並持續交付合格詢價，讓內部團隊集中在報價與成交。'],
           en: ['The client gained a trackable pipeline and consistent qualified inquiries without hiring, allowing the internal team to focus on quoting and closing.'],
         },
       },
     ],
     faq: [
       { q: { zh: '你們會幫忙回覆客戶嗎？', en: 'Do you reply to buyers for us?' }, a: { zh: '可以依合作模式調整：可做初步需求確認與篩選，也可只交付回覆由你們自行跟進。', en: 'Yes, depending on engagement: we can do initial qualification or simply deliver replies for your team to follow up.' } },
-      { q: { zh: '如何確保詢盤品質？', en: 'How do you ensure lead quality?' }, a: { zh: '透過名單篩選規則、訊息框架與回覆分類流程，把不匹配的詢盤在前段就過濾掉。', en: 'Through list qualification rules, messaging frameworks, and reply triage to filter poor fits early.' } },
-      { q: { zh: '外貿業務外包包含哪些工作？', en: 'What is included in export sales outsourcing?' }, a: { zh: '通常包含：名單建置、電子郵件與領英開發、跟進、回覆分類與詢盤交付；不包含：報價、談判、收款與出貨。', en: 'Typically included: list building, outreach, follow-ups, reply triage, and inquiry delivery; excluded: quoting, negotiation, payment, and shipping.' } },
+      { q: { zh: '如何確保詢價品質？', en: 'How do you ensure lead quality?' }, a: { zh: '透過名單篩選規則、訊息框架與回覆分類別流程，把不匹配的詢價在前段就過濾掉。', en: 'Through list qualification rules, messaging frameworks, and reply triage to filter poor fits early.' } },
+      { q: { zh: '外銷業務外套件套件含哪些工作？', en: 'What is included in export sales outsourcing?' }, a: { zh: '通常套件含：名單建置、電子郵件與LinkedIn開發、跟進、回覆分類別與詢價交付；不套件含：報價、談判、收款與出貨。', en: 'Typically included: list building, outreach, follow-ups, reply triage, and inquiry delivery; excluded: quoting, negotiation, payment, and shipping.' } },
       { q: { zh: '我們需要準備什麼？', en: 'What do we need to prepare?' }, a: { zh: '你只需準備：產品一頁式摘要、目標市場優先序、可接受條件（最小訂購量/交期/付款/價格層級）與你方成交流程。', en: 'You provide: a one-page product brief, market priorities, acceptable terms (MOQ/lead time/payment/tiers), and your closing workflow.' } },
-      { q: { zh: '多久會開始看到回覆？', en: 'How soon will we see replies?' }, a: { zh: '通常前 2–4 週完成理想客戶、名單與訊息測試；第 4–8 週開始穩定累積回覆與可交付詢盤（視市場/產業而定）。', en: 'Typically weeks 2–4 for ICP, lists and message testing; weeks 4–8 for stable replies and deliverable inquiries depending on market and industry.' } },
-      { q: { zh: '你們會用哪些工具或資料來源？', en: 'Which sources do you use?' }, a: { zh: '依市場與產業選擇：產業目錄、協會名錄、展會名單、領英、公司網站與新聞，以及可交叉驗證的商業資料庫。', en: 'Based on market/industry: directories, associations, trade shows, LinkedIn, company websites/news, and cross-verifiable business databases.' } },
-      { q: { zh: '結果可以保證多少詢盤嗎？', en: 'Do you guarantee a number of leads?' }, a: { zh: '不保證固定數量，但我們會把流程做成可追蹤並每週優化：名單、訊息與節奏都能量化調整，讓成效可被提升。', en: 'We do not guarantee a fixed number, but we make the system trackable and improve it weekly—list quality, messaging, and cadence are measurable and optimizable.' } },
+      { q: { zh: '多久會開始看到回覆？', en: 'How soon will we see replies?' }, a: { zh: '通常前 2–4 週完成理想客戶、名單與訊息測試；第 4–8 週開始穩定累積回覆與可交付詢價（視市場/產業而定）。', en: 'Typically weeks 2–4 for ICP, lists and message testing; weeks 4–8 for stable replies and deliverable inquiries depending on market and industry.' } },
+      { q: { zh: '你們會用哪些工具或資料來源？', en: 'Which sources do you use?' }, a: { zh: '依市場與產業選擇：產業目錄、協會名錄、展會名單、LinkedIn、公司網站與新聞，以及可交叉驗證的商業資料函式庫。', en: 'Based on market/industry: directories, associations, trade shows, LinkedIn, company websites/news, and cross-verifiable business databases.' } },
+      { q: { zh: '結果可以保證多少詢價嗎？', en: 'Do you guarantee a number of leads?' }, a: { zh: '不保證固定數量，但我們會把流程做成可追蹤並每週最佳化：名單、訊息與節奏都能量化調整，讓成效可被提升。', en: 'We do not guarantee a fixed number, but we make the system trackable and improve it weekly—list quality, messaging, and cadence are measurable and optimizable.' } },
     ],
     ctaTitle: { zh: '想建立可複製的海外開發能力？', en: 'Want repeatable export sales growth?' },
     ctaDesc: { zh: '用流程＋內容＋節奏，把一次性開發變成穩定的增長系統。', en: 'Turn one-off outreach into a stable growth system with process, content, and cadence.' },
@@ -1166,11 +1166,11 @@ export const coreServices = {
     seoSections: [
       {
         id: 'what-is-export-sales-outsourcing',
-        title: { zh: '什麼是外貿業務外包', en: 'What is export sales outsourcing?' },
+        title: { zh: '什麼是外銷業務外套件', en: 'What is export sales outsourcing?' },
         content: {
           zh: [
-            '外貿業務外包不是把「成交」外包，而是把可以標準化的前段工作外包：名單、開發、跟進、回覆分類與詢盤交付，讓企業把最稀缺的時間花在報價、談判與出貨。',
-            '關鍵是流程可追蹤。你必須能看到每週名單新增、寄送與回覆狀態，並且把合格詢盤以一致格式交付，才會真正降低跟進成本。',
+            '外銷業務外套件不是把「成交」外套件，而是把可以標準化的前段工作外套件：名單、開發、跟進、回覆分類別與詢價交付，讓企業把最稀缺的時間花在報價、談判與出貨。',
+            '關鍵是流程可追蹤。你必須能看到每週名單新增、寄送與回覆狀態，並且把合格詢價以一致格式交付，才會真正降低跟進成本。',
           ],
           en: [
             'Export sales outsourcing is not outsourcing the close. It outsources the standardizable front-end work: list building, outreach, follow-ups, reply triage, and inquiry delivery—so your team spends time on quoting, negotiation, and shipping.',
@@ -1180,11 +1180,11 @@ export const coreServices = {
       },
       {
         id: 'why-manufacturers-outsource-export-sales',
-        title: { zh: '為什麼製造業選擇外貿外包', en: 'Why manufacturers outsource export sales' },
+        title: { zh: '為什麼製造業選擇外銷外套件', en: 'Why manufacturers outsource export sales' },
         content: {
           zh: [
-            '對多數製造業來說，外銷增長的瓶頸不是「沒有產品」，而是「沒有穩定可追蹤的開發與跟進能力」。建立一支能產出詢盤的外貿團隊，需要招募、培訓、管理與系統化，週期長且成本高。',
-            '外貿業務外包的價值在於把前段可標準化工作交給專業團隊：名單、開發、跟進、回覆分類、詢盤交付；你方只需投入最關鍵的成交行為（報價/談判/出貨）。',
+            '對多數製造業來說，外銷增長的瓶頸不是「沒有產品」，而是「沒有穩定可追蹤的開發與跟進能力」。建立一支能產出詢價的外銷團隊，需要招募、培訓、管理與系統化，週期長且成本高。',
+            '外銷業務外套件的價值在於把前段可標準化工作交給專業團隊：名單、開發、跟進、回覆分類別、詢價交付；你方只需投入最關鍵的成交行為（報價/談判/出貨）。',
           ],
           en: [
             'For most manufacturers, the bottleneck is not product—it is the lack of a stable, trackable outreach and follow-up system. Building an export team that reliably generates inquiries takes hiring, training, and operations, which is slow and expensive.',
@@ -1197,8 +1197,8 @@ export const coreServices = {
         title: { zh: '交付內容與合作邊界', en: 'Deliverables and boundaries' },
         content: {
           zh: [
-            '為了讓外包「可管理」，必須先把包含/不包含講清楚。我們通常承接：名單建置、開發與跟進、回覆分類、初步需求確認與詢盤交付；你方承接：報價、談判、收款與出貨。',
-            '我們會把每週工作變成可追蹤報表：寄送量、開信/回覆、詢盤分類、以及下一步建議。這樣你可以清楚知道開發管線在哪裡卡住，並快速調整名單、訊息或節奏。',
+            '為了讓外套件「可管理」，必須先把套件含/不套件含講清楚。我們通常承接：名單建置、開發與跟進、回覆分類別、初步需求確認與詢價交付；你方承接：報價、談判、收款與出貨。',
+            '我們會把每週工作變成可追蹤報表：寄送量、開信/回覆、詢價分類別、以及下一步建議。這樣你可以清楚知道開發管線在哪裡卡住，並快速調整名單、訊息或節奏。',
           ],
           en: [
             'To make outsourcing manageable, scope must be explicit. We typically handle list building, outreach and follow-ups, reply triage, initial requirement confirmation, and inquiry delivery. You handle quoting, negotiation, payment, and shipping.',
@@ -1206,13 +1206,13 @@ export const coreServices = {
           ],
         },
         bullets: {
-          zh: ['包含：名單/開發/跟進/回覆分類/詢盤交付', '不包含：報價/談判/收款/出貨', '每週交付：數據 + 清單 + 詢盤摘要'],
+          zh: ['套件含：名單/開發/跟進/回覆分類別/詢價交付', '不套件含：報價/談判/收款/出貨', '每週交付：資料 + 清單 + 詢價摘要'],
           en: ['Included: lists, outreach, follow-ups, triage, inquiry delivery', 'Excluded: quoting, negotiation, payment, shipping', 'Weekly delivery: metrics + lists + inquiry summaries'],
         },
       },
     ],
     geoGroupTitle: {
-      zh: '不擴編也能做的外貿開發方法',
+      zh: '不擴編也能做的外銷開發方法',
       en: 'Practical outbound methods without hiring first',
     },
     geoSections: [
@@ -1226,16 +1226,16 @@ export const coreServices = {
       },
       {
         id: '7-ways',
-        title: { zh: '不擴編也能拿到詢盤的 7 種方法', en: '7 ways manufacturers generate export leads without hiring' },
-        note: { zh: '用清單整理常見來源與做法，方便團隊拆解分工並持續優化。', en: 'A practical list of sources and plays teams can run and improve.' },
+        title: { zh: '不擴編也能拿到詢價的 7 種方法', en: '7 ways manufacturers generate export leads without hiring' },
+        note: { zh: '用清單整理常見來源與做法，方便團隊拆解分工並持續最佳化。', en: 'A practical list of sources and plays teams can run and improve.' },
         items: {
-          zh: ['企業資料庫名單（含驗證）', '領英開發（觸達決策鏈）', '產業目錄', '協會名錄', '展會名單跟進', '節奏式開發（電子郵件/領英）', '通路／經銷開發'],
+          zh: ['企業資料函式庫名單（含驗證）', 'LinkedIn開發（觸達決策鏈）', '產業目錄', '協會名錄', '展會名單跟進', '節奏式開發（電子郵件/LinkedIn）', '通路／經銷開發'],
           en: ['B2B databases (with validation)', 'LinkedIn prospecting', 'Industry directories', 'Industry associations', 'Trade shows (follow-ups)', 'Cadence-based cold outreach', 'Distributor recruitment'],
         },
       },
     ],
     relatedLinks: [
-      { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+      { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
       { label: { zh: '經銷商開發（核心服務）', en: 'Distributor Development (Core)' }, href: '/services/distributor-development' },
       { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
       { label: { zh: '成功案例（證據）', en: 'Case Studies (Proof)' }, href: '/case-studies' },

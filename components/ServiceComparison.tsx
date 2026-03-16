@@ -11,21 +11,21 @@ interface ComparisonRow {
 const rows: ComparisonRow[] = [
   {
     feature: { zh: '目標', en: 'Goal' },
-    leadGen: { zh: '找到海外買家並產出合格詢盤', en: 'Find overseas buyers and generate qualified inquiries' },
+    leadGen: { zh: '找到海外買家並產出合格詢價', en: 'Find overseas buyers and generate qualified inquiries' },
     distributor: { zh: '找到並簽下通路夥伴，建立覆蓋', en: 'Recruit channel partners and build market coverage' },
-    outsourcing: { zh: '把外貿開發與跟進做成可交付系統', en: 'Run export sales operations as a deliverable system' },
+    outsourcing: { zh: '把外銷開發與跟進做成可交付系統', en: 'Run export sales operations as a deliverable system' },
   },
   {
     feature: { zh: '流程', en: 'Process' },
-    leadGen: { zh: '理想客戶 → 名單 → 訊息 → 跟進節奏 → 回覆分類', en: 'ICP → list → message → cadence → reply triage' },
+    leadGen: { zh: '理想客戶 → 名單 → 訊息 → 跟進節奏 → 回覆分類別', en: 'ICP → list → message → cadence → reply triage' },
     distributor: { zh: '市場分層 → 通路地圖 → 夥伴名單 → 合作方案 → 推進簽約', en: 'Market tiers → channel map → shortlist → offer → agreement' },
-    outsourcing: { zh: '名單＋開發＋跟進＋初步資格審核＋詢盤交付', en: 'Lists + outreach + follow-ups + qualification + inquiry hand-off' },
+    outsourcing: { zh: '名單＋開發＋跟進＋初步資格審核＋詢價交付', en: 'Lists + outreach + follow-ups + qualification + inquiry hand-off' },
   },
   {
     feature: { zh: '交付內容', en: 'Output' },
-    leadGen: { zh: '可用名單（Excel）＋詢盤整理', en: 'Usable lists (Excel) + inquiry summaries' },
+    leadGen: { zh: '可用名單（Excel）＋詢價整理', en: 'Usable lists (Excel) + inquiry summaries' },
     distributor: { zh: '可追蹤通路名單＋合作條件框架＋會議', en: 'Trackable shortlist + term framework + meetings' },
-    outsourcing: { zh: '合格詢盤持續交付＋可追蹤 pipeline', en: 'Ongoing qualified inquiries + trackable pipeline' },
+    outsourcing: { zh: '合格詢價持續交付＋可追蹤 pipeline', en: 'Ongoing qualified inquiries + trackable pipeline' },
   },
   {
     feature: { zh: '時間安排', en: 'Timeframe' },
@@ -53,16 +53,16 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
         <thead>
           <tr className="bg-gray-50 border-b border-gray-200">
             <th className="p-4 font-bold text-gray-900 w-1/4">
-              {lang === 'zh' ? '比較項目' : 'Feature'}
+              {lang === 'zh' ? '比較專案' : 'Feature'}
             </th>
             <th className="p-4 font-bold text-blue-900 bg-blue-50 w-1/4 text-center border-t-4 border-t-blue-600">
-              {lang === 'zh' ? '外貿客戶開發' : 'Export Lead Gen'}
+              {lang === 'zh' ? '外銷客戶開發' : 'Export Lead Gen'}
             </th>
             <th className="p-4 font-bold text-green-900 bg-green-50 w-1/4 text-center border-t-4 border-t-green-600">
               {lang === 'zh' ? '經銷商開發' : 'Distributor Dev'}
             </th>
             <th className="p-4 font-bold text-indigo-900 bg-indigo-50 w-1/4 text-center border-t-4 border-t-indigo-600">
-              {lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing'}
+              {lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing'}
             </th>
           </tr>
         </thead>

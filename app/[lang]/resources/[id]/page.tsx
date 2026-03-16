@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; i
           </div>
 
           <div className="mt-16 rounded-2xl border border-orange-100 bg-orange-50 p-8 text-center">
-            <h3 className="mb-4 text-2xl font-bold text-orange-900">{lang === 'zh' ? '想把這個主題用在你的市場？' : 'Want to apply this to your market?'}</h3>
+            <h3 className="mb-4 text-2xl font-bold text-orange-900">{lang === 'zh' ? '想把這個主旨用在你的市場？' : 'Want to apply this to your market?'}</h3>
             <p className="mx-auto mb-8 max-w-xl text-orange-800">
               {lang === 'zh'
                 ? '如果你想把這份內容延伸到自己的產品、產業與目標市場，可以直接申請免費市場分析。'

@@ -78,7 +78,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         </section>
 
         <section className="mt-12 mb-16 rounded-xl bg-slate-900 text-white p-8">
-          <h2 className="text-2xl font-bold">{lang === 'zh' ? '想把方法落地成詢盤？' : 'Want to turn this into inquiries?'}</h2>
+          <h2 className="text-2xl font-bold">{lang === 'zh' ? '想把方法落地成詢價？' : 'Want to turn this into inquiries?'}</h2>
           <p className="mt-2 text-slate-200">
             {lang === 'zh'
               ? '拿走一份免費出口市場分析，我們會回覆市場切入、買家角色與可行的開發策略。'

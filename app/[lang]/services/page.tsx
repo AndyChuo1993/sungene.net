@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     description: t(lang, 'meta_home_desc'),
     keywords:
       lang === 'zh'
-        ? ['外銷客戶開發', '經銷商開發', '外貿業務外包', '海外買家名單', '出口市場分析']
+        ? ['外銷客戶開發', '經銷商開發', '外銷業務外套件', '海外買家名單', '出口市場分析']
         : ['export lead generation', 'distributor development', 'export sales outsourcing', 'overseas buyers', 'market analysis'],
     openGraph: {
       title: t(lang, 'service_title') + ' | SunGene',
@@ -41,9 +41,9 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       title: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
       desc:
         lang === 'zh'
-          ? '一年期合作，持續為製造業建立海外買家名單、開發節奏與合格詢盤。'
+          ? '一年期合作，持續為製造業建立海外買家名單、開發節奏與合格詢價。'
           : 'A one-year engagement to build overseas buyer lists, outreach cadence, and qualified inquiries for manufacturers.',
-      tags: lang === 'zh' ? ['製造業', '海外買家', '詢盤'] : ['Manufacturers', 'Overseas buyers', 'Leads'],
+      tags: lang === 'zh' ? ['製造業', '海外買家', '詢價'] : ['Manufacturers', 'Overseas buyers', 'Leads'],
     },
     {
       href: `/${lang}/services/distributor-development`,
@@ -56,10 +56,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      title: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing',
+      title: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing',
       desc:
         lang === 'zh'
-          ? '一年期合作，你專注報價與出貨，其餘外貿開發與跟進由我們持續執行。'
+          ? '一年期合作，你專注報價與出貨，其餘外銷開發與跟進由我們持續執行。'
           : 'A one-year engagement where you focus on quoting and shipping while we run outreach and follow-ups.',
       tags: lang === 'zh' ? ['不擴編', 'SOP', '交付'] : ['No hiring', 'SOP', 'Delivery'],
     },
@@ -67,7 +67,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
 
   const searchIntentLabels =
     lang === 'zh'
-      ? ['外貿客戶開發', '如何找到海外買家', '如何找到經銷商', '國際買家名單', '外銷內容行銷']
+      ? ['外銷客戶開發', '如何找到海外買家', '如何找到經銷商', '國際買家名單', '外銷內容行銷']
       : ['export lead generation', 'find overseas buyers', 'find distributors', 'international buyers', 'b2b export marketing']
 
   const servicesSchema = {
@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       <section className="bg-gray-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-            {lang === 'zh' ? '三個核心服務，對應三種外貿增長需求' : 'Three core services for three export growth needs'}
+            {lang === 'zh' ? '三個核心服務，對應三種外銷增長需求' : 'Three core services for three export growth needs'}
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-gray-300">
             {lang === 'zh'
@@ -139,7 +139,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'zh'
-                  ? '如果你缺的是穩定買家來源，就先看外貿客戶開發；如果你想找在地通路，就看經銷商開發；如果你缺的是整體執行人力，就看外貿業務外包。'
+                  ? '如果你缺的是穩定買家來源，就先看外銷客戶開發；如果你想找在地通路，就看經銷商開發；如果你缺的是整體執行人力，就看外銷業務外套件。'
                   : 'If you need a steadier flow of buyers, start with export lead generation. If you need local channel partners, review distributor development. If execution bandwidth is the gap, look at sales outsourcing.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -167,12 +167,12 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'zh'
-                  ? '外貿客戶開發解決「海外買家名單與詢盤交付」；經銷商開發解決「通路夥伴與經銷合作」；外貿業務外包解決「不擴編也能穩定開發與跟進」。'
+                  ? '外銷客戶開發解決「海外買家名單與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外套件解決「不擴編也能穩定開發與跟進」。'
                   : 'Lead gen delivers buyer lists and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-800">
-                  {lang === 'zh' ? '看外貿客戶開發' : 'Export Lead Gen'}
+                  {lang === 'zh' ? '看外銷客戶開發' : 'Export Lead Gen'}
                 </Link>
                 <Link href={core[1].href} className="inline-flex items-center justify-center rounded-sm border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-gray-50">
                   {lang === 'zh' ? '看經銷商開發' : 'Distributor Dev'}
@@ -204,7 +204,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">{lang === 'zh' ? '先拿一份出口市場分析，再決定怎麼做' : 'Get a market analysis first, then decide your plan'}</h2>
           <p className="mx-auto mb-10 max-w-2xl text-slate-200">
             {lang === 'zh'
-              ? '提交產品與目標市場，我們會回覆市場切入方式、買家角色與可行的外貿開發路徑。'
+              ? '提交產品與目標市場，我們會回覆市場切入方式、買家角色與可行的外銷開發路徑。'
               : 'Submit your product and markets. We’ll reply with entry approach, buyer roles, and a feasible lead-gen path.'}
           </p>
           <Link href={`/${lang}/export-market-analysis`} className="inline-block rounded-sm bg-white px-10 py-4 text-lg font-bold text-blue-900 shadow-lg transition duration-300 hover:bg-gray-100">

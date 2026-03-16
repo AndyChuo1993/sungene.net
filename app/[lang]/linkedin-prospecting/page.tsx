@@ -17,7 +17,7 @@ const service: ServiceSeo = {
     en: ['Generic inboxes don’t reply; real decision-makers are inside org charts.', 'Long chains across engineering, procurement, and QC make single-touch outreach inefficient.', 'Without role-specific messaging, connections don’t turn into conversations.'],
   },
   solution: {
-    zh: ['我們以 ABM（Account-Based）方式建立目標企業名單與決策鏈地圖，針對不同角色設計訊息，並用多點觸達推進回覆。', '回覆會被分類並整理成下一步（會議/樣品/報價）的可交付詢盤。'],
+    zh: ['我們以 ABM（Account-Based）方式建立目標企業名單與決策鏈地圖，針對不同角色設計訊息，並用多點觸達推進回覆。', '回覆會被分類別並整理成下一步（會議/樣品/報價）的可交付詢價。'],
     en: ['We run an ABM-style workflow: target accounts + decision-chain mapping, role-specific messaging, and multi-touch outreach to drive replies.', 'Replies are triaged and delivered with next steps (meeting/sample/quote).'],
   },
   whatIs: {
@@ -33,7 +33,7 @@ const service: ServiceSeo = {
     en: ['Build a prioritized list of 30–100 target accounts.', 'Map the decision chain: procurement/engineering/supply chain/QC.', 'Write role-based messages: one pain + proof + CTA.', 'Run LinkedIn + email multi-touch cadence.', 'Convert replies into meetings, samples, or quotes.'],
   },
   tools: {
-    zh: ['LinkedIn 搜尋與角色辨識。', '目標企業組織架構整理（Account map）。', '回覆分類與追蹤（表格/CRM）。'],
+    zh: ['LinkedIn 搜尋與角色辨識。', '目標企業組織架構整理（Account map）。', '回覆分類別與追蹤（表格/CRM）。'],
     en: ['LinkedIn role targeting and search.', 'Account maps for decision-chain visibility.', 'Reply triage and tracking in spreadsheet/CRM.'],
   },
   checklist: {
@@ -44,7 +44,7 @@ const service: ServiceSeo = {
     zh: [
       { label: '決策人觸達', value: '多點觸達', desc: '突破一般信箱，直接建立對話。' },
       { label: '縮短導入週期', value: '更快推進', desc: '角色對齊後，下一步（樣品/會議）更清楚。' },
-      { label: '提高詢盤品質', value: '更匹配', desc: '回覆分類與需求確認，降低不匹配詢盤。' },
+      { label: '提高詢價品質', value: '更匹配', desc: '回覆分類別與需求確認，降低不匹配詢價。' },
     ],
     en: [
       { label: 'Decision-maker access', value: 'Multi-touch', desc: 'Bypass generic inboxes and start real conversations.' },
@@ -69,11 +69,11 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['電子零組件', '工業設備', '汽車零件', '醫療器材'],
+    zh: ['電子零元件', '工業設備', '汽車零件', '醫療器材'],
     en: ['Electronics', 'Industrial Equipment', 'Automotive', 'Medical'],
   },
   caseStudy: {
-    title: { zh: '電子零組件：成功與 20+ 位工程主管建立聯繫', en: 'Electronics: connected with 20+ engineering directors' },
+    title: { zh: '電子零元件：成功與 20+ 位工程主管建立聯繫', en: 'Electronics: connected with 20+ engineering directors' },
     desc: { zh: '以 ABM 多點觸達繞過一般詢價信箱，取得樣品測試與商審機會。', en: 'ABM multi-touch bypassed generic inboxes and secured sample and audit opportunities.' },
     link: '/case-studies/electronics',
   },
@@ -91,7 +91,7 @@ const service: ServiceSeo = {
   ctaTitle: { zh: '取得你的目標企業與決策鏈策略', en: 'Get Your Account Map Strategy' },
   ctaDesc: { zh: '提交產品與市場，我們回覆目標企業、決策鏈角色與可行的多點觸達策略。', en: 'Submit your product and markets. We’ll reply with target accounts, role maps, and a feasible multi-touch plan.' },
   relatedLinks: [
-    { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+    { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { zh: '方法：Cold Email Outreach', en: 'Method: Cold Email Outreach' }, href: '/cold-email-outreach' },
     { label: { zh: '成果：Qualified B2B Leads', en: 'Outcome: Qualified B2B Leads' }, href: '/qualified-b2b-leads' },
     { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },

@@ -8,7 +8,7 @@ const service: ServiceSeo = {
     en: 'Cold Email Outreach | Generate Export Leads with Cadence',
   },
   description: {
-    zh: '用可回覆的訊息框架與 4–6 次節奏式跟進，持續獲取海外買家回覆並整理成可交付的詢盤。',
+    zh: '用可回覆的訊息框架與 4–6 次節奏式跟進，持續獲取海外買家回覆並整理成可交付的詢價。',
     en: 'Use a replyable framework and 4–6 follow-ups to generate overseas buyer replies and deliver qualified inquiries.',
   },
   h1: { zh: 'Cold Email 開發', en: 'Cold Email Outreach for Manufacturers' },
@@ -17,7 +17,7 @@ const service: ServiceSeo = {
     en: ['Low replies because messaging is generic, lacks proof, and CTA is not replyable.', 'One email is not enough; without follow-ups, most replies never happen.', 'Deliverability and bounce risk are unmanaged, hurting reputation.'],
   },
   solution: {
-    zh: ['我們以「一封信一個痛點 + 一個證據 + 一個 CTA」建立訊息框架，並以 4–6 次節奏式跟進推進回覆。', '回覆會被分類（合格/待培育/不匹配），並整理成可交付的詢盤摘要。'],
+    zh: ['我們以「一封信一個痛點 + 一個證據 + 一個 CTA」建立訊息框架，並以 4–6 次節奏式跟進推進回覆。', '回覆會被分類別（合格/待培育/不匹配），並整理成可交付的詢價摘要。'],
     en: ['We use a simple framework (one pain + one proof + one CTA) and run a 4–6 follow-up cadence.', 'Replies are triaged (qualified/nurture/no-fit) and delivered as organized inquiry summaries.'],
   },
   whatIs: {
@@ -29,21 +29,21 @@ const service: ServiceSeo = {
     en: ['Manufacturers increase replies by clearer value propositions and better cadence, not longer emails. Stopping after one send means losing most replies.'],
   },
   process: {
-    zh: ['準備素材：1 頁產品摘要（規格/應用/交期/MOQ）與證據（案例/認證）。', '建立訊息框架：主旨、開頭、證據、CTA。', '設定寄送規範與節奏：4–6 次跟進，間隔 3–7 天。', '回覆分類：合格/待培育/不匹配，定義下一步。', '交付詢盤：公司、聯絡方式、需求與對話紀錄。'],
+    zh: ['準備素材：1 頁產品摘要（規格/應用/交期/MOQ）與證據（案例/驗證）。', '建立訊息框架：主旨、開頭、證據、CTA。', '設定寄送規範與節奏：4–6 次跟進，間隔 3–7 天。', '回覆分類別：合格/待培育/不匹配，定義下一步。', '交付詢價：公司、聯絡方式、需求與對話紀錄。'],
     en: ['Prepare assets: one-page product brief + proof (cases/certs).', 'Build message framework: subject, opener, proof, CTA.', 'Run deliverability-safe cadence: 4–6 follow-ups, 3–7 days apart.', 'Triage replies and define next steps.', 'Deliver inquiries with contact, needs, and conversation logs.'],
   },
   tools: {
-    zh: ['名單驗證流程（降低跳退）。', '寄送規範與節奏（避免爆量）。', '回覆分類與追蹤（表格/CRM）。'],
+    zh: ['名單驗證流程（降低跳退）。', '寄送規範與節奏（避免爆量）。', '回覆分類別與追蹤（表格/CRM）。'],
     en: ['List validation to reduce bounces.', 'Sending discipline and cadence to avoid bulk blasting.', 'Reply triage and tracking in a spreadsheet/CRM.'],
   },
   checklist: {
-    zh: ['一封信只講一件事，CTA 要可回覆。', '至少 4 次跟進，逐封加入不同證據。', '避免附件與過度行銷用語。', '用回覆分類規則把詢盤導入下一步。'],
+    zh: ['一封信只講一件事，CTA 要可回覆。', '至少 4 次跟進，逐封加入不同證據。', '避免附件與過度行銷用語。', '用回覆分類別規則把詢價導入下一步。'],
     en: ['One email = one thing, CTA must be replyable.', 'At least 4 follow-ups, add different proof each time.', 'Avoid attachments and overly salesy language.', 'Use triage rules to drive next steps.'],
   },
   results: {
     zh: [
       { label: '回覆率提升', value: '靠節奏', desc: '4–6 次跟進通常比單封寄送更穩定。' },
-      { label: '詢盤可交付', value: '可追蹤', desc: '回覆分類與對話紀錄整理成詢盤。' },
+      { label: '詢價可交付', value: '可追蹤', desc: '回覆分類別與對話紀錄整理成詢價。' },
       { label: '信譽可控', value: '可管理', desc: '寄送規範與名單驗證降低風險。' },
     ],
     en: [
@@ -69,7 +69,7 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['五金工具', '包材/材料', '機械設備', '工業設備'],
+    zh: ['五金工具', '套件材/材料', '機械設備', '工業設備'],
     en: ['Hardware Tools', 'Packaging/Materials', 'Machinery', 'Industrial Equipment'],
   },
   caseStudy: {
@@ -84,16 +84,16 @@ const service: ServiceSeo = {
     },
     {
       q: { zh: '你們會寫信嗎？', en: 'Do you write the emails?' },
-      a: { zh: '會。我們依產品定位與買家角色撰寫主旨與內容，並以測試迭代優化。', en: 'Yes. We write and iterate based on positioning and buyer roles.' },
+      a: { zh: '會。我們依產品定位與買家角色撰寫主旨與內容，並以測試迭代最佳化。', en: 'Yes. We write and iterate based on positioning and buyer roles.' },
     },
   ],
   ctaTitle: { zh: '取得你的開發信框架與節奏', en: 'Get Your Outreach Framework' },
   ctaDesc: { zh: '提交產品與市場，我們回覆可行的訊息框架與跟進節奏建議。', en: 'Submit your product and markets. We’ll reply with a feasible messaging and cadence plan.' },
   relatedLinks: [
     { label: { zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
-    { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+    { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { zh: '成果：Qualified B2B Leads', en: 'Outcome: Qualified B2B Leads' }, href: '/qualified-b2b-leads' },
-    { label: { zh: '外貿資源（指南文章）', en: 'Export Resources (Guides)' }, href: '/resources' },
+    { label: { zh: '外銷資源（指南文章）', en: 'Export Resources (Guides)' }, href: '/resources' },
   ],
 }
 

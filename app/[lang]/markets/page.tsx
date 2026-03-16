@@ -65,7 +65,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
                 {lang === 'zh' ? '市場頁' : 'Market Page'}
               </div>
               <h2 className="mt-4 text-2xl font-bold text-gray-900 group-hover:text-green-700">
-                {market.h1[lang].replace('市場外貿客戶開發', '').replace('Market Export Lead Generation', '').trim()}
+                {market.h1[lang].replace('市場外銷客戶開發', '').replace('Market Export Lead Generation', '').trim()}
               </h2>
               <p className="mt-3 line-clamp-4 text-gray-600">{market.description[lang]}</p>
               <div className="mt-6 text-sm font-bold text-green-700">{lang === 'zh' ? '查看市場頁 →' : 'View page →'}</div>

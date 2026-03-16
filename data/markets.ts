@@ -20,19 +20,19 @@ export const markets: MarketData[] = [
   {
     slug: 'europe',
     title: {
-      zh: '歐洲市場開發服務 | 德國、法國、義大利外貿客戶開發',
+      zh: '歐洲市場開發服務 | 德國、法國、義大利外銷客戶開發',
       en: 'European Market Development | Export to Germany, France, Italy'
     },
     description: {
-      zh: '專為台灣製造商打造的歐洲市場開發服務。針對歐盟法規、GDPR 與商務文化，協助您開發德國、法國、義大利等地的優質買家。',
+      zh: '專為台灣製造商建立的歐洲市場開發服務。針對歐盟法規、GDPR 與商務文化，協助您開發德國、法國、義大利等地的優質買家。',
       en: 'Specialized European market development for manufacturers. Navigate EU regulations, GDPR, and business culture to find premium buyers in Germany, France, Italy.'
     },
     h1: {
-      zh: '歐洲市場外貿客戶開發服務',
+      zh: '歐洲市場外銷客戶開發服務',
       en: 'European Market Export Development Service'
     },
     content: {
-      zh: '歐洲市場重視品質、認證與長期合作關係。我們協助您克服語言障礙與時差問題，直接與歐洲採購決策者建立聯繫。',
+      zh: '歐洲市場重視品質、驗證與長期合作關係。我們協助您克服語言障礙與時差問題，直接與歐洲採購決策者建立聯繫。',
       en: 'The European market values quality, certification, and long-term relationships. We help you overcome language barriers and time zones to connect directly with European purchasing decision-makers.'
     },
     challenges: {
@@ -48,13 +48,13 @@ export const markets: MarketData[] = [
       en: ['Large Importers & Distributors', 'Brand Owners (OEM/ODM)', 'Retail Chains', 'Industrial End-users']
     },
     strategy: {
-      zh: ['多語種開發：針對不同國家使用當地語言（德/法/西/義）進行溝通。', '強調合規性：在開發信中主動提及 CE/RoHS/ISO 認證。', '展會結合：配合歐洲主要展會（如 Hannover Messe）進行展前邀約。'],
+      zh: ['多語種開發：針對不同國家使用當地語言（德/法/西/義）進行溝通。', '強調合規性：在開發信中主動提及 CE/RoHS/ISO 驗證。', '展會結合：配合歐洲主要展會（如 Hannover Messe）進行展前邀約。'],
       en: ['Multilingual Outreach: Communicate in local languages (DE/FR/ES/IT).', 'Highlight Compliance: Mention CE/RoHS/ISO certifications upfront.', 'Trade Show Integration: Pre-show outreach for major events like Hannover Messe.']
     },
     faq: [
       {
         question: { zh: '你們有歐洲當地的買家名單嗎？', en: 'Do you have local buyer lists in Europe?' },
-        answer: { zh: '有的，我們的資料庫覆蓋全歐洲主要工業國家，包括德國、法國、義大利、西班牙、波蘭等。', en: 'Yes, our database covers major industrial countries including Germany, France, Italy, Spain, and Poland.' }
+        answer: { zh: '有的，我們的資料函式庫覆蓋全歐洲主要工業國家，套件括德國、法國、義大利、西班牙、波蘭等。', en: 'Yes, our database covers major industrial countries including Germany, France, Italy, Spain, and Poland.' }
       },
       {
         question: { zh: '歐洲客戶開發需要多久？', en: 'How long does it take to develop European clients?' },
@@ -69,7 +69,7 @@ export const markets: MarketData[] = [
   {
     slug: 'north-america',
     title: {
-      zh: '北美市場開發服務 | 美國、加拿大外貿客戶開發',
+      zh: '北美市場開發服務 | 美國、加拿大外銷客戶開發',
       en: 'North American Market Development | Export to USA & Canada'
     },
     description: {
@@ -77,7 +77,7 @@ export const markets: MarketData[] = [
       en: 'Helping companies expand into USA & Canada. Providing precise lists and efficient outreach for North American large-scale buyers and wholesalers.'
     },
     h1: {
-      zh: '北美市場外貿客戶開發服務',
+      zh: '北美市場外銷客戶開發服務',
       en: 'North American Market Export Development Service'
     },
     content: {
@@ -102,12 +102,12 @@ export const markets: MarketData[] = [
     },
     faq: [
       {
-        question: { zh: '美國市場主要開發哪些類型的客戶？', en: 'What types of clients do you target in the US?' },
-        answer: { zh: '主要包括品牌商（OEM/ODM需求）、大型進口批發商、以及區域型經銷商。', en: 'Mainly brand owners (OEM/ODM needs), large import wholesalers, and regional distributors.' }
+        question: { zh: '美國市場主要開發哪些類別型的客戶？', en: 'What types of clients do you target in the US?' },
+        answer: { zh: '主要套件括品牌商（OEM/ODM需求）、大型進口批發商、以及區域型經銷商。', en: 'Mainly brand owners (OEM/ODM needs), large import wholesalers, and regional distributors.' }
       },
       {
         question: { zh: '時差問題如何解決？', en: 'How do you handle the time difference?' },
-        answer: { zh: '我們的系統會設定在北美上班時間發送開發信，並協助您設定自動回覆或安排晚間會議。', en: 'Our system schedules emails during NA working hours and helps you set up auto-replies or arrange evening meetings.' }
+        answer: { zh: '我們的系統會設定在北美上班時間寄送開發信，並協助您設定自動回覆或安排晚間會議。', en: 'Our system schedules emails during NA working hours and helps you set up auto-replies or arrange evening meetings.' }
       },
       {
         question: { zh: '美國買家看重什麼？', en: 'What do US buyers value most?' },
@@ -118,19 +118,19 @@ export const markets: MarketData[] = [
   {
     slug: 'japan',
     title: {
-      zh: '日本市場開發服務 | 日本外貿客戶開發',
+      zh: '日本市場開發服務 | 日本外銷客戶開發',
       en: 'Japanese Market Development | Export to Japan'
     },
     description: {
-      zh: '專為日本市場打造的 B2B 開發服務。克服語言與文化障礙，打入封閉但忠誠度極高的日本供應鏈。',
+      zh: '專為日本市場建立的 B2B 開發服務。克服語言與文化障礙，打入封閉但忠誠度極高的日本供應鏈。',
       en: 'B2B development service tailored for Japan. Overcome language and cultural barriers to enter the closed but highly loyal Japanese supply chain.'
     },
     h1: {
-      zh: '日本市場外貿客戶開發服務',
+      zh: '日本市場外銷客戶開發服務',
       en: 'Japanese Market Export Development Service'
     },
     content: {
-      zh: '日本市場以高品質要求與長期合作聞名。我們擁有日語開發團隊與在地資料庫，協助您展現專業度，贏得日本客戶的信任。',
+      zh: '日本市場以高品質要求與長期合作聞名。我們擁有日語開發團隊與在地資料函式庫，協助您展現專業度，贏得日本客戶的信任。',
       en: 'The Japanese market is known for high quality standards and long-term partnerships. Our Japanese-speaking team and local database help you demonstrate professionalism and win trust.'
     },
     challenges: {
@@ -167,7 +167,7 @@ export const markets: MarketData[] = [
   {
     slug: 'southeast-asia',
     title: {
-      zh: '東南亞市場開發服務 | 越南、泰國、印尼外貿開發',
+      zh: '東南亞市場開發服務 | 越南、泰國、印尼外銷開發',
       en: 'Southeast Asia Market Development | Export to Vietnam, Thailand, Indonesia'
     },
     description: {
@@ -175,7 +175,7 @@ export const markets: MarketData[] = [
       en: 'Seize supply chain shift opportunities. Develop emerging markets in Vietnam, Thailand, Indonesia, Malaysia, targeting manufacturers and large agents.'
     },
     h1: {
-      zh: '東南亞市場外貿客戶開發服務',
+      zh: '東南亞市場外銷客戶開發服務',
       en: 'Southeast Asia Market Export Development Service'
     },
     content: {
@@ -191,7 +191,7 @@ export const markets: MarketData[] = [
       en: ['Targeting major industrial clusters in each country', 'Flexible communication via WhatsApp & Email', 'Focusing on established factories and agents']
     },
     buyerTypes: {
-      zh: ['台商/外商設廠採購 (FDI Factories)', '在地大型代理商 (Local Agents)', '工程承包商 (Contractors)', '政府標案供應商 (Govt Suppliers)'],
+      zh: ['台商/外商設廠採購 (FDI Factories)', '在地大型代理商 (Local Agents)', '工程承套件商 (Contractors)', '政府標案供應商 (Govt Suppliers)'],
       en: ['FDI Factories', 'Local Agents', 'Contractors', 'Government Suppliers']
     },
     strategy: {
@@ -205,11 +205,11 @@ export const markets: MarketData[] = [
       },
       {
         question: { zh: '你們如何確認買家真實性？', en: 'How do you verify buyer authenticity?' },
-        answer: { zh: '我們會透過海關數據確認其進出口紀錄，並檢查其工廠登記與線上評價。', en: 'We verify import/export records via customs data and check factory registration and online reviews.' }
+        answer: { zh: '我們會透過海關資料確認其進出口紀錄，並檢查其工廠登記與線上評價。', en: 'We verify import/export records via customs data and check factory registration and online reviews.' }
       },
       {
         question: { zh: '適合哪些產業？', en: 'Which industries are suitable?' },
-        answer: { zh: '機械設備、工業材料、自動化零組件、電子元件等 B2B 產品在東南亞需求強勁。', en: 'Machinery, industrial materials, automation parts, and electronic components have strong demand.' }
+        answer: { zh: '機械設備、工業材料、自動化零元件、電子元件等 B2B 產品在東南亞需求強勁。', en: 'Machinery, industrial materials, automation parts, and electronic components have strong demand.' }
       }
     ]
   }

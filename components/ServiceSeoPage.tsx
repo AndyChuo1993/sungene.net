@@ -283,7 +283,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         </header>
 
         {service.whoFor?.[lang] && service.whoFor[lang].length > 0 && (
-          <Section title={lang === 'zh' ? '適用對象' : 'Who this service is for'}>
+          <Section title={lang === 'zh' ? '適用物件' : 'Who this service is for'}>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '最適合' : 'Best fit for'}</div>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -471,15 +471,15 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         </Section>
 
         {service.typicalResults?.[lang] && service.typicalResults[lang].length > 0 && (
-          <Section title={lang === 'zh' ? '常見數據' : 'Typical lead generation results'}>
+          <Section title={lang === 'zh' ? '常見資料' : 'Typical lead generation results'}>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '範例數據（非保證）' : 'Example metrics (not guaranteed)'}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '範例資料（非保證）' : 'Example metrics (not guaranteed)'}</div>
               <div className="mt-4">
                 <StatGrid items={service.typicalResults[lang]} />
               </div>
               <div className="mt-4 text-xs text-gray-500 leading-5">
                 {lang === 'zh'
-                  ? '數據會因市場、產品、資料可得性、客戶配合速度而異，以下僅為常見專案範圍示意，非承諾保證。'
+                  ? '資料會因市場、產品、資料可得性、客戶配合速度而異，以下僅為常見專案範圍示意，非承諾保證。'
                   : 'Metrics vary by market, product, data availability, and client response speed. The figures below illustrate typical project ranges, not guarantees.'}
               </div>
             </div>

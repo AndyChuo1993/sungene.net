@@ -13,7 +13,7 @@ const service: ServiceSeo = {
   },
   h1: { zh: '出口行銷服務', en: 'Export Marketing for Manufacturers' },
   problem: {
-    zh: ['你的服務頁太像銷售頁：缺清楚的說明、清單、指南與數據，買家看完不容易理解差異與下一步。', '關鍵字覆蓋太少：只吃到少數詞，缺乏長尾流量（how to / tools / checklist）。', '內部連結規則不清楚，文章與服務、案例、資源磁鐵之間沒有形成集群。'],
+    zh: ['你的服務頁太像銷售頁：缺清楚的說明、清單、指南與資料，買家看完不容易理解差異與下一步。', '關鍵字覆蓋太少：只吃到少數詞，缺乏長尾流量（how to / tools / checklist）。', '內部連結規則不清楚，文章與服務、案例、資源磁鐵之間沒有形成集群。'],
     en: ['Your pages read like sales pages: they lack clear explanations, lists, guides, and proof—buyers can’t decide fast.', 'Keyword coverage is too narrow: you miss long-tail “how-to”, tools, and checklist queries.', 'Internal linking is weak: blog, services, cases, and magnets are not clustered.'],
   },
   solution: {
@@ -21,7 +21,7 @@ const service: ServiceSeo = {
     en: ['We build a sustainable acquisition system via architecture, templates, schema, and standardized internal linking.', 'We structure content with definitions, steps, tools, checklists, and FAQs so buyers can understand and act faster.'],
   },
   whatIs: {
-    zh: ['出口行銷是以海外買家搜尋意圖為核心，透過內容、落地頁、結構化資料與內部連結，把自然流量轉成可追蹤的詢盤。'],
+    zh: ['出口行銷是以海外買家搜尋意圖為核心，透過內容、落地頁、結構化資料與內部連結，把自然流量轉成可追蹤的詢價。'],
     en: ['Export marketing converts buyer-intent searches into trackable inquiries via content, landing pages, schema, and internal linking.'],
   },
   howWorks: {
@@ -33,7 +33,7 @@ const service: ServiceSeo = {
     en: ['Plan keyword clusters and page types (services, markets, industries, blog, magnets).', 'Ship conversion-first templates: TOC, FAQ, proof, CTA.', 'Implement schema: Article, FAQ, Breadcrumb, Organization.', 'Standardize internal linking: blog → service → case → magnet.', 'Iterate weekly: 2 posts/week plus refreshes and internal links.'],
   },
   tools: {
-    zh: ['關鍵字研究：以主題群集（Topic Cluster）拆解成服務/方法/成果/產業/市場。', '內容模板：定義/方法/工具/步驟/清單/FAQ。', '技術 SEO：sitemap、canonical、hreflang、Schema（FAQ/Article/Breadcrumb）。'],
+    zh: ['關鍵字研究：以主旨群集（Topic Cluster）拆解成服務/方法/成果/產業/市場。', '內容模板：定義/方法/工具/步驟/清單/FAQ。', '技術 SEO：sitemap、canonical、hreflang、Schema（FAQ/Article/Breadcrumb）。'],
     en: ['Keyword research: topic clusters mapped into service/method/outcome/industry/market pages.', 'Templates: definitions, methods, tools, steps, checklists, and FAQs.', 'Technical SEO: sitemap, canonical, hreflang, schema (FAQ/Article/Breadcrumb).'],
   },
   checklist: {
@@ -69,11 +69,11 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['機械設備', '電子零組件', '塑膠射出/製品', '化工材料', '醫療器材', '汽車零件', '工業設備'],
+    zh: ['機械設備', '電子零元件', '塑膠射出/製品', '化工材料', '醫療器材', '汽車零件', '工業設備'],
     en: ['Machinery', 'Electronics', 'Plastics', 'Chemicals', 'Medical', 'Automotive', 'Industrial Equipment'],
   },
   caseStudy: {
-    title: { zh: '從內容架構切入，讓詢盤變穩定', en: 'From content architecture to stable inbound inquiries' },
+    title: { zh: '從內容架構切入，讓詢價變穩定', en: 'From content architecture to stable inbound inquiries' },
     desc: {
       zh: '以服務頁＋市場頁＋文章群集建立權威，再用資源磁鐵提升轉化，逐步把搜尋流量變成可跟進的 leads。',
       en: 'Build authority via clustered service + market pages, then increase conversion with lead magnets to turn traffic into followable leads.',
@@ -87,14 +87,14 @@ const service: ServiceSeo = {
     },
     {
       q: { zh: '多久能看到流量？', en: 'How soon will we see traffic?' },
-      a: { zh: '通常 8–12 週會看到長尾曝光提升；6–12 個月在穩定更新節奏下，才會有明顯的流量與詢盤增長。', en: 'Expect long-tail impressions in 8–12 weeks; meaningful traffic and inquiries typically take 6–12 months with consistent shipping.' },
+      a: { zh: '通常 8–12 週會看到長尾曝光提升；6–12 個月在穩定更新節奏下，才會有明顯的流量與詢價增長。', en: 'Expect long-tail impressions in 8–12 weeks; meaningful traffic and inquiries typically take 6–12 months with consistent shipping.' },
     },
   ],
   ctaTitle: { zh: '把網站做成 inbound 產生器', en: 'Turn your site into an inbound machine' },
   ctaDesc: { zh: '從頁面結構、文章群集到 schema 與內鏈，我們幫你把增長流程做成可持續的系統。', en: 'From architecture and clusters to schema and internal links, we turn growth into a repeatable system.' },
   relatedLinks: [
-    { label: { zh: '外貿資源：How to find overseas buyers', en: 'Guide: How to find overseas buyers' }, href: '/blog/how-to-find-overseas-buyers' },
-    { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+    { label: { zh: '外銷資源：How to find overseas buyers', en: 'Guide: How to find overseas buyers' }, href: '/blog/how-to-find-overseas-buyers' },
+    { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { zh: '成功案例（證據）', en: 'Case Studies (Proof)' }, href: '/case-studies' },
     { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
   ],

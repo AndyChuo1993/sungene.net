@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     {
       id: 1,
       title: t(lang, 'process_1_title'),
-      desc: lang === 'zh' ? '深入分析目標市場的競爭狀況、價格趨勢與潛在買家類型，確保產品定位準確。' : 'In-depth analysis of target market competition, pricing trends, and buyer personas to ensure accurate product positioning.',
+      desc: lang === 'zh' ? '深入分析目標市場的競爭狀況、價格趨勢與潛在買家類別型，確保產品定位準確。' : 'In-depth analysis of target market competition, pricing trends, and buyer personas to ensure accurate product positioning.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
       )
@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     {
       id: 2,
       title: t(lang, 'process_2_title'),
-      desc: lang === 'zh' ? '利用海關數據與產業資料庫，建立包含關鍵決策人聯絡方式的精準買家名單。' : 'Using customs data and industry databases to build precise buyer lists including key decision-maker contacts.',
+      desc: lang === 'zh' ? '利用海關資料與產業資料函式庫，建立套件含關鍵決策人聯絡方式的精準買家名單。' : 'Using customs data and industry databases to build precise buyer lists including key decision-maker contacts.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
       )
@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     {
       id: 4,
       title: t(lang, 'process_4_title'),
-      desc: lang === 'zh' ? '將高品質的詢盤與商務機會轉交給您，並協助後續的樣品寄送與報價談判。' : 'Handing over high-quality inquiries and business opportunities to you, and assisting with subsequent sampling and quotation negotiations.',
+      desc: lang === 'zh' ? '將高品質的詢價與商務機會轉交給您，並協助後續的樣品寄送與報價談判。' : 'Handing over high-quality inquiries and business opportunities to you, and assisting with subsequent sampling and quotation negotiations.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
       )

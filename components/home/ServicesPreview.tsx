@@ -5,14 +5,14 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
   const services = [
     {
       id: 1,
-      title: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
+      title: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
       desc:
         lang === 'zh'
-          ? '為製造商建立海外買家名單並交付可跟進的詢盤'
+          ? '為製造商建立海外買家名單並交付可跟進的詢價'
           : 'Verified buyer lists and qualified inquiries for manufacturers',
       items:
         lang === 'zh'
-          ? ['買家名單整理與驗證', '電子郵件與商務社群開發節奏', '合格詢盤交付']
+          ? ['買家名單整理與驗證', '電子郵件與商務社群開發節奏', '合格詢價交付']
           : ['Verified buyer list building', 'Email / LinkedIn cadence', 'Qualified inquiry handoff'],
       link: `/${lang}/services/export-lead-generation`,
       icon: (
@@ -41,14 +41,14 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing',
+      title: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing',
       desc:
         lang === 'zh'
           ? '你專注報價與出貨，其餘開發與跟進交給我們'
           : 'You quote and ship. We run the outreach and follow-up system.',
       items:
         lang === 'zh'
-          ? ['前段開發與跟進外包', '回覆分類與需求整理', '建立可複製的標準作業流程']
+          ? ['前段開發與跟進外套件', '回覆分類別與需求整理', '建立可複製的標準作業流程']
           : ['Managed outreach and follow-ups', 'Reply triage and qualification', 'Repeatable SOP'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (
@@ -66,7 +66,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">{t(lang, 'service_title')}</h2>
           <p className="mx-auto max-w-2xl text-xl text-gray-500">
             {lang === 'zh'
-              ? '從買家名單、主動開發到詢盤交付，讓外貿增長變成可追蹤流程'
+              ? '從買家名單、主動開發到詢價交付，讓外銷增長變成可追蹤流程'
               : 'From buyer research to outreach and inquiry delivery, built as a trackable export workflow'}
           </p>
         </div>

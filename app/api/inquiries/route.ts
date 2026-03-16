@@ -210,10 +210,10 @@ async function sendAdminEmail(args: {
   reqId?: string
 }): Promise<boolean> {
   const { transporter, fromAddr, to, item, rawBody, meta, id, reqId } = args
-  const subject = `新詢盤#${id} ${item.type} - ${item.name}`
+  const subject = `新詢價#${id} ${item.type} - ${item.name}`
   const adminText =
-`新詢盤編號: ${id}
-類型: ${item.type}
+`新詢價編號: ${id}
+類別型: ${item.type}
 姓名: ${item.name}
 公司: ${item.company || '-'}
 Email: ${item.email}
@@ -251,13 +251,13 @@ async function sendAckEmail(args: {
   const { transporter, fromAddr, item, id, reqId } = args
 
   // 自動回覆給客戶
-  const ackSubj = `我們已收到您的詢盤（編號 ${id}） | We received your inquiry (${id})`
+  const ackSubj = `我們已收到您的詢價（編號 ${id}） | We received your inquiry (${id})`
   const contactEmail = 'contact@sungenelite.com'
   const contactPhone = '+886 4 3703 2705'
   const ackText =
 `您好 ${item.name}：
 
-我們已收到您的詢盤（編號 ${id}），專員將在 1-2 個工作日內與您聯繫。
+我們已收到您的詢價（編號 ${id}），專員將在 1-2 個工作日內與您聯繫。
 如需補充資訊，歡迎直接回覆此信，或聯繫我們：
 
 Email: ${contactEmail}

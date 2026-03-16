@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 
 export const metadata = {
   title: 'SunGene | 外銷客戶開發與海外市場拓展',
-  description: 'SunGene 協助製造業開發海外買家、建立經銷通路，並把外貿開發流程做得更穩定、更可追蹤。',
+  description: 'SunGene 協助製造業開發海外買家、建立經銷通路，並把外銷開發流程做得更穩定、更可追蹤。',
 }
 
 export default async function RootLayout({

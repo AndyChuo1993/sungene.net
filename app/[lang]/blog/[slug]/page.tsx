@@ -178,7 +178,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                           </div>
                           <div className="mt-3 text-sm text-gray-600">
                             {lang === 'zh'
-                              ? '這張圖用來幫你抓住最小可行流程：先讓名單可投遞、再用節奏跟進、把回覆分類後推進下一步。'
+                              ? '這張圖用來幫你抓住最小可行流程：先讓名單可投遞、再用節奏跟進、把回覆分類別後推進下一步。'
                               : 'This visual helps you align the minimum viable workflow: deliverable list → cadence → triage → next step.'}
                           </div>
                         </div>
@@ -261,7 +261,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                               想把內容變成可交付成果，可以對照服務頁的交付與流程：{' '}
                               <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">核心服務</Link>
                               ，以及團隊常用的{' '}
-                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外貿業務外包</Link>
+                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外銷業務外套件</Link>
                               。若你希望先用低成本驗證，也可以先拿{' '}
                               <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">免費市場分析</Link>
                               當起點。
@@ -311,7 +311,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                                 <tr className="border-t">
                                   <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '跟進' : 'Follow-up'}</td>
                                   <td className="py-2 pr-4">{lang === 'zh' ? '4–6 次節奏' : '4–6 touches'}</td>
-                                  <td className="py-2">{lang === 'zh' ? '有效回覆與分類' : 'replies + triage'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '有效回覆與分類別' : 'replies + triage'}</td>
                                 </tr>
                                 <tr className="border-t">
                                   <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '推進' : 'Progress'}</td>

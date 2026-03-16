@@ -44,7 +44,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       desc: t(lang, 'process_4_desc'),
       week: lang === 'zh' ? '第 6 週起' : 'Week 6+',
       details: lang === 'zh' 
-        ? ['我們做什麼：詢盤篩選、回覆與樣品跟進', '客戶需提供：報價與技術支援', '交付內容：高意向詢盤與商務機會'] 
+        ? ['我們做什麼：詢價篩選、回覆與樣品跟進', '客戶需提供：報價與技術支援', '交付內容：高意向詢價與商務機會'] 
         : ['We do: Inquiry Screening & Follow-up', 'You provide: Quotation & Tech Support', 'Deliverable: High-intent Inquiries & Opportunities'],
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -58,7 +58,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
         <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{t(lang, 'process_title')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-                {lang === 'zh' ? '標準化的外貿開發週期，確保每個階段都有明確產出。' : 'Standardized export development cycle ensuring clear deliverables at every stage.'}
+                {lang === 'zh' ? '標準化的外銷開發週期，確保每個階段都有明確產出。' : 'Standardized export development cycle ensuring clear deliverables at every stage.'}
             </p>
         </div>
         

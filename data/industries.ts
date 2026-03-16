@@ -19,15 +19,15 @@ export const industries: IndustryData[] = [
   {
     slug: 'hardware',
     title: {
-      zh: '五金工具外貿開發 | 手工具、緊固件、建築五金',
+      zh: '五金工具外銷開發 | 手工具、緊固件、建築五金',
       en: 'Hardware & Tools Export Development | Hand Tools, Fasteners'
     },
     description: {
-      zh: '專注於五金工具產業的外貿客戶開發。協助手工具、緊固件、建築五金製造商，對接全球品牌商與大型通路。',
+      zh: '專注於五金工具產業的外銷客戶開發。協助手工具、緊固件、建築五金製造商，對接全球品牌商與大型通路。',
       en: 'Focused export development for hardware & tools. Helping manufacturers of hand tools, fasteners, and hardware connect with global brands and channels.'
     },
     h1: {
-      zh: '五金工具產業外貿客戶開發',
+      zh: '五金工具產業外銷客戶開發',
       en: 'Hardware & Tools Industry Export Development'
     },
     content: {
@@ -43,7 +43,7 @@ export const industries: IndustryData[] = [
       en: ['DIY Chain Suppliers (Home Depot, Lowe\'s)', 'Professional Tool Brands (Private Label)', 'Builders Hardware Wholesalers', 'Industrial MRO Suppliers']
     },
     strategy: {
-      zh: ['強調產品認證：ANSI, DIN, ISO 等標準是敲門磚。', '專利與創新：突出產品的獨特設計或專利功能。', '樣品測試：提供樣品供買家進行扭力、硬度等測試。'],
+      zh: ['強調產品驗證：ANSI, DIN, ISO 等標準是敲門磚。', '專利與創新：突出產品的獨特設計或專利功能。', '樣品測試：提供樣品供買家進行扭力、硬度等測試。'],
       en: ['Highlight Certifications: ANSI, DIN, ISO standards are essential.', 'Patent & Innovation: Emphasize unique designs or patented features.', 'Sample Testing: Provide samples for torque, hardness testing.']
     },
     faq: [
@@ -64,19 +64,19 @@ export const industries: IndustryData[] = [
   {
     slug: 'electronics',
     title: {
-      zh: '電子零組件外貿開發 | 連接器、線束、被動元件',
+      zh: '電子零元件外銷開發 | 連接器、線束、被動元件',
       en: 'Electronics Components Export Development | Connectors, Wiring'
     },
     description: {
-      zh: '電子零組件 B2B 開發服務。協助連接器、線束、PCB 製造商，打入歐美車用、醫療與工控供應鏈。',
+      zh: '電子零元件 B2B 開發服務。協助連接器、線束、PCB 製造商，打入歐美車用、醫療與工控供應鏈。',
       en: 'B2B development for electronic components. Helping connector, wiring, and PCB manufacturers enter automotive, medical, and industrial supply chains.'
     },
     h1: {
-      zh: '電子零組件產業外貿客戶開發',
+      zh: '電子零元件產業外銷客戶開發',
       en: 'Electronics Components Industry Export Development'
     },
     content: {
-      zh: '電子零組件產業重視規格、認證與供應鏈穩定性。我們協助您找到正在尋找替代供應商的研發工程師與採購經理。',
+      zh: '電子零元件產業重視規格、驗證與供應鏈穩定性。我們協助您找到正在尋找替代供應商的研發工程師與採購經理。',
       en: 'The electronics industry values specs, certification, and stability. We help you find R&D engineers and purchasing managers looking for alternative suppliers.'
     },
     features: {
@@ -88,7 +88,7 @@ export const industries: IndustryData[] = [
       en: ['EMS/CEM Providers', 'Original Equipment Manufacturers (OEMs)', 'Electronic Component Distributors', 'System Integrators']
     },
     strategy: {
-      zh: ['工程師對接：直接聯繫 R&D 部門，提供規格書 (Datasheet) 與樣品。', '替代料策略：針對缺料或 EOL 產品提供 Cross Reference 替代方案。', '小批量試產：展現對 NPI (新產品導入) 階段的支持能力。'],
+      zh: ['工程師對接：直接聯繫 R&D 部門，提供規格書 (Datasheet) 與樣品。', '替代料策略：針對缺料或 EOL 產品提供 Cross Reference 替代方案。', '小批量試產：展現對 NPI (新產品導入) 階段的支援能力。'],
       en: ['Engineer to Engineer: Contact R&D directly with datasheets and samples.', 'Cross Reference: Offer alternatives for shortages or EOL parts.', 'NPI Support: Show capability to support small batch pilot runs.']
     },
     faq: [
@@ -97,7 +97,7 @@ export const industries: IndustryData[] = [
         answer: { zh: '是的，因為牽涉到承認書 (Spec-in) 與試產，通常需要 6-12 個月，但一旦導入，訂單非常穩定。', en: 'Yes, due to Spec-in and pilot runs, it takes 6-12 months, but orders are very stable once designed in.' }
       },
       {
-        question: { zh: '需要通過哪些認證？', en: 'What certifications are needed?' },
+        question: { zh: '需要通過哪些驗證？', en: 'What certifications are needed?' },
         answer: { zh: '基本如 ISO9001, UL 是必須的，若針對車用則需 IATF16949，醫療則需 ISO13485。', en: 'ISO9001 and UL are basics. IATF16949 for automotive and ISO13485 for medical are often required.' }
       },
       {
@@ -109,41 +109,41 @@ export const industries: IndustryData[] = [
   {
     slug: 'packaging',
     title: {
-      zh: '包裝材料外貿開發 | 食品包裝、工業包裝、化妝品包材',
+      zh: '套件裝材料外銷開發 | 食品套件裝、工業套件裝、化妝品套件材',
       en: 'Packaging Materials Export Development | Food, Industrial, Cosmetic Packaging'
     },
     description: {
-      zh: '包裝材料產業外貿開發。協助食品、化妝品包材廠，開發全球品牌商與大型包裝經銷商。',
+      zh: '套件裝材料產業外銷開發。協助食品、化妝品套件材廠，開發全球品牌商與大型套件裝經銷商。',
       en: 'Export development for packaging materials. Helping food and cosmetic packaging plants reach global brands and large distributors.'
     },
     h1: {
-      zh: '包裝材料產業外貿客戶開發',
+      zh: '套件裝材料產業外銷客戶開發',
       en: 'Packaging Materials Industry Export Development'
     },
     content: {
-      zh: '隨著全球限塑政策與環保趨勢，創新與環保包材需求大增。我們協助您將具競爭力的包裝解決方案推向國際市場。',
+      zh: '隨著全球限塑政策與環保趨勢，創新與環保套件材需求大增。我們協助您將具競爭力的套件裝解決方案推向國際市場。',
       en: 'With plastic bans and eco-trends, demand for innovative eco-packaging is rising. We help bring your competitive solutions to the global market.'
     },
     features: {
-      zh: ['開發美妝與食品品牌直接客戶', '鎖定大型包裝材料通路商', '強調環保材質 (PCR, Bio-based) 優勢'],
+      zh: ['開發美妝與食品品牌直接客戶', '鎖定大型套件裝材料通路商', '強調環保材質 (PCR, Bio-based) 優勢'],
       en: ['Developing direct beauty/food brand clients', 'Targeting large packaging distributors', 'Highlighting eco-material (PCR, Bio-based) advantages']
     },
     buyerTypes: {
-      zh: ['美妝保養品牌 (Indie Brands)', '食品飲料工廠 (F&B)', '包裝材料批發商 (Packaging Distributors)', '電商物流公司 (3PL)'],
+      zh: ['美妝保養品牌 (Indie Brands)', '食品飲料工廠 (F&B)', '套件裝材料批發商 (Packaging Distributors)', '電商物流公司 (3PL)'],
       en: ['Beauty & Skincare Brands', 'Food & Beverage Manufacturers', 'Packaging Distributors', 'E-commerce Logistics (3PL)']
     },
     strategy: {
-      zh: ['視覺行銷：包裝是視覺產品，開發信需附上精美的產品應用圖。', '環保訴求：強調可回收、可降解或 PCR 材質，符合歐美法規。', 'MOQ 策略：針對新興品牌提供較彈性的起訂量方案。'],
+      zh: ['視覺行銷：套件裝是視覺產品，開發信需附上精美的產品應用圖。', '環保訴求：強調可回收、可降解或 PCR 材質，符合歐美法規。', 'MOQ 策略：針對新興品牌提供較彈性的起訂量方案。'],
       en: ['Visual Marketing: Include high-quality application photos in outreach.', 'Eco-Appeal: Highlight recyclable/PCR materials to meet regulations.', 'MOQ Strategy: Offer flexible MOQs for emerging brands.']
     },
     faq: [
       {
-        question: { zh: '包裝業運費佔比高，如何做外貿？', en: 'Shipping is high for packaging, how to export?' },
-        answer: { zh: '我們會協助鎖定採購量大、能接受整櫃出貨的買家，或是針對高單價的化妝品包材進行開發。', en: 'We target high-volume buyers for FCL shipments or high-value cosmetic packaging sectors.' }
+        question: { zh: '套件裝業運費佔比高，如何做外銷？', en: 'Shipping is high for packaging, how to export?' },
+        answer: { zh: '我們會協助鎖定採購量大、能接受整櫃出貨的買家，或是針對高單價的化妝品套件材進行開發。', en: 'We target high-volume buyers for FCL shipments or high-value cosmetic packaging sectors.' }
       },
       {
         question: { zh: '需要寄送樣品嗎？', en: 'Is sampling required?' },
-        answer: { zh: '絕對需要。包裝的手感與質感無法透過圖片完全傳達，我們會協助安排樣品寄送流程。', en: 'Absolutely. Touch and texture cannot be fully conveyed digitally. We assist with the sampling process.' }
+        answer: { zh: '絕對需要。套件裝的手感與質感無法透過圖片完全傳達，我們會協助安排樣品寄送流程。', en: 'Absolutely. Touch and texture cannot be fully conveyed digitally. We assist with the sampling process.' }
       },
       {
         question: { zh: '客製化模具費怎麼收？', en: 'How to charge for custom molds?' },
@@ -154,7 +154,7 @@ export const industries: IndustryData[] = [
   {
     slug: 'industrial-materials',
     title: {
-      zh: '工業材料外貿開發 | 塑膠原料、金屬材料、化工原料',
+      zh: '工業材料外銷開發 | 塑膠原料、金屬材料、化工原料',
       en: 'Industrial Materials Export Development | Plastics, Metals, Chemicals'
     },
     description: {
@@ -162,15 +162,15 @@ export const industries: IndustryData[] = [
       en: 'B2B development for industrial materials. Helping plastics, metals, and chemical suppliers reach overseas factories and end-users.'
     },
     h1: {
-      zh: '工業材料產業外貿客戶開發',
+      zh: '工業材料產業外銷客戶開發',
       en: 'Industrial Materials Industry Export Development'
     },
     content: {
-      zh: '工業材料的買家通常是製造工廠。我們通過海關數據分析，找出有持續進口需求的海外工廠，協助您建立穩定的供貨關係。',
+      zh: '工業材料的買家通常是製造工廠。我們通過海關資料分析，找出有持續進口需求的海外工廠，協助您建立穩定的供貨關係。',
       en: 'Industrial material buyers are usually factories. We use customs data to find factories with consistent import needs and help you build stable supply chains.'
     },
     features: {
-      zh: ['利用海關數據鎖定進口工廠', '開發區域型材料經銷商', '強調供貨穩定性與價格競爭力'],
+      zh: ['利用海關資料鎖定進口工廠', '開發區域型材料經銷商', '強調供貨穩定性與價格競爭力'],
       en: ['Using customs data to target importing factories', 'Developing regional material distributors', 'Emphasizing supply stability and price competitiveness']
     },
     buyerTypes: {
@@ -178,7 +178,7 @@ export const industries: IndustryData[] = [
       en: ['Injection Molding Factories', 'Metalworking Shops', 'Chemical Traders', 'Building Material Manufacturers']
     },
     strategy: {
-      zh: ['數據導向：分析買家的進口頻率與供應商來源，找出切入點。', '寄樣測試：材料特性需經測試驗證，提供小量試用樣品。', '供應鏈安全：強調多產地供貨能力，降低買家斷鏈風險。'],
+      zh: ['資料導向：分析買家的進口頻率與供應商來源，找出切入點。', '寄樣測試：材料特性需經測試驗證，提供小量試用樣品。', '供應鏈安全：強調多產地供貨能力，降低買家斷鏈風險。'],
       en: ['Data-Driven: Analyze import frequency and current suppliers to find entry points.', 'Sampling: Provide trial samples for material testing verification.', 'Supply Chain Security: Highlight multi-origin supply to reduce risk.']
     },
     faq: [
@@ -188,7 +188,7 @@ export const industries: IndustryData[] = [
       },
       {
         question: { zh: '如何證明材料品質？', en: 'How to prove material quality?' },
-        answer: { zh: '提供 TDS (技術數據表)、MSDS (物質安全資料表) 以及第三方檢測報告 (SGS) 是建立信任的基礎。', en: 'Providing TDS, MSDS, and third-party reports (SGS) is fundamental to building trust.' }
+        answer: { zh: '提供 TDS (技術資料表)、MSDS (物質安全資料表) 以及第三方檢測報告 (SGS) 是建立信任的基礎。', en: 'Providing TDS, MSDS, and third-party reports (SGS) is fundamental to building trust.' }
       },
       {
         question: { zh: '適合開發哪些國家？', en: 'Which countries are suitable?' },

@@ -37,7 +37,7 @@ const service: ServiceSeo = {
     en: ['Market data: import/export data, reports, competitor channel observation.', 'Channel research: associations, trade fairs, directories, LinkedIn.', 'Validation: small test runs (list + message + cadence).'],
   },
   checklist: {
-    zh: ['選出 1–2 個優先市場與明確的買家角色。', '寫出一個可計算的 Offer（差異點 + 證據 + CTA）。', '建立 100 家測試名單並完成驗證。', '跑 2 週測試並用數據決定下一步。'],
+    zh: ['選出 1–2 個優先市場與明確的買家角色。', '寫出一個可計算的 Offer（差異點 + 證據 + CTA）。', '建立 100 家測試名單並完成驗證。', '跑 2 週測試並用資料決定下一步。'],
     en: ['Pick 1–2 priority markets with clear buyer roles.', 'Write a calculable offer (differentiation + proof + CTA).', 'Build and validate a 100-company test list.', 'Run a 2-week test and decide next steps by data.'],
   },
   results: {
@@ -69,7 +69,7 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['機械設備', '電子零組件', '五金工具', '化工材料', '包材/材料'],
+    zh: ['機械設備', '電子零元件', '五金工具', '化工材料', '套件材/材料'],
     en: ['Machinery', 'Electronics', 'Hardware Tools', 'Chemicals', 'Packaging/Materials'],
   },
   caseStudy: {
@@ -91,9 +91,9 @@ const service: ServiceSeo = {
   ctaDesc: { zh: '提交產品與目標市場，我們回覆分層、通路角色與可行的切入策略。', en: 'Submit your product and markets. We’ll reply with tiers, roles, and a feasible entry plan.' },
   relatedLinks: [
     { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
-    { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
+    { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { zh: '經銷商開發（核心服務）', en: 'Distributor Development (Core)' }, href: '/services/distributor-development' },
-    { label: { zh: '外貿資源（指南文章）', en: 'Export Resources (Guides)' }, href: '/resources' },
+    { label: { zh: '外銷資源（指南文章）', en: 'Export Resources (Guides)' }, href: '/resources' },
   ],
 }
 

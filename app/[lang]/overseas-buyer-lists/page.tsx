@@ -8,7 +8,7 @@ const service: ServiceSeo = {
     en: 'Overseas Buyer Lists | Ready-to-use Prospect Lists for Export',
   },
   description: {
-    zh: '交付可直接使用的海外買家名單：寄信名單與開信名單（Excel），包含公司、決策人、職位、Email、LinkedIn、公司網站。',
+    zh: '交付可直接使用的海外買家名單：寄信名單與開信名單（Excel），套件含公司、決策人、職位、Email、LinkedIn、公司網站。',
     en: 'Deliver ready-to-use overseas buyer lists: sent list + opens list (Excel) including company, decision-maker, title, email, LinkedIn, and website.',
   },
   h1: { zh: '海外買家名單交付', en: 'Overseas Buyer Lists (Deliverable)' },
@@ -17,15 +17,15 @@ const service: ServiceSeo = {
     en: ['Unreliable lists cause bounces and low replies.', 'Without decision-makers, you end up emailing generic inboxes.', 'No segmentation makes follow-up inefficient.'],
   },
   solution: {
-    zh: ['我們以 ICP 與買家角色為核心，建立可驗證的買家資料庫並以 Excel 交付。', '名單支援後續的 cold email/LinkedIn 節奏與回覆分類。'],
+    zh: ['我們以 ICP 與買家角色為核心，建立可驗證的買家資料函式庫並以 Excel 交付。', '名單支援後續的 cold email/LinkedIn 節奏與回覆分類別。'],
     en: ['We build validated buyer databases based on ICP and roles, delivered as Excel.', 'Lists are structured for cadence-based outreach and reply triage.'],
   },
   whatIs: {
-    zh: ['Overseas Buyer Lists 是外貿開發的核心資產：可投遞、可追蹤、可分層的海外買家名單。'],
+    zh: ['Overseas Buyer Lists 是外銷開發的核心資產：可投遞、可追蹤、可分層的海外買家名單。'],
     en: ['Overseas buyer lists are the core asset of export development: deliverable, trackable, and segmented prospect lists.'],
   },
   howWorks: {
-    zh: ['我們先定義你要找的買家角色與市場，接著用多來源蒐集與驗證建立資料庫，再把名單分層交付。'],
+    zh: ['我們先定義你要找的買家角色與市場，接著用多來源蒐集與驗證建立資料函式庫，再把名單分層交付。'],
     en: ['We define buyer roles and markets, source from multiple channels, validate contacts, then deliver segmented lists.'],
   },
   process: {
@@ -43,8 +43,8 @@ const service: ServiceSeo = {
   results: {
     zh: [
       { label: '交付格式', value: 'Excel', desc: '可直接交給業務使用。' },
-      { label: '資料可用性', value: '可驗證', desc: '降低跳退與無效寄送。' },
-      { label: '後續可追蹤', value: '可分層', desc: '支援跟進節奏與回覆分類。' },
+      { label: '資料易用性', value: '可驗證', desc: '降低跳退與無效寄送。' },
+      { label: '後續可追蹤', value: '可分層', desc: '支援跟進節奏與回覆分類別。' },
     ],
     en: [
       { label: 'Delivery format', value: 'Excel', desc: 'Ready for your sales team.' },
@@ -69,22 +69,22 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['機械設備', '電子零組件', '五金工具', '包材/材料'],
+    zh: ['機械設備', '電子零元件', '五金工具', '套件材/材料'],
     en: ['Machinery', 'Electronics', 'Hardware Tools', 'Packaging/Materials'],
   },
   caseStudy: {
     title: { zh: '五金工具：首月建立 500+ 目標名單', en: 'Hardware: built 500+ targets in month one' },
-    desc: { zh: '名單品質到位後，回覆與詢盤更容易穩定累積。', en: 'List quality enabled more stable replies and inquiries.' },
+    desc: { zh: '名單品質到位後，回覆與詢價更容易穩定累積。', en: 'List quality enabled more stable replies and inquiries.' },
     link: '/case-studies/hardware',
   },
   faq: [
     { q: { zh: '名單能否指定市場與買家角色？', en: 'Can we specify markets and buyer roles?' }, a: { zh: '可以。名單會依你產品與目標市場定義 ICP 與角色後建置。', en: 'Yes. Lists are built based on your ICP by market and role.' } },
-    { q: { zh: '名單交付後你們也能協助開發嗎？', en: 'Can you run outreach after list delivery?' }, a: { zh: '可以，後續可銜接 Cold Email/LinkedIn 或核心服務的外貿客戶開發。', en: 'Yes. You can continue with cold email/LinkedIn or the core export lead gen service.' } },
+    { q: { zh: '名單交付後你們也能協助開發嗎？', en: 'Can you run outreach after list delivery?' }, a: { zh: '可以，後續可銜接 Cold Email/LinkedIn 或核心服務的外銷客戶開發。', en: 'Yes. You can continue with cold email/LinkedIn or the core export lead gen service.' } },
   ],
   ctaTitle: { zh: '取得你的海外買家名單', en: 'Get Your Overseas Buyer List' },
   ctaDesc: { zh: '提交產品與市場，我們回覆名單來源、建置方式與交付範圍。', en: 'Submit your product and markets. We’ll reply with sources, build plan, and scope.' },
   relatedLinks: [
-    { label: { zh: '核心：外貿客戶開發', en: 'Core: Export Lead Generation' }, href: '/services/export-lead-generation' },
+    { label: { zh: '核心：外銷客戶開發', en: 'Core: Export Lead Generation' }, href: '/services/export-lead-generation' },
     { label: { zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
     { label: { zh: '方法：Cold Email Outreach', en: 'Method: Cold Email Outreach' }, href: '/cold-email-outreach' },
     { label: { zh: '免費出口市場分析', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },

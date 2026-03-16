@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
     description:
       lang === 'zh'
-        ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外貿成交流程。'
+        ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外銷成交流程。'
         : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
     openGraph: {
       title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
       description:
         lang === 'zh'
-          ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外貿成交流程。'
+          ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外銷成交流程。'
           : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
       images: ['/og/og.png'],
     },
@@ -36,14 +36,14 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       title: lang === 'zh' ? '主動開發與持續跟進' : 'Outbound outreach and steady follow-up',
       desc:
         lang === 'zh'
-          ? '我們用多次跟進節奏，而不是只寄一封信就結束。讓外貿開發變成可追蹤流程。'
+          ? '我們用多次跟進節奏，而不是只寄一封信就結束。讓外銷開發變成可追蹤流程。'
           : 'We run structured follow-up cadences instead of one-off outreach, making export development trackable.',
     },
     {
-      title: lang === 'zh' ? '詢盤整理與成交支援' : 'Inquiry triage and sales support',
+      title: lang === 'zh' ? '詢價整理與成交支援' : 'Inquiry triage and sales support',
       desc:
         lang === 'zh'
-          ? '把回覆整理成可跟進的詢盤與下一步，讓你的團隊專注報價、樣品與出貨。'
+          ? '把回覆整理成可跟進的詢價與下一步，讓你的團隊專注報價、樣品與出貨。'
           : 'We package replies into followable opportunities so your team can focus on quoting, samples, and shipment.',
     },
   ]
@@ -58,10 +58,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
               {lang === 'zh' ? '關於 SunGene' : 'About SunGene'}
             </div>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'zh' ? '我們幫製造商把外貿開發做成一套可持續的系統' : 'We turn export development into a sustainable system for manufacturers'}</h1>
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'zh' ? '我們幫製造商把外銷開發做成一套可持續的系統' : 'We turn export development into a sustainable system for manufacturers'}</h1>
             <p className="text-xl leading-relaxed text-gray-200">
               {lang === 'zh'
-                ? 'SunGene 不是單純賣名單，也不是只寫幾封開發信。我們的角色，是幫你把海外買家開發、經銷商開發與詢盤跟進，整理成一套能持續運作的商務流程。'
+                ? 'SunGene 不是單純賣名單，也不是只寫幾封開發信。我們的角色，是幫你把海外買家開發、經銷商開發與詢價跟進，整理成一套能持續運作的商務流程。'
                 : 'SunGene is not just a list vendor or an email-writing shop. We help manufacturers turn buyer discovery, distributor development, and inquiry follow-up into a repeatable commercial workflow.'}
             </p>
           </div>
@@ -91,11 +91,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-white p-5 shadow-sm">
                 <div className="font-bold text-blue-700">{lang === 'zh' ? '典型客戶' : 'Typical clients'}</div>
-                <div className="mt-2 text-gray-600">{lang === 'zh' ? '機械、五金、電子零組件、包材、工業材料' : 'Machinery, hardware, electronics, packaging, and industrial materials'}</div>
+                <div className="mt-2 text-gray-600">{lang === 'zh' ? '機械、五金、電子零元件、套件材、工業材料' : 'Machinery, hardware, electronics, packaging, and industrial materials'}</div>
               </div>
               <div className="rounded-lg bg-white p-5 shadow-sm">
                 <div className="font-bold text-blue-700">{lang === 'zh' ? '常見需求' : 'Common goals'}</div>
-                <div className="mt-2 text-gray-600">{lang === 'zh' ? '找買家、找經銷商、穩定詢盤、不擴編也能持續開發' : 'Find buyers, build channels, stabilize inquiries, and keep growing without hiring first'}</div>
+                <div className="mt-2 text-gray-600">{lang === 'zh' ? '找買家、找經銷商、穩定詢價、不擴編也能持續開發' : 'Find buyers, build channels, stabilize inquiries, and keep growing without hiring first'}</div>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
 
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們相信好的外貿，不該只靠運氣' : 'We believe export growth should not rely on luck'}</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們相信好的外銷，不該只靠運氣' : 'We believe export growth should not rely on luck'}</h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
             {lang === 'zh'
               ? '展會、平台、舊客戶介紹都能帶來機會，但如果沒有一套可複製的方法，團隊很難持續擴大。SunGene 的價值，就是把這些零散動作整理成一條清楚的路。'

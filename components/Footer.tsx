@@ -5,7 +5,7 @@ export default function Footer({ lang }: { lang: Lang }) {
   const serviceLinks = [
     { href: `/${lang}/services/export-lead-generation`, label: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation' },
     { href: `/${lang}/services/distributor-development`, label: lang === 'zh' ? '經銷商開發' : 'Distributor Development' },
-    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing' },
+    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing' },
   ]
 
   return (

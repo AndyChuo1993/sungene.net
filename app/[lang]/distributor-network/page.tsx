@@ -4,14 +4,14 @@ import ServiceSeoPage, { ServiceSeo } from '@/components/ServiceSeoPage'
 const service: ServiceSeo = {
   slug: 'distributor-network',
   title: {
-    zh: '海外經銷網絡｜建立可預期的通路覆蓋',
+    zh: '海外經銷網路｜建立可預期的通路覆蓋',
     en: 'Distributor Network | Build Predictable Overseas Channel Coverage',
   },
   description: {
-    zh: '用市場分層與通路策略，建立海外經銷/代理網絡：名單、合作條件、跟進節奏與會議推進，讓通路開發變成可追蹤 pipeline。',
+    zh: '用市場分層與通路策略，建立海外經銷/代理網路：名單、合作條件、跟進節奏與會議推進，讓通路開發變成可追蹤 pipeline。',
     en: 'Build a distributor/agent network with market tiers, partner lists, term frameworks, follow-up cadence, and meeting progression for a trackable pipeline.',
   },
-  h1: { zh: '海外經銷網絡建立', en: 'Distributor Network Building' },
+  h1: { zh: '海外經銷網路建立', en: 'Distributor Network Building' },
   problem: {
     zh: ['找不到有實力的經銷商：產品線不匹配、缺售後能力或沒有覆蓋。', '合作條件不清：MOQ、區域、價格層級與支援談不攏。', '沒有推進節奏：開發像散彈槍，無法預測何時能落地。'],
     en: ['Hard to find capable partners with the right product fit and service coverage.', 'Unclear terms: MOQ, territory, pricing tiers, and support get stuck.', 'No cadence-driven pipeline, so market entry timing is unpredictable.'],
@@ -69,7 +69,7 @@ const service: ServiceSeo = {
     ],
   },
   industries: {
-    zh: ['機械設備', '工業設備', '五金工具', '包材/材料'],
+    zh: ['機械設備', '工業設備', '五金工具', '套件材/材料'],
     en: ['Machinery', 'Industrial Equipment', 'Hardware Tools', 'Packaging/Materials'],
   },
   caseStudy: {
@@ -81,7 +81,7 @@ const service: ServiceSeo = {
     { q: { zh: '要先給獨家嗎？', en: 'Should we offer exclusivity?' }, a: { zh: '通常不建議。可用里程碑換取區域保護，先以試單驗證能力。', en: 'Usually no. Use milestone-based protection and validate with trials first.' } },
     { q: { zh: '經銷商怎麼篩選？', en: 'How do you vet distributors?' }, a: { zh: '看產品線互補、客群匹配、是否有售後能力與在地倉儲，並驗證覆蓋與成交能力。', en: 'We check product fit, customer base, service capability, and local warehousing, then validate coverage and deal ability.' } },
   ],
-  ctaTitle: { zh: '想建立你的海外通路網絡？', en: 'Want to build your distributor network?' },
+  ctaTitle: { zh: '想建立你的海外通路網路？', en: 'Want to build your distributor network?' },
   ctaDesc: { zh: '提交產品與市場，我們回覆通路角色、合作條件與可行的推進策略。', en: 'Submit your product and markets. We’ll reply with roles, terms, and a feasible progression plan.' },
   relatedLinks: [
     { label: { zh: '核心：經銷商開發', en: 'Core: Distributor Development' }, href: '/services/distributor-development' },

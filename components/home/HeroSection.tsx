@@ -15,7 +15,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
           <div className="mx-auto max-w-5xl lg:mx-0">
             <div className="mb-6 inline-block rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5">
               <span className="text-sm font-bold uppercase tracking-wide text-blue-800">
-                {lang === 'zh' ? '專為台灣製造商打造' : 'Designed for Manufacturers'}
+                {lang === 'zh' ? '專為台灣製造商建立' : 'Designed for Manufacturers'}
               </span>
             </div>
 

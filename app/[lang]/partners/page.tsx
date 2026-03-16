@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title,
     description,
     keywords: isZh
-      ? '外貿顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
+      ? '外銷顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
       : 'partners, referral program, overseas agents, market research partners',
     alternates: { canonical: `/${lang}/partners`, languages: { zh: '/zh/partners', en: '/en/partners', 'x-default': '/en/partners' } },
     robots: { index: false, follow: true },
@@ -29,8 +29,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     {
       title: { zh: '企業顧問合作', en: 'Consultants & Advisors' },
       icon: <Briefcase className="w-10 h-10 text-blue-600" />,
-      description: { zh: '適合管理顧問、行銷顧問或創業導師。將 SunGene 的外貿服務推薦給您的客戶，協助他們解決海外開發難題，並獲得優渥的分潤。', en: 'For management consultants and startup mentors. Refer SunGene services to help your clients solve export challenges and earn commission.' },
-      benefits: { zh: '專屬推薦代碼、高額佣金、優先技術支援', en: 'Referral codes, high commission, priority support' }
+      description: { zh: '適合管理顧問、行銷顧問或創業導師。將 SunGene 的外銷服務推薦給您的客戶，協助他們解決海外開發難題，並獲得優渥的分潤。', en: 'For management consultants and startup mentors. Refer SunGene services to help your clients solve export challenges and earn commission.' },
+      benefits: { zh: '專屬推薦程式碼、高額佣金、優先技術支援', en: 'Referral codes, high commission, priority support' }
     },
     {
       title: { zh: '海外在地代理', en: 'Overseas Agents' },
@@ -41,8 +41,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     {
       title: { zh: '市場研究機構', en: 'Market Research Firms' },
       icon: <PieChart className="w-10 h-10 text-indigo-600" />,
-      description: { zh: '我們尋求數據合作夥伴，共同發布產業白皮書與市場分析報告，提升雙方在 B2B 領域的專業影響力。', en: 'Seeking data partners to co-publish industry whitepapers and market reports, enhancing authority in the B2B sector.' },
-      benefits: { zh: '數據互換、聯合行銷、品牌曝光', en: 'Data exchange, co-marketing, brand exposure' }
+      description: { zh: '我們尋求資料合作夥伴，共同發布產業白皮書與市場分析報告，提升雙方在 B2B 領域的專業影響力。', en: 'Seeking data partners to co-publish industry whitepapers and market reports, enhancing authority in the B2B sector.' },
+      benefits: { zh: '資料互換、聯合行銷、品牌曝光', en: 'Data exchange, co-marketing, brand exposure' }
     }
   ]
 
@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
              {lang === 'zh' ? '合作夥伴計劃' : 'Partner Program'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {lang === 'zh' ? '攜手共創外貿新生態' : 'Build the Future of Global Trade Together'}
+            {lang === 'zh' ? '攜手共創外銷新生態' : 'Build the Future of Global Trade Together'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             {lang === 'zh' 
