@@ -4,7 +4,7 @@ import { t, Lang } from '@/lib/i18n'
 import { getCases } from '@/data/cases'
 
 export default function CasePreview({ lang }: { lang: Lang }) {
-  const dataLang = lang === 'cn' ? 'zh' : lang
+  const dataLang = lang
   const cases = getCases(dataLang).slice(0, 2)
 
   return (
