@@ -69,17 +69,15 @@ jobs:
             cp -r -f public .next/standalone/
 
             # ===== 建立 runtime ENV =====
-            echo "HOSTNAME=0.0.0.0" > .env.runtime
-            echo "PORT=3000" >> .env.runtime
-            echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> .env.runtime
-            echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env.runtime
-            echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> .env.runtime
-            echo "SMTP_PASS=${{ secrets.SMTP_PASS }}" >> .env.runtime
-            echo "INQUIRY_TO=${{ secrets.INQUIRY_TO }}" >> .env.runtime
-            echo "MAIL_FROM=${{ secrets.MAIL_FROM }}" >> .env.runtime
-            sed -i 's/^SMTP_PASS=/SMTP_PASS="/; /^SMTP_PASS=/ s/$/"/' .env.runtime
-            sed -i 's/^MAIL_FROM=/MAIL_FROM="/; /^MAIL_FROM=/ s/$/"/' .env.runtime
-            echo "INQUIRY_REPLY_TO=${{ secrets.INQUIRY_REPLY_TO }}" >> .env.runtime
+            printf '%s\n' 'HOSTNAME=0.0.0.0' > .env.runtime
+            printf '%s\n' 'PORT=3000' >> .env.runtime
+            printf '%s\n' "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> .env.runtime
+            printf '%s\n' "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env.runtime
+            printf '%s\n' "SMTP_USER=${{ secrets.SMTP_USER }}" >> .env.runtime
+            printf '%s\n' "SMTP_PASS=\"${{ secrets.SMTP_PASS }}\"" >> .env.runtime
+            printf '%s\n' "INQUIRY_TO=${{ secrets.INQUIRY_TO }}" >> .env.runtime
+            printf '%s\n' "MAIL_FROM=\"${{ secrets.MAIL_FROM }}\"" >> .env.runtime
+            printf '%s\n' "INQUIRY_REPLY_TO=${{ secrets.INQUIRY_REPLY_TO }}" >> .env.runtime
             # ===========================
 
             fuser -k 3000/tcp || true
