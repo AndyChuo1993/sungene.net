@@ -35,6 +35,20 @@ jobs:
           cp -r .next/static deploy/.next/
           cp -r public deploy/
 
+      - name: Generate runtime env file
+        run: |
+          cat > deploy/.env.runtime <<EOF
+          HOSTNAME=0.0.0.0
+          PORT=3000
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+          SMTP_USER=${{ secrets.SMTP_USER }}
+          SMTP_PASS="${{ secrets.SMTP_PASS }}"
+          INQUIRY_TO=${{ secrets.INQUIRY_TO }}
+          MAIL_FROM="${{ secrets.MAIL_FROM }}"
+          INQUIRY_REPLY_TO=${{ secrets.INQUIRY_REPLY_TO }}
+          EOF
+
       - name: Pack deploy files
         run: tar -czf deploy.tar.gz -C deploy .
 
@@ -67,18 +81,6 @@ jobs:
             mkdir -p .next/standalone/.next
             cp -r -f .next/static .next/standalone/.next/
             cp -r -f public .next/standalone/
-
-            # ===== 建立 runtime ENV =====
-            printf '%s\n' 'HOSTNAME=0.0.0.0' > .env.runtime
-            printf '%s\n' 'PORT=3000' >> .env.runtime
-            printf '%s\n' "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> .env.runtime
-            printf '%s\n' "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env.runtime
-            printf '%s\n' "SMTP_USER=${{ secrets.SMTP_USER }}" >> .env.runtime
-            printf '%s\n' "SMTP_PASS=\"${{ secrets.SMTP_PASS }}\"" >> .env.runtime
-            printf '%s\n' "INQUIRY_TO=${{ secrets.INQUIRY_TO }}" >> .env.runtime
-            printf '%s\n' "MAIL_FROM=\"${{ secrets.MAIL_FROM }}\"" >> .env.runtime
-            printf '%s\n' "INQUIRY_REPLY_TO=${{ secrets.INQUIRY_REPLY_TO }}" >> .env.runtime
-            # ===========================
 
             fuser -k 3000/tcp || true
 
