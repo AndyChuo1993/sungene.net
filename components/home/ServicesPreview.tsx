@@ -1,20 +1,25 @@
 import Link from 'next/link'
-import { t, Lang } from '@/lib/i18n'
+import { Lang } from '@/lib/i18n'
 
 export default function ServicesPreview({ lang }: { lang: Lang }) {
-  const isChinese = lang !== 'en'
+  const isEn = lang === 'en'
+  const isCn = lang === 'cn'
+  const isZh = lang === 'zh' || (!isEn && !isCn) // fallback to zh if somehow not en/cn
+
   const services = [
     {
       id: 1,
-      title: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客戶開發' : '外銷客戶開發'),
-      desc:
-        isChinese
-          ? '為製造商建立海外買家名單並交付可跟進的詢價'
-          : 'Verified buyer lists and qualified inquiries for manufacturers',
-      items:
-        isChinese
-          ? ['買家名單整理與驗證', '電子郵件與商務社群開發節奏', '合格詢價交付']
-          : ['Verified buyer list building', 'Email / LinkedIn cadence', 'Qualified inquiry handoff'],
+      title: isEn ? 'Export Lead Generation' : isCn ? '外贸客户开发' : '外銷客戶開發',
+      desc: isEn
+        ? 'Identify and approach qualified overseas buyers for manufacturers'
+        : isCn
+        ? '协助制造商找到并接触合适的海外买家'
+        : '協助製造商找到並接觸合適的海外買家',
+      items: isEn
+        ? ['Buyer research and qualification', 'Structured outreach cadence', 'Qualified opportunity handoff']
+        : isCn
+        ? ['买家名单研究与验证', '开发节奏规划', '可跟进商机整理']
+        : ['買家名單研究與驗證', '開發節奏規劃', '可跟進商機整理'],
       link: `/${lang}/services/export-lead-generation`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -24,15 +29,17 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 2,
-      title: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商開發' : '經銷商開發'),
-      desc:
-        isChinese
-          ? '協助你找到海外通路夥伴並推進合作條件'
-          : 'Build a distributor pipeline with terms and market mapping',
-      items:
-        isChinese
-          ? ['市場分層與通路地圖', '候選夥伴清單', '合作條件與會議推進']
-          : ['Market tiers and channel mapping', 'Partner shortlist', 'Terms and meeting progression'],
+      title: isEn ? 'Distributor Development' : isCn ? '经销商开发' : '經銷商開發',
+      desc: isEn
+        ? 'Build and develop overseas distributor opportunities'
+        : isCn
+        ? '协助你建立海外经销伙伴开发名单与推进流程'
+        : '協助你建立海外經銷夥伴開發名單與推進流程',
+      items: isEn
+        ? ['Market and channel mapping', 'Partner qualification', 'Early-stage business development support']
+        : isCn
+        ? ['市场与渠道盘点', '潜在伙伴筛选', '合作推进支持']
+        : ['市場與通路盤點', '潛在夥伴篩選', '合作推進支援'],
       link: `/${lang}/services/distributor-development`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,15 +49,17 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸業務外包服务' : '外銷業務外包服務'),
-      desc:
-        isChinese
-          ? '你專注報價與出貨，其餘開發與跟進交給我們'
-          : 'You quote and ship. We run the outreach and follow-up system.',
-      items:
-        isChinese
-          ? ['前段開發與跟進外包', '回覆分類別與需求整理', '建立可複製的標準作業流程']
-          : ['Managed outreach and follow-ups', 'Reply triage and qualification', 'Repeatable SOP'],
+      title: isEn ? 'Export Sales Outsourcing' : isCn ? '外贸业务外包服务' : '外銷業務外包服務',
+      desc: isEn
+        ? 'External support for export sales development and follow-up'
+        : isCn
+        ? '以外部支持方式协助推进外贸开发与跟进'
+        : '以外部支援方式協助推進外銷開發與跟進',
+      items: isEn
+        ? ['Managed outreach support', 'Reply handling and qualification', 'Reduced internal workload']
+        : isCn
+        ? ['前段开发支持', '回复与需求整理', '降低内部负担']
+        : ['前段開發支援', '回覆與需求整理', '降低內部負擔'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,11 +73,15 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     <section className="border-y border-gray-100 bg-gray-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">{t(lang, 'service_title')}</h2>
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+            {isEn ? 'Core Export Growth Services' : isCn ? '核心外贸增长服务' : '核心外銷增長服務'}
+          </h2>
           <p className="mx-auto max-w-2xl text-xl text-gray-500">
-            {isChinese
-              ? '從買家名單、主動開發到詢價交付，讓外銷增長變成可追蹤流程'
-              : 'From buyer research to outreach and inquiry delivery, built as a trackable export workflow'}
+            {isEn
+              ? 'From buyer development to distributor development and export sales support, built into a clearer growth path'
+              : isCn
+              ? '从海外买家开发、经销商开发到外贸执行支持，建立更清楚的增长路径'
+              : '從海外買家開發、經銷商開發到外銷執行支援，建立更清楚的成長路徑'}
           </p>
         </div>
 
@@ -89,7 +102,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
                 ))}
               </ul>
               <Link href={s.link} className="inline-block border-b-2 border-transparent pb-0.5 font-bold text-gray-900 transition group-hover:border-blue-600">
-                {lang === 'en' ? 'Learn More' : (lang === 'cn' ? '了解更多' : '了解更多')} →
+                {lang === 'en' ? 'View Service Details' : lang === 'cn' ? '查看服务内容' : '查看服務內容'} →
               </Link>
             </div>
           ))}
