@@ -74,9 +74,11 @@ jobs:
             echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> .env.runtime
             echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env.runtime
             echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> .env.runtime
-            echo 'SMTP_PASS="${{ secrets.SMTP_PASS }}"' >> .env.runtime
+            echo "SMTP_PASS=${{ secrets.SMTP_PASS }}" >> .env.runtime
             echo "INQUIRY_TO=${{ secrets.INQUIRY_TO }}" >> .env.runtime
-            echo 'MAIL_FROM="${{ secrets.MAIL_FROM }}"' >> .env.runtime
+            echo "MAIL_FROM=${{ secrets.MAIL_FROM }}" >> .env.runtime
+            sed -i 's/^SMTP_PASS=/SMTP_PASS="/; /^SMTP_PASS=/ s/$/"/' .env.runtime
+            sed -i 's/^MAIL_FROM=/MAIL_FROM="/; /^MAIL_FROM=/ s/$/"/' .env.runtime
             echo "INQUIRY_REPLY_TO=${{ secrets.INQUIRY_REPLY_TO }}" >> .env.runtime
             # ===========================
 
