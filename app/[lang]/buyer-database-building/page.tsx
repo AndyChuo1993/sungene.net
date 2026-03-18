@@ -126,7 +126,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: { canonical: `/${lang}/buyer-database-building`, languages: { 'zh-CN': '/cn/buyer-database-building', zh: '/zh/buyer-database-building', en: '/en/buyer-database-building', 'x-default': '/en/buyer-database-building' } },
-    robots: { index: false, follow: true },
+    
   }
 }
 

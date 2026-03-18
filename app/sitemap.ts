@@ -7,36 +7,53 @@ import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const host = (await headers()).get('host') || 'sungenelite.com'
-  const baseUrl = `https://${host}`
-  const langs = ['zh', 'en', 'cn'] as const
+  const host = (await headers()).get('host') || 'sungene.net'
+  const protocol = host.includes('localhost') ? 'http' : 'https'
+  const baseUrl = `${protocol}://${host}`
+  
+  // 根據 request host 決定輸出哪幾個語系的 sitemap
+  const isZh = host.includes('sungenelite.com')
+  const langs = isZh ? (['zh'] as const) : (['cn', 'en'] as const)
   
   const routes = [
     '',
     '/about',
     '/contact',
     '/faq',
+    '/pricing',
+    '/partners',
     '/services',
     '/services/export-lead-generation',
     '/services/distributor-development',
     '/services/export-sales-outsourcing',
-    '/export-market-analysis',
-    '/free-market-analysis',
     '/industries',
     '/markets',
     '/case-studies',
     '/resources',
     '/blog',
+    // 其他有搜尋意圖的落地頁
+    '/buyers-list',
+    '/distributor-list',
+    '/qualified-b2b-leads',
+    '/linkedin-prospecting',
+    '/cold-email-outreach',
+    '/market-entry-strategy',
+    '/buyer-database-building',
+    '/distributor-network',
+    '/overseas-buyer-lists',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
+
+  // 固定靜態頁最後更新日期
+  const staticLastMod = new Date('2024-03-01')
 
   // 1. Static Routes
   routes.forEach(route => {
     langs.forEach(lang => {
       sitemap.push({
         url: `${baseUrl}/${lang}${route}`,
-        lastModified: new Date(),
+        lastModified: staticLastMod,
         changeFrequency: 'weekly',
         priority: route === '' ? 1 : 0.8,
       })
@@ -48,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.forEach(lang => {
       sitemap.push({
         url: `${baseUrl}/${lang}/markets/${m.slug}`,
-        lastModified: new Date(),
+        lastModified: staticLastMod,
         changeFrequency: 'weekly',
         priority: 0.8,
       })
@@ -60,7 +77,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.forEach(lang => {
       sitemap.push({
         url: `${baseUrl}/${lang}/industries/${i.slug}`,
-        lastModified: new Date(),
+        lastModified: staticLastMod,
         changeFrequency: 'weekly',
         priority: 0.8,
       })
@@ -99,7 +116,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     cases.forEach(c => {
       sitemap.push({
         url: `${baseUrl}/${lang}/case-studies/${c.slug}`,
-        lastModified: new Date(),
+        lastModified: staticLastMod, // Case data doesn't have a date field
         changeFrequency: 'monthly',
         priority: 0.7,
       })

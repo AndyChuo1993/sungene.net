@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       url: `${baseUrl}/${lang}/faq`,
       type: 'website' 
     },
-    robots: { index: false, follow: true },
+    
   }
 }
 

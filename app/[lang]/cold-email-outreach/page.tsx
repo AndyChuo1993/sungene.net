@@ -126,7 +126,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: { canonical: `/${lang}/cold-email-outreach`, languages: { 'zh-CN': '/cn/cold-email-outreach', zh: '/zh/cold-email-outreach', en: '/en/cold-email-outreach', 'x-default': '/en/cold-email-outreach' } },
-    robots: { index: false, follow: true },
+    
   }
 }
 

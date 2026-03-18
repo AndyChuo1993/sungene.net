@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: { canonical: `/${lang}/qualified-b2b-leads`, languages: { 'zh-CN': '/cn/qualified-b2b-leads', zh: '/zh/qualified-b2b-leads', en: '/en/qualified-b2b-leads', 'x-default': '/en/qualified-b2b-leads' } },
-    robots: { index: false, follow: true },
+    
   }
 }
 

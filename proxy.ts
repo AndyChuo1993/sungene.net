@@ -22,6 +22,20 @@ export function proxy(request: NextRequest) {
   const host = request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
 
+  // 處理舊站 410 Gone (移除舊包裝盒網站殘留頁面)
+  const gonePatterns = ['/products', '/product', '/cooperation', '/news', '/category', '/tag', '/author']
+  if (gonePatterns.some(pattern => pathname.startsWith(pattern))) {
+    return new NextResponse(null, { status: 410 })
+  }
+
+  // 處理舊站 301 Redirect
+  if (pathname.startsWith('/about-us')) {
+    return NextResponse.redirect(new URL(`/${defaultLocale}/about`, request.url), 301)
+  }
+  if (pathname.startsWith('/contact-us')) {
+    return NextResponse.redirect(new URL(`/${defaultLocale}/contact`, request.url), 301)
+  }
+
   const normalizedPathname = pathname.replace(/^\/zh\/cn(?=\/|$)/, '/cn')
   if (normalizedPathname !== pathname) {
     return NextResponse.redirect(new URL(normalizedPathname, request.url))

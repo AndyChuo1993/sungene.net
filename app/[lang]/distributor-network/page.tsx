@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: { canonical: `/${lang}/distributor-network`, languages: { 'zh-CN': '/cn/distributor-network', zh: '/zh/distributor-network', en: '/en/distributor-network', 'x-default': '/en/distributor-network' } },
-    robots: { index: false, follow: true },
+    
   }
 }
 

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         ? '留下你的產品與目標市場，我們提供海外經銷/代理候選名單與切入建議。'
         : 'Share your product and market. We’ll send a shortlist of distributors/agents and an entry recommendation.',
     alternates: { canonical: `/${lang}/distributor-list`, languages: { 'zh-CN': '/cn/distributor-list', zh: '/zh/distributor-list', en: '/en/distributor-list', 'x-default': '/en/distributor-list' } },
-    robots: { index: false, follow: true },
+    
   }
 }
 

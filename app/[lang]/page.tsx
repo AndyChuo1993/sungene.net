@@ -184,8 +184,6 @@ export default async function Page({ params }: PageParams) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
-      <h1 className="sr-only">{data.h1}</h1>
-
       <HeroSection lang={safeLang} />
       <ServicesPreview lang={safeLang} />
 

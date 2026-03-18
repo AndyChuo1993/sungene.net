@@ -25,10 +25,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
 
             <h1 className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-7xl">
               {lang === 'en'
-                ? 'B2B Export Lead Generation for Companies'
+                ? 'B2B Export Lead Generation & Distributor Development'
                 : lang === 'cn'
-                ? '企业 B2B 外贸客户开发'
-                : '企業 B2B 外銷客戶開發'}
+                ? '外贸客户开发与海外买家开发服务'
+                : '外銷客戶開發與海外買家開發服務'}
             </h1>
 
             <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl lg:mx-0">

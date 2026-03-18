@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         'x-default': 'https://sungene.net/cn/pricing' 
       } 
     },
-    robots: { index: false, follow: true },
+    
     openGraph: { 
       title, 
       description, 
