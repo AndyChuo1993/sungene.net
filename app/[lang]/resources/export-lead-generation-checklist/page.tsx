@@ -3,7 +3,7 @@ import { getDictionary } from '@/lib/i18n'
 import DownloadForm from '@/components/DownloadForm'
 import { Check, FileText, Target, Shield, HelpCircle } from 'lucide-react'
 
-export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh' | 'cn' } }) {
+export async function generateMetadata({ params }: { params: Promise<{ lang: 'en' | 'zh' | 'cn' }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
   const title = isChinese ? '外銷客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
@@ -18,10 +18,11 @@ export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh'
 }
 
 export default async function LeadMagnetPage({
-  params: { lang },
+  params,
 }: {
-  params: { lang: 'en' | 'zh' | 'cn' }
+  params: Promise<{ lang: 'en' | 'zh' | 'cn' }>
 }) {
+  const { lang } = await params
   const dict = await getDictionary(lang)
 
   const isChinese = lang !== 'en'
