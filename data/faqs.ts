@@ -21,8 +21,8 @@ export const faqs: FAQItem[] = [
     category: 'general',
     question: { cn: '是否適合我的行业？',
     zh: '是否適合我的產業？', en: 'Is it suitable for my industry?' },
-    answer: { cn: '只要你的目标客戶是企业客戶，例如制造商、进口商、经销商或品牌商，我們的服务通常都适用。我們已服务過机械、電子、紡織、化工、食品與医疗器材等多個領域。',
-    zh: '只要你的目標客戶是企業客戶，例如製造商、進口商、經銷商或品牌商，我們的服務通常都適用。我們已服務過機械、電子、紡織、化工、食品與醫療器材等多個領域。', en: 'As long as your target is B2B (manufacturers, importers, distributors), our service applies. We have served machinery, electronics, textile, chemical, food, medical devices, etc.' },
+    answer: { cn: '只要你的目标客戶是企业客戶，例如企业、进口商、经销商或品牌商，我們的服务通常都适用。我們已服务過机械、電子、紡織、化工、食品與医疗器材等多個領域。',
+    zh: '只要你的目標客戶是企業客戶，例如企業、進口商、經銷商或品牌商，我們的服務通常都適用。我們已服務過機械、電子、紡織、化工、食品與醫療器材等多個領域。', en: 'As long as your target is B2B (companies, importers, distributors), our service applies. We have served machinery, electronics, textile, chemical, food, medical devices, etc.' },
   },
   {
     category: 'general',

@@ -51,7 +51,7 @@ const zh: Record<string, CaseContent> = {
     before: ['依賴舊客戶', '缺乏外銷團隊', '展會效果遞減'],
     after: ['建立精準名單', '自動化開發信', '穩定詢問來源'],
     sections: [
-      { heading: '背景', paragraphs: ['該客戶為資深五金工具製造商，擁有高品質生產能力，但長期依賴貿易商與舊客戶，缺乏主動開發歐洲市場的能力與團隊。'] },
+      { heading: '背景', paragraphs: ['該客戶為資深五金工具企業，擁有高品質生產能力，但長期依賴貿易商與舊客戶，缺乏主動開發歐洲市場的能力與團隊。'] },
       { heading: '市場困境', items: ['過度依賴傳統展會，獲客成本高且效果遞減', '內部無專職外銷業務，無法處理複雜的開發流程', '對歐洲進口商結構不熟悉，難以找到對口人'] },
       { heading: '我們的策略', paragraphs: ['我們為其量身建立外銷外包服務方案，從零建立歐洲開發體系：'], items: ['鎖定德國、荷蘭中大型五金進口商與批發商', '建立採購經理的精準名單', '設計強調製造品質與代工彈性的英文開發信'] },
       { heading: '執行方式', items: ['首月：建立 500 家以上目標客戶名單，進行首輪測試', '次月：最佳化開發信主旨與內容，提升開啟率至 40% 以上', '第三個月：全面自動化跟進，並由團隊協助初步詢問篩選'] },
@@ -132,7 +132,7 @@ const zh: Record<string, CaseContent> = {
     before: ['技術門檻高', '決策鏈長', '找不到對口'],
     after: ['技術決策人鎖定', '專業內容行銷', '進入評估流程'],
     sections: [
-      { heading: '背景', paragraphs: ['客戶為特用化學品與工業材料製造商，產品技術門檻高，目標市場為中東與東南亞的工業客戶。'] },
+      { heading: '背景', paragraphs: ['客戶為特用化學品與工業材料企業，產品技術門檻高，目標市場為中東與東南亞的工業客戶。'] },
       { heading: '市場困境', items: ['產品應用專業，一般採購無法快速判斷價值', '大型工業客戶決策流程極長', '難以接觸到真正的技術決策者'] },
       { heading: '我們的策略', paragraphs: ['採用技術型業務開發方式：'], items: ['鎖定工廠廠長、製程工程師、研發總監等技術職位', '開發信內容強調效能提升與成本最佳化資料', '提供技術規格書與測試報告作為核心素材'] },
       { heading: '執行方式', items: ['透過專案資料函式庫找出正在擴廠或升級的目標企業', '分層開發：先技術人員確認規格，後採購人員談商務', '定期寄送產業應用案例，維持長期互動'] },
@@ -142,7 +142,7 @@ const zh: Record<string, CaseContent> = {
   },
   machinery: {
     slug: 'machinery',
-    title: '自動化設備製造商',
+    title: '自動化設備企業',
     industry: '機械設備',
     market: '東南亞',
     serviceType: '客戶開發與會議安排',
@@ -159,7 +159,7 @@ const zh: Record<string, CaseContent> = {
     before: ['找不到經銷商', '無當地人脈', '語言不通'],
     after: ['鎖定進口商', '電話與電子郵件開發', '安排視訊會議'],
     sections: [
-      { heading: '背景', paragraphs: ['客戶為自動化套件裝設備製造商，欲拓展越南與泰國市場，尋找當地有售後服務能力的經銷代理商。'] },
+      { heading: '背景', paragraphs: ['客戶為自動化套件裝設備企業，欲拓展越南與泰國市場，尋找當地有售後服務能力的經銷代理商。'] },
       { heading: '市場困境', items: ['缺乏當地通路名單，難以辨識有實力的經銷商', '語言隔閡，僅靠英文開發信回覆率低', '需要深入溝通才能確認對方的技術服務能力'] },
       { heading: '我們的策略', paragraphs: ['結合名單開發與會議邀約：'], items: ['建立越南與泰國前 50 大套件裝機械進口商名單', '透過當地語言（越文與泰文）進行陌生開發電話', '目標是直接安排視訊會議，而非僅止於索取報價'] },
       { heading: '執行方式', items: ['篩選具備維修團隊的經銷商', '寄送產品演示影片作為開門磚', '由 SunGene 顧問協助初步篩選意願，再安排雙方會議'] },
@@ -189,7 +189,7 @@ const cn: Record<string, CaseContent> = {
     before: ['依赖旧客户', '缺乏外贸团队', '展会效果递减'],
     after: ['建立精准名单', '自动化开发信', '稳定询盘来源'],
     sections: [
-      { heading: '背景', paragraphs: ['该客户为资深五金工具制造商，拥有高质量生产能力，但长期依赖贸易商与旧客户，缺乏主动开发欧洲市场的能力与团队。'] },
+      { heading: '背景', paragraphs: ['该客户为资深五金工具企业，拥有高质量生产能力，但长期依赖贸易商与旧客户，缺乏主动开发欧洲市场的能力与团队。'] },
       { heading: '市场困境', items: ['过度依赖传统展会，获客成本高且效果递减', '内部无专职外贸业务，无法处理复杂的开发流程', '对欧洲进口商结构不熟悉，难以找到对接人'] },
       { heading: '我们的策略', paragraphs: ['我们为其量身建立外贸外包服务方案，从零建立欧洲开发体系：'], items: ['锁定德国、荷兰中大型五金进口商与批发商', '建立采购经理的精准名单', '设计强调制造质量与代工弹性的英文开发信'] },
       { heading: '执行方式', items: ['首月：建立 500 家以上目标客户名单，进行首轮测试', '次月：优化开发信主题与内容，提升开启率至 40% 以上', '第三个月：全面自动化跟进，并由团队协助初步询盘筛选'] },
@@ -270,7 +270,7 @@ const cn: Record<string, CaseContent> = {
     before: ['技术门槛高', '决策链长', '找不到对接人'],
     after: ['技术决策人锁定', '专业内容营销', '进入评估流程'],
     sections: [
-      { heading: '背景', paragraphs: ['客户为特用化学品与工业材料制造商，产品技术门槛高，目标市场为中东与东南亚的工业客户。'] },
+      { heading: '背景', paragraphs: ['客户为特用化学品与工业材料企业，产品技术门槛高，目标市场为中东与东南亚的工业客户。'] },
       { heading: '市场困境', items: ['产品应用专业，一般采购无法快速判断价值', '大型工业客户决策流程极长', '难以接触到真正的技术决策者'] },
       { heading: '我们的策略', paragraphs: ['采用技术型业务开发方式：'], items: ['锁定工厂厂长、制程工程师、研发总监等技术职位', '开发信内容强调效能提升与成本优化数据', '提供技术规格书与测试报告作为核心素材'] },
       { heading: '执行方式', items: ['通过项目数据库找出正在扩厂或升级的目标企业', '分层开发：先技术人员确认规格，后采购人员谈商务', '定期寄送行业应用案例，维持长期互动'] },
@@ -280,7 +280,7 @@ const cn: Record<string, CaseContent> = {
   },
   machinery: {
     slug: 'machinery',
-    title: '自动化设备制造商',
+    title: '自动化设备企业',
     industry: '机械设备',
     market: '东南亚',
     serviceType: '客户开发与会议安排',
@@ -297,7 +297,7 @@ const cn: Record<string, CaseContent> = {
     before: ['找不到经销商', '无当地人脉', '语言不通'],
     after: ['锁定进口商', '电话与邮件开发', '安排视频会议'],
     sections: [
-      { heading: '背景', paragraphs: ['客户为自动化包装设备制造商，欲拓展越南与泰国市场，寻找当地有售后服务能力的经销代理商。'] },
+      { heading: '背景', paragraphs: ['客户为自动化包装设备企业，欲拓展越南与泰国市场，寻找当地有售后服务能力的经销代理商。'] },
       { heading: '市场困境', items: ['缺乏当地渠道名单，难以辨识有实力的经销商', '语言隔阂，仅靠英文开发信回复率低', '需要深入沟通才能确认对方的技术服务能力'] },
       { heading: '我们的策略', paragraphs: ['结合名单开发与会议邀约：'], items: ['建立越南与泰国前 50 大包装机械进口商名单', '通过当地语言（越文与泰文）进行陌生开发电话', '目标是直接安排视频会议，而非仅止于索取报价'] },
       { heading: '执行方式', items: ['筛选具备维修团队的经销商', '寄送产品演示视频作为敲门砖', '由 SunGene 顾问协助初步筛选意愿，再安排双方会议'] },
@@ -312,7 +312,7 @@ const cn: Record<string, CaseContent> = {
 const en: Record<string, CaseContent> = {
   hardware: {
     slug: 'hardware',
-    title: 'Hardware Manufacturer',
+    title: 'Hardware Company',
     industry: 'Hardware & Tools',
     market: 'Europe',
     serviceType: 'Lead Gen + Cold Email',
@@ -329,7 +329,7 @@ const en: Record<string, CaseContent> = {
     before: ['Relied on old clients', 'No export team', 'Declining exhibition ROI'],
     after: ['Targeted lists', 'Automated outreach', 'Stable inquiry flow'],
     sections: [
-      { heading: 'Background', paragraphs: ['A veteran hardware manufacturer with high-quality production capabilities but heavily reliant on trading companies and existing clients. They lacked the internal team to proactively develop the European market.'] },
+      { heading: 'Background', paragraphs: ['A veteran hardware company with high-quality production capabilities but heavily reliant on trading companies and existing clients. They lacked the internal team to proactively develop the European market.'] },
       { heading: 'Challenges', items: ['High cost and declining ROI from traditional exhibitions', 'No dedicated sales team to handle complex prospecting', 'Unfamiliar with European importer structures'] },
       { heading: 'Our Strategy', paragraphs: ['SunGene implemented a full "Export Outsourcing" solution:'], items: ['Targeted mid-to-large hardware importers and wholesalers in Germany and Netherlands', 'Built a precise list of Purchasing Managers', 'Crafted cold emails highlighting "Quality Manufacturing" and "OEM Flexibility"'] },
       { heading: 'Execution', items: ['Month 1: Built 500+ target list for initial testing', 'Month 2: Optimized subject lines and content, boosting open rates to 40%+', 'Month 3: Full automation with SunGene team filtering initial inquiries'] },
@@ -356,7 +356,7 @@ const en: Record<string, CaseContent> = {
     before: ['No decision maker access', 'Ignored emails', 'High competition'],
     after: ['Targeted executives', 'Multi-channel touch', 'Audit process entry'],
     sections: [
-      { heading: 'Background', paragraphs: ['An electronics component manufacturer aiming to enter the North American high-tech and automotive supply chains but blocked by closed procurement processes at major firms.'] },
+      { heading: 'Background', paragraphs: ['An electronics component company aiming to enter the North American high-tech and automotive supply chains but blocked by closed procurement processes at major firms.'] },
       { heading: 'Challenges', items: ['Extremely low response rates from generic info emails', 'Long decision chains involving engineering, procurement, and QC', 'Hard to differentiate technical advantages in a crowded market'] },
       { heading: 'Our Strategy', paragraphs: ['Adopted an "Account-Based Marketing (ABM)" approach:'], items: ['Simultaneously targeted Purchasing Managers, R&D Heads, and Supply Chain Directors', 'Multi-channel outreach via LinkedIn and Email', 'Used technical whitepapers and case studies as hooks'] },
       { heading: 'Execution', items: ['Mapped organizational charts of Top 50 target clients', 'Tailored communication scripts for engineers vs. buyers', 'Leveraged LinkedIn to build professional credibility'] },
@@ -393,7 +393,7 @@ const en: Record<string, CaseContent> = {
   },
   industrial: {
     slug: 'industrial',
-    title: 'Industrial Material Manufacturer',
+    title: 'Industrial Material Company',
     industry: 'Chemicals / Industrial Materials',
     market: 'Middle East',
     serviceType: 'Technical Sales',
@@ -410,7 +410,7 @@ const en: Record<string, CaseContent> = {
     before: ['High tech barrier', 'Long decision chain', 'Wrong contacts'],
     after: ['Tech decision makers', 'Content marketing', 'Evaluation process'],
     sections: [
-      { heading: 'Background', paragraphs: ['A manufacturer of specialty chemicals and industrial materials with high technical barriers, targeting industrial clients in the Middle East and SE Asia.'] },
+      { heading: 'Background', paragraphs: ['A company of specialty chemicals and industrial materials with high technical barriers, targeting industrial clients in the Middle East and SE Asia.'] },
       { heading: 'Challenges', items: ['General buyers cannot evaluate technical value', 'Extremely long decision processes at large industrial firms', 'Hard to reach the actual Technical Decision Makers'] },
       { heading: 'Our Strategy', paragraphs: ['Adopted a "Technical Sales" approach:'], items: ['Targeted Plant Managers, Process Engineers, and R&D Directors', 'Emails focused on "Efficiency Gains" and "Cost Optimization" data', 'Provided Technical Data Sheets (TDS) and test reports as core content'] },
       { heading: 'Execution', items: ['Identified companies expanding or upgrading via project databases', 'Layered outreach: Specs with techs first, commercial terms with buyers later', 'Sent regular industry application cases to maintain engagement'] },
@@ -420,7 +420,7 @@ const en: Record<string, CaseContent> = {
   },
   machinery: {
     slug: 'machinery',
-    title: 'Automation Machinery Manufacturer',
+    title: 'Automation Machinery Company',
     industry: 'Machinery & Equipment',
     market: 'Southeast Asia',
     serviceType: 'Lead Gen + Appointment',
@@ -437,7 +437,7 @@ const en: Record<string, CaseContent> = {
     before: ['No distributors', 'No local network', 'Language barrier'],
     after: ['Targeted importers', 'Phone+Email outreach', 'Video meetings'],
     sections: [
-      { heading: 'Background', paragraphs: ['An automation packaging machinery manufacturer wanting to expand into Vietnam and Thailand to find distributors with after-sales service capabilities.'] },
+      { heading: 'Background', paragraphs: ['An automation packaging machinery company wanting to expand into Vietnam and Thailand to find distributors with after-sales service capabilities.'] },
       { heading: 'Challenges', items: ['Lack of local channel lists to identify capable distributors', 'Language barriers led to low response rates from English emails', 'Deep communication needed to verify technical service capabilities'] },
       { heading: 'Our Strategy', paragraphs: ['Combined "Lead Gen" with "Appointment Setting":'], items: ['Built a list of Top 50 packaging machinery importers in Vietnam and Thailand', 'Conducted cold calling in local languages (Vietnamese/Thai)', 'Goal was to set up video meetings, not just ask for quotes'] },
       { heading: 'Execution', items: ['Filtered distributors with maintenance teams', 'Sent product demo videos as openers', 'SunGene consultants pre-screened interest before scheduling meetings'] },

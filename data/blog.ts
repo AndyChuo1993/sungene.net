@@ -30,8 +30,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
     title: {
-      cn: '如何找到海外买家：7 種方法＋工具＋完整流程（製造業）',
-    zh: '如何找到海外買家：7 種方法＋工具＋完整流程（製造業）',
+      cn: '如何找到海外买家：7 種方法＋工具＋完整流程（企業）',
+    zh: '如何找到海外買家：7 種方法＋工具＋完整流程（企業）',
       en: 'How to Find Overseas Buyers: 7 Methods, Tools, and a Step-by-step Process',
     },
     description: {
@@ -47,15 +47,15 @@ export const blogPosts: BlogPost[] = [
         content: {
           cn: [
             '要找到海外买家，关键不是「寄更多信」，而是用正确的买家畫像與可验证的價值主張，建立一套從名单到跟进的流程。',
-            '本文提供 7 種常見且可落地的方法，並附上工具、範例與清单，讓製造業能更快获得可追踪的询盘。',
+            '本文提供 7 種常見且可落地的方法，並附上工具、範例與清单，讓企業能更快获得可追踪的询盘。',
           ],
     zh: [
             '要找到海外買家，關鍵不是「寄更多信」，而是用正確的買家畫像與可驗證的價值主張，建立一套從名單到跟進的流程。',
-            '本文提供 7 種常見且可落地的方法，並附上工具、範例與清單，讓製造業能更快獲得可追蹤的詢價。',
+            '本文提供 7 種常見且可落地的方法，並附上工具、範例與清單，讓企業能更快獲得可追蹤的詢價。',
           ],
           en: [
             'Finding overseas buyers is not about sending more emails. It is about ICP clarity, proof-based positioning, and a repeatable list-to-follow-up workflow.',
-            'This guide gives 7 practical methods with tools, examples, and a checklist to help manufacturers generate trackable inquiries faster.',
+            'This guide gives 7 practical methods with tools, examples, and a checklist to help companies generate trackable inquiries faster.',
           ],
         },
       },
@@ -281,11 +281,11 @@ export const blogPosts: BlogPost[] = [
     internalLinks: { servicePath: '/services/distributor-development', caseStudyPath: '/case-studies', leadMagnetPath: '/distributor-list' },
   },
   {
-    slug: 'how-manufacturers-export-products',
+    slug: 'how-companies-export-products',
     date: '2026-03-13',
     heroImage: '/articles/industry-electronics.svg',
-    title: { cn: '製造業如何外贸：從市场选择到第一筆訂單的完整流程',
-    zh: '製造業如何外銷：從市場選擇到第一筆訂單的完整流程', en: 'How Manufacturers Export Products: A Practical Step-by-step Playbook' },
+    title: { cn: '企業如何外贸：從市场选择到第一筆訂單的完整流程',
+    zh: '企業如何外銷：從市場選擇到第一筆訂單的完整流程', en: 'How Companies Export Products: A Practical Step-by-step Playbook' },
     description: { cn: '用框架拆解外贸流程：市场分层、买家角色、開發節奏、样品/报价、付款與出货，降低試錯成本。',
     zh: '用框架拆解外銷流程：市場分層、買家角色、開發節奏、樣品/報價、付款與出貨，降低試錯成本。', en: 'A practical framework for exporting: market tiers, buyer roles, outreach cadence, samples/quotes, payment, and shipping.' },
     sections: [
@@ -617,8 +617,8 @@ export const blogPosts: BlogPost[] = [
     ],
     faq: [
       { q: { cn: '要先用经销商模式嗎？',
-    zh: '要先用經銷商模式嗎？', en: 'Should we start with distributors?' }, a: { cn: '多數製造業想要快速覆盖會先走經銷，但仍建議同時确认是否存在大客戶/项目型买家，避免渠道單一化。',
-    zh: '多數製造業想要快速覆蓋會先走經銷，但仍建議同時確認是否存在大客戶/專案型買家，避免通路單一化。', en: 'Distributors are common for fast coverage, but also validate direct large accounts/project buyers to avoid over-relying on one channel.' } },
+    zh: '要先用經銷商模式嗎？', en: 'Should we start with distributors?' }, a: { cn: '多數企業想要快速覆盖會先走經銷，但仍建議同時确认是否存在大客戶/项目型买家，避免渠道單一化。',
+    zh: '多數企業想要快速覆蓋會先走經銷，但仍建議同時確認是否存在大客戶/專案型買家，避免通路單一化。', en: 'Distributors are common for fast coverage, but also validate direct large accounts/project buyers to avoid over-relying on one channel.' } },
     ],
     internalLinks: { servicePath: '/services/distributor-development', caseStudyPath: '/case-studies', leadMagnetPath: '/export-market-analysis' },
   },
@@ -753,11 +753,11 @@ export const blogPosts: BlogPost[] = [
     internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
   },
   {
-    slug: 'buyer-database-building-for-manufacturers',
+    slug: 'buyer-database-building-for-companies',
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
-    title: { cn: '製造業买家数据数据库建立：字段設計、验证流程與交付格式',
-    zh: '製造業買家資料函式庫建立：欄位設計、驗證流程與交付格式', en: 'Buyer Database Building for Manufacturers: Fields, Validation, and Delivery' },
+    title: { cn: '企業买家数据数据库建立：字段設計、验证流程與交付格式',
+    zh: '企業買家資料函式庫建立：欄位設計、驗證流程與交付格式', en: 'Buyer Database Building for Companies: Fields, Validation, and Delivery' },
     description: { cn: '名单不是越多越好，而是越可用越好。本文提供数据数据库字段與验证流程，讓開發更可追踪。',
     zh: '名單不是越多越好，而是越可用越好。本文提供資料函式庫欄位與驗證流程，讓開發更可追蹤。', en: 'Lists should be usable, not just large. A practical database field set and validation workflow for trackable outreach.' },
     sections: [

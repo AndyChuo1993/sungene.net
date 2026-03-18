@@ -27,7 +27,7 @@ export const markets: MarketData[] = [
     description: {
       cn: '專為外贸企业建立的歐洲市场開發服务。針對欧盟法規、GDPR 與商務文化，協助您開發德国、法國、義大利等地的優質买家。',
     zh: '專為外銷企業建立的歐洲市場開發服務。針對歐盟法規、GDPR 與商務文化，協助您開發德國、法國、義大利等地的優質買家。',
-      en: 'Specialized European market development for manufacturers. Navigate EU regulations, GDPR, and business culture to find premium buyers in Germany, France, Italy.'
+      en: 'Specialized European market development for companies. Navigate EU regulations, GDPR, and business culture to find premium buyers in Germany, France, Italy.'
     },
     h1: {
       cn: '歐洲市场外贸客戶開發服务',
@@ -50,8 +50,8 @@ export const markets: MarketData[] = [
       en: ['Localized outreach scripts', 'Targeting buyers with import capacity', 'Building EU-compliant brand image']
     },
     buyerTypes: {
-      cn: ['大型进口商與分銷商 (Distributors)', '品牌商 (OEM/ODM)', '連鎖零售采购 (Retail Chains)', '製造業终端用戶 (End-users)'],
-    zh: ['大型進口商與分銷商 (Distributors)', '品牌商 (OEM/ODM)', '連鎖零售採購 (Retail Chains)', '製造業終端用戶 (End-users)'],
+      cn: ['大型进口商與分銷商 (Distributors)', '品牌商 (OEM/ODM)', '連鎖零售采购 (Retail Chains)', '企業终端用戶 (End-users)'],
+    zh: ['大型進口商與分銷商 (Distributors)', '品牌商 (OEM/ODM)', '連鎖零售採購 (Retail Chains)', '企業終端用戶 (End-users)'],
       en: ['Large Importers & Distributors', 'Brand Owners (OEM/ODM)', 'Retail Chains', 'Industrial End-users']
     },
     strategy: {
@@ -176,8 +176,8 @@ export const markets: MarketData[] = [
       en: ['Native-level Japanese outreach scripts', 'Communication following Japanese business etiquette', 'Emphasizing quality control and corporate reputation']
     },
     buyerTypes: {
-      cn: ['商社 (Trading Companies)', '專門商社 (Specialized Traders)', '大型制造商采购部 (Manufacturers)', '批发問屋 (Wholesalers)'],
-    zh: ['商社 (Trading Companies)', '專門商社 (Specialized Traders)', '大型製造商採購部 (Manufacturers)', '批發問屋 (Wholesalers)'],
+      cn: ['商社 (Trading Companies)', '專門商社 (Specialized Traders)', '大型企业采购部 (Companies)', '批发問屋 (Wholesalers)'],
+    zh: ['商社 (Trading Companies)', '專門商社 (Specialized Traders)', '大型企業採購部 (Companies)', '批發問屋 (Wholesalers)'],
       en: ['Trading Companies (Sogo Shosha)', 'Specialized Traders (Senmon Shosha)', 'Manufacturing Procurement', 'Wholesalers']
     },
     strategy: {
@@ -214,9 +214,9 @@ export const markets: MarketData[] = [
       en: 'Southeast Asia Market Development | Export to Vietnam, Thailand, Indonesia'
     },
     description: {
-      cn: '把握供應鏈轉移商机，開發东南亚新興市场。針對越南、泰國、印尼、馬來西亞等地，尋找制造商與大型代理商。',
-    zh: '把握供應鏈轉移商機，開發東南亞新興市場。針對越南、泰國、印尼、馬來西亞等地，尋找製造商與大型代理商。',
-      en: 'Seize supply chain shift opportunities. Develop emerging markets in Vietnam, Thailand, Indonesia, Malaysia, targeting manufacturers and large agents.'
+      cn: '把握供應鏈轉移商机，開發东南亚新興市场。針對越南、泰國、印尼、馬來西亞等地，尋找企业與大型代理商。',
+    zh: '把握供應鏈轉移商機，開發東南亞新興市場。針對越南、泰國、印尼、馬來西亞等地，尋找企業與大型代理商。',
+      en: 'Seize supply chain shift opportunities. Develop emerging markets in Vietnam, Thailand, Indonesia, Malaysia, targeting companies and large agents.'
     },
     h1: {
       cn: '东南亚市场外贸客戶開發服务',

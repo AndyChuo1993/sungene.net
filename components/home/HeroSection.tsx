@@ -16,27 +16,27 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             <div className="mb-6 inline-block rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5">
               <span className="text-sm font-bold uppercase tracking-wide text-blue-800">
                 {lang === 'en'
-                  ? 'For Manufacturers Expanding Overseas'
+                  ? 'For Companies Expanding Overseas'
                   : lang === 'cn'
-                  ? '為拓展海外市場的制造商而設'
-                  : '為拓展海外市場的製造商而設'}
+                  ? '为拓展海外市场的企业而设'
+                  : '為拓展海外市場的企業而設'}
               </span>
             </div>
 
             <h1 className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-7xl">
               {lang === 'en'
-                ? 'B2B Export Lead Generation for Manufacturers'
+                ? 'B2B Export Lead Generation for Companies'
                 : lang === 'cn'
-                ? '制造商 B2B 外贸客户开发'
-                : '製造商 B2B 外銷客戶開發'}
+                ? '企业 B2B 外贸客户开发'
+                : '企業 B2B 外銷客戶開發'}
             </h1>
 
             <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl lg:mx-0">
               {lang === 'en'
-                ? 'SunGene helps manufacturers develop overseas buyers, build distributor channels, and support export sales execution through a more structured and trackable process.'
+                ? 'SunGene helps companies develop overseas buyers, build distributor channels, and support export sales execution through a more structured and trackable process.'
                 : lang === 'cn'
-                ? 'SunGene 协助制造商开发海外买家、建立经销渠道，并以更结构化、可追踪的方式支持外贸销售执行。'
-                : 'SunGene 協助製造商開發海外買家、建立經銷通路，並以更結構化、可追蹤的方式支援外銷銷售執行。'}
+                ? 'SunGene 协助企业开发海外买家、建立经销渠道，并以更结构化、可追踪的方式支持外贸销售执行。'
+                : 'SunGene 協助企業開發海外買家、建立經銷通路，並以更結構化、可追蹤的方式支援外銷銷售執行。'}
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
@@ -85,7 +85,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
                     : '從目標研究、開發到跟進，流程更結構化。',
                 },
                 {
-                  title: lang === 'en' ? 'Built for manufacturers' : lang === 'cn' ? '为制造商设计' : '為製造商設計',
+                  title: lang === 'en' ? 'Built for Export Companies' : lang === 'cn' ? '为外贸企业设计' : '為外銷企業設計',
                   desc: lang === 'en'
                     ? 'Suitable for companies that want overseas growth without building a full export team first.'
                     : lang === 'cn'

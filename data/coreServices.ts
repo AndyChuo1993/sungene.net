@@ -5,19 +5,19 @@ export const coreServices = {
     slug: 'export-lead-generation',
     path: '/services/export-lead-generation',
     title: {
-      cn: '制造商外贸客户开发 | 海外买家开发',
-      zh: '製造商外銷客戶開發 | 海外買家開發',
-      en: 'B2B Export Lead Generation for Manufacturers',
+      cn: '企业外贸客户开发 | 海外买家开发',
+      zh: '企業外銷客戶開發 | 海外買家開發',
+      en: 'B2B Export Lead Generation for Companies',
     },
     description: {
-      cn: '我们协助制造商识别海外买家、建立渠道网络，并通过结构化的开发节奏支持外贸销售执行。',
-      zh: '我們協助製造商識別海外買家、建立通路網路，並透過結構化的開發節奏支援外銷銷售執行。',
-      en: 'We help manufacturers identify overseas buyers, build distributor channels, and support export sales execution through a structured process.',
+      cn: '我们协助企业识别海外买家、建立渠道网络，并通过结构化的开发节奏支持外贸销售执行。',
+      zh: '我們協助企業識別海外買家、建立通路網路，並透過結構化的開發節奏支援外銷銷售執行。',
+      en: 'We help companies identify overseas buyers, build distributor channels, and support export sales execution through a structured process.',
     },
     heroSubtitle: {
-      cn: '我们协助制造商识别海外买家、建立精准名单，并交付可跟进的商业机会。',
-      zh: '我們協助製造商識別海外買家、建立精準名單，並交付可跟進的商業機會。',
-      en: 'We help manufacturers identify overseas buyers, build targeted prospect lists, and generate qualified export opportunities.',
+      cn: '我们协助企业识别海外买家、建立精准名单，并交付可跟进的商业机会。',
+      zh: '我們協助企業識別海外買家、建立精準名單，並交付可跟進的商業機會。',
+      en: 'We help companies identify overseas buyers, build targeted prospect lists, and generate qualified export opportunities.',
     },
     heroPromise: {
       cn: '把海外买家开发做成可追踪流程，交付可跟进的合格机会。',
@@ -25,9 +25,9 @@ export const coreServices = {
       en: 'Turn overseas buyer development into a trackable process that delivers qualified opportunities.',
     },
     heroBestFor: {
-      cn: '最适合需要拓展海外市场、建立经销渠道的制造商与 OEM/ODM 企业。',
-      zh: '最適合需要拓展海外市場、建立經銷通路的製造商與 OEM/ODM 企業。',
-      en: 'Best for manufacturers and OEM/ODM enterprises looking to expand overseas markets and build channels.',
+      cn: '最适合需要拓展海外市场、建立经销渠道的企业与 OEM/ODM 企业。',
+      zh: '最適合需要拓展海外市場、建立經銷通路的企業與 OEM/ODM 企業。',
+      en: 'Best for companies and OEM/ODM enterprises looking to expand overseas markets and build channels.',
     },
     heroDeliverablesLine: {
       cn: '交付包含：验证买家名单、有效回复整理、可推进的会议/样品机会。',
@@ -39,12 +39,12 @@ export const coreServices = {
       zh: '適用於市場切入、經銷商尋找與可複製的主動開發增長。',
       en: 'Used for market entry, distributor search, and repeatable outbound growth.',
     },
-    h1: { cn: '制造商外贸客户开发',
-    zh: '製造商外銷客戶開發', en: 'B2B Export Lead Generation for Manufacturers' },
+    h1: { cn: '企业外贸客户开发',
+    zh: '企業外銷客戶開發', en: 'B2B Export Lead Generation for Companies' },
     whoFor: {
-      cn: ['外贸制造业', 'OEM/ODM 企业', '工业品制造商', '寻求海外增长的企业'],
-      zh: ['外銷製造業', 'OEM/ODM 企業', '工業品製造商', '尋求海外增長的企業'],
-      en: ['Export manufacturers', 'OEM/ODM enterprises', 'Industrial manufacturers', 'Enterprises seeking overseas growth'],
+      cn: ['外贸企业', 'OEM/ODM 企业', '工业品企业', '寻求海外增长的企业'],
+      zh: ['外銷企業', 'OEM/ODM 企業', '工業品企業', '尋求海外增長的企業'],
+      en: ['Export companies', 'OEM/ODM enterprises', 'Industrial companies', 'Enterprises seeking overseas growth'],
     },
     whatYouGet: {
       cn: [
@@ -223,8 +223,8 @@ export const coreServices = {
       en: ['Machinery', 'Electronics', 'Hardware Tools', 'Packaging/Materials', 'Industrial Equipment'],
     },
     caseStudy: {
-      title: { cn: '五金工具制造商：3 個月累計 50–60 個有效询盘',
-    zh: '五金工具製造商：3 個月累計 50–60 個有效詢價', en: 'Hardware manufacturer: 50–60 qualified inquiries in 3 months' },
+      title: { cn: '五金工具企业：3 個月累計 50–60 個有效询盘',
+    zh: '五金工具企業：3 個月累計 50–60 個有效詢價', en: 'Hardware company: 50–60 qualified inquiries in 3 months' },
       desc: { cn: '建立 500 家以上目标名单並优化開啟率至 40% 以上，超過 10 個潜在客戶進入样品與报价階段。',
     zh: '建立 500 家以上目標名單並最佳化開啟率至 40% 以上，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
       link: '/case-studies/hardware',
@@ -321,7 +321,7 @@ export const coreServices = {
           title: '開發電子郵件樣張（匿名化）',
           caption: '用「證據點＋單一步驟」提高回覆率，並方便你方接手推進',
           lines: [
-            '主旨: {公司}｜{產品類別別} 是否適用於 {應用情境}？\n收件人: 採購/產品/供應鏈負責人\n開場: 我們協助製造業在 {市場} 找到進口商/經銷商買家，想確認你們是否有採購 {產品類別別}。\n證據點: 30 秒規格摘要（最小訂購量/交期/驗證/案例）→ {連結或附件}\n提問: 若你是對口，方便回覆「是/否」或指引正確負責人嗎？\n下一步: 若合適，我們安排 15–20 分鐘確認規格與採購節奏。',
+            '主旨: {公司}｜{產品類別別} 是否適用於 {應用情境}？\n收件人: 採購/產品/供應鏈負責人\n開場: 我們協助企業在 {市場} 找到進口商/經銷商買家，想確認你們是否有採購 {產品類別別}。\n證據點: 30 秒規格摘要（最小訂購量/交期/驗證/案例）→ {連結或附件}\n提問: 若你是對口，方便回覆「是/否」或指引正確負責人嗎？\n下一步: 若合適，我們安排 15–20 分鐘確認規格與採購節奏。',
           ],
         },
         {
@@ -348,7 +348,7 @@ export const coreServices = {
           title: 'Outreach email sample (anonymized)',
           caption: 'Proof points + one replyable next step to increase replies and clean handoffs',
           lines: [
-            'Subject: {Company} — quick check on {product category} for {use case}?\nTo: Purchasing / Product / Supply Chain\nOpener: We help manufacturers find importers and distributors in {market}. Quick check: do you source {product category}?\nProof: 30-second spec snapshot (MOQ/lead time/certs/case) → {link or attachment}\nQuestion: If you are the right contact, can you reply “yes/no” (or point me to the right owner)?\nNext step: If relevant, we can do a 15–20 min call to confirm specs and buying cadence.',
+            'Subject: {Company} — quick check on {product category} for {use case}?\nTo: Purchasing / Product / Supply Chain\nOpener: We help companies find importers and distributors in {market}. Quick check: do you source {product category}?\nProof: 30-second spec snapshot (MOQ/lead time/certs/case) → {link or attachment}\nQuestion: If you are the right contact, can you reply “yes/no” (or point me to the right owner)?\nNext step: If relevant, we can do a 15–20 min call to confirm specs and buying cadence.',
           ],
         },
         {
@@ -365,9 +365,9 @@ export const coreServices = {
         title: { cn: '客戶背景',
     zh: '客戶背景', en: 'Client background' },
         content: {
-          cn: ['客戶為五金工具制造商，過去主要依赖展会與平台询盘，海外開發高度不稳定。'],
-    zh: ['客戶為五金工具製造商，過去主要依賴展會與平台詢價，海外開發高度不穩定。'],
-          en: ['A hardware tools manufacturer previously relied on fairs and platform inquiries, resulting in unstable inbound volume and quality.'],
+          cn: ['客戶為五金工具企业，過去主要依赖展会與平台询盘，海外開發高度不稳定。'],
+    zh: ['客戶為五金工具企業，過去主要依賴展會與平台詢價，海外開發高度不穩定。'],
+          en: ['A hardware tools company previously relied on fairs and platform inquiries, resulting in unstable inbound volume and quality.'],
         },
       },
       {
@@ -483,20 +483,20 @@ export const coreServices = {
         content: {
           cn: [
             '外贸客戶開發不是「寄更多信」，而是一套可验证、可追踪、可持续的流程：先把目标市场、买家角色與理想客戶條件定义清楚，再建立可用名单，最後用節奏式開發把回复轉成可交付询盘。',
-            '對製造業而言，出口開發最大的风险通常不是沒有需求，而是买家分散、采购鏈复杂、联系窗口不透明。你需要把「市场研究 → 目标买家清单 → 线索资格审核 → 主动開發 → 会议」做成系統，才能避免每次都重新從零開始。',
+            '對企業而言，出口開發最大的风险通常不是沒有需求，而是买家分散、采购鏈复杂、联系窗口不透明。你需要把「市场研究 → 目标买家清单 → 线索资格审核 → 主动開發 → 会议」做成系統，才能避免每次都重新從零開始。',
           ],
     zh: [
             '外銷客戶開發不是「寄更多信」，而是一套可驗證、可追蹤、可持續的流程：先把目標市場、買家角色與理想客戶條件定義清楚，再建立可用名單，最後用節奏式開發把回覆轉成可交付詢價。',
-            '對製造業而言，出口開發最大的風險通常不是沒有需求，而是買家分散、採購鏈複雜、聯絡窗口不透明。你需要把「市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議」做成系統，才能避免每次都重新從零開始。',
+            '對企業而言，出口開發最大的風險通常不是沒有需求，而是買家分散、採購鏈複雜、聯絡窗口不透明。你需要把「市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議」做成系統，才能避免每次都重新從零開始。',
           ],
           en: [
             'Export lead generation is not about sending more emails. It is a measurable system: define markets, buyer roles, and ICP first; build a verified prospect list; then run cadence-based outreach that turns replies into qualified inquiries you can hand off to sales.',
-            'For manufacturers, export growth usually fails due to fragmented buyers, complex procurement chains, and unclear decision-makers. A systemized flow—market research → target buyer list → lead qualification → cold outreach → meetings—reduces randomness and increases predictability.',
+            'For companies, export growth usually fails due to fragmented buyers, complex procurement chains, and unclear decision-makers. A systemized flow—market research → target buyer list → lead qualification → cold outreach → meetings—reduces randomness and increases predictability.',
           ],
         },
       },
       {
-        id: 'why-manufacturers-need-export-lead-generation',
+        id: 'why-companies-need-export-lead-generation',
         title: { cn: '為什麼外贸企业需要外贸客戶開發',
     zh: '為什麼外銷企業需要外銷客戶開發', en: 'Why export enterprises need export lead generation' },
         content: {
@@ -515,7 +515,7 @@ export const coreServices = {
         },
       },
       {
-        id: 'how-manufacturers-find-overseas-buyers',
+        id: 'how-companies-find-overseas-buyers',
         title: { cn: '外贸企业如何找到海外买家',
     zh: '外銷企業如何找到海外買家', en: 'How export enterprises find overseas buyers' },
         content: {
@@ -594,7 +594,7 @@ export const coreServices = {
       {
         id: '7-ways',
         title: { cn: '7 種找海外买家的方法',
-    zh: '7 種找海外買家的方法', en: '7 ways manufacturers find overseas buyers' },
+    zh: '7 種找海外買家的方法', en: '7 ways companies find overseas buyers' },
         note: {
           cn: '這份清单適合做內部檢查清单，也方便团队协作與复用。',
     zh: '這份清單適合做內部檢查清單，也方便團隊協作與複用。',
@@ -631,9 +631,9 @@ export const coreServices = {
       en: 'Turn distributor recruitment into a trackable pipeline with mapping and clear partnership terms.',
     },
     heroBestFor: {
-      cn: '最適合已有稳定產品線、想建立海外渠道的制造商與 OEM/ODM。',
-    zh: '最適合已有穩定產品線、想建立海外通路的製造商與 OEM/ODM。',
-      en: 'Best for manufacturers and OEM/ODM exporters building overseas channels.',
+      cn: '最適合已有稳定產品線、想建立海外渠道的企业與 OEM/ODM。',
+    zh: '最適合已有穩定產品線、想建立海外通路的企業與 OEM/ODM。',
+      en: 'Best for companies and OEM/ODM exporters building overseas channels.',
     },
     heroDeliverablesLine: {
       cn: '交付包含：可追踪候選名单、渠道角色地图、合作条款框架與会议推進。',
@@ -648,9 +648,9 @@ export const coreServices = {
     h1: { cn: '经销商開發服务',
     zh: '經銷商開發服務', en: 'Distributor Development' },
     whoFor: {
-      cn: ['已有稳定產品線的外贸企业', '制造商', '想拓展海外渠道的 OEM/ODM', '需要找代理/經銷合作夥伴的企业', '想降低海外市场試錯成本的公司'],
-    zh: ['已有穩定產品線的外銷企業', '製造商', '想拓展海外通路的 OEM/ODM', '需要找代理/經銷合作夥伴的企業', '想降低海外市場試錯成本的公司'],
-      en: ['Export enterprises with stable product lines', 'Manufacturers', 'OEM/ODM exporters expanding overseas channels', 'Businesses recruiting distributors/agents', 'Teams reducing market-entry trial-and-error'],
+      cn: ['已有稳定產品線的外贸企业', '企业', '想拓展海外渠道的 OEM/ODM', '需要找代理/經銷合作夥伴的企业', '想降低海外市场試錯成本的公司'],
+    zh: ['已有穩定產品線的外銷企業', '企業', '想拓展海外通路的 OEM/ODM', '需要找代理/經銷合作夥伴的企業', '想降低海外市場試錯成本的公司'],
+      en: ['Export enterprises with stable product lines', 'Companies', 'OEM/ODM exporters expanding overseas channels', 'Businesses recruiting distributors/agents', 'Teams reducing market-entry trial-and-error'],
     },
     whatYouGet: {
       cn: [
@@ -830,7 +830,7 @@ export const coreServices = {
     zh: ['工業設備', '五金工具', '電子零元件', '套件材/材料', '醫療耗材'], en: ['Industrial Equipment', 'Hardware Tools', 'Electronics', 'Packaging/Materials', 'Medical Consumables'] },
     caseStudy: {
       title: { cn: '机械设备：協助在歐洲找到 23 家经销商候選',
-    zh: '機械設備：協助在歐洲找到 23 家經銷商候選', en: 'How We Helped a Machinery Manufacturer Find 23 Distributors in Europe' },
+    zh: '機械設備：協助在歐洲找到 23 家經銷商候選', en: 'How We Helped a Machinery Company Find 23 Distributors in Europe' },
       desc: { cn: '用市场分层、渠道地图與合作條件設計，建立可推進的經銷開發管线，並安排关键会议。',
     zh: '用市場分層、通路地圖與合作條件設計，建立可推進的經銷開發管線，並安排關鍵會議。', en: 'We combined market tiers, channel mapping, and offer design to build a progressable distributor pipeline and schedule key meetings.' },
       link: '/case-studies/machinery',
@@ -971,9 +971,9 @@ export const coreServices = {
         title: { cn: '客戶背景',
     zh: '客戶背景', en: 'Client background' },
         content: {
-          cn: ['客戶為机械设备制造商，具備成熟產品線與海外出货能力，目标是建立歐洲經銷體系。'],
-    zh: ['客戶為機械設備製造商，具備成熟產品線與海外出貨能力，目標是建立歐洲經銷體系。'],
-          en: ['A machinery manufacturer with a mature product line and export capability wanted to build a distributor network across Europe.'],
+          cn: ['客戶為机械设备企业，具備成熟產品線與海外出货能力，目标是建立歐洲經銷體系。'],
+    zh: ['客戶為機械設備企業，具備成熟產品線與海外出貨能力，目標是建立歐洲經銷體系。'],
+          en: ['A machinery company with a mature product line and export capability wanted to build a distributor network across Europe.'],
         },
       },
       {
@@ -1069,7 +1069,7 @@ export const coreServices = {
         },
       },
       {
-        id: 'why-manufacturers-need-distributor-development',
+        id: 'why-companies-need-distributor-development',
         title: { cn: '為什麼外贸企业需要经销商開發',
     zh: '為什麼外銷企業需要經銷商開發', en: 'Why export enterprises need distributor development' },
         content: {
@@ -1508,9 +1508,9 @@ export const coreServices = {
         title: { cn: '客戶背景',
     zh: '客戶背景', en: 'Client background' },
         content: {
-          cn: ['客戶為工业零部件制造商，產品力不錯但外贸人力不足，導致跟进断点與询盘流失。'],
-    zh: ['客戶為工業零元件製造商，產品力不錯但外銷人力不足，導致跟進中斷點與詢價流失。'],
-          en: ['An industrial components manufacturer had strong products but insufficient export sales capacity, leading to follow-up gaps and lost inquiries.'],
+          cn: ['客戶為工业零部件企业，產品力不錯但外贸人力不足，導致跟进断点與询盘流失。'],
+    zh: ['客戶為工業零元件企業，產品力不錯但外銷人力不足，導致跟進中斷點與詢價流失。'],
+          en: ['An industrial components company had strong products but insufficient export sales capacity, leading to follow-up gaps and lost inquiries.'],
         },
       },
       {
@@ -1597,7 +1597,7 @@ export const coreServices = {
         },
       },
       {
-        id: 'why-manufacturers-outsource-export-sales',
+        id: 'why-companies-outsource-export-sales',
         title: { cn: '為什麼企业选择外贸外包服务',
     zh: '為什麼企業選擇外銷外包服務', en: 'Why enterprises outsource export sales' },
         content: {
@@ -1659,7 +1659,7 @@ export const coreServices = {
       {
         id: '7-ways',
         title: { cn: '不扩编也能拿到询盘的 7 種方法',
-    zh: '不擴編也能拿到詢價的 7 種方法', en: '7 ways manufacturers generate export leads without hiring' },
+    zh: '不擴編也能拿到詢價的 7 種方法', en: '7 ways companies generate export leads without hiring' },
         note: { cn: '用清单整理常見来源與做法，方便团队拆解分工並持续优化。',
     zh: '用清單整理常見來源與做法，方便團隊拆解分工並持續最佳化。', en: 'A practical list of sources and plays teams can run and improve.' },
         items: {

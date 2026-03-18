@@ -24,9 +24,9 @@ export const industries: IndustryData[] = [
       en: 'Hardware & Tools Export Development | Hand Tools, Fasteners'
     },
     description: {
-      cn: '专注於五金工具行业的外贸客戶開發。協助手工具、緊固件、建築五金制造商，對接全球品牌商與大型渠道。',
-    zh: '專注於五金工具產業的外銷客戶開發。協助手工具、緊固件、建築五金製造商，對接全球品牌商與大型通路。',
-      en: 'Focused export development for hardware & tools. Helping manufacturers of hand tools, fasteners, and hardware connect with global brands and channels.'
+      cn: '专注於五金工具行业的外贸客戶開發。協助手工具、緊固件、建築五金企业，對接全球品牌商與大型渠道。',
+    zh: '專注於五金工具產業的外銷客戶開發。協助手工具、緊固件、建築五金企業，對接全球品牌商與大型通路。',
+      en: 'Focused export development for hardware & tools. Helping companies of hand tools, fasteners, and hardware connect with global brands and channels.'
     },
     h1: {
       cn: '五金工具行业外贸客戶開發',
@@ -82,9 +82,9 @@ export const industries: IndustryData[] = [
       en: 'Electronics Components Export Development | Connectors, Wiring'
     },
     description: {
-      cn: '電子零部件 B2B 開發服务。協助連接器、線束、PCB 制造商，打入歐美車用、医疗與工控供應鏈。',
-    zh: '電子零元件 B2B 開發服務。協助連接器、線束、PCB 製造商，打入歐美車用、醫療與工控供應鏈。',
-      en: 'B2B development for electronic components. Helping connector, wiring, and PCB manufacturers enter automotive, medical, and industrial supply chains.'
+      cn: '電子零部件 B2B 開發服务。協助連接器、線束、PCB 企业，打入歐美車用、医疗與工控供應鏈。',
+    zh: '電子零元件 B2B 開發服務。協助連接器、線束、PCB 企業，打入歐美車用、醫療與工控供應鏈。',
+      en: 'B2B development for electronic components. Helping connector, wiring, and PCB companies enter automotive, medical, and industrial supply chains.'
     },
     h1: {
       cn: '電子零部件行业外贸客戶開發',
@@ -102,9 +102,9 @@ export const industries: IndustryData[] = [
       en: ['Dual-track outreach to R&D and Purchasing', 'Targeting high-margin auto/medical applications', 'Assisting with sampling and spec verification']
     },
     buyerTypes: {
-      cn: ['EMS/CEM 電子代工厂', '原廠设备制造商 (OEMs)', '電子元件分銷商 (Distributors)', '系統整合商 (System Integrators)'],
-    zh: ['EMS/CEM 電子代工廠', '原廠設備製造商 (OEMs)', '電子元件分銷商 (Distributors)', '系統整合商 (System Integrators)'],
-      en: ['EMS/CEM Providers', 'Original Equipment Manufacturers (OEMs)', 'Electronic Component Distributors', 'System Integrators']
+      cn: ['EMS/CEM 電子代工厂', '原廠设备企业 (OEMs)', '電子元件分銷商 (Distributors)', '系統整合商 (System Integrators)'],
+    zh: ['EMS/CEM 電子代工廠', '原廠設備企業 (OEMs)', '電子元件分銷商 (Distributors)', '系統整合商 (System Integrators)'],
+      en: ['EMS/CEM Providers', 'Original Equipment Companies (OEMs)', 'Electronic Component Distributors', 'System Integrators']
     },
     strategy: {
       cn: ['工程師對接：直接聯繫 R&D 部門，提供規格書 (Datasheet) 與样品。', '替代料策略：針對缺料或 EOL 產品提供 Cross Reference 替代方案。', '小批量試產：展現對 NPI (新產品導入) 階段的支援能力。'],
@@ -162,7 +162,7 @@ export const industries: IndustryData[] = [
     buyerTypes: {
       cn: ['美妝保養品牌 (Indie Brands)', '食品飲料工厂 (F&B)', '套件裝材料批发商 (Packaging Distributors)', '電商物流公司 (3PL)'],
     zh: ['美妝保養品牌 (Indie Brands)', '食品飲料工廠 (F&B)', '套件裝材料批發商 (Packaging Distributors)', '電商物流公司 (3PL)'],
-      en: ['Beauty & Skincare Brands', 'Food & Beverage Manufacturers', 'Packaging Distributors', 'E-commerce Logistics (3PL)']
+      en: ['Beauty & Skincare Brands', 'Food & Beverage Companies', 'Packaging Distributors', 'E-commerce Logistics (3PL)']
     },
     strategy: {
       cn: ['視覺营销：套件裝是視覺產品，開發信需附上精美的產品应用圖。', '環保訴求：強調可回收、可降解或 PCR 材質，符合歐美法規。', 'MOQ 策略：針對新興品牌提供較彈性的起訂量方案。'],
@@ -218,9 +218,9 @@ export const industries: IndustryData[] = [
       en: ['Using customs data to target importing factories', 'Developing regional material distributors', 'Emphasizing supply stability and price competitiveness']
     },
     buyerTypes: {
-      cn: ['塑膠/橡膠射出廠 (Injection Molding)', '金屬加工厂 (Metalworking)', '化工贸易商 (Chemical Traders)', '建材制造商'],
-    zh: ['塑膠/橡膠射出廠 (Injection Molding)', '金屬加工廠 (Metalworking)', '化工貿易商 (Chemical Traders)', '建材製造商'],
-      en: ['Injection Molding Factories', 'Metalworking Shops', 'Chemical Traders', 'Building Material Manufacturers']
+      cn: ['塑膠/橡膠射出廠 (Injection Molding)', '金屬加工厂 (Metalworking)', '化工贸易商 (Chemical Traders)', '建材企业'],
+    zh: ['塑膠/橡膠射出廠 (Injection Molding)', '金屬加工廠 (Metalworking)', '化工貿易商 (Chemical Traders)', '建材企業'],
+      en: ['Injection Molding Factories', 'Metalworking Shops', 'Chemical Traders', 'Building Material Companies']
     },
     strategy: {
       cn: ['数据導向：分析买家的進口頻率與供应商来源，找出切入點。', '寄樣测试：材料特性需經测试验证，提供小量試用样品。', '供應鏈安全：強調多產地供貨能力，降低买家斷鏈风险。'],
@@ -243,8 +243,8 @@ export const industries: IndustryData[] = [
       {
         question: { cn: '適合開發哪些國家？',
     zh: '適合開發哪些國家？', en: 'Which countries are suitable?' },
-        answer: { cn: '新興製造業國家（如越南、墨西哥、印度）對於工业基礎材料的需求成长最快。',
-    zh: '新興製造業國家（如越南、墨西哥、印度）對於工業基礎材料的需求成長最快。', en: 'Emerging manufacturing hubs (Vietnam, Mexico, India) have the fastest growing demand for industrial materials.' }
+        answer: { cn: '新興企業國家（如越南、墨西哥、印度）對於工业基礎材料的需求成长最快。',
+    zh: '新興企業國家（如越南、墨西哥、印度）對於工業基礎材料的需求成長最快。', en: 'Emerging manufacturing hubs (Vietnam, Mexico, India) have the fastest growing demand for industrial materials.' }
       }
     ]
   }

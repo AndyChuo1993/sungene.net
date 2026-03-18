@@ -11,10 +11,10 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
       id: 1,
       title: isEn ? 'Export Lead Generation' : isCn ? '外贸客户开发' : '外銷客戶開發',
       desc: isEn
-        ? 'Identify and approach qualified overseas buyers for manufacturers'
+        ? 'Identify and approach qualified overseas buyers for companies'
         : isCn
-        ? '协助制造商找到并接触合适的海外买家'
-        : '協助製造商找到並接觸合適的海外買家',
+        ? '协助企业找到并接触合适的海外买家'
+        : '協助企業找到並接觸合適的海外買家',
       items: isEn
         ? ['Buyer research and qualification', 'Structured outreach cadence', 'Qualified opportunity handoff']
         : isCn

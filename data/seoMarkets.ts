@@ -78,7 +78,7 @@ export const seoMarkets: SeoMarket[] = [
     title: { cn: '日本市场開發｜出口到 Japan 的买家開發',
     zh: '日本市場開發｜出口到 Japan 的買家開發', en: 'Export to Japan | Buyer Development' },
     description: { cn: '協助外贸企业開發日本商社、經銷與製造端采购，提升高质量询盘。',
-    zh: '協助外銷企業開發日本商社、經銷與製造端採購，提升高品質詢價。', en: 'Generate Japanese buyer inquiries by targeting trading companies, distributors, and manufacturers.' },
+    zh: '協助外銷企業開發日本商社、經銷與製造端採購，提升高品質詢價。', en: 'Generate Japanese buyer inquiries by targeting trading companies, distributors, and companies.' },
     h1: { cn: '日本市场外贸客戶開發',
     zh: '日本市場外銷客戶開發', en: 'Japan Market Export Lead Generation' },
     introduction: { cn: ['日本市场重視信任與细節。有效開發要用結構清晰、细節到位的內容與開發信，逐步建立專業形象。'],

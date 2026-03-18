@@ -40,8 +40,8 @@ export default function WhyUs({ lang }: { lang: Lang }) {
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                     {isChinese 
-                        ? 'SunGene 專注於製造業外銷開發。我們重視的是可執行的流程：從名單、開發、跟進到詢問交付，建立一套可持續運作的系統。' 
-                        : 'SunGene focuses on B2B export growth for manufacturers. We do not sell tool hype. We build a repeatable system for list building, outreach, follow-ups, and inquiry delivery.'}
+                        ? 'SunGene 專注於企業外銷開發。我們重視的是可執行的流程：從名單、開發、跟進到詢問交付，建立一套可持續運作的系統。' 
+                        : 'SunGene focuses on B2B export growth for companies. We do not sell tool hype. We build a repeatable system for list building, outreach, follow-ups, and inquiry delivery.'}
                 </p>
                 <div className="h-1 w-24 bg-blue-600 rounded-full"></div>
             </div>

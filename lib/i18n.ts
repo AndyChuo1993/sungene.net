@@ -242,7 +242,7 @@ const dict = {
     // Hero
     hero_title: 'Find Overseas Buyers for Your Products',
     hero_subtitle: 'A repeatable system to generate qualified export leads and build distributor networks.',
-    hero_description: 'SunGene helps manufacturers build overseas buyer lists, run outbound cadences, and deliver qualified inquiries—so your team can focus on quoting and shipping.',
+    hero_description: 'SunGene helps companies build overseas buyer lists, run outbound cadences, and deliver qualified inquiries—so your team can focus on quoting and shipping.',
     hero_cta_start: 'Start Export Growth',
     hero_cta_analysis: 'Get Free Market Analysis',
     home_cta_title: 'Start Your Export Growth Now',
@@ -279,7 +279,7 @@ const dict = {
     // Services Page
     service_title: 'Our Services',
     service_lead_gen_title: 'Lead Generation',
-    service_lead_gen_desc: 'Export lead generation for manufacturers: verified lists, cadence, and qualified inquiries.',
+    service_lead_gen_desc: 'Export lead generation for companies: verified lists, cadence, and qualified inquiries.',
     service_lead_gen_sub1: 'Importer Research & Verification',
     service_lead_gen_sub2: 'Custom Buyer Database Building',
     service_lead_gen_sub3: 'Market Intelligence & Competitor Analysis',
@@ -314,7 +314,7 @@ const dict = {
 
     // About Page
     about_title: 'About SunGene',
-    about_desc: 'SunGene is a specialized export growth partner. We don\'t sell software; we deliver buyers. By combining data-driven prospecting with professional outreach, we help manufacturers expand their global footprint efficiently.',
+    about_desc: 'SunGene is a specialized export growth partner. We don\'t sell software; we deliver buyers. By combining data-driven prospecting with professional outreach, we help companies expand their global footprint efficiently.',
 
     // Contact Page
     contact_title: 'Contact Us',
@@ -327,7 +327,7 @@ const dict = {
 
     // SEO
     meta_home_title: 'SunGene | Outsourced Export Sales & B2B Lead Generation',
-    meta_home_desc: 'SunGene helps manufacturers acquire overseas buyers through targeted lead generation, cold outreach, and professional sales support.',
+    meta_home_desc: 'SunGene helps companies acquire overseas buyers through targeted lead generation, cold outreach, and professional sales support.',
     meta_keywords: 'export lead generation, export outsourcing, B2B sales outsourcing, overseas buyer finding',
     
     // Footer
