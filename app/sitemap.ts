@@ -33,11 +33,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/resources',
     '/blog',
     // 獨立商業關鍵字頁面
-    '/buyer-database-building',
-    '/buyers-list',
     '/cold-email-outreach',
     '/distributor-list',
-    '/distributor-network',
     '/export-marketing',
     '/linkedin-prospecting',
     '/market-entry-strategy',

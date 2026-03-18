@@ -16,14 +16,14 @@ const service: ServiceSeo = {
   },
   h1: { cn: '合格詢價交付', zh: '合格詢價交付', en: 'Qualified B2B Leads for Manufacturers' },
   problem: {
-    cn: ['詢價來源不穩、品質參差，業務時間被無效回覆消耗。', '沒有分類別與摘要，跟進時常常找不到上下文與下一步。', '回覆沒有被驗證需求，導致報價效率低、成交率低。'],
-    zh: ['詢價來源不穩、品質參差，業務時間被無效回覆消耗。', '沒有分類別與摘要，跟進時常常找不到上下文與下一步。', '回覆沒有被驗證需求，導致報價效率低、成交率低。'],
-    en: ['Inquiry flow is unstable and quality varies; time is wasted on poor-fit leads.', 'Without triage and summaries, follow-ups lose context and next steps.', 'Unqualified replies reduce quoting efficiency and win rates.'],
+    cn: ['名單來自單一來源，品質不穩：Email 無效、職位不對、公司不匹配。', '缺少驗證流程，寄信跳退與垃圾信風險增加。', '詢價來源不穩、品質參差，業務時間被無效回覆消耗。', '沒有分類別與摘要，跟進時常常找不到上下文與下一步。'],
+    zh: ['名單來自單一來源，品質不穩：Email 無效、職位不對、公司不匹配。', '缺少驗證流程，寄信跳退與垃圾信風險增加。', '詢價來源不穩、品質參差，業務時間被無效回覆消耗。', '沒有分類別與摘要，跟進時常常找不到上下文與下一步。'],
+    en: ['Single-source lists are unreliable: wrong roles, bad emails, poor fit.', 'Without validation, bounces and deliverability risk increase.', 'Inquiry flow is unstable and quality varies; time is wasted on poor-fit leads.', 'Without triage and summaries, follow-ups lose context and next steps.'],
   },
   solution: {
-    cn: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價包含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。'],
-    zh: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價包含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。'],
-    en: ['We triage replies (qualified/nurture/no-fit) and confirm initial requirements, then deliver sales-ready inquiries.', 'Each lead includes company, contacts, needs, and conversation logs to move quickly to quote/sample/call.'],
+    cn: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價包含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。', '同時，我們也提供完整的買家資料資料庫，作為開發的底層資產。'],
+    zh: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價包含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。', '同時，我們也提供完整的買家資料資料庫，作為開發的底層資產。'],
+    en: ['We triage replies (qualified/nurture/no-fit) and confirm initial requirements, then deliver sales-ready inquiries.', 'Each lead includes company, contacts, needs, and conversation logs to move quickly to quote/sample/call.', 'We also build and provide the complete buyer database as your core outreach asset.'],
   },
   whatIs: {
     cn: ['Qualified B2B Leads 是已完成初步篩選與需求確認的詢價交付成果，重點是「可追蹤、可跟進、可推進成交」。'],

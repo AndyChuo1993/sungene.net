@@ -36,6 +36,20 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${defaultLocale}/contact`, request.url), 301)
   }
 
+  // 合併與收斂頁面的 301 Redirect
+  const matchLang = pathname.match(/^\/(zh|cn|en)\//)
+  const currentLang = matchLang ? matchLang[1] : defaultLocale
+
+  if (pathname.includes('/buyer-database-building')) {
+    return NextResponse.redirect(new URL(`/${currentLang}/qualified-b2b-leads`, request.url), 301)
+  }
+  if (pathname.includes('/buyers-list')) {
+    return NextResponse.redirect(new URL(`/${currentLang}/overseas-buyer-lists`, request.url), 301)
+  }
+  if (pathname.includes('/distributor-network')) {
+    return NextResponse.redirect(new URL(`/${currentLang}/services/distributor-development`, request.url), 301)
+  }
+
   const normalizedPathname = pathname.replace(/^\/zh\/cn(?=\/|$)/, '/cn')
   if (normalizedPathname !== pathname) {
     return NextResponse.redirect(new URL(normalizedPathname, request.url))
