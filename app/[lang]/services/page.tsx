@@ -6,6 +6,8 @@ import ServiceComparison from '@/components/ServiceComparison'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: t(lang, 'service_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
@@ -18,15 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     openGraph: {
       title: t(lang, 'service_title') + ' | SunGene',
       description: t(lang, 'meta_home_desc'),
+      url: `${baseUrl}/${lang}/services`,
       images: ['/og/og.png'],
     },
     alternates: {
-      canonical: `/${lang}/services`,
+      canonical: `${baseUrl}/${lang}/services`,
       languages: {
-        cn: '/zh/services',
-        zh: '/zh/services',
-        en: '/en/services',
-        'x-default': '/zh/services',
+        'zh-CN': 'https://sungene.net/cn/services',
+        'zh-TW': 'https://sungenelite.com/zh/services',
+        'en': 'https://sungene.net/en/services',
+        'x-default': 'https://sungene.net/en/services',
       },
     },
   }

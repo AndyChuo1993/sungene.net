@@ -6,17 +6,25 @@ import { cnText } from '@/lib/cnText'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
     description: lang === 'en' ? 'Practical guides on export lead generation, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、找海外买家与经销商的实战指南与清单。' : '外銷開發、找海外買家與經銷商的實作指南與清單。'),
     alternates: {
-      canonical: `/${lang}/blog`,
+      canonical: `${baseUrl}/${lang}/blog`,
       languages: {
-        cn: '/zh/blog',
-        zh: '/zh/blog',
-        en: '/en/blog',
-        'x-default': '/en/blog',
+        'zh-CN': 'https://sungene.net/cn/blog',
+        'zh-TW': 'https://sungenelite.com/zh/blog',
+        'en': 'https://sungene.net/en/blog',
+        'x-default': 'https://sungene.net/en/blog',
       },
+    },
+    openGraph: {
+      title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
+      description: lang === 'en' ? 'Practical guides on export lead generation, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、找海外买家与经销商的实战指南与清单。' : '外銷開發、找海外買家與經銷商的實作指南與清單。'),
+      url: `${baseUrl}/${lang}/blog`,
+      images: ['/og/og.png'],
     },
   }
 }

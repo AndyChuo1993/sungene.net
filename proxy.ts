@@ -17,7 +17,7 @@ function getDefaultLocaleByHost(host: string | null) {
   return 'zh'
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)

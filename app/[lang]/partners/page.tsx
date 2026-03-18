@@ -6,6 +6,8 @@ import { Handshake, Users, PieChart, Briefcase } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+  
   const title = isChinese ? '合作夥伴計劃｜SunGene' : 'Partners | SunGene'
   const description = isChinese
     ? '加入 SunGene 合作夥伴生態系：顧問、海外在地代理、與市場研究機構皆可合作，共同為製造業創造價值。'
@@ -16,9 +18,22 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     keywords: isChinese
       ? '外銷顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
       : 'partners, referral program, overseas agents, market research partners',
-    alternates: { canonical: `/${lang}/partners`, languages: { 'zh-CN': '/cn/partners', zh: '/zh/partners', en: '/en/partners', 'x-default': '/en/partners' } },
+    alternates: { 
+      canonical: `${baseUrl}/${lang}/partners`, 
+      languages: { 
+        'zh-CN': 'https://sungene.net/cn/partners', 
+        'zh-TW': 'https://sungenelite.com/zh/partners', 
+        'en': 'https://sungene.net/en/partners', 
+        'x-default': 'https://sungene.net/en/partners' 
+      } 
+    },
     robots: { index: false, follow: true },
-    openGraph: { title, description, type: 'website' },
+    openGraph: { 
+      title, 
+      description, 
+      url: `${baseUrl}/${lang}/partners`,
+      type: 'website' 
+    },
   }
 }
 

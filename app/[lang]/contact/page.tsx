@@ -5,12 +5,32 @@ import InquiryForm, { FormField } from '@/components/InquiryForm'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
     description:
       isChinese
         ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
         : 'Talk to SunGene about export lead generation, distributor development, sales outsourcing, or partnership applications.',
+    alternates: {
+      canonical: `${baseUrl}/${lang}/contact`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/contact',
+        'zh-TW': 'https://sungenelite.com/zh/contact',
+        'en': 'https://sungene.net/en/contact',
+        'x-default': 'https://sungene.net/en/contact',
+      },
+    },
+    openGraph: {
+      title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
+      description:
+        isChinese
+          ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
+          : 'Talk to SunGene about export lead generation, distributor development, sales outsourcing, or partnership applications.',
+      url: `${baseUrl}/${lang}/contact`,
+      images: ['/og/og.png'],
+    },
   }
 }
 

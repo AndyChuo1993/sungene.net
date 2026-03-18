@@ -3,9 +3,26 @@ import Link from 'next/link'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: t(lang, 'process_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
+    alternates: {
+      canonical: `${baseUrl}/${lang}/how-it-works`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/how-it-works',
+        'zh-TW': 'https://sungenelite.com/zh/how-it-works',
+        'en': 'https://sungene.net/en/how-it-works',
+        'x-default': 'https://sungene.net/en/how-it-works',
+      },
+    },
+    openGraph: {
+      title: t(lang, 'process_title') + ' | SunGene',
+      description: t(lang, 'meta_home_desc'),
+      url: `${baseUrl}/${lang}/how-it-works`,
+      images: ['/og/og.png'],
+    },
   }
 }
 

@@ -11,17 +11,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
   const { lang, id } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   const article = getArticle(lang, id)
   if (!article) return { title: 'Not Found' }
 
   return {
     title: `${article.title} | SunGene`,
     description: article.content[0]?.slice(0, 150) || '',
-    alternates: { canonical: `/${lang}/resources/${id}` },
+    alternates: { 
+      canonical: `${baseUrl}/${lang}/resources/${id}`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/resources/${id}`,
+        'zh-TW': `https://sungenelite.com/zh/resources/${id}`,
+        'en': `https://sungene.net/en/resources/${id}`,
+        'x-default': `https://sungene.net/en/resources/${id}`,
+      }
+    },
     openGraph: {
       title: `${article.title} | SunGene`,
       description: article.content[0]?.slice(0, 150) || '',
       type: 'article',
+      url: `${baseUrl}/${lang}/resources/${id}`,
       publishedTime: article.date,
       images: article.image ? [article.image] : ['/og/og.png'],
     },

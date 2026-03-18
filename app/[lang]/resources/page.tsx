@@ -12,6 +12,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const { lang } = await params
   const resolved = await searchParams
   const tab = resolved.tab || 'articles'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
 
   let title = lang === 'en' ? 'Export Resource Center' : (lang === 'cn' ? '外贸資源中心' : '外銷資源中心')
   if (tab === 'industries') title = lang === 'en' ? 'Industry Highlights' : (lang === 'cn' ? '行业頁精選' : '產業頁精選')
@@ -20,9 +21,19 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   return {
     title: `${title} | SunGene`,
     description: lang === 'en' ? 'A unified content hub for export articles, industry pages, market pages, and reusable resources.' : (lang === 'cn' ? '整合文章、行业頁、市场頁與可下載素材，方便快速找到外贸開發所需內容。' : '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。'),
+    alternates: {
+      canonical: `${baseUrl}/${lang}/resources`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/resources',
+        'zh-TW': 'https://sungenelite.com/zh/resources',
+        'en': 'https://sungene.net/en/resources',
+        'x-default': 'https://sungene.net/en/resources',
+      },
+    },
     openGraph: {
       title: `${title} | SunGene`,
       description: lang === 'en' ? 'A unified content hub for export articles, industry pages, market pages, and reusable resources.' : (lang === 'cn' ? '整合文章、行业頁、市场頁與可下載素材，方便快速找到外贸開發所需內容。' : '整合文章、產業頁、市場頁與可下載素材，方便快速找到外銷開發所需內容。'),
+      url: `${baseUrl}/${lang}/resources`,
       images: ['/og/og.png'],
     },
   }

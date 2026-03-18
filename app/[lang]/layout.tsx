@@ -8,30 +8,27 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang: rawLang } = await params
   const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'zh') as Lang
 
-  const host = (await headers()).get('host') || 'www.sungenelite.com'
-  const protocol = host.includes('localhost') ? 'http' : 'https'
-  const siteUrl = `${protocol}://${host}`
-
-  const xDefault = host.includes('sungene.net') ? '/cn' : '/zh'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(baseUrl),
     title: t(lang, 'meta_home_title'),
     description: t(lang, 'meta_home_desc'),
     openGraph: {
       title: t(lang, 'meta_home_title'),
       description: t(lang, 'meta_home_desc'),
+      url: `${baseUrl}/${lang}`,
       type: 'website',
     },
     twitter: { card: 'summary_large_image' },
     icons: { icon: '/logo/sungene.png' },
     alternates: {
-      canonical: `/${lang}`,
+      canonical: `${baseUrl}/${lang}`,
       languages: {
-        en: `https://${host}/en`,
-        zh: 'https://sungenelite.com/zh',
         'zh-CN': 'https://sungene.net/cn',
-        'x-default': 'https://sungenelite.com/zh',
+        'zh-TW': 'https://sungenelite.com/zh',
+        'en': 'https://sungene.net/en',
+        'x-default': 'https://sungene.net/en',
       },
     },
   }

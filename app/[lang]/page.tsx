@@ -92,24 +92,28 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const safeLang = normalizeLang(lang)
   const data = getHomeSeo(safeLang)
 
+  // 判斷目前的 base url 應該是哪個
+  // 由於這是 generateMetadata，無法直接拿到 request header 的 host，
+  // 所以我們根據 safeLang 來決定 canonical 應該指去哪裡，確保 self-canonical
+  const baseUrl = safeLang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: data.title,
     description: data.description,
     keywords: [...data.keywords],
     alternates: {
-      canonical: `https://sungene.net/${safeLang}`,
+      canonical: `${baseUrl}/${safeLang}`,
       languages: {
-        en: 'https://sungene.net/en',
-        zh: 'https://sungene.net/zh',
         'zh-CN': 'https://sungene.net/cn',
-        'zh-TW': 'https://sungene.net/zh',
+        'zh-TW': 'https://sungenelite.com/zh',
+        'en': 'https://sungene.net/en',
         'x-default': 'https://sungene.net/en',
       },
     },
     openGraph: {
       title: data.title,
       description: data.description,
-      url: `https://sungene.net/${safeLang}`,
+      url: `${baseUrl}/${safeLang}`,
       siteName: 'SunGene',
       type: 'website',
       locale: safeLang === 'zh' ? 'zh_TW' : safeLang === 'cn' ? 'zh_CN' : 'en_US',
@@ -139,12 +143,13 @@ export default async function Page({ params }: PageParams) {
   const { lang } = await params
   const safeLang = normalizeLang(lang)
   const data = getHomeSeo(safeLang)
+  const baseUrl = safeLang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'SunGene',
-    url: `https://sungene.net/${safeLang}`,
+    url: `${baseUrl}/${safeLang}`,
     logo: 'https://sungene.net/logo.png',
     description: data.description,
     sameAs: [],
@@ -162,7 +167,7 @@ export default async function Page({ params }: PageParams) {
     provider: {
       '@type': 'Organization',
       name: 'SunGene',
-      url: 'https://sungene.net',
+      url: baseUrl,
     },
     areaServed: 'Global',
     description: data.description,

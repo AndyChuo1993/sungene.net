@@ -29,25 +29,26 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   const post = getBlogPost(slug)
   if (!post) return { title: 'Not Found' }
   return {
     title: `${cnText(lang, post.title[lang])} | SunGene`,
     description: cnText(lang, post.description[lang]),
     alternates: {
-      canonical: `/${lang}/blog/${slug}`,
+      canonical: `${baseUrl}/${lang}/blog/${slug}`,
       languages: {
-        cn: `/zh/blog/${slug}`,
-        zh: `/zh/blog/${slug}`,
-        en: `/en/blog/${slug}`,
-        'x-default': `/en/blog/${slug}`,
+        'zh-CN': `https://sungene.net/cn/blog/${slug}`,
+        'zh-TW': `https://sungenelite.com/zh/blog/${slug}`,
+        'en': `https://sungene.net/en/blog/${slug}`,
+        'x-default': `https://sungene.net/en/blog/${slug}`,
       },
     },
     openGraph: {
       title: cnText(lang, post.title[lang]),
       description: cnText(lang, post.description[lang]),
       type: 'article',
-      url: `/${lang}/blog/${slug}`,
+      url: `${baseUrl}/${lang}/blog/${slug}`,
       images: [{ url: post.heroImage, width: 1200, height: 630, alt: cnText(lang, post.title[lang]) }],
     },
     twitter: { card: 'summary_large_image', title: cnText(lang, post.title[lang]), description: cnText(lang, post.description[lang]), images: [post.heroImage] },

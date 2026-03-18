@@ -6,13 +6,23 @@ import { CheckCircle } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: lang === 'en' ? 'Free Export Market Analysis | SunGene' : (lang === 'cn' ? '免费出口市场分析｜SunGene' : '免費出口市場分析｜SunGene'),
     description:
       isChinese
         ? '提交產品與目標市場，我們提供出口市場與買家通路的初步分析建議。'
         : 'Submit your product and target markets. We’ll reply with an initial export market and channel analysis.',
-    alternates: { canonical: `/${lang}/export-market-analysis`, languages: { 'zh-CN': '/cn/export-market-analysis', zh: '/zh/export-market-analysis', en: '/en/export-market-analysis', 'x-default': '/en/export-market-analysis' } },
+    alternates: { 
+      canonical: `${baseUrl}/${lang}/export-market-analysis`, 
+      languages: { 
+        'zh-CN': 'https://sungene.net/cn/export-market-analysis', 
+        'zh-TW': 'https://sungenelite.com/zh/export-market-analysis', 
+        'en': 'https://sungene.net/en/export-market-analysis', 
+        'x-default': 'https://sungene.net/en/export-market-analysis' 
+      } 
+    },
     robots: { index: false, follow: true },
   }
 }

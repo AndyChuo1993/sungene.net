@@ -6,6 +6,8 @@ import { Check, Database, Send, Briefcase } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+  
   const title = isChinese ? '服務價格｜SunGene' : 'Pricing | SunGene'
   const description = isChinese
     ? '透明的服務方案：名單交付、專案開發、外銷業務外包服務。選擇最適合的合作模式，低成本啟動海外市場開發。'
@@ -16,9 +18,22 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     keywords: isChinese
       ? '外銷服務價格, 買家名單費用, 外銷業務外包服務收費, 海外客戶開發'
       : 'pricing, buyer list cost, export lead generation, export sales outsourcing',
-    alternates: { canonical: `/${lang}/pricing`, languages: { 'zh-CN': '/cn/pricing', zh: '/zh/pricing', en: '/en/pricing', 'x-default': '/en/pricing' } },
+    alternates: { 
+      canonical: `${baseUrl}/${lang}/pricing`, 
+      languages: { 
+        'zh-CN': 'https://sungene.net/cn/pricing', 
+        'zh-TW': 'https://sungenelite.com/zh/pricing', 
+        'en': 'https://sungene.net/en/pricing', 
+        'x-default': 'https://sungene.net/en/pricing' 
+      } 
+    },
     robots: { index: false, follow: true },
-    openGraph: { title, description, type: 'website' },
+    openGraph: { 
+      title, 
+      description, 
+      url: `${baseUrl}/${lang}/pricing`,
+      type: 'website' 
+    },
   }
 }
 

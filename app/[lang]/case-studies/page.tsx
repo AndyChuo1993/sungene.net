@@ -5,9 +5,26 @@ import { getCases } from '@/data/cases'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: t(lang, 'case_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
+    alternates: {
+      canonical: `${baseUrl}/${lang}/case-studies`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/case-studies',
+        'zh-TW': 'https://sungenelite.com/zh/case-studies',
+        'en': 'https://sungene.net/en/case-studies',
+        'x-default': 'https://sungene.net/en/case-studies',
+      },
+    },
+    openGraph: {
+      title: t(lang, 'case_title') + ' | SunGene',
+      description: t(lang, 'meta_home_desc'),
+      url: `${baseUrl}/${lang}/case-studies`,
+      images: ['/og/og.png'],
+    },
   }
 }
 

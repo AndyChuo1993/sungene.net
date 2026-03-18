@@ -6,6 +6,8 @@ import { faqs, FAQCategory } from '@/data/faqs'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+  
   const title = isChinese ? '常見問題｜SunGene' : 'FAQ | SunGene'
   const description = isChinese
     ? '彙整 SunGene 服務流程、收費模式、保密與合作條款等常見問題。'
@@ -16,8 +18,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     keywords: isChinese
       ? '外銷常見問題, 海外客戶開發, 服務流程, 收費模式'
       : 'faq, export lead generation, process, pricing, confidentiality',
-    alternates: { canonical: `/${lang}/faq`, languages: { 'zh-CN': '/cn/faq', zh: '/zh/faq', en: '/en/faq', 'x-default': '/en/faq' } },
-    openGraph: { title, description, type: 'website' },
+    alternates: { 
+      canonical: `${baseUrl}/${lang}/faq`, 
+      languages: { 
+        'zh-CN': 'https://sungene.net/cn/faq', 
+        'zh-TW': 'https://sungenelite.com/zh/faq', 
+        'en': 'https://sungene.net/en/faq', 
+        'x-default': 'https://sungene.net/en/faq' 
+      } 
+    },
+    openGraph: { 
+      title, 
+      description, 
+      url: `${baseUrl}/${lang}/faq`,
+      type: 'website' 
+    },
     robots: { index: false, follow: true },
   }
 }

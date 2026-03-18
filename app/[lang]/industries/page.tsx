@@ -7,12 +7,32 @@ import { cnText } from '@/lib/cnText'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: `${lang === 'en' ? 'Industry Pages' : (lang === 'cn' ? '行业頁總覽' : '產業頁總覽')} | SunGene`,
     description:
       isChinese
         ? '依產業查看 SunGene 的外銷內容頁，快速找到適合你產品與買家語境的產業頁面。'
         : 'Browse industry-specific SunGene pages to find the right context for your product and buyer profile.',
+    alternates: {
+      canonical: `${baseUrl}/${lang}/industries`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/industries',
+        'zh-TW': 'https://sungenelite.com/zh/industries',
+        'en': 'https://sungene.net/en/industries',
+        'x-default': 'https://sungene.net/en/industries',
+      },
+    },
+    openGraph: {
+      title: `${lang === 'en' ? 'Industry Pages' : (lang === 'cn' ? '行业頁總覽' : '產業頁總覽')} | SunGene`,
+      description:
+        isChinese
+          ? '依產業查看 SunGene 的外銷內容頁，快速找到適合你產品與買家語境的產業頁面。'
+          : 'Browse industry-specific SunGene pages to find the right context for your product and buyer profile.',
+      url: `${baseUrl}/${lang}/industries`,
+      images: ['/og/og.png'],
+    },
   }
 }
 

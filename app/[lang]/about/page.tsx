@@ -5,18 +5,30 @@ import { Lang } from '@/lib/i18n'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
     description:
       isChinese
         ? 'SunGene 專注於協助企業建立海外買家名單、主動開發節奏與外銷成交流程。'
         : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
+    alternates: {
+      canonical: `${baseUrl}/${lang}/about`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/about',
+        'zh-TW': 'https://sungenelite.com/zh/about',
+        'en': 'https://sungene.net/en/about',
+        'x-default': 'https://sungene.net/en/about',
+      },
+    },
     openGraph: {
       title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
       description:
         isChinese
           ? 'SunGene 專注於協助企業建立海外買家名單、主動開發節奏與外銷成交流程。'
           : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
+      url: `${baseUrl}/${lang}/about`,
       images: ['/og/og.png'],
     },
   }

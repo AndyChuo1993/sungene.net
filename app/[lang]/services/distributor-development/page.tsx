@@ -5,19 +5,26 @@ import { cnText } from '@/lib/cnText'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   const service = coreServices.distributorDevelopment
   const path = service.path || '/services/distributor-development'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: {
-      canonical: `/${lang}${path}`,
+      canonical: `${baseUrl}/${lang}${path}`,
       languages: {
-        cn: `/zh${path}`,
-        zh: `/zh${path}`,
-        en: `/en${path}`,
-        'x-default': `/en${path}`,
+        'zh-CN': `https://sungene.net/cn${path}`,
+        'zh-TW': `https://sungenelite.com/zh${path}`,
+        'en': `https://sungene.net/en${path}`,
+        'x-default': `https://sungene.net/en${path}`,
       },
+    },
+    openGraph: {
+      title: cnText(lang, service.title[lang]),
+      description: cnText(lang, service.description[lang]),
+      url: `${baseUrl}/${lang}${path}`,
+      type: 'website'
     },
   }
 }

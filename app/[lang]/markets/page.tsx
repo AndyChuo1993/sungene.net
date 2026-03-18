@@ -7,12 +7,32 @@ import { cnText } from '@/lib/cnText'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+
   return {
     title: `${lang === 'en' ? 'Market Pages' : (lang === 'cn' ? '市场頁總覽' : '市場頁總覽')} | SunGene`,
     description:
       isChinese
         ? '依市場查看 SunGene 的外銷內容頁，快速了解不同地區的買家角色、通路差異與市場切入方式。'
         : 'Browse market-specific SunGene pages to understand buyer roles, channel differences, and entry approaches by region.',
+    alternates: {
+      canonical: `${baseUrl}/${lang}/markets`,
+      languages: {
+        'zh-CN': 'https://sungene.net/cn/markets',
+        'zh-TW': 'https://sungenelite.com/zh/markets',
+        'en': 'https://sungene.net/en/markets',
+        'x-default': 'https://sungene.net/en/markets',
+      },
+    },
+    openGraph: {
+      title: `${lang === 'en' ? 'Market Pages' : (lang === 'cn' ? '市场頁總覽' : '市場頁總覽')} | SunGene`,
+      description:
+        isChinese
+          ? '依市場查看 SunGene 的外銷內容頁，快速了解不同地區的買家角色、通路差異與市場切入方式。'
+          : 'Browse market-specific SunGene pages to understand buyer roles, channel differences, and entry approaches by region.',
+      url: `${baseUrl}/${lang}/markets`,
+      images: ['/og/og.png'],
+    },
   }
 }
 

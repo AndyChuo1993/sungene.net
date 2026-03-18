@@ -12,21 +12,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   const page = getSeoMarket(slug)
   if (!page) return { title: 'Not Found' }
   return {
     title: cnText(lang, page.title[lang]),
     description: cnText(lang, page.description[lang]),
     alternates: {
-      canonical: `/${lang}/markets/${slug}`,
+      canonical: `${baseUrl}/${lang}/markets/${slug}`,
       languages: {
-        cn: `/zh/markets/${slug}`,
-        zh: `/zh/markets/${slug}`,
-        en: `/en/markets/${slug}`,
-        'x-default': `/en/markets/${slug}`,
+        'zh-CN': `https://sungene.net/cn/markets/${slug}`,
+        'zh-TW': `https://sungenelite.com/zh/markets/${slug}`,
+        'en': `https://sungene.net/en/markets/${slug}`,
+        'x-default': `https://sungene.net/en/markets/${slug}`,
       },
     },
-    openGraph: { title: cnText(lang, page.title[lang]), description: cnText(lang, page.description[lang]), type: 'article' },
+    openGraph: { 
+      title: cnText(lang, page.title[lang]), 
+      description: cnText(lang, page.description[lang]), 
+      url: `${baseUrl}/${lang}/markets/${slug}`,
+      type: 'article' 
+    },
   }
 }
 
