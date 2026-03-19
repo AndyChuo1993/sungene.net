@@ -11,9 +11,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   return {
     title: lang === 'en' ? 'Get Market Entry Advice | SunGene' : (lang === 'cn' ? '获取市场切入建议｜SunGene' : '取得市場切入建議｜SunGene'),
     description:
-      isChinese
-        ? '提交產品與目標市場，我們提供出口市場與買家通路的初步分析建議。'
-        : 'Submit your product and target markets. We’ll reply with an initial export market and channel analysis.',
+      lang === 'en'
+        ? 'Submit your product and target markets. We’ll reply with an initial export market and channel analysis.'
+        : lang === 'cn'
+          ? '提交产品与目标市场，我们提供出口市场与买家通路的初步切入建议。'
+          : '提交產品與目標市場，我們提供出口市場與買家通路的初步切入建議。',
     alternates: { 
       canonical: `${baseUrl}/${lang}/export-market-analysis`, 
       languages: { 
@@ -36,17 +38,19 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 lg:grid-cols-2 items-start">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">{isChinese ? '取得市場切入建議' : 'Get Market Entry Advice'}</h1>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">{lang === 'en' ? 'Get Market Entry Advice' : lang === 'cn' ? '获取市场切入建议' : '取得市場切入建議'}</h1>
             <p className="mt-4 text-gray-600 leading-7">
-              {isChinese
-                ? '告訴我們你的產品與目標市場，我們會回覆市場切入方向、買家角色與可行的開發策略。'
-                : 'Tell us your product and target markets. We’ll reply with entry approach, buyer roles, and lead gen strategy.'}
+              {lang === 'en'
+                ? 'Tell us your product and target markets. We’ll reply with entry approach, buyer roles, and lead gen strategy.'
+                : lang === 'cn'
+                  ? '告诉我们你的产品与目标市场，我们会回复市场切入方向、买家角色与可行的开发策略。'
+                  : '告訴我們你的產品與目標市場，我們會回覆市場切入方向、買家角色與可行的開發策略。'}
             </p>
             <div className="mt-8 grid gap-4">
               {[
-                isChinese ? '市場機會與主要買家角色' : 'Market opportunities and key buyer roles',
-                isChinese ? '通路結構與切入建議' : 'Channel structure and entry recommendations',
-                isChinese ? '內容與開發節奏建議（搜尋優化＋主動開發）' : 'Content and outreach cadence recommendations (SEO + outbound)',
+                lang === 'en' ? 'Market opportunities and key buyer roles' : lang === 'cn' ? '市场机会与主要买家角色' : '市場機會與主要買家角色',
+                lang === 'en' ? 'Channel structure and entry recommendations' : lang === 'cn' ? '通路结构与切入建议' : '通路結構與切入建議',
+                lang === 'en' ? 'Content and outreach cadence recommendations' : lang === 'cn' ? '内容与开发节奏建议' : '內容與開發節奏建議',
               ].map((t, i) => (
                 <div key={i} className="flex gap-3">
                   <CheckCircle className="mt-0.5 h-5 w-5 text-blue-900" />
@@ -55,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               ))}
             </div>
             <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700">
-              <div className="mb-2 font-bold text-gray-900">{isChinese ? '聯絡資訊' : 'Company Information'}</div>
+              <div className="mb-2 font-bold text-gray-900">{lang === 'en' ? 'Company Information' : lang === 'cn' ? '联络资讯' : '聯絡資訊'}</div>
               {lang === 'en' ? (
                 <>
                   <div className="font-bold">SunGene Co., Ltd.</div>

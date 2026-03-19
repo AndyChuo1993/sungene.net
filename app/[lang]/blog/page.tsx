@@ -99,13 +99,13 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         </section>
 
         <section className="mt-12 mb-16 rounded-xl bg-slate-900 text-white p-8">
-          <h2 className="text-2xl font-bold">{lang === 'en' ? 'Want to turn this into inquiries?' : (lang === 'cn' ? '想把方法落地成询盘？' : '想把方法落地成詢價？')}</h2>
+          <h2 className="text-2xl font-bold">{lang === 'en' ? 'Want to enter overseas markets?' : (lang === 'cn' ? '想打入海外市场？' : '想打入海外市場？')}</h2>
           <p className="mt-2 text-slate-200">
                 {lang === 'cn'
-                  ? '拿走一份获取市场切入建议，我们会回复市场切入、买家角色与可行的开发策略。'
+                  ? '取得市场切入建议与行动方案。'
                   : isChinese
-                    ? '拿走一份取得市場切入建議，我們會回覆市場切入、買家角色與可行的開發策略。'
-                    : 'Get a free export market analysis. We’ll reply with entry approach, buyer roles, and a feasible outreach plan.'}
+                    ? '取得市場切入建議與行動方案。'
+                    : 'Get market entry advice and action plans.'}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href={`/${lang}/export-market-analysis`} className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition">

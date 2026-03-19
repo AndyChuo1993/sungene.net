@@ -8,16 +8,16 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   const isChinese = lang !== 'en'
   const baseUrl = 'https://sungene.net'
   
-  const title = isChinese ? '服務方案｜SunGene' : 'Pricing | SunGene'
+  const title = isChinese ? '合作方案｜SunGene' : 'Pricing | SunGene'
   const description = isChinese
-    ? '透明的服務方案：名單交付、專案開發、外銷業務外包服務。選擇最適合的合作模式，低成本啟動海外市場開發。'
-    : 'Transparent plans for export companies: buyer lists, outreach projects, and export sales outsourcing.'
+    ? '透明的合作方案：市場驗證方案、客戶開發方案、外銷外包方案。選擇最適合的合作模式，建立可持續成交的海外開發系統。'
+    : 'Transparent plans for export companies: market validation, prospect outreach, and export sales outsourcing.'
   return {
     title,
     description,
     keywords: isChinese
-      ? '外銷服務價格, 買家名單費用, 外銷業務外包服務收費, 海外客戶開發'
-      : 'pricing, buyer list cost, export lead generation, export sales outsourcing',
+      ? '外銷服務方案, 海外客戶開發, 外銷業務外包服務, 市場驗證方案'
+      : 'pricing, market validation, export lead generation, export sales outsourcing',
     alternates: { 
       canonical: `${baseUrl}/${lang}/pricing`, 
       languages: { 
@@ -43,51 +43,51 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
 
   const plans = [
     {
-      title: { cn: '名單買斷模式', zh: '名單買斷模式', en: 'Buyer List Model' },
+      title: { cn: '市场验证方案', zh: '市場驗證方案', en: 'Market Validation Plan' },
       icon: <Database className="w-8 h-8 text-blue-600" />,
       color: 'blue',
-      description: { cn: '適合已有業務團隊，需要高品質潛在客戶名單的企業。', zh: '適合已有業務團隊，需要高品質潛在客戶名單的企業。', en: 'Best for companies with sales teams needing high-quality leads.' },
-      price: { cn: '依筆數計費', zh: '依筆數計費', en: 'Pay Per Lead' },
+      description: { cn: '适合想先测试市场、确认切入方向的外贸企业。', zh: '適合想先測試市場、確認切入方向的外銷企業。', en: 'Best for testing markets and confirming entry directions.' },
+      price: { cn: '资料建置费用', zh: '資料建置費用', en: 'Data Buildout Fee' },
       features: [
-        { cn: '精準決策人電子郵件', zh: '精準決策人電子郵件', en: 'Targeted Decision Maker Emails' },
-        { cn: '95% 有效性保證', zh: '95% 有效性保證', en: '95% Validity Guarantee' },
-        { cn: '包含商務社群連結', zh: '包含商務社群連結', en: 'Includes LinkedIn URLs' },
-        { cn: '試算表檔案交付', zh: '試算表檔案交付', en: 'Excel / CSV Delivery' },
-        { cn: '無最低合約期限', zh: '無最低合約期限', en: 'No Minimum Contract' },
+        { cn: '定义 ICP 与买家角色', zh: '定義 ICP 與買家角色', en: 'Define ICP & Buyer Roles' },
+        { cn: '前期开发资料建置', zh: '前期開發資料建置', en: 'Initial Prospect Data Buildout' },
+        { cn: '决策人验证与开发准备', zh: '決策人驗證與開發準備', en: 'Decision-Maker Validation' },
+        { cn: '试算表档案交付', zh: '試算表檔案交付', en: 'Excel / CSV Delivery' },
+        { cn: '无最低合约期限', zh: '無最低合約期限', en: 'No Minimum Contract' },
       ],
-      cta: { cn: '索取名單報價', zh: '索取名單報價', en: 'Get a Quote' },
-      link: `/${lang}/contact?service=lead-generation`
+      cta: { cn: '申请合作评估', zh: '申請合作評估', en: 'Request Evaluation' },
+      link: `/${lang}/contact?service=data-buildout`
     },
     {
-      title: { cn: '專案開發模式', zh: '專案開發模式', en: 'Outreach Project' },
+      title: { cn: '客户开发方案', zh: '客戶開發方案', en: 'Client Development Plan' },
       icon: <Send className="w-8 h-8 text-green-600" />,
       color: 'green',
-      description: { cn: '適合想主動開發新市場，但缺乏開發信撰寫與系統經驗的企業。', zh: '適合想主動開發新市場，但缺乏開發信撰寫與系統經驗的企業。', en: 'Best for entering new markets without cold email expertise.' },
-      price: { cn: '專案費用', zh: '專案費用', en: 'Project Fee' },
+      description: { cn: '适合想直接开发海外采购与决策人的企业。', zh: '適合想直接開發海外採購與決策人的企業。', en: 'Best for companies looking to directly develop overseas procurement.' },
+      price: { cn: '专案费用', zh: '專案費用', en: 'Project Fee' },
       features: [
-        { cn: '客製化開發信序列 (4-7封)', zh: '客製化開發信序列 (4-7封)', en: 'Custom Email Sequences (4-7)' },
-        { cn: '專屬發信域名設定', zh: '專屬發信域名設定', en: 'Dedicated Domain Setup' },
-        { cn: '自動化寄送與跟進', zh: '自動化寄送與跟進', en: 'Automated Sending & Follow-up' },
-        { cn: '每週成效資料報告', zh: '每週成效資料報告', en: 'Weekly Performance Reports' },
-        { cn: '分組測試最佳化', zh: '分組測試最佳化', en: 'A/B Testing Optimization' },
+        { cn: '多渠道主动开发跟进', zh: '多渠道主動開發跟進', en: 'Multi-channel Active Outreach' },
+        { cn: '专属发信域名设定', zh: '專屬發信域名設定', en: 'Dedicated Domain Setup' },
+        { cn: '筛选有效询盘', zh: '篩選有效詢盤', en: 'Filter Qualified Inquiries' },
+        { cn: '每周进展数据报告', zh: '每週進展資料報告', en: 'Weekly Progress Reports' },
+        { cn: '协助推进至商务沟通', zh: '協助推進至商務溝通', en: 'Advance to Business Negotiation' },
       ],
-      cta: { cn: '預約開發諮詢', zh: '預約開發諮詢', en: 'Book Consultation' },
-      link: `/${lang}/contact?service=cold-outreach`
+      cta: { cn: '取得市场切入建议', zh: '取得市場切入建議', en: 'Get Market Entry Advice' },
+      link: `/${lang}/contact?service=client-development`
     },
     {
-      title: { cn: '外銷業務外包服務', zh: '外銷業務外包服務', en: 'Sales Outsourcing' },
+      title: { cn: '外贸外包方案', zh: '外銷外包方案', en: 'Export Outsourcing Plan' },
       icon: <Briefcase className="w-8 h-8 text-indigo-600" />,
       color: 'indigo',
-      description: { cn: '適合無外銷團隊，需要專業人士完整代操海外業務的企業。', zh: '適合無外銷團隊，需要專業人士完整代操海外業務的企業。', en: 'Best for companies needing a full export sales arm without hiring.' },
+      description: { cn: '适合没有完整外贸团队、需要外部团队推进成交的企业。', zh: '適合沒有完整外銷團隊、需要外部團隊推進成交的企業。', en: 'Best for companies without a full team, needing external help to close deals.' },
       price: { cn: '底薪 + 佣金', zh: '底薪 + 佣金', en: 'Retainer + Commission' },
       features: [
-        { cn: '專屬資深業務代表', zh: '專屬資深業務代表', en: 'Dedicated Senior Rep' },
-        { cn: '詢價回覆與報價跟進', zh: '詢價回覆與報價跟進', en: 'Inquiry & Quote Management' },
-        { cn: '樣品寄送與訂單處理', zh: '樣品寄送與訂單處理', en: 'Sample & Order Processing' },
-        { cn: '客戶管理系統建置', zh: '客戶管理系統建置', en: 'CRM System Setup' },
-        { cn: '定期市場回饋會議', zh: '定期市場回饋會議', en: 'Regular Market Feedback' },
+        { cn: '持续海外客户开发', zh: '持續海外客戶開發', en: 'Continuous Overseas Prospecting' },
+        { cn: '询价回复与需求整理', zh: '詢價回覆與需求整理', en: 'Inquiry Reply & Needs Triage' },
+        { cn: '协助报价与商务沟通', zh: '協助報價與商務溝通', en: 'Assist in Quoting & Negotiation' },
+        { cn: '持续推进至成交与下单', zh: '持續推進至成交與下單', en: 'Push Through to Closing & Orders' },
+        { cn: '定期市场回馈会议', zh: '定期市場回饋會議', en: 'Regular Market Feedback Meetings' },
       ],
-      cta: { cn: '評估外包方案', zh: '評估外包方案', en: 'Evaluate Outsourcing' },
+      cta: { cn: '预约策略通话', zh: '預約策略通話', en: 'Book Strategy Call' },
       link: `/${lang}/contact?service=sales-outsourcing`
     }
   ]

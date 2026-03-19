@@ -153,7 +153,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
             </header>
 
             <section className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-bold text-gray-900">{lang === 'en' ? 'Table of Contents' : (lang === 'cn' ? '目錄' : '目錄')}</div>
+              <div className="text-sm font-bold text-gray-900">{lang === 'en' ? 'Table of Contents' : (lang === 'cn' ? '目录' : '目錄')}</div>
               <ol className="mt-3 space-y-2 text-sm">
                 {anchors.map((a) => (
                   <li key={a.id}>
@@ -269,7 +269,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                               {tr('，以及團隊常用的')}{' '}
                               <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外銷業務外包服務</Link>
                               {tr('。若你希望先用低成本驗證，也可以先拿')}{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">取得市場切入建議</Link>
+                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">{tr('取得市場切入建議')}</Link>
                               {tr('當起點。')}
                             </>
                           ) : (
@@ -279,7 +279,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                               and{' '}
                               <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">Export Sales Outsourcing</Link>
                               . For a low-friction starting point, use the{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">free market analysis</Link>
+                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">market entry advice</Link>
                               as your first validation step.
                             </>
                           )}
@@ -347,7 +347,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                   {lang === 'en' ? 'View Service' : (lang === 'cn' ? '查看服务' : '查看服務')}
                 </Link>
                 <Link href={magnetHref} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition">
-                  {lang === 'en' ? 'Free Resource' : (lang === 'cn' ? '免费資源/分析' : '免費資源/分析')}
+                  {lang === 'en' ? 'Market Entry Advice' : (lang === 'cn' ? '市场切入建议' : '市場切入建議')}
                 </Link>
               </div>
             </section>
@@ -383,7 +383,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                   {lang === 'en' ? 'Case studies' : (lang === 'cn' ? '成功案例' : '成功案例')}
                 </Link>
                 <Link href={magnetHref} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
-                  {lang === 'en' ? 'Free export market analysis' : (lang === 'cn' ? '获取市场切入建议' : '取得市場切入建議')}
+                  {lang === 'en' ? 'Get market entry advice' : (lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議')}
                 </Link>
               </div>
             </section>
@@ -401,7 +401,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                     {lang === 'en' ? 'Case studies' : (lang === 'cn' ? '成功案例' : '成功案例')}
                   </Link>
                   <Link href={magnetHref} className="block text-blue-900 hover:underline">
-                    {lang === 'en' ? 'Free export market analysis' : (lang === 'cn' ? '获取市场切入建议' : '取得市場切入建議')}
+                    {lang === 'en' ? 'Get market entry advice' : (lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議')}
                   </Link>
                 </div>
               </div>

@@ -40,11 +40,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
 
   const pillars = [
     {
-      title: lang === 'en' ? 'Buyer lists and contact validation' : (lang === 'cn' ? '买家名单與数据验证' : '買家名單與資料驗證'),
+      title: lang === 'en' ? 'Buyer research and data buildout' : (lang === 'cn' ? '采购与决策人资料建置' : '採購與決策人資料建置'),
       desc:
         isChinese
-          ? '我們先把名單做對，再談開發效率。從公司、角色到可投遞聯絡方式，都會先整理清楚。'
-          : 'We start with list quality before outreach volume: companies, roles, and deliverable contacts are clarified first.',
+          ? '我們先把市場、買家角色與決策人資料建好，再談開發效率。從公司、角色到可投遞聯絡方式，都會先整理清楚。'
+          : 'We start with market research, buyer roles, and decision-maker data buildout before outreach volume: companies, roles, and deliverable contacts are clarified first.',
     },
     {
       title: lang === 'en' ? 'Outbound outreach and steady follow-up' : (lang === 'cn' ? '主动開發與持续跟进' : '主動開發與持續跟進'),

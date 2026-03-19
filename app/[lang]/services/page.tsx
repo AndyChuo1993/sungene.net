@@ -13,10 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     description: t(lang, 'meta_home_desc'),
     keywords:
       lang === 'cn'
-        ? ['外贸客户开发', '经销商开发', '外贸业务外包服务', '海外买家名单', '出口市场分析']
+        ? ['外贸客户开发', '经销商开发', '外贸业务外包', '采购资料建置', '外贸市场切入']
         : isChinese
-          ? ['外銷客戶開發', '經銷商開發', '外銷業務外包服務', '海外買家名單', '出口市場分析']
-          : ['export lead generation', 'distributor development', 'export sales outsourcing', 'overseas buyers', 'market analysis'],
+          ? ['外銷客戶開發', '經銷商開發', '外銷業務外包', '採購資料建置', '外銷市場切入']
+          : ['export lead generation', 'distributor development', 'export sales outsourcing', 'prospect data buildout', 'market entry'],
     openGraph: {
       title: t(lang, 'service_title') + ' | SunGene',
       description: t(lang, 'meta_home_desc'),
@@ -232,10 +232,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'cn'
-                  ? '外贸客户开发解决“海外买家名单与询盘交付”；经销商开发解决“渠道伙伴与经销合作”；外贸业务外包服务解决“不扩编也能稳定开发与跟进”。'
+                  ? '外贸客户开发解决“海外采购名与询盘交付”；经销商开发解决“渠道伙伴与经销合作”；外贸业务外包服务解决“不扩编也能稳定开发与跟进”。'
                   : isChinese
-                    ? '外銷客戶開發解決「海外買家名單與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外包服務解決「不擴編也能穩定開發與跟進」。'
-                    : 'Lead gen delivers buyer lists and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
+                    ? '外銷客戶開發解決「海外採購與決策人資料建置與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外包服務解決「不擴編也能穩定開發與跟進」。'
+                    : 'Lead gen delivers prospect data and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-800">
@@ -276,8 +276,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
                 ? '提交產品與目標市場，我們會回覆市場切入方式、買家角色與可行的外銷開發路徑。'
                 : 'Submit your product and markets. We’ll reply with entry approach, buyer roles, and a feasible lead-gen path.'}
           </p>
-          <Link href={`/${lang}/export-market-analysis`} className="inline-block rounded-sm bg-white px-10 py-4 text-lg font-bold text-blue-900 shadow-lg transition duration-300 hover:bg-gray-100">
-            {lang === 'en' ? 'Get Market Entry Advice' : (lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議')}
+              <Link href={`/${lang}/contact`} className="inline-block rounded-sm bg-white px-10 py-4 text-lg font-bold text-blue-900 shadow-lg transition duration-300 hover:bg-gray-100">
+            {lang === 'en' ? 'Get Market Entry Advice' : (lang === 'cn' ? '获取市场切入建议' : '取得市場切入建議')}
           </Link>
         </div>
       </section>
