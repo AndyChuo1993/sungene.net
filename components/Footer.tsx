@@ -19,7 +19,11 @@ export default function Footer({ lang }: { lang: Lang }) {
               SunGene
             </h3>
             <p className="text-gray-400 max-w-sm leading-relaxed mb-6">
-              {t(lang, 'about_desc')}
+              {lang === 'en' 
+                ? 'SunGene is the export service brand of SunGene Co., Ltd. Our teams in Taiwan and overseas jointly support your market development.' 
+                : (lang === 'cn' 
+                  ? 'SunGene 为上瑾铼有限公司之外贸服务品牌。台湾与海外团队共同支持您的市场开发。' 
+                  : 'SunGene 為上瑾錸有限公司之外銷服務品牌。台灣與海外團隊共同支援市場開發。')}
             </p>
             <div className="text-gray-400 text-sm space-y-2">
               {lang === 'en' ? (

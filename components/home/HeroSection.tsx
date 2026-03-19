@@ -18,39 +18,39 @@ export default function HeroSection({ lang }: { lang: Lang }) {
                 {lang === 'en'
                   ? 'For Companies Expanding Overseas'
                   : lang === 'cn'
-                  ? '为拓展海外市场的企业而设'
-                  : '為拓展海外市場的企業而設'}
+                  ? '适合想拓展欧美市场、但缺乏稳定开发能力的外贸企业'
+                  : '適合想拓展歐美市場、但缺乏穩定開發能力的外銷企業'}
               </span>
             </div>
 
             <h1 className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-7xl">
               {lang === 'en'
-                ? 'B2B Export Lead Generation & Distributor Development'
+                ? 'Find overseas buyers and channels that actually order'
                 : lang === 'cn'
-                ? '外贸客户开发与海外买家开发服务'
-                : '外銷客戶開發與海外買家開發服務'}
+                ? '帮外贸企业找到「会下单」的海外客户与渠道'
+                : '幫外銷企業找到「會下單」的海外客戶與通路'}
             </h1>
 
             <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl lg:mx-0">
               {lang === 'en'
-                ? 'SunGene helps companies develop overseas buyers, build distributor channels, and support export sales execution through a more structured and trackable process.'
+                ? 'From prospecting and procurement matchmaking to inquiry triage and quoting. We build an export development system that continuously generates orders.'
                 : lang === 'cn'
-                ? 'SunGene 协助企业开发海外买家、建立经销渠道，并以更结构化、可追踪的方式支持外贸销售执行。'
-                : 'SunGene 協助企業開發海外買家、建立經銷通路，並以更結構化、可追蹤的方式支援外銷銷售執行。'}
+                ? '从客户开发、采购对接、询价筛选到报价推进，建立一套能持续产生订单的外贸开发系统。'
+                : '從客戶開發、採購對接、詢價篩選到報價推進，建立一套能持續產生訂單的外銷開發系統。'}
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
               <Link
-                href={`/${lang}/contact`}
+                href={`/${lang}/export-market-analysis`}
                 className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-8 py-4 text-lg font-bold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
               >
-                {lang === 'en' ? 'Request a Consultation' : lang === 'cn' ? '预约咨询' : '預約諮詢'}
+                {lang === 'en' ? 'Get Market Entry Advice' : lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議'}
               </Link>
               <Link
-                href={`/${lang}/services`}
+                href={`/${lang}/services/export-lead-generation`}
                 className="inline-flex items-center justify-center rounded-sm border-2 border-gray-200 bg-white px-8 py-4 text-lg font-bold text-gray-900 transition duration-300 hover:border-blue-900 hover:text-blue-900"
               >
-                {lang === 'en' ? 'View Services' : lang === 'cn' ? '查看服务' : '查看服務'}
+                {lang === 'en' ? 'See How We Find Clients' : lang === 'cn' ? '看看我们怎么帮你找到客户' : '看看我們怎麼幫你找到客戶'}
               </Link>
             </div>
 
@@ -69,28 +69,28 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
               {[
                 {
-                  title: lang === 'en' ? 'Clear export positioning' : lang === 'cn' ? '明确外贸定位' : '明確外銷定位',
+                  title: lang === 'en' ? 'Continuous Overseas Opportunities' : lang === 'cn' ? '持续拿到海外商机' : '持續拿到海外商機',
                   desc: lang === 'en'
-                    ? 'Built around buyer development, distributor development, and export growth support.'
+                    ? 'Proactively develop overseas procurement and decision-makers instead of waiting for inquiries.'
                     : lang === 'cn'
-                    ? '围绕买家开发、经销商开发与外贸增长支持建立。'
-                    : '圍繞買家開發、經銷商開發與外銷增長支援建立。',
+                    ? '主动开发海外采购与决策人，而不是等待询盘，不靠运气也能成交。'
+                    : '主動開發海外採購與決策人，而不是等待詢盤，不靠運氣也能成交。',
                 },
                 {
-                  title: lang === 'en' ? 'Trackable workflow' : lang === 'cn' ? '可追踪流程' : '可追蹤流程',
+                  title: lang === 'en' ? 'No Need for a Full Team' : lang === 'cn' ? '不用养整个外贸团队' : '不用養整個外銷團隊',
                   desc: lang === 'en'
-                    ? 'From target research to outreach and follow-up, the process is more structured.'
+                    ? 'Activate an external team immediately to start market development and follow-up.'
                     : lang === 'cn'
-                    ? '从目标研究、开发到跟进，流程更结构化。'
-                    : '從目標研究、開發到跟進，流程更結構化。',
+                    ? '直接启动外部团队，开始市场开发与跟进，大幅降低人事成本。'
+                    : '直接啟動外部團隊，開始市場開發與跟進，大幅降低人事成本。',
                 },
                 {
-                  title: lang === 'en' ? 'Built for Export Companies' : lang === 'cn' ? '为外贸企业设计' : '為外銷企業設計',
+                  title: lang === 'en' ? 'Weekly Visible Progress' : lang === 'cn' ? '每周看得到实际进展' : '每週看得到實際進展',
                   desc: lang === 'en'
-                    ? 'Suitable for companies that want overseas growth without building a full export team first.'
+                    ? 'Everything from lists and replies to inquiries and next steps is fully transparent.'
                     : lang === 'cn'
-                    ? '适合想拓展海外市场、但不想一开始就建立完整外贸团队的企业。'
-                    : '適合想拓展海外市場、但不想一開始就建立完整外銷團隊的企業。',
+                    ? '从名单、回复到询价与下一步全部透明，随时掌握开发节奏。'
+                    : '從名單、回覆到詢價與下一步全部透明，隨時掌握開發節奏。',
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-gray-100 bg-white/80 p-5 shadow-sm backdrop-blur">

@@ -72,11 +72,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
               {lang === 'en' ? 'About SunGene' : (lang === 'cn' ? '關於 SunGene' : '關於 SunGene')}
             </div>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'en' ? 'We turn export development into a sustainable system for manufacturers' : (lang === 'cn' ? '我們幫企业把外贸開發做成一套可持续的系統' : '我們幫企業把外銷開發做成一套可持續的系統')}</h1>
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'en' ? 'We are not list brokers, nor just an email agency' : (lang === 'cn' ? '我们不是名单商，也不是代发信公司' : '我們不是名單商，也不是代發信公司')}</h1>
             <p className="text-xl leading-relaxed text-gray-200">
               {isChinese
-                ? 'SunGene 不是單純賣名單，也不是只寫幾封開發信。我們的角色，是幫你把海外買家開發、經銷商開發與詢價跟進，整理成一套能持續運作的商務流程。'
-                : 'SunGene is not just a list vendor or an email-writing shop. We help manufacturers turn buyer discovery, distributor development, and inquiry follow-up into a repeatable commercial workflow.'}
+                ? '我們協助外銷企業建立一套可以持續產生海外商機的開發流程。'
+                : 'We help export companies build a development process that continuously generates overseas business opportunities.'}
             </p>
           </div>
         </div>
@@ -96,20 +96,28 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       <section className="border-y border-gray-100 bg-gray-50 py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">{lang === 'en' ? 'Who we work with' : (lang === 'cn' ? '我們服务哪些客戶' : '我們服務哪些客戶')}</h2>
+            <h2 className="text-3xl font-bold text-gray-900">{lang === 'en' ? 'Who we work with' : (lang === 'cn' ? '我们服务哪些客户' : '我們服務哪些客戶')}</h2>
             <p className="mt-4 leading-7 text-gray-600">
               {isChinese
-                ? '我們主要服務有產品、有交付能力，但缺少穩定海外開發流程的外銷企業與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
-                : 'We serve export enterprises and suppliers with great products but no stable export process. Ideal for teams expanding into Europe, North America, Japan, and SEA.'}
+                ? '我們主要服務有產品、有交付能力，但缺少穩定海外開發流程的外銷企業與供應商。'
+                : 'We mainly serve export enterprises and suppliers with products and delivery capabilities, but lacking a stable overseas development process.'}
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-white p-5 shadow-sm">
-                <div className="font-bold text-blue-700">{lang === 'en' ? 'Typical clients' : (lang === 'cn' ? '典型客戶' : '典型客戶')}</div>
-                <div className="mt-2 text-gray-600">{lang === 'en' ? 'Machinery, hardware, electronics, packaging, and industrial materials' : (lang === 'cn' ? '机械、五金、電子零部件、包材、工业材料' : '機械、五金、電子零元件、套件材、工業材料')}</div>
+              <div className="rounded-lg bg-white p-5 shadow-sm border-t-4 border-t-blue-600">
+                <div className="font-bold text-gray-900 mb-3">{lang === 'en' ? 'Ideal Fit' : (lang === 'cn' ? '适合客户' : '適合客戶')}</div>
+                <ul className="space-y-2 text-gray-600 text-sm">
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>{lang === 'en' ? 'Export companies / Traders / Manufacturers' : (lang === 'cn' ? '外贸企业 / 贸易商 / 制造商' : '外銷企業 / 貿易商 / 製造商')}</li>
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>{lang === 'en' ? 'Have existing products and supply capacity' : (lang === 'cn' ? '已有产品与供应能力' : '已有產品與供應能力')}</li>
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>{lang === 'en' ? 'Want to expand into overseas markets' : (lang === 'cn' ? '想拓展海外市场' : '想拓展海外市場')}</li>
+                </ul>
               </div>
-              <div className="rounded-lg bg-white p-5 shadow-sm">
-                <div className="font-bold text-blue-700">{lang === 'en' ? 'Common goals' : (lang === 'cn' ? '常見需求' : '常見需求')}</div>
-                <div className="mt-2 text-gray-600">{lang === 'en' ? 'Find buyers, build channels, stabilize inquiries, and keep growing without hiring first' : (lang === 'cn' ? '找买家、找经销商、稳定询盘、不扩编也能持续開發' : '找買家、找經銷商、穩定詢價、不擴編也能持續開發')}</div>
+              <div className="rounded-lg bg-white p-5 shadow-sm border-t-4 border-t-gray-300">
+                <div className="font-bold text-gray-900 mb-3">{lang === 'en' ? 'Not a Fit' : (lang === 'cn' ? '不适合' : '不適合')}</div>
+                <ul className="space-y-2 text-gray-600 text-sm">
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-gray-400"></span>{lang === 'en' ? 'Just want to buy a list' : (lang === 'cn' ? '只想买名单' : '只想買名單')}</li>
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-gray-400"></span>{lang === 'en' ? 'Lack quoting capabilities' : (lang === 'cn' ? '没有报价能力' : '沒有報價能力')}</li>
+                  <li className="flex items-center"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-gray-400"></span>{lang === 'en' ? 'Unable to reply to clients' : (lang === 'cn' ? '无法回复客户' : '無法回覆客戶')}</li>
+                </ul>
               </div>
             </div>
           </div>

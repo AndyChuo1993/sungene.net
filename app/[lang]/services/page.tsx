@@ -49,27 +49,27 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       title: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客户开发' : '外銷客戶開發'),
       desc:
         isChinese
-          ? '一年期合作，持續為製造業建立海外買家名單、開發節奏與合格詢價。'
-          : 'A one-year engagement to build overseas buyer lists, outreach cadence, and qualified inquiries for manufacturers.',
-      tags: isChinese ? ['製造業', '海外買家', '詢價'] : ['Manufacturers', 'Overseas buyers', 'Leads'],
+          ? '適合想直接取得訂單的外銷企業。你會得到：採購決策人名單、有效詢價與報價機會。'
+          : 'For companies wanting direct orders. You get: decision-makers, valid inquiries, and quoting opportunities.',
+      tags: isChinese ? ['採購決策人', '有效詢價', '報價機會'] : ['Decision-makers', 'Valid inquiries', 'Quoting ops'],
     },
     {
       href: `/${lang}/services/distributor-development`,
       title: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商开发' : '經銷商開發'),
       desc:
         isChinese
-          ? '一年期合作，持續建立海外經銷商名單、合作條件與市場推進節奏。'
-          : 'A one-year engagement to build distributor lists, channel terms, and market-entry progression.',
-      tags: isChinese ? ['通路', '代理', '市場落地'] : ['Channels', 'Partners', 'Market entry'],
+          ? '適合想建立當地通路的企業。你會得到：通路結構分析、經銷商名單與合作推進。'
+          : 'For companies building local channels. You get: channel analysis, distributor lists, and partnership advancement.',
+      tags: isChinese ? ['通路結構', '經銷商名單', '合作推進'] : ['Channel structure', 'Distributor lists', 'Partnerships'],
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      title: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸业务外包服务' : '外銷業務外包服務'),
+      title: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸业务外包' : '外銷業務外包'),
       desc:
         isChinese
-          ? '一年期合作，你專注報價與出貨，其餘外銷開發與跟進由我們持續執行。'
-          : 'A one-year engagement where you focus on quoting and shipping while we run outreach and follow-ups.',
-      tags: isChinese ? ['不擴編', '標準作業流程', '交付'] : ['No hiring', 'SOP', 'Delivery'],
+          ? '適合沒有完整外銷團隊的企業。你會得到：持續開發、詢價跟進與成交推進。'
+          : 'For companies without a full export team. You get: continuous outreach, inquiry follow-up, and deal closing.',
+      tags: isChinese ? ['持續開發', '詢價跟進', '成交推進'] : ['Continuous outreach', 'Follow-ups', 'Closing'],
     },
   ]
 
@@ -97,7 +97,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       <section className="bg-gray-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-            {lang === 'en' ? 'Three core services for three export growth needs' : (lang === 'cn' ? '三个核心服务，对应三种外贸增长需求' : '三個核心服務，對應三種外銷增長需求')}
+            {lang === 'en' ? 'Choose the right partnership for your export goals' : (lang === 'cn' ? '依你的外贸目标，选择最适合的合作方式' : '依你的外銷目標，選擇最適合的合作方式')}
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-gray-300">
             {lang === 'cn'

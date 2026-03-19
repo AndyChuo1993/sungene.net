@@ -4,8 +4,30 @@ import { t, Lang } from '@/lib/i18n'
 import { getCases } from '@/data/cases'
 
 export default function CasePreview({ lang }: { lang: Lang }) {
-  const dataLang = lang
-  const cases = getCases(dataLang).slice(0, 2)
+  const cases = [
+    {
+      slug: 'hardware',
+      title: lang === 'en' ? 'Hardware Products | European Market' : lang === 'cn' ? '五金产品｜欧洲市场' : '五金產品｜歐洲市場',
+      desc: lang === 'en' ? 'Built 120+ decision-makers in 8 weeks. Secured 15 valid replies and advanced 3 quoting opportunities.' : lang === 'cn' ? '8周建立120+决策人，取得15个有效回复，推进3个报价机会。' : '8週建立120+決策人，取得15個有效回覆，推進3個報價機會。',
+      tags: lang === 'en' ? ['Hardware', 'Europe', 'Lead Gen'] : lang === 'cn' ? ['五金工具', '欧洲市场', '客户开发'] : ['五金工具', '歐洲市場', '客戶開發'],
+      cover: '/cases/hardware.png',
+      industry: lang === 'en' ? 'Hardware' : lang === 'cn' ? '五金工具' : '五金工具',
+      market: lang === 'en' ? 'Europe' : lang === 'cn' ? '欧洲市场' : '歐洲市場',
+      result: lang === 'en' ? '15 valid replies, 3 quoting opportunities' : lang === 'cn' ? '取得15个有效回复，推进3个报价机会' : '取得15個有效回覆，推進3個報價機會',
+      summary: lang === 'en' ? 'Built 120+ decision-makers in 8 weeks.' : lang === 'cn' ? '8周建立120+决策人' : '8週建立120+決策人'
+    },
+    {
+      slug: 'electronics',
+      title: lang === 'en' ? 'Electronic Products | US Market' : lang === 'cn' ? '电子产品｜美国市场' : '電子產品｜美國市場',
+      desc: lang === 'en' ? 'Penetrated supply chain procurement and established long-term inquiry opportunities.' : lang === 'cn' ? '切入供应链采购，建立长期询价机会。' : '切入供應鏈採購，建立長期詢價機會。',
+      tags: lang === 'en' ? ['Electronics', 'USA', 'Supply Chain'] : lang === 'cn' ? ['电子零件', '美国市场', '供应链打入'] : ['電子零件', '美國市場', '供應鏈打入'],
+      cover: '/cases/electronics.png',
+      industry: lang === 'en' ? 'Electronics' : lang === 'cn' ? '电子零件' : '電子零件',
+      market: lang === 'en' ? 'USA' : lang === 'cn' ? '美国市场' : '美國市場',
+      result: lang === 'en' ? 'Established long-term inquiry opportunities' : lang === 'cn' ? '建立长期询价机会' : '建立長期詢價機會',
+      summary: lang === 'en' ? 'Penetrated supply chain procurement' : lang === 'cn' ? '切入供应链采购' : '切入供應鏈採購'
+    }
+  ]
 
   return (
     <section className="py-24 bg-white">

@@ -1,33 +1,31 @@
-import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
+import Link from 'next/link'
 
 export default function CTASection({ lang }: { lang: Lang }) {
   return (
-    <section className="py-24 bg-blue-900 text-white text-center relative overflow-hidden">
-        {/* Decorative Circles */}
-        <div className="absolute top-[-50%] left-[-20%] w-[600px] h-[600px] bg-blue-800 rounded-full blur-3xl opacity-50 z-0"></div>
-        <div className="absolute bottom-[-50%] right-[-20%] w-[600px] h-[600px] bg-blue-800 rounded-full blur-3xl opacity-50 z-0"></div>
-        
-        <div className="mx-auto max-w-4xl px-6 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">{t(lang, 'home_cta_title')}</h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            {lang === 'en' ? 'Scale your export sales without building an internal team.' : (lang === 'cn' ? '不用自建团队，也能擁有專業的外贸開發能力。' : '不用自建團隊，也能擁有專業的外銷開發能力。')}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link 
-              href={`/${lang}/export-market-analysis`} 
-              className="inline-flex justify-center items-center px-8 py-4 bg-white text-blue-900 font-bold rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg transform hover:-translate-y-0.5"
-            >
-              {t(lang, 'cta_analysis')}
-            </Link>
-            <Link 
-              href={`/${lang}/contact`} 
-              className="inline-flex justify-center items-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-sm hover:bg-white hover:text-blue-900 transition duration-300 text-lg"
-            >
-              {t(lang, 'cta_consult')}
-            </Link>
-          </div>
+    <section className="bg-blue-900 py-24 text-center">
+      <div className="mx-auto max-w-4xl px-6">
+        <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
+          {lang === 'en' ? 'Which export path fits your product?' : lang === 'cn' ? '先确认你的产品适合哪种外销路径' : '先確認你的產品適合哪種外銷路徑'}
+        </h2>
+        <p className="mb-10 text-xl text-blue-100">
+          {lang === 'en' ? 'Get a market assessment or book a strategy call to explore your opportunities.' : lang === 'cn' ? '取得市场评估或预约策略通话，找出最有效的开发方式。' : '取得市場評估或預約策略通話，找出最有效的開發方式。'}
+        </p>
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <Link
+            href={`/${lang}/export-market-analysis`}
+            className="inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-lg font-bold text-blue-900 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-gray-50"
+          >
+            {lang === 'en' ? 'Get Market Assessment' : lang === 'cn' ? '取得市场评估' : '取得市場評估'}
+          </Link>
+          <Link
+            href={`/${lang}/contact`}
+            className="inline-flex items-center justify-center rounded-sm border-2 border-white px-8 py-4 text-lg font-bold text-white transition duration-300 hover:bg-white/10"
+          >
+            {lang === 'en' ? 'Book Strategy Call' : lang === 'cn' ? '预约策略通话' : '預約策略通話'}
+          </Link>
         </div>
+      </div>
     </section>
   )
 }
