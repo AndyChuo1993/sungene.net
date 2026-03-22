@@ -25,7 +25,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         'x-default': 'https://sungene.net/cn/export-market-analysis' 
       } 
     },
-    robots: { index: false, follow: true },
   }
 }
 

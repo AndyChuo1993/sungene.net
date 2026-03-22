@@ -124,10 +124,6 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       description: data.description,
       images: ['/og/og.png'],
     },
-    robots: {
-      index: true,
-      follow: true,
-    },
   }
 }
 
