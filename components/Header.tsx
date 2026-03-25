@@ -28,7 +28,7 @@ export default function Header({ lang }: { lang: Lang }) {
   return (
     <>
       <a href="#page-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-brand-950 focus:px-4 focus:py-2 focus:text-white">
-        {({en: 'Skip to content', cn: '跳到主要内容', zh: '跳到主要內容', fr: 'Aller au contenu', es: 'Ir al contenido' } as Record<string,string>)[lang] || 'Skip to content'}
+        {({en: 'Skip to content', cn: '跳到主要内容', zh: '跳到主要內容', fr: 'Aller au contenu', es: 'Ir al contenido', pt: 'Pular para o conteúdo', ko: '본문으로 건너뛰기', ja: 'コンテンツにスキップ', ar: 'انتقل إلى المحتوى', th: 'ข้ามไปยังเนื้อหา', vi: 'Chuyển đến nội dung', de: 'Zum Inhalt springen' } as Record<string,string>)[lang] || 'Skip to content'}
       </a>
 
       {/* Top bar */}
@@ -45,9 +45,9 @@ export default function Header({ lang }: { lang: Lang }) {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <span>{({en: 'Taichung, Taiwan', cn: '台湾台中', zh: '台灣台中', fr: 'Taichung, Taïwan', es: 'Taichung, Taiwán' } as Record<string,string>)[lang] || 'Taichung, Taiwan'}</span>
+            <span>{({en: 'Taichung, Taiwan', cn: '台湾台中', zh: '台灣台中', fr: 'Taichung, Taïwan', es: 'Taichung, Taiwán', pt: 'Taichung, Taiwan', ko: '타이중, 대만', ja: '台中、台湾', ar: 'تايتشونغ، تايوان', th: 'ไทจง, ไต้หวัน', vi: 'Đài Trung, Đài Loan', de: 'Taichung, Taiwan' } as Record<string,string>)[lang] || 'Taichung, Taiwan'}</span>
             <span>|</span>
-            <span>{({en: 'Mon-Fri 9:00-18:00', cn: '周一至周五 9:00-18:00', zh: '週一至週五 9:00-18:00', fr: 'Lun-Ven 9h00-18h00', es: 'Lun-Vie 9:00-18:00' } as Record<string,string>)[lang] || 'Mon-Fri 9:00-18:00'}</span>
+            <span>{({en: 'Mon-Fri 9:00-18:00', cn: '周一至周五 9:00-18:00', zh: '週一至週五 9:00-18:00', fr: 'Lun-Ven 9h00-18h00', es: 'Lun-Vie 9:00-18:00', pt: 'Seg-Sex 9:00-18:00', ko: '월-금 9:00-18:00', ja: '月〜金 9:00-18:00', ar: 'الإثنين-الجمعة 9:00-18:00', th: 'จันทร์-ศุกร์ 9:00-18:00', vi: 'Thứ 2-6 9:00-18:00', de: 'Mo-Fr 9:00-18:00' } as Record<string,string>)[lang] || 'Mon-Fri 9:00-18:00'}</span>
           </div>
         </Container>
       </div>

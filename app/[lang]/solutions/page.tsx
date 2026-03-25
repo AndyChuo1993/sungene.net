@@ -7,6 +7,9 @@ import { Card } from '@/components/ui/Card'
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
   fr: 'Solutions machines | SunGene', es: 'Soluciones de maquinaria | SunGene',
+  pt: 'Soluções em Maquinário | SunGene', ko: '기계 솔루션 | SunGene', ja: '機械ソリューション | SunGene',
+  ar: 'حلول الماكينات | SunGene', th: 'โซลูชันเครื่องจักร | SunGene', vi: 'Giải Pháp Máy Móc | SunGene',
+  de: 'Maschinenlösungen | SunGene',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -71,6 +74,83 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
         { id: 'line', title: 'Soluciones de línea de producción', desc: 'Líneas integradas multi-máquina con transportadores, alimentadores y controles sincronizados para producción continua.' },
         { id: 'custom', title: 'OEM e ingeniería personalizada', desc: 'Maquinaria diseñada por nuestro equipo de I+D para adaptarse a las características únicas de su producto o proceso.' },
         { id: 'export', title: 'Soporte de exportación e instalación', desc: 'Servicio de exportación completo: personalización de voltaje, envío internacional, documentación e instalación guiada por video.' }
+      ]
+    },
+    pt: {
+      title: 'Soluções em Maquinário',
+      desc: 'De máquinas individuais a linhas de produção automatizadas completas — oferecemos soluções em todas as escalas. Nossa equipe de engenharia projetará a configuração ideal para suas necessidades.',
+      cats: [
+        { id: 'single', title: 'Soluções de Máquina Individual', desc: 'Máquinas individuais de embalagem, envase, selagem ou processamento configuradas para seu produto e requisitos de produção específicos.' },
+        { id: 'semi', title: 'Configurações Semiautomáticas', desc: 'Combinações econômicas de etapas manuais e automatizadas, ideais para empresas em crescimento que estão se atualizando a partir da produção manual.' },
+        { id: 'line', title: 'Soluções de Linha de Produção', desc: 'Linhas integradas multi-máquinas com esteiras, alimentadores e controles sincronizados para produção contínua de alto volume.' },
+        { id: 'custom', title: 'OEM e Engenharia Personalizada', desc: 'Maquinário projetado sob medida pela nossa equipe de P&D para atender características únicas do produto, restrições de espaço ou requisitos de processo.' },
+        { id: 'export', title: 'Suporte de Exportação e Instalação', desc: 'Serviço completo de exportação incluindo personalização de voltagem, envio internacional, documentação e instalação guiada por vídeo remoto.' }
+      ]
+    },
+    ko: {
+      title: '기계 솔루션',
+      desc: '단일 기계부터 완전 자동화 생산 라인까지 — 모든 규모의 솔루션을 제공합니다. 한 대의 기계든 턴키 공장 설비든, 당사 엔지니어링 팀이 적합한 구성을 설계합니다.',
+      cats: [
+        { id: 'single', title: '단일 기계 솔루션', desc: '특정 제품 및 생산 요구사항에 맞게 구성된 개별 포장, 충전, 밀봉 또는 가공 기계.' },
+        { id: 'semi', title: '반자동 설비', desc: '수동 및 자동화 공정의 경제적 조합으로, 수동 생산에서 업그레이드하는 성장 기업에 적합합니다.' },
+        { id: 'line', title: '생산 라인 솔루션', desc: '컨베이어, 피더 및 동기화 제어가 장착된 통합 다중 기계 라인으로 대량 연속 생산에 적합합니다.' },
+        { id: 'custom', title: 'OEM 및 맞춤 엔지니어링', desc: '독특한 제품 특성, 공간 제약 또는 공정 요구사항에 맞게 R&D 팀이 설계한 주문형 기계.' },
+        { id: 'export', title: '수출 및 설치 지원', desc: '전압 맞춤, 국제 운송, 서류 및 원격 비디오 설치 가이드를 포함한 완전한 수출 서비스.' }
+      ]
+    },
+    ja: {
+      title: '機械ソリューション',
+      desc: '単体機から完全自動化生産ラインまで — あらゆる規模のソリューションを提供します。1台の機械でもターンキー工場設備でも、当社のエンジニアリングチームが最適な構成を設計します。',
+      cats: [
+        { id: 'single', title: '単体機ソリューション', desc: 'お客様の特定の製品と生産要件に合わせて構成された、個別の包装、充填、シーリング、または加工機械。' },
+        { id: 'semi', title: '半自動設備', desc: '手動と自動化ステップの費用対効果の高い組み合わせ。手動生産からアップグレードする成長企業に最適です。' },
+        { id: 'line', title: '生産ラインソリューション', desc: 'コンベア、フィーダー、同期制御を備えた統合マルチマシンラインで、大量連続生産に対応します。' },
+        { id: 'custom', title: 'OEM・カスタムエンジニアリング', desc: '独自の製品特性、スペース制約、プロセス要件に合わせてR&Dチームが設計するオーダーメイド機械。' },
+        { id: 'export', title: '輸出・設置サポート', desc: '電圧カスタマイズ、国際配送、書類、リモートビデオによる設置ガイドを含む完全な輸出サービス。' }
+      ]
+    },
+    ar: {
+      title: 'حلول الماكينات',
+      desc: 'من الماكينات الفردية إلى خطوط الإنتاج المؤتمتة الكاملة — نقدم حلولاً بكل المقاييس. سواء كنت بحاجة إلى ماكينة واحدة أو إعداد مصنع متكامل، فريقنا الهندسي سيصمم التكوين المناسب.',
+      cats: [
+        { id: 'single', title: 'حلول الماكينة الفردية', desc: 'ماكينات تعبئة أو تغليف أو ختم أو معالجة فردية مهيأة وفقاً لمنتجك ومتطلبات الإنتاج الخاصة بك.' },
+        { id: 'semi', title: 'إعدادات شبه آلية', desc: 'مزيج اقتصادي من الخطوات اليدوية والآلية، مثالي للشركات النامية التي تنتقل من الإنتاج اليدوي.' },
+        { id: 'line', title: 'حلول خطوط الإنتاج', desc: 'خطوط متعددة الماكينات متكاملة مع سيور ناقلة ومغذيات وأنظمة تحكم متزامنة للإنتاج المستمر بكميات كبيرة.' },
+        { id: 'custom', title: 'OEM والهندسة المخصصة', desc: 'ماكينات مصممة خصيصاً بواسطة فريق البحث والتطوير لدينا لتناسب خصائص المنتج الفريدة أو قيود المساحة أو متطلبات العملية.' },
+        { id: 'export', title: 'دعم التصدير والتركيب', desc: 'خدمة تصدير كاملة تشمل تخصيص الجهد الكهربائي والشحن الدولي والتوثيق والتركيب الموجه بالفيديو عن بُعد.' }
+      ]
+    },
+    th: {
+      title: 'โซลูชันเครื่องจักร',
+      desc: 'ตั้งแต่เครื่องจักรเดี่ยวจนถึงสายการผลิตอัตโนมัติที่สมบูรณ์ — เรามีโซลูชันในทุกขนาด ทีมวิศวกรของเราจะออกแบบการกำหนดค่าที่เหมาะสมกับความต้องการของคุณ',
+      cats: [
+        { id: 'single', title: 'โซลูชันเครื่องจักรเดี่ยว', desc: 'เครื่องบรรจุ เติม ปิดผนึก หรือแปรรูปแต่ละเครื่องที่กำหนดค่าตามผลิตภัณฑ์และความต้องการในการผลิตของคุณ' },
+        { id: 'semi', title: 'การตั้งค่ากึ่งอัตโนมัติ', desc: 'การรวมขั้นตอนแบบแมนนวลและอัตโนมัติอย่างคุ้มค่า เหมาะสำหรับธุรกิจที่กำลังเติบโตที่อัพเกรดจากการผลิตแบบแมนนวล' },
+        { id: 'line', title: 'โซลูชันสายการผลิต', desc: 'สายการผลิตหลายเครื่องแบบบูรณาการพร้อมสายพานลำเลียง เครื่องป้อน และระบบควบคุมแบบซิงโครไนซ์สำหรับการผลิตต่อเนื่องปริมาณมาก' },
+        { id: 'custom', title: 'OEM และวิศวกรรมสั่งทำ', desc: 'เครื่องจักรที่ออกแบบเฉพาะโดยทีม R&D ของเราเพื่อให้ตรงกับคุณสมบัติเฉพาะของผลิตภัณฑ์ ข้อจำกัดด้านพื้นที่ หรือข้อกำหนดของกระบวนการ' },
+        { id: 'export', title: 'บริการส่งออกและติดตั้ง', desc: 'บริการส่งออกครบวงจร รวมถึงการปรับแรงดันไฟฟ้า การจัดส่งระหว่างประเทศ เอกสาร และการติดตั้งทางไกลผ่านวิดีโอ' }
+      ]
+    },
+    vi: {
+      title: 'Giải Pháp Máy Móc',
+      desc: 'Từ máy đơn lẻ đến dây chuyền sản xuất tự động hoàn chỉnh — chúng tôi cung cấp giải pháp ở mọi quy mô. Đội ngũ kỹ sư sẽ thiết kế cấu hình phù hợp cho nhu cầu của bạn.',
+      cats: [
+        { id: 'single', title: 'Giải pháp Máy Đơn lẻ', desc: 'Máy đóng gói, chiết rót, seal hoặc chế biến đơn lẻ được cấu hình theo sản phẩm và yêu cầu sản xuất cụ thể.' },
+        { id: 'semi', title: 'Thiết lập Bán Tự động', desc: 'Kết hợp tiết kiệm giữa các bước thủ công và tự động, lý tưởng cho doanh nghiệp đang phát triển nâng cấp từ sản xuất thủ công.' },
+        { id: 'line', title: 'Giải pháp Dây chuyền Sản xuất', desc: 'Dây chuyền đa máy tích hợp với băng tải, bộ nạp và điều khiển đồng bộ cho sản xuất liên tục khối lượng lớn.' },
+        { id: 'custom', title: 'OEM & Kỹ thuật Tùy chỉnh', desc: 'Máy móc được thiết kế riêng bởi đội ngũ R&D để phù hợp với đặc tính sản phẩm, hạn chế không gian hoặc yêu cầu quy trình.' },
+        { id: 'export', title: 'Hỗ trợ Xuất khẩu & Lắp đặt', desc: 'Dịch vụ xuất khẩu trọn gói bao gồm tùy chỉnh điện áp, vận chuyển quốc tế, chứng từ và hướng dẫn lắp đặt từ xa qua video.' }
+      ]
+    },
+    de: {
+      title: 'Maschinenlösungen',
+      desc: 'Von Einzelmaschinen bis hin zu komplett automatisierten Produktionslinien — wir bieten Lösungen in jeder Größenordnung. Unser Ingenieurteam entwirft die passende Konfiguration für Ihre Anforderungen.',
+      cats: [
+        { id: 'single', title: 'Einzelmaschinenlösungen', desc: 'Individuelle Verpackungs-, Abfüll-, Versiegelungs- oder Verarbeitungsmaschinen, konfiguriert für Ihr spezifisches Produkt und Ihre Produktionsanforderungen.' },
+        { id: 'semi', title: 'Halbautomatische Anlagen', desc: 'Kosteneffiziente Kombinationen aus manuellen und automatisierten Schritten, ideal für wachsende Unternehmen, die von manueller Produktion aufrüsten.' },
+        { id: 'line', title: 'Produktionslinienlösungen', desc: 'Integrierte Mehrmaschinenlinen mit Förderern, Zuführungen und synchronisierten Steuerungen für kontinuierliche Hochvolumenproduktion.' },
+        { id: 'custom', title: 'OEM & Kundenspezifische Technik', desc: 'Zweckgebaut von unserem F&E-Team für einzigartige Produkteigenschaften, Platzbeschränkungen oder Prozessanforderungen.' },
+        { id: 'export', title: 'Export- und Installationssupport', desc: 'Kompletter Exportservice einschließlich Spannungsanpassung, internationalem Versand, Dokumentation und ferngesteuerter Videoinstallationsanleitung.' }
       ]
     }
   }

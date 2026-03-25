@@ -45,6 +45,41 @@ const HOME_SEO = {
     description: 'SunGene fabrica y exporta máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas. Certificado CE, precios de fábrica, exportación a más de 50 países.',
     keywords: ['fabricante maquinaria empaque', 'equipo procesamiento alimentos', 'máquina llenado Taiwán', 'máquina sellado', 'máquina VFFS', 'línea producción automatizada', 'envasadora polvo', 'llenadora líquidos', 'exportador maquinaria industrial'],
   },
+  pt: {
+    title: 'SunGene | Máquinas de Embalagem, Equipamentos de Processamento de Alimentos e Automação Industrial | Fabricante de Taiwan',
+    description: 'A SunGene fabrica e exporta máquinas de embalagem, equipamentos de processamento de alimentos, sistemas de envase e selagem e linhas de produção automatizadas. Certificação CE, preços de fábrica, exportação para mais de 50 países.',
+    keywords: ['fabricante máquinas embalagem', 'equipamento processamento alimentos', 'máquina envase Taiwan', 'máquina selagem', 'máquina VFFS', 'linha produção automatizada', 'embaladora pó', 'envasadora líquidos', 'exportador maquinário industrial'],
+  },
+  ko: {
+    title: 'SunGene | 포장 기계, 식품 가공 장비 및 산업 자동화 | 대만 제조업체',
+    description: 'SunGene은 포장 기계, 식품 가공 장비, 충진 및 밀봉 시스템, 자동화 생산 라인을 제조 및 수출합니다. CE 인증, 공장 직거래 가격, 50개국 이상 수출. 지금 무료 견적을 받으세요.',
+    keywords: ['포장기계 제조업체', '식품가공장비 공급업체', '충진기 대만', '밀봉기 수출업체', 'VFFS 포장기', '분말 포장기', '액체 충진기', '자동화 생산라인', '산업용 기계 대만'],
+  },
+  ja: {
+    title: 'SunGene | 包装機械・食品加工機器・産業オートメーション | 台湾メーカー',
+    description: 'SunGeneは包装機、食品加工機器、充填・シール機、自動化生産ラインを製造・輸出しています。CE認証取得、工場直販価格、50ヶ国以上に輸出。今すぐ無料見積もりをご依頼ください。',
+    keywords: ['包装機械メーカー', '食品加工機器サプライヤー', '充填機 台湾', 'シール機 輸出', 'VFFS包装機', '粉末包装機', '液体充填機', '自動化生産ライン', '産業機械 台湾'],
+  },
+  ar: {
+    title: 'SunGene | آلات التعبئة والتغليف، معدات تجهيز الأغذية والأتمتة الصناعية | شركة تصنيع تايوانية',
+    description: 'تقوم SunGene بتصنيع وتصدير آلات التعبئة والتغليف ومعدات تجهيز الأغذية وأنظمة التعبئة والإغلاق وخطوط الإنتاج المؤتمتة. حاصلة على شهادة CE، أسعار المصنع مباشرة، تصدير إلى أكثر من 50 دولة.',
+    keywords: ['شركة تصنيع آلات تعبئة', 'مورد معدات تجهيز أغذية', 'آلة تعبئة تايوان', 'آلة إغلاق', 'آلة VFFS', 'خط إنتاج مؤتمت', 'آلة تعبئة مسحوق', 'آلة تعبئة سوائل', 'مصدر آلات صناعية'],
+  },
+  th: {
+    title: 'SunGene | เครื่องจักรบรรจุภัณฑ์ อุปกรณ์แปรรูปอาหาร และระบบอัตโนมัติทางอุตสาหกรรม | ผู้ผลิตจากไต้หวัน',
+    description: 'SunGene ผลิตและส่งออกเครื่องจักรบรรจุภัณฑ์ อุปกรณ์แปรรูปอาหาร ระบบบรรจุและปิดผนึก และสายการผลิตอัตโนมัติ ได้รับมาตรฐาน CE ราคาจากโรงงาน ส่งออกไปกว่า 50 ประเทศ',
+    keywords: ['ผู้ผลิตเครื่องจักรบรรจุภัณฑ์', 'อุปกรณ์แปรรูปอาหาร', 'เครื่องบรรจุ ไต้หวัน', 'เครื่องปิดผนึก', 'เครื่อง VFFS', 'สายการผลิตอัตโนมัติ', 'เครื่องบรรจุผง', 'เครื่องบรรจุของเหลว', 'ผู้ส่งออกเครื่องจักรอุตสาหกรรม'],
+  },
+  vi: {
+    title: 'SunGene | Máy Đóng Gói, Thiết Bị Chế Biến Thực Phẩm & Tự Động Hóa Công Nghiệp | Nhà Sản Xuất Đài Loan',
+    description: 'SunGene sản xuất và xuất khẩu máy đóng gói, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, và dây chuyền sản xuất tự động. Chứng nhận CE, giá trực tiếp từ nhà máy, xuất khẩu đến hơn 50 quốc gia.',
+    keywords: ['nhà sản xuất máy đóng gói', 'thiết bị chế biến thực phẩm', 'máy chiết rót Đài Loan', 'máy hàn kín', 'máy VFFS', 'dây chuyền sản xuất tự động', 'máy đóng gói bột', 'máy chiết rót chất lỏng', 'nhà xuất khẩu máy công nghiệp'],
+  },
+  de: {
+    title: 'SunGene | Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen & Industrieautomation | Hersteller aus Taiwan',
+    description: 'SunGene produziert und exportiert Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme sowie automatisierte Produktionslinien. CE-zertifiziert, ab Werk, Export in über 50 Länder.',
+    keywords: ['Verpackungsmaschinen Hersteller', 'Lebensmittelverarbeitungsanlagen Lieferant', 'Abfüllmaschine Taiwan', 'Versiegelungsmaschine', 'VFFS Verpackungsmaschine', 'automatisierte Produktionslinie', 'Pulververpackungsmaschine', 'Flüssigkeitsabfüllmaschine', 'Industriemaschinen Exporteur'],
+  },
 } as const
 
 function normalizeLang(lang?: string): Lang {

@@ -30,6 +30,78 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
       subTitle: '何時可能需要客製化',
       cons: ['特殊產品形狀或物料特性', '非標準佈局需求', '與現有工作流整合', '獨特的包裝或處理邏輯', '特定市場的技術條件'],
       cta: '如果您的專案不易匹配標準機器，請告訴我們您的應用和挑戰。'
+    },
+    fr: {
+      title: 'Support machines sur mesure',
+      p1: 'Chaque besoin de production ne peut pas être résolu avec une machine standard. Certains projets nécessitent des modifications de taille, de structure, de méthode de manipulation, de connexion de flux de travail ou de fonction spécifique à l\'application.',
+      p2: 'Nous accompagnons les acheteurs qui explorent des directions de machines non standard et qui ont besoin d\'une approche plus pratique pour passer du concept à une planification d\'équipement viable.',
+      subTitle: 'Quand la personnalisation peut être nécessaire',
+      cons: ['Forme de produit ou comportement de matériau spécial', 'Exigences de disposition non standard', 'Intégration avec le flux de travail existant', 'Logique d\'emballage ou de manipulation unique', 'Conditions techniques spécifiques au marché'],
+      cta: 'Si votre projet ne correspond pas facilement à une machine standard, parlez-nous de l\'application et du défi.'
+    },
+    es: {
+      title: 'Soporte de maquinaria personalizada',
+      p1: 'No todas las necesidades de producción pueden resolverse con una máquina estándar. Algunos proyectos requieren modificaciones en el tamaño, estructura, método de manipulación, conexión del flujo de trabajo o función específica de la aplicación.',
+      p2: 'Apoyamos a los compradores que exploran direcciones de maquinaria no estándar y necesitan una forma más práctica de pasar del concepto a la planificación de equipos viables.',
+      subTitle: 'Cuándo puede ser necesaria la personalización',
+      cons: ['Forma de producto o comportamiento de material especial', 'Requisitos de diseño no estándar', 'Integración con flujo de trabajo existente', 'Lógica de empaque o manipulación única', 'Condiciones técnicas específicas del mercado'],
+      cta: 'Si su proyecto no se adapta fácilmente a una máquina estándar, cuéntenos sobre la aplicación y el desafío.'
+    },
+    pt: {
+      title: 'Suporte para máquinas personalizadas',
+      p1: 'Nem toda necessidade de produção pode ser resolvida com uma máquina padrão. Alguns projetos requerem modificações no tamanho, estrutura, método de manuseio, conexão de fluxo de trabalho ou função específica da aplicação.',
+      p2: 'Apoiamos compradores que estão explorando direções de máquinas não padronizadas e precisam de uma forma mais prática de avançar do conceito ao planejamento de equipamentos viáveis.',
+      subTitle: 'Quando a personalização pode ser necessária',
+      cons: ['Forma de produto ou comportamento de material especial', 'Requisitos de layout não padrão', 'Integração com fluxo de trabalho existente', 'Lógica de embalagem ou manuseio única', 'Condições técnicas específicas do mercado'],
+      cta: 'Se seu projeto não se encaixa facilmente em uma máquina padrão, conte-nos sobre a aplicação e o desafio.'
+    },
+    ko: {
+      title: '맞춤형 기계 지원',
+      p1: '모든 생산 요구를 표준 기계로 해결할 수 있는 것은 아닙니다. 일부 프로젝트는 기계 크기, 구조, 취급 방법, 워크플로 연결 또는 애플리케이션별 기능의 수정이 필요합니다.',
+      p2: '비표준 기계 방향을 탐색 중인 구매자를 지원하며, 개념에서 실행 가능한 장비 계획으로 보다 실질적으로 진행할 수 있도록 도와드립니다.',
+      subTitle: '맞춤화가 필요할 수 있는 경우',
+      cons: ['특수한 제품 형태 또는 소재 특성', '비표준 레이아웃 요구사항', '기존 워크플로와의 통합', '고유한 포장 또는 처리 로직', '시장별 기술 조건'],
+      cta: '프로젝트가 표준 기계에 쉽게 맞지 않는다면, 애플리케이션과 과제를 알려주세요.'
+    },
+    ja: {
+      title: 'カスタム機械サポート',
+      p1: 'すべての生産ニーズが標準機械で解決できるわけではありません。一部のプロジェクトでは、機械のサイズ、構造、取り扱い方法、ワークフロー接続、またはアプリケーション固有の機能の変更が必要です。',
+      p2: '非標準的な機械の方向性を模索しているバイヤーをサポートし、コンセプトから実行可能な機器計画へとより実用的に進める方法を提供しています。',
+      subTitle: 'カスタマイズが必要な場合',
+      cons: ['特殊な製品形状や素材の挙動', '非標準的なレイアウト要件', '既存ワークフローとの統合', '独自の包装・取り扱いロジック', '市場固有の技術条件'],
+      cta: 'プロジェクトが標準機械に簡単に適合しない場合は、用途と課題をお知らせください。'
+    },
+    ar: {
+      title: 'دعم الآلات المخصصة',
+      p1: 'لا يمكن حل كل احتياج إنتاجي بآلة قياسية. تتطلب بعض المشاريع تعديلات في حجم الآلة أو هيكلها أو طريقة المناولة أو اتصال سير العمل أو الوظيفة الخاصة بالتطبيق.',
+      p2: 'ندعم المشترين الذين يستكشفون اتجاهات آلات غير قياسية ويحتاجون إلى طريقة أكثر عملية للانتقال من المفهوم إلى تخطيط المعدات القابلة للتنفيذ.',
+      subTitle: 'متى قد تكون التخصيص ضرورياً',
+      cons: ['شكل منتج خاص أو سلوك مادة', 'متطلبات تخطيط غير قياسية', 'التكامل مع سير العمل الحالي', 'منطق تعبئة أو مناولة فريد', 'ظروف تقنية خاصة بالسوق'],
+      cta: 'إذا لم يكن مشروعك يتناسب بسهولة مع آلة قياسية، أخبرنا عن التطبيق والتحدي.'
+    },
+    th: {
+      title: 'การสนับสนุนเครื่องจักรแบบกำหนดเอง',
+      p1: 'ไม่ใช่ทุกความต้องการในการผลิตจะสามารถแก้ไขได้ด้วยเครื่องจักรมาตรฐาน บางโครงการต้องการการปรับเปลี่ยนในขนาดเครื่อง โครงสร้าง วิธีการจัดการ การเชื่อมต่อเวิร์กโฟลว์ หรือฟังก์ชันเฉพาะของแอปพลิเคชัน',
+      p2: 'เราสนับสนุนผู้ซื้อที่กำลังสำรวจทิศทางเครื่องจักรที่ไม่เป็นมาตรฐาน และต้องการวิธีที่เป็นรูปธรรมมากขึ้นในการก้าวจากแนวคิดไปสู่การวางแผนอุปกรณ์ที่ใช้งานได้จริง',
+      subTitle: 'เมื่อใดที่อาจต้องการการปรับแต่ง',
+      cons: ['รูปทรงผลิตภัณฑ์พิเศษหรือพฤติกรรมวัสดุ', 'ข้อกำหนดเลย์เอาต์ที่ไม่เป็นมาตรฐาน', 'การบูรณาการกับเวิร์กโฟลว์ที่มีอยู่', 'ตรรกะการบรรจุภัณฑ์หรือการจัดการที่เป็นเอกลักษณ์', 'เงื่อนไขทางเทคนิคเฉพาะตลาด'],
+      cta: 'หากโครงการของคุณไม่เหมาะกับเครื่องจักรมาตรฐาน บอกเราเกี่ยวกับการใช้งานและความท้าทาย'
+    },
+    vi: {
+      title: 'Hỗ trợ máy móc tùy chỉnh',
+      p1: 'Không phải mọi nhu cầu sản xuất đều có thể giải quyết bằng máy tiêu chuẩn. Một số dự án yêu cầu sửa đổi về kích thước máy, cấu trúc, phương pháp xử lý, kết nối quy trình làm việc hoặc chức năng dành riêng cho ứng dụng.',
+      p2: 'Chúng tôi hỗ trợ người mua đang khám phá hướng đi máy móc không tiêu chuẩn và cần cách thực tế hơn để chuyển từ khái niệm sang lập kế hoạch thiết bị khả thi.',
+      subTitle: 'Khi nào có thể cần tùy chỉnh',
+      cons: ['Hình dạng sản phẩm hoặc đặc tính vật liệu đặc biệt', 'Yêu cầu bố trí không tiêu chuẩn', 'Tích hợp với quy trình làm việc hiện có', 'Logic đóng gói hoặc xử lý độc đáo', 'Điều kiện kỹ thuật đặc thù thị trường'],
+      cta: 'Nếu dự án của bạn không dễ phù hợp với máy tiêu chuẩn, hãy cho chúng tôi biết ứng dụng và thách thức.'
+    },
+    de: {
+      title: 'Unterstützung für kundenspezifische Maschinen',
+      p1: 'Nicht jeder Produktionsbedarf kann mit einer Standardmaschine gelöst werden. Einige Projekte erfordern Anpassungen bei Maschinengröße, Struktur, Handhabungsmethode, Workflow-Verbindung oder anwendungsspezifischer Funktion.',
+      p2: 'Wir unterstützen Käufer, die nicht standardmäßige Maschinenrichtungen erkunden und einen praktischeren Weg vom Konzept zur realisierbaren Ausrüstungsplanung benötigen.',
+      subTitle: 'Wann eine Anpassung erforderlich sein kann',
+      cons: ['Spezielle Produktform oder Materialverhalten', 'Nicht standardmäßige Layout-Anforderungen', 'Integration in bestehende Arbeitsabläufe', 'Einzigartige Verpackungs- oder Handhabungslogik', 'Marktspezifische technische Bedingungen'],
+      cta: 'Wenn Ihr Projekt nicht leicht zu einer Standardmaschine passt, teilen Sie uns die Anwendung und Herausforderung mit.'
     }
   }
   const t = content[lang] || content['en']

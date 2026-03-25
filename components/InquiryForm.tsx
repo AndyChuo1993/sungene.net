@@ -151,7 +151,7 @@ export default function InquiryForm({
           onClick={() => setStatus('idle')}
           className="mt-6 text-brand-800 font-medium hover:underline"
         >
-          {({en: 'Submit another request', cn: '再次提交需求', zh: '再次提交需求', fr: 'Soumettre une autre demande', es: 'Enviar otra solicitud' } as Record<string,string>)[lang] || 'Submit another request'}
+          {({en: 'Submit another request', cn: '再次提交需求', zh: '再次提交需求', fr: 'Soumettre une autre demande', es: 'Enviar otra solicitud', pt: 'Enviar outra solicitação', ko: '다른 요청 제출', ja: '別のリクエストを送信', ar: 'إرسال طلب آخر', th: 'ส่งคำขออีกครั้ง', vi: 'Gửi yêu cầu khác', de: 'Weitere Anfrage senden' } as Record<string,string>)[lang] || 'Submit another request'}
         </button>
       </div>
     )
@@ -206,7 +206,7 @@ export default function InquiryForm({
 
       {status === 'email_error' && (
         <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
-          <strong>{({en: 'Invalid Email', cn: '邮箱格式错误', zh: '電子郵件格式錯誤', fr: 'E-mail invalide', es: 'Correo no válido' } as Record<string,string>)[lang] || 'Invalid Email'}</strong>: {({en: 'Please enter a valid email address.', cn: '请输入有效的邮箱地址。', zh: '請輸入有效的電子郵件地址。', fr: 'Veuillez saisir une adresse e-mail valide.', es: 'Por favor ingrese una dirección de correo válida.' } as Record<string,string>)[lang] || 'Please enter a valid email address.'}
+          <strong>{({en: 'Invalid Email', cn: '邮箱格式错误', zh: '電子郵件格式錯誤', fr: 'E-mail invalide', es: 'Correo no válido', pt: 'E-mail inválido', ko: '잘못된 이메일', ja: '無効なメールアドレス', ar: 'بريد إلكتروني غير صالح', th: 'อีเมลไม่ถูกต้อง', vi: 'Email không hợp lệ', de: 'Ungültige E-Mail' } as Record<string,string>)[lang] || 'Invalid Email'}</strong>: {({en: 'Please enter a valid email address.', cn: '请输入有效的邮箱地址。', zh: '請輸入有效的電子郵件地址。', fr: 'Veuillez saisir une adresse e-mail valide.', es: 'Por favor ingrese una dirección de correo válida.', pt: 'Por favor, insira um endereço de e-mail válido.', ko: '유효한 이메일 주소를 입력해 주세요.', ja: '有効なメールアドレスを入力してください。', ar: 'يرجى إدخال عنوان بريد إلكتروني صالح.', th: 'กรุณากรอกที่อยู่อีเมลที่ถูกต้อง', vi: 'Vui lòng nhập địa chỉ email hợp lệ.', de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' } as Record<string,string>)[lang] || 'Please enter a valid email address.'}
         </div>
       )}
 
@@ -221,7 +221,7 @@ export default function InquiryForm({
       </div>
       
       <p className="text-xs text-center text-gray-400 mt-4">
-        {({en: 'By submitting this form, you agree to our privacy policy. We respect your data privacy.', cn: '提交表单即代表您同意我们的隐私权政策。我们尊重您的数据隐私。', zh: '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。', fr: 'En soumettant ce formulaire, vous acceptez notre politique de confidentialité. Nous respectons la confidentialité de vos données.', es: 'Al enviar este formulario, acepta nuestra política de privacidad. Respetamos la privacidad de sus datos.' } as Record<string,string>)[lang] || 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
+        {({en: 'By submitting this form, you agree to our privacy policy. We respect your data privacy.', cn: '提交表单即代表您同意我们的隐私权政策。我们尊重您的数据隐私。', zh: '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。', fr: 'En soumettant ce formulaire, vous acceptez notre politique de confidentialité. Nous respectons la confidentialité de vos données.', es: 'Al enviar este formulario, acepta nuestra política de privacidad. Respetamos la privacidad de sus datos.', pt: 'Ao enviar este formulário, você concorda com nossa política de privacidade. Respeitamos a privacidade dos seus dados.', ko: '이 양식을 제출하면 개인정보 처리방침에 동의하게 됩니다. 귀하의 데이터 프라이버시를 존중합니다.', ja: 'このフォームを送信することで、プライバシーポリシーに同意したものとみなされます。お客様のデータプライバシーを尊重します。', ar: 'بإرسال هذا النموذج، فإنك توافق على سياسة الخصوصية الخاصة بنا. نحن نحترم خصوصية بياناتك.', th: 'การส่งแบบฟอร์มนี้ถือว่าคุณยอมรับนโยบายความเป็นส่วนตัวของเรา เราเคารพความเป็นส่วนตัวของข้อมูลของคุณ', vi: 'Bằng việc gửi biểu mẫu này, bạn đồng ý với chính sách bảo mật của chúng tôi. Chúng tôi tôn trọng quyền riêng tư dữ liệu của bạn.', de: 'Mit dem Absenden dieses Formulars stimmen Sie unserer Datenschutzrichtlinie zu. Wir respektieren Ihre Datenprivatsphäre.' } as Record<string,string>)[lang] || 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
       </p>
     </form>
   )

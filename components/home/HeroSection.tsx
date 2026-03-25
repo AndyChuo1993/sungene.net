@@ -69,6 +69,97 @@ export default function HeroSection({ lang }: { lang: Lang }) {
         { value: '15+', label: 'Años de experiencia' },
         { value: '24/7', label: 'Soporte técnico' },
       ]
+    },
+    pt: {
+      kicker: 'FORNECEDOR DE MÁQUINAS DE CONFIANÇA DE TAIWAN',
+      h1: 'Máquinas Industriais para Embalagem, Processamento de Alimentos e Automação',
+      sub: 'Fabricamos e exportamos máquinas de embalagem de alto desempenho, equipamentos de processamento de alimentos, sistemas de envase e selagem, e linhas de produção automatizadas para compradores em todo o mundo.',
+      btnQuote: 'Solicitar Orçamento Gratuito',
+      btnCatalog: 'Ver Catálogo de Máquinas',
+      stats: [
+        { value: '500+', label: 'Máquinas Exportadas' },
+        { value: '50+', label: 'Países Atendidos' },
+        { value: '15+', label: 'Anos de Experiência' },
+        { value: '24/7', label: 'Suporte Técnico' },
+      ]
+    },
+    ko: {
+      kicker: '대만의 신뢰할 수 있는 기계 공급업체',
+      h1: '포장, 식품 가공 및 자동화를 위한 산업용 기계',
+      sub: '고성능 포장기, 식품 가공 장비, 충전 및 밀봉 시스템, 자동화 생산 라인을 제조하여 전 세계 바이어에게 수출합니다.',
+      btnQuote: '무료 견적 요청',
+      btnCatalog: '기계 카탈로그 보기',
+      stats: [
+        { value: '500+', label: '수출 기계' },
+        { value: '50+', label: '서비스 국가' },
+        { value: '15+', label: '년 경력' },
+        { value: '24/7', label: '기술 지원' },
+      ]
+    },
+    ja: {
+      kicker: '台湾の信頼できる機械サプライヤー',
+      h1: '包装・食品加工・自動化のための産業機械',
+      sub: '高性能包装機、食品加工設備、充填・シール システム、自動化生産ラインを製造し、世界中のバイヤーに輸出しています。',
+      btnQuote: '無料見積もりを取得',
+      btnCatalog: '機械カタログを見る',
+      stats: [
+        { value: '500+', label: '輸出台数' },
+        { value: '50+', label: 'カ国に対応' },
+        { value: '15+', label: '年の実績' },
+        { value: '24/7', label: '技術サポート' },
+      ]
+    },
+    ar: {
+      kicker: 'مورد آلات موثوق من تايوان',
+      h1: 'آلات صناعية للتعبئة والتغليف ومعالجة الأغذية والأتمتة',
+      sub: 'نصنع ونصدر آلات تعبئة وتغليف عالية الأداء، ومعدات معالجة الأغذية، وأنظمة التعبئة والختم، وخطوط الإنتاج الآلية للمشترين حول العالم.',
+      btnQuote: 'احصل على عرض سعر مجاني',
+      btnCatalog: 'عرض كتالوج الآلات',
+      stats: [
+        { value: '500+', label: 'آلة مُصدَّرة' },
+        { value: '50+', label: 'دولة مخدومة' },
+        { value: '15+', label: 'سنة خبرة' },
+        { value: '24/7', label: 'دعم فني' },
+      ]
+    },
+    th: {
+      kicker: 'ผู้จำหน่ายเครื่องจักรที่เชื่อถือได้จากไต้หวัน',
+      h1: 'เครื่องจักรอุตสาหกรรมสำหรับการบรรจุภัณฑ์ การแปรรูปอาหาร และระบบอัตโนมัติ',
+      sub: 'เราผลิตและส่งออกเครื่องบรรจุภัณฑ์ประสิทธิภาพสูง อุปกรณ์แปรรูปอาหาร ระบบบรรจุและปิดผนึก และสายการผลิตอัตโนมัติให้กับผู้ซื้อทั่วโลก',
+      btnQuote: 'ขอใบเสนอราคาฟรี',
+      btnCatalog: 'ดูแคตตาล็อกเครื่องจักร',
+      stats: [
+        { value: '500+', label: 'เครื่องจักรส่งออก' },
+        { value: '50+', label: 'ประเทศที่ให้บริการ' },
+        { value: '15+', label: 'ปีประสบการณ์' },
+        { value: '24/7', label: 'สนับสนุนทางเทคนิค' },
+      ]
+    },
+    vi: {
+      kicker: 'NHÀ CUNG CẤP MÁY MÓC UY TÍN TỪ ĐÀI LOAN',
+      h1: 'Máy Móc Công Nghiệp cho Đóng Gói, Chế Biến Thực Phẩm & Tự Động Hóa',
+      sub: 'Chúng tôi sản xuất và xuất khẩu máy đóng gói hiệu suất cao, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, cùng dây chuyền sản xuất tự động cho khách hàng toàn cầu.',
+      btnQuote: 'Nhận Báo Giá Miễn Phí',
+      btnCatalog: 'Xem Danh Mục Máy Móc',
+      stats: [
+        { value: '500+', label: 'Máy Đã Xuất Khẩu' },
+        { value: '50+', label: 'Quốc Gia Phục Vụ' },
+        { value: '15+', label: 'Năm Kinh Nghiệm' },
+        { value: '24/7', label: 'Hỗ Trợ Kỹ Thuật' },
+      ]
+    },
+    de: {
+      kicker: 'VERTRAUENSWÜRDIGER MASCHINENLIEFERANT AUS TAIWAN',
+      h1: 'Industriemaschinen für Verpackung, Lebensmittelverarbeitung & Automatisierung',
+      sub: 'Wir fertigen und exportieren Hochleistungs-Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme sowie automatisierte Produktionslinien für Käufer weltweit.',
+      btnQuote: 'Kostenloses Angebot anfordern',
+      btnCatalog: 'Maschinenkatalog ansehen',
+      stats: [
+        { value: '500+', label: 'Exportierte Maschinen' },
+        { value: '50+', label: 'Belieferte Länder' },
+        { value: '15+', label: 'Jahre Erfahrung' },
+        { value: '24/7', label: 'Technischer Support' },
+      ]
     }
   }
 

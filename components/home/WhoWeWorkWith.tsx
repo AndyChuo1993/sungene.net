@@ -69,6 +69,83 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
         { title: 'Compradores de proyectos e ingenieros', desc: 'Planifique nuevas líneas de producción o ampliaciones de planta con nuestra consultoría de ingeniería y soporte en selección de equipos.' },
         { title: 'OEM y propietarios de marcas', desc: 'Maquinaria personalizada con su marca y soluciones de equipos de marca blanca para ampliar su línea de productos.' },
       ]
+    },
+    pt: {
+      kicker: 'NOSSOS CLIENTES',
+      title: 'Quem Atendemos',
+      desc: 'Nossas máquinas industriais atendem uma ampla variedade de compradores globais em toda a cadeia de suprimentos.',
+      items: [
+        { title: 'Importadores e Distribuidores', desc: 'Adquira máquinas a preços diretos de fábrica para o seu mercado local com documentação de exportação e embalagem completas.' },
+        { title: 'Fabricantes de Alimentos e Bebidas', desc: 'Aumente a capacidade de produção com equipamentos eficientes de processamento, embalagem e automação.' },
+        { title: 'Compradores de Projetos e Engenheiros', desc: 'Planeje novas linhas de produção ou expansões de fábrica com nossa consultoria de engenharia e suporte na seleção de equipamentos.' },
+        { title: 'OEM e Proprietários de Marcas', desc: 'Máquinas com marca personalizada e soluções de equipamentos white-label para expandir sua linha de produtos.' },
+      ]
+    },
+    ko: {
+      kicker: '고객 안내',
+      title: '서비스 대상',
+      desc: '당사의 산업용 기계는 공급망 전반에 걸쳐 다양한 글로벌 바이어에게 서비스를 제공합니다.',
+      items: [
+        { title: '수입업체 및 유통업체', desc: '완전한 수출 서류 및 포장과 함께 현지 시장을 위한 기계를 공장 직판 가격으로 구매하세요.' },
+        { title: '식품 및 음료 제조업체', desc: '효율적인 가공, 포장 및 자동화 장비로 생산 능력을 향상시키세요.' },
+        { title: '프로젝트 바이어 및 엔지니어', desc: '당사의 엔지니어링 컨설팅과 장비 선정 지원으로 새로운 생산 라인 또는 시설 확장을 계획하세요.' },
+        { title: 'OEM 및 브랜드 오너', desc: '제품 라인 확장을 위한 맞춤 브랜드 기계 및 화이트 라벨 장비 솔루션.' },
+      ]
+    },
+    ja: {
+      kicker: '当社の顧客',
+      title: 'サービス対象',
+      desc: '当社の産業機械は、サプライチェーン全体にわたる多様なグローバルバイヤーにサービスを提供しています。',
+      items: [
+        { title: '輸入業者・販売代理店', desc: '完全な輸出書類と梱包付きで、現地市場向けの機械を工場直販価格で調達できます。' },
+        { title: '食品・飲料メーカー', desc: '効率的な加工、包装、自動化設備で生産能力を向上させましょう。' },
+        { title: 'プロジェクトバイヤー・エンジニア', desc: '当社のエンジニアリングコンサルティングと設備選定サポートで、新しい生産ラインや施設拡張を計画しましょう。' },
+        { title: 'OEM・ブランドオーナー', desc: '製品ラインの拡大に向けた、カスタムブランド機械とホワイトラベル設備ソリューション。' },
+      ]
+    },
+    ar: {
+      kicker: 'عملاؤنا',
+      title: 'من نخدم',
+      desc: 'تخدم آلاتنا الصناعية مجموعة متنوعة من المشترين العالميين عبر سلسلة التوريد.',
+      items: [
+        { title: 'المستوردون والموزعون', desc: 'احصل على الآلات بأسعار المصنع المباشرة لسوقك المحلي مع وثائق تصدير وتغليف كاملة.' },
+        { title: 'مصنعو الأغذية والمشروبات', desc: 'قم بزيادة طاقتك الإنتاجية بمعدات معالجة وتعبئة وأتمتة فعالة.' },
+        { title: 'مشترو المشاريع والمهندسون', desc: 'خطط لخطوط إنتاج جديدة أو توسعات المنشآت مع استشاراتنا الهندسية ودعم اختيار المعدات.' },
+        { title: 'مصنعو المعدات الأصلية وأصحاب العلامات التجارية', desc: 'آلات مخصصة بعلامتك التجارية وحلول معدات بالعلامة البيضاء لتوسيع خط منتجاتك.' },
+      ]
+    },
+    th: {
+      kicker: 'ลูกค้าของเรา',
+      title: 'เราให้บริการใคร',
+      desc: 'เครื่องจักรอุตสาหกรรมของเราให้บริการผู้ซื้อทั่วโลกที่หลากหลายตลอดห่วงโซ่อุปทาน',
+      items: [
+        { title: 'ผู้นำเข้าและผู้จัดจำหน่าย', desc: 'จัดหาเครื่องจักรในราคาโรงงานโดยตรงสำหรับตลาดท้องถิ่นของคุณ พร้อมเอกสารส่งออกและบรรจุภัณฑ์ครบถ้วน' },
+        { title: 'ผู้ผลิตอาหารและเครื่องดื่ม', desc: 'เพิ่มกำลังการผลิตด้วยอุปกรณ์แปรรูป บรรจุภัณฑ์ และระบบอัตโนมัติที่มีประสิทธิภาพ' },
+        { title: 'ผู้ซื้อโครงการและวิศวกร', desc: 'วางแผนสายการผลิตใหม่หรือการขยายโรงงานด้วยคำปรึกษาทางวิศวกรรมและการสนับสนุนการเลือกอุปกรณ์จากเรา' },
+        { title: 'OEM และเจ้าของแบรนด์', desc: 'เครื่องจักรติดแบรนด์ของคุณและโซลูชันอุปกรณ์ไวท์เลเบลสำหรับขยายสายผลิตภัณฑ์ของคุณ' },
+      ]
+    },
+    vi: {
+      kicker: 'KHÁCH HÀNG CỦA CHÚNG TÔI',
+      title: 'Đối Tượng Phục Vụ',
+      desc: 'Máy móc công nghiệp của chúng tôi phục vụ đa dạng khách hàng toàn cầu trong chuỗi cung ứng.',
+      items: [
+        { title: 'Nhà Nhập Khẩu và Phân Phối', desc: 'Mua máy móc với giá trực tiếp từ nhà máy cho thị trường địa phương của bạn với đầy đủ chứng từ xuất khẩu và đóng gói.' },
+        { title: 'Nhà Sản Xuất Thực Phẩm và Đồ Uống', desc: 'Nâng cao năng lực sản xuất với thiết bị chế biến, đóng gói và tự động hóa hiệu quả.' },
+        { title: 'Nhà Mua Dự Án và Kỹ Sư', desc: 'Lập kế hoạch dây chuyền sản xuất mới hoặc mở rộng nhà máy với tư vấn kỹ thuật và hỗ trợ lựa chọn thiết bị từ chúng tôi.' },
+        { title: 'OEM và Chủ Sở Hữu Thương Hiệu', desc: 'Máy móc mang thương hiệu riêng và giải pháp thiết bị nhãn trắng để mở rộng dòng sản phẩm của bạn.' },
+      ]
+    },
+    de: {
+      kicker: 'UNSERE KUNDEN',
+      title: 'Wen wir bedienen',
+      desc: 'Unsere Industriemaschinen bedienen eine vielfältige Palette globaler Einkäufer entlang der gesamten Lieferkette.',
+      items: [
+        { title: 'Importeure und Händler', desc: 'Beziehen Sie Maschinen zu direkten Werkspreisen für Ihren lokalen Markt mit vollständiger Exportdokumentation und Verpackung.' },
+        { title: 'Lebensmittel- und Getränkehersteller', desc: 'Steigern Sie Ihre Produktionskapazität mit effizienten Verarbeitungs-, Verpackungs- und Automatisierungsanlagen.' },
+        { title: 'Projektkäufer und Ingenieure', desc: 'Planen Sie neue Produktionslinien oder Werkserweiterungen mit unserer Ingenieursberatung und Unterstützung bei der Geräteauswahl.' },
+        { title: 'OEM und Markeninhaber', desc: 'Individuell gebrandete Maschinen und White-Label-Ausrüstungslösungen zur Erweiterung Ihrer Produktlinie.' },
+      ]
     }
   }
 

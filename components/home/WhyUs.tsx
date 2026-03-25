@@ -68,6 +68,97 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '05', title: 'OEM e ingeniería a medida', desc: 'Nuestro equipo de I+D puede personalizar dimensiones, materiales, capacidad de producción y nivel de automatización según su entorno productivo.' },
         { icon: '06', title: 'Calidad certificada', desc: 'Maquinaria con certificación CE, fabricada en acero inoxidable de grado alimentario (SUS304/316L), cumpliendo normas internacionales de seguridad e higiene.' },
       ]
+    },
+    pt: {
+      kicker: 'POR QUE NOS ESCOLHER',
+      title: 'Seu Parceiro de Máquinas de Confiança na Ásia',
+      desc: 'Vamos além da venda de máquinas. Desde a seleção do equipamento certo até a gestão da logística de exportação, oferecemos suporte completo em que compradores globais confiam.',
+      items: [
+        { icon: '01', title: 'Preço Direto de Fábrica', desc: 'Como fabricante com instalações próprias de produção, oferecemos preços competitivos direto de fábrica, sem margens de intermediários.' },
+        { icon: '02', title: 'Soluções Prontas para Uso', desc: 'De máquinas individuais a linhas de produção completas, projetamos e entregamos soluções integradas sob medida para suas necessidades específicas.' },
+        { icon: '03', title: 'Expertise em Exportação Global', desc: 'Experiência em exportação para mais de 50 países com documentação completa, personalização de voltagem e suporte logístico internacional.' },
+        { icon: '04', title: 'Pós-Venda e Treinamento', desc: 'Orientação de instalação por vídeo remoto, treinamento de operadores, fornecimento de peças de reposição e suporte técnico 24/7 para todos os equipamentos.' },
+        { icon: '05', title: 'OEM e Engenharia Personalizada', desc: 'Nossa equipe de P&D pode personalizar dimensões, materiais, capacidade de produção e níveis de automação para atender ao seu ambiente de produção.' },
+        { icon: '06', title: 'Qualidade Certificada', desc: 'Máquinas com certificação CE fabricadas em aço inoxidável grau alimentício (SUS304/316L), atendendo padrões internacionais de segurança e higiene.' },
+      ]
+    },
+    ko: {
+      kicker: '당사를 선택하는 이유',
+      title: '아시아의 신뢰할 수 있는 기계 파트너',
+      desc: '단순한 기계 판매를 넘어, 적합한 장비 선정부터 수출 물류 관리까지 글로벌 바이어가 신뢰하는 종합 지원을 제공합니다.',
+      items: [
+        { icon: '01', title: '공장 직판 가격', desc: '자체 생산 시설을 보유한 제조업체로서 중간 유통 마진 없이 경쟁력 있는 공장 직판 가격을 제공합니다.' },
+        { icon: '02', title: '턴키 솔루션', desc: '단일 기계부터 완전한 생산 라인까지, 고객의 요구 사항에 맞춘 통합 솔루션을 설계하고 납품합니다.' },
+        { icon: '03', title: '글로벌 수출 전문성', desc: '50개 이상의 국가에 수출 경험을 보유하며, 완전한 서류, 전압 맞춤 및 국제 물류 지원을 제공합니다.' },
+        { icon: '04', title: 'A/S 및 교육', desc: '원격 화상 설치 안내, 운전자 교육, 예비 부품 공급 및 모든 장비에 대한 24/7 기술 지원.' },
+        { icon: '05', title: 'OEM 및 맞춤 엔지니어링', desc: '당사 R&D팀이 생산 환경에 맞게 치수, 재료, 생산 용량 및 자동화 수준을 맞춤 설계합니다.' },
+        { icon: '06', title: '품질 인증', desc: 'CE 인증 기계로, 식품 등급 스테인리스강(SUS304/316L)으로 제작되어 국제 안전 및 위생 기준을 충족합니다.' },
+      ]
+    },
+    ja: {
+      kicker: '選ばれる理由',
+      title: 'アジアの信頼できる機械パートナー',
+      desc: '単なる機械販売にとどまりません。最適な設備の選定から輸出物流の管理まで、世界中のバイヤーが頼りにするエンドツーエンドのサポートを提供します。',
+      items: [
+        { icon: '01', title: '工場直販価格', desc: '自社生産施設を持つメーカーとして、仲介マージンなしの競争力ある工場直販価格を提供します。' },
+        { icon: '02', title: 'ターンキーソリューション', desc: '単体機械から完全な生産ラインまで、お客様の要件に合わせた統合ソリューションを設計・納品します。' },
+        { icon: '03', title: 'グローバル輸出実績', desc: '50カ国以上への輸出実績があり、完全な書類作成、電圧カスタマイズ、国際配送サポートを提供します。' },
+        { icon: '04', title: 'アフターサービスとトレーニング', desc: 'リモートビデオによる設置ガイダンス、オペレーター研修、予備部品供給、全設備24時間365日技術サポート。' },
+        { icon: '05', title: 'OEMとカスタムエンジニアリング', desc: '当社のR&Dチームが、お客様の生産環境に合わせて寸法、素材、生産能力、自動化レベルをカスタマイズします。' },
+        { icon: '06', title: '品質認証取得', desc: 'CE認証取得機械。食品グレードのステンレス鋼（SUS304/316L）で製造し、国際安全衛生基準に適合しています。' },
+      ]
+    },
+    ar: {
+      kicker: 'لماذا تختارنا',
+      title: 'شريكك الموثوق للآلات في آسيا',
+      desc: 'نتجاوز مجرد بيع الآلات. من اختيار المعدات المناسبة إلى إدارة لوجستيات التصدير، نقدم دعمًا شاملاً يعتمد عليه المشترون العالميون.',
+      items: [
+        { icon: '01', title: 'أسعار المصنع المباشرة', desc: 'بصفتنا مصنعًا يمتلك منشآت إنتاج خاصة، نقدم أسعار مصنع تنافسية بدون هوامش وسطاء.' },
+        { icon: '02', title: 'حلول متكاملة جاهزة', desc: 'من الآلات المنفردة إلى خطوط الإنتاج الكاملة، نصمم ونسلم حلولاً متكاملة مصممة وفق متطلباتكم المحددة.' },
+        { icon: '03', title: 'خبرة تصدير عالمية', desc: 'خبرة في التصدير إلى أكثر من 50 دولة مع وثائق كاملة وتخصيص الجهد الكهربائي ودعم الشحن الدولي.' },
+        { icon: '04', title: 'خدمة ما بعد البيع والتدريب', desc: 'إرشادات التركيب عبر الفيديو عن بُعد، تدريب المشغلين، توريد قطع الغيار، ودعم فني على مدار الساعة لجميع معداتنا.' },
+        { icon: '05', title: 'OEM وهندسة مخصصة', desc: 'يمكن لفريق البحث والتطوير لدينا تخصيص الأبعاد والمواد وسعة الإنتاج ومستويات الأتمتة لتناسب بيئة الإنتاج لديكم.' },
+        { icon: '06', title: 'جودة معتمدة', desc: 'آلات حاصلة على شهادة CE مصنوعة من الفولاذ المقاوم للصدأ بدرجة غذائية (SUS304/316L)، تلبي معايير السلامة والنظافة الدولية.' },
+      ]
+    },
+    th: {
+      kicker: 'ทำไมต้องเลือกเรา',
+      title: 'พันธมิตรเครื่องจักรที่เชื่อถือได้ในเอเชีย',
+      desc: 'เราไม่ได้แค่ขายเครื่องจักร ตั้งแต่การเลือกอุปกรณ์ที่เหมาะสมไปจนถึงการจัดการโลจิสติกส์การส่งออก เราให้การสนับสนุนครบวงจรที่ผู้ซื้อทั่วโลกไว้วางใจ',
+      items: [
+        { icon: '01', title: 'ราคาโรงงานโดยตรง', desc: 'ในฐานะผู้ผลิตที่มีโรงงานผลิตเอง เราเสนอราคาโรงงานที่แข่งขันได้โดยไม่มีค่าใช้จ่ายของคนกลาง' },
+        { icon: '02', title: 'โซลูชันครบวงจร', desc: 'ตั้งแต่เครื่องจักรเดี่ยวไปจนถึงสายการผลิตครบชุด เราออกแบบและส่งมอบโซลูชันแบบบูรณาการตามความต้องการเฉพาะของคุณ' },
+        { icon: '03', title: 'ความเชี่ยวชาญด้านการส่งออกทั่วโลก', desc: 'มีประสบการณ์ส่งออกไปกว่า 50 ประเทศ พร้อมเอกสารครบถ้วน การปรับแรงดันไฟฟ้า และสนับสนุนการขนส่งระหว่างประเทศ' },
+        { icon: '04', title: 'บริการหลังการขายและการฝึกอบรม', desc: 'แนะนำการติดตั้งผ่านวิดีโอทางไกล ฝึกอบรมผู้ปฏิบัติงาน จัดหาอะไหล่ และสนับสนุนทางเทคนิค 24/7 สำหรับอุปกรณ์ทั้งหมด' },
+        { icon: '05', title: 'OEM และวิศวกรรมตามสั่ง', desc: 'ทีม R&D ของเราสามารถปรับแต่งขนาด วัสดุ กำลังการผลิต และระดับอัตโนมัติให้เหมาะกับสภาพแวดล้อมการผลิตของคุณ' },
+        { icon: '06', title: 'ได้รับการรับรองคุณภาพ', desc: 'เครื่องจักรได้รับการรับรอง CE ผลิตจากสแตนเลสเกรดอาหาร (SUS304/316L) ตามมาตรฐานความปลอดภัยและสุขอนามัยสากล' },
+      ]
+    },
+    vi: {
+      kicker: 'TẠI SAO CHỌN CHÚNG TÔI',
+      title: 'Đối Tác Máy Móc Đáng Tin Cậy Từ Châu Á',
+      desc: 'Chúng tôi không chỉ bán máy. Từ việc lựa chọn thiết bị phù hợp đến quản lý logistics xuất khẩu, chúng tôi cung cấp hỗ trợ toàn diện mà khách hàng toàn cầu tin tưởng.',
+      items: [
+        { icon: '01', title: 'Giá Trực Tiếp Từ Nhà Máy', desc: 'Là nhà sản xuất với cơ sở sản xuất riêng, chúng tôi cung cấp giá cạnh tranh trực tiếp từ nhà máy mà không có phí trung gian.' },
+        { icon: '02', title: 'Giải Pháp Trọn Gói', desc: 'Từ máy đơn lẻ đến dây chuyền sản xuất hoàn chỉnh, chúng tôi thiết kế và cung cấp giải pháp tích hợp theo yêu cầu cụ thể của bạn.' },
+        { icon: '03', title: 'Kinh Nghiệm Xuất Khẩu Toàn Cầu', desc: 'Có kinh nghiệm xuất khẩu đến hơn 50 quốc gia với đầy đủ chứng từ, tùy chỉnh điện áp và hỗ trợ vận chuyển quốc tế.' },
+        { icon: '04', title: 'Hậu Mãi và Đào Tạo', desc: 'Hướng dẫn lắp đặt qua video từ xa, đào tạo vận hành, cung cấp phụ tùng thay thế và hỗ trợ kỹ thuật 24/7 cho tất cả thiết bị.' },
+        { icon: '05', title: 'OEM và Kỹ Thuật Tùy Chỉnh', desc: 'Đội ngũ R&D của chúng tôi có thể tùy chỉnh kích thước, vật liệu, công suất và mức độ tự động hóa phù hợp với môi trường sản xuất của bạn.' },
+        { icon: '06', title: 'Chứng Nhận Chất Lượng', desc: 'Máy móc đạt chứng nhận CE, chế tạo bằng thép không gỉ cấp thực phẩm (SUS304/316L), đáp ứng tiêu chuẩn an toàn và vệ sinh quốc tế.' },
+      ]
+    },
+    de: {
+      kicker: 'WARUM UNS WÄHLEN',
+      title: 'Ihr vertrauenswürdiger Maschinenpartner in Asien',
+      desc: 'Wir verkaufen nicht nur Maschinen. Von der Auswahl der richtigen Ausrüstung bis zur Verwaltung der Exportlogistik bieten wir umfassende Unterstützung, auf die globale Einkäufer vertrauen.',
+      items: [
+        { icon: '01', title: 'Direkte Werkspreise', desc: 'Als Hersteller mit eigenen Produktionsanlagen bieten wir wettbewerbsfähige Werkspreise ohne Aufschläge von Zwischenhändlern.' },
+        { icon: '02', title: 'Schlüsselfertige Lösungen', desc: 'Von Einzelmaschinen bis hin zu kompletten Produktionslinien — wir entwerfen und liefern integrierte Lösungen, die auf Ihre spezifischen Anforderungen zugeschnitten sind.' },
+        { icon: '03', title: 'Globale Exportkompetenz', desc: 'Erfahrung im Export in über 50 Länder mit vollständiger Dokumentation, Spannungsanpassung und internationalem Versandsupport.' },
+        { icon: '04', title: 'Kundendienst und Schulung', desc: 'Ferninstallationsanleitung per Video, Bedienerschulung, Ersatzteilversorgung und technischer Support rund um die Uhr für alle unsere Geräte.' },
+        { icon: '05', title: 'OEM und kundenspezifische Konstruktion', desc: 'Unser F&E-Team kann Abmessungen, Materialien, Produktionskapazität und Automatisierungsgrad an Ihre Produktionsumgebung anpassen.' },
+        { icon: '06', title: 'Qualitätszertifiziert', desc: 'CE-zertifizierte Maschinen aus lebensmittelechtem Edelstahl (SUS304/316L), die internationale Sicherheits- und Hygienestandards erfüllen.' },
+      ]
     }
   }
 

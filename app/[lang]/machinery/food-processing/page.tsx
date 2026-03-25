@@ -30,6 +30,78 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
       subTitle: '適合正在尋找以下方案的買家',
       cons: ['食品備料流程', '半自動生產升級', '新產線規劃', '產品處理改進', '出口導向設備採購'],
       cta: '分享您的產品和目標產能以開始討論。'
+    },
+    fr: {
+      title: 'Solutions de machines de transformation alimentaire',
+      p1: 'Les projets de transformation alimentaire varient considérablement selon le type de produit, les exigences d\'hygiène, le flux de travail, le volume de production et les besoins d\'emballage en aval. Nous accompagnons les clients dans l\'évaluation des machines pour la préparation, la manipulation, le mélange, la découpe et certains processus de production alimentaire.',
+      p2: 'Au stade initial, les acheteurs n\'ont souvent pas besoin d\'un long catalogue. Ils ont besoin d\'une compréhension plus claire du type de configuration de machines adapté à leur produit et à leur objectif de production. C\'est là que commence notre accompagnement.',
+      subTitle: 'Adapté aux acheteurs recherchant',
+      cons: ['Processus de préparation alimentaire', 'Mises à niveau de production semi-automatique', 'Planification de nouvelles lignes', 'Améliorations de la manipulation des produits', 'Approvisionnement en équipements orientés export'],
+      cta: 'Partagez votre produit et votre capacité cible pour démarrer la discussion.'
+    },
+    es: {
+      title: 'Soluciones de maquinaria de procesamiento de alimentos',
+      p1: 'Los proyectos de procesamiento de alimentos varían ampliamente según el tipo de producto, requisitos de higiene, flujo de trabajo, volumen de producción y necesidades de empaque posteriores. Apoyamos a los clientes en la evaluación de maquinaria para preparación, manipulación, mezclado, corte y procesos de producción seleccionados.',
+      p2: 'En la etapa inicial, los compradores a menudo no necesitan un catálogo extenso. Necesitan una comprensión más clara de qué tipo de configuración de maquinaria es práctica para su producto y objetivo de producción. Ahí es donde comienza nuestro apoyo.',
+      subTitle: 'Adecuado para compradores que buscan',
+      cons: ['Procesos de preparación de alimentos', 'Mejoras de producción semiautomática', 'Planificación de nuevas líneas', 'Mejoras en el manejo de productos', 'Abastecimiento de equipos orientados a la exportación'],
+      cta: 'Comparta su producto y capacidad objetivo para iniciar la discusión.'
+    },
+    pt: {
+      title: 'Soluções em Máquinas de Processamento de Alimentos',
+      p1: 'Projetos de processamento de alimentos variam amplamente dependendo do tipo de produto, requisitos de higiene, fluxo de trabalho, volume de produção e necessidades de embalagem a jusante. Apoiamos clientes na avaliação de máquinas para preparação, manuseio, mistura, corte e processos de produção selecionados.',
+      p2: 'Na fase inicial, os compradores geralmente não precisam de um catálogo extenso. Eles precisam de uma compreensão mais clara de qual tipo de configuração de máquinas é prática para seu produto e objetivo de produção. É aí que nosso suporte começa.',
+      subTitle: 'Adequado para compradores que buscam',
+      cons: ['Processos de preparação de alimentos', 'Upgrades de produção semiautomática', 'Planejamento de novas linhas', 'Melhorias no manuseio de produtos', 'Aquisição de equipamentos para exportação'],
+      cta: 'Compartilhe seu produto e capacidade-alvo para iniciar a discussão.'
+    },
+    ko: {
+      title: '식품 가공 기계 솔루션',
+      p1: '식품 가공 프로젝트는 제품 유형, 위생 요건, 작업 흐름, 생산량 및 후속 포장 요구에 따라 크게 다릅니다. 당사는 식품 준비, 취급, 혼합, 절단 및 선별 생산 공정을 위한 기계 평가를 지원합니다.',
+      p2: '초기 단계에서 구매자는 긴 카탈로그가 필요하지 않은 경우가 많습니다. 자신의 제품과 생산 목표에 어떤 유형의 기계 구성이 실용적인지 더 명확하게 이해하는 것이 필요합니다. 바로 여기서 당사의 지원이 시작됩니다.',
+      subTitle: '다음을 찾고 있는 구매자에게 적합',
+      cons: ['식품 준비 공정', '반자동 생산 업그레이드', '새 라인 계획', '제품 취급 개선', '수출 지향 장비 조달'],
+      cta: '제품과 목표 생산량을 공유하여 논의를 시작하세요.'
+    },
+    ja: {
+      title: '食品加工機械ソリューション',
+      p1: '食品加工プロジェクトは、製品の種類、衛生要件、ワークフロー、生産量、下流の包装ニーズによって大きく異なります。当社は、食品の調理、取り扱い、混合、カット、および特定の生産プロセス向けの機械評価をサポートしています。',
+      p2: '初期段階では、バイヤーは長いカタログを必要としないことがほとんどです。自社の製品と生産目標に対して、どのタイプの機械構成が実用的かをより明確に理解することが必要です。それが当社のサポートの出発点です。',
+      subTitle: '以下をお探しのバイヤーに最適',
+      cons: ['食品調理プロセス', '半自動生産のアップグレード', '新ライン計画', '製品取り扱いの改善', '輸出向け機器調達'],
+      cta: '製品と目標生産能力を共有して、ディスカッションを開始してください。'
+    },
+    ar: {
+      title: 'حلول آلات تجهيز الأغذية',
+      p1: 'تختلف مشاريع تجهيز الأغذية بشكل كبير حسب نوع المنتج ومتطلبات النظافة وسير العمل وحجم الإنتاج واحتياجات التعبئة والتغليف. نحن ندعم العملاء في تقييم الآلات المخصصة لإعداد الأغذية والمناولة والخلط والتقطيع وعمليات الإنتاج المختارة.',
+      p2: 'في المرحلة المبكرة، غالبًا لا يحتاج المشترون إلى كتالوج طويل. إنهم بحاجة إلى فهم أوضح لنوع إعداد الآلات العملي لمنتجهم وهدف إنتاجهم. هنا يبدأ دعمنا.',
+      subTitle: 'مناسب للمشترين الذين يبحثون عن',
+      cons: ['عمليات إعداد الأغذية', 'ترقيات الإنتاج شبه الآلي', 'تخطيط خطوط جديدة', 'تحسينات مناولة المنتجات', 'توريد معدات موجهة للتصدير'],
+      cta: 'شاركنا منتجك والطاقة المستهدفة لبدء النقاش.'
+    },
+    th: {
+      title: 'โซลูชันเครื่องจักรแปรรูปอาหาร',
+      p1: 'โครงการแปรรูปอาหารมีความแตกต่างกันอย่างมากขึ้นอยู่กับประเภทผลิตภัณฑ์ ข้อกำหนดด้านสุขอนามัย เวิร์กโฟลว์ ปริมาณการผลิต และความต้องการบรรจุภัณฑ์ปลายทาง เราสนับสนุนลูกค้าในการประเมินเครื่องจักรสำหรับการเตรียม การจัดการ การผสม การตัด และกระบวนการผลิตที่เลือก',
+      p2: 'ในระยะเริ่มต้น ผู้ซื้อมักไม่ต้องการแคตตาล็อกยาว พวกเขาต้องการความเข้าใจที่ชัดเจนยิ่งขึ้นว่าการตั้งค่าเครื่องจักรประเภทใดที่เหมาะกับผลิตภัณฑ์และเป้าหมายการผลิตของตน นั่นคือจุดเริ่มต้นของการสนับสนุนจากเรา',
+      subTitle: 'เหมาะสำหรับผู้ซื้อที่กำลังมองหา',
+      cons: ['กระบวนการเตรียมอาหาร', 'การอัปเกรดการผลิตแบบกึ่งอัตโนมัติ', 'การวางแผนสายการผลิตใหม่', 'การปรับปรุงการจัดการผลิตภัณฑ์', 'การจัดหาอุปกรณ์เพื่อการส่งออก'],
+      cta: 'แบ่งปันผลิตภัณฑ์และกำลังการผลิตเป้าหมายของคุณเพื่อเริ่มการสนทนา'
+    },
+    vi: {
+      title: 'Giải pháp máy chế biến thực phẩm',
+      p1: 'Các dự án chế biến thực phẩm rất đa dạng tùy thuộc vào loại sản phẩm, yêu cầu vệ sinh, quy trình làm việc, sản lượng và nhu cầu đóng gói hạ nguồn. Chúng tôi hỗ trợ khách hàng đánh giá máy móc cho việc chuẩn bị, xử lý, trộn, cắt và các quy trình sản xuất được chọn.',
+      p2: 'Ở giai đoạn đầu, người mua thường không cần một danh mục dài. Họ cần hiểu rõ hơn về loại cấu hình máy móc nào phù hợp với sản phẩm và mục tiêu sản xuất của mình. Đó là nơi sự hỗ trợ của chúng tôi bắt đầu.',
+      subTitle: 'Phù hợp cho người mua đang tìm kiếm',
+      cons: ['Quy trình chuẩn bị thực phẩm', 'Nâng cấp sản xuất bán tự động', 'Lập kế hoạch dây chuyền mới', 'Cải thiện xử lý sản phẩm', 'Mua sắm thiết bị hướng xuất khẩu'],
+      cta: 'Chia sẻ sản phẩm và công suất mục tiêu của bạn để bắt đầu thảo luận.'
+    },
+    de: {
+      title: 'Lebensmittelverarbeitungsmaschinen-Lösungen',
+      p1: 'Lebensmittelverarbeitungsprojekte variieren stark je nach Produkttyp, Hygieneanforderungen, Arbeitsablauf, Produktionsvolumen und nachgelagerten Verpackungsanforderungen. Wir unterstützen Kunden bei der Bewertung von Maschinen für die Lebensmittelzubereitung, -handhabung, -mischung, -schneidung und ausgewählte Produktionsprozesse.',
+      p2: 'In der Anfangsphase benötigen Käufer oft keinen langen Katalog. Sie benötigen ein klareres Verständnis dafür, welche Art von Maschinenkonfiguration für ihr Produkt und ihr Produktionsziel praktisch ist. Hier beginnt unsere Unterstützung.',
+      subTitle: 'Geeignet für Käufer, die suchen',
+      cons: ['Lebensmittelzubereitungsprozesse', 'Halbautomatische Produktions-Upgrades', 'Neue Linienplanung', 'Verbesserungen der Produkthandhabung', 'Exportorientierte Gerätebeschaffung'],
+      cta: 'Teilen Sie Ihr Produkt und Ihre Zielkapazität, um die Diskussion zu starten.'
     }
   }
   const t = content[lang] || content['en']

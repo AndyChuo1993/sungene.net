@@ -7,6 +7,9 @@ import { Card } from '@/components/ui/Card'
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
   fr: 'Guides d\'achat et ressources | SunGene', es: 'Guías de compra y recursos | SunGene',
+  pt: 'Guias de Compra e Recursos | SunGene', ko: '기계 구매 가이드 및 리소스 | SunGene', ja: '機械購入ガイド・リソース | SunGene',
+  ar: 'أدلة شراء الماكينات والموارد | SunGene', th: 'คู่มือการซื้อเครื่องจักรและแหล่งข้อมูล | SunGene', vi: 'Hướng Dẫn Mua Máy & Tài Nguyên | SunGene',
+  de: 'Maschinenkaufratgeber & Ressourcen | SunGene',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -76,6 +79,90 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         'Guía completa para importar maquinaria de Taiwán',
         'Comprender los requisitos de voltaje para maquinaria internacional',
         'Cómo evaluar un proveedor de maquinaria antes de hacer un pedido',
+      ]
+    },
+    pt: {
+      title: 'Guias de Compra de Maquinário',
+      desc: 'Guias práticos para ajudá-lo a escolher o maquinário certo, planejar sua linha de produção e navegar pelo processo de exportação. Conhecimento que economiza seu tempo e dinheiro.',
+      articles: [
+        'Como Escolher o Maquinário de Embalagem Certo para Seu Produto',
+        'VFFS vs HFFS: Qual Máquina de Embalagem Você Precisa?',
+        'Semiautomática vs Totalmente Automática: Fazendo o Investimento Certo',
+        'Guia Completo para Importar Maquinário de Taiwan',
+        'Entendendo os Requisitos de Voltagem para Maquinário Internacional',
+        'Como Avaliar um Fornecedor de Maquinário Antes de Fazer o Pedido',
+      ]
+    },
+    ko: {
+      title: '기계 구매 가이드',
+      desc: '적합한 기계를 선택하고, 생산 라인을 계획하며, 수출 프로세스를 이해하는 데 도움이 되는 실용적인 가이드입니다. 시간과 비용을 절약하는 지식.',
+      articles: [
+        '제품에 적합한 포장 기계를 선택하는 방법',
+        'VFFS vs HFFS: 어떤 포장 기계가 필요한가?',
+        '반자동 vs 완전 자동: 올바른 투자 결정',
+        '대만에서 기계를 수입하는 완전 가이드',
+        '국제 기계의 전압 요구사항 이해하기',
+        '주문 전 기계 공급업체를 평가하는 방법',
+      ]
+    },
+    ja: {
+      title: '機械購入ガイド',
+      desc: '適切な機械の選定、生産ラインの計画、輸出プロセスのナビゲーションに役立つ実用ガイドです。時間とコストを節約する知識を提供します。',
+      articles: [
+        '製品に最適な包装機械の選び方',
+        'VFFS vs HFFS：どちらの包装機が必要か？',
+        '半自動 vs 全自動：正しい投資判断',
+        '台湾から機械を輸入するための完全ガイド',
+        '国際機械の電圧要件を理解する',
+        '注文前に機械サプライヤーを評価する方法',
+      ]
+    },
+    ar: {
+      title: 'أدلة شراء الماكينات',
+      desc: 'أدلة عملية لمساعدتك في اختيار الماكينات المناسبة، وتخطيط خط الإنتاج، والتعامل مع عملية التصدير. معرفة توفر لك الوقت والمال.',
+      articles: [
+        'كيف تختار ماكينة التعبئة والتغليف المناسبة لمنتجك',
+        'VFFS مقابل HFFS: أي ماكينة تعبئة تحتاج؟',
+        'شبه آلي مقابل آلي بالكامل: اتخاذ الاستثمار الصحيح',
+        'الدليل الشامل لاستيراد الماكينات من تايوان',
+        'فهم متطلبات الجهد الكهربائي للماكينات الدولية',
+        'كيف تقيّم مورد الماكينات قبل الطلب',
+      ]
+    },
+    th: {
+      title: 'คู่มือการซื้อเครื่องจักร',
+      desc: 'คู่มือที่เป็นประโยชน์เพื่อช่วยคุณเลือกเครื่องจักรที่เหมาะสม วางแผนสายการผลิต และทำความเข้าใจกระบวนการส่งออก ความรู้ที่ช่วยประหยัดเวลาและค่าใช้จ่าย',
+      articles: [
+        'วิธีเลือกเครื่องจักรบรรจุภัณฑ์ที่เหมาะสมกับผลิตภัณฑ์ของคุณ',
+        'VFFS กับ HFFS: คุณต้องการเครื่องบรรจุแบบไหน?',
+        'กึ่งอัตโนมัติ vs อัตโนมัติเต็มรูปแบบ: การลงทุนที่ถูกต้อง',
+        'คู่มือฉบับสมบูรณ์ในการนำเข้าเครื่องจักรจากไต้หวัน',
+        'ทำความเข้าใจข้อกำหนดแรงดันไฟฟ้าสำหรับเครื่องจักรนานาชาติ',
+        'วิธีประเมินซัพพลายเออร์เครื่องจักรก่อนสั่งซื้อ',
+      ]
+    },
+    vi: {
+      title: 'Hướng Dẫn Mua Máy',
+      desc: 'Các hướng dẫn thực tế giúp bạn chọn máy móc phù hợp, lên kế hoạch dây chuyền sản xuất và tìm hiểu quy trình xuất khẩu. Kiến thức giúp bạn tiết kiệm thời gian và chi phí.',
+      articles: [
+        'Cách Chọn Máy Đóng Gói Phù Hợp Cho Sản Phẩm Của Bạn',
+        'VFFS so với HFFS: Bạn Cần Máy Đóng Gói Nào?',
+        'Bán Tự Động vs Hoàn Toàn Tự Động: Đầu Tư Đúng Đắn',
+        'Hướng Dẫn Toàn Diện Nhập Khẩu Máy Móc Từ Đài Loan',
+        'Hiểu Yêu Cầu Điện Áp Cho Máy Móc Quốc Tế',
+        'Cách Đánh Giá Nhà Cung Cấp Máy Móc Trước Khi Đặt Hàng',
+      ]
+    },
+    de: {
+      title: 'Maschinenkaufratgeber',
+      desc: 'Praktische Ratgeber, die Ihnen helfen, die richtige Maschine auszuwählen, Ihre Produktionslinie zu planen und den Exportprozess zu verstehen. Wissen, das Ihnen Zeit und Geld spart.',
+      articles: [
+        'So wählen Sie die richtige Verpackungsmaschine für Ihr Produkt',
+        'VFFS vs. HFFS: Welche Verpackungsmaschine brauchen Sie?',
+        'Halbautomatisch vs. Vollautomatisch: Die richtige Investitionsentscheidung',
+        'Komplettanleitung zum Import von Maschinen aus Taiwan',
+        'Spannungsanforderungen für internationale Maschinen verstehen',
+        'So bewerten Sie einen Maschinenlieferanten vor der Bestellung',
       ]
     }
   }

@@ -72,6 +72,83 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Sistemas de llenado y sellado', desc: 'Llenadoras automáticas de líquidos y pastas, dosificadoras de polvo, selladoras de vasos, taponadoras de botellas y selladoras por inducción.', link: 'Ver sistemas de llenado' },
         { title: 'Transporte y automatización', desc: 'Transportadores de banda, elevadores de cangilones, transportadores de tornillo, robots pick-and-place, paletizadores y sistemas de control de línea integrados.', link: 'Ver automatización' },
       ]
+    },
+    pt: {
+      kicker: 'NOSSAS MÁQUINAS',
+      title: 'Linha Completa de Máquinas Industriais',
+      desc: 'De máquinas individuais a linhas de produção totalmente automatizadas — fabricamos e fornecemos equipamentos para embalagem, processamento de alimentos, envase, selagem, transporte e aplicações industriais personalizadas.',
+      items: [
+        { title: 'Máquinas de Embalagem', desc: 'Empacotadoras verticais e horizontais (VFFS/HFFS), embaladoras de sachê, seladoras a vácuo, máquinas de termocontração e encaixotadoras para produtos em pó, granulados, líquidos e sólidos.', link: 'Ver Máquinas de Embalagem' },
+        { title: 'Equipamentos de Processamento de Alimentos', desc: 'Misturadores, moedores, fatiadores, caldeirões de cozimento, sistemas de branqueamento e linhas de preparo para carnes, snacks, panificação e refeições prontas.', link: 'Ver Máquinas Alimentícias' },
+        { title: 'Sistemas de Envase e Selagem', desc: 'Envasadoras automáticas de líquidos, pastas e pós, seladoras de copos, tampadoras de garrafas e seladoras por indução para diversas viscosidades.', link: 'Ver Sistemas de Envase' },
+        { title: 'Transporte e Automação', desc: 'Esteiras transportadoras, elevadores de canecas, transportadores helicoidais, robôs pick-and-place, paletizadores e sistemas integrados de controle de linha.', link: 'Ver Automação' },
+      ]
+    },
+    ko: {
+      kicker: '당사 기계',
+      title: '산업용 기계 전체 라인업',
+      desc: '단일 기계부터 완전 자동화 생산 라인까지 — 포장, 식품 가공, 충전, 밀봉, 컨베이어 및 맞춤형 산업 응용 장비를 제조 및 공급합니다.',
+      items: [
+        { title: '포장 기계', desc: '수직/수평 성형충전밀봉기, 파우치 포장기, 진공 밀봉기, 수축 포장기 및 카톤 포장기 — 분말, 과립, 액체 및 고체 제품용.', link: '포장 기계 보기' },
+        { title: '식품 가공 장비', desc: '믹서, 분쇄기, 슬라이서, 조리 케틀, 블랜칭 시스템 및 육류, 스낵, 베이커리, 즉석식품용 가공 라인.', link: '식품 기계 보기' },
+        { title: '충전 및 밀봉 시스템', desc: '자동 액체 충전기, 페이스트 충전기, 분말 정량기, 컵 실러, 병 캡핑기 및 인덕션 실러.', link: '충전 시스템 보기' },
+        { title: '컨베이어 및 자동화', desc: '벨트 컨베이어, 버킷 엘리베이터, 스크류 컨베이어, 픽앤플레이스 로봇, 팔레타이저 및 통합 라인 제어 시스템.', link: '자동화 보기' },
+      ]
+    },
+    ja: {
+      kicker: '当社の機械',
+      title: '産業機械の完全なラインナップ',
+      desc: '単体機械から完全自動化生産ラインまで — 包装、食品加工、充填、シール、搬送、カスタム産業用途の設備を製造・供給しています。',
+      items: [
+        { title: '包装機械', desc: '縦型・横型フォームフィルシール機、パウチ包装機、真空シーラー、シュリンク包装機、カートン梱包機 — 粉末、顆粒、液体、固形製品対応。', link: '包装機を見る' },
+        { title: '食品加工設備', desc: 'ミキサー、グラインダー、スライサー、調理釜、ブランチングシステム、肉類・スナック・ベーカリー・調理済み食品用加工ライン。', link: '食品機械を見る' },
+        { title: '充填・シールシステム', desc: '自動液体充填機、ペースト充填機、粉末計量機、カップシーラー、ボトルキャッパー、誘導シーラー。', link: '充填システムを見る' },
+        { title: '搬送・自動化', desc: 'ベルトコンベア、バケットエレベーター、スクリューコンベア、ピックアンドプレースロボット、パレタイザー、統合ライン制御システム。', link: '自動化を見る' },
+      ]
+    },
+    ar: {
+      kicker: 'آلاتنا',
+      title: 'مجموعة كاملة من الآلات الصناعية',
+      desc: 'من الآلات المنفردة إلى خطوط الإنتاج المؤتمتة بالكامل — نصنع ونورد معدات التعبئة والتغليف ومعالجة الأغذية والتعبئة والختم والنقل والتطبيقات الصناعية المخصصة.',
+      items: [
+        { title: 'آلات التعبئة والتغليف', desc: 'آلات التشكيل والتعبئة والختم العمودية والأفقية، وآلات تعبئة الأكياس، وآلات الختم بالتفريغ، وآلات التغليف بالانكماش الحراري، وآلات التعبئة في الكراتين للمنتجات المسحوقة والحبيبية والسائلة والصلبة.', link: 'عرض آلات التعبئة والتغليف' },
+        { title: 'معدات معالجة الأغذية', desc: 'خلاطات، مطاحن، آلات تقطيع، قدور طهي، أنظمة سلق، وخطوط تحضير للحوم والوجبات الخفيفة والمخبوزات والوجبات الجاهزة.', link: 'عرض آلات الأغذية' },
+        { title: 'أنظمة التعبئة والختم', desc: 'آلات تعبئة سوائل أوتوماتيكية، وآلات تعبئة المعاجين، وآلات جرعات المساحيق، وآلات ختم الأكواب، وآلات تغطية الزجاجات، وآلات الختم بالحث الكهرومغناطيسي.', link: 'عرض أنظمة التعبئة' },
+        { title: 'النقل والأتمتة', desc: 'سيور ناقلة، رافعات دلوية، ناقلات لولبية، روبوتات الالتقاط والوضع، آلات رص البالتات، وأنظمة التحكم المتكاملة في خطوط الإنتاج.', link: 'عرض الأتمتة' },
+      ]
+    },
+    th: {
+      kicker: 'เครื่องจักรของเรา',
+      title: 'เครื่องจักรอุตสาหกรรมครบวงจร',
+      desc: 'ตั้งแต่เครื่องจักรเดี่ยวไปจนถึงสายการผลิตอัตโนมัติเต็มรูปแบบ — เราผลิตและจัดหาอุปกรณ์สำหรับการบรรจุภัณฑ์ การแปรรูปอาหาร การบรรจุ การปิดผนึก การลำเลียง และงานอุตสาหกรรมเฉพาะทาง',
+      items: [
+        { title: 'เครื่องบรรจุภัณฑ์', desc: 'เครื่องบรรจุแนวตั้งและแนวนอน (VFFS/HFFS) เครื่องบรรจุซอง เครื่องซีลสุญญากาศ เครื่องหดฟิล์ม และเครื่องบรรจุกล่อง สำหรับผลิตภัณฑ์ผง เม็ด ของเหลว และของแข็ง', link: 'ดูเครื่องบรรจุภัณฑ์' },
+        { title: 'อุปกรณ์แปรรูปอาหาร', desc: 'เครื่องผสม เครื่องบด เครื่องสไลซ์ หม้อต้ม ระบบลวก และสายการเตรียมสำหรับเนื้อสัตว์ ขนมขบเคี้ยว เบเกอรี่ และอาหารพร้อมทาน', link: 'ดูเครื่องจักรอาหาร' },
+        { title: 'ระบบบรรจุและปิดผนึก', desc: 'เครื่องบรรจุของเหลวอัตโนมัติ เครื่องบรรจุครีม เครื่องกำหนดปริมาณผง เครื่องซีลถ้วย เครื่องปิดฝาขวด และเครื่องซีลอินดักชัน', link: 'ดูระบบบรรจุ' },
+        { title: 'ระบบลำเลียงและอัตโนมัติ', desc: 'สายพานลำเลียง บัคเก็ตเอลิเวเตอร์ สกรูคอนเวเยอร์ หุ่นยนต์หยิบและวาง เครื่องจัดเรียงพาเลท และระบบควบคุมสายการผลิตแบบบูรณาการ', link: 'ดูระบบอัตโนมัติ' },
+      ]
+    },
+    vi: {
+      kicker: 'MÁY MÓC CỦA CHÚNG TÔI',
+      title: 'Dòng Máy Móc Công Nghiệp Toàn Diện',
+      desc: 'Từ máy đơn lẻ đến dây chuyền sản xuất tự động hoàn toàn — chúng tôi sản xuất và cung cấp thiết bị đóng gói, chế biến thực phẩm, chiết rót, hàn kín, vận chuyển và các ứng dụng công nghiệp tùy chỉnh.',
+      items: [
+        { title: 'Máy Đóng Gói', desc: 'Máy định hình-chiết rót-hàn kín dọc và ngang (VFFS/HFFS), máy đóng gói túi, máy hút chân không, máy co màng và máy đóng thùng cho sản phẩm bột, hạt, lỏng và rắn.', link: 'Xem Máy Đóng Gói' },
+        { title: 'Thiết Bị Chế Biến Thực Phẩm', desc: 'Máy trộn, máy nghiền, máy cắt lát, nồi nấu, hệ thống chần và dây chuyền chuẩn bị cho thịt, đồ ăn nhẹ, bánh và thức ăn chế biến sẵn.', link: 'Xem Máy Thực Phẩm' },
+        { title: 'Hệ Thống Chiết Rót và Hàn Kín', desc: 'Máy chiết rót chất lỏng tự động, máy chiết rót paste, máy định lượng bột, máy dán nắp ly, máy đóng nắp chai và máy hàn kín cảm ứng.', link: 'Xem Hệ Thống Chiết Rót' },
+        { title: 'Vận Chuyển và Tự Động Hóa', desc: 'Băng tải, gàu nâng, vít tải, robot gắp đặt, máy xếp pallet và hệ thống điều khiển dây chuyền tích hợp.', link: 'Xem Tự Động Hóa' },
+      ]
+    },
+    de: {
+      kicker: 'UNSERE MASCHINEN',
+      title: 'Komplettes Sortiment an Industriemaschinen',
+      desc: 'Von Einzelmaschinen bis hin zu vollautomatisierten Produktionslinien — wir fertigen und liefern Anlagen für Verpackung, Lebensmittelverarbeitung, Abfüllung, Versiegelung, Förderung und kundenspezifische Industrieanwendungen.',
+      items: [
+        { title: 'Verpackungsmaschinen', desc: 'Vertikale und horizontale Schlauchbeutelmaschinen (VFFS/HFFS), Beutelverpackungsmaschinen, Vakuumversiegler, Schrumpfverpackungsmaschinen und Kartonverpackungsmaschinen für Pulver-, Granulat-, Flüssig- und Festprodukte.', link: 'Verpackungsmaschinen ansehen' },
+        { title: 'Lebensmittelverarbeitungsanlagen', desc: 'Mischer, Mahlwerke, Schneidemaschinen, Kochkessel, Blanchieranlagen und Aufbereitungslinien für Fleisch, Snacks, Backwaren und Fertiggerichte.', link: 'Lebensmittelmaschinen ansehen' },
+        { title: 'Abfüll- und Versiegelungssysteme', desc: 'Automatische Flüssigkeitsabfüller, Pastenabfüller, Pulverdosiermaschinen, Becherversiegler, Flaschenverschließer und Induktionsversiegler.', link: 'Abfüllsysteme ansehen' },
+        { title: 'Förderung und Automatisierung', desc: 'Bandförderer, Becherwerke, Schneckenförderer, Pick-and-Place-Roboter, Palettierer und integrierte Liniensteuerungssysteme.', link: 'Automatisierung ansehen' },
+      ]
     }
   }
 

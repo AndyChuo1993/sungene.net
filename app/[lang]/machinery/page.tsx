@@ -14,6 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     zh: '工業機械目錄 | 包裝、食品加工與自動化 | SunGene',
     fr: 'Catalogue de machines industrielles | Emballage, Agroalimentaire & Automatisation | SunGene',
     es: 'Catálogo de maquinaria industrial | Empaque, Procesamiento de alimentos y Automatización | SunGene',
+    pt: 'Catálogo de Máquinas Industriais | Embalagem, Processamento de Alimentos e Automação | SunGene',
+    ko: '산업 기계 카탈로그 | 포장, 식품 가공 및 자동화 | SunGene',
+    ja: '産業機械カタログ | 包装、食品加工、自動化 | SunGene',
+    ar: 'كتالوج الآلات الصناعية | التعبئة والتغليف، تصنيع الأغذية والأتمتة | SunGene',
+    th: 'แคตตาล็อกเครื่องจักรอุตสาหกรรม | บรรจุภัณฑ์, แปรรูปอาหาร และระบบอัตโนมัติ | SunGene',
+    vi: 'Danh mục máy móc công nghiệp | Đóng gói, Chế biến thực phẩm & Tự động hóa | SunGene',
+    de: 'Industriemaschinenkatolog | Verpackung, Lebensmittelverarbeitung & Automatisierung | SunGene',
   }
   const descriptions = {
     en: 'Browse our complete range of industrial machinery: packaging machines, food processing equipment, filling & sealing systems, conveyor automation, and custom-engineered solutions. CE certified, factory-direct from Taiwan.',
@@ -21,6 +28,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     zh: '瀏覽我們的全系列工業機械：包裝機、食品加工設備、灌裝封口系統、輸送自動化和客製解決方案。CE認證，台灣工廠直銷。',
     fr: 'Parcourez notre gamme complète de machines industrielles : machines d\'emballage, équipements agroalimentaires, systèmes de remplissage et scellage, automatisation de convoyage et solutions sur mesure. Certifié CE, direct usine depuis Taïwan.',
     es: 'Explore nuestra gama completa de maquinaria industrial: máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, automatización de transporte y soluciones de ingeniería a medida. Certificado CE, directo de fábrica desde Taiwán.',
+    pt: 'Navegue por nossa linha completa de máquinas industriais: máquinas de embalagem, equipamentos de processamento de alimentos, sistemas de envase e selagem, automação de transporte e soluções sob medida. Certificação CE, direto da fábrica em Taiwan.',
+    ko: '포장기, 식품 가공 장비, 충전 및 밀봉 시스템, 컨베이어 자동화, 맞춤 설계 솔루션 등 전체 산업 기계를 둘러보세요. CE 인증, 대만 공장 직판.',
+    ja: '包装機、食品加工装置、充填・シール装置、コンベア自動化、カスタムエンジニアリングソリューションなど、産業機械の全ラインナップをご覧ください。CE認証済み、台湾工場直販。',
+    ar: 'تصفح مجموعتنا الكاملة من الآلات الصناعية: آلات التعبئة والتغليف، معدات تصنيع الأغذية، أنظمة التعبئة والختم، أتمتة النقل، وحلول هندسية مخصصة. حاصلة على شهادة CE، مباشرة من المصنع في تايوان.',
+    th: 'เรียกดูเครื่องจักรอุตสาหกรรมทั้งหมดของเรา: เครื่องบรรจุภัณฑ์, อุปกรณ์แปรรูปอาหาร, ระบบบรรจุและซีล, ระบบสายพานอัตโนมัติ และโซลูชันวิศวกรรมเฉพาะ ได้รับรอง CE ส่งตรงจากโรงงานในไต้หวัน',
+    vi: 'Khám phá toàn bộ dòng máy móc công nghiệp: máy đóng gói, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, tự động hóa băng tải và giải pháp kỹ thuật tùy chỉnh. Chứng nhận CE, trực tiếp từ nhà máy Đài Loan.',
+    de: 'Entdecken Sie unsere vollständige Palette an Industriemaschinen: Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme, Förderautomatisierung und maßgeschneiderte Lösungen. CE-zertifiziert, direkt ab Werk aus Taiwan.',
   }
   const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
   return { title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en }
@@ -107,6 +121,104 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       ],
       cta: '¿Necesita ayuda para elegir? Consulta gratuita.',
       ctaBtn: 'Contactar a nuestros ingenieros',
+    },
+    pt: {
+      kicker: 'CATÁLOGO DE MÁQUINAS',
+      title: 'Nossas Máquinas Industriais',
+      desc: 'Navegue por nossa linha completa de equipamentos industriais. De embalagem e processamento de alimentos a sistemas de automação sob medida — todos fabricados em Taiwan com certificação CE.',
+      cats: [
+        { title: 'Máquinas de Embalagem', desc: 'VFFS, HFFS, embalagem em sachês, seladoras a vácuo, embalagem termocontrátil, encaixotadoras e pesadoras multicabeçotes para produtos em pó, grânulos, líquidos e sólidos.', badge: 'Mais Popular' },
+        { title: 'Equipamentos de Processamento de Alimentos', desc: 'Misturadores industriais, moedores de carne, fatiadores de vegetais, caldeirões de cozimento, sistemas de branqueamento e linhas completas de preparo de alimentos.', badge: '' },
+        { title: 'Sistemas de Envase e Selagem', desc: 'Envasadoras automáticas de líquidos, pastas e pós, seladoras de copos, tampadoras de garrafas, seladoras por indução e máquinas de envase de tubos.', badge: '' },
+        { title: 'Transporte e Automação', desc: 'Transportadores de correia, elevadores de caçamba, alimentadores helicoidais, robôs pick-and-place, paletizadores e sistemas de controle de linha integrados com PLC.', badge: '' },
+        { title: 'Máquinas Personalizadas', desc: 'Projeto OEM, dimensões personalizadas, materiais especiais, capacidade de produção modificada e engenharia específica para aplicação.', badge: 'Equipe de Engenharia' }
+      ],
+      cta: 'Precisa de ajuda para escolher? Consulta gratuita.',
+      ctaBtn: 'Fale com nossos engenheiros',
+    },
+    ko: {
+      kicker: '기계 카탈로그',
+      title: '우리의 산업 기계',
+      desc: '전체 산업 장비를 둘러보세요. 포장 및 식품 가공부터 맞춤 자동화 시스템까지 — 모두 대만에서 CE 인증으로 제조됩니다.',
+      cats: [
+        { title: '포장 기계', desc: 'VFFS, HFFS, 파우치 포장, 진공 포장기, 수축 포장기, 카톤 포장기, 멀티헤드 계량기 — 분말, 과립, 액체, 고체 제품용.', badge: '인기 제품' },
+        { title: '식품 가공 장비', desc: '산업용 믹서, 육류 분쇄기, 채소 슬라이서, 조리 솥, 블랜칭 시스템, 완전 식품 준비 라인.', badge: '' },
+        { title: '충전 및 밀봉 시스템', desc: '자동 액체/페이스트 충전기, 분말 계량기, 컵 실러, 캡핑기, 인덕션 실러, 튜브 충전기.', badge: '' },
+        { title: '컨베이어 및 자동화', desc: '벨트 컨베이어, 버킷 엘리베이터, 스크류 피더, 픽앤플레이스 로봇, 팔레타이저, PLC 통합 라인 제어 시스템.', badge: '' },
+        { title: '맞춤 기계', desc: 'OEM 설계, 맞춤 치수, 특수 소재, 생산 능력 변경, 용도별 엔지니어링.', badge: '엔지니어링 팀' }
+      ],
+      cta: '선택에 도움이 필요하신가요? 무료 상담을 받으세요.',
+      ctaBtn: '엔지니어에게 문의',
+    },
+    ja: {
+      kicker: '機械カタログ',
+      title: '当社の産業機械',
+      desc: '産業機器の全ラインナップをご覧ください。包装・食品加工からカスタム自動化システムまで — すべて台湾でCE認証取得のもと製造しています。',
+      cats: [
+        { title: '包装機械', desc: 'VFFS、HFFS、パウチ包装、真空シーラー、シュリンク包装、カートンパッカー、マルチヘッド計量機 — 粉末、顆粒、液体、固体製品に対応。', badge: '人気商品' },
+        { title: '食品加工機器', desc: '産業用ミキサー、ミートグラインダー、野菜スライサー、調理釜、ブランチングシステム、完全な食品調理ライン。', badge: '' },
+        { title: '充填・シールシステム', desc: '自動液体充填機、ペースト充填機、粉末計量機、カップシーラー、ボトルキャッパー、インダクションシーラー、チューブ充填機。', badge: '' },
+        { title: 'コンベア・自動化', desc: 'ベルトコンベア、バケットエレベーター、スクリューフィーダー、ピック&プレースロボット、パレタイザー、PLC統合ライン制御システム。', badge: '' },
+        { title: 'カスタム機械', desc: 'OEM設計、カスタム寸法、特殊素材、生産能力変更、用途別エンジニアリング。', badge: 'エンジニアリングチーム' }
+      ],
+      cta: '選定にお困りですか？無料相談をご利用ください。',
+      ctaBtn: 'エンジニアに相談',
+    },
+    ar: {
+      kicker: 'كتالوج الآلات',
+      title: 'آلاتنا الصناعية',
+      desc: 'تصفح مجموعتنا الكاملة من المعدات الصناعية. من التعبئة والتغليف وتصنيع الأغذية إلى أنظمة الأتمتة المخصصة — جميعها مصنعة في تايوان مع شهادة CE.',
+      cats: [
+        { title: 'آلات التعبئة والتغليف', desc: 'آلات VFFS وHFFS، تعبئة الأكياس، آلات التغليف بالتفريغ، التغليف الحراري، تعبئة الكراتين والميزان متعدد الرؤوس للمنتجات المسحوقة والحبيبية والسائلة والصلبة.', badge: 'الأكثر طلبًا' },
+        { title: 'معدات تصنيع الأغذية', desc: 'خلاطات صناعية، مفارم لحوم، قطّاعات خضروات، أوعية طهي، أنظمة سلق وخطوط تحضير أغذية متكاملة.', badge: '' },
+        { title: 'أنظمة التعبئة والختم', desc: 'آلات تعبئة السوائل والمعاجين الأوتوماتيكية، جرعات المساحيق، آلات ختم الأكواب، آلات التغطية، آلات الختم بالحث وآلات تعبئة الأنابيب.', badge: '' },
+        { title: 'النقل والأتمتة', desc: 'ناقلات سير، رافعات دلو، مغذيات لولبية، روبوتات التقاط ووضع، آلات تكديس وأنظمة تحكم خطوط متكاملة مع PLC.', badge: '' },
+        { title: 'آلات مخصصة', desc: 'تصميم OEM، أبعاد مخصصة، مواد خاصة، سعة إنتاج معدلة وهندسة خاصة بالتطبيق.', badge: 'فريق هندسي' }
+      ],
+      cta: 'هل تحتاج مساعدة في الاختيار؟ استشارة مجانية.',
+      ctaBtn: 'تواصل مع مهندسينا',
+    },
+    th: {
+      kicker: 'แคตตาล็อกเครื่องจักร',
+      title: 'เครื่องจักรอุตสาหกรรมของเรา',
+      desc: 'เรียกดูอุปกรณ์อุตสาหกรรมทั้งหมดของเรา ตั้งแต่บรรจุภัณฑ์และแปรรูปอาหาร ไปจนถึงระบบอัตโนมัติที่ออกแบบเฉพาะ — ผลิตในไต้หวันพร้อมการรับรอง CE',
+      cats: [
+        { title: 'เครื่องบรรจุภัณฑ์', desc: 'VFFS, HFFS, บรรจุซองสำเร็จรูป, เครื่องซีลสุญญากาศ, เครื่องห่อหด, เครื่องบรรจุกล่อง และเครื่องชั่งหลายหัว สำหรับผลิตภัณฑ์ผง, เม็ด, ของเหลว และของแข็ง', badge: 'ยอดนิยม' },
+        { title: 'อุปกรณ์แปรรูปอาหาร', desc: 'เครื่องผสมอุตสาหกรรม, เครื่องบดเนื้อ, เครื่องหั่นผัก, กระทะตุ๋น, ระบบลวก และสายการเตรียมอาหารครบวงจร', badge: '' },
+        { title: 'ระบบบรรจุและซีล', desc: 'เครื่องบรรจุของเหลว/ครีมอัตโนมัติ, เครื่องตวงผง, เครื่องซีลถ้วย, เครื่องปิดฝาขวด, เครื่องซีลแบบเหนี่ยวนำ และเครื่องบรรจุหลอด', badge: '' },
+        { title: 'สายพานและระบบอัตโนมัติ', desc: 'สายพานลำเลียง, ลิฟต์ถัง, สกรูป้อน, หุ่นยนต์หยิบและวาง, เครื่องเรียงพาเลท และระบบควบคุมสายการผลิตแบบ PLC', badge: '' },
+        { title: 'เครื่องจักรออกแบบเฉพาะ', desc: 'ออกแบบ OEM, ขนาดตามสั่ง, วัสดุพิเศษ, ปรับกำลังการผลิต และวิศวกรรมเฉพาะงาน', badge: 'ทีมวิศวกรรม' }
+      ],
+      cta: 'ต้องการความช่วยเหลือในการเลือก? ปรึกษาฟรี',
+      ctaBtn: 'ติดต่อวิศวกรของเรา',
+    },
+    vi: {
+      kicker: 'DANH MỤC MÁY MÓC',
+      title: 'Máy móc công nghiệp của chúng tôi',
+      desc: 'Khám phá toàn bộ dòng thiết bị công nghiệp. Từ đóng gói và chế biến thực phẩm đến hệ thống tự động hóa tùy chỉnh — tất cả được sản xuất tại Đài Loan với chứng nhận CE.',
+      cats: [
+        { title: 'Máy đóng gói', desc: 'VFFS, HFFS, đóng gói túi làm sẵn, máy hút chân không, máy co màng, máy đóng thùng carton và cân đa đầu cho sản phẩm bột, hạt, lỏng và rắn.', badge: 'Phổ biến nhất' },
+        { title: 'Thiết bị chế biến thực phẩm', desc: 'Máy trộn công nghiệp, máy xay thịt, máy cắt rau, nồi nấu, hệ thống chần và dây chuyền chế biến thực phẩm hoàn chỉnh.', badge: '' },
+        { title: 'Hệ thống chiết rót và hàn kín', desc: 'Máy chiết rót tự động cho chất lỏng, kem, bột, máy dán nắp cốc, máy đóng nắp chai, máy hàn kín cảm ứng và máy chiết rót tuýp.', badge: '' },
+        { title: 'Băng tải và tự động hóa', desc: 'Băng tải, gàu tải, vít tải, robot gắp đặt, máy xếp pallet và hệ thống điều khiển dây chuyền tích hợp PLC.', badge: '' },
+        { title: 'Máy móc tùy chỉnh', desc: 'Thiết kế OEM, kích thước tùy chỉnh, vật liệu đặc biệt, công suất điều chỉnh và kỹ thuật chuyên dụng.', badge: 'Đội ngũ kỹ thuật' }
+      ],
+      cta: 'Cần hỗ trợ lựa chọn? Tư vấn miễn phí.',
+      ctaBtn: 'Liên hệ kỹ sư',
+    },
+    de: {
+      kicker: 'MASCHINENKATALOG',
+      title: 'Unsere Industriemaschinen',
+      desc: 'Entdecken Sie unsere gesamte Palette an Industrieanlagen. Von Verpackung und Lebensmittelverarbeitung bis hin zu maßgeschneiderten Automatisierungssystemen — alle in Taiwan mit CE-Zertifizierung gefertigt.',
+      cats: [
+        { title: 'Verpackungsmaschinen', desc: 'VFFS, HFFS, Beutelverpackung, Vakuumversiegler, Schrumpffolienmaschinen, Kartonpacker und Mehrkopfwaagen für Pulver-, Granulat-, Flüssig- und Festprodukte.', badge: 'Beliebteste' },
+        { title: 'Lebensmittelverarbeitungsanlagen', desc: 'Industriemischer, Fleischwölfe, Gemüseschneider, Kochkessel, Blanchieranlagen und komplette Zubereitungslinien.', badge: '' },
+        { title: 'Abfüll- und Versiegelungssysteme', desc: 'Automatische Flüssigkeits-, Pasten- und Pulverabfüller, Becherversiegler, Flaschenverschließer, Induktionsversiegler und Tubenfüllmaschinen.', badge: '' },
+        { title: 'Förder- und Automatisierungstechnik', desc: 'Bandförderer, Becherwerke, Schneckenförderer, Pick-and-Place-Roboter, Palettierer und PLC-integrierte Liniensteuerungen.', badge: '' },
+        { title: 'Sondermaschinen', desc: 'OEM-Design, Sondermaße, Spezialmaterialien, angepasste Produktionskapazität und anwendungsspezifische Konstruktion.', badge: 'Ingenieurteam' }
+      ],
+      cta: 'Brauchen Sie Hilfe bei der Auswahl? Kostenlose Beratung.',
+      ctaBtn: 'Unsere Ingenieure kontaktieren',
     }
   }
 

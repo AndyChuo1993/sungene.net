@@ -73,6 +73,104 @@ export default function Applications({ lang }: { lang: Lang }) {
         { name: 'Industrial y químico', examples: 'Fertilizantes, cemento, adhesivos, pinturas, resinas', icon: '🔩' },
       ],
       cta: 'Explorar todas las industrias'
+    },
+    pt: {
+      kicker: 'INDÚSTRIAS QUE ATENDEMOS',
+      title: 'Maquinário para Cada Necessidade de Produção',
+      desc: 'Nossos equipamentos atendem a uma ampla gama de indústrias. Seja o que for que você produza ou embale, temos a máquina certa para a sua aplicação.',
+      categories: [
+        { name: 'Produtos em Pó e Farinha', examples: 'Temperos, café, leite em pó, detergente, pó farmacêutico', icon: '🏭' },
+        { name: 'Grânulos e Snacks', examples: 'Nozes, sementes, doces, ração animal, alimentos congelados, arroz', icon: '🔧' },
+        { name: 'Envase de Líquidos e Pastas', examples: 'Molhos, bebidas, óleo de cozinha, cosméticos, produtos químicos', icon: '⚙️' },
+        { name: 'Processamento de Alimentos', examples: 'Carnes, panificação, refeições prontas, frutos do mar, laticínios, vegetais', icon: '🍴' },
+        { name: 'Embalagem de Bens de Consumo', examples: 'Ferragens, eletrônicos, dispositivos médicos, papelaria', icon: '📦' },
+        { name: 'Industrial e Químico', examples: 'Fertilizantes, cimento, adesivos, tintas, resinas', icon: '🔩' },
+      ],
+      cta: 'Ver Todas as Indústrias'
+    },
+    ko: {
+      kicker: '서비스 산업',
+      title: '모든 생산 요구에 맞는 기계',
+      desc: '당사의 장비는 다양한 산업에 서비스를 제공합니다. 무엇을 생산하거나 포장하든, 귀사의 용도에 적합한 기계를 보유하고 있습니다.',
+      categories: [
+        { name: '분말 및 밀가루 제품', examples: '향신료, 커피, 분유, 세제, 의약 분말', icon: '🏭' },
+        { name: '과립 및 스낵 제품', examples: '견과류, 씨앗, 사탕, 반려동물 사료, 냉동식품, 쌀', icon: '🔧' },
+        { name: '액체 및 페이스트 충전', examples: '소스, 음료, 식용유, 화장품, 화학제품', icon: '⚙️' },
+        { name: '식품 가공', examples: '육류, 제과제빵, 즉석식품, 해산물, 유제품, 채소', icon: '🍴' },
+        { name: '소비재 포장', examples: '하드웨어, 전자제품, 의료기기, 문구류', icon: '📦' },
+        { name: '산업 및 화학', examples: '비료, 시멘트, 접착제, 페인트, 수지', icon: '🔩' },
+      ],
+      cta: '모든 산업 보기'
+    },
+    ja: {
+      kicker: '対応業界',
+      title: 'あらゆる生産ニーズに対応する機械',
+      desc: '当社の設備は幅広い業界にサービスを提供しています。何を生産・包装されても、お客様の用途に最適な機械をご用意しています。',
+      categories: [
+        { name: '粉末・小麦粉製品', examples: 'スパイス、コーヒー、粉ミルク、洗剤、医薬品粉末', icon: '🏭' },
+        { name: '顆粒・スナック製品', examples: 'ナッツ、種子、キャンディ、ペットフード、冷凍食品、米', icon: '🔧' },
+        { name: '液体・ペースト充填', examples: 'ソース、飲料、食用油、化粧品、化学薬品', icon: '⚙️' },
+        { name: '食品加工', examples: '肉類、ベーカリー、調理済み食品、水産物、乳製品、野菜', icon: '🍴' },
+        { name: '消費財包装', examples: '金物、電子機器、医療機器、文房具', icon: '📦' },
+        { name: '工業・化学', examples: '肥料、セメント、接着剤、塗料、樹脂', icon: '🔩' },
+      ],
+      cta: '全業界を見る'
+    },
+    ar: {
+      kicker: 'الصناعات التي نخدمها',
+      title: 'ماكينات لكل احتياجات الإنتاج',
+      desc: 'تخدم معداتنا مجموعة واسعة من الصناعات. مهما كان ما تنتجه أو تعبئه، لدينا الماكينة المناسبة لتطبيقك.',
+      categories: [
+        { name: 'منتجات المساحيق والدقيق', examples: 'التوابل، القهوة، الحليب المجفف، المنظفات، المساحيق الدوائية', icon: '🏭' },
+        { name: 'منتجات الحبيبات والوجبات الخفيفة', examples: 'المكسرات، البذور، الحلويات، أغذية الحيوانات، الأغذية المجمدة، الأرز', icon: '🔧' },
+        { name: 'تعبئة السوائل والمعاجين', examples: 'الصلصات، المشروبات، زيت الطبخ، مستحضرات التجميل، المواد الكيميائية', icon: '⚙️' },
+        { name: 'تصنيع الأغذية', examples: 'اللحوم، المخبوزات، الوجبات الجاهزة، المأكولات البحرية، الألبان، الخضروات', icon: '🍴' },
+        { name: 'تعبئة السلع الاستهلاكية', examples: 'الأدوات المعدنية، الإلكترونيات، الأجهزة الطبية، القرطاسية', icon: '📦' },
+        { name: 'صناعي وكيميائي', examples: 'الأسمدة، الأسمنت، المواد اللاصقة، الدهانات، الراتنجات', icon: '🔩' },
+      ],
+      cta: 'تصفح جميع الصناعات'
+    },
+    th: {
+      kicker: 'อุตสาหกรรมที่เราให้บริการ',
+      title: 'เครื่องจักรสำหรับทุกความต้องการในการผลิต',
+      desc: 'อุปกรณ์ของเราให้บริการอุตสาหกรรมที่หลากหลาย ไม่ว่าคุณจะผลิตหรือบรรจุอะไร เรามีเครื่องจักรที่เหมาะสมสำหรับการใช้งานของคุณ',
+      categories: [
+        { name: 'ผลิตภัณฑ์ผงและแป้ง', examples: 'เครื่องเทศ, กาแฟ, นมผง, ผงซักฟอก, ผงยา', icon: '🏭' },
+        { name: 'ผลิตภัณฑ์เม็ดและขนมขบเคี้ยว', examples: 'ถั่ว, เมล็ดพืช, ลูกอม, อาหารสัตว์เลี้ยง, อาหารแช่แข็ง, ข้าว', icon: '🔧' },
+        { name: 'บรรจุของเหลวและครีม', examples: 'ซอส, เครื่องดื่ม, น้ำมันปรุงอาหาร, เครื่องสำอาง, เคมีภัณฑ์', icon: '⚙️' },
+        { name: 'แปรรูปอาหาร', examples: 'เนื้อสัตว์, เบเกอรี่, อาหารพร้อมทาน, อาหารทะเล, นม, ผัก', icon: '🍴' },
+        { name: 'บรรจุภัณฑ์สินค้าอุปโภคบริโภค', examples: 'ฮาร์ดแวร์, อิเล็กทรอนิกส์, อุปกรณ์การแพทย์, เครื่องเขียน', icon: '📦' },
+        { name: 'อุตสาหกรรมและเคมี', examples: 'ปุ๋ย, ซีเมนต์, กาว, สี, เรซิน', icon: '🔩' },
+      ],
+      cta: 'ดูอุตสาหกรรมทั้งหมด'
+    },
+    vi: {
+      kicker: 'NGÀNH CÔNG NGHIỆP PHỤC VỤ',
+      title: 'Máy Móc Cho Mọi Nhu Cầu Sản Xuất',
+      desc: 'Thiết bị của chúng tôi phục vụ nhiều ngành công nghiệp. Dù bạn sản xuất hay đóng gói bất kỳ sản phẩm nào, chúng tôi đều có máy phù hợp cho ứng dụng của bạn.',
+      categories: [
+        { name: 'Sản phẩm Bột và Bột mì', examples: 'Gia vị, cà phê, sữa bột, bột giặt, bột dược phẩm', icon: '🏭' },
+        { name: 'Sản phẩm Hạt và Snack', examples: 'Hạt, hạt giống, kẹo, thức ăn thú cưng, thực phẩm đông lạnh, gạo', icon: '🔧' },
+        { name: 'Chiết rót Chất lỏng và Kem', examples: 'Nước sốt, đồ uống, dầu ăn, mỹ phẩm, hóa chất', icon: '⚙️' },
+        { name: 'Chế biến Thực phẩm', examples: 'Thịt, bánh mì, bữa ăn sẵn, hải sản, sữa, rau củ', icon: '🍴' },
+        { name: 'Đóng gói Hàng tiêu dùng', examples: 'Kim khí, điện tử, thiết bị y tế, văn phòng phẩm', icon: '📦' },
+        { name: 'Công nghiệp và Hóa chất', examples: 'Phân bón, xi măng, keo dán, sơn, nhựa thông', icon: '🔩' },
+      ],
+      cta: 'Xem Tất Cả Ngành Nghề'
+    },
+    de: {
+      kicker: 'BRANCHEN, DIE WIR BEDIENEN',
+      title: 'Maschinen für jeden Produktionsbedarf',
+      desc: 'Unsere Ausrüstung bedient ein breites Spektrum an Branchen. Was auch immer Sie produzieren oder verpacken, wir haben die richtige Maschine für Ihre Anwendung.',
+      categories: [
+        { name: 'Pulver- und Mehlprodukte', examples: 'Gewürze, Kaffee, Milchpulver, Waschmittel, pharmazeutisches Pulver', icon: '🏭' },
+        { name: 'Granulat- und Snackprodukte', examples: 'Nüsse, Samen, Süßigkeiten, Tiernahrung, Tiefkühlkost, Reis', icon: '🔧' },
+        { name: 'Flüssigkeits- und Pastenabfüllung', examples: 'Soßen, Getränke, Speiseöl, Kosmetik, Chemikalien', icon: '⚙️' },
+        { name: 'Lebensmittelverarbeitung', examples: 'Fleisch, Backwaren, Fertiggerichte, Meeresfrüchte, Milchprodukte, Gemüse', icon: '🍴' },
+        { name: 'Konsumgüterverpackung', examples: 'Eisenwaren, Elektronik, Medizinprodukte, Schreibwaren', icon: '📦' },
+        { name: 'Industrie und Chemie', examples: 'Düngemittel, Zement, Klebstoffe, Farben, Harze', icon: '🔩' },
+      ],
+      cta: 'Alle Branchen durchsuchen'
     }
   }
 
