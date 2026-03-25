@@ -5,7 +5,7 @@ import { t, Lang } from '@/lib/i18n'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh', 'cn', 'fr', 'es'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(rawLang) ? rawLang : 'en') as Lang
 
   const baseUrl = 'https://sungene.net'
 
@@ -33,11 +33,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: {
       canonical: `${baseUrl}/${lang}`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn',
-        'zh-TW': 'https://sungene.net/zh',
-        'en': 'https://sungene.net/en',
-        'fr': 'https://sungene.net/fr',
-        'es': 'https://sungene.net/es',
+        'en': 'https://sungene.net/en', 'zh-TW': 'https://sungene.net/zh', 'zh-CN': 'https://sungene.net/cn',
+        'fr': 'https://sungene.net/fr', 'es': 'https://sungene.net/es', 'pt': 'https://sungene.net/pt',
+        'ko': 'https://sungene.net/ko', 'ja': 'https://sungene.net/ja', 'ar': 'https://sungene.net/ar',
+        'th': 'https://sungene.net/th', 'vi': 'https://sungene.net/vi', 'de': 'https://sungene.net/de',
         'x-default': 'https://sungene.net/en',
       },
     },
@@ -46,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function RootLayout({ children, params }: { children: ReactNode; params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh', 'cn', 'fr', 'es'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(rawLang) ? rawLang : 'en') as Lang
 
   const baseUrl = 'https://sungene.net'
   const logoUrl = `${baseUrl}/logo/sungene.png`
@@ -88,13 +87,13 @@ export default async function RootLayout({ children, params }: { children: React
         telephone: '+886-4-37032705',
         contactType: 'sales',
         areaServed: ['TW', 'CN', 'VN', 'TH', 'MY', 'ID', 'PH', 'IN', 'US', 'CA', 'MX', 'BR', 'DE', 'FR', 'NL', 'GB', 'IT', 'ES', 'JP', 'KR', 'AU', 'SA', 'AE', 'NG', 'EG', 'ZA'],
-        availableLanguage: ['en', 'zh-Hant', 'zh-Hans', 'fr', 'es']
+        availableLanguage: ['en', 'zh-Hant', 'zh-Hans', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
       },
       {
         '@type': 'ContactPoint',
         telephone: '+886-4-37032705',
         contactType: 'technical support',
-        availableLanguage: ['en', 'zh-Hant', 'fr', 'es']
+        availableLanguage: ['en', 'zh-Hant', 'fr', 'es', 'pt', 'ko', 'ja', 'de']
       }
     ],
     sameAs: [

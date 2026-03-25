@@ -3,7 +3,7 @@ import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
 export default function Applications({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'INDUSTRIES WE SERVE',
       title: 'Machinery for Every Production Need',
@@ -88,7 +88,7 @@ export default function Applications({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {t.categories.map((cat, i) => (
+          {t.categories.map((cat: any, i: number) => (
             <div key={i} className="group rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:border-accent-200 hover:bg-accent-50/50 hover:shadow-elev-1">
               <span className="text-2xl">{cat.icon}</span>
               <h3 className="mt-3 text-lg font-bold text-gray-950">{cat.name}</h3>

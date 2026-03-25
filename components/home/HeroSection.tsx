@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 
 export default function HeroSection({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'TRUSTED MACHINERY SUPPLIER FROM TAIWAN',
       h1: 'Industrial Machinery for Packaging, Food Processing & Automation',
@@ -121,7 +121,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
 
         {/* Stats bar */}
         <div className="relative -mb-px grid grid-cols-2 gap-px rounded-t-2xl bg-white/10 md:grid-cols-4">
-          {t.stats.map((stat, i) => (
+          {t.stats.map((stat: any, i: number) => (
             <div key={i} className="bg-brand-900/50 px-6 py-6 text-center backdrop-blur first:rounded-tl-2xl last:rounded-tr-2xl">
               <div className="text-3xl font-bold text-accent-400">{stat.value}</div>
               <div className="mt-1 text-sm text-gray-300">{stat.label}</div>

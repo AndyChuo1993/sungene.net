@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     fr: 'Parcourez notre gamme complète de machines industrielles : machines d\'emballage, équipements agroalimentaires, systèmes de remplissage et scellage, automatisation de convoyage et solutions sur mesure. Certifié CE, direct usine depuis Taïwan.',
     es: 'Explore nuestra gama completa de maquinaria industrial: máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, automatización de transporte y soluciones de ingeniería a medida. Certificado CE, directo de fábrica desde Taiwán.',
   }
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
-  return { title: titles[l], description: descriptions[l] }
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  return { title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en }
 }
 
 const categoryIcons = [
@@ -37,7 +37,7 @@ const categoryIcons = [
 export default async function MachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
 
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'MACHINERY CATALOG',
       title: 'Our Industrial Machinery',
@@ -132,7 +132,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
-            {t.cats.map((c, i) => (
+            {t.cats.map((c: any, i: number) => (
               <Link
                 key={i}
                 href={categoryHrefs[i] || `/${lang}/machinery`}
@@ -147,7 +147,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
                 <h2 className="mt-5 text-xl font-bold text-gray-950">{c.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
                 <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-accent-600 group-hover:text-accent-700">
-                  {{ en: 'View Details', cn: '查看详情', zh: '查看詳情', fr: 'Voir les détails', es: 'Ver detalles' }[lang] || 'View Details'}
+                  {({ en: 'View Details', cn: '查看详情', zh: '查看詳情', fr: 'Voir les détails', es: 'Ver detalles', pt: 'Ver detalhes', ko: '상세 보기', ja: '詳細を見る', ar: 'عرض التفاصيل', th: 'ดูรายละเอียด', vi: 'Xem chi tiết', de: 'Details ansehen' } as Record<string,string>)[lang] || 'View Details'}
                   <svg className="h-4 w-4 transition group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </div>
               </Link>

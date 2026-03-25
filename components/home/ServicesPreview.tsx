@@ -17,7 +17,7 @@ const icons = [
 const hrefs = ['packaging', 'food-processing', 'filling-sealing', 'conveying-automation']
 
 export default function ServicesPreview({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'OUR MACHINERY',
       title: 'Complete Range of Industrial Machinery',
@@ -87,7 +87,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {t.items.map((item, i) => (
+          {t.items.map((item: any, i: number) => (
             <Card key={i} className="group relative overflow-hidden p-8 transition hover:shadow-elev-2 hover:ring-accent-200">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-950 text-white shadow-elev-1">
                 {icons[i]}

@@ -7,7 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
   const titles = {
     en: 'About SunGene | Industrial Machinery Manufacturer from Taiwan',
     cn: '关于 SunGene | 台湾工业机械制造商',
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     fr: 'À propos de SunGene | Fabricant de machines industrielles de Taïwan',
     es: 'Acerca de SunGene | Fabricante de maquinaria industrial de Taiwán',
   }
-  return { title: titles[l] }
+  return { title: (titles as Record<string,string>)[l] || titles.en }
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: Lang }> }) {

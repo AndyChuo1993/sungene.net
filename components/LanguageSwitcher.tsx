@@ -1,7 +1,7 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
-import { Lang } from '@/lib/i18n'
+import { Lang, ALL_LANGS } from '@/lib/i18n'
 
 const languages = [
   { code: 'en', label: 'English', flag: '🇺🇸' },
@@ -9,6 +9,13 @@ const languages = [
   { code: 'cn', label: '简体中文', flag: '🇨🇳' },
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'pt', label: 'Português', flag: '🇧🇷' },
+  { code: 'ko', label: '한국어', flag: '🇰🇷' },
+  { code: 'ja', label: '日本語', flag: '🇯🇵' },
+  { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+  { code: 'th', label: 'ไทย', flag: '🇹🇭' },
+  { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
 ] as const
 
 export default function LanguageSwitcher({ lang }: { lang: Lang }) {
@@ -31,7 +38,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
   const switchLang = (targetLang: string) => {
     if (!pathname) return
     const segments = pathname.split('/').filter(Boolean)
-    const knownLangs = ['en', 'zh', 'cn', 'fr', 'es']
+    const knownLangs = ALL_LANGS as readonly string[]
     let newPath = pathname
     if (knownLangs.includes(segments[0])) {
       segments[0] = targetLang
@@ -62,7 +69,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
       </button>
 
       {open && (
-        <div className="absolute right-0 z-50 mt-2 w-44 rounded-xl border border-gray-200 bg-white py-1 shadow-elev-2" role="listbox">
+        <div className="absolute right-0 z-50 mt-2 max-h-80 w-48 overflow-y-auto rounded-xl border border-gray-200 bg-white py-1 shadow-elev-2" role="listbox">
           {languages.map((l) => (
             <button
               key={l.code}

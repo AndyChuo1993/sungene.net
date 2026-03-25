@@ -48,12 +48,14 @@ const HOME_SEO = {
 } as const
 
 function normalizeLang(lang?: string): Lang {
-  if (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') return lang
+  const valid = ['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de']
+  if (lang && valid.includes(lang)) return lang as Lang
   return 'en'
 }
 
 function getHomeSeo(lang?: string) {
-  return HOME_SEO[normalizeLang(lang)]
+  const l = normalizeLang(lang)
+  return (HOME_SEO as any)[l] || HOME_SEO['en']
 }
 
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
@@ -70,11 +72,10 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     alternates: {
       canonical: `${baseUrl}/${safeLang}`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn',
-        'zh-TW': 'https://sungene.net/zh',
-        'en': 'https://sungene.net/en',
-        'fr': 'https://sungene.net/fr',
-        'es': 'https://sungene.net/es',
+        'en': 'https://sungene.net/en', 'zh-TW': 'https://sungene.net/zh', 'zh-CN': 'https://sungene.net/cn',
+        'fr': 'https://sungene.net/fr', 'es': 'https://sungene.net/es', 'pt': 'https://sungene.net/pt',
+        'ko': 'https://sungene.net/ko', 'ja': 'https://sungene.net/ja', 'ar': 'https://sungene.net/ar',
+        'th': 'https://sungene.net/th', 'vi': 'https://sungene.net/vi', 'de': 'https://sungene.net/de',
         'x-default': 'https://sungene.net/en',
       },
     },

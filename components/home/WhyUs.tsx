@@ -3,7 +3,7 @@ import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
 export default function WhyUs({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'WHY CHOOSE US',
       title: 'Your Trusted Machinery Partner from Asia',
@@ -83,7 +83,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {t.items.map((item, i) => (
+          {t.items.map((item: any, i: number) => (
             <div key={i} className="relative">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-600 text-sm font-bold text-white shadow-elev-1">
                 {item.icon}

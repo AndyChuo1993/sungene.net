@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
   const titles = {
     en: 'Get a Free Quote | Contact SunGene Machinery',
     cn: '获取免费报价 | 联系 SunGene 机械',
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     fr: 'Demandez un devis gratuit pour des machines d\'emballage, des équipements de transformation alimentaire ou toute machine industrielle. Nos ingénieurs vous répondront sous 24 heures avec une recommandation personnalisée.',
     es: 'Solicite una cotización gratuita para maquinaria de empaque, equipos de procesamiento de alimentos o cualquier maquinaria industrial. Nuestros ingenieros responderán en 24 horas con una recomendación personalizada.',
   }
-  return { title: titles[l], description: descriptions[l] }
+  return { title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en }
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: Lang }> }) {

@@ -2,7 +2,7 @@ import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
 export default function ProcessSection({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'HOW WE WORK',
       title: 'From Inquiry to Delivery in 5 Steps',
@@ -71,7 +71,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{t.title}</h2>
         </div>
         <div className="mt-16 grid gap-6 md:grid-cols-5">
-          {t.items.map((item, i) => (
+          {t.items.map((item: any, i: number) => (
             <div key={i} className="relative text-center">
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-600 text-xl font-bold text-white shadow-lg">
                 {item.step}

@@ -14,7 +14,7 @@ const customerIcons = [
 ]
 
 export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'OUR CLIENTS',
       title: 'Who We Serve',
@@ -83,7 +83,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
           <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
         </div>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {t.items.map((item, i) => (
+          {t.items.map((item: any, i: number) => (
             <Card key={i} className="p-8 text-center transition hover:shadow-elev-2">
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-brand-800">
                 {customerIcons[i]}

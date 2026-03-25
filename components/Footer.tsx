@@ -34,7 +34,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
-              {{ en: 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.', cn: '台湾领先的包装机械、食品加工设备和工业自动化系统制造商与出口商。', zh: '台灣領先的包裝機械、食品加工設備和工業自動化系統製造商與出口商。', fr: 'Fabricant et exportateur leader de machines d\'emballage, d\'équipements de transformation alimentaire et de systèmes d\'automatisation industrielle depuis Taïwan.', es: 'Fabricante y exportador líder de maquinaria de empaque, equipos de procesamiento de alimentos y sistemas de automatización industrial desde Taiwán.' }[lang] || 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.'}
+              {({en: 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.', cn: '台湾领先的包装机械、食品加工设备和工业自动化系统制造商与出口商。', zh: '台灣領先的包裝機械、食品加工設備和工業自動化系統製造商與出口商。', fr: 'Fabricant et exportateur leader de machines d\'emballage, d\'équipements de transformation alimentaire et de systèmes d\'automatisation industrielle depuis Taïwan.', es: 'Fabricante y exportador líder de maquinaria de empaque, equipos de procesamiento de alimentos y sistemas de automatización industrial desde Taiwán.' } as Record<string,string>)[lang] || 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.'}
             </p>
             <div className="mt-6 flex items-center gap-4">
               <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">CE</div>
@@ -69,7 +69,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
           {/* Company */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{{ en: 'Company', cn: '公司', zh: '公司', fr: 'Entreprise', es: 'Empresa' }[lang] || 'Company'}</h4>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{({en: 'Company', cn: '公司', zh: '公司', fr: 'Entreprise', es: 'Empresa' } as Record<string,string>)[lang] || 'Company'}</h4>
             <ul className="space-y-3">
               <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
               <li><Link href={`/${lang}/resources`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_resources')}</Link></li>
@@ -96,7 +96,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               </li>
               <li className="pt-2">
                 <Link href={`/${lang}/contact`} className="inline-flex items-center gap-2 rounded-lg border border-accent-500/30 bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 transition hover:bg-accent-500/20">
-                  {{ en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización' }[lang] || 'Get a Quote'}
+                  {({en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización' } as Record<string,string>)[lang] || 'Get a Quote'}
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </Link>
               </li>

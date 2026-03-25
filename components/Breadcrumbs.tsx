@@ -32,7 +32,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       <ol className="flex items-center space-x-2 text-sm text-gray-500">
         <li>
           <Link href={`/${lang}`} className="transition hover:text-brand-900">
-            {{ en: 'Home', cn: '首页', zh: '首頁', fr: 'Accueil', es: 'Inicio' }[lang] || 'Home'}
+            {({en: 'Home', cn: '首页', zh: '首頁', fr: 'Accueil', es: 'Inicio' } as Record<string,string>)[lang] || 'Home'}
           </Link>
         </li>
         {items.map((item, index) => (

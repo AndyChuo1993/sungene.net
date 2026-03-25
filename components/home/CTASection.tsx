@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 
 export default function CTASection({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       title: 'Ready to Find the Right Machine?',
       desc: 'Tell us what you need to produce or pack — product type, target output, and budget range. Our engineering team will recommend the best machinery solution within 24 hours.',
@@ -60,7 +60,7 @@ export default function CTASection({ lang }: { lang: Lang }) {
           </div>
 
           <div className="space-y-4">
-            {t.features.map((feature, i) => (
+            {t.features.map((feature: any, i: number) => (
               <div key={i} className="flex items-center gap-4 rounded-xl bg-white/5 px-6 py-4 ring-1 ring-white/10">
                 <svg className="h-6 w-6 shrink-0 text-accent-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

@@ -4,7 +4,7 @@ import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
 export default function FAQ({ lang }: { lang: Lang }) {
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'FAQ',
       title: 'Frequently Asked Questions',
@@ -77,7 +77,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-950 md:text-4xl">{t.title}</h2>
         </div>
         <div className="mx-auto mt-12 max-w-3xl divide-y divide-gray-200">
-          {t.items.map((item, i) => (
+          {t.items.map((item: any, i: number) => (
             <AccordionItem key={i} question={item.q} answer={item.a} />
           ))}
         </div>
