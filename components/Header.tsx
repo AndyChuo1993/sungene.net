@@ -7,28 +7,34 @@ import LanguageSwitcher from './LanguageSwitcher'
 export default function Header({ lang }: { lang: Lang }) {
   const links = [
     { href: `/${lang}`, label: t(lang, 'nav_home') },
-    { href: `/${lang}/services`, label: t(lang, 'nav_services') },
-    { href: `/${lang}/about`, label: t(lang, 'nav_about') },
+    { href: `/${lang}/machinery`, label: t(lang, 'nav_machinery') },
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
-    { href: `/${lang}/markets`, label: t(lang, 'nav_markets') },
-    { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
-    { href: `/${lang}/resources`, label: lang === 'en' ? 'Resources' : (lang === 'cn' ? '资源中心' : '資源中心') },
-    { href: `/${lang}/blog`, label: lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格') },
+    { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
+    { href: `/${lang}/resources`, label: t(lang, 'nav_resources') },
+    { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
   const serviceLinks = [
     {
-      href: `/${lang}/services/export-lead-generation`,
-      label: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客户开发' : '外銷客戶開發'),
+      href: `/${lang}/machinery/packaging`,
+      label: t(lang, 'nav_machinery_packaging'),
     },
     {
-      href: `/${lang}/services/distributor-development`,
-      label: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商开发' : '經銷商開發'),
+      href: `/${lang}/machinery/food-processing`,
+      label: t(lang, 'nav_machinery_food'),
     },
     {
-      href: `/${lang}/services/export-sales-outsourcing`,
-      label: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸业务外包服务' : '外銷業務外包服務'),
+      href: `/${lang}/machinery/filling-sealing`,
+      label: t(lang, 'nav_machinery_filling'),
+    },
+    {
+      href: `/${lang}/machinery/conveying-automation`,
+      label: t(lang, 'nav_machinery_conveying'),
+    },
+    {
+      href: `/${lang}/machinery/custom`,
+      label: t(lang, 'nav_machinery_custom'),
     },
   ]
 
@@ -44,9 +50,9 @@ export default function Header({ lang }: { lang: Lang }) {
             <span className="tracking-tight text-blue-900">SunGene</span>
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-4 xl:gap-8 lg:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="text-sm font-medium uppercase tracking-wide text-gray-600 transition hover:text-blue-900">
+              <Link key={l.href} href={l.href} className="text-sm font-medium text-gray-600 transition hover:text-blue-900 whitespace-nowrap">
                 {l.label}
               </Link>
             ))}
@@ -56,7 +62,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'en' ? '繁中' : '英'}</span>}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-800">
+            <Link href={`/${lang}/contact`} className="inline-flex rounded-sm bg-orange-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-orange-700">
               {t(lang, 'nav_free_analysis')}
             </Link>
           </div>
@@ -71,7 +77,7 @@ export default function Header({ lang }: { lang: Lang }) {
                 <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'en' ? '繁中' : '英'}</span>}>
                   <LanguageSwitcher lang={lang} />
                 </Suspense>
-                <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800">
+                <Link href={`/${lang}/contact`} className="inline-flex rounded-sm bg-orange-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-700">
                   {t(lang, 'nav_free_analysis')}
                 </Link>
               </div>

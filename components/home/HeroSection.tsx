@@ -1,133 +1,64 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 
 export default function HeroSection({ lang }: { lang: Lang }) {
+  const content = {
+    en: {
+      h1: 'Machinery Solutions for Packaging, Food Processing, and Industrial Production',
+      sub: 'We help importers, distributors, and manufacturers find suitable machinery solutions from Asia — from machine selection and customization to export delivery.',
+      btnExplore: 'Explore Solutions',
+      btnInquiry: 'Send an Inquiry',
+      shortTitle: 'Not sure which machine fits your production needs?',
+      shortDesc: 'We work with buyers who are still comparing options, evaluating automation levels, or planning future production upgrades. Instead of pushing a single machine, we help you identify a more suitable solution based on product type, capacity, budget, and application.'
+    },
+    cn: {
+      h1: '为包装、食品加工与工业生产提供机械解决方案',
+      sub: '我们协助进口商、经销商与制造商寻找合适的亚洲机械解决方案——从设备匹配、定制化到出口交付。',
+      btnExplore: '探索解决方案',
+      btnInquiry: '发送询价',
+      shortTitle: '不确定哪款机器适合您的生产需求？',
+      shortDesc: '我们协助仍在比较选项、评估自动化程度或规划未来生产升级的买家。与其推销单一机器，我们更倾向于根据产品类型、产能、预算和应用，帮您找出更合适的解决方案。'
+    },
+    zh: {
+      h1: '為包裝、食品加工與工業生產提供機械解決方案',
+      sub: '我們協助進口商、經銷商與製造商尋找合適的亞洲機械解決方案——從設備匹配、客製化到出口交付。',
+      btnExplore: '探索解決方案',
+      btnInquiry: '發送詢價',
+      shortTitle: '不確定哪款機器適合您的生產需求？',
+      shortDesc: '我們協助仍在比較選項、評估自動化程度或規劃未來生產升級的買家。與其推銷單一機器，我們更傾向於根據產品類型、產能、預算和應用，幫您找出更合適的解決方案。'
+    }
+  }
+
+  const t = content[lang] || content['en']
+
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-32 text-center md:pb-32 md:pt-40 lg:text-left">
-      <div className="pointer-events-none absolute left-0 top-0 z-0 h-full w-full overflow-hidden">
-        <div className="absolute right-[-5%] top-[-10%] h-[500px] w-[500px] rounded-full bg-blue-50 opacity-60 blur-3xl"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-gray-50 opacity-60 blur-3xl"></div>
-      </div>
-
+    <section className="relative overflow-hidden bg-white pb-24 pt-32 text-center lg:text-left md:pb-32 md:pt-40">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="mx-auto max-w-5xl lg:mx-0">
-            <div className="mb-6 inline-block rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5">
-              <span className="text-sm font-bold uppercase tracking-wide text-blue-800">
-                {lang === 'en'
-                  ? 'For Companies Expanding Overseas'
-                  : lang === 'cn'
-                  ? '适合想拓展欧美市场、但缺乏稳定开发能力的外贸企业'
-                  : '適合想拓展歐美市場、但缺乏穩定開發能力的外銷企業'}
-              </span>
-            </div>
-
-            <h1 className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-7xl">
-              {lang === 'en'
-                ? 'Find "Ordering" Overseas Buyers & Channels'
-                : lang === 'cn'
-                ? '帮外贸企业找到「会下单」的海外客户与通路'
-                : '幫外銷企業找到「會下單」的海外客戶與通路'}
-            </h1>
-
-            <p className="mx-auto mb-6 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl lg:mx-0">
-              {lang === 'en'
-                ? 'From prospecting and procurement matchmaking to inquiry triage and quoting. Build an export system that continuously generates orders.'
-                : lang === 'cn'
-                ? '从客户开发、采购对接、询价筛选到报价推进，建立一套能持续产生订单的外贸开发系统。'
-                : '從客戶開發、採購對接、詢價篩選到報價推進，建立一套能持續產生訂單的外銷開發系統。'}
-            </p>
-
-            <div className="mb-10 inline-flex items-center rounded-md bg-blue-50/80 px-4 py-2 text-blue-900 border border-blue-100">
-              <svg className="mr-2 h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              <span className="font-medium">
-                {lang === 'en' 
-                  ? 'Typically see valid replies and inquiry opportunities in 4-6 weeks.' 
-                  : lang === 'cn' 
-                  ? '最快 4–6 周开始出现有效回复与询价机会' 
-                  : '最快 4–6 週開始出現有效回覆與詢價機會'}
-              </span>
-            </div>
-
-            <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-              <Link
-                href={`/${lang}/export-market-analysis`}
-                className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-8 py-4 text-lg font-bold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl"
-              >
-                {lang === 'en' ? 'Get Market Entry Advice' : lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議'}
-              </Link>
-              <Link
-                href={`/${lang}/services`}
-                className="inline-flex items-center justify-center rounded-sm border-2 border-gray-200 bg-white px-8 py-4 text-lg font-bold text-gray-900 transition duration-300 hover:border-blue-900 hover:text-blue-900"
-              >
-                {lang === 'en' ? 'Request Partnership Evaluation' : lang === 'cn' ? '申请合作评估' : '申請合作評估'}
-              </Link>
-            </div>
-
-            <div className="mt-8 flex justify-center gap-4 flex-wrap">
-              <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700">
-                {lang === 'en' ? 'For Export Companies / Traders / Manufacturers' : lang === 'cn' ? '适合外贸企业 / 贸易商 / 外贸企业' : '適合外銷企業 / 貿易商 / 外銷企業'}
-              </span>
-              <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700">
-                {lang === 'en' ? 'North America / Europe / Japan' : lang === 'cn' ? '北美 / 欧洲 / 日本市场' : '北美 / 歐洲 / 日本市場'}
-              </span>
-              <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700">
-                {lang === 'en' ? 'Buyer Outreach / Channel Building / Sales Outsourcing' : lang === 'cn' ? '采购开发 / 通路建立 / 外贸外包' : '採購開發 / 通路建立 / 外銷外包'}
-              </span>
-            </div>
-
-            <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
-              {[
-                {
-                  title: lang === 'en' ? 'Consistent Overseas Opportunities' : lang === 'cn' ? '不靠运气，也能持续拿到海外商机' : '不靠運氣，也能持續拿到海外商機',
-                  desc: lang === 'en'
-                  ? 'Proactively develop overseas procurement and decision-makers, and continuously push to replies, quotes, and partnership opportunities.'
-                  : lang === 'cn'
-                  ? '主动开发海外采购与决策人，并持续推进到回复、报价与合作机会。'
-                  : '主動開發海外採購與決策人，並持續推進到回覆、報價與合作機會。',
-                },
-                {
-                  title: lang === 'en' ? 'No Need for a Full Team' : lang === 'cn' ? '不用自己养整个外贸团队' : '不用自己養整個外銷團隊',
-                  desc: lang === 'en'
-                    ? 'Activate an external team immediately to start market development and follow-up.'
-                    : lang === 'cn'
-                    ? '直接启动外部团队，开始市场开发与跟进，降低人事与试错成本。'
-                    : '直接啟動外部團隊，開始市場開發與跟進，降低人事與試錯成本。',
-                },
-                {
-                  title: lang === 'en' ? 'Weekly Visible Progress' : lang === 'cn' ? '每周看得到实际进展' : '每週看得到實際進展',
-                  desc: lang === 'en'
-                    ? 'Everything from lists and replies to inquiries and next steps is fully transparent.'
-                    : lang === 'cn'
-                    ? '从决策人资料、回复到询价与下一步全部透明，随时掌握开发节奏。'
-                    : '從決策人資料、回覆到詢價與下一步全部透明，隨時掌握開發節奏。',
-                },
-              ].map((item) => (
-                <div key={item.title} className="rounded-2xl border border-gray-100 bg-white/80 p-5 shadow-sm backdrop-blur">
-                  <div className="text-base font-bold tracking-normal text-gray-900">{item.title}</div>
-                  <div className="mt-2 text-sm font-normal normal-case tracking-normal text-gray-500">{item.desc}</div>
-                </div>
-              ))}
-            </div>
+        <div className="mx-auto max-w-4xl lg:mx-0">
+          <h1 className="mb-8 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-6xl">
+            {t.h1}
+          </h1>
+          <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 lg:mx-0">
+            {t.sub}
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start mb-20">
+            <Link
+              href={`/${lang}/solutions`}
+              className="inline-flex items-center justify-center rounded-sm bg-orange-600 px-8 py-4 text-lg font-bold text-white shadow-lg transition duration-300 hover:bg-orange-700"
+            >
+              {t.btnExplore}
+            </Link>
+            <Link
+              href={`/${lang}/contact`}
+              className="inline-flex items-center justify-center rounded-sm border-2 border-gray-200 bg-white px-8 py-4 text-lg font-bold text-gray-900 transition duration-300 hover:border-blue-900 hover:text-blue-900"
+            >
+              {t.btnInquiry}
+            </Link>
           </div>
 
-          <div className="relative mx-auto hidden w-full max-w-[560px] lg:block">
-            <div className="absolute inset-0 rounded-[2rem] bg-blue-100/70 blur-3xl"></div>
-            <div className="relative overflow-hidden rounded-[2rem] border border-blue-100 bg-white p-4 shadow-2xl">
-              <Image
-                src="/illustrations/pipeline-mockup.svg"
-                alt={lang === 'en' 
-                  ? 'Export lead generation pipeline illustration' 
-                  : lang === 'cn' 
-                  ? '海外客户开发与商机推进流程示意图' 
-                  : '海外客戶開發與商機推進流程示意圖'}
-                width={1200}
-                height={900}
-                className="h-auto w-full rounded-[1.5rem]"
-                priority
-              />
-            </div>
+          <div className="bg-gray-50 border border-gray-100 rounded-xl p-8 md:p-10 text-left">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.shortTitle}</h3>
+            <p className="text-gray-600 leading-relaxed text-lg">{t.shortDesc}</p>
           </div>
         </div>
       </div>

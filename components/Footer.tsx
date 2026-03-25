@@ -2,110 +2,67 @@ import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
 
 export default function Footer({ lang }: { lang: Lang }) {
-  const serviceLinks = [
-    { href: `/${lang}/services/export-lead-generation`, label: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客户开发' : '外銷客戶開發') },
-    { href: `/${lang}/services/distributor-development`, label: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商开发' : '經銷商開發') },
-    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸业务外包服务' : '外銷業務外包服務') },
+  const machineryLinks = [
+    { href: `/${lang}/machinery/packaging`, label: t(lang, 'nav_machinery_packaging') },
+    { href: `/${lang}/machinery/food-processing`, label: t(lang, 'nav_machinery_food') },
+    { href: `/${lang}/machinery/conveying-automation`, label: t(lang, 'nav_machinery_conveying') },
+    { href: `/${lang}/machinery/custom`, label: t(lang, 'nav_machinery_custom') },
+  ]
+
+  const solutionLinks = [
+    { href: `/${lang}/solutions#single`, label: t(lang, 'nav_sol_single') },
+    { href: `/${lang}/solutions#semi`, label: t(lang, 'nav_sol_semi') },
+    { href: `/${lang}/solutions#line`, label: t(lang, 'nav_sol_line') },
+    { href: `/${lang}/solutions#export`, label: t(lang, 'nav_sol_export') },
   ]
 
   return (
     <footer className="bg-gray-900 py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 grid gap-12 md:grid-cols-4">
+        <div className="mb-12 grid gap-12 md:grid-cols-5">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">
-              {/* If you have an image logo, uncomment below and remove text SunGene */}
-              {/* <Image src="/logo/sungene.png" alt="SunGene" width={120} height={40} /> */}
               SunGene
             </h3>
             <p className="text-gray-400 max-w-sm leading-relaxed mb-6">
               {lang === 'en' 
-                ? 'SunGene is the export service brand of SunGene Co., Ltd. Our teams in Taiwan and overseas jointly support market development and client progression.' 
+                ? 'SunGene provides machinery solutions for packaging, food processing, and industrial applications, helping global buyers move from requirement discussion to export delivery with clearer direction.' 
                 : (lang === 'cn' 
-                  ? 'SunGene 为上瑾铼有限公司之外贸服务品牌，台湾与海外团队共同支持市场开发与客户推进。' 
-                  : 'SunGene 為上瑾錸有限公司之外銷服務品牌，台灣與海外團隊共同支援市場開發與客戶推進。')}
+                  ? 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案，协助客户从需求讨论到出口交付获得更清晰的方向。' 
+                  : 'SunGene 為全球買家提供包裝、食品加工與工業應用機械解決方案，協助客戶從需求討論到出口交付獲得更清晰的方向。')}
             </p>
-            <div className="text-gray-400 text-sm space-y-6">
-              {lang === 'en' ? (
-                <>
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">Taiwan Office</div>
-                    <div className="font-bold text-white/90">SunGene Co., Ltd.</div>
-                    <div>Tax ID: 94111922</div>
-                    <div>No. 201, Guangfu Rd., Central Dist., Taichung City, Taiwan</div>
-                    <div>Phone: +886 43703 2705</div>
-                    <div>LINE: @sungene</div>
-                    <div>Email: contact@sungenelite.com</div>
-                  </div>
-                  
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">Overseas Office</div>
-                    <div className="font-bold text-white/90">Xiamen SunGene Trading Co., Ltd.</div>
-                    <div>Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Avenue, Tongan District, Xiamen City</div>
-                    <div>Phone: 18144132078 (WeChat included)</div>
-                  </div>
-                </>
-              ) : lang === 'cn' ? (
-                <>
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">台湾据点</div>
-                    <div className="font-bold text-white/90">上瑾铼有限公司</div>
-                    <div>统一编号：94111922</div>
-                    <div>台中市中区光复路201号</div>
-                    <div>+886 43703 2705</div>
-                    <div>LINE账号：@sungene</div>
-                    <div>电子邮箱：contact@sungenelite.com</div>
-                  </div>
-                  
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">海外据点</div>
-                    <div className="font-bold text-white/90">厦门上瑾铼贸易有限公司</div>
-                    <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                    <div>电话：18144132078 (微信同号)</div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">台灣據點</div>
-                    <div className="font-bold text-white/90">上瑾錸有限公司</div>
-                    <div>統一編號：94111922</div>
-                    <div>台中市中區光復路201號</div>
-                    <div>+886 43703 2705</div>
-                    <div>LINE帳號：@sungene</div>
-                    <div>電子信箱：contact@sungenelite.com</div>
-                  </div>
-                  
-                  <div>
-                    <div className="font-bold text-white mb-2 pb-1 border-b border-gray-800">海外據點</div>
-                    <div className="font-bold text-white/90">厦门上瑾铼贸易有限公司</div>
-                    <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                    <div>電話：18144132078 (微信同號)</div>
-                  </div>
-                </>
-              )}
-            </div>
           </div>
           <div>
-            <h4 className="mb-6 text-lg font-semibold">{lang === 'en' ? 'Quick Links' : (lang === 'cn' ? '快速链接' : '快速連結')}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t(lang, 'nav_machinery')}</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><Link href={`/${lang}/services`} className="transition hover:text-white">{t(lang, 'nav_services')}</Link></li>
-              <li><Link href={`/${lang}/how-it-works`} className="transition hover:text-white">{t(lang, 'nav_process')}</Link></li>
-              <li><Link href={`/${lang}/case-studies`} className="transition hover:text-white">{t(lang, 'nav_cases')}</Link></li>
-              <li><Link href={`/${lang}/resources`} className="transition hover:text-white">{lang === 'en' ? 'Resources' : (lang === 'cn' ? '资源中心' : '資源中心')}</Link></li>
-              <li><Link href={`/${lang}/about`} className="transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
+              {machineryLinks.map((link) => (
+                <li key={link.href}><Link href={link.href} className="transition hover:text-white">{link.label}</Link></li>
+              ))}
             </ul>
           </div>
           <div>
-            <h4 className="mb-6 text-lg font-semibold">{lang === 'en' ? 'Core Services' : (lang === 'cn' ? '核心服务' : '核心服務')}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t(lang, 'nav_solutions')}</h4>
             <ul className="space-y-3 text-gray-400">
-              {serviceLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-white">{link.label}</Link>
-                </li>
+              {solutionLinks.map((link) => (
+                <li key={link.href}><Link href={link.href} className="transition hover:text-white">{link.label}</Link></li>
               ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="mb-6 text-lg font-semibold">{lang === 'en' ? 'Company' : (lang === 'cn' ? '公司' : '公司')}</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li><Link href={`/${lang}/about`} className="transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
+              <li><Link href={`/${lang}/resources`} className="transition hover:text-white">{t(lang, 'nav_resources')}</Link></li>
               <li><Link href={`/${lang}/contact`} className="transition hover:text-white">{t(lang, 'nav_contact')}</Link></li>
-              <li><Link href={`/${lang}/export-market-analysis`} className="transition hover:text-white">{t(lang, 'nav_free_analysis')}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="mb-6 text-lg font-semibold">{t(lang, 'nav_contact')}</h4>
+            <ul className="space-y-3 text-gray-400 text-sm">
+              <li>Email: contact@sungene.net</li>
+              <li>WhatsApp: +886 43703 2705</li>
+              <li>Location: Taiwan / Xiamen</li>
+              <li className="pt-2"><Link href={`/${lang}/contact`} className="inline-block border border-gray-700 rounded px-3 py-1 hover:bg-gray-800 transition">{lang === 'en' ? 'Inquiry Form' : (lang === 'cn' ? '询价表单' : '詢價表單')}</Link></li>
             </ul>
           </div>
         </div>

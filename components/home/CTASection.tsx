@@ -1,34 +1,37 @@
-import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
+import { Lang } from '@/lib/i18n'
 
 export default function CTASection({ lang }: { lang: Lang }) {
+  const content = {
+    en: {
+      title: 'Tell Us What You Need to Produce or Pack',
+      desc: 'You do not need to know the exact machine name to start the conversation. Tell us your product, production target, packaging style, and budget range, and we will help you identify a more suitable machinery direction.',
+      btn: 'Request a Recommendation'
+    },
+    cn: {
+      title: '告诉我们您需要生产或包装什么',
+      desc: '您不需要知道确切的机器名称即可开始讨论。只需告诉我们您的产品、生产目标、包装形式和预算范围，我们就会协助您找到更合适的机械方向。',
+      btn: '获取设备推荐'
+    },
+    zh: {
+      title: '告訴我們您需要生產或包裝什麼',
+      desc: '您不需要知道確切的機器名稱即可開始討論。只需告訴我們您的產品、生產目標、包裝形式和預算範圍，我們就會協助您找到更合適的機械方向。',
+      btn: '取得設備推薦'
+    }
+  }
+
+  const t = content[lang] || content['en']
+
   return (
-    <section className="bg-blue-900 py-24 text-center">
+    <section className="py-24 bg-blue-600 text-white text-center">
       <div className="mx-auto max-w-4xl px-6">
-        <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-          {lang === 'en' ? 'Which export path fits your product?' : lang === 'cn' ? '先确认你的产品适合哪种外销路径' : '先確認你的產品適合哪種外銷路徑'}
-        </h2>
-        <p className="mb-10 text-xl text-blue-100">
-          {lang === 'en' 
-            ? 'Not sure whether to look for buyers directly, find distributors, or have an external team push it through? Let us help you determine the most suitable entry point.' 
-            : lang === 'cn' 
-            ? '不确定该直接找买家、找经销商，还是交给外部团队推进？先让我们帮您判断最适合的切入方式。' 
-            : '不確定該直接找買家、找經銷商，還是交給外部團隊推進？先讓我們幫您判斷最適合的切入方式。'}
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.title}</h2>
+        <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          {t.desc}
         </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link
-            href={`/${lang}/export-market-analysis`}
-            className="inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-lg font-bold text-blue-900 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-gray-50"
-          >
-            {lang === 'en' ? 'Get Market Entry Advice' : lang === 'cn' ? '取得市场切入建议' : '取得市場切入建議'}
-          </Link>
-          <Link
-            href={`/${lang}/contact`}
-            className="inline-flex items-center justify-center rounded-sm border-2 border-white px-8 py-4 text-lg font-bold text-white transition duration-300 hover:bg-white/10"
-          >
-            {lang === 'en' ? 'Book Strategy Call' : lang === 'cn' ? '预约策略通话' : '預約策略通話'}
-          </Link>
-        </div>
+        <Link href={`/${lang}/contact`} className="inline-block bg-orange-600 text-white font-bold px-10 py-4 rounded-sm hover:bg-orange-700 transition shadow-lg text-lg">
+          {t.btn}
+        </Link>
       </div>
     </section>
   )

@@ -1,338 +1,132 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
 
 const dict = {
   'cn': {
     // Navigation
     nav_home: '首页',
-    nav_services: '服务',
-    nav_process: '合作流程',
-    nav_cases: '成功案例',
+    nav_machinery: '机械设备',
+    nav_industries: '应用行业',
+    nav_solutions: '解决方案',
+    nav_resources: '资源中心',
     nav_about: '关于我们',
     nav_contact: '联系我们',
-    nav_industries: '行业',
-    nav_markets: '市场',
-    nav_blog: '博客',
-    nav_free_analysis: '获取市场切入建议',
-    cta_start: '申请合作评估',
-    cta_analysis: '获取市场切入建议',
-    cta_consult: '预约策略通话',
-
-    // Hero
-    hero_title: '帮外贸企业找到会下单的海外客户与渠道',
-    hero_subtitle: '用可复制的方法，把外贸开发做成稳定的系统。',
-    hero_description: 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并以可持续推进的方式把商机转成报价与订单。',
-    hero_cta_start: '申请合作评估',
-    hero_cta_analysis: '获取市场切入建议',
-    home_cta_title: '取得市场切入建议',
-
-    // Home - Services
-    home_service_1_title: '外贸客户开发',
-    home_service_1_desc: '协助你持续开发海外采购与决策人，并推进到询价与报价阶段',
-    home_service_2_title: '经销商开发',
-    home_service_2_desc: '建立海外渠道伙伴资料并推进合作',
-    home_service_3_title: '外贸业务外包服务',
-    home_service_3_desc: '你只需报价与出货，其余我们承接',
+    nav_free_analysis: '获取设备推荐',
     
-    // Home - Why Us
-    why_title: '为什么选择我们',
-    why_1: '精准客户搜索',
-    why_2: '主动市场开发',
-    why_3: '完整外贸支援',
+    // Machinery Dropdown
+    nav_machinery_packaging: '包装机械',
+    nav_machinery_food: '食品加工机械',
+    nav_machinery_filling: '灌装与封口',
+    nav_machinery_conveying: '输送与自动化',
+    nav_machinery_custom: '定制机械',
 
-    // Home - Process
-    process_title: '合作流程',
-    process_1_title: '市场分析',
-    process_1_desc: '市场研究与优先顺序',
-    process_2_title: '买家识别',
-    process_2_desc: '建立可投递的开发准备资料',
-    process_3_title: '开发活动',
-    process_3_desc: '多触点开发与跟进',
-    process_4_title: '商机交接与成交推进',
-    process_4_desc: '整理可推进的商机，并协助进入报价、样品与合作阶段',
+    // Industries Dropdown
+    nav_ind_powder: '粉末产品',
+    nav_ind_liquid: '液体产品',
+    nav_ind_granule: '颗粒产品',
+    nav_ind_food: '食品生产',
+    nav_ind_consumer: '消费品',
 
-    // Home - Cases
-    case_title: '成功案例',
-    case_cta: '查看更多案例',
-    
-    // Services Page
-    service_title: '我们的服务',
-    service_lead_gen_title: '外贸客户开发',
-    service_lead_gen_desc: '协助外贸企业开发海外采购与决策人，建立可持续推进的商机流程',
-    service_lead_gen_sub1: '买家研究与资料验证',
-    service_lead_gen_sub2: '买家资料库与可用资料',
-    service_lead_gen_sub3: '节奏式跟进与回复分类',
+    // Solutions Dropdown
+    nav_sol_single: '单机设备',
+    nav_sol_semi: '半自动方案',
+    nav_sol_line: '生产线支持',
+    nav_sol_custom: '定制机械',
+    nav_sol_export: '出口协调',
 
-    service_outreach_title: '经销商开发',
-    service_outreach_desc: '建立海外渠道伙伴资料并推进合作',
-    service_outreach_sub1: '市场分层与渠道地图',
-    service_outreach_sub2: '伙伴招募与初步筛选',
-    service_outreach_sub3: '合作条件与方案框架',
-
-    service_sales_title: '外贸业务外包服务',
-    service_sales_desc: '你报价与出货，其余外贸流程我们承接',
-    service_sales_sub1: '开发与跟进节奏',
-    service_sales_sub2: '回复分类与需求确认',
-    service_sales_sub3: '商机整理与交接',
-
-    // Get Market Entry Advice Page
-    analysis_title: '免费海外市场分析',
-    analysis_subtitle: '提交产品信息，我们将分析海外市场、潜在买家与市场机会。此服务适合初次接触 SunGene 的企业。',
-    form_company: '公司名称',
-    form_product: '主营产品',
-    form_market: '目标市场',
-    form_email: '企业邮箱',
-    form_submit: '获取分析报告',
+    meta_home_title: 'SunGene | 包装、食品加工与工业机械解决方案',
+    meta_home_desc: 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案，从设备匹配到出口交付，协助客户找到更合适的设备方案。',
+    meta_keywords: '包装机械, 食品加工机械, 工业设备, 定制机械',
     form_submitting: '提交中...',
     form_success_title: '提交成功',
-    form_success_desc: '我们已收到您的信息，将在 48 小时内发送分析报告至您的邮箱。',
+    form_success_desc: '我们已收到您的需求，将尽快与您联系。',
     form_error_title: '提交失败',
     form_error_desc: '请稍后再试，或直接联系我们。',
-    success_title: '提交成功',
-    success_message: '我们已收到您的信息，将在 48 小时内发送分析报告至您的邮箱。',
-
-    // About Page
-    about_title: '关于我们',
-    about_desc: 'SunGene 是一家专注于外贸增长的服务公司，我们不卖软件，而是直接帮企业找到买家。通过精准的决策人资料与专业的开发流程，我们协助企业拓展全球市场。',
-    about_stats_title: '我们的成绩',
-
-    // Contact Page
-    contact_title: '联系我们',
-    contact_subtitle: '有具体合作需求？欢迎直接与我们联系。',
-    form_name: '联系人姓名',
-    form_message: '咨询内容',
-    contact_email: '电子邮件',
-    contact_whatsapp: '即时通讯',
-    contact_submit: '发送信息',
-
-    // SEO
-    meta_home_title: 'SunGene 外贸客户开发与外贸外包服务 | 外贸拓展专家',
-    meta_home_desc: 'SunGene 协助外贸企业通过海外客户开发、采购对接、经销渠道拓展与外贸外包，建立可持续成交的海外开发系统。',
-    meta_keywords: '外贸客户开发, 外贸外包服务, 海外客户开发, B2B业务外包',
-    
-    // Footer
-    footer_copyright: '© 2026 SunGene 版权所有。',
+    footer_copyright: '© 2026 SunGene. 版权所有。',
   },
   'zh': {
     // Navigation
     nav_home: '首頁',
-    nav_services: '服務',
-    nav_process: '合作流程',
-    nav_cases: '成功案例',
+    nav_machinery: '機械設備',
+    nav_industries: '應用產業',
+    nav_solutions: '解決方案',
+    nav_resources: '資源中心',
     nav_about: '關於我們',
     nav_contact: '聯絡我們',
-    nav_industries: '產業',
-    nav_markets: '市場',
-    nav_blog: '部落格',
-    nav_free_analysis: '取得市場切入建議',
-    cta_start: '申請合作評估',
-    cta_analysis: '取得市場切入建議',
-    cta_consult: '預約策略通話',
-
-    // Hero
-    hero_title: '幫外銷企業找到會下單的海外客戶與通路',
-    hero_subtitle: '用可複製的方法，把外銷開發做成穩定的系統。',
-    hero_description: 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並以可持續推進的方式把商機轉成報價與訂單。',
-    hero_cta_start: '申請合作評估',
-    hero_cta_analysis: '取得市場切入建議',
-    home_cta_title: '取得市場切入建議',
-
-    // Home - Services
-    home_service_1_title: '外銷客戶開發',
-    home_service_1_desc: '協助你持續開發海外採購與決策人，並推進到詢價與報價階段',
-    home_service_2_title: '經銷商開發',
-    home_service_2_desc: '建立海外通路夥伴資料並推進合作',
-    home_service_3_title: '外銷業務外包服務',
-    home_service_3_desc: '你只需報價與出貨，其餘我們承接',
+    nav_free_analysis: '取得設備推薦',
     
-    // Home - Why Us
-    why_title: '為什麼選擇我們',
-    why_1: '精準客戶搜尋',
-    why_2: '主動市場開發',
-    why_3: '完整外銷支援',
+    // Machinery Dropdown
+    nav_machinery_packaging: '包裝機械',
+    nav_machinery_food: '食品加工機械',
+    nav_machinery_filling: '灌裝與封口',
+    nav_machinery_conveying: '輸送與自動化',
+    nav_machinery_custom: '客製機械',
 
-    // Home - Process
-    process_title: '合作流程',
-    process_1_title: '市場分析',
-    process_1_desc: '市場研究與優先順序',
-    process_2_title: '買家識別',
-    process_2_desc: '建立可投遞的開發準備資料',
-    process_3_title: '開發活動',
-    process_3_desc: '多觸點開發與跟進',
-    process_4_title: '商機交接與成交推進',
-    process_4_desc: '整理可推進的商機，並協助進入報價、樣品與合作階段',
+    // Industries Dropdown
+    nav_ind_powder: '粉末產品',
+    nav_ind_liquid: '液體產品',
+    nav_ind_granule: '顆粒產品',
+    nav_ind_food: '食品生產',
+    nav_ind_consumer: '消費品',
 
-    // Home - Cases
-    case_title: '成功案例',
-    case_cta: '查看更多案例',
-    
-    // Services Page
-    service_title: '我們的服務',
-    service_lead_gen_title: '外銷客戶開發',
-    service_lead_gen_desc: '協助外銷企業開發海外採購與決策人，建立可持續推進的商機流程',
-    service_lead_gen_sub1: '買家研究與資料驗證',
-    service_lead_gen_sub2: '採購與決策人資料庫建置',
-    service_lead_gen_sub3: '節奏式跟進與回覆分類別',
+    // Solutions Dropdown
+    nav_sol_single: '單機設備',
+    nav_sol_semi: '半自動方案',
+    nav_sol_line: '生產線支援',
+    nav_sol_custom: '客製機械',
+    nav_sol_export: '出口協調',
 
-    service_outreach_title: '經銷商開發',
-    service_outreach_desc: '建立海外通路夥伴資料並推進合作',
-    service_outreach_sub1: '市場分層與通路地圖',
-    service_outreach_sub2: '夥伴招募與初步篩選',
-    service_outreach_sub3: '合作條件與方案框架',
-
-    service_sales_title: '外銷業務外包服務',
-    service_sales_desc: '你報價與出貨，其餘外銷流程我們承接',
-    service_sales_sub1: '開發與跟進節奏',
-    service_sales_sub2: '回覆分類別與需求確認',
-    service_sales_sub3: '商機整理與交接',
-
-    // Get Market Entry Advice Page
-    analysis_title: '免費海外市場分析',
-    analysis_subtitle: '提交產品資訊，我們將分析海外市場、潛在買家與市場機會。此服務適合初次接觸 SunGene 的企業。',
-    form_company: '公司名稱',
-    form_product: '主營產品',
-    form_market: '目標市場',
-    form_email: '企業信箱',
-    form_submit: '獲取分析報告',
+    meta_home_title: 'SunGene | 包裝、食品加工與工業機械解決方案',
+    meta_home_desc: 'SunGene 為全球買家提供包裝、食品加工與工業應用機械解決方案，從設備匹配到出口交付，協助客戶找到更合適的設備方案。',
+    meta_keywords: '包裝機械, 食品加工機械, 工業設備, 客製機械',
     form_submitting: '提交中...',
     form_success_title: '提交成功',
-    form_success_desc: '我們已收到您的資訊，將在 48 小時內寄送分析報告至您的信箱。',
+    form_success_desc: '我們已收到您的需求，將儘快與您聯繫。',
     form_error_title: '提交失敗',
     form_error_desc: '請稍後再試，或直接聯繫我們。',
-    success_title: '提交成功',
-    success_message: '我們已收到您的資訊，將在 48 小時內寄送分析報告至您的信箱。',
-
-    // About Page
-    about_title: '關於我們',
-    about_desc: 'SunGene 是一家專注於外銷增長的服務公司，我們不賣軟體，而是直接幫企業找到買家。透過精準的決策人資料與專業的開發流程，我們協助企業拓展全球市場。',
-    about_stats_title: '我們的成績',
-
-    // Contact Page
-    contact_title: '聯絡我們',
-    contact_subtitle: '有具體合作需求？歡迎直接與我們聯繫。',
-    form_name: '聯絡人姓名',
-    form_message: '諮詢內容',
-    contact_email: '電子郵件',
-    contact_whatsapp: '即時通訊',
-    contact_submit: '寄送訊息',
-
-    // SEO
-    meta_home_title: 'SunGene 外銷客戶開發與外銷外包服務 | 外銷拓展專家',
-    meta_home_desc: 'SunGene 協助外銷企業透過海外客戶開發、採購對接、經銷商拓展與外銷外包，建立可持續成交的海外開發系統。',
-    meta_keywords: '外銷客戶開發, 外銷外包服務, 海外客戶開發, 企業對企業業務外包',
-    
-    // Footer
-    footer_copyright: '© 2026 SunGene 版權所有。',
+    footer_copyright: '© 2026 SunGene. 版權所有。',
   },
   'en': {
     // Navigation
     nav_home: 'Home',
-    nav_services: 'Services',
-    nav_process: 'How It Works',
-    nav_cases: 'Case Studies',
-    nav_about: 'About',
-    nav_contact: 'Contact',
+    nav_machinery: 'Machinery',
     nav_industries: 'Industries',
-    nav_markets: 'Markets',
-    nav_blog: 'Blog',
-    nav_free_analysis: 'Get Market Entry Advice',
-    cta_start: 'Request Partnership Evaluation',
-    cta_analysis: 'Get Market Entry Advice',
-    cta_consult: 'Book Strategy Call',
+    nav_solutions: 'Solutions',
+    nav_resources: 'Resources',
+    nav_about: 'About Us',
+    nav_contact: 'Contact',
+    nav_free_analysis: 'Request Recommendation',
 
-    // Hero
-    hero_title: 'Help export companies find overseas customers and channel partners who can actually buy',
-    hero_subtitle: 'A repeatable system to generate qualified export leads and build distributor networks.',
-    hero_description: 'SunGene helps export companies develop overseas customers, build channel partnerships, and turn opportunities into quotes and orders through a repeatable system.',
-    hero_cta_start: 'Request Partnership Evaluation',
-    hero_cta_analysis: 'Get Market Entry Advice',
-    home_cta_title: 'Get Market Entry Advice',
+    // Machinery Dropdown
+    nav_machinery_packaging: 'Packaging Machinery',
+    nav_machinery_food: 'Food Processing Machinery',
+    nav_machinery_filling: 'Filling & Sealing',
+    nav_machinery_conveying: 'Conveying & Automation',
+    nav_machinery_custom: 'Customized Machinery',
 
-    // Home - Services
-    home_service_1_title: 'Export Lead Generation',
-    home_service_1_desc: 'Help you continuously reach overseas buyers and decision-makers, then push opportunities toward inquiry and quotation',
-    home_service_2_title: 'Distributor Development',
-    home_service_2_desc: 'Build Channel Network',
-    home_service_3_title: 'Export Sales Outsourcing',
-    home_service_3_desc: 'You Quote & Ship',
-    
-    // Home - Why Us
-    why_title: 'Why Choose SunGene',
-    why_1: 'Precision Buyer Targeting',
-    why_2: 'Proactive Market Penetration',
-    why_3: 'End-to-End Export Support',
+    // Industries Dropdown
+    nav_ind_powder: 'Powder Products',
+    nav_ind_liquid: 'Liquid Products',
+    nav_ind_granule: 'Granule Products',
+    nav_ind_food: 'Food Production',
+    nav_ind_consumer: 'Consumer Goods',
 
-    // Home - Process
-    process_title: 'How It Works',
-    process_1_title: 'Market Research',
-    process_1_desc: 'Analyze target markets & competitors',
-    process_2_title: 'Buyer Identification',
-    process_2_desc: 'Build verified prospect lists',
-    process_3_title: 'Outreach Campaign',
-    process_3_desc: 'Execute cold email & LinkedIn campaigns',
-    process_4_title: 'Opportunity handoff and deal progression',
-    process_4_desc: 'Organize sales-ready opportunities and help move them into quoting, sampling, and business discussions',
+    // Solutions Dropdown
+    nav_sol_single: 'Single Machine',
+    nav_sol_semi: 'Semi-Automatic Setup',
+    nav_sol_line: 'Production Line Support',
+    nav_sol_custom: 'Custom Machinery',
+    nav_sol_export: 'Export Coordination',
 
-    // Home - Cases
-    case_title: 'Success Stories',
-    case_cta: 'View All Case Studies',
-    
-    // Services Page
-    service_title: 'Our Services',
-    service_lead_gen_title: 'Lead Generation',
-    service_lead_gen_desc: 'Help export companies reach overseas buyers and decision-makers, then build a repeatable opportunity pipeline',
-    service_lead_gen_sub1: 'Importer Research & Verification',
-    service_lead_gen_sub2: 'Custom Buyer Database Building',
-    service_lead_gen_sub3: 'Market Intelligence & Competitor Analysis',
-
-    service_outreach_title: 'Distributor Development',
-    service_outreach_desc: 'Find and recruit distributors with market tiers, channel mapping, and term frameworks.',
-    service_outreach_sub1: 'Market Tiers & Channel Mapping',
-    service_outreach_sub2: 'Distributor/Agent Recruitment',
-    service_outreach_sub3: 'Offer & Terms Framework',
-
-    service_sales_title: 'Export Sales Outsourcing',
-    service_sales_desc: 'We run export outreach and follow-ups so you focus on quoting and shipping.',
-    service_sales_sub1: 'Outbound Cadence & Follow-ups',
-    service_sales_sub2: 'Reply Triage & Qualification',
-    service_sales_sub3: 'Opportunity Handoff',
-
-    // Get Market Entry Advice Page
-    analysis_title: 'Get Market Entry Advice',
-    analysis_subtitle: 'Submit your product details to receive a complimentary market analysis report covering potential markets and buyer segments.',
-    form_company: 'Company Name',
-    form_product: 'Main Products',
-    form_market: 'Target Market(s)',
-    form_email: 'Business Email',
-    form_submit: 'Request Analysis',
+    meta_home_title: 'SunGene | Packaging, Food Processing & Industrial Machinery',
+    meta_home_desc: 'SunGene provides machinery solutions for packaging, food processing, and industrial applications — helping global buyers move from machine selection to export delivery.',
+    meta_keywords: 'packaging machinery, food processing machinery, industrial equipment, custom machinery',
     form_submitting: 'Submitting...',
     form_success_title: 'Request Received',
-    form_success_desc: 'We have received your request. Your market analysis report will be sent to your email within 48 hours.',
+    form_success_desc: 'We have received your inquiry and will get back to you shortly.',
     form_error_title: 'Submission Failed',
     form_error_desc: 'Please try again later or contact us directly.',
-    success_title: 'Request Received',
-    success_message: 'We have received your request. Your market analysis report will be sent to your email within 48 hours.',
-
-    // About Page
-    about_title: 'About SunGene',
-    about_desc: 'SunGene is a specialized export growth partner. We don\'t sell software; we deliver buyers. By combining data-driven prospecting with professional outreach, we help companies expand their global footprint efficiently.',
-
-    // Contact Page
-    contact_title: 'Contact Us',
-    contact_subtitle: 'Ready to scale your export sales? Get in touch with our team.',
-    form_name: 'Your Name',
-    form_message: 'Message / Inquiry',
-    contact_email: 'Email',
-    contact_whatsapp: 'WhatsApp',
-    contact_submit: 'Send Message',
-
-    // SEO
-    meta_home_title: 'SunGene | Outsourced Export Sales & B2B Lead Generation',
-    meta_home_desc: 'SunGene helps export companies build a repeatable overseas growth system through customer development, buyer outreach, distributor expansion, and sales outsourcing.',
-    meta_keywords: 'export lead generation, export outsourcing, B2B sales outsourcing, overseas customer development',
-    
-    // Footer
     footer_copyright: '© 2026 SunGene. All rights reserved.',
-  },
+  }
 }
 
 export function t(lang: Lang, key: string): string {

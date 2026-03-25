@@ -1,15 +1,25 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        'deep-navy': '#0B1C2D',
-        brand: {
-          cyan: "#00E5FF",
-          purple: "#7C4DFF",
-          neon: "#14F195",
-          bg: "#0B1C2D"
-        }
+        // Industrial steel blue / dark navy palette
+        blue: {
+          50: '#f0f4f8',
+          100: '#d9e2ec',
+          200: '#bcccdc',
+          300: '#9fb3c8',
+          400: '#829ab1',
+          500: '#627d98',
+          600: '#486581',
+          700: '#334e68',
+          800: '#243b53',
+          900: '#102a43', // Deep industrial navy
+        },
+        // Slate for metallic feel
+        gray: colors.slate,
       }
     }
   },

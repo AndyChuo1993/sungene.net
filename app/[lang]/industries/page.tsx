@@ -1,102 +1,69 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
-import { seoIndustries } from '@/data/seoIndustries'
-import { cnText } from '@/lib/cnText'
+import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
-
-  return {
-    title: `${lang === 'en' ? 'Industry Pages' : (lang === 'cn' ? '行业頁總覽' : '產業頁總覽')} | SunGene`,
-    description:
-      isChinese
-        ? '依產業查看 SunGene 的外銷內容頁，快速找到適合你產品與買家語境的產業頁面。'
-        : 'Browse industry-specific SunGene pages to find the right context for your product and buyer profile.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/industries`,
-      languages: {
-        'zh-CN': 'https://sungene.net/cn/industries',
-        'zh-TW': 'https://sungene.net/zh/industries',
-        'en': 'https://sungene.net/en/industries',
-        'x-default': 'https://sungene.net/cn/industries',
-      },
-    },
-    openGraph: {
-      title: `${lang === 'en' ? 'Industry Pages' : (lang === 'cn' ? '行业頁總覽' : '產業頁總覽')} | SunGene`,
-      description:
-        isChinese
-          ? '依產業查看 SunGene 的外銷內容頁，快速找到適合你產品與買家語境的產業頁面。'
-          : 'Browse industry-specific SunGene pages to find the right context for your product and buyer profile.',
-      url: `${baseUrl}/${lang}/industries`,
-      images: ['/og/og.png'],
-    },
-  }
+  if (lang === 'cn') return { title: '行业与应用｜SunGene' }
+  if (lang === 'zh') return { title: '產業與應用｜SunGene' }
+  return { title: 'Industries & Applications | SunGene' }
 }
 
-export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+export default async function IndustriesPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const isChinese = lang !== 'en'
-  const tr = (value: string) => cnText(lang, value)
+
+  const content = {
+    en: {
+      title: 'Industries & Applications',
+      desc: 'Many buyers start with the application, not the machine name. That is why we organize part of our support around real production use cases. By understanding your product type, workflow, and output expectations, we can help identify more suitable machinery directions.',
+      cats: [
+        { title: 'Powder Products', desc: 'Machinery considerations for filling, packaging, and controlled product handling.' },
+        { title: 'Liquid Products', desc: 'Solutions related to filling, sealing, conveying, and packaging workflow.' },
+        { title: 'Granule & Snack Products', desc: 'Options for feeding, packaging, movement, and selected process support.' },
+        { title: 'Food Production', desc: 'Equipment direction for processing, handling, and output improvement.' },
+        { title: 'Household & Consumer Products', desc: 'Machinery applications beyond food where packaging or handling matters.' }
+      ]
+    },
+    cn: {
+      title: '行业与应用',
+      desc: '许多买家是从应用场景而非机器名称开始的。这也是为什么我们将部分支持围绕真实的生产用例进行组织。通过了解您的产品类型、工作流和产能期望，我们可以协助找到更合适的机械方向。',
+      cats: [
+        { title: '粉末产品', desc: '灌装、包装及受控物料处理的机械考量。' },
+        { title: '液体产品', desc: '与灌装、封口、输送及包装工作流相关的解决方案。' },
+        { title: '颗粒与休闲食品', desc: '进料、包装、输送及特定流程支持的选项。' },
+        { title: '食品生产', desc: '加工、处理及产能提升的设备方向。' },
+        { title: '家居与消费品', desc: '食品以外、重视包装或物料处理的机械应用。' }
+      ]
+    },
+    zh: {
+      title: '產業與應用',
+      desc: '許多買家是從應用場景而非機器名稱開始的。這也是為什麼我們將部分支援圍繞真實的生產用例進行組織。透過了解您的產品類型、工作流和產能期望，我們可以協助找到更合適的機械方向。',
+      cats: [
+        { title: '粉末產品', desc: '灌裝、包裝及受控物料處理的機械考量。' },
+        { title: '液體產品', desc: '與灌裝、封口、輸送及包裝工作流相關的解決方案。' },
+        { title: '顆粒與休閒食品', desc: '進料、包裝、輸送及特定流程支援的選項。' },
+        { title: '食品生產', desc: '加工、處理及產能提升的設備方向。' },
+        { title: '家居與消費品', desc: '食品以外、重視包裝或物料處理的機械應用。' }
+      ]
+    }
+  }
+
+  const t = content[lang] || content['en']
 
   return (
-    <main className="min-h-screen bg-white pt-28">
-      <section className="border-b border-gray-100 bg-gray-50 py-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">{lang === 'en' ? 'Industry Pages' : (lang === 'cn' ? '行业頁總覽' : '產業頁總覽')}</h1>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-gray-600">
-              {isChinese
-                ? '這裡依產業整理常見的採購情境、風險與切入方式，方便快速找到更貼近你產品與買家的參考內容。'
-                : 'These pages are organized by industry so buyers can quickly understand typical sourcing context, risks, and entry points.'}
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-[1.75rem] border border-blue-100 bg-white shadow-xl">
-            <Image src="/illustrations/industries-hub-hero.svg" alt={lang === 'en' ? 'Industry pages hero' : (lang === 'cn' ? '行业頁主視覺' : '產業頁主視覺')} width={1200} height={760} className="h-auto w-full" priority />
-          </div>
-        </div>
-      </section>
+    <div className="bg-gray-50 min-h-screen py-32">
+      <div className="max-w-5xl mx-auto px-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
+        <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed">{t.desc}</p>
 
-      <section className="py-14">
-        <div className="mx-auto mb-10 grid max-w-7xl gap-6 px-6 md:grid-cols-3">
-          {[
-            {
-              title: lang === 'en' ? 'Read by buyer context' : (lang === 'cn' ? '依买家场景閱讀' : '依買家情境閱讀'),
-              desc: lang === 'en' ? 'Start from sourcing flow, onboarding conditions, and risks.' : (lang === 'cn' ? '從行业采购流程、導入條件與风险點切入。' : '從產業採購流程、導入條件與風險點切入。'),
-            },
-            {
-              title: lang === 'en' ? 'Pair with market pages' : (lang === 'cn' ? '搭配市场頁閱讀' : '搭配市場頁閱讀'),
-              desc: lang === 'en' ? 'Industry pages explain demand logic; market pages explain regional differences.' : (lang === 'cn' ? '行业頁看需求邏輯，市场頁看地區差異。' : '產業頁看需求邏輯，市場頁看地區差異。'),
-            },
-            {
-              title: lang === 'en' ? 'Connect to service pages' : (lang === 'cn' ? '對應外贸開發內容' : '對應外銷開發內容'),
-              desc: lang === 'en' ? 'Use these pages as bridges to services and market analysis.' : (lang === 'cn' ? '可直接回到服务頁與获取市场切入建议做下一步。' : '可直接回到服務頁與取得市場切入建議做下一步。'),
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="text-base font-bold text-gray-900">{item.title}</div>
-              <div className="mt-2 text-sm leading-7 text-gray-600">{item.desc}</div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {t.cats.map((c, i) => (
+            <div key={i} className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition">
+              <h2 className="text-2xl font-bold text-blue-900 mb-3">{c.title}</h2>
+              <p className="text-gray-600">{c.desc}</p>
             </div>
           ))}
         </div>
-
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
-          {seoIndustries.map((industry) => (
-            <Link key={industry.slug} href={`/${lang}/industries/${industry.slug}`} className="group rounded-2xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg">
-              <div className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-700">
-                {lang === 'en' ? 'Industry Page' : (lang === 'cn' ? '行业頁' : '產業頁')}
-              </div>
-              <h2 className="mt-4 text-2xl font-bold text-gray-900 group-hover:text-blue-700">
-                {tr(industry.h1[lang].replace('外銷客戶開發', '').replace('Export Lead Generation for ', ''))}
-              </h2>
-              <p className="mt-3 line-clamp-4 text-gray-600">{tr(industry.description[lang])}</p>
-              <div className="mt-6 text-sm font-bold text-blue-700">{lang === 'en' ? 'View page →' : (lang === 'cn' ? '查看行业頁 →' : '查看產業頁 →')}</div>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }

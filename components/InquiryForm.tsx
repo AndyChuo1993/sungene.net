@@ -214,7 +214,7 @@ export default function InquiryForm({
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white font-bold py-4 px-6 rounded-sm hover:bg-blue-700 transition duration-300 shadow-md text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full bg-orange-600 text-white font-bold py-4 px-6 rounded-sm hover:bg-orange-700 transition duration-300 shadow-md text-lg disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {loading ? t(lang, 'form_submitting') : submitLabel}
         </button>

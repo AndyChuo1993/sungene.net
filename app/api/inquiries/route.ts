@@ -2,6 +2,8 @@
 import nodemailer from 'nodemailer'
 import { rateLimit } from '@/lib/rateLimit'
 import process from 'process'
+import { promises as fs } from 'fs'
+import path from 'path'
 
 const allowedTypes = [
   'Contact',
@@ -128,7 +130,11 @@ export async function POST(req: Request) {
   const id = `REQ-${Date.now().toString(36)}`
 
   try {
-    const { transporter, fromAddr, to } = getTransporter()
+    const { transporter, fromAddr, to, emailEnabled } = getTransporter()
+    if (!emailEnabled) {
+      await persistInquiry({ id, reqId, item, rawBody: body, meta })
+      return Response.json({ ok: true, id, ackOk: null, ackQueued: false, reqId, emailEnabled: false })
+    }
     const adminOk = await sendAdminEmail({ transporter, fromAddr, to, item, rawBody: body, meta, id, reqId })
 
     if (!adminOk) {
@@ -176,6 +182,7 @@ function getTransporter() {
 
   const to = process.env.INQUIRY_TO || 'contact@sungenelite.com'
   let transporter: any
+  let emailEnabled = true
 
   if (host && user && pass) {
     transporter = nodemailer.createTransport({
@@ -190,13 +197,28 @@ function getTransporter() {
   } else if (url) {
     transporter = nodemailer.createTransport(url)
   } else {
-    throw new Error('SMTP not configured')
+    emailEnabled = false
   }
 
   const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
 
-  return { transporter, fromAddr, to }
+  return { transporter, fromAddr, to, emailEnabled }
+}
+
+async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; rawBody: any; meta: any }) {
+  const { id, reqId, item, rawBody, meta } = args
+  const record = {
+    id,
+    reqId,
+    date: new Date().toISOString(),
+    item,
+    rawBody,
+    meta,
+  }
+  const ndjsonPath = path.join(process.cwd(), 'data', 'inquiries.ndjson')
+  await fs.mkdir(path.dirname(ndjsonPath), { recursive: true })
+  await fs.appendFile(ndjsonPath, `${JSON.stringify(record)}\n`, 'utf8')
 }
 
 async function sendAdminEmail(args: {

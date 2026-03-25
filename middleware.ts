@@ -11,10 +11,10 @@ function getDefaultLocaleByHost(host: string | null) {
   }
 
   if (hostname.includes('sungenelite.com')) {
-    return 'zh'
+    return 'en'
   }
 
-  return 'zh'
+  return 'en'
 }
 
 export function middleware(request: NextRequest) {
@@ -40,20 +40,15 @@ export function middleware(request: NextRequest) {
   const matchLang = pathname.match(/^\/(zh|cn|en)\//)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
 
-  if (pathname.includes('/buyer-database-building')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/qualified-b2b-leads`, request.url), 301)
-  }
-  if (pathname.includes('/buyers-list')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/overseas-buyer-lists`, request.url), 301)
-  }
-  if (pathname.includes('/distributor-network')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/services/distributor-development`, request.url), 301)
-  }
-  if (pathname.includes('/linkedin-prospecting')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/cold-email-outreach`, request.url), 301)
-  }
-  if (pathname.includes('/market-entry-strategy')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/export-marketing`, request.url), 301)
+  const oldPages = [
+    '/buyer-database-building', '/buyers-list', '/distributor-network', '/linkedin-prospecting', 
+    '/market-entry-strategy', '/cold-email-outreach', '/distributor-list', '/export-marketing', 
+    '/overseas-buyer-lists', '/qualified-b2b-leads', '/services', '/case-studies', '/markets', 
+    '/pricing', '/partners', '/faq', '/how-it-works', '/export-market-analysis', '/free-market-analysis', '/blog'
+  ]
+
+  if (oldPages.some(page => pathname.includes(page))) {
+    return NextResponse.redirect(new URL(`/${currentLang}`, request.url), 301)
   }
 
   const normalizedPathname = pathname.replace(/^\/zh\/cn(?=\/|$)/, '/cn')

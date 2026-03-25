@@ -14,17 +14,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     metadataBase: new URL(baseUrl),
     title: t(lang, 'meta_home_title'),
     description: lang === 'en' 
-      ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
+      ? 'SunGene provides machinery solutions for packaging, food processing, and industrial applications — helping global buyers move from machine selection to export delivery with greater clarity and efficiency.' 
       : lang === 'cn'
-      ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
-      : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
+      ? 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案，从设备匹配到出口交付，协助客户找到更合适的设备方案。'
+      : 'SunGene 為全球買家提供包裝、食品加工與工業應用機械解決方案，從設備匹配到出口交付，協助客戶找到更合適的設備方案。',
     openGraph: {
       title: t(lang, 'meta_home_title'),
       description: lang === 'en' 
-        ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
+        ? 'SunGene provides machinery solutions for packaging, food processing, and industrial applications — helping global buyers move from machine selection to export delivery with greater clarity and efficiency.' 
         : lang === 'cn'
-        ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
-        : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
+        ? 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案，从设备匹配到出口交付，协助客户找到更合适的设备方案。'
+        : 'SunGene 為全球買家提供包裝、食品加工與工業應用機械解決方案，從設備匹配到出口交付，協助客戶找到更合適的設備方案。',
       url: `${baseUrl}/${lang}`,
       type: 'website',
     },
@@ -60,7 +60,7 @@ export default async function RootLayout({ children, params }: { children: React
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'SunGene Co., LTD.',
-    description: t(lang, 'about_desc'),
+    description: t(lang, 'meta_home_desc'),
     url: baseUrl,
     logo: logoUrl,
     telephone: '04-37032705',
@@ -152,7 +152,7 @@ export default async function RootLayout({ children, params }: { children: React
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       <Header lang={lang} />
-      <div id="page-content">{children}</div>
+      <div id="page-content" className="break-words">{children}</div>
       <Footer lang={lang} />
     </>
   )

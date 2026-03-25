@@ -1,183 +1,108 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import InquiryForm, { FormField } from '@/components/InquiryForm'
+import InquiryForm from '@/components/InquiryForm'
+import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
-
-  return {
-    title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
-    description:
-      isChinese
-        ? '與 SunGene 討論海外客戶開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
-        : 'Book Strategy Call about export customer development, distributor development, sales outsourcing, or partnership applications.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/contact`,
-      languages: {
-        'zh-CN': 'https://sungene.net/cn/contact',
-        'zh-TW': 'https://sungene.net/zh/contact',
-        'en': 'https://sungene.net/en/contact',
-        'x-default': 'https://sungene.net/cn/contact',
-      },
-    },
-    openGraph: {
-      title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
-      description:
-        isChinese
-          ? '與 SunGene 討論海外客戶開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
-          : 'Book Strategy Call about export customer development, distributor development, sales outsourcing, or partnership applications.',
-      url: `${baseUrl}/${lang}/contact`,
-      images: ['/og/og.png'],
-    },
-  }
+  if (lang === 'cn') return { title: '提交询价｜SunGene' }
+  if (lang === 'zh') return { title: '提交詢價｜SunGene' }
+  return { title: 'Send an Inquiry | SunGene' }
 }
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: Promise<{ lang: Lang }>
-  searchParams?: Promise<{ type?: string }>
-}) {
+export default async function ContactPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const isChinese = lang !== 'en'
-  const resolvedSearchParams = searchParams ? await searchParams : undefined
-  const isPartner = resolvedSearchParams?.type === 'partner'
 
-  const fields: FormField[] = [
-    { name: 'name', label: lang === 'en' ? 'Your Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
-    { name: 'phone', label: lang === 'en' ? 'Phone Number' : (lang === 'cn' ? '手机號碼' : '手機號碼'), type: 'tel', required: true, autoComplete: 'tel' },
-    { name: 'company', label: lang === 'en' ? 'Company Name' : (lang === 'cn' ? '公司名稱' : '公司名稱'), type: 'text', required: true, autoComplete: 'organization' },
-    { name: 'email', label: lang === 'en' ? 'Business Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
-    {
-      name: 'message',
-      label: lang === 'en' ? 'Project Details' : (lang === 'cn' ? '需求說明' : '需求說明'),
-      type: 'textarea',
-      required: true,
-      rows: 5,
-      defaultValue: isPartner
-        ? isChinese
-          ? '您好，我想申請加入 SunGene 合作夥伴計劃，請提供合作方式與後續流程。'
-          : 'Hello, I would like to apply for the SunGene partner program. Please share the collaboration model and next steps.'
-        : undefined,
-      placeholder: isPartner
-        ? isChinese
-          ? '請補充你的公司、所在地、市場資源或合作方式。'
-          : 'Please add your company, region, market access, or preferred collaboration model.'
-        : isChinese
-          ? '請簡單描述產品、目標市場、目前碰到的問題，或想討論的合作方向。'
-          : 'Share your product, target markets, current challenges, or the collaboration you want to discuss.',
+  const content = {
+    en: {
+      title: 'Tell Us About Your Machinery Requirement',
+      desc: 'You do not need to know the exact machine model before contacting us. The more helpful starting point is your product, production target, packaging style, automation expectation, and destination market. Based on that, we can help suggest a more suitable machinery direction.',
+      formDesc: 'Please share any of the following if available:',
+      formList: [
+        'What product do you process or pack?',
+        'What output do you need per hour or per day?',
+        'What packaging format or production result do you want?',
+        'Do you prefer semi-automatic or fully automatic?',
+        'Which country will the machine be used in?',
+        'Do you have voltage requirements?',
+        'What is your expected budget range?',
+        'Do you need a single machine or a broader solution?'
+      ],
+      btn: 'Submit Inquiry',
+      footer: 'If your project is still in an early discussion stage, that is fine. A clear application description is often enough to begin.'
     },
-  ]
+    cn: {
+      title: '告诉我们您的机械需求',
+      desc: '在联系我们之前，您不需要知道确切的机器型号。更有帮助的起点是您的产品、生产目标、包装形式、自动化预期和目标市场。基于这些，我们可以协助建议更合适的机械方向。',
+      formDesc: '如果可以，请分享以下信息：',
+      formList: [
+        '您加工或包装什么产品？',
+        '您每小时或每天需要多少产量？',
+        '您希望达到什么包装格式或生产结果？',
+        '您倾向半自动还是全自动？',
+        '机器将在哪个国家使用？',
+        '您有电压要求吗？',
+        '您的预期预算范围是多少？',
+        '您需要单台机器还是更广泛的解决方案？'
+      ],
+      btn: '提交询价',
+      footer: '如果您的项目仍处于早期讨论阶段，没关系。清晰的应用场景描述通常就足以开始。'
+    },
+    zh: {
+      title: '告訴我們您的機械需求',
+      desc: '在聯絡我們之前，您不需要知道確切的機器型號。更有幫助的起點是您的產品、生產目標、包裝形式、自動化預期和目標市場。基於這些，我們可以協助建議更合適的機械方向。',
+      formDesc: '如果可以，請分享以下資訊：',
+      formList: [
+        '您加工或包裝什麼產品？',
+        '您每小時或每天需要多少產量？',
+        '您希望達到什麼包裝格式或生產結果？',
+        '您傾向半自動還是全自動？',
+        '機器將在哪個國家使用？',
+        '您有電壓要求嗎？',
+        '您的預期預算範圍是多少？',
+        '您需要單臺機器還是更廣泛的解決方案？'
+      ],
+      btn: '提交詢價',
+      footer: '如果您的專案仍處於早期討論階段，沒關係。清晰的應用場景描述通常就足以開始。'
+    }
+  }
+
+  const t = content[lang] || content['en']
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
-        <Image src="/banner/banner2.png" alt="Contact SunGene" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gray-950/70" />
-        <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-            {isPartner ? (lang === 'en' ? 'Partner Application' : (lang === 'cn' ? '合作夥伴申請' : '合作夥伴申請')) : lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')}
-          </h1>
-          <p className="mx-auto max-w-3xl text-xl text-gray-200">
-            {isPartner
-              ? isChinese
-                ? '留下你的公司資訊與合作方向，我們會由商務團隊跟你接洽。'
-                : 'Share your company details and partnership direction. Our business team will follow up with you.'
-              : isChinese
-                ? '不論你想開發海外客戶、建立經銷通路，還是規劃長期外銷合作，都可以直接跟我們談。'
-                : 'Whether you want overseas customers, distributor channels, or an annual export growth engagement, you can talk to us directly.'}
-          </p>
-        </div>
-      </section>
+    <div className="bg-gray-50 min-h-screen py-32">
+      <div className="max-w-4xl mx-auto px-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
+        <p className="text-lg text-gray-600 mb-12 leading-relaxed">{t.desc}</p>
 
-      <section className="bg-gray-50 py-20">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-[1.1fr_1.4fr]">
-          <div className="space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold text-gray-900">{lang === 'en' ? 'Ways to reach us' : (lang === 'cn' ? '联系方式' : '聯絡方式')}</h2>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Business Email' : (lang === 'cn' ? '商務合作信箱' : '商務合作信箱')}</div>
-              <div className="mt-1 text-blue-700">contact@sungenelite.com</div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Phone / LINE' : (lang === 'cn' ? '电话 / 即时通讯' : '電話 / 即時通訊')}</div>
-              <div className="mt-1 text-gray-700">+886 43703 2705</div>
-              <div className="mt-1 text-green-700">{lang === 'en' ? 'LINE ID: @sungene' : (lang === 'cn' ? '即时通讯帐号：@sungene' : '即時通訊帳號：@sungene')}</div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Company Information' : (lang === 'cn' ? '公司信息' : '公司資訊')}</div>
-              <div className="mt-2 space-y-2 text-gray-700">
-              {lang === 'en' ? (
-                <>
-                  <div className="font-bold">SunGene Co., Ltd.</div>
-                  <div>Tax ID: 94111922</div>
-                  <div>No. 201, Guangfu Rd., Central Dist., Taichung City, Taiwan</div>
-                  <div>Phone: +886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">Xiamen SunGene Trading Co., Ltd.</div>
-                  <div>Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Avenue, Tongan District, Xiamen City</div>
-                  <div>Phone: 18144132078 (WeChat included)</div>
-                </>
-              ) : lang === 'cn' ? (
-                <>
-                  <div className="font-bold">上瑾铼有限公司</div>
-                  <div>统一编号：94111922</div>
-                  <div>台中市中区光复路201号</div>
-                  <div>+886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">厦门上瑾铼贸易有限公司</div>
-                  <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                  <div>电话：18144132078 (微信同号)</div>
-                </>
-              ) : (
-                <>
-                  <div className="font-bold">上瑾錸有限公司</div>
-                  <div>統一編號：94111922</div>
-                  <div>台中市中區光復路201號</div>
-                  <div>+886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">厦门上瑾铼贸易有限公司</div>
-                  <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                  <div>電話：18144132078 (微信同號)</div>
-                </>
-              )}
-              </div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'WhatsApp' : (lang === 'cn' ? '即时通讯联系' : '即時通訊聯繫')}</div>
-              <div className="mt-3 h-28 w-28 overflow-hidden rounded-sm border border-gray-200 bg-gray-100 shadow-sm">
-                <Image src="/whatsapp-qr.png" alt={lang === 'en' ? 'WhatsApp QR Code' : (lang === 'cn' ? '即时通讯二维码' : '即時通訊 QR Code')} width={112} height={112} className="h-full w-full object-cover" />
-              </div>
-            </div>
-            <div className="rounded-lg bg-blue-50 p-5 text-sm leading-7 text-blue-900">
-              {isChinese
-                ? '如果你已有明確產品與市場，建議在表單內直接寫出目標市場、買家類別型與目前遇到的卡點，這樣我們比較容易快速判斷合作方向。'
-                : 'If you already have a product and target market in mind, include the buyer type and your current bottleneck in the form so we can suggest the right next step faster.'}
-            </div>
-          </div>
+        <div className="bg-white p-8 md:p-10 rounded-xl border border-gray-200 shadow-sm">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{t.formDesc}</h2>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-8">
+            {t.formList.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
 
-          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm md:p-12">
-            <InquiryForm
-              lang={lang}
-              type={isPartner ? 'Partnership Inquiry' : 'Contact'}
-              fields={fields}
-              submitLabel={isPartner ? (lang === 'en' ? 'Submit Partnership Request' : (lang === 'cn' ? '送出合作申請' : '送出合作申請')) : lang === 'en' ? 'Send Message' : (lang === 'cn' ? '送出需求' : '送出需求')}
-              successTitle={lang === 'en' ? 'Request received' : (lang === 'cn' ? '送出成功' : '送出成功')}
-              successDesc={isPartner
-                ? isChinese
-                  ? '我們已收到合作申請，商務團隊將盡快與您聯繫。'
-                  : 'We received your partnership application. Our business team will contact you soon.'
-                : isChinese
-                  ? '我們已收到你的訊息，會盡快和你聯絡。'
-                  : 'We received your message and will get back to you soon.'}
-              errorTitle={lang === 'en' ? 'Submission failed' : (lang === 'cn' ? '送出失敗' : '送出失敗')}
-              errorDesc={lang === 'en' ? 'Please try again later or email us directly.' : (lang === 'cn' ? '請稍後再試，或直接寄信給我們。' : '請稍後再試，或直接寄信給我們。')}
-            />
-          </div>
+          <InquiryForm
+            lang={lang}
+            type="Contact"
+            submitLabel={t.btn}
+            fields={[
+              { name: 'name', label: lang === 'en' ? 'Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
+              { name: 'email', label: lang === 'en' ? 'Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
+              { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true },
+              { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text' },
+              { name: 'packaging', label: lang === 'en' ? 'Packaging Format / Result' : (lang === 'cn' ? '包装格式 / 结果' : '包裝格式 / 結果'), type: 'text' },
+              { name: 'automation', label: lang === 'en' ? 'Automation Preference' : (lang === 'cn' ? '自动化偏好' : '自動化偏好'), type: 'text' },
+              { name: 'country', label: lang === 'en' ? 'Destination Country' : (lang === 'cn' ? '使用国家' : '使用國家'), type: 'text' },
+              { name: 'voltage', label: lang === 'en' ? 'Voltage Requirement' : (lang === 'cn' ? '电压要求' : '電壓要求'), type: 'text' },
+              { name: 'budget', label: lang === 'en' ? 'Budget Range' : (lang === 'cn' ? '预算范围' : '預算範圍'), type: 'text' },
+              { name: 'scope', label: lang === 'en' ? 'Project Scope' : (lang === 'cn' ? '需求范围' : '需求範圍'), type: 'text' },
+              { name: 'message', label: lang === 'en' ? 'Notes' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 6 },
+            ]}
+          />
+          <p className="mt-6 text-sm text-gray-500 text-center">{t.footer}</p>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }

@@ -1,152 +1,152 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
+import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
-
   return {
-    title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
-    description:
-      isChinese
-        ? 'SunGene 協助外銷企業建立一套可持續運作的海外客戶開發、通路拓展與成交推進系統。'
-        : 'SunGene helps export companies build a repeatable system for overseas buyer development, channel expansion, and deal progression.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/about`,
-      languages: {
-        'zh-CN': 'https://sungene.net/cn/about',
-        'zh-TW': 'https://sungene.net/zh/about',
-        'en': 'https://sungene.net/en/about',
-        'x-default': 'https://sungene.net/cn/about',
-      },
-    },
-    openGraph: {
-      title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
-      description:
-        isChinese
-          ? 'SunGene 協助外銷企業建立一套可持續運作的海外客戶開發、通路拓展與成交推進系統。'
-          : 'SunGene helps export companies build a repeatable system for overseas buyer development, channel expansion, and deal progression.',
-      url: `${baseUrl}/${lang}/about`,
-      images: ['/og/og.png'],
-    },
+    title: lang === 'en' ? 'About Us | SunGene' : (lang === 'cn' ? '关于我们｜SunGene' : '關於我們｜SunGene'),
+    description: lang === 'en' 
+      ? 'SunGene is a machinery solution partner serving global buyers who are evaluating equipment for packaging, food processing, and selected industrial applications.' 
+      : 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案。',
   }
 }
 
-export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+export default async function AboutPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const isChinese = lang !== 'en'
 
-  const pillars = [
-    {
-      title: lang === 'en' ? 'Buyer research and data buildout' : (lang === 'cn' ? '采购与决策人资料建置' : '採購與決策人資料建置'),
-      desc:
-        isChinese
-          ? '我們先把市場、買家角色與決策人資料建好，再談開發效率。從公司、角色到可投遞聯絡方式，都會先整理清楚。'
-          : 'We start with market research, buyer roles, and decision-maker data buildout before outreach volume: companies, roles, and deliverable contacts are clarified first.',
+  const content = {
+    en: {
+      title: 'About SunGene',
+      p1: 'SunGene is a machinery solution partner serving global buyers who are evaluating equipment for packaging, food processing, and selected industrial applications. We support buyers who need clearer direction when comparing machinery options, planning future production, or sourcing equipment suitable for export markets.',
+      p2: 'Rather than limiting the conversation to one fixed machine category too early, we focus on helping customers identify a practical machinery path based on real production needs. This may include standard equipment, semi-automatic setups, full-line thinking, or customized machinery support depending on the project.',
+      p3: 'Our role is to simplify communication, reduce mismatch, and make the buying process more efficient for importers, distributors, factories, and project-based buyers.',
+      beliefsTitle: 'What We Believe',
+      beliefs: [
+        { title: 'A machine is only useful when it fits the production reality.', desc: 'A technically impressive machine that does not match product type, labor conditions, maintenance ability, or capacity goals is still the wrong machine.' },
+        { title: 'Many buyers need guidance before they need a quotation.', desc: 'At the early stage, buyers often need help narrowing down equipment direction more than they need a random price list.' },
+        { title: 'Export projects need clear communication.', desc: 'International buyers need practical information, reliable process handling, and fewer misunderstandings.' }
+      ],
+      serveTitle: 'Who We Serve',
+      serve: [
+        'Importers building machinery product lines',
+        'Distributors expanding into new equipment categories',
+        'Manufacturers upgrading production capacity',
+        'Project buyers sourcing machinery for specific applications'
+      ],
+      supportTitle: 'What We Support',
+      support: [
+        'Machinery category matching',
+        'Application-based recommendation',
+        'Standard and customized machinery direction',
+        'Export communication and coordination',
+        'Inquiry-to-delivery support'
+      ]
     },
-    {
-      title: lang === 'en' ? 'Outbound outreach and steady follow-up' : (lang === 'cn' ? '主动開發與持续跟进' : '主動開發與持續跟進'),
-      desc:
-        isChinese
-          ? '我們用多次跟進節奏，而不是只寄一封信就結束。讓外銷開發變成可追蹤流程。'
-          : 'We run structured follow-up cadences instead of one-off outreach, making export development trackable.',
+    cn: {
+      title: '关于 SunGene',
+      p1: 'SunGene 是一家为全球买家提供包装、食品加工及特定工业应用设备的机械解决方案合作伙伴。我们协助仍在比较选项、规划未来生产或寻找适合出口市场设备的买家获得更清晰的方向。',
+      p2: '与其过早将讨论局限于单一机器类别，我们更倾向于根据真实的生产需求，协助客户找出务实的机械配置路径。这可能包含标准设备、半自动配置、全线规划，或是根据专案需求的定制化支持。',
+      p3: '我们的角色是简化沟通、减少错配，并使进口商、经销商、工厂与专案买家的采购流程更加高效。',
+      beliefsTitle: '我们的信念',
+      beliefs: [
+        { title: '机器只有符合生产实际才有价值。', desc: '一台技术惊艳但无法匹配产品类型、劳动力条件、维护能力或产能目标的机器，依然是错误的机器。' },
+        { title: '在需要报价之前，买家往往更需要指引。', desc: '在初期阶段，比起一张随机的报价单，买家通常更需要协助缩小设备方向。' },
+        { title: '出口专案需要清晰的沟通。', desc: '国际买家需要务实的信息、可靠的流程处理，并减少误解。' }
+      ],
+      serveTitle: '我们服务谁',
+      serve: [
+        '建立机械产品线的进口商',
+        '拓展新设备类别的经销商',
+        '升级产能的制造商',
+        '为特定应用采购机械的专案买家'
+      ],
+      supportTitle: '我们提供什么',
+      support: [
+        '机械类别匹配',
+        '基于应用的推荐',
+        '标准与定制化机械方向',
+        '出口沟通与协调',
+        '从询价到交付的支持'
+      ]
     },
-    {
-      title: lang === 'en' ? 'Inquiry triage and sales support' : (lang === 'cn' ? '询盘整理與成交支援' : '詢價整理與成交支援'),
-      desc:
-        isChinese
-          ? '把回覆整理成可跟進的詢價與下一步，讓你的團隊專注報價、樣品與出貨。'
-          : 'We package replies into followable opportunities so your team can focus on quoting, samples, and shipment.',
-    },
-  ]
+    zh: {
+      title: '關於 SunGene',
+      p1: 'SunGene 是一家為全球買家提供包裝、食品加工及特定工業應用設備的機械解決方案合作夥伴。我們協助仍在比較選項、規劃未來生產或尋找適合出口市場設備的買家獲得更清晰的方向。',
+      p2: '與其過早將討論侷限於單一機器類別，我們更傾向於根據真實的生產需求，協助客戶找出務實的機械配置路徑。這可能包含標準設備、半自動配置、全線規劃，或是根據專案需求的客製化支援。',
+      p3: '我們的角色是簡化溝通、減少錯配，並使進口商、經銷商、工廠與專案買家的採購流程更加高效。',
+      beliefsTitle: '我們的信念',
+      beliefs: [
+        { title: '機器只有符合生產實際才有價值。', desc: '一台技術驚豔但無法匹配產品類型、勞動力條件、維護能力或產能目標的機器，依然是錯誤的機器。' },
+        { title: '在需要報價之前，買家往往更需要指引。', desc: '在初期階段，比起一張隨機的報價單，買家通常更需要協助縮小設備方向。' },
+        { title: '出口專案需要清晰的溝通。', desc: '國際買家需要務實的資訊、可靠的流程處理，並減少誤解。' }
+      ],
+      serveTitle: '我們服務誰',
+      serve: [
+        '建立機械產品線的進口商',
+        '拓展新設備類別的經銷商',
+        '升級產能的製造商',
+        '為特定應用採購機械的專案買家'
+      ],
+      supportTitle: '我們提供什麼',
+      support: [
+        '機械類別匹配',
+        '基於應用的推薦',
+        '標準與客製化機械方向',
+        '出口溝通與協調',
+        '從詢價到交付的支援'
+      ]
+    }
+  }
+
+  const t = content[lang] || content['en']
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
-        <Image src="/banner/banner1.png" alt="SunGene team and export workflow" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gray-950/70" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="max-w-3xl">
-            <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
-              {lang === 'en' ? 'About SunGene' : (lang === 'cn' ? '關於 SunGene' : '關於 SunGene')}
-            </div>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'en' ? 'We are not list brokers, nor just an email agency' : (lang === 'cn' ? '我们不是资料商，也不是代发信公司' : '我們不是資料商，也不是代發信公司')}</h1>
-            <p className="text-xl leading-relaxed text-gray-200">
-              {isChinese
-                ? '我們協助外銷企業建立一套可以持續產生海外商機的開發流程。'
-                : 'We help export companies build a development process that continuously generates overseas business opportunities.'}
-            </p>
+    <div className="bg-gray-50 min-h-screen py-32">
+      <div className="max-w-4xl mx-auto px-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">{t.title}</h1>
+        <div className="prose prose-lg text-gray-700 mb-16">
+          <p>{t.p1}</p>
+          <p>{t.p2}</p>
+          <p>{t.p3}</p>
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">{t.beliefsTitle}</h2>
+          <div className="grid gap-6">
+            {t.beliefs.map((b, i) => (
+              <div key={i} className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm">
+                <h3 className="text-xl font-bold text-blue-900 mb-3">{b.title}</h3>
+                <p className="text-gray-600">{b.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      <section className="py-20">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-3">
-          {pillars.map((item) => (
-            <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
-              <p className="mt-4 leading-7 text-gray-600">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-gray-100 bg-gray-50 py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2">
+        <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">{lang === 'en' ? 'Who we work with' : (lang === 'cn' ? '我们服务哪些客户' : '我們服務哪些客戶')}</h2>
-            <p className="mt-4 leading-7 text-gray-600">
-              {isChinese
-                ? '我們主要服務有產品、有交付能力，但缺少穩定海外開發流程的外銷企業、貿易商與外銷企業。'
-                : 'We primarily serve export companies, traders, and export companies with products and delivery capabilities, but lacking a stable overseas development process.'}
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-white p-5 shadow-sm border-t-4 border-t-blue-600">
-                <div className="font-bold text-gray-900 mb-3">{lang === 'en' ? 'Ideal Fit' : (lang === 'cn' ? '适合客户' : '適合客戶')}</div>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>{lang === 'en' ? 'Export companies / Traders / Manufacturers' : (lang === 'cn' ? '外贸企业 / 贸易商 / 外贸企业' : '外銷企業 / 貿易商 / 外銷企業')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>{lang === 'en' ? 'Have existing products and supply capacity' : (lang === 'cn' ? '已有产品与供应能力' : '已有產品與供應能力')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>{lang === 'en' ? 'Want to expand into overseas markets' : (lang === 'cn' ? '想拓展海外市场' : '想拓展海外市場')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>{lang === 'en' ? 'Willing to cooperate with quotes and replies' : (lang === 'cn' ? '愿意配合报价与客户回复' : '願意配合報價與客戶回覆')}</li>
-                </ul>
-              </div>
-              <div className="rounded-lg bg-white p-5 shadow-sm border-t-4 border-t-gray-300">
-                <div className="font-bold text-gray-900 mb-3">{lang === 'en' ? 'Not a Fit' : (lang === 'cn' ? '不适合' : '不適合')}</div>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0"></span>{lang === 'en' ? 'Just want to buy a list' : (lang === 'cn' ? '只想买名单' : '只想買名單')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0"></span>{lang === 'en' ? 'Lack quoting capabilities' : (lang === 'cn' ? '没有报价能力' : '沒有報價能力')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0"></span>{lang === 'en' ? 'Unable to reply to clients' : (lang === 'cn' ? '无法回复客户' : '無法回覆客戶')}</li>
-                  <li className="flex items-start"><span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-gray-400 shrink-0"></span>{lang === 'en' ? 'Unwilling to invest in samples, quotes, and follow-ups' : (lang === 'cn' ? '不愿意投入样品、报价、后续推进' : '不願意投入樣品、報價、後續推進')}</li>
-                </ul>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.serveTitle}</h2>
+            <ul className="space-y-4">
+              {t.serve.map((item, i) => (
+                <li key={i} className="flex items-start">
+                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-            <Image src="/banner/banner2.png" alt="Global market collaboration" fill className="object-cover" />
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.supportTitle}</h2>
+            <ul className="space-y-4">
+              {t.support.map((item, i) => (
+                <li key={i} className="flex items-start">
+                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
-
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">{lang === 'en' ? 'We believe export growth should not rely on luck' : (lang === 'cn' ? '我們相信好的外贸，不該只靠運氣' : '我們相信好的外銷，不該只靠運氣')}</h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-            {isChinese
-              ? '展會、平台、舊客戶介紹都能帶來機會，但如果沒有一套可複製的方法，團隊很難持續擴大。SunGene 的價值，就是把這些零散動作整理成一條清楚的路。'
-              : 'Trade fairs, marketplaces, and referrals all help—but without a repeatable system, teams struggle to scale. SunGene turns scattered export activities into a clearer path.'}
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href={`/${lang}/services`} className="rounded-sm bg-blue-900 px-8 py-4 font-bold text-white transition hover:bg-blue-800">
-              {lang === 'en' ? 'View services' : (lang === 'cn' ? '看服务內容' : '看服務內容')}
-            </Link>
-            <Link href={`/${lang}/contact`} className="rounded-sm border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-blue-900 hover:text-blue-900">
-              {lang === 'en' ? 'Talk to us' : (lang === 'cn' ? '直接联系我们' : '直接聯絡我們')}
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }
