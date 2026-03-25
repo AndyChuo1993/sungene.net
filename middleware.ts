@@ -60,6 +60,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/static') ||
+    pathname.startsWith('/webhook') ||
     pathname.includes('.')
   ) {
     return NextResponse.next()
