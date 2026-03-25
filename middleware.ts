@@ -7,7 +7,7 @@ function getDefaultLocaleByHost(host: string | null) {
   const hostname = (host || '').toLowerCase()
 
   if (hostname.includes('sungene.net')) {
-    return 'cn'
+    return 'en'
   }
 
   if (hostname.includes('sungenelite.com')) {

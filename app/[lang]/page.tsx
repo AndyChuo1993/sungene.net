@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
         'zh-CN': 'https://sungene.net/cn',
         'zh-TW': 'https://sungene.net/zh',
         'en': 'https://sungene.net/en',
-        'x-default': 'https://sungene.net/cn',
+        'x-default': 'https://sungene.net/en',
       },
     },
     openGraph: {
