@@ -6,11 +6,11 @@ import { ButtonLink } from '@/components/ui/Button'
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'TRUSTED MACHINERY SUPPLIER FROM TAIWAN',
-      h1: 'Industrial Machinery for Packaging, Food Processing & Automation',
-      sub: 'We manufacture and export high-performance packaging machines, food processing equipment, filling & sealing systems, and automated production lines to buyers worldwide.',
-      btnQuote: 'Get a Free Quote',
-      btnCatalog: 'View Machinery Catalog',
+      kicker: 'FIND THE RIGHT MACHINE FOR YOUR PRODUCT',
+      h1: 'Tell Us What You Produce — We\'ll Recommend the Machine',
+      sub: 'Whether it\'s powder, liquid, granule, or snack — describe your product and production goals. Our engineering team will match you with the optimal machinery solution.',
+      btnQuote: 'Send Your Product → Get Recommendation',
+      btnCatalog: 'Browse All Machinery',
       stats: [
         { value: '500+', label: 'Machines Exported' },
         { value: '50+', label: 'Countries Served' },
@@ -19,11 +19,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     cn: {
-      kicker: '来自台湾的值得信赖的机械供应商',
-      h1: '包装、食品加工与自动化工业机械',
-      sub: '我们制造并出口高性能包装机、食品加工设备、灌装封口系统及自动化生产线，面向全球买家。',
-      btnQuote: '获取免费报价',
-      btnCatalog: '查看机械目录',
+      kicker: '为您的产品找到合适的机器',
+      h1: '告诉我们您生产什么——我们来推荐机器',
+      sub: '无论是粉末、液体、颗粒还是休闲食品——描述您的产品和生产目标，我们的工程团队将为您匹配最佳机械方案。',
+      btnQuote: '发送产品信息 → 获取推荐',
+      btnCatalog: '浏览所有机械',
       stats: [
         { value: '500+', label: '台设备出口' },
         { value: '50+', label: '个国家服务' },
@@ -32,11 +32,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     zh: {
-      kicker: '來自台灣的值得信賴的機械供應商',
-      h1: '包裝、食品加工與自動化工業機械',
-      sub: '我們製造並出口高性能包裝機、食品加工設備、灌裝封口系統及自動化生產線，面向全球買家。',
-      btnQuote: '取得免費報價',
-      btnCatalog: '查看機械目錄',
+      kicker: '為您的產品找到合適的機器',
+      h1: '告訴我們您生產什麼——我們來推薦機器',
+      sub: '無論是粉末、液體、顆粒還是休閒食品——描述您的產品和生產目標，我們的工程團隊將為您匹配最佳機械方案。',
+      btnQuote: '發送產品資訊 → 取得推薦',
+      btnCatalog: '瀏覽所有機械',
       stats: [
         { value: '500+', label: '台設備出口' },
         { value: '50+', label: '個國家服務' },
@@ -45,11 +45,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     fr: {
-      kicker: 'FOURNISSEUR DE MACHINES DE CONFIANCE DEPUIS TAÏWAN',
-      h1: 'Machines industrielles pour l\'emballage, l\'agroalimentaire et l\'automatisation',
-      sub: 'Nous fabriquons et exportons des machines d\'emballage haute performance, des équipements de transformation alimentaire, des systèmes de remplissage et de scellage, ainsi que des lignes de production automatisées à destination d\'acheteurs du monde entier.',
-      btnQuote: 'Devis gratuit',
-      btnCatalog: 'Voir le catalogue machines',
+      kicker: 'TROUVEZ LA BONNE MACHINE POUR VOTRE PRODUIT',
+      h1: 'Dites-nous ce que vous produisez — Nous vous recommanderons la machine',
+      sub: 'Qu\'il s\'agisse de poudre, liquide, granulé ou snack — décrivez votre produit et vos objectifs de production. Notre équipe d\'ingénierie vous proposera la solution de machines optimale.',
+      btnQuote: 'Envoyez votre produit → Obtenez une recommandation',
+      btnCatalog: 'Parcourir toutes les machines',
       stats: [
         { value: '500+', label: 'Machines exportées' },
         { value: '50+', label: 'Pays desservis' },
@@ -58,11 +58,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     es: {
-      kicker: 'PROVEEDOR DE MAQUINARIA DE CONFIANZA DESDE TAIWÁN',
-      h1: 'Maquinaria industrial para empaque, procesamiento de alimentos y automatización',
-      sub: 'Fabricamos y exportamos máquinas de empaque de alto rendimiento, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas para compradores de todo el mundo.',
-      btnQuote: 'Cotización gratuita',
-      btnCatalog: 'Ver catálogo de maquinaria',
+      kicker: 'ENCUENTRE LA MÁQUINA ADECUADA PARA SU PRODUCTO',
+      h1: 'Díganos qué produce — Le recomendaremos la máquina',
+      sub: 'Ya sea polvo, líquido, granulado o snack — describa su producto y sus objetivos de producción. Nuestro equipo de ingeniería le encontrará la solución de maquinaria óptima.',
+      btnQuote: 'Envíe su producto → Obtenga recomendación',
+      btnCatalog: 'Ver toda la maquinaria',
       stats: [
         { value: '500+', label: 'Máquinas exportadas' },
         { value: '50+', label: 'Países atendidos' },
@@ -71,11 +71,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     pt: {
-      kicker: 'FORNECEDOR DE MÁQUINAS DE CONFIANÇA DE TAIWAN',
-      h1: 'Máquinas Industriais para Embalagem, Processamento de Alimentos e Automação',
-      sub: 'Fabricamos e exportamos máquinas de embalagem de alto desempenho, equipamentos de processamento de alimentos, sistemas de envase e selagem, e linhas de produção automatizadas para compradores em todo o mundo.',
-      btnQuote: 'Solicitar Orçamento Gratuito',
-      btnCatalog: 'Ver Catálogo de Máquinas',
+      kicker: 'ENCONTRE A MÁQUINA CERTA PARA O SEU PRODUTO',
+      h1: 'Diga-nos o que você produz — Recomendaremos a máquina',
+      sub: 'Seja pó, líquido, grânulo ou snack — descreva seu produto e metas de produção. Nossa equipe de engenharia encontrará a solução de maquinário ideal para você.',
+      btnQuote: 'Envie seu produto → Receba recomendação',
+      btnCatalog: 'Ver todas as máquinas',
       stats: [
         { value: '500+', label: 'Máquinas Exportadas' },
         { value: '50+', label: 'Países Atendidos' },
@@ -84,11 +84,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ko: {
-      kicker: '대만의 신뢰할 수 있는 기계 공급업체',
-      h1: '포장, 식품 가공 및 자동화를 위한 산업용 기계',
-      sub: '고성능 포장기, 식품 가공 장비, 충전 및 밀봉 시스템, 자동화 생산 라인을 제조하여 전 세계 바이어에게 수출합니다.',
-      btnQuote: '무료 견적 요청',
-      btnCatalog: '기계 카탈로그 보기',
+      kicker: '귀하의 제품에 맞는 기계를 찾아보세요',
+      h1: '무엇을 생산하는지 알려주세요 — 기계를 추천해 드립니다',
+      sub: '분말, 액체, 과립, 스낵 등 — 제품과 생산 목표를 설명해 주세요. 당사 엔지니어링 팀이 최적의 기계 솔루션을 매칭해 드립니다.',
+      btnQuote: '제품 정보 보내기 → 추천 받기',
+      btnCatalog: '전체 기계 보기',
       stats: [
         { value: '500+', label: '수출 기계' },
         { value: '50+', label: '서비스 국가' },
@@ -97,11 +97,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ja: {
-      kicker: '台湾の信頼できる機械サプライヤー',
-      h1: '包装・食品加工・自動化のための産業機械',
-      sub: '高性能包装機、食品加工設備、充填・シール システム、自動化生産ラインを製造し、世界中のバイヤーに輸出しています。',
-      btnQuote: '無料見積もりを取得',
-      btnCatalog: '機械カタログを見る',
+      kicker: 'あなたの製品に最適な機械を見つけましょう',
+      h1: '何を生産しているかお知らせください — 最適な機械をご提案します',
+      sub: '粉末、液体、顆粒、スナック — 製品と生産目標をお伝えください。当社のエンジニアリングチームが最適な機械ソリューションをマッチングします。',
+      btnQuote: '製品情報を送信 → 提案を受ける',
+      btnCatalog: 'すべての機械を見る',
       stats: [
         { value: '500+', label: '輸出台数' },
         { value: '50+', label: 'カ国に対応' },
@@ -110,11 +110,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ar: {
-      kicker: 'مورد آلات موثوق من تايوان',
-      h1: 'آلات صناعية للتعبئة والتغليف ومعالجة الأغذية والأتمتة',
-      sub: 'نصنع ونصدر آلات تعبئة وتغليف عالية الأداء، ومعدات معالجة الأغذية، وأنظمة التعبئة والختم، وخطوط الإنتاج الآلية للمشترين حول العالم.',
-      btnQuote: 'احصل على عرض سعر مجاني',
-      btnCatalog: 'عرض كتالوج الآلات',
+      kicker: 'اعثر على الماكينة المناسبة لمنتجك',
+      h1: 'أخبرنا بما تنتج — وسنوصي بالماكينة المناسبة',
+      sub: 'سواء كان مسحوقًا أو سائلًا أو حبيبات أو وجبات خفيفة — صف منتجك وأهداف الإنتاج. سيطابق فريقنا الهندسي الحل الأمثل للماكينات.',
+      btnQuote: 'أرسل معلومات منتجك → احصل على توصية',
+      btnCatalog: 'تصفح جميع الآلات',
       stats: [
         { value: '500+', label: 'آلة مُصدَّرة' },
         { value: '50+', label: 'دولة مخدومة' },
@@ -123,11 +123,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     th: {
-      kicker: 'ผู้จำหน่ายเครื่องจักรที่เชื่อถือได้จากไต้หวัน',
-      h1: 'เครื่องจักรอุตสาหกรรมสำหรับการบรรจุภัณฑ์ การแปรรูปอาหาร และระบบอัตโนมัติ',
-      sub: 'เราผลิตและส่งออกเครื่องบรรจุภัณฑ์ประสิทธิภาพสูง อุปกรณ์แปรรูปอาหาร ระบบบรรจุและปิดผนึก และสายการผลิตอัตโนมัติให้กับผู้ซื้อทั่วโลก',
-      btnQuote: 'ขอใบเสนอราคาฟรี',
-      btnCatalog: 'ดูแคตตาล็อกเครื่องจักร',
+      kicker: 'ค้นหาเครื่องจักรที่เหมาะกับผลิตภัณฑ์ของคุณ',
+      h1: 'บอกเราว่าคุณผลิตอะไร — เราจะแนะนำเครื่องจักรให้',
+      sub: 'ไม่ว่าจะเป็นผง ของเหลว เม็ด หรือขนม — อธิบายผลิตภัณฑ์และเป้าหมายการผลิตของคุณ ทีมวิศวกรของเราจะจับคู่โซลูชันเครื่องจักรที่เหมาะสมที่สุด',
+      btnQuote: 'ส่งข้อมูลผลิตภัณฑ์ → รับคำแนะนำ',
+      btnCatalog: 'ดูเครื่องจักรทั้งหมด',
       stats: [
         { value: '500+', label: 'เครื่องจักรส่งออก' },
         { value: '50+', label: 'ประเทศที่ให้บริการ' },
@@ -136,11 +136,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     vi: {
-      kicker: 'NHÀ CUNG CẤP MÁY MÓC UY TÍN TỪ ĐÀI LOAN',
-      h1: 'Máy Móc Công Nghiệp cho Đóng Gói, Chế Biến Thực Phẩm & Tự Động Hóa',
-      sub: 'Chúng tôi sản xuất và xuất khẩu máy đóng gói hiệu suất cao, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, cùng dây chuyền sản xuất tự động cho khách hàng toàn cầu.',
-      btnQuote: 'Nhận Báo Giá Miễn Phí',
-      btnCatalog: 'Xem Danh Mục Máy Móc',
+      kicker: 'TÌM ĐÚNG MÁY CHO SẢN PHẨM CỦA BẠN',
+      h1: 'Cho chúng tôi biết bạn sản xuất gì — Chúng tôi sẽ đề xuất máy',
+      sub: 'Dù là bột, chất lỏng, hạt hay đồ ăn nhẹ — mô tả sản phẩm và mục tiêu sản xuất của bạn. Đội ngũ kỹ thuật sẽ ghép nối giải pháp máy móc tối ưu cho bạn.',
+      btnQuote: 'Gửi thông tin sản phẩm → Nhận đề xuất',
+      btnCatalog: 'Xem tất cả máy móc',
       stats: [
         { value: '500+', label: 'Máy Đã Xuất Khẩu' },
         { value: '50+', label: 'Quốc Gia Phục Vụ' },
@@ -149,11 +149,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     de: {
-      kicker: 'VERTRAUENSWÜRDIGER MASCHINENLIEFERANT AUS TAIWAN',
-      h1: 'Industriemaschinen für Verpackung, Lebensmittelverarbeitung & Automatisierung',
-      sub: 'Wir fertigen und exportieren Hochleistungs-Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme sowie automatisierte Produktionslinien für Käufer weltweit.',
-      btnQuote: 'Kostenloses Angebot anfordern',
-      btnCatalog: 'Maschinenkatalog ansehen',
+      kicker: 'FINDEN SIE DIE RICHTIGE MASCHINE FÜR IHR PRODUKT',
+      h1: 'Sagen Sie uns, was Sie produzieren — Wir empfehlen die Maschine',
+      sub: 'Ob Pulver, Flüssigkeit, Granulat oder Snack — beschreiben Sie Ihr Produkt und Ihre Produktionsziele. Unser Ingenieurteam wird die optimale Maschinenlösung für Sie finden.',
+      btnQuote: 'Produkt senden → Empfehlung erhalten',
+      btnCatalog: 'Alle Maschinen ansehen',
       stats: [
         { value: '500+', label: 'Exportierte Maschinen' },
         { value: '50+', label: 'Belieferte Länder' },
@@ -186,7 +186,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
               {t.sub}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={`/${lang}/contact`} size="lg">
+              <ButtonLink href={`/${lang}/recommend`} size="lg">
                 {t.btnQuote}
               </ButtonLink>
               <ButtonLink href={`/${lang}/machinery`} variant="secondary" size="lg" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">

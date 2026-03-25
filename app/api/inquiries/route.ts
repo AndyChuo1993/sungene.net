@@ -16,6 +16,7 @@ const allowedTypes = [
   'Outreach Service',
   'Sales Outsourcing',
   'Lead Magnet',
+  'Product Recommendation',
 ] as const
 
 type Inquiry = {
@@ -200,7 +201,7 @@ function getTransporter() {
     emailEnabled = false
   }
 
-  const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
+  const fromName = process.env.MAIL_FROM || 'SunGene Service Team'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
 
   return { transporter, fromAddr, to, emailEnabled }
@@ -232,22 +233,21 @@ async function sendAdminEmail(args: {
   reqId?: string
 }): Promise<boolean> {
   const { transporter, fromAddr, to, item, rawBody, meta, id, reqId } = args
-  const subject = `新詢價#${id} ${item.type} - ${item.name}`
+  const subject = `New Inquiry #${id} ${item.type} - ${item.name}`
   const adminText =
-`新詢價編號: ${id}
-類別型: ${item.type}
-姓名: ${item.name}
-公司: ${item.company || '-'}
+`New Inquiry ID: ${id}
+Type: ${item.type}
+Name: ${item.name}
+Company: ${item.company || '-'}
 Email: ${item.email}
-電話: ${item.phone || '-'}
-訊息: ${item.message || '-'}
-擴充: ${JSON.stringify(rawBody || {}, null, 2)}
-來源: ${meta.ref}
-語系: ${meta.lang}
+Phone: ${item.phone || '-'}
+Message: ${item.message || '-'}
+Extended: ${JSON.stringify(rawBody || {}, null, 2)}
+Source: ${meta.ref}
+Language: ${meta.lang}
 UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
-時間: ${meta.time}
-`
+Time: ${meta.time}`
   try {
     const info = await transporter.sendMail({
       to,
@@ -274,34 +274,39 @@ async function sendAckEmail(args: {
 }): Promise<boolean> {
   const { transporter, fromAddr, item, id, reqId } = args
 
-  // 自動回覆給客戶
-  const ackSubj = `我們已收到您的詢價（編號 ${id}） | We received your inquiry (${id})`
-  const contactEmail = 'contact@sungenelite.com'
+  const ackSubj = `We received your inquiry (Ref: ${id}) | 已收到您的詢價（${id}）`
+  const contactEmail = 'contact@sungene.net'
   const contactPhone = '+886 4 3703 2705'
+  const contactWhatsApp = '+86 18144132078'
+  const contactLine = '@sungene'
   const ackText =
-`您好 ${item.name}：
-
-我們已收到您的詢價（編號 ${id}），專員將在 1-2 個工作日內與您聯繫。
-如需補充資訊，歡迎直接回覆此信，或聯繫我們：
-
-Email: ${contactEmail}
-Tel: ${contactPhone}
-
-此致
-SunGene 服務團隊
-
----
-
-Hi ${item.name},
+`Hi ${item.name},
 
 We've received your inquiry (Ref: ${id}). Our team will get back to you within 1-2 business days.
 If you'd like to add more information, you can reply to this email or contact us:
 
 Email: ${contactEmail}
 Tel: ${contactPhone}
+WhatsApp: ${contactWhatsApp}
+LINE: ${contactLine}
 
 Best regards,
-SunGene Service Team`
+SunGene Service Team
+
+---
+
+您好 ${item.name}：
+
+我們已收到您的詢價（編號 ${id}），專員將在 1-2 個工作日內與您聯繫。
+如需補充資訊，歡迎直接回覆此信，或聯繫我們：
+
+Email: ${contactEmail}
+Tel: ${contactPhone}
+WhatsApp: ${contactWhatsApp}
+LINE: ${contactLine}
+
+此致
+SunGene 服務團隊`
 
   try {
     await transporter.sendMail({

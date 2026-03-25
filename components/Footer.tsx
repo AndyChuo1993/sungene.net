@@ -23,7 +23,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     <footer className="bg-brand-950 text-white">
       {/* Main footer */}
       <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-6">
+        <div className="grid gap-12 lg:grid-cols-7">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href={`/${lang}`} className="flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
-              {({en: 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.', cn: '台湾领先的包装机械、食品加工设备和工业自动化系统制造商与出口商。', zh: '台灣領先的包裝機械、食品加工設備和工業自動化系統製造商與出口商。', fr: 'Fabricant et exportateur leader de machines d\'emballage, d\'équipements de transformation alimentaire et de systèmes d\'automatisation industrielle depuis Taïwan.', es: 'Fabricante y exportador líder de maquinaria de empaque, equipos de procesamiento de alimentos y sistemas de automatización industrial desde Taiwán.', pt: 'Fabricante e exportador líder de máquinas de embalagem, equipamentos de processamento de alimentos e sistemas de automação industrial de Taiwan.', ko: '대만의 선도적인 포장 기계, 식품 가공 장비 및 산업 자동화 시스템 제조업체 및 수출업체입니다.', ja: '台湾の包装機械、食品加工機器、産業オートメーションシステムの大手メーカー・輸出業者です。', ar: 'شركة رائدة في تصنيع وتصدير آلات التعبئة والتغليف ومعدات تجهيز الأغذية وأنظمة الأتمتة الصناعية من تايوان.', th: 'ผู้ผลิตและผู้ส่งออกชั้นนำด้านเครื่องจักรบรรจุภัณฑ์ อุปกรณ์แปรรูปอาหาร และระบบอัตโนมัติทางอุตสาหกรรมจากไต้หวัน', vi: 'Nhà sản xuất và xuất khẩu hàng đầu về máy đóng gói, thiết bị chế biến thực phẩm và hệ thống tự động hóa công nghiệp từ Đài Loan.', de: 'Führender Hersteller und Exporteur von Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen und industriellen Automatisierungssystemen aus Taiwan.' } as Record<string,string>)[lang] || 'Leading manufacturer and exporter of packaging machinery, food processing equipment, and industrial automation systems from Taiwan.'}
+              {({en: 'SunGene is the export service brand of 上瑾錸有限公司, supported by teams in Taiwan and overseas for market development and customer engagement.', cn: 'SunGene 是上瑾錸有限公司的出口服务品牌，由台湾及海外团队提供市场开发与客户服务支持。', zh: 'SunGene 是上瑾錸有限公司的出口服務品牌，由台灣及海外團隊提供市場開發與客戶服務支持。', fr: 'SunGene est la marque de service export de 上瑾錸有限公司, soutenue par des équipes à Taïwan et à l\'étranger pour le développement de marché et l\'engagement client.', es: 'SunGene es la marca de servicio de exportación de 上瑾錸有限公司, respaldada por equipos en Taiwán y en el extranjero para el desarrollo de mercado y la atención al cliente.', pt: 'SunGene é a marca de serviço de exportação da 上瑾錸有限公司, apoiada por equipes em Taiwan e no exterior para desenvolvimento de mercado e atendimento ao cliente.', ko: 'SunGene은 上瑾錸有限公司의 수출 서비스 브랜드로, 대만 및 해외 팀이 시장 개발과 고객 참여를 지원합니다.', ja: 'SunGeneは上瑾錸有限公司の輸出サービスブランドであり、台湾と海外のチームが市場開拓と顧客対応をサポートしています。', ar: 'SunGene هي العلامة التجارية لخدمة التصدير لشركة 上瑾錸有限公司، مدعومة بفرق في تايوان والخارج لتطوير السوق وخدمة العملاء.', th: 'SunGene เป็นแบรนด์บริการส่งออกของ 上瑾錸有限公司 โดยได้รับการสนับสนุนจากทีมงานในไต้หวันและต่างประเทศเพื่อพัฒนาตลาดและดูแลลูกค้า', vi: 'SunGene là thương hiệu dịch vụ xuất khẩu của 上瑾錸有限公司, được hỗ trợ bởi các đội ngũ tại Đài Loan và nước ngoài để phát triển thị trường và chăm sóc khách hàng.', de: 'SunGene ist die Export-Servicemarke von 上瑾錸有限公司, unterstützt von Teams in Taiwan und im Ausland für Marktentwicklung und Kundenbindung.' } as Record<string,string>)[lang] || 'SunGene is the export service brand of 上瑾錸有限公司, supported by teams in Taiwan and overseas for market development and customer engagement.'}
             </p>
             <div className="mt-6 flex items-center gap-4">
               <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">CE</div>
@@ -78,29 +78,39 @@ export default function Footer({ lang }: { lang: Lang }) {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact - Dual Office */}
+          <div className="lg:col-span-2">
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{t(lang, 'nav_contact')}</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-start gap-2">
-                <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                contact@sungene.net
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-                +886 4-3703-2705
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                Taichung, Taiwan
-              </li>
-              <li className="pt-2">
-                <Link href={`/${lang}/contact`} className="inline-flex items-center gap-2 rounded-lg border border-accent-500/30 bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 transition hover:bg-accent-500/20">
-                  {({en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積もりを依頼', ar: 'طلب عرض أسعار', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string,string>)[lang] || 'Get a Quote'}
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                </Link>
-              </li>
-            </ul>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {/* Taiwan Office */}
+              <div>
+                <h5 className="mb-2 text-sm font-semibold text-white">{(['cn','zh'] as string[]).includes(lang) ? '台灣辦公室' : 'Taiwan Office'}</h5>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>上瑾錸有限公司 (SunGene Co., LTD.)</li>
+                  <li>{(['cn','zh'] as string[]).includes(lang) ? '統編' : 'Tax ID'}: 94111922</li>
+                  <li>台中市中區光復路201號</li>
+                  <li>Tel: +886 4 3703 2705</li>
+                  <li>WhatsApp: +86 18144132078</li>
+                  <li>LINE: @sungene</li>
+                  <li>Email: contact@sungene.net</li>
+                </ul>
+              </div>
+              {/* Xiamen Office */}
+              <div>
+                <h5 className="mb-2 text-sm font-semibold text-white">{(['cn','zh'] as string[]).includes(lang) ? '厦门办公室' : 'Xiamen Office'}</h5>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li>厦门上瑾铼贸易有限公司</li>
+                  <li>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</li>
+                  <li>Tel: 18144132078 (WeChat)</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4">
+              <Link href={`/${lang}/contact`} className="inline-flex items-center gap-2 rounded-lg border border-accent-500/30 bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-400 transition hover:bg-accent-500/20">
+                {({en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積もりを依頼', ar: 'طلب عرض أسعار', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string,string>)[lang] || 'Get a Quote'}
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

@@ -26,6 +26,7 @@ interface InquiryFormProps {
     | 'Lead Generation'
     | 'Outreach Service'
     | 'Sales Outsourcing'
+    | 'Product Recommendation'
   fields: FormField[]
   submitLabel: string
   successTitle?: string
