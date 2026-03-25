@@ -1,6 +1,9 @@
 import { Lang } from '@/lib/i18n'
 import InquiryForm from '@/components/InquiryForm'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -69,40 +72,49 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
-        <p className="text-lg text-gray-600 mb-12 leading-relaxed">{t.desc}</p>
+    <>
+      <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-6xl">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <Card className="p-8">
+              <h2 className="text-base font-semibold text-gray-950">{t.formDesc}</h2>
+              <ul className="mt-5 space-y-2 text-gray-700">
+                {t.formList.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
+                      ✓
+                    </span>
+                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm leading-relaxed text-gray-500">{t.footer}</p>
+            </Card>
 
-        <div className="bg-white p-8 md:p-10 rounded-xl border border-gray-200 shadow-sm">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">{t.formDesc}</h2>
-          <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-8">
-            {t.formList.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-
-          <InquiryForm
-            lang={lang}
-            type="Contact"
-            submitLabel={t.btn}
-            fields={[
-              { name: 'name', label: lang === 'en' ? 'Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
-              { name: 'email', label: lang === 'en' ? 'Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
-              { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true },
-              { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text' },
-              { name: 'packaging', label: lang === 'en' ? 'Packaging Format / Result' : (lang === 'cn' ? '包装格式 / 结果' : '包裝格式 / 結果'), type: 'text' },
-              { name: 'automation', label: lang === 'en' ? 'Automation Preference' : (lang === 'cn' ? '自动化偏好' : '自動化偏好'), type: 'text' },
-              { name: 'country', label: lang === 'en' ? 'Destination Country' : (lang === 'cn' ? '使用国家' : '使用國家'), type: 'text' },
-              { name: 'voltage', label: lang === 'en' ? 'Voltage Requirement' : (lang === 'cn' ? '电压要求' : '電壓要求'), type: 'text' },
-              { name: 'budget', label: lang === 'en' ? 'Budget Range' : (lang === 'cn' ? '预算范围' : '預算範圍'), type: 'text' },
-              { name: 'scope', label: lang === 'en' ? 'Project Scope' : (lang === 'cn' ? '需求范围' : '需求範圍'), type: 'text' },
-              { name: 'message', label: lang === 'en' ? 'Notes' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 6 },
-            ]}
-          />
-          <p className="mt-6 text-sm text-gray-500 text-center">{t.footer}</p>
-        </div>
-      </div>
-    </div>
+            <Card className="p-8">
+              <InquiryForm
+                lang={lang}
+                type="Contact"
+                submitLabel={t.btn}
+                fields={[
+                  { name: 'name', label: lang === 'en' ? 'Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
+                  { name: 'email', label: lang === 'en' ? 'Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
+                  { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true },
+                  { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text' },
+                  { name: 'packaging', label: lang === 'en' ? 'Packaging Format / Result' : (lang === 'cn' ? '包装格式 / 结果' : '包裝格式 / 結果'), type: 'text' },
+                  { name: 'automation', label: lang === 'en' ? 'Automation Preference' : (lang === 'cn' ? '自动化偏好' : '自動化偏好'), type: 'text' },
+                  { name: 'country', label: lang === 'en' ? 'Destination Country' : (lang === 'cn' ? '使用国家' : '使用國家'), type: 'text' },
+                  { name: 'voltage', label: lang === 'en' ? 'Voltage Requirement' : (lang === 'cn' ? '电压要求' : '電壓要求'), type: 'text' },
+                  { name: 'budget', label: lang === 'en' ? 'Budget Range' : (lang === 'cn' ? '预算范围' : '預算範圍'), type: 'text' },
+                  { name: 'scope', label: lang === 'en' ? 'Project Scope' : (lang === 'cn' ? '需求范围' : '需求範圍'), type: 'text' },
+                  { name: 'message', label: lang === 'en' ? 'Notes' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 6 },
+                ]}
+              />
+            </Card>
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

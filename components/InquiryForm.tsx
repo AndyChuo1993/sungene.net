@@ -149,7 +149,7 @@ export default function InquiryForm({
         <p className="text-gray-600">{successDesc || t(lang, 'form_success_desc')}</p>
         <button 
           onClick={() => setStatus('idle')}
-          className="mt-6 text-blue-600 font-medium hover:underline"
+          className="mt-6 text-brand-800 font-medium hover:underline"
         >
           {lang === 'en' ? 'Submit another request' : (lang === 'cn' ? '再次提交需求' : '再次提交需求')}
         </button>
@@ -180,7 +180,7 @@ export default function InquiryForm({
               required={field.required}
               defaultValue={field.defaultValue}
               placeholder={field.placeholder}
-              className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
             />
           ) : (
             <input
@@ -191,7 +191,7 @@ export default function InquiryForm({
               defaultValue={field.defaultValue}
               placeholder={field.placeholder}
               autoComplete={field.autoComplete}
-              className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
             />
           )}
         </div>
@@ -214,7 +214,7 @@ export default function InquiryForm({
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-orange-600 text-white font-bold py-4 px-6 rounded-sm hover:bg-orange-700 transition duration-300 shadow-md text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full rounded-md bg-accent-600 px-6 py-4 text-base font-semibold text-white shadow-elev-1 transition hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {loading ? t(lang, 'form_submitting') : submitLabel}
         </button>

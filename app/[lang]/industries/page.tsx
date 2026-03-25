@@ -1,5 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -50,20 +53,20 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
-        <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed">{t.desc}</p>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {t.cats.map((c, i) => (
-            <div key={i} className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition">
-              <h2 className="text-2xl font-bold text-blue-900 mb-3">{c.title}</h2>
-              <p className="text-gray-600">{c.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-2">
+            {t.cats.map((c, i) => (
+              <Card key={i} className="p-8">
+                <h2 className="text-lg font-semibold text-gray-950 sm:text-xl">{c.title}</h2>
+                <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

@@ -1,5 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -101,52 +104,58 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">{t.title}</h1>
-        <div className="prose prose-lg text-gray-700 mb-16">
-          <p>{t.p1}</p>
-          <p>{t.p2}</p>
-          <p>{t.p3}</p>
-        </div>
+    <>
+      <PageHeader title={t.title} desc={t.p1} />
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-5xl">
+          <div className="max-w-3xl space-y-6">
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p3}</p>
+          </div>
 
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">{t.beliefsTitle}</h2>
-          <div className="grid gap-6">
-            {t.beliefs.map((b, i) => (
-              <div key={i} className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-blue-900 mb-3">{b.title}</h3>
-                <p className="text-gray-600">{b.desc}</p>
-              </div>
-            ))}
+          <div className="mt-14">
+            <h2 className="text-2xl font-semibold tracking-tight text-gray-950 sm:text-3xl">{t.beliefsTitle}</h2>
+            <div className="mt-8 grid gap-6">
+              {t.beliefs.map((b, i) => (
+                <Card key={i} className="p-8">
+                  <h3 className="text-base font-semibold text-brand-950 sm:text-lg">{b.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-gray-600">{b.desc}</p>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.serveTitle}</h2>
-            <ul className="space-y-4">
-              {t.serve.map((item, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <Card className="p-8">
+              <h2 className="text-lg font-semibold text-gray-950">{t.serveTitle}</h2>
+              <ul className="mt-6 space-y-3">
+                {t.serve.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
+                      ✓
+                    </span>
+                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className="p-8">
+              <h2 className="text-lg font-semibold text-gray-950">{t.supportTitle}</h2>
+              <ul className="mt-6 space-y-3">
+                {t.support.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
+                      ✓
+                    </span>
+                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.supportTitle}</h2>
-            <ul className="space-y-4">
-              {t.support.map((item, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+        </Container>
+      </section>
+    </>
   )
 }

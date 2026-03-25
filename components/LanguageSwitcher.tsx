@@ -33,21 +33,21 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
     <div className="flex gap-3 text-sm font-medium text-gray-600">
       <button 
         onClick={() => switchLang('en')}
-        className={`transition hover:text-blue-900 ${lang === 'en' ? 'text-blue-900 font-bold' : ''}`}
+        className={`transition hover:text-brand-950 ${lang === 'en' ? 'text-brand-950 font-semibold' : ''}`}
       >
         英
       </button>
       <span className="text-gray-300">|</span>
       <button 
         onClick={() => switchLang('zh')}
-        className={`transition hover:text-blue-900 ${lang === 'zh' ? 'text-blue-900 font-bold' : ''}`}
+        className={`transition hover:text-brand-950 ${lang === 'zh' ? 'text-brand-950 font-semibold' : ''}`}
       >
         繁
       </button>
       <span className="text-gray-300">|</span>
       <button 
         onClick={() => switchLang('cn')}
-        className={`transition hover:text-blue-900 ${lang === 'cn' ? 'text-blue-900 font-bold' : ''}`}
+        className={`transition hover:text-brand-950 ${lang === 'cn' ? 'text-brand-950 font-semibold' : ''}`}
       >
         简
       </button>

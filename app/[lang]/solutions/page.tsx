@@ -1,5 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -50,25 +53,27 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
-        <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed">{t.desc}</p>
-
-        <div className="space-y-6">
-          {t.cats.map((c, i) => (
-            <div id={c.id} key={i} className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm flex items-start gap-6">
-              <div className="w-12 h-12 bg-blue-100 text-blue-800 font-bold rounded-full flex items-center justify-center shrink-0 text-xl">
-                {i + 1}
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{c.title}</h2>
-                <p className="text-gray-600 text-lg">{c.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-6">
+            {t.cats.map((c, i) => (
+              <Card key={i} id={c.id} className="p-8">
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-900 ring-1 ring-brand-100 font-semibold text-lg">
+                    {i + 1}
+                  </div>
+                  <div className="min-w-0">
+                    <h2 className="text-xl font-semibold text-gray-950 sm:text-2xl">{c.title}</h2>
+                    <p className="mt-3 text-base leading-relaxed text-gray-600 sm:text-lg">{c.desc}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

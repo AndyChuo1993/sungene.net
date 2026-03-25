@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { t, Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
 
 export default function Footer({ lang }: { lang: Lang }) {
   const machineryLinks = [
@@ -17,8 +18,8 @@ export default function Footer({ lang }: { lang: Lang }) {
   ]
 
   return (
-    <footer className="bg-gray-900 py-16 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="bg-gray-950 py-16 text-white">
+      <Container>
         <div className="mb-12 grid gap-12 md:grid-cols-5">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">
@@ -69,7 +70,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
           {t(lang, 'footer_copyright')}
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

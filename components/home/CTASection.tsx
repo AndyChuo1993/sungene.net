@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { ButtonLink } from '@/components/ui/Button'
 
 export default function CTASection({ lang }: { lang: Lang }) {
   const content = {
@@ -23,16 +24,18 @@ export default function CTASection({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-blue-600 text-white text-center">
-      <div className="mx-auto max-w-4xl px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.title}</h2>
-        <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-          {t.desc}
-        </p>
-        <Link href={`/${lang}/contact`} className="inline-block bg-orange-600 text-white font-bold px-10 py-4 rounded-sm hover:bg-orange-700 transition shadow-lg text-lg">
-          {t.btn}
-        </Link>
-      </div>
+    <section className="py-20 sm:py-24 bg-brand-950 text-white">
+      <Container className="text-center">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t.title}</h2>
+          <p className="mt-6 text-lg leading-relaxed text-gray-200 sm:text-xl">{t.desc}</p>
+          <div className="mt-10 flex justify-center">
+            <ButtonLink href={`/${lang}/contact`} size="lg">
+              {t.btn}
+            </ButtonLink>
+          </div>
+        </div>
+      </Container>
     </section>
   )
 }

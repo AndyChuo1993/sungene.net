@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import HeroSection from '@/components/home/HeroSection'
@@ -91,7 +90,7 @@ export default async function Page({ params }: PageParams) {
   const safeLang = normalizeLang(lang)
 
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100">
+    <>
       <HeroSection lang={safeLang} />
       <ServicesPreview lang={safeLang} />
       <WhyUs lang={safeLang} />
@@ -100,6 +99,6 @@ export default async function Page({ params }: PageParams) {
       <Applications lang={safeLang} />
       <CTASection lang={safeLang} />
       <FAQ lang={safeLang} />
-    </main>
+    </>
   )
 }

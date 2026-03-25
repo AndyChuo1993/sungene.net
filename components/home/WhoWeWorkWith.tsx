@@ -1,4 +1,6 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
   const content = {
@@ -34,21 +36,21 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.title}</h2>
-          <p className="text-lg text-gray-600">{t.desc}</p>
+    <section className="py-20 sm:py-24 bg-white">
+      <Container>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950">{t.title}</h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {t.items.map((item, i) => (
-            <div key={i} className="text-center p-8 border border-gray-100 rounded-xl hover:bg-gray-50 transition">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
-            </div>
+            <Card key={i} className="p-8">
+              <h3 className="text-base font-semibold text-gray-950">{item.title}</h3>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">{item.desc}</p>
+            </Card>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

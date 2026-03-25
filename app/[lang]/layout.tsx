@@ -152,7 +152,7 @@ export default async function RootLayout({ children, params }: { children: React
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       <Header lang={lang} />
-      <div id="page-content" className="break-words">{children}</div>
+      <main id="page-content" className="break-words pt-20">{children}</main>
       <Footer lang={lang} />
     </>
   )

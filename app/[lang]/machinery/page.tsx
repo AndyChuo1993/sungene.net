@@ -1,6 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -61,28 +63,31 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
   ]
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
-        <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed">{t.desc}</p>
+    <>
+      <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-2">
+            {t.cats.map((c, i) => (
+              <Link
+                key={i}
+                href={categoryHrefs[i] || `/${lang}/machinery`}
+                className="group rounded-2xl bg-white p-8 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2"
+              >
+                <h2 className="text-lg font-semibold text-gray-950 sm:text-xl">{c.title}</h2>
+                <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
+                <div className="mt-5 text-sm font-semibold text-brand-800 group-hover:text-brand-950">
+                  {lang === 'en' ? 'View details' : (lang === 'cn' ? '查看详情' : '查看詳情')}
+                </div>
+              </Link>
+            ))}
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {t.cats.map((c, i) => (
-            <Link
-              key={i}
-              href={categoryHrefs[i] || `/${lang}/machinery`}
-              className="block bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition hover:shadow-md hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <h2 className="text-2xl font-bold text-blue-900 mb-3">{c.title}</h2>
-              <p className="text-gray-600">{c.desc}</p>
-            </Link>
-          ))}
-        </div>
-
-        <div className="bg-blue-50 border border-blue-100 p-8 rounded-xl text-center">
-          <p className="text-lg font-medium text-blue-900">{t.footer}</p>
-        </div>
-      </div>
-    </div>
+          <div className="mt-10 rounded-2xl bg-brand-50 p-8 ring-1 ring-brand-100">
+            <p className="text-base font-semibold text-brand-950 sm:text-lg">{t.footer}</p>
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

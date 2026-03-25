@@ -1,5 +1,8 @@
 import { Lang } from '@/lib/i18n'
-import Link from 'next/link'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
+import { ButtonLink } from '@/components/ui/Button'
 
 export default async function CustomMachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
@@ -32,28 +35,40 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">{t.title}</h1>
-        <div className="prose prose-lg text-gray-700 mb-12">
-          <p>{t.p1}</p>
-          <p>{t.p2}</p>
-        </div>
-        <div className="bg-white p-8 rounded-xl border border-gray-200 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.subTitle}</h2>
-          <ul className="grid sm:grid-cols-2 gap-4">
-            {t.cons.map((c, i) => (
-              <li key={i} className="flex items-center"><span className="text-blue-600 mr-2">✓</span> {c}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="bg-blue-900 text-white p-10 rounded-xl text-center">
-          <h2 className="text-2xl font-bold mb-6">{t.cta}</h2>
-          <Link href={`/${lang}/contact`} className="inline-block bg-white text-blue-900 font-bold px-8 py-3 rounded hover:bg-gray-100 transition">
-            {lang === 'en' ? 'Send an Inquiry' : (lang === 'cn' ? '提交询价' : '提交詢價')}
-          </Link>
-        </div>
-      </div>
-    </div>
+    <>
+      <PageHeader title={t.title} desc={t.p1} />
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-5xl">
+          <div className="max-w-3xl">
+            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <Card className="p-8">
+              <h2 className="text-xl font-semibold text-gray-950">{t.subTitle}</h2>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {t.cons.map((c, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
+                      ✓
+                    </span>
+                    <span className="text-sm leading-relaxed sm:text-base">{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <div className="rounded-2xl bg-brand-950 p-8 text-white shadow-elev-2">
+              <h2 className="text-xl font-semibold">{t.cta}</h2>
+              <div className="mt-8">
+                <ButtonLink href={`/${lang}/contact`} size="lg">
+                  {lang === 'en' ? 'Send an Inquiry' : (lang === 'cn' ? '提交询价' : '提交詢價')}
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

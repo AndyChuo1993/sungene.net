@@ -1,4 +1,6 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export default function ServicesPreview({ lang }: { lang: Lang }) {
   const content = {
@@ -37,21 +39,22 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 md:text-4xl">{t.title}</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">{t.desc}</p>
+    <section className="py-20 sm:py-24 bg-white">
+      <Container>
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950 md:text-4xl">{t.title}</h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {t.items.map((item, i) => (
-            <div key={i} className="p-8 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-            </div>
+            <Card key={i} className="p-8">
+              <h3 className="text-lg font-semibold text-gray-950">{item.title}</h3>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">{item.desc}</p>
+            </Card>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

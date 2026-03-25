@@ -1,4 +1,6 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export default function FAQ({ lang }: { lang: Lang }) {
   const content = {
@@ -37,18 +39,20 @@ export default function FAQ({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-gray-50 border-t border-gray-200">
-      <div className="mx-auto max-w-4xl px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">{t.title}</h2>
-        <div className="space-y-6">
+    <section className="py-20 sm:py-24 bg-gray-50 border-t border-gray-200/60">
+      <Container>
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950">{t.title}</h2>
+        </div>
+        <div className="mt-12 grid gap-5">
           {t.items.map((item, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">{item.q}</h3>
-              <p className="text-gray-600">{item.a}</p>
-            </div>
+            <Card key={i} className="p-7">
+              <h3 className="text-base font-semibold text-gray-950">{item.q}</h3>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">{item.a}</p>
+            </Card>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
 
 export default function Applications({ lang }: { lang: Lang }) {
   const content = {
@@ -22,18 +23,21 @@ export default function Applications({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.title}</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">{t.desc}</p>
-        <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+    <section className="py-20 sm:py-24 bg-white">
+      <Container>
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950">{t.title}</h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-3">
           {t.tags.map((tag, i) => (
-            <span key={i} className="px-6 py-3 bg-blue-50 text-blue-900 rounded-full font-medium border border-blue-100">
+            <span key={i} className="rounded-full bg-brand-50 px-5 py-2.5 text-sm font-semibold text-brand-900 ring-1 ring-brand-100">
               {tag}
             </span>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

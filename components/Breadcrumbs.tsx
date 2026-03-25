@@ -19,7 +19,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.label,
-      item: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}${item.href}` : `https://www.sungene.com.tw${item.href}`
+      item: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}${item.href}` : `https://sungene.net${item.href}`
     }))
   }
 
@@ -31,7 +31,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       />
       <ol className="flex items-center space-x-2 text-sm text-gray-500">
         <li>
-          <Link href={`/${lang}`} className="hover:text-blue-600 transition">
+          <Link href={`/${lang}`} className="transition hover:text-brand-900">
             {lang === 'en' ? 'Home' : (lang === 'cn' ? '首页' : '首頁')}
           </Link>
         </li>
@@ -41,11 +41,11 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
               <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
             </svg>
             {index === items.length - 1 ? (
-              <span className="text-gray-900 font-medium" aria-current="page">
+              <span className="font-medium text-gray-950" aria-current="page">
                 {item.label}
               </span>
             ) : (
-              <Link href={item.href} className="hover:text-blue-600 transition">
+              <Link href={item.href} className="transition hover:text-brand-900">
                 {item.label}
               </Link>
             )}

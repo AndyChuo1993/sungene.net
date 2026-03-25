@@ -1,5 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
+import { PageHeader } from '@/components/ui/PageHeader'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -50,20 +53,20 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const t = content[lang] || content['en']
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t.title}</h1>
-        <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed">{t.desc}</p>
-
-        <div className="space-y-4">
-          {t.articles.map((a, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition cursor-pointer flex items-center justify-between">
-              <span className="text-lg font-medium text-gray-900">{a}</span>
-              <span className="text-blue-600">→</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-4">
+            {t.articles.map((a, i) => (
+              <Card key={i} className="flex items-center justify-between gap-6 p-6">
+                <span className="min-w-0 text-base font-semibold text-gray-950 sm:text-lg">{a}</span>
+                <span className="shrink-0 text-brand-800">→</span>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

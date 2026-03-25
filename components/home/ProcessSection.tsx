@@ -1,4 +1,5 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
 
 export default function ProcessSection({ lang }: { lang: Lang }) {
   const content = {
@@ -37,18 +38,22 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-slate-900 text-white">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-3xl font-bold mb-16 text-center">{t.title}</h2>
-        <div className="space-y-8 max-w-4xl mx-auto">
+    <section className="py-20 sm:py-24 bg-gray-950 text-white">
+      <Container>
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t.title}</h2>
+        </div>
+        <div className="mt-12 space-y-5">
           {t.items.map((item, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-6 items-start bg-slate-800 p-8 rounded-xl">
-              <h3 className="text-xl font-bold text-blue-400 w-full md:w-1/3 shrink-0">{item.title}</h3>
-              <p className="text-gray-300 text-lg">{item.desc}</p>
+            <div key={i} className="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+              <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+                <h3 className="w-full text-base font-semibold text-accent-200 md:w-1/3">{item.title}</h3>
+                <p className="text-base leading-relaxed text-gray-200 md:text-lg">{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

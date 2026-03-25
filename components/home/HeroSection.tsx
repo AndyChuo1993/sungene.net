@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { ButtonLink } from '@/components/ui/Button'
 
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content = {
@@ -32,36 +33,30 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-32 text-center lg:text-left md:pb-32 md:pt-40">
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-4xl lg:mx-0">
-          <h1 className="mb-8 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-6xl">
+    <section className="relative overflow-hidden bg-hero-radial pb-20 pt-16 sm:pt-20 md:pb-28">
+      <Container className="relative">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-gray-950 sm:text-5xl md:text-6xl">
             {t.h1}
           </h1>
-          <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 lg:mx-0">
+          <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">
             {t.sub}
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start mb-20">
-            <Link
-              href={`/${lang}/solutions`}
-              className="inline-flex items-center justify-center rounded-sm bg-orange-600 px-8 py-4 text-lg font-bold text-white shadow-lg transition duration-300 hover:bg-orange-700"
-            >
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href={`/${lang}/solutions`} size="lg">
               {t.btnExplore}
-            </Link>
-            <Link
-              href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center rounded-sm border-2 border-gray-200 bg-white px-8 py-4 text-lg font-bold text-gray-900 transition duration-300 hover:border-blue-900 hover:text-blue-900"
-            >
+            </ButtonLink>
+            <ButtonLink href={`/${lang}/contact`} variant="secondary" size="lg">
               {t.btnInquiry}
-            </Link>
+            </ButtonLink>
           </div>
 
-          <div className="bg-gray-50 border border-gray-100 rounded-xl p-8 md:p-10 text-left">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.shortTitle}</h3>
-            <p className="text-gray-600 leading-relaxed text-lg">{t.shortDesc}</p>
+          <div className="mt-12 rounded-2xl bg-white/80 p-8 shadow-elev-1 ring-1 ring-gray-200/60 backdrop-blur">
+            <h3 className="text-base font-semibold text-gray-950">{t.shortTitle}</h3>
+            <p className="mt-3 text-base leading-relaxed text-gray-600 sm:text-lg">{t.shortDesc}</p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

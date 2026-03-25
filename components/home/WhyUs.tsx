@@ -1,4 +1,6 @@
 import { Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { Card } from '@/components/ui/Card'
 
 export default function WhyUs({ lang }: { lang: Lang }) {
   const content = {
@@ -37,26 +39,28 @@ export default function WhyUs({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-24 bg-gray-50 border-y border-gray-100">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 md:text-4xl">{t.title}</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">{t.desc}</p>
+    <section className="py-20 sm:py-24 bg-gray-50 border-y border-gray-200/60">
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <div className="max-w-xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-950 md:text-4xl">{t.title}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid gap-6 sm:grid-cols-2">
             {t.items.map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-700 font-bold">
-                  {i + 1}
+              <Card key={i} className="p-7">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-900 ring-1 ring-brand-100 font-semibold">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-base font-semibold text-gray-950">{item.title}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
+                <p className="mt-3 text-base leading-relaxed text-gray-600">{item.desc}</p>
+              </Card>
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
