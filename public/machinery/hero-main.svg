@@ -1,0 +1,279 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8899aa"/>
+      <stop offset="50%" stop-color="#778899"/>
+      <stop offset="100%" stop-color="#667788"/>
+    </linearGradient>
+    <linearGradient id="metalSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#556677"/>
+      <stop offset="100%" stop-color="#445566"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="conveyorGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#334455"/>
+      <stop offset="100%" stop-color="#2a3a4a"/>
+    </linearGradient>
+    <linearGradient id="palletizerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#667788"/>
+      <stop offset="100%" stop-color="#556677"/>
+    </linearGradient>
+    <radialGradient id="glowOrange" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="80" x2="1200" y2="80"/><line x1="0" y1="160" x2="1200" y2="160"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/><line x1="0" y1="320" x2="1200" y2="320"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="560" x2="1200" y2="560"/><line x1="0" y1="640" x2="1200" y2="640"/>
+    <line x1="0" y1="720" x2="1200" y2="720"/>
+    <line x1="80" y1="0" x2="80" y2="800"/><line x1="160" y1="0" x2="160" y2="800"/>
+    <line x1="240" y1="0" x2="240" y2="800"/><line x1="320" y1="0" x2="320" y2="800"/>
+    <line x1="400" y1="0" x2="400" y2="800"/><line x1="480" y1="0" x2="480" y2="800"/>
+    <line x1="560" y1="0" x2="560" y2="800"/><line x1="640" y1="0" x2="640" y2="800"/>
+    <line x1="720" y1="0" x2="720" y2="800"/><line x1="800" y1="0" x2="800" y2="800"/>
+    <line x1="880" y1="0" x2="880" y2="800"/><line x1="960" y1="0" x2="960" y2="800"/>
+    <line x1="1040" y1="0" x2="1040" y2="800"/><line x1="1120" y1="0" x2="1120" y2="800"/>
+  </g>
+  <!-- Floor -->
+  <rect x="0" y="700" width="1200" height="100" fill="#0d1f30" opacity="0.8"/>
+  <line x1="0" y1="700" x2="1200" y2="700" stroke="#1a3a55" stroke-width="1"/>
+  <!-- Floor perspective lines -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="730" x2="1200" y2="730"/>
+    <line x1="0" y1="760" x2="1200" y2="760"/>
+  </g>
+
+  <!-- === SECTION 1: PACKAGING MACHINE (Left) === -->
+  <!-- Machine frame -->
+  <rect x="80" y="200" width="180" height="380" rx="3" fill="url(#metalGrad)" stroke="#445566" stroke-width="1.5"/>
+  <rect x="260" y="200" width="35" height="380" rx="2" fill="url(#metalSide)" stroke="#445566" stroke-width="1"/>
+
+  <!-- Hopper -->
+  <polygon points="110,200 240,200 260,165 90,165" fill="#778899" stroke="#556677" stroke-width="1"/>
+  <polygon points="90,165 260,165 250,150 100,150" fill="#8899aa" stroke="#556677" stroke-width="1"/>
+  <ellipse cx="175" cy="155" rx="70" ry="8" fill="#334455" stroke="#556677" stroke-width="0.5"/>
+
+  <!-- Film roll -->
+  <ellipse cx="320" cy="310" rx="30" ry="30" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <ellipse cx="320" cy="310" rx="18" ry="18" fill="#334455"/>
+  <ellipse cx="320" cy="310" rx="7" ry="7" fill="#556677"/>
+
+  <!-- Forming tube -->
+  <rect x="155" y="230" width="40" height="150" rx="4" fill="#556677" stroke="#667788" stroke-width="1"/>
+
+  <!-- Seal jaws -->
+  <rect x="100" y="400" width="70" height="16" rx="2" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="1"/>
+  <rect x="170" y="400" width="70" height="16" rx="2" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="1"/>
+  <!-- Glow -->
+  <ellipse cx="170" cy="408" rx="80" ry="15" fill="#ea580c" opacity="0.05"/>
+
+  <!-- Control panel on machine -->
+  <rect x="95" y="250" width="50" height="60" rx="2" fill="#1a2a3a" stroke="#334455" stroke-width="1"/>
+  <rect x="100" y="255" width="40" height="22" rx="1" fill="#0a1520"/>
+  <rect x="102" y="257" width="36" height="18" rx="1" fill="#0d2840"/>
+  <line x1="104" y1="264" x2="135" y2="264" stroke="#ea580c" stroke-width="0.8" opacity="0.7"/>
+  <line x1="104" y1="269" x2="128" y2="269" stroke="#3a8a5a" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="108" cy="290" r="3" fill="#ea580c"/>
+  <circle cx="118" cy="290" r="3" fill="#3a8a5a"/>
+  <circle cx="128" cy="290" r="3" fill="#667788"/>
+
+  <!-- Machine legs -->
+  <rect x="100" y="580" width="12" height="120" fill="#556677"/>
+  <rect x="230" y="580" width="12" height="120" fill="#556677"/>
+  <rect x="270" y="580" width="12" height="120" fill="#445566"/>
+
+  <!-- Bags exiting machine -->
+  <rect x="200" y="430" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.7"/>
+
+  <!-- === MAIN CONVEYOR (spans full width) === -->
+  <rect x="50" y="620" width="1100" height="16" rx="5" fill="url(#conveyorGrad)" stroke="#445566" stroke-width="1"/>
+  <!-- Belt texture -->
+  <g opacity="0.15">
+    <line x1="80" y1="620" x2="80" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="120" y1="620" x2="120" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="160" y1="620" x2="160" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="200" y1="620" x2="200" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="240" y1="620" x2="240" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="280" y1="620" x2="280" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="320" y1="620" x2="320" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="360" y1="620" x2="360" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="400" y1="620" x2="400" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="440" y1="620" x2="440" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="480" y1="620" x2="480" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="520" y1="620" x2="520" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="560" y1="620" x2="560" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="600" y1="620" x2="600" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="640" y1="620" x2="640" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="680" y1="620" x2="680" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="720" y1="620" x2="720" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="760" y1="620" x2="760" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="800" y1="620" x2="800" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="840" y1="620" x2="840" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="880" y1="620" x2="880" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="920" y1="620" x2="920" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="960" y1="620" x2="960" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="1000" y1="620" x2="1000" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="1040" y1="620" x2="1040" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="1080" y1="620" x2="1080" y2="636" stroke="#556677" stroke-width="0.5"/>
+    <line x1="1120" y1="620" x2="1120" y2="636" stroke="#556677" stroke-width="0.5"/>
+  </g>
+  <!-- Conveyor rollers -->
+  <circle cx="60" cy="642" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="60" cy="642" r="4" fill="#334455"/>
+  <circle cx="1140" cy="642" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="1140" cy="642" r="4" fill="#334455"/>
+  <!-- Conveyor supports -->
+  <rect x="55" y="650" width="10" height="50" fill="#445566"/>
+  <rect x="400" y="636" width="8" height="64" fill="#445566"/>
+  <rect x="700" y="636" width="8" height="64" fill="#445566"/>
+  <rect x="1135" y="650" width="10" height="50" fill="#445566"/>
+
+  <!-- Bags on conveyor -->
+  <rect x="330" y="585" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <rect x="400" y="585" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <rect x="470" y="585" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <rect x="540" y="585" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <rect x="610" y="585" width="45" height="35" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+
+  <!-- === SECTION 2: CHECK WEIGHER / METAL DETECTOR (Middle) === -->
+  <rect x="430" y="490" width="100" height="100" rx="3" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <!-- Arch (metal detector) -->
+  <path d="M440,590 L440,500 Q440,480 460,480 L500,480 Q520,480 520,500 L520,590" fill="none" stroke="#ea580c" stroke-width="2" opacity="0.6"/>
+  <!-- Display -->
+  <rect x="445" y="505" width="60" height="25" rx="2" fill="#0a1520" stroke="#334455" stroke-width="0.5"/>
+  <text x="455" y="520" font-family="monospace" font-size="8" fill="#3a8a5a" opacity="0.7">PASS</text>
+  <circle cx="510" cy="540" r="3" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- === SECTION 3: CASE PACKER (Center-right) === -->
+  <rect x="620" y="400" width="140" height="190" rx="3" fill="url(#metalGrad)" stroke="#445566" stroke-width="1.5"/>
+  <rect x="760" y="400" width="25" height="190" rx="2" fill="url(#metalSide)" stroke="#445566" stroke-width="1"/>
+  <!-- Carton being packed -->
+  <rect x="640" y="540" width="80" height="55" rx="2" fill="#1a2a3a" stroke="#556677" stroke-width="1"/>
+  <line x1="640" y1="565" x2="720" y2="565" stroke="#556677" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <!-- Pusher mechanism -->
+  <rect x="630" y="420" width="120" height="12" rx="2" fill="#667788" stroke="#556677" stroke-width="1"/>
+  <rect x="660" y="432" width="60" height="100" fill="none" stroke="#556677" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <!-- Case packer display -->
+  <rect x="635" y="445" width="50" height="30" rx="2" fill="#1a2a3a" stroke="#334455" stroke-width="0.5"/>
+  <rect x="638" y="448" width="44" height="14" rx="1" fill="#0a1520"/>
+  <circle cx="645" cy="470" r="2.5" fill="#ea580c"/>
+  <circle cx="655" cy="470" r="2.5" fill="#3a8a5a"/>
+
+  <!-- === SECTION 4: PALLETIZER (Right) === -->
+  <!-- Palletizer frame -->
+  <rect x="870" y="200" width="15" height="500" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <rect x="1080" y="200" width="15" height="500" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <!-- Horizontal beam (moving) -->
+  <rect x="870" y="280" width="225" height="15" rx="3" fill="#667788" stroke="#778899" stroke-width="1"/>
+  <!-- Vertical column on beam -->
+  <rect x="960" y="280" width="12" height="120" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <!-- Gripper head -->
+  <rect x="930" y="395" width="70" height="12" rx="2" fill="#ea580c" stroke="#c2410c" stroke-width="1"/>
+  <!-- Suction cups -->
+  <circle cx="945" cy="410" r="5" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <circle cx="965" cy="410" r="5" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <circle cx="985" cy="410" r="5" fill="#445566" stroke="#556677" stroke-width="1"/>
+
+  <!-- Pallet with stacked boxes -->
+  <!-- Pallet -->
+  <rect x="900" y="660" width="150" height="12" rx="1" fill="#5a4a30" stroke="#4a3a20" stroke-width="1"/>
+  <rect x="910" y="672" width="15" height="28" fill="#5a4a30"/>
+  <rect x="945" y="672" width="15" height="28" fill="#5a4a30"/>
+  <rect x="1020" y="672" width="15" height="28" fill="#5a4a30"/>
+  <!-- Layer 1 -->
+  <rect x="905" y="610" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <rect x="975" y="610" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.8"/>
+  <!-- Layer 2 -->
+  <rect x="905" y="555" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.7"/>
+  <rect x="975" y="555" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.7"/>
+  <!-- Layer 3 -->
+  <rect x="905" y="500" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.6"/>
+  <rect x="975" y="500" width="65" height="50" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8" opacity="0.6"/>
+  <!-- Box being moved (held by gripper) -->
+  <rect x="935" y="420" width="60" height="40" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- Palletizer frame top -->
+  <rect x="860" y="195" width="245" height="12" rx="3" fill="#778899" stroke="#667788" stroke-width="1"/>
+
+  <!-- Palletizer control panel -->
+  <rect x="1085" y="300" width="60" height="100" rx="3" fill="#1a2a3a" stroke="#334455" stroke-width="1"/>
+  <rect x="1090" y="308" width="50" height="28" rx="2" fill="#0a1520"/>
+  <text x="1095" y="322" font-family="monospace" font-size="7" fill="#ea580c" opacity="0.7">LAYER: 3</text>
+  <text x="1095" y="332" font-family="monospace" font-size="7" fill="#3a8a5a" opacity="0.7">AUTO RUN</text>
+  <circle cx="1098" cy="350" r="3" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1110" cy="350" r="3" fill="#ea580c" opacity="0.3"/>
+  <rect x="1092" y="365" width="44" height="4" rx="2" fill="#334455"/>
+  <rect x="1092" y="365" width="30" height="4" rx="2" fill="url(#orangeGrad)"/>
+  <rect x="1092" y="378" width="44" height="4" rx="2" fill="#334455"/>
+  <rect x="1092" y="378" width="38" height="4" rx="2" fill="url(#orangeGrad)"/>
+
+  <!-- === OVERHEAD ELEMENTS === -->
+  <!-- Cable tray -->
+  <rect x="50" y="120" width="1100" height="6" rx="2" fill="#445566" opacity="0.5"/>
+  <g opacity="0.3" stroke="#556677" stroke-width="0.5">
+    <line x1="50" y1="126" x2="50" y2="140"/>
+    <line x1="200" y1="126" x2="200" y2="180"/>
+    <line x1="500" y1="126" x2="500" y2="160"/>
+    <line x1="700" y1="126" x2="700" y2="160"/>
+    <line x1="960" y1="126" x2="960" y2="180"/>
+    <line x1="1100" y1="126" x2="1100" y2="160"/>
+  </g>
+
+  <!-- Flow direction arrows -->
+  <g opacity="0.3" fill="#ea580c">
+    <polygon points="310,640 325,632 325,648"/>
+    <line x1="290" y1="640" x2="325" y2="640" stroke="#ea580c" stroke-width="1.5"/>
+    <polygon points="570,640 585,632 585,648"/>
+    <line x1="550" y1="640" x2="585" y2="640" stroke="#ea580c" stroke-width="1.5"/>
+    <polygon points="810,640 825,632 825,648"/>
+    <line x1="790" y1="640" x2="825" y2="640" stroke="#ea580c" stroke-width="1.5"/>
+  </g>
+
+  <!-- Warning stripes on machines -->
+  <g opacity="0.3">
+    <rect x="80" y="575" width="215" height="6" fill="#ea580c"/>
+    <rect x="85" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="97" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="109" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="121" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="133" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="145" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="157" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="169" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="181" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="193" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="205" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="217" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="229" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="241" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="253" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="265" y="575" width="6" height="6" fill="#081a2a"/>
+    <rect x="277" y="575" width="6" height="6" fill="#081a2a"/>
+  </g>
+
+  <!-- Ambient glow effects -->
+  <circle cx="170" cy="408" r="60" fill="url(#glowOrange)"/>
+  <circle cx="965" cy="400" r="80" fill="url(#glowOrange)"/>
+
+  <!-- Status indicator on packaging machine -->
+  <circle cx="275" cy="215" r="4" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

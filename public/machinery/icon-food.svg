@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="kettleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8899aa"/>
+      <stop offset="100%" stop-color="#667788"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="12" fill="url(#bgGrad)"/>
+  <!-- Kettle body -->
+  <ellipse cx="55" cy="62" rx="30" ry="28" fill="url(#kettleGrad)" stroke="#556677" stroke-width="1.5"/>
+  <!-- Kettle opening -->
+  <ellipse cx="55" cy="38" rx="25" ry="7" fill="#2a3a4a" stroke="#667788" stroke-width="1"/>
+  <ellipse cx="55" cy="38" rx="27" ry="8" fill="none" stroke="#8899aa" stroke-width="1.5"/>
+  <!-- Mixer shaft -->
+  <rect x="53" y="18" width="4" height="20" fill="#778899"/>
+  <!-- Motor -->
+  <rect x="45" y="12" width="20" height="10" rx="3" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <!-- Mixer blades (visible) -->
+  <g opacity="0.4">
+    <line x1="40" y1="55" x2="55" y2="50" stroke="#8899aa" stroke-width="2" stroke-linecap="round"/>
+    <line x1="55" y1="50" x2="70" y2="55" stroke="#8899aa" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Steam -->
+  <g opacity="0.15">
+    <path d="M45,32 Q43,22 47,12" fill="none" stroke="#ffffff" stroke-width="1.5">
+      <animate attributeName="d" values="M45,32 Q43,22 47,12;M45,32 Q47,22 43,12;M45,32 Q43,22 47,12" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M65,32 Q63,20 67,10" fill="none" stroke="#ffffff" stroke-width="1.5">
+      <animate attributeName="d" values="M65,32 Q63,20 67,10;M65,32 Q67,20 63,10;M65,32 Q63,20 67,10" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Pipe (left) -->
+  <rect x="18" y="55" width="8" height="4" rx="2" fill="#667788"/>
+  <!-- Valve -->
+  <rect x="14" y="52" width="8" height="10" rx="1.5" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="0.5"/>
+  <!-- Pipe (bottom) -->
+  <rect x="53" y="88" width="4" height="14" rx="2" fill="#667788"/>
+  <rect x="49" y="95" width="12" height="6" rx="1.5" fill="#556677"/>
+  <!-- Support legs -->
+  <rect x="35" y="88" width="5" height="15" fill="#556677"/>
+  <rect x="70" y="88" width="5" height="15" fill="#556677"/>
+  <!-- Temperature gauge -->
+  <circle cx="90" cy="50" r="8" fill="#1a2a3a" stroke="#667788" stroke-width="1"/>
+  <circle cx="90" cy="50" r="5" fill="#0d1f30"/>
+  <line x1="90" y1="50" x2="94" y2="46" stroke="#ea580c" stroke-width="1" stroke-linecap="round"/>
+</svg>

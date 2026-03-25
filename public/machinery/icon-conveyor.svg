@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="12" fill="url(#bgGrad)"/>
+  <!-- Lower conveyor -->
+  <rect x="10" y="80" width="70" height="5" rx="2" fill="#2a3a4a" stroke="#445566" stroke-width="0.5"/>
+  <circle cx="14" cy="87" r="3.5" fill="#445566" stroke="#556677" stroke-width="0.8"/>
+  <circle cx="76" cy="87" r="3.5" fill="#445566" stroke="#556677" stroke-width="0.8"/>
+  <!-- Belt lines -->
+  <g opacity="0.2">
+    <line x1="20" y1="80" x2="20" y2="85" stroke="#556677" stroke-width="0.5"/>
+    <line x1="30" y1="80" x2="30" y2="85" stroke="#556677" stroke-width="0.5"/>
+    <line x1="40" y1="80" x2="40" y2="85" stroke="#556677" stroke-width="0.5"/>
+    <line x1="50" y1="80" x2="50" y2="85" stroke="#556677" stroke-width="0.5"/>
+    <line x1="60" y1="80" x2="60" y2="85" stroke="#556677" stroke-width="0.5"/>
+    <line x1="70" y1="80" x2="70" y2="85" stroke="#556677" stroke-width="0.5"/>
+  </g>
+  <!-- Legs -->
+  <rect x="12" y="89" width="4" height="18" fill="#445566"/>
+  <rect x="74" y="89" width="4" height="18" fill="#445566"/>
+  <!-- Boxes on lower conveyor -->
+  <rect x="20" y="68" width="14" height="12" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.8"/>
+  <rect x="40" y="68" width="14" height="12" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.8"/>
+  <rect x="60" y="68" width="14" height="12" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.8"/>
+
+  <!-- Incline conveyor -->
+  <g transform="rotate(-30, 78, 80)">
+    <rect x="60" y="77" width="40" height="5" rx="2" fill="#2a3a4a" stroke="#445566" stroke-width="0.5"/>
+  </g>
+
+  <!-- Upper conveyor -->
+  <rect x="50" y="42" width="60" height="5" rx="2" fill="#2a3a4a" stroke="#445566" stroke-width="0.5"/>
+  <circle cx="54" cy="49" r="3.5" fill="#445566" stroke="#556677" stroke-width="0.8"/>
+  <circle cx="106" cy="49" r="3.5" fill="#445566" stroke="#556677" stroke-width="0.8"/>
+  <!-- Support -->
+  <rect x="52" y="51" width="4" height="56" fill="#445566"/>
+  <rect x="104" y="51" width="4" height="56" fill="#445566"/>
+  <!-- Boxes on upper -->
+  <rect x="70" y="30" width="14" height="12" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+  <rect x="90" y="30" width="14" height="12" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- Robot arm (simplified) -->
+  <rect x="22" y="32" width="20" height="5" rx="1.5" fill="#556677"/>
+  <ellipse cx="22" cy="34" rx="6" ry="6" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <circle cx="22" cy="34" r="2.5" fill="url(#orangeGrad)"/>
+  <!-- Arm segment -->
+  <rect x="18" y="18" width="5" height="18" rx="1.5" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="0.5"/>
+  <!-- Gripper -->
+  <rect x="14" y="14" width="14" height="5" rx="1" fill="#667788"/>
+  <rect x="15" y="10" width="3" height="8" rx="0.5" fill="#778899"/>
+  <rect x="24" y="10" width="3" height="8" rx="0.5" fill="#778899"/>
+  <!-- Arrow -->
+  <path d="M82,95 L92,100 L82,105" fill="none" stroke="#ea580c" stroke-width="1" opacity="0.4"/>
+  <line x1="65" y1="100" x2="92" y2="100" stroke="#ea580c" stroke-width="0.8" opacity="0.3"/>
+</svg>

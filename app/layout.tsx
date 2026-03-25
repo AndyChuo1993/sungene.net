@@ -15,7 +15,8 @@ export default async function RootLayout({
 }) {
   const h = await headers()
   const lang = h.get('x-lang')
-  const htmlLang = lang === 'en' ? 'en' : (lang === 'cn' ? 'zh-Hans' : lang === 'zh' ? 'zh-Hant' : 'en')
+  const langMap: Record<string, string> = { en: 'en', zh: 'zh-Hant', cn: 'zh-Hans', fr: 'fr', es: 'es' }
+  const htmlLang = langMap[lang || ''] || 'en'
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>

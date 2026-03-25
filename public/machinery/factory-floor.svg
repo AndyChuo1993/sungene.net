@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8899aa"/>
+      <stop offset="50%" stop-color="#778899"/>
+      <stop offset="100%" stop-color="#667788"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1f30"/>
+      <stop offset="100%" stop-color="#081520"/>
+    </linearGradient>
+  </defs>
+  <!-- Background (wall) -->
+  <rect width="1200" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Ceiling/roof structure -->
+  <rect x="0" y="0" width="1200" height="35" fill="#0d1f30"/>
+  <!-- Roof trusses -->
+  <g stroke="#445566" stroke-width="2" fill="none">
+    <path d="M0,35 L100,10 L200,35"/>
+    <path d="M200,35 L300,10 L400,35"/>
+    <path d="M400,35 L500,10 L600,35"/>
+    <path d="M600,35 L700,10 L800,35"/>
+    <path d="M800,35 L900,10 L1000,35"/>
+    <path d="M1000,35 L1100,10 L1200,35"/>
+  </g>
+  <line x1="0" y1="35" x2="1200" y2="35" stroke="#556677" stroke-width="1"/>
+
+  <!-- Overhead crane rail -->
+  <rect x="0" y="50" width="1200" height="8" rx="2" fill="#556677" stroke="#667788" stroke-width="0.5"/>
+  <!-- Crane trolley -->
+  <rect x="480" y="45" width="60" height="18" rx="3" fill="#ea580c" stroke="#c2410c" stroke-width="1"/>
+  <circle cx="490" cy="45" r="5" fill="#667788" stroke="#556677" stroke-width="1"/>
+  <circle cx="530" cy="45" r="5" fill="#667788" stroke="#556677" stroke-width="1"/>
+  <!-- Crane hook cable -->
+  <line x1="510" y1="63" x2="510" y2="140" stroke="#778899" stroke-width="1.5"/>
+  <!-- Hook -->
+  <path d="M505,140 Q505,155 510,155 Q515,155 515,140" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="510" cy="138" r="4" fill="#667788" stroke="#556677" stroke-width="1"/>
+
+  <!-- Floor -->
+  <rect x="0" y="420" width="1200" height="80" fill="url(#floorGrad)"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a3a55" stroke-width="1"/>
+  <!-- Floor markings (safety lanes) -->
+  <g opacity="0.15">
+    <rect x="0" y="418" width="1200" height="4" fill="#ea580c"/>
+  </g>
+  <!-- Floor lane markings -->
+  <g opacity="0.08" stroke="#ea580c" stroke-width="2" stroke-dasharray="20,15">
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+  </g>
+
+  <!-- === MACHINE 1: Packaging machine (left) === -->
+  <rect x="40" y="200" width="120" height="220" rx="3" fill="url(#metalGrad)" stroke="#445566" stroke-width="1"/>
+  <rect x="160" y="200" width="25" height="220" rx="2" fill="#556677" stroke="#445566" stroke-width="1"/>
+  <!-- Hopper -->
+  <polygon points="55,200 145,200 160,175 40,175" fill="#778899" stroke="#556677" stroke-width="1"/>
+  <!-- Control panel -->
+  <rect x="50" y="240" width="40" height="45" rx="2" fill="#1a2a3a" stroke="#334455" stroke-width="0.5"/>
+  <rect x="53" y="243" width="34" height="16" rx="1" fill="#0a1520"/>
+  <circle cx="60" cy="272" r="2.5" fill="#ea580c"/>
+  <circle cx="70" cy="272" r="2.5" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Seal jaws -->
+  <rect x="50" y="340" width="50" height="10" rx="1" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="0.5"/>
+  <rect x="100" y="340" width="50" height="10" rx="1" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="0.5"/>
+
+  <!-- === MACHINE 2: Conveyor with metal detector === -->
+  <rect x="200" y="380" width="180" height="12" rx="3" fill="#2a3a4a" stroke="#445566" stroke-width="1"/>
+  <circle cx="210" cy="398" r="8" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <circle cx="370" cy="398" r="8" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <!-- Metal detector arch -->
+  <path d="M270,392 L270,340 Q270,325 285,325 L315,325 Q330,325 330,340 L330,392" fill="none" stroke="#ea580c" stroke-width="1.5" opacity="0.6"/>
+  <!-- Boxes on conveyor -->
+  <rect x="230" y="358" width="28" height="22" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+  <rect x="290" y="358" width="28" height="22" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+  <rect x="340" y="358" width="28" height="22" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- === MACHINE 3: Large mixer/reactor === -->
+  <ellipse cx="480" cy="310" rx="70" ry="80" fill="#667788" stroke="#556677" stroke-width="1.5"/>
+  <ellipse cx="480" cy="240" rx="55" ry="15" fill="#2a3a4a" stroke="#556677" stroke-width="1"/>
+  <ellipse cx="480" cy="240" rx="60" ry="18" fill="none" stroke="#778899" stroke-width="1.5"/>
+  <!-- Motor on top -->
+  <rect x="460" y="200" width="40" height="25" rx="3" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <rect x="475" y="225" width="10" height="20" fill="#778899"/>
+  <!-- Pipes -->
+  <rect x="410" y="290" width="8" height="80" rx="4" fill="#667788" stroke="#556677" stroke-width="0.5" transform="rotate(-15, 414, 330)"/>
+  <rect x="548" y="300" width="50" height="8" rx="4" fill="#667788" stroke="#556677" stroke-width="0.5"/>
+  <!-- Support legs -->
+  <rect x="435" y="385" width="8" height="35" fill="#556677"/>
+  <rect x="517" y="385" width="8" height="35" fill="#556677"/>
+
+  <!-- === MACHINE 4: Filling station === -->
+  <rect x="630" y="250" width="120" height="170" rx="3" fill="url(#metalGrad)" stroke="#445566" stroke-width="1"/>
+  <!-- Nozzles -->
+  <rect x="650" y="330" width="8" height="30" rx="1" fill="#778899"/>
+  <rect x="670" y="330" width="8" height="30" rx="1" fill="#778899"/>
+  <rect x="690" y="330" width="8" height="30" rx="1" fill="#778899"/>
+  <rect x="710" y="330" width="8" height="30" rx="1" fill="#778899"/>
+  <rect x="730" y="330" width="8" height="30" rx="1" fill="#778899"/>
+  <!-- Filling streams -->
+  <g opacity="0.3">
+    <line x1="654" y1="360" x2="654" y2="390" stroke="#ea580c" stroke-width="1.5"/>
+    <line x1="674" y1="360" x2="674" y2="390" stroke="#ea580c" stroke-width="1.5"/>
+    <line x1="694" y1="360" x2="694" y2="390" stroke="#ea580c" stroke-width="1.5"/>
+    <line x1="714" y1="360" x2="714" y2="390" stroke="#ea580c" stroke-width="1.5"/>
+    <line x1="734" y1="360" x2="734" y2="390" stroke="#ea580c" stroke-width="1.5"/>
+  </g>
+  <!-- Bottles -->
+  <rect x="648" y="390" width="12" height="25" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <rect x="668" y="390" width="12" height="25" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <rect x="688" y="390" width="12" height="25" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <rect x="708" y="390" width="12" height="25" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <rect x="728" y="390" width="12" height="25" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <!-- Mini conveyor -->
+  <rect x="630" y="415" width="120" height="8" rx="3" fill="#2a3a4a" stroke="#445566" stroke-width="0.5"/>
+  <!-- Control screen -->
+  <rect x="640" y="260" width="55" height="30" rx="2" fill="#1a2a3a" stroke="#334455" stroke-width="0.5"/>
+  <rect x="643" y="263" width="49" height="15" rx="1" fill="#0a1520"/>
+  <circle cx="648" cy="285" r="2" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- === MACHINE 5: Palletizer/Robot === -->
+  <!-- Robot base -->
+  <rect x="850" y="320" width="50" height="10" rx="2" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <ellipse cx="875" cy="320" rx="20" ry="6" fill="#667788"/>
+  <!-- Robot arm -->
+  <rect x="870" y="230" width="10" height="90" rx="3" fill="url(#orangeGrad)" stroke="#c2410c" stroke-width="0.8"/>
+  <circle cx="875" cy="230" r="8" fill="#556677" stroke="#667788" stroke-width="1"/>
+  <circle cx="875" cy="230" r="3" fill="#ea580c"/>
+  <rect x="875" y="224" width="60" height="8" rx="2" fill="#667788" stroke="#556677" stroke-width="0.5"/>
+  <!-- Gripper -->
+  <rect x="930" y="218" width="4" height="20" rx="1" fill="#778899"/>
+  <rect x="938" y="218" width="4" height="20" rx="1" fill="#778899"/>
+  <rect x="926" y="214" width="20" height="8" rx="2" fill="#667788"/>
+  <!-- Box held -->
+  <rect x="924" y="236" width="24" height="18" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.8"/>
+  <!-- Pallet with boxes -->
+  <rect x="920" y="395" width="80" height="8" fill="#5a4a30" stroke="#4a3a20" stroke-width="0.5"/>
+  <rect x="925" y="403" width="10" height="17" fill="#5a4a30"/>
+  <rect x="985" y="403" width="10" height="17" fill="#5a4a30"/>
+  <rect x="925" y="370" width="35" height="25" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+  <rect x="963" y="370" width="35" height="25" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.7"/>
+  <rect x="925" y="342" width="35" height="25" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.6"/>
+  <rect x="963" y="342" width="35" height="25" rx="1" fill="#1a3a55" stroke="#ea580c" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- === MACHINE 6: Control cabinet === -->
+  <rect x="1060" y="250" width="80" height="170" rx="4" fill="#1a2a3a" stroke="#334455" stroke-width="1.5"/>
+  <rect x="1068" y="258" width="64" height="40" rx="2" fill="#0a1520" stroke="#334455" stroke-width="0.5"/>
+  <!-- Screen content -->
+  <text x="1075" y="275" font-family="monospace" font-size="7" fill="#ea580c" opacity="0.7">LINE STATUS</text>
+  <text x="1075" y="288" font-family="monospace" font-size="7" fill="#3a8a5a" opacity="0.7">ALL SYSTEMS OK</text>
+  <!-- Status LEDs -->
+  <circle cx="1078" cy="310" r="3" fill="#3a8a5a"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+  <circle cx="1090" cy="310" r="3" fill="#3a8a5a"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" begin="0.3s"/></circle>
+  <circle cx="1102" cy="310" r="3" fill="#3a8a5a"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" begin="0.6s"/></circle>
+  <circle cx="1114" cy="310" r="3" fill="#ea580c" opacity="0.3"/>
+  <!-- Buttons -->
+  <rect x="1070" y="330" width="60" height="8" rx="2" fill="#334455"/>
+  <rect x="1070" y="330" width="40" height="8" rx="2" fill="url(#orangeGrad)"/>
+  <rect x="1070" y="345" width="60" height="8" rx="2" fill="#334455"/>
+  <rect x="1070" y="345" width="50" height="8" rx="2" fill="url(#orangeGrad)"/>
+  <rect x="1070" y="360" width="60" height="8" rx="2" fill="#334455"/>
+  <rect x="1070" y="360" width="35" height="8" rx="2" fill="url(#orangeGrad)"/>
+  <circle cx="1080" cy="385" r="8" fill="#ea580c" stroke="#c2410c" stroke-width="1"/>
+  <circle cx="1100" cy="385" r="8" fill="#3a8a5a" stroke="#2a6a4a" stroke-width="1"/>
+  <circle cx="1120" cy="385" r="8" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <rect x="1068" y="405" width="64" height="8" rx="2" fill="#334455"/>
+
+  <!-- === WORKERS === -->
+  <!-- Worker 1 (near packaging machine) -->
+  <g transform="translate(190, 350)">
+    <!-- Hard hat -->
+    <ellipse cx="0" cy="-25" rx="8" ry="5" fill="#ea580c"/>
+    <!-- Head -->
+    <circle cx="0" cy="-18" r="6" fill="#c4a882"/>
+    <!-- Body (hi-vis vest) -->
+    <rect x="-7" y="-12" width="14" height="22" rx="2" fill="#ea580c" opacity="0.8"/>
+    <line x1="-7" y1="-4" x2="7" y2="-4" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+    <!-- Legs -->
+    <rect x="-5" y="10" width="4" height="18" rx="1" fill="#334455"/>
+    <rect x="1" y="10" width="4" height="18" rx="1" fill="#334455"/>
+    <!-- Arms -->
+    <line x1="-7" y1="-8" x2="-12" y2="2" stroke="#c4a882" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="7" y1="-8" x2="14" y2="-2" stroke="#c4a882" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Worker 2 (near control panel) -->
+  <g transform="translate(1040, 360)">
+    <ellipse cx="0" cy="-25" rx="8" ry="5" fill="#ea580c"/>
+    <circle cx="0" cy="-18" r="6" fill="#c4a882"/>
+    <rect x="-7" y="-12" width="14" height="22" rx="2" fill="#ea580c" opacity="0.8"/>
+    <line x1="-7" y1="-4" x2="7" y2="-4" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+    <rect x="-5" y="10" width="4" height="18" rx="1" fill="#334455"/>
+    <rect x="1" y="10" width="4" height="18" rx="1" fill="#334455"/>
+    <line x1="-7" y1="-8" x2="-14" y2="-14" stroke="#c4a882" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="7" y1="-8" x2="14" y2="-2" stroke="#c4a882" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Worker 3 (forklift driver area) -->
+  <g transform="translate(790, 370)">
+    <ellipse cx="0" cy="-25" rx="8" ry="5" fill="#ea580c"/>
+    <circle cx="0" cy="-18" r="6" fill="#c4a882"/>
+    <rect x="-7" y="-12" width="14" height="22" rx="2" fill="#ea580c" opacity="0.8"/>
+    <line x1="-7" y1="-4" x2="7" y2="-4" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+    <rect x="-5" y="10" width="4" height="18" rx="1" fill="#334455"/>
+    <rect x="1" y="10" width="4" height="18" rx="1" fill="#334455"/>
+  </g>
+
+  <!-- Overhead lights -->
+  <g opacity="0.3">
+    <rect x="148" y="35" width="4" height="15" fill="#778899"/>
+    <rect x="130" y="50" width="40" height="6" rx="2" fill="#aabbcc"/>
+    <ellipse cx="150" cy="60" rx="25" ry="3" fill="#ffffff" opacity="0.1"/>
+
+    <rect x="448" y="35" width="4" height="15" fill="#778899"/>
+    <rect x="430" y="50" width="40" height="6" rx="2" fill="#aabbcc"/>
+    <ellipse cx="450" cy="60" rx="25" ry="3" fill="#ffffff" opacity="0.1"/>
+
+    <rect x="748" y="35" width="4" height="15" fill="#778899"/>
+    <rect x="730" y="50" width="40" height="6" rx="2" fill="#aabbcc"/>
+    <ellipse cx="750" cy="60" rx="25" ry="3" fill="#ffffff" opacity="0.1"/>
+
+    <rect x="1048" y="35" width="4" height="15" fill="#778899"/>
+    <rect x="1030" y="50" width="40" height="6" rx="2" fill="#aabbcc"/>
+    <ellipse cx="1050" cy="60" rx="25" ry="3" fill="#ffffff" opacity="0.1"/>
+  </g>
+
+  <!-- Light cones (subtle) -->
+  <g opacity="0.03">
+    <polygon points="130,56 170,56 200,420 100,420" fill="#ffffff"/>
+    <polygon points="430,56 470,56 500,420 400,420" fill="#ffffff"/>
+    <polygon points="730,56 770,56 800,420 700,420" fill="#ffffff"/>
+    <polygon points="1030,56 1070,56 1100,420 1000,420" fill="#ffffff"/>
+  </g>
+</svg>

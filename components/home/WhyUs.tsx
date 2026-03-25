@@ -42,6 +42,32 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '05', title: 'OEM與客製工程', desc: '我們的研發團隊可客製尺寸、材料、產能和自動化水平以匹配您的生產環境。' },
         { icon: '06', title: '品質認證', desc: 'CE認證機械，採用食品級不鏽鋼（SUS304/316L），符合國際安全與衛生標準。' },
       ]
+    },
+    fr: {
+      kicker: 'POURQUOI NOUS CHOISIR',
+      title: 'Votre partenaire machines de confiance en Asie',
+      desc: 'Nous ne nous contentons pas de vendre des machines. De la sélection des équipements à la gestion logistique de l\'exportation, nous offrons un accompagnement de bout en bout sur lequel les acheteurs internationaux comptent.',
+      items: [
+        { icon: '01', title: 'Prix usine directs', desc: 'En tant que fabricant disposant de nos propres installations de production, nous proposons des prix usine compétitifs sans marge d\'intermédiaire.' },
+        { icon: '02', title: 'Solutions clé en main', desc: 'Des machines individuelles aux lignes de production complètes, nous concevons et livrons des solutions intégrées adaptées à vos besoins spécifiques.' },
+        { icon: '03', title: 'Expertise export mondiale', desc: 'Expérience d\'exportation vers plus de 50 pays avec documentation complète, adaptation des tensions et support logistique international.' },
+        { icon: '04', title: 'Service après-vente et formation', desc: 'Assistance à l\'installation par vidéo à distance, formation des opérateurs, fourniture de pièces détachées et support technique 24h/24 et 7j/7.' },
+        { icon: '05', title: 'OEM et ingénierie sur mesure', desc: 'Notre équipe R&D peut personnaliser les dimensions, les matériaux, la capacité de production et le niveau d\'automatisation selon votre environnement de production.' },
+        { icon: '06', title: 'Certifié qualité', desc: 'Machines certifiées CE, fabriquées en acier inoxydable alimentaire (SUS304/316L), conformes aux normes internationales de sécurité et d\'hygiène.' },
+      ]
+    },
+    es: {
+      kicker: 'POR QUÉ ELEGIRNOS',
+      title: 'Su socio de maquinaria de confianza en Asia',
+      desc: 'No solo vendemos máquinas. Desde la selección de equipos hasta la gestión logística de exportación, ofrecemos un soporte integral en el que confían compradores de todo el mundo.',
+      items: [
+        { icon: '01', title: 'Precios directos de fábrica', desc: 'Como fabricante con nuestras propias instalaciones de producción, ofrecemos precios directos de fábrica competitivos sin recargos de intermediarios.' },
+        { icon: '02', title: 'Soluciones llave en mano', desc: 'Desde máquinas individuales hasta líneas de producción completas, diseñamos y entregamos soluciones integradas adaptadas a sus requisitos específicos.' },
+        { icon: '03', title: 'Experiencia en exportación global', desc: 'Experiencia exportando a más de 50 países con documentación completa, personalización de voltaje y soporte logístico internacional.' },
+        { icon: '04', title: 'Postventa y capacitación', desc: 'Asistencia de instalación por video remoto, capacitación de operadores, suministro de repuestos y soporte técnico 24/7.' },
+        { icon: '05', title: 'OEM e ingeniería a medida', desc: 'Nuestro equipo de I+D puede personalizar dimensiones, materiales, capacidad de producción y nivel de automatización según su entorno productivo.' },
+        { icon: '06', title: 'Calidad certificada', desc: 'Maquinaria con certificación CE, fabricada en acero inoxidable de grado alimentario (SUS304/316L), cumpliendo normas internacionales de seguridad e higiene.' },
+      ]
     }
   }
 

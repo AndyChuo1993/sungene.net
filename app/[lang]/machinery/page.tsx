@@ -12,13 +12,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     en: 'Industrial Machinery Catalog | Packaging, Food Processing & Automation | SunGene',
     cn: '工业机械目录 | 包装、食品加工与自动化 | SunGene',
     zh: '工業機械目錄 | 包裝、食品加工與自動化 | SunGene',
+    fr: 'Catalogue de machines industrielles | Emballage, Agroalimentaire & Automatisation | SunGene',
+    es: 'Catálogo de maquinaria industrial | Empaque, Procesamiento de alimentos y Automatización | SunGene',
   }
   const descriptions = {
     en: 'Browse our complete range of industrial machinery: packaging machines, food processing equipment, filling & sealing systems, conveyor automation, and custom-engineered solutions. CE certified, factory-direct from Taiwan.',
     cn: '浏览我们的全系列工业机械：包装机、食品加工设备、灌装封口系统、输送自动化和定制解决方案。CE认证，台湾工厂直销。',
     zh: '瀏覽我們的全系列工業機械：包裝機、食品加工設備、灌裝封口系統、輸送自動化和客製解決方案。CE認證，台灣工廠直銷。',
+    fr: 'Parcourez notre gamme complète de machines industrielles : machines d\'emballage, équipements agroalimentaires, systèmes de remplissage et scellage, automatisation de convoyage et solutions sur mesure. Certifié CE, direct usine depuis Taïwan.',
+    es: 'Explore nuestra gama completa de maquinaria industrial: máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, automatización de transporte y soluciones de ingeniería a medida. Certificado CE, directo de fábrica desde Taiwán.',
   }
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
   return { title: titles[l], description: descriptions[l] }
 }
 
@@ -75,6 +79,34 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       ],
       cta: '需要選型幫助？取得免費諮詢。',
       ctaBtn: '聯繫我們的工程師',
+    },
+    fr: {
+      kicker: 'CATALOGUE MACHINES',
+      title: 'Nos machines industrielles',
+      desc: 'Parcourez notre gamme complète d\'équipements industriels. De l\'emballage et la transformation alimentaire aux systèmes d\'automatisation sur mesure — tous fabriqués à Taïwan avec certification CE.',
+      cats: [
+        { title: 'Machines d\'emballage', desc: 'Ensacheuses VFFS et HFFS, conditionneuses de sachets, scelleuses sous vide, machines de rétraction, encaisseuses et peseuses multi-têtes pour produits en poudre, granulés, liquides et solides.', badge: 'Les plus demandées' },
+        { title: 'Équipements agroalimentaires', desc: 'Mélangeurs industriels, hachoirs à viande, trancheuses de légumes, marmites de cuisson, systèmes de blanchiment et lignes complètes de préparation alimentaire.', badge: '' },
+        { title: 'Systèmes de remplissage et scellage', desc: 'Remplisseuses automatiques pour liquides et pâtes, doseuses de poudre, scelleuses de gobelets, boucheuses, scelleuses à induction et remplisseuses de tubes.', badge: '' },
+        { title: 'Convoyage et automatisation', desc: 'Convoyeurs à bande, élévateurs à godets, alimentateurs à vis, robots pick-and-place, palettiseurs et systèmes de contrôle de ligne intégrés PLC.', badge: '' },
+        { title: 'Machines sur mesure', desc: 'Conception OEM, dimensions personnalisées, matériaux spéciaux, capacité de production modifiée et ingénierie spécifique à l\'application.', badge: 'Équipe d\'ingénierie' }
+      ],
+      cta: 'Besoin d\'aide pour choisir ? Consultation gratuite.',
+      ctaBtn: 'Contacter nos ingénieurs',
+    },
+    es: {
+      kicker: 'CATÁLOGO DE MAQUINARIA',
+      title: 'Nuestra maquinaria industrial',
+      desc: 'Explore nuestra gama completa de equipos industriales. Desde empaque y procesamiento de alimentos hasta sistemas de automatización a medida — todos fabricados en Taiwán con certificación CE.',
+      cats: [
+        { title: 'Maquinaria de empaque', desc: 'Envasadoras VFFS y HFFS, empacadoras de bolsas, selladoras al vacío, termoencogibles, encajonadoras y pesadoras multicabezal para productos en polvo, granulados, líquidos y sólidos.', badge: 'Más popular' },
+        { title: 'Equipos de procesamiento de alimentos', desc: 'Mezcladoras industriales, picadoras de carne, cortadoras de verduras, marmitas de cocción, sistemas de escaldado y líneas completas de preparación de alimentos.', badge: '' },
+        { title: 'Sistemas de llenado y sellado', desc: 'Llenadoras automáticas de líquidos y pastas, dosificadoras de polvo, selladoras de vasos, taponadoras, selladoras por inducción y llenadoras de tubos.', badge: '' },
+        { title: 'Transporte y automatización', desc: 'Transportadores de banda, elevadores de cangilones, alimentadores de tornillo, robots pick-and-place, paletizadores y sistemas de control de línea integrados con PLC.', badge: '' },
+        { title: 'Maquinaria personalizada', desc: 'Diseño OEM, dimensiones personalizadas, materiales especiales, capacidad de producción modificada e ingeniería específica para cada aplicación.', badge: 'Equipo de ingeniería' }
+      ],
+      cta: '¿Necesita ayuda para elegir? Consulta gratuita.',
+      ctaBtn: 'Contactar a nuestros ingenieros',
     }
   }
 
@@ -115,7 +147,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
                 <h2 className="mt-5 text-xl font-bold text-gray-950">{c.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
                 <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-accent-600 group-hover:text-accent-700">
-                  {lang === 'en' ? 'View Details' : (lang === 'cn' ? '查看详情' : '查看詳情')}
+                  {{ en: 'View Details', cn: '查看详情', zh: '查看詳情', fr: 'Voir les détails', es: 'Ver detalles' }[lang] || 'View Details'}
                   <svg className="h-4 w-4 transition group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </div>
               </Link>

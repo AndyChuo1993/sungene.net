@@ -47,6 +47,28 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
         { title: '專案採購與工程師', desc: '為新產線或工廠擴建提供工程諮詢和設備選型支援。' },
         { title: 'OEM與品牌商', desc: '提供客製品牌機械和貼牌設備解決方案。' },
       ]
+    },
+    fr: {
+      kicker: 'NOS CLIENTS',
+      title: 'À qui nous nous adressons',
+      desc: 'Nos machines industrielles sont au service d\'une clientèle mondiale diversifiée à travers toute la chaîne d\'approvisionnement.',
+      items: [
+        { title: 'Importateurs et distributeurs', desc: 'Approvisionnez-vous en machines à prix usine pour votre marché local avec documentation d\'exportation et emballage complets.' },
+        { title: 'Fabricants agroalimentaires', desc: 'Augmentez votre capacité de production grâce à des équipements performants de transformation, d\'emballage et d\'automatisation.' },
+        { title: 'Acheteurs de projets et ingénieurs', desc: 'Planifiez de nouvelles lignes de production ou des extensions d\'usine avec notre conseil en ingénierie et notre aide à la sélection d\'équipements.' },
+        { title: 'OEM et propriétaires de marques', desc: 'Machines personnalisées à votre marque et solutions d\'équipements en marque blanche pour élargir votre gamme de produits.' },
+      ]
+    },
+    es: {
+      kicker: 'NUESTROS CLIENTES',
+      title: 'A quién servimos',
+      desc: 'Nuestra maquinaria industrial atiende a una amplia gama de compradores globales en toda la cadena de suministro.',
+      items: [
+        { title: 'Importadores y distribuidores', desc: 'Adquiera maquinaria a precios directos de fábrica para su mercado local con documentación de exportación y embalaje completos.' },
+        { title: 'Fabricantes de alimentos y bebidas', desc: 'Aumente su capacidad de producción con equipos eficientes de procesamiento, empaque y automatización.' },
+        { title: 'Compradores de proyectos e ingenieros', desc: 'Planifique nuevas líneas de producción o ampliaciones de planta con nuestra consultoría de ingeniería y soporte en selección de equipos.' },
+        { title: 'OEM y propietarios de marcas', desc: 'Maquinaria personalizada con su marca y soluciones de equipos de marca blanca para ampliar su línea de productos.' },
+      ]
     }
   }
 

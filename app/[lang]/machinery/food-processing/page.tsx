@@ -6,7 +6,7 @@ import { ButtonLink } from '@/components/ui/Button'
 
 export default async function FoodProcessingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const content = {
+  const content: Record<string, any> = {
     en: {
       title: 'Food Processing Machinery Solutions',
       p1: 'Food processing projects vary widely depending on product type, hygiene requirements, workflow, output volume, and downstream packaging needs. We support customers evaluating machinery for food preparation, handling, mixing, cutting, and selected production processes.',
@@ -47,7 +47,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
             <Card className="p-8">
               <h2 className="text-xl font-semibold text-gray-950">{t.subTitle}</h2>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                {t.cons.map((c, i) => (
+                {t.cons.map((c: string, i: number) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
                       ✓

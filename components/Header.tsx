@@ -28,7 +28,7 @@ export default function Header({ lang }: { lang: Lang }) {
   return (
     <>
       <a href="#page-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-brand-950 focus:px-4 focus:py-2 focus:text-white">
-        {lang === 'en' ? 'Skip to content' : (lang === 'cn' ? '跳到主要内容' : '跳到主要內容')}
+        {{ en: 'Skip to content', cn: '跳到主要内容', zh: '跳到主要內容', fr: 'Aller au contenu', es: 'Ir al contenido' }[lang] || 'Skip to content'}
       </a>
 
       {/* Top bar */}
@@ -45,9 +45,9 @@ export default function Header({ lang }: { lang: Lang }) {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <span>{lang === 'en' ? 'Taichung, Taiwan' : (lang === 'cn' ? '台湾台中' : '台灣台中')}</span>
+            <span>{{ en: 'Taichung, Taiwan', cn: '台湾台中', zh: '台灣台中', fr: 'Taichung, Taïwan', es: 'Taichung, Taiwán' }[lang] || 'Taichung, Taiwan'}</span>
             <span>|</span>
-            <span>{lang === 'en' ? 'Mon-Fri 9:00-18:00' : (lang === 'cn' ? '周一至周五 9:00-18:00' : '週一至週五 9:00-18:00')}</span>
+            <span>{{ en: 'Mon-Fri 9:00-18:00', cn: '周一至周五 9:00-18:00', zh: '週一至週五 9:00-18:00', fr: 'Lun-Ven 9h00-18h00', es: 'Lun-Vie 9:00-18:00' }[lang] || 'Mon-Fri 9:00-18:00'}</span>
           </div>
         </Container>
       </div>

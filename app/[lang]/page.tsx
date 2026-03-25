@@ -35,10 +35,20 @@ const HOME_SEO = {
     description: 'SunGene 制造并出口包装机、食品加工设备、灌装封口系统和自动化生产线。CE认证、工厂直销、出口50多个国家。立即获取免费报价。',
     keywords: ['包装机械制造商', '食品加工设备', '灌装机', '封口机', '自动化生产线', '台湾机械出口'],
   },
+  fr: {
+    title: 'SunGene | Machines d\'emballage, Équipements agroalimentaires & Automatisation industrielle | Fabricant taïwanais',
+    description: 'SunGene fabrique et exporte des machines d\'emballage, des équipements de transformation alimentaire, des systèmes de remplissage et de scellage, et des lignes de production automatisées. Certifié CE, prix usine, exportation vers plus de 50 pays.',
+    keywords: ['fabricant machines emballage', 'équipement transformation alimentaire', 'machine remplissage Taïwan', 'machine scellage', 'machine VFFS', 'ligne production automatisée', 'machine conditionnement poudre', 'remplisseuse liquide', 'exportateur machines industrielles'],
+  },
+  es: {
+    title: 'SunGene | Maquinaria de empaque, Equipos de procesamiento de alimentos y Automatización industrial | Fabricante taiwanés',
+    description: 'SunGene fabrica y exporta máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas. Certificado CE, precios de fábrica, exportación a más de 50 países.',
+    keywords: ['fabricante maquinaria empaque', 'equipo procesamiento alimentos', 'máquina llenado Taiwán', 'máquina sellado', 'máquina VFFS', 'línea producción automatizada', 'envasadora polvo', 'llenadora líquidos', 'exportador maquinaria industrial'],
+  },
 } as const
 
 function normalizeLang(lang?: string): Lang {
-  if (lang === 'en' || lang === 'zh' || lang === 'cn') return lang
+  if (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') return lang
   return 'en'
 }
 
@@ -63,6 +73,8 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
         'zh-CN': 'https://sungene.net/cn',
         'zh-TW': 'https://sungene.net/zh',
         'en': 'https://sungene.net/en',
+        'fr': 'https://sungene.net/fr',
+        'es': 'https://sungene.net/es',
         'x-default': 'https://sungene.net/en',
       },
     },
@@ -72,7 +84,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       url: `${baseUrl}/${safeLang}`,
       siteName: 'SunGene Industrial Machinery',
       type: 'website',
-      locale: safeLang === 'zh' ? 'zh_TW' : safeLang === 'cn' ? 'zh_CN' : 'en_US',
+      locale: safeLang === 'zh' ? 'zh_TW' : safeLang === 'cn' ? 'zh_CN' : safeLang === 'fr' ? 'fr_FR' : safeLang === 'es' ? 'es_ES' : 'en_US',
       images: [
         {
           url: '/og/og.png',

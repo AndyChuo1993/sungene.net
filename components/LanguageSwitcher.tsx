@@ -7,6 +7,8 @@ const languages = [
   { code: 'en', label: 'English', flag: '🇺🇸' },
   { code: 'zh', label: '繁體中文', flag: '🇹🇼' },
   { code: 'cn', label: '简体中文', flag: '🇨🇳' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
 ] as const
 
 export default function LanguageSwitcher({ lang }: { lang: Lang }) {
@@ -29,7 +31,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
   const switchLang = (targetLang: string) => {
     if (!pathname) return
     const segments = pathname.split('/').filter(Boolean)
-    const knownLangs = ['en', 'zh', 'cn']
+    const knownLangs = ['en', 'zh', 'cn', 'fr', 'es']
     let newPath = pathname
     if (knownLangs.includes(segments[0])) {
       segments[0] = targetLang

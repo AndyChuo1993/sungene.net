@@ -5,14 +5,16 @@ import { t, Lang } from '@/lib/i18n'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = (['en', 'zh', 'cn', 'fr', 'es'].includes(rawLang) ? rawLang : 'en') as Lang
 
   const baseUrl = 'https://sungene.net'
 
-  const descriptions = {
+  const descriptions: Record<string, string> = {
     en: 'SunGene is a leading manufacturer and exporter of packaging machinery, food processing equipment, filling & sealing systems, and automated production lines from Taiwan. CE certified, serving 50+ countries worldwide. Get factory-direct pricing today.',
     cn: 'SunGene 是台湾领先的包装机械、食品加工设备、灌装封口系统和自动化生产线制造商与出口商。CE认证，服务全球50多个国家。立即获取工厂直销价格。',
     zh: 'SunGene 是台灣領先的包裝機械、食品加工設備、灌裝封口系統和自動化生產線製造商與出口商。CE認證，服務全球50多個國家。立即取得工廠直銷價格。',
+    fr: 'SunGene est un fabricant et exportateur leader de machines d\'emballage, d\'équipements de transformation alimentaire, de systèmes de remplissage et de scellage, et de lignes de production automatisées depuis Taïwan. Certifié CE, desservant plus de 50 pays.',
+    es: 'SunGene es un fabricante y exportador líder de maquinaria de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas desde Taiwán. Certificado CE, sirviendo a más de 50 países.',
   }
 
   return {
@@ -34,6 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         'zh-CN': 'https://sungene.net/cn',
         'zh-TW': 'https://sungene.net/zh',
         'en': 'https://sungene.net/en',
+        'fr': 'https://sungene.net/fr',
+        'es': 'https://sungene.net/es',
         'x-default': 'https://sungene.net/en',
       },
     },
@@ -42,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function RootLayout({ children, params }: { children: ReactNode; params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = (['en', 'zh', 'cn', 'fr', 'es'].includes(rawLang) ? rawLang : 'en') as Lang
 
   const baseUrl = 'https://sungene.net'
   const logoUrl = `${baseUrl}/logo/sungene.png`
@@ -84,13 +88,13 @@ export default async function RootLayout({ children, params }: { children: React
         telephone: '+886-4-37032705',
         contactType: 'sales',
         areaServed: ['TW', 'CN', 'VN', 'TH', 'MY', 'ID', 'PH', 'IN', 'US', 'CA', 'MX', 'BR', 'DE', 'FR', 'NL', 'GB', 'IT', 'ES', 'JP', 'KR', 'AU', 'SA', 'AE', 'NG', 'EG', 'ZA'],
-        availableLanguage: ['en', 'zh-Hant', 'zh-Hans']
+        availableLanguage: ['en', 'zh-Hant', 'zh-Hans', 'fr', 'es']
       },
       {
         '@type': 'ContactPoint',
         telephone: '+886-4-37032705',
         contactType: 'technical support',
-        availableLanguage: ['en', 'zh-Hant']
+        availableLanguage: ['en', 'zh-Hant', 'fr', 'es']
       }
     ],
     sameAs: [

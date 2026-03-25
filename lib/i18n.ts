@@ -1,139 +1,100 @@
-export type Lang = 'zh' | 'en' | 'cn'
+export type Lang = 'zh' | 'en' | 'cn' | 'fr' | 'es'
 
-const dict = {
+const dict: Record<string, Record<string, string>> = {
   'cn': {
-    // Navigation
-    nav_home: '首页',
-    nav_machinery: '机械设备',
-    nav_industries: '应用行业',
-    nav_solutions: '解决方案',
-    nav_resources: '资源中心',
-    nav_about: '关于我们',
-    nav_contact: '联系我们',
-    nav_free_analysis: '获取报价',
-
-    // Machinery Dropdown
-    nav_machinery_packaging: '包装机械',
-    nav_machinery_food: '食品加工设备',
-    nav_machinery_filling: '灌装与封口系统',
-    nav_machinery_conveying: '输送与自动化',
-    nav_machinery_custom: '定制机械',
-
-    // Industries Dropdown
-    nav_ind_powder: '粉末产品',
-    nav_ind_liquid: '液体产品',
-    nav_ind_granule: '颗粒产品',
-    nav_ind_food: '食品生产',
-    nav_ind_consumer: '消费品',
-
-    // Solutions Dropdown
-    nav_sol_single: '单机设备',
-    nav_sol_semi: '半自动方案',
-    nav_sol_line: '生产线方案',
-    nav_sol_custom: '定制机械',
-    nav_sol_export: '出口服务',
-
+    nav_home: '首页', nav_machinery: '机械设备', nav_industries: '应用行业', nav_solutions: '解决方案',
+    nav_resources: '资源中心', nav_about: '关于我们', nav_contact: '联系我们', nav_free_analysis: '获取报价',
+    nav_machinery_packaging: '包装机械', nav_machinery_food: '食品加工设备',
+    nav_machinery_filling: '灌装与封口系统', nav_machinery_conveying: '输送与自动化', nav_machinery_custom: '定制机械',
+    nav_ind_powder: '粉末产品', nav_ind_liquid: '液体产品', nav_ind_granule: '颗粒产品',
+    nav_ind_food: '食品生产', nav_ind_consumer: '消费品',
+    nav_sol_single: '单机设备', nav_sol_semi: '半自动方案', nav_sol_line: '生产线方案',
+    nav_sol_custom: '定制机械', nav_sol_export: '出口服务',
     meta_home_title: 'SunGene | 包装机械、食品加工设备与工业自动化 | 台湾制造商',
     meta_home_desc: 'SunGene 制造并出口包装机、食品加工设备、灌装封口系统和自动化生产线。CE认证、工厂直销、出口50多个国家。',
     meta_keywords: '包装机械制造商, 食品加工设备, 灌装机供应商, 封口机, 自动化生产线, 台湾机械出口, 工业设备',
-    form_submitting: '提交中...',
-    form_success_title: '提交成功',
+    form_submitting: '提交中...', form_success_title: '提交成功',
     form_success_desc: '我们已收到您的需求，将在24小时内与您联系。',
-    form_error_title: '提交失败',
-    form_error_desc: '请稍后再试，或直接发邮件至 contact@sungene.net。',
+    form_error_title: '提交失败', form_error_desc: '请稍后再试，或直接发邮件至 contact@sungene.net。',
     footer_copyright: '© 2026 SunGene Co., LTD. 版权所有。台湾台中市。',
   },
   'zh': {
-    // Navigation
-    nav_home: '首頁',
-    nav_machinery: '機械設備',
-    nav_industries: '應用產業',
-    nav_solutions: '解決方案',
-    nav_resources: '資源中心',
-    nav_about: '關於我們',
-    nav_contact: '聯絡我們',
-    nav_free_analysis: '取得報價',
-
-    // Machinery Dropdown
-    nav_machinery_packaging: '包裝機械',
-    nav_machinery_food: '食品加工設備',
-    nav_machinery_filling: '灌裝與封口系統',
-    nav_machinery_conveying: '輸送與自動化',
-    nav_machinery_custom: '客製機械',
-
-    // Industries Dropdown
-    nav_ind_powder: '粉末產品',
-    nav_ind_liquid: '液體產品',
-    nav_ind_granule: '顆粒產品',
-    nav_ind_food: '食品生產',
-    nav_ind_consumer: '消費品',
-
-    // Solutions Dropdown
-    nav_sol_single: '單機設備',
-    nav_sol_semi: '半自動方案',
-    nav_sol_line: '生產線方案',
-    nav_sol_custom: '客製機械',
-    nav_sol_export: '出口服務',
-
+    nav_home: '首頁', nav_machinery: '機械設備', nav_industries: '應用產業', nav_solutions: '解決方案',
+    nav_resources: '資源中心', nav_about: '關於我們', nav_contact: '聯絡我們', nav_free_analysis: '取得報價',
+    nav_machinery_packaging: '包裝機械', nav_machinery_food: '食品加工設備',
+    nav_machinery_filling: '灌裝與封口系統', nav_machinery_conveying: '輸送與自動化', nav_machinery_custom: '客製機械',
+    nav_ind_powder: '粉末產品', nav_ind_liquid: '液體產品', nav_ind_granule: '顆粒產品',
+    nav_ind_food: '食品生產', nav_ind_consumer: '消費品',
+    nav_sol_single: '單機設備', nav_sol_semi: '半自動方案', nav_sol_line: '生產線方案',
+    nav_sol_custom: '客製機械', nav_sol_export: '出口服務',
     meta_home_title: 'SunGene | 包裝機械、食品加工設備與工業自動化 | 台灣製造商',
     meta_home_desc: 'SunGene 製造並出口包裝機、食品加工設備、灌裝封口系統和自動化生產線。CE認證、工廠直銷、出口50多個國家。',
     meta_keywords: '包裝機械製造商, 食品加工設備, 灌裝機, 封口機, 自動化生產線, 台灣機械出口, 工業設備',
-    form_submitting: '提交中...',
-    form_success_title: '提交成功',
+    form_submitting: '提交中...', form_success_title: '提交成功',
     form_success_desc: '我們已收到您的需求，將在24小時內與您聯繫。',
-    form_error_title: '提交失敗',
-    form_error_desc: '請稍後再試，或直接發郵件至 contact@sungene.net。',
+    form_error_title: '提交失敗', form_error_desc: '請稍後再試，或直接發郵件至 contact@sungene.net。',
     footer_copyright: '© 2026 SunGene Co., LTD. 版權所有。台灣台中市。',
   },
   'en': {
-    // Navigation
-    nav_home: 'Home',
-    nav_machinery: 'Machinery',
-    nav_industries: 'Industries',
-    nav_solutions: 'Solutions',
-    nav_resources: 'Resources',
-    nav_about: 'About Us',
-    nav_contact: 'Contact',
-    nav_free_analysis: 'Get a Quote',
-
-    // Machinery Dropdown
-    nav_machinery_packaging: 'Packaging Machinery',
-    nav_machinery_food: 'Food Processing Equipment',
-    nav_machinery_filling: 'Filling & Sealing Systems',
-    nav_machinery_conveying: 'Conveying & Automation',
+    nav_home: 'Home', nav_machinery: 'Machinery', nav_industries: 'Industries', nav_solutions: 'Solutions',
+    nav_resources: 'Resources', nav_about: 'About Us', nav_contact: 'Contact', nav_free_analysis: 'Get a Quote',
+    nav_machinery_packaging: 'Packaging Machinery', nav_machinery_food: 'Food Processing Equipment',
+    nav_machinery_filling: 'Filling & Sealing Systems', nav_machinery_conveying: 'Conveying & Automation',
     nav_machinery_custom: 'Customized Machinery',
-
-    // Industries Dropdown
-    nav_ind_powder: 'Powder Products',
-    nav_ind_liquid: 'Liquid Products',
-    nav_ind_granule: 'Granule & Snacks',
-    nav_ind_food: 'Food Production',
-    nav_ind_consumer: 'Consumer Goods',
-
-    // Solutions Dropdown
-    nav_sol_single: 'Single Machine',
-    nav_sol_semi: 'Semi-Automatic Setup',
-    nav_sol_line: 'Production Line',
-    nav_sol_custom: 'Custom Machinery',
-    nav_sol_export: 'Export Service',
-
+    nav_ind_powder: 'Powder Products', nav_ind_liquid: 'Liquid Products', nav_ind_granule: 'Granule & Snacks',
+    nav_ind_food: 'Food Production', nav_ind_consumer: 'Consumer Goods',
+    nav_sol_single: 'Single Machine', nav_sol_semi: 'Semi-Automatic Setup', nav_sol_line: 'Production Line',
+    nav_sol_custom: 'Custom Machinery', nav_sol_export: 'Export Service',
     meta_home_title: 'SunGene | Packaging Machinery, Food Processing Equipment & Industrial Automation | Taiwan Manufacturer',
     meta_home_desc: 'SunGene manufactures and exports packaging machines, food processing equipment, filling & sealing systems, and automated production lines. CE certified, factory-direct pricing, export to 50+ countries.',
-    meta_keywords: 'packaging machinery manufacturer, food processing equipment, filling machine supplier, sealing machine, automated production line, Taiwan machinery exporter, industrial equipment',
-    form_submitting: 'Submitting...',
-    form_success_title: 'Request Received',
+    meta_keywords: 'packaging machinery manufacturer, food processing equipment, filling machine supplier, sealing machine, automated production line, Taiwan machinery exporter, industrial equipment, VFFS machine, powder packaging, liquid filling machine',
+    form_submitting: 'Submitting...', form_success_title: 'Request Received',
     form_success_desc: 'We have received your inquiry and will respond within 24 hours.',
-    form_error_title: 'Submission Failed',
-    form_error_desc: 'Please try again later or email us at contact@sungene.net.',
+    form_error_title: 'Submission Failed', form_error_desc: 'Please try again later or email us at contact@sungene.net.',
     footer_copyright: '© 2026 SunGene Co., LTD. All rights reserved. Taichung, Taiwan.',
-  }
+  },
+  'fr': {
+    nav_home: 'Accueil', nav_machinery: 'Machines', nav_industries: 'Industries', nav_solutions: 'Solutions',
+    nav_resources: 'Ressources', nav_about: 'À propos', nav_contact: 'Contact', nav_free_analysis: 'Devis gratuit',
+    nav_machinery_packaging: 'Machines d\'emballage', nav_machinery_food: 'Équipements agroalimentaires',
+    nav_machinery_filling: 'Remplissage et scellage', nav_machinery_conveying: 'Convoyage et automatisation',
+    nav_machinery_custom: 'Machines sur mesure',
+    nav_ind_powder: 'Produits en poudre', nav_ind_liquid: 'Produits liquides', nav_ind_granule: 'Granulés et snacks',
+    nav_ind_food: 'Production alimentaire', nav_ind_consumer: 'Biens de consommation',
+    nav_sol_single: 'Machine individuelle', nav_sol_semi: 'Semi-automatique', nav_sol_line: 'Ligne de production',
+    nav_sol_custom: 'Machine sur mesure', nav_sol_export: 'Service export',
+    meta_home_title: 'SunGene | Machines d\'emballage, Équipements agroalimentaires & Automatisation industrielle | Fabricant taïwanais',
+    meta_home_desc: 'SunGene fabrique et exporte des machines d\'emballage, des équipements de transformation alimentaire, des systèmes de remplissage et de scellage, et des lignes de production automatisées. Certifié CE, prix usine, exportation vers plus de 50 pays.',
+    meta_keywords: 'fabricant machines emballage, équipement transformation alimentaire, machine remplissage, machine scellage, ligne production automatisée, exportateur machines Taiwan, équipement industriel, machine VFFS, conditionnement poudre',
+    form_submitting: 'Envoi en cours...', form_success_title: 'Demande reçue',
+    form_success_desc: 'Nous avons bien reçu votre demande et vous répondrons sous 24 heures.',
+    form_error_title: 'Échec de l\'envoi', form_error_desc: 'Veuillez réessayer ou nous écrire à contact@sungene.net.',
+    footer_copyright: '© 2026 SunGene Co., LTD. Tous droits réservés. Taichung, Taïwan.',
+  },
+  'es': {
+    nav_home: 'Inicio', nav_machinery: 'Maquinaria', nav_industries: 'Industrias', nav_solutions: 'Soluciones',
+    nav_resources: 'Recursos', nav_about: 'Nosotros', nav_contact: 'Contacto', nav_free_analysis: 'Cotización gratis',
+    nav_machinery_packaging: 'Maquinaria de empaque', nav_machinery_food: 'Equipos de procesamiento de alimentos',
+    nav_machinery_filling: 'Llenado y sellado', nav_machinery_conveying: 'Transporte y automatización',
+    nav_machinery_custom: 'Maquinaria personalizada',
+    nav_ind_powder: 'Productos en polvo', nav_ind_liquid: 'Productos líquidos', nav_ind_granule: 'Granulados y snacks',
+    nav_ind_food: 'Producción alimentaria', nav_ind_consumer: 'Bienes de consumo',
+    nav_sol_single: 'Máquina individual', nav_sol_semi: 'Semiautomático', nav_sol_line: 'Línea de producción',
+    nav_sol_custom: 'Maquinaria a medida', nav_sol_export: 'Servicio de exportación',
+    meta_home_title: 'SunGene | Maquinaria de empaque, Equipos de procesamiento de alimentos y Automatización industrial | Fabricante taiwanés',
+    meta_home_desc: 'SunGene fabrica y exporta máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas. Certificado CE, precios de fábrica, exportación a más de 50 países.',
+    meta_keywords: 'fabricante maquinaria empaque, equipo procesamiento alimentos, máquina llenado, máquina sellado, línea producción automatizada, exportador maquinaria Taiwán, equipo industrial, máquina VFFS, envasado polvo',
+    form_submitting: 'Enviando...', form_success_title: 'Solicitud recibida',
+    form_success_desc: 'Hemos recibido su consulta y le responderemos en 24 horas.',
+    form_error_title: 'Error en el envío', form_error_desc: 'Intente de nuevo o escríbanos a contact@sungene.net.',
+    footer_copyright: '© 2026 SunGene Co., LTD. Todos los derechos reservados. Taichung, Taiwán.',
+  },
 }
 
 export function t(lang: Lang, key: string): string {
-  // @ts-ignore
-  return dict[lang]?.[key] ?? dict['en'][key] ?? key
+  return dict[lang]?.[key] ?? dict['en']?.[key] ?? key
 }
 
 export type Dictionary = typeof dict['en']
 
-export const getDictionary = async (lang: Lang): Promise<Dictionary> => dict[lang]
+export const getDictionary = async (lang: Lang): Promise<Record<string, string>> => dict[lang] || dict['en']

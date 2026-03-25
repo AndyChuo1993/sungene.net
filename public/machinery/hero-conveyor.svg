@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8899aa"/>
+      <stop offset="50%" stop-color="#778899"/>
+      <stop offset="100%" stop-color="#667788"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="armGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <g opacity="0.04" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/><line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+  <!-- Floor -->
+  <rect x="0" y="530" width="800" height="70" fill="#0d1f30" opacity="0.8"/>
+  <line x1="0" y1="530" x2="800" y2="530" stroke="#1a3a55" stroke-width="1"/>
+
+  <!-- Lower Conveyor (Level 1) -->
+  <rect x="30" y="460" width="500" height="14" rx="4" fill="#2a3a4a" stroke="#445566" stroke-width="1"/>
+  <g opacity="0.2">
+    <line x1="60" y1="460" x2="60" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="100" y1="460" x2="100" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="140" y1="460" x2="140" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="180" y1="460" x2="180" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="220" y1="460" x2="220" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="260" y1="460" x2="260" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="300" y1="460" x2="300" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="340" y1="460" x2="340" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="380" y1="460" x2="380" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="420" y1="460" x2="420" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="460" y1="460" x2="460" y2="474" stroke="#556677" stroke-width="0.5"/>
+    <line x1="500" y1="460" x2="500" y2="474" stroke="#556677" stroke-width="0.5"/>
+  </g>
+  <circle cx="40" cy="480" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="40" cy="480" r="4" fill="#334455"/>
+  <circle cx="520" cy="480" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="520" cy="480" r="4" fill="#334455"/>
+  <!-- Legs -->
+  <rect x="35" y="488" width="10" height="42" fill="#445566"/>
+  <rect x="515" y="488" width="10" height="42" fill="#445566"/>
+  <rect x="270" y="474" width="8" height="56" fill="#445566"/>
+
+  <!-- Boxes on lower conveyor -->
+  <rect x="80" y="430" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="150" y="430" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="220" y="430" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="360" y="430" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="430" y="430" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+
+  <!-- Inclined Conveyor (Level 1 to Level 2) -->
+  <g transform="rotate(-25, 530, 460)">
+    <rect x="480" y="453" width="200" height="14" rx="4" fill="#2a3a4a" stroke="#445566" stroke-width="1"/>
+    <g opacity="0.2">
+      <line x1="500" y1="453" x2="500" y2="467" stroke="#556677" stroke-width="0.5"/>
+      <line x1="530" y1="453" x2="530" y2="467" stroke="#556677" stroke-width="0.5"/>
+      <line x1="560" y1="453" x2="560" y2="467" stroke="#556677" stroke-width="0.5"/>
+      <line x1="590" y1="453" x2="590" y2="467" stroke="#556677" stroke-width="0.5"/>
+      <line x1="620" y1="453" x2="620" y2="467" stroke="#556677" stroke-width="0.5"/>
+      <line x1="650" y1="453" x2="650" y2="467" stroke="#556677" stroke-width="0.5"/>
+    </g>
+  </g>
+  <!-- Side guards for incline -->
+  <line x1="520" y1="460" x2="680" y2="385" stroke="#556677" stroke-width="1.5" opacity="0.5"/>
+  <line x1="520" y1="474" x2="680" y2="399" stroke="#556677" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Upper Conveyor (Level 2) -->
+  <rect x="350" y="300" width="420" height="14" rx="4" fill="#2a3a4a" stroke="#445566" stroke-width="1"/>
+  <g opacity="0.2">
+    <line x1="380" y1="300" x2="380" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="420" y1="300" x2="420" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="460" y1="300" x2="460" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="500" y1="300" x2="500" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="540" y1="300" x2="540" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="580" y1="300" x2="580" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="620" y1="300" x2="620" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="660" y1="300" x2="660" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="700" y1="300" x2="700" y2="314" stroke="#556677" stroke-width="0.5"/>
+    <line x1="740" y1="300" x2="740" y2="314" stroke="#556677" stroke-width="0.5"/>
+  </g>
+  <circle cx="360" cy="320" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="360" cy="320" r="4" fill="#334455"/>
+  <circle cx="760" cy="320" r="10" fill="#445566" stroke="#556677" stroke-width="1.5"/>
+  <circle cx="760" cy="320" r="4" fill="#334455"/>
+  <!-- Upper conveyor supports -->
+  <rect x="355" y="328" width="10" height="202" fill="#445566"/>
+  <rect x="550" y="314" width="8" height="216" fill="#445566"/>
+  <rect x="755" y="328" width="10" height="202" fill="#445566"/>
+
+  <!-- Boxes on upper conveyor -->
+  <rect x="580" y="270" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="650" y="270" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+  <rect x="720" y="270" width="40" height="30" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1" opacity="0.8"/>
+
+  <!-- ROBOTIC ARM -->
+  <!-- Base -->
+  <rect x="160" y="200" width="80" height="15" rx="3" fill="#556677" stroke="#667788" stroke-width="1.5"/>
+  <rect x="185" y="215" width="30" height="30" rx="2" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <!-- Turntable -->
+  <ellipse cx="200" cy="200" rx="30" ry="8" fill="#667788" stroke="#778899" stroke-width="1"/>
+
+  <!-- Arm segment 1 (lower) -->
+  <rect x="193" y="120" width="14" height="80" rx="4" fill="url(#armGrad)" stroke="#c2410c" stroke-width="1"/>
+  <!-- Joint 1 -->
+  <circle cx="200" cy="120" r="10" fill="#556677" stroke="#667788" stroke-width="1.5"/>
+  <circle cx="200" cy="120" r="4" fill="#ea580c"/>
+
+  <!-- Arm segment 2 (upper, angled) -->
+  <rect x="193" y="55" width="14" height="70" rx="4" fill="url(#armGrad)" stroke="#c2410c" stroke-width="1" transform="rotate(30, 200, 120)"/>
+  <!-- Joint 2 -->
+  <circle cx="230" cy="62" r="8" fill="#556677" stroke="#667788" stroke-width="1.5"/>
+  <circle cx="230" cy="62" r="3" fill="#ea580c"/>
+
+  <!-- Arm segment 3 (forearm) -->
+  <rect x="230" y="55" width="80" height="10" rx="3" fill="#667788" stroke="#556677" stroke-width="1"/>
+
+  <!-- Gripper/End effector -->
+  <rect x="305" y="45" width="6" height="30" rx="1" fill="#778899" stroke="#667788" stroke-width="0.5"/>
+  <rect x="315" y="45" width="6" height="30" rx="1" fill="#778899" stroke="#667788" stroke-width="0.5"/>
+  <!-- Gripper base -->
+  <rect x="300" y="40" width="26" height="10" rx="2" fill="#667788" stroke="#778899" stroke-width="1"/>
+
+  <!-- Box being held by gripper -->
+  <rect x="298" y="72" width="30" height="22" rx="2" fill="#1a3a55" stroke="#ea580c" stroke-width="1.5"/>
+
+  <!-- Robot base housing -->
+  <rect x="170" y="240" width="60" height="20" rx="3" fill="#445566" stroke="#556677" stroke-width="1"/>
+  <!-- Motor/servo indicators -->
+  <circle cx="200" cy="196" r="3" fill="#ea580c">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Sensor/scanner on upper conveyor -->
+  <rect x="400" y="282" width="30" height="18" rx="3" fill="#1a2a3a" stroke="#334455" stroke-width="1"/>
+  <rect x="405" y="286" width="20" height="6" rx="1" fill="#ea580c" opacity="0.5"/>
+  <!-- Sensor beam -->
+  <line x1="415" y1="300" x2="415" y2="320" stroke="#ea580c" stroke-width="1" opacity="0.3" stroke-dasharray="2,2">
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Control cabinet -->
+  <rect x="30" y="260" width="70" height="120" rx="4" fill="#1a2a3a" stroke="#334455" stroke-width="1.5"/>
+  <rect x="38" y="268" width="54" height="30" rx="2" fill="#0a1520"/>
+  <text x="42" y="282" font-family="monospace" font-size="7" fill="#ea580c" opacity="0.8">SYSTEM OK</text>
+  <text x="42" y="292" font-family="monospace" font-size="7" fill="#3a8a5a" opacity="0.8">AUTO MODE</text>
+  <circle cx="45" cy="310" r="4" fill="#3a8a5a">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="58" cy="310" r="4" fill="#ea580c" opacity="0.3"/>
+  <circle cx="71" cy="310" r="4" fill="#445566"/>
+  <!-- Cable runs -->
+  <path d="M65,380 L65,400 Q65,420 85,420 L160,420 Q180,420 180,400 L180,260" fill="none" stroke="#445566" stroke-width="2" opacity="0.5"/>
+
+  <!-- Safety fence indication -->
+  <line x1="140" y1="200" x2="140" y2="530" stroke="#445566" stroke-width="1" stroke-dasharray="8,4" opacity="0.3"/>
+  <line x1="280" y1="200" x2="280" y2="530" stroke="#445566" stroke-width="1" stroke-dasharray="8,4" opacity="0.3"/>
+
+  <!-- Warning stripes on robot base -->
+  <g opacity="0.3">
+    <rect x="170" y="255" width="60" height="5" fill="#ea580c"/>
+    <rect x="175" y="255" width="5" height="5" fill="#081a2a"/>
+    <rect x="185" y="255" width="5" height="5" fill="#081a2a"/>
+    <rect x="195" y="255" width="5" height="5" fill="#081a2a"/>
+    <rect x="205" y="255" width="5" height="5" fill="#081a2a"/>
+    <rect x="215" y="255" width="5" height="5" fill="#081a2a"/>
+    <rect x="225" y="255" width="5" height="5" fill="#081a2a"/>
+  </g>
+
+  <!-- Motion trail for robot arm -->
+  <path d="M313,80 Q350,60 380,80 Q410,100 430,280" fill="none" stroke="#ea580c" stroke-width="0.5" opacity="0.15" stroke-dasharray="4,4"/>
+</svg>

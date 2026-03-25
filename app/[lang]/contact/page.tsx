@@ -6,16 +6,20 @@ import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
   const titles = {
     en: 'Get a Free Quote | Contact SunGene Machinery',
     cn: '获取免费报价 | 联系 SunGene 机械',
     zh: '取得免費報價 | 聯繫 SunGene 機械',
+    fr: 'Devis gratuit | Contacter SunGene Machinery',
+    es: 'Cotización gratuita | Contactar SunGene Machinery',
   }
   const descriptions = {
     en: 'Request a free quote for packaging machinery, food processing equipment, or any industrial machinery. Our engineers will respond within 24 hours with a customized recommendation.',
     cn: '请求包装机械、食品加工设备或任何工业机械的免费报价。我们的工程师将在24小时内提供定制建议。',
     zh: '請求包裝機械、食品加工設備或任何工業機械的免費報價。我們的工程師將在24小時內提供客製建議。',
+    fr: 'Demandez un devis gratuit pour des machines d\'emballage, des équipements de transformation alimentaire ou toute machine industrielle. Nos ingénieurs vous répondront sous 24 heures avec une recommandation personnalisée.',
+    es: 'Solicite una cotización gratuita para maquinaria de empaque, equipos de procesamiento de alimentos o cualquier maquinaria industrial. Nuestros ingenieros responderán en 24 horas con una recomendación personalizada.',
   }
   return { title: titles[l], description: descriptions[l] }
 }
@@ -23,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function ContactPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
 
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'GET A FREE QUOTE',
       title: 'Tell Us What You Need',
@@ -92,6 +96,28 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       ],
       btn: '提交詢價',
       responseNote: '平均回覆時間：< 24小時',
+    },
+    fr: {
+      kicker: 'DEVIS GRATUIT',
+      title: 'Décrivez-nous vos besoins',
+      desc: 'Partagez votre type de produit, objectif de production et exigences. Notre équipe d\'ingénierie analysera vos besoins et vous fournira une recommandation machine personnalisée sous 24 heures.',
+      infoTitle: 'Informations à fournir',
+      formList: ['Quel produit transformez-vous ou emballez-vous ?', 'Production cible par heure ou par jour', 'Format d\'emballage (sachets, bouteilles, poches, etc.)', 'Préférence de niveau d\'automatisation', 'Pays de destination et tension', 'Fourchette budgétaire (optionnel)'],
+      contactTitle: 'Contact direct',
+      contacts: [{ label: 'Email', value: 'contact@sungene.net' }, { label: 'WhatsApp', value: '+886 4-3703-2705' }, { label: 'Adresse', value: 'Taichung, Taïwan' }, { label: 'Horaires', value: 'Lun-Ven 9h-18h (GMT+8)' }],
+      btn: 'Envoyer la demande',
+      responseNote: 'Temps de réponse moyen : < 24 heures',
+    },
+    es: {
+      kicker: 'COTIZACIÓN GRATIS',
+      title: 'Cuéntenos qué necesita',
+      desc: 'Comparta su tipo de producto, producción objetivo y requisitos. Nuestro equipo de ingeniería analizará sus necesidades y le proporcionará una recomendación de maquinaria personalizada en 24 horas.',
+      infoTitle: 'Información a incluir',
+      formList: ['¿Qué producto procesa o empaca?', 'Producción objetivo por hora o por día', 'Formato de empaque (bolsas, botellas, pouches, etc.)', 'Preferencia de nivel de automatización', 'País de destino y voltaje', 'Rango de presupuesto (opcional)'],
+      contactTitle: 'Contacto directo',
+      contacts: [{ label: 'Email', value: 'contact@sungene.net' }, { label: 'WhatsApp', value: '+886 4-3703-2705' }, { label: 'Ubicación', value: 'Taichung, Taiwán' }, { label: 'Horario', value: 'Lun-Vie 9:00-18:00 (GMT+8)' }],
+      btn: 'Enviar consulta',
+      responseNote: 'Tiempo de respuesta promedio: < 24 horas',
     }
   }
 
@@ -116,7 +142,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
               <Card className="p-8">
                 <h2 className="text-lg font-bold text-gray-950">{t.infoTitle}</h2>
                 <ul className="mt-5 space-y-3">
-                  {t.formList.map((item, i) => (
+                  {t.formList.map((item: string, i: number) => (
                     <li key={i} className="flex items-start gap-3 text-gray-700">
                       <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -130,7 +156,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
               <Card className="p-8">
                 <h2 className="text-lg font-bold text-gray-950">{t.contactTitle}</h2>
                 <ul className="mt-5 space-y-4">
-                  {t.contacts.map((c, i) => (
+                  {t.contacts.map((c: { label: string; value: string }, i: number) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="text-sm font-semibold text-gray-500 w-20">{c.label}</span>
                       <span className="text-sm text-gray-900">{c.value}</span>
@@ -151,15 +177,15 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                 type="Contact"
                 submitLabel={t.btn}
                 fields={[
-                  { name: 'name', label: lang === 'en' ? 'Your Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
-                  { name: 'email', label: lang === 'en' ? 'Email Address' : (lang === 'cn' ? '邮箱地址' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
-                  { name: 'company', label: lang === 'en' ? 'Company Name' : (lang === 'cn' ? '公司名称' : '公司名稱'), type: 'text', autoComplete: 'organization' },
-                  { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true, placeholder: lang === 'en' ? 'e.g., Powder packaging, Liquid filling, Food processing...' : '' },
-                  { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text', placeholder: lang === 'en' ? 'e.g., 30 bags/min, 1000 bottles/hour...' : '' },
-                  { name: 'country', label: lang === 'en' ? 'Destination Country' : (lang === 'cn' ? '使用国家' : '使用國家'), type: 'text' },
-                  { name: 'voltage', label: lang === 'en' ? 'Voltage (if known)' : (lang === 'cn' ? '电压（如已知）' : '電壓（如已知）'), type: 'text', placeholder: lang === 'en' ? 'e.g., 220V/380V/480V, 50Hz/60Hz' : '' },
-                  { name: 'budget', label: lang === 'en' ? 'Budget Range (USD)' : (lang === 'cn' ? '预算范围（美元）' : '預算範圍（美元）'), type: 'text' },
-                  { name: 'message', label: lang === 'en' ? 'Additional Details' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 5, placeholder: lang === 'en' ? 'Tell us more about your requirements, current production setup, or any specific features you need...' : '' },
+                  { name: 'name', label: ({ en: 'Your Name', cn: '联系人姓名', zh: '聯絡人姓名', fr: 'Votre nom', es: 'Su nombre' } as Record<string,string>)[lang] || 'Your Name', type: 'text', required: true, autoComplete: 'name' },
+                  { name: 'email', label: ({ en: 'Email Address', cn: '邮箱地址', zh: '電子郵件', fr: 'Adresse e-mail', es: 'Correo electrónico' } as Record<string,string>)[lang] || 'Email Address', type: 'email', required: true, autoComplete: 'email' },
+                  { name: 'company', label: ({ en: 'Company Name', cn: '公司名称', zh: '公司名稱', fr: 'Nom de l\'entreprise', es: 'Nombre de la empresa' } as Record<string,string>)[lang] || 'Company Name', type: 'text', autoComplete: 'organization' },
+                  { name: 'product', label: ({ en: 'Product / Application', cn: '产品 / 应用', zh: '產品 / 應用', fr: 'Produit / Application', es: 'Producto / Aplicación' } as Record<string,string>)[lang] || 'Product / Application', type: 'text', required: true, placeholder: ({ en: 'e.g., Powder packaging, Liquid filling, Food processing...', fr: 'ex. Emballage poudre, Remplissage liquide, Transformation alimentaire...', es: 'ej. Empaque de polvo, Llenado de líquidos, Procesamiento de alimentos...' } as Record<string,string>)[lang] || '' },
+                  { name: 'capacity', label: ({ en: 'Target Output', cn: '目标产能', zh: '目標產能', fr: 'Production cible', es: 'Producción objetivo' } as Record<string,string>)[lang] || 'Target Output', type: 'text', placeholder: ({ en: 'e.g., 30 bags/min, 1000 bottles/hour...', fr: 'ex. 30 sachets/min, 1000 bouteilles/heure...', es: 'ej. 30 bolsas/min, 1000 botellas/hora...' } as Record<string,string>)[lang] || '' },
+                  { name: 'country', label: ({ en: 'Destination Country', cn: '使用国家', zh: '使用國家', fr: 'Pays de destination', es: 'País de destino' } as Record<string,string>)[lang] || 'Destination Country', type: 'text' },
+                  { name: 'voltage', label: ({ en: 'Voltage (if known)', cn: '电压（如已知）', zh: '電壓（如已知）', fr: 'Tension (si connue)', es: 'Voltaje (si lo sabe)' } as Record<string,string>)[lang] || 'Voltage (if known)', type: 'text', placeholder: ({ en: 'e.g., 220V/380V/480V, 50Hz/60Hz', fr: 'ex. 220V/380V/480V, 50Hz/60Hz', es: 'ej. 220V/380V/480V, 50Hz/60Hz' } as Record<string,string>)[lang] || '' },
+                  { name: 'budget', label: ({ en: 'Budget Range (USD)', cn: '预算范围（美元）', zh: '預算範圍（美元）', fr: 'Fourchette budgétaire (USD)', es: 'Rango de presupuesto (USD)' } as Record<string,string>)[lang] || 'Budget Range (USD)', type: 'text' },
+                  { name: 'message', label: ({ en: 'Additional Details', cn: '补充说明', zh: '補充說明', fr: 'Détails supplémentaires', es: 'Detalles adicionales' } as Record<string,string>)[lang] || 'Additional Details', type: 'textarea', rows: 5, placeholder: ({ en: 'Tell us more about your requirements, current production setup, or any specific features you need...', fr: 'Dites-nous en plus sur vos besoins, votre configuration de production actuelle ou les fonctionnalités spécifiques recherchées...', es: 'Cuéntenos más sobre sus requisitos, configuración de producción actual o características específicas que necesita...' } as Record<string,string>)[lang] || '' },
                 ]}
               />
             </Card>

@@ -7,11 +7,13 @@ import { ButtonLink } from '@/components/ui/Button'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn' || lang === 'fr' || lang === 'es') ? lang : 'en'
   const titles = {
     en: 'About SunGene | Industrial Machinery Manufacturer from Taiwan',
     cn: '关于 SunGene | 台湾工业机械制造商',
     zh: '關於 SunGene | 台灣工業機械製造商',
+    fr: 'À propos de SunGene | Fabricant de machines industrielles de Taïwan',
+    es: 'Acerca de SunGene | Fabricante de maquinaria industrial de Taiwán',
   }
   return { title: titles[l] }
 }
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function AboutPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
 
-  const content = {
+  const content: Record<string, any> = {
     en: {
       kicker: 'ABOUT SUNGENE',
       title: 'Your Trusted Machinery Manufacturer in Taiwan',
@@ -82,6 +84,48 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       ctaTitle: '準備好與我們合作了嗎？',
       ctaDesc: '聯繫我們的銷售團隊討論您的機械需求。',
       ctaBtn: '取得免費報價',
+    },
+    fr: {
+      kicker: 'À PROPOS DE SUNGENE',
+      title: 'Votre fabricant de machines de confiance à Taïwan',
+      intro: 'SunGene est un fabricant taïwanais de machines industrielles spécialisé dans les équipements d\'emballage, les machines de transformation alimentaire, les systèmes de remplissage et de scellage, et les lignes de production automatisées. Avec plus de 15 ans d\'expérience et des exportations vers plus de 50 pays, nous nous engageons à fournir des machines certifiées CE de haute qualité à des prix usine directs.',
+      mission: 'Notre mission est de rendre les machines industrielles accessibles, fiables et personnalisables pour les acheteurs du monde entier — des machines individuelles aux lignes de production clé en main complètes.',
+      stats: [
+        { value: '15+', label: 'Années de fabrication' },
+        { value: '500+', label: 'Machines livrées' },
+        { value: '50+', label: 'Pays d\'exportation' },
+        { value: '100%', label: 'Certifié CE' },
+      ],
+      strengthsTitle: 'Nos atouts',
+      strengths: [
+        { title: 'Fabrication en interne', desc: 'Notre propre usine à Taichung, Taïwan assure le contrôle qualité des matières premières aux tests finaux. Pas de sous-traitance, pas d\'intermédiaires.' },
+        { title: 'Approche orientée ingénierie', desc: 'Chaque projet commence par la compréhension de votre application, type de produit et objectifs de production par notre équipe d\'ingénieurs.' },
+        { title: 'Expérience export mondiale', desc: 'Nous gérons les normes de tension internationales, la documentation, la mise en caisse et la logistique pour une livraison sans faille dans tout pays.' },
+      ],
+      ctaTitle: 'Prêt à travailler avec nous ?',
+      ctaDesc: 'Contactez notre équipe commerciale pour discuter de vos besoins en machines.',
+      ctaBtn: 'Devis gratuit',
+    },
+    es: {
+      kicker: 'SOBRE SUNGENE',
+      title: 'Su fabricante de maquinaria de confianza en Taiwán',
+      intro: 'SunGene es un fabricante taiwanés de maquinaria industrial especializado en equipos de empaque, máquinas de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas. Con más de 15 años de experiencia y exportaciones a más de 50 países, estamos comprometidos a entregar maquinaria certificada CE de alta calidad a precios directos de fábrica.',
+      mission: 'Nuestra misión es hacer que la maquinaria industrial sea accesible, confiable y personalizable para compradores globales — desde máquinas individuales hasta líneas de producción llave en mano completas.',
+      stats: [
+        { value: '15+', label: 'Años de fabricación' },
+        { value: '500+', label: 'Máquinas entregadas' },
+        { value: '50+', label: 'Países de exportación' },
+        { value: '100%', label: 'Certificado CE' },
+      ],
+      strengthsTitle: 'Nuestras fortalezas',
+      strengths: [
+        { title: 'Fabricación propia', desc: 'Nuestra fábrica en Taichung, Taiwán asegura el control de calidad desde las materias primas hasta las pruebas finales. Sin subcontratación, sin intermediarios.' },
+        { title: 'Enfoque de ingeniería primero', desc: 'Cada proyecto comienza con nuestro equipo de ingenieros comprendiendo su aplicación, tipo de producto y objetivos de producción.' },
+        { title: 'Experiencia en exportación global', desc: 'Manejamos estándares de voltaje internacionales, documentación, embalaje y logística para una entrega sin problemas a cualquier país.' },
+      ],
+      ctaTitle: '¿Listo para trabajar con nosotros?',
+      ctaDesc: 'Contacte a nuestro equipo de ventas para discutir sus requisitos de maquinaria.',
+      ctaBtn: 'Cotización gratuita',
     }
   }
 
@@ -104,7 +148,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       <section className="-mt-10">
         <Container>
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-gray-200 shadow-elev-2 md:grid-cols-4">
-            {t.stats.map((stat, i) => (
+            {t.stats.map((stat: { value: string; label: string }, i: number) => (
               <div key={i} className="bg-white px-6 py-8 text-center">
                 <div className="text-3xl font-bold text-accent-600">{stat.value}</div>
                 <div className="mt-1 text-sm font-medium text-gray-600">{stat.label}</div>
@@ -117,13 +161,13 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       {/* Factory Image */}
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl">
+          <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/banner/banner2.png"
-              alt="SunGene Factory - Industrial Machinery Manufacturing"
-              fill
-              className="object-cover"
-              sizes="100vw"
+              src="/machinery/factory-floor.svg"
+              alt="SunGene Factory Floor - Industrial Machinery Manufacturing Facility"
+              width={1200}
+              height={500}
+              className="w-full h-auto"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-950/40 to-transparent" />
           </div>
@@ -135,7 +179,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
         <Container>
           <h2 className="text-3xl font-bold tracking-tight text-gray-950">{t.strengthsTitle}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {t.strengths.map((s, i) => (
+            {t.strengths.map((s: { title: string; desc: string }, i: number) => (
               <Card key={i} className="p-8">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-100 text-lg font-bold text-accent-700">
                   {String(i + 1).padStart(2, '0')}

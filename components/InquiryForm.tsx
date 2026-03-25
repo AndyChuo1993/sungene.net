@@ -151,7 +151,7 @@ export default function InquiryForm({
           onClick={() => setStatus('idle')}
           className="mt-6 text-brand-800 font-medium hover:underline"
         >
-          {lang === 'en' ? 'Submit another request' : (lang === 'cn' ? '再次提交需求' : '再次提交需求')}
+          {{ en: 'Submit another request', cn: '再次提交需求', zh: '再次提交需求', fr: 'Soumettre une autre demande', es: 'Enviar otra solicitud' }[lang] || 'Submit another request'}
         </button>
       </div>
     )
@@ -206,7 +206,7 @@ export default function InquiryForm({
 
       {status === 'email_error' && (
         <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
-          <strong>{lang === 'en' ? 'Invalid Email' : (lang === 'cn' ? '邮箱格式错误' : '電子郵件格式錯誤')}</strong>: {lang === 'en' ? 'Please enter a valid email address.' : (lang === 'cn' ? '请输入有效的邮箱地址。' : '請輸入有效的電子郵件地址。')}
+          <strong>{{ en: 'Invalid Email', cn: '邮箱格式错误', zh: '電子郵件格式錯誤', fr: 'E-mail invalide', es: 'Correo no válido' }[lang] || 'Invalid Email'}</strong>: {{ en: 'Please enter a valid email address.', cn: '请输入有效的邮箱地址。', zh: '請輸入有效的電子郵件地址。', fr: 'Veuillez saisir une adresse e-mail valide.', es: 'Por favor ingrese una dirección de correo válida.' }[lang] || 'Please enter a valid email address.'}
         </div>
       )}
 
@@ -221,9 +221,7 @@ export default function InquiryForm({
       </div>
       
       <p className="text-xs text-center text-gray-400 mt-4">
-        {isChinese 
-          ? '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。'
-          : 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
+        {{ en: 'By submitting this form, you agree to our privacy policy. We respect your data privacy.', cn: '提交表单即代表您同意我们的隐私权政策。我们尊重您的数据隐私。', zh: '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。', fr: 'En soumettant ce formulaire, vous acceptez notre politique de confidentialité. Nous respectons la confidentialité de vos données.', es: 'Al enviar este formulario, acepta nuestra política de privacidad. Respetamos la privacidad de sus datos.' }[lang] || 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
       </p>
     </form>
   )

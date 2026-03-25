@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const locales = ['zh', 'en', 'cn']
+const locales = ['zh', 'en', 'cn', 'fr', 'es']
 
 function getDefaultLocaleByHost(host: string | null) {
   const hostname = (host || '').toLowerCase()
@@ -37,7 +37,7 @@ export function middleware(request: NextRequest) {
   }
 
   // 合併與收斂頁面的 301 Redirect
-  const matchLang = pathname.match(/^\/(zh|cn|en)\//)
+  const matchLang = pathname.match(/^\/(zh|cn|en|fr|es)\//)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
 
   const oldPages = [

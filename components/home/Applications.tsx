@@ -45,6 +45,34 @@ export default function Applications({ lang }: { lang: Lang }) {
         { name: '工業與化工', examples: '肥料、水泥、黏合劑、塗料、樹脂', icon: '🔩' },
       ],
       cta: '瀏覽所有行業'
+    },
+    fr: {
+      kicker: 'INDUSTRIES DESSERVIES',
+      title: 'Des machines pour chaque besoin de production',
+      desc: 'Nos équipements sont utilisés dans un large éventail d\'industries. Quel que soit votre produit à fabriquer ou emballer, nous avons la machine adaptée à votre application.',
+      categories: [
+        { name: 'Produits en poudre et farine', examples: 'Épices, café, lait en poudre, détergents, poudres pharmaceutiques', icon: '🏭' },
+        { name: 'Granulés et snacks', examples: 'Fruits à coque, graines, confiseries, aliments pour animaux, surgelés, riz', icon: '🔧' },
+        { name: 'Remplissage liquides et pâtes', examples: 'Sauces, boissons, huiles alimentaires, cosmétiques, produits chimiques', icon: '⚙️' },
+        { name: 'Transformation alimentaire', examples: 'Viande, boulangerie, plats préparés, fruits de mer, produits laitiers, légumes', icon: '🍴' },
+        { name: 'Emballage biens de consommation', examples: 'Quincaillerie, électronique, dispositifs médicaux, papeterie', icon: '📦' },
+        { name: 'Industrie et chimie', examples: 'Engrais, ciment, adhésifs, peintures, résines', icon: '🔩' },
+      ],
+      cta: 'Parcourir toutes les industries'
+    },
+    es: {
+      kicker: 'INDUSTRIAS QUE SERVIMOS',
+      title: 'Maquinaria para cada necesidad de producción',
+      desc: 'Nuestros equipos sirven a una amplia gama de industrias. Sea lo que sea lo que produzca o empaque, tenemos la máquina adecuada para su aplicación.',
+      categories: [
+        { name: 'Productos en polvo y harina', examples: 'Especias, café, leche en polvo, detergentes, polvos farmacéuticos', icon: '🏭' },
+        { name: 'Granulados y snacks', examples: 'Frutos secos, semillas, dulces, alimento para mascotas, congelados, arroz', icon: '🔧' },
+        { name: 'Llenado de líquidos y pastas', examples: 'Salsas, bebidas, aceite de cocina, cosméticos, productos químicos', icon: '⚙️' },
+        { name: 'Procesamiento de alimentos', examples: 'Carne, panadería, comidas preparadas, mariscos, lácteos, verduras', icon: '🍴' },
+        { name: 'Empaque de bienes de consumo', examples: 'Ferretería, electrónica, dispositivos médicos, papelería', icon: '📦' },
+        { name: 'Industrial y químico', examples: 'Fertilizantes, cemento, adhesivos, pinturas, resinas', icon: '🔩' },
+      ],
+      cta: 'Explorar todas las industrias'
     }
   }
 

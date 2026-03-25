@@ -50,6 +50,28 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: '灌裝與封口系統', desc: '自動液體灌裝機、膏體灌裝機、粉末計量機、杯蓋封口機、瓶蓋旋蓋機和電磁感應封口機。', link: '查看灌裝系統' },
         { title: '輸送與自動化', desc: '皮帶輸送機、斗式提升機、螺旋輸送機、機械手、碼垛機和整合產線控制系統。', link: '查看自動化設備' },
       ]
+    },
+    fr: {
+      kicker: 'NOS MACHINES',
+      title: 'Gamme complète de machines industrielles',
+      desc: 'Des machines individuelles aux lignes de production entièrement automatisées — nous fabriquons et fournissons des équipements d\'emballage, de transformation alimentaire, de remplissage, de scellage, de convoyage et pour des applications industrielles sur mesure.',
+      items: [
+        { title: 'Machines d\'emballage', desc: 'Ensacheuses verticales et horizontales (VFFS/HFFS), conditionneuses de sachets, scelleuses sous vide, machines de rétraction et encaisseuses pour produits en poudre, granulés, liquides et solides.', link: 'Voir les machines d\'emballage' },
+        { title: 'Équipements agroalimentaires', desc: 'Mélangeurs, broyeurs, trancheuses, marmites de cuisson, systèmes de blanchiment et lignes de préparation pour la viande, les snacks, la boulangerie et les plats préparés.', link: 'Voir les machines alimentaires' },
+        { title: 'Systèmes de remplissage et scellage', desc: 'Remplisseuses automatiques pour liquides et pâtes, doseuses de poudre, scelleuses de gobelets, boucheuses de bouteilles et scelleuses à induction.', link: 'Voir les systèmes de remplissage' },
+        { title: 'Convoyage et automatisation', desc: 'Convoyeurs à bande, élévateurs à godets, convoyeurs à vis, robots pick-and-place, palettiseurs et systèmes de contrôle de ligne intégrés.', link: 'Voir l\'automatisation' },
+      ]
+    },
+    es: {
+      kicker: 'NUESTRA MAQUINARIA',
+      title: 'Gama completa de maquinaria industrial',
+      desc: 'Desde máquinas individuales hasta líneas de producción totalmente automatizadas — fabricamos y suministramos equipos de empaque, procesamiento de alimentos, llenado, sellado, transporte y aplicaciones industriales personalizadas.',
+      items: [
+        { title: 'Maquinaria de empaque', desc: 'Envasadoras verticales y horizontales (VFFS/HFFS), empacadoras de bolsas, selladoras al vacío, termoencogibles y encajonadoras para productos en polvo, granulados, líquidos y sólidos.', link: 'Ver máquinas de empaque' },
+        { title: 'Equipos de procesamiento de alimentos', desc: 'Mezcladoras, moledoras, cortadoras, marmitas de cocción, sistemas de escaldado y líneas de preparación para carne, snacks, panadería y comidas preparadas.', link: 'Ver equipos alimentarios' },
+        { title: 'Sistemas de llenado y sellado', desc: 'Llenadoras automáticas de líquidos y pastas, dosificadoras de polvo, selladoras de vasos, taponadoras de botellas y selladoras por inducción.', link: 'Ver sistemas de llenado' },
+        { title: 'Transporte y automatización', desc: 'Transportadores de banda, elevadores de cangilones, transportadores de tornillo, robots pick-and-place, paletizadores y sistemas de control de línea integrados.', link: 'Ver automatización' },
+      ]
     }
   }
 

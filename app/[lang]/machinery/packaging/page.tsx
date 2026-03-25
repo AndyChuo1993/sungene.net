@@ -1,69 +1,115 @@
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
+import type { Metadata } from 'next'
+
+const titles: Record<string, string> = {
+  en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
+  cn: '包装机械 | 立式/卧式充填封口机 | SunGene', zh: '包裝機械 | 立式/臥式充填封口機 | SunGene',
+  fr: 'Machines d\'emballage | VFFS, HFFS, sachets et cartons | SunGene',
+  es: 'Maquinaria de empaque | VFFS, HFFS, bolsas y cartones | SunGene',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params
+  return { title: titles[lang] || titles.en }
+}
 
 export default async function PackagingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const content = {
+  const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización' }
+
+  const content: Record<string, { title: string; p1: string; p2: string; subTitle: string; cons: string[]; cta: string; machines: string[] }> = {
     en: {
-      title: 'Packaging Machinery Solutions',
-      p1: 'We support packaging machinery inquiries for applications involving powder, granule, liquid, pouch, bottle, container, and related product formats. The right equipment choice depends on the product itself, packaging style, target output, labor preference, and level of automation.',
-      p2: 'For some buyers, a simple semi-automatic solution is enough. For others, the project may require a more integrated packaging approach. We help identify a more suitable direction based on practical production needs instead of assuming one machine fits everything.',
-      subTitle: 'Typical Considerations',
-      cons: ['Product type', 'Packaging format', 'Capacity per hour', 'Automatic or semi-automatic preference', 'Space limitations', 'Voltage and destination market', 'Budget expectations'],
-      cta: 'Tell us what you need to pack, and we will help narrow down the machinery direction.'
+      title: 'Packaging Machinery',
+      p1: 'We manufacture a complete range of packaging machines for powder, granule, liquid, solid, and mixed products. Our VFFS, HFFS, premade pouch, vacuum, shrink wrap, and carton packing machines serve food, pharmaceutical, chemical, and consumer goods industries worldwide.',
+      p2: 'All machines are built with SUS304/316L stainless steel, CE certified, and available with custom voltage, output speed, and automation levels. We provide factory test videos before shipment.',
+      subTitle: 'Machine Types Available',
+      cons: ['Vertical Form-Fill-Seal (VFFS)', 'Horizontal Form-Fill-Seal (HFFS)', 'Premade Pouch Packing', 'Vacuum Packaging Machines', 'Shrink Wrapping Machines', 'Multi-Head Weighers', 'Carton/Case Packing', 'Labeling & Date Coding'],
+      cta: 'Tell us your product and packaging format — we\'ll recommend the right machine.',
+      machines: ['Powder Packaging', 'Granule Packaging', 'Liquid Packaging', 'Solid/Piece Packaging']
     },
     cn: {
-      title: '包装机械解决方案',
-      p1: '我们支持涉及粉末、颗粒、液体、袋装、瓶装、容器及相关产品形式的包装机械询价。正确的设备选择取决于产品本身、包装形式、目标产能、劳动力偏好以及自动化程度。',
-      p2: '对某些买家来说，简单的半自动解决方案就足够了。对其他买家来说，项目可能需要更综合的包装方案。我们根据实际的生产需求协助锁定更合适的方向，而不是假设一台机器能适用所有情况。',
-      subTitle: '典型考量因素',
-      cons: ['产品类型', '包装格式', '每小时产能', '自动或半自动偏好', '空间限制', '电压与目标市场', '预算预期'],
-      cta: '告诉我们您需要包装什么，我们将协助您缩小机械方向的范围。'
+      title: '包装机械',
+      p1: '我们生产全系列包装机，适用于粉末、颗粒、液体、固体和混合产品。我们的立式充填封口机、卧式充填封口机、预制袋包装机、真空包装机、热缩包装机和装箱机服务于全球食品、制药、化工和消费品行业。',
+      p2: '所有机器均采用SUS304/316L不锈钢制造，CE认证，可定制电压、产速和自动化水平。发货前提供工厂测试视频。',
+      subTitle: '可用机型',
+      cons: ['立式充填封口机 (VFFS)', '卧式充填封口机 (HFFS)', '预制袋包装机', '真空包装机', '热缩包装机', '多头秤', '装箱/纸箱包装', '贴标与打码'],
+      cta: '告诉我们您的产品和包装形式——我们将推荐合适的机器。',
+      machines: ['粉末包装', '颗粒包装', '液体包装', '固体/单件包装']
     },
     zh: {
-      title: '包裝機械解決方案',
-      p1: '我們支援涉及粉末、顆粒、液體、袋裝、瓶裝、容器及相關產品形式的包裝機械詢價。正確的設備選擇取決於產品本身、包裝形式、目標產能、勞動力偏好以及自動化程度。',
-      p2: '對某些買家來說，簡單的半自動解決方案就足夠了。對其他買家來說，專案可能需要更綜合的包裝方案。我們根據實際的生產需求協助鎖定更合適的方向，而不是假設一臺機器能適用所有情況。',
-      subTitle: '典型考量因素',
-      cons: ['產品類型', '包裝格式', '每小時產能', '自動或半自動偏好', '空間限制', '電壓與目標市場', '預算預期'],
-      cta: '告訴我們您需要包裝什麼，我們將協助您縮小機械方向的範圍。'
+      title: '包裝機械',
+      p1: '我們生產全系列包裝機，適用於粉末、顆粒、液體、固體和混合產品。我們的立式充填封口機、臥式充填封口機、預製袋包裝機、真空包裝機、熱縮包裝機和裝箱機服務於全球食品、製藥、化工和消費品行業。',
+      p2: '所有機器均採用SUS304/316L不鏽鋼製造，CE認證，可客製電壓、產速和自動化水平。發貨前提供工廠測試影片。',
+      subTitle: '可用機型',
+      cons: ['立式充填封口機 (VFFS)', '臥式充填封口機 (HFFS)', '預製袋包裝機', '真空包裝機', '熱縮包裝機', '多頭秤', '裝箱/紙箱包裝', '貼標與打碼'],
+      cta: '告訴我們您的產品和包裝形式——我們將推薦合適的機器。',
+      machines: ['粉末包裝', '顆粒包裝', '液體包裝', '固體/單件包裝']
+    },
+    fr: {
+      title: 'Machines d\'emballage',
+      p1: 'Nous fabriquons une gamme complète de machines de conditionnement pour produits en poudre, granulés, liquides, solides et mixtes. Nos machines VFFS, HFFS, sachets préformés, sous vide, rétractables et d\'encaissage servent les industries alimentaire, pharmaceutique, chimique et de biens de consommation dans le monde entier.',
+      p2: 'Toutes les machines sont construites en acier inoxydable SUS304/316L, certifiées CE, avec tension, vitesse et niveau d\'automatisation personnalisables. Nous fournissons des vidéos de test usine avant expédition.',
+      subTitle: 'Types de machines disponibles',
+      cons: ['Ensacheuse verticale (VFFS)', 'Ensacheuse horizontale (HFFS)', 'Conditionnement en sachets préformés', 'Machines sous vide', 'Machines de rétraction', 'Peseuses multi-têtes', 'Encaissage/mise en carton', 'Étiquetage et datage'],
+      cta: 'Décrivez-nous votre produit et format d\'emballage — nous vous recommanderons la machine adaptée.',
+      machines: ['Conditionnement poudre', 'Conditionnement granulés', 'Conditionnement liquide', 'Conditionnement solide']
+    },
+    es: {
+      title: 'Maquinaria de empaque',
+      p1: 'Fabricamos una gama completa de máquinas de empaque para productos en polvo, granulados, líquidos, sólidos y mixtos. Nuestras máquinas VFFS, HFFS, bolsas premade, vacío, termoencogibles y encajadoras sirven a las industrias alimentaria, farmacéutica, química y de bienes de consumo en todo el mundo.',
+      p2: 'Todas las máquinas están construidas con acero inoxidable SUS304/316L, certificadas CE, con voltaje, velocidad y nivel de automatización personalizables. Proporcionamos videos de prueba de fábrica antes del envío.',
+      subTitle: 'Tipos de máquinas disponibles',
+      cons: ['Empacadora vertical (VFFS)', 'Empacadora horizontal (HFFS)', 'Empaque en bolsas premade', 'Máquinas de vacío', 'Máquinas termoencogibles', 'Pesadoras multicabezal', 'Encajado/embalaje en cartón', 'Etiquetado y codificación'],
+      cta: 'Cuéntenos sobre su producto y formato de empaque — le recomendaremos la máquina adecuada.',
+      machines: ['Empaque de polvo', 'Empaque de granulados', 'Empaque de líquidos', 'Empaque de sólidos']
     }
   }
   const t = content[lang] || content['en']
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} />
+      <PageHeader title={t.title} desc={t.p1} kicker={lang === 'en' ? 'PACKAGING EQUIPMENT' : lang === 'fr' ? 'ÉQUIPEMENT D\'EMBALLAGE' : lang === 'es' ? 'EQUIPO DE EMPAQUE' : '包裝設備'} />
       <section className="py-16 sm:py-20">
-        <Container className="max-w-5xl">
-          <div className="max-w-3xl">
-            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
-          </div>
+        <Container className="max-w-6xl">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <Card className="p-8">
-              <h2 className="text-xl font-semibold text-gray-950">{t.subTitle}</h2>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                {t.cons.map((c, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
-                      ✓
-                    </span>
-                    <span className="text-sm leading-relaxed sm:text-base">{c}</span>
-                  </li>
+              {/* Machine type tags */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                {t.machines.map((m, i) => (
+                  <span key={i} className="rounded-full bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 ring-1 ring-accent-200">{m}</span>
                 ))}
-              </ul>
-            </Card>
+              </div>
 
-            <div className="rounded-2xl bg-brand-950 p-8 text-white shadow-elev-2">
-              <h2 className="text-xl font-semibold">{t.cta}</h2>
               <div className="mt-8">
-                <ButtonLink href={`/${lang}/contact`} size="lg">
-                  {lang === 'en' ? 'Send an Inquiry' : (lang === 'cn' ? '提交询价' : '提交詢價')}
-                </ButtonLink>
+                <Image src="/machinery/hero-packaging.svg" alt="Packaging Machinery - VFFS Machine" width={600} height={400} className="rounded-xl" />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <Card className="p-8">
+                <h2 className="text-xl font-bold text-gray-950">{t.subTitle}</h2>
+                <ul className="mt-6 space-y-3">
+                  {t.cons.map((c, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <span className="text-sm leading-relaxed sm:text-base">{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <div className="rounded-2xl bg-brand-950 p-8 text-white">
+                <h2 className="text-xl font-bold">{t.cta}</h2>
+                <div className="mt-6">
+                  <ButtonLink href={`/${lang}/contact`} size="lg">{btnLabels[lang] || btnLabels.en}</ButtonLink>
+                </div>
               </div>
             </div>
           </div>

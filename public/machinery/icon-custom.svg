@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2240"/>
+      <stop offset="100%" stop-color="#081a2a"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- Gear (large) -->
+  <g transform="translate(50, 55)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#3a6a8a" stroke-width="1.5"/>
+    <!-- Gear teeth -->
+    <g fill="none" stroke="#3a6a8a" stroke-width="1.2">
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(30,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(60,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(90,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(120,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(150,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(180,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(210,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(240,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(270,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(300,0,0)"/>
+      <rect x="-3" y="-33" width="6" height="8" rx="0.5" transform="rotate(330,0,0)"/>
+    </g>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#3a6a8a" stroke-width="1"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="2" fill="#ea580c" opacity="0.4"/>
+  </g>
+
+  <!-- Wrench -->
+  <g transform="translate(55, 58) rotate(-45)" opacity="0.7">
+    <!-- Handle -->
+    <rect x="15" y="-3" width="40" height="6" rx="1.5" fill="#778899" stroke="#667788" stroke-width="0.5"/>
+    <!-- Head (open end) -->
+    <path d="M15,-3 L15,-8 Q10,-10 8,-5 Q6,0 8,5 Q10,10 15,8 L15,3" fill="none" stroke="#778899" stroke-width="1.5"/>
+    <!-- Box end -->
+    <rect x="52" y="-5" width="10" height="10" rx="3" fill="none" stroke="#778899" stroke-width="1.5"/>
+    <circle cx="57" cy="0" r="3" fill="none" stroke="#778899" stroke-width="0.8"/>
+  </g>
+
+  <!-- Small gear (interlocking) -->
+  <g transform="translate(82, 32)" opacity="0.6">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#3a6a8a" stroke-width="1"/>
+    <g fill="none" stroke="#3a6a8a" stroke-width="0.8">
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(45,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(90,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(135,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(180,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(225,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(270,0,0)"/>
+      <rect x="-2" y="-18" width="4" height="6" rx="0.5" transform="rotate(315,0,0)"/>
+    </g>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#3a6a8a" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="2" fill="#ea580c" opacity="0.3"/>
+  </g>
+
+  <!-- Dimension line -->
+  <g stroke="#ea580c" stroke-width="0.6" opacity="0.4">
+    <line x1="15" y1="100" x2="85" y2="100"/>
+    <line x1="15" y1="97" x2="15" y2="103"/>
+    <line x1="85" y1="97" x2="85" y2="103"/>
+    <polygon points="15,100 20,98 20,102" fill="#ea580c" opacity="0.4"/>
+    <polygon points="85,100 80,98 80,102" fill="#ea580c" opacity="0.4"/>
+  </g>
+  <text x="50" y="97" font-family="monospace" font-size="7" fill="#ea580c" opacity="0.4" text-anchor="middle">CUSTOM</text>
+
+  <!-- Blueprint grid hint -->
+  <g opacity="0.06" stroke="#4488bb" stroke-width="0.3">
+    <line x1="10" y1="10" x2="110" y2="10"/>
+    <line x1="10" y1="110" x2="110" y2="110"/>
+    <line x1="10" y1="10" x2="10" y2="110"/>
+    <line x1="110" y1="10" x2="110" y2="110"/>
+  </g>
+</svg>

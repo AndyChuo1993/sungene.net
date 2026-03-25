@@ -35,6 +35,28 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
         { step: '04', title: '製造與質檢', desc: '按規格製造，全程品質檢驗。發貨前提供工廠測試影片和照片。' },
         { step: '05', title: '出口與安裝', desc: '專業木箱包裝、國際運輸、報關文件及遠端視訊安裝指導。' }
       ]
+    },
+    fr: {
+      kicker: 'NOTRE PROCESSUS',
+      title: 'De la demande à la livraison en 5 étapes',
+      items: [
+        { step: '01', title: 'Décrivez vos besoins', desc: 'Indiquez-nous votre type de produit, votre objectif de production, le format d\'emballage et le pays de destination. Nous partons de votre application, pas d\'un catalogue.' },
+        { step: '02', title: 'Consultation technique', desc: 'Notre équipe technique analyse vos besoins et recommande la configuration machine, les matériaux et le niveau d\'automatisation optimaux.' },
+        { step: '03', title: 'Devis et proposition', desc: 'Recevez une proposition détaillée avec les spécifications machines, les plans d\'implantation, les tarifs, les délais et les conditions de garantie.' },
+        { step: '04', title: 'Fabrication et contrôle qualité', desc: 'Votre machine est construite sur mesure avec des inspections qualité complètes. Nous partageons vidéos et photos des tests usine avant expédition.' },
+        { step: '05', title: 'Export et installation', desc: 'Mise en caisse professionnelle, expédition internationale, documents douaniers et assistance à l\'installation guidée par vidéo à distance.' }
+      ]
+    },
+    es: {
+      kicker: 'NUESTRO PROCESO',
+      title: 'De la consulta a la entrega en 5 pasos',
+      items: [
+        { step: '01', title: 'Comparta sus requisitos', desc: 'Indíquenos su tipo de producto, producción objetivo, formato de empaque y país de destino. Partimos de su aplicación, no de un catálogo.' },
+        { step: '02', title: 'Consulta de ingeniería', desc: 'Nuestro equipo técnico analiza sus necesidades y recomienda la configuración de máquina, materiales y nivel de automatización óptimos.' },
+        { step: '03', title: 'Cotización y propuesta', desc: 'Reciba una propuesta detallada con especificaciones de máquina, planos de distribución, precios, plazos de entrega y términos de garantía.' },
+        { step: '04', title: 'Fabricación y control de calidad', desc: 'Su máquina se construye según especificaciones con inspecciones de calidad completas. Compartimos videos y fotos de pruebas en fábrica antes del envío.' },
+        { step: '05', title: 'Exportación e instalación', desc: 'Embalaje profesional en cajas de madera, envío internacional, documentación aduanera y asistencia de instalación guiada por video remoto.' }
+      ]
     }
   }
 

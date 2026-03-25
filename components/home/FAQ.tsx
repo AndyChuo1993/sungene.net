@@ -40,6 +40,30 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: '生產交期多長？', a: '標準機型：15-30天。客製機型：30-60天。發貨前提供工廠測試影片和照片供確認。' },
         { q: '可以參觀工廠嗎？', a: '當然可以。歡迎來我們台中工廠參觀。我們可以安排機場接送和產線全程參觀。' },
       ]
+    },
+    fr: {
+      kicker: 'FAQ',
+      title: 'Questions fréquentes',
+      items: [
+        { q: 'Quelle est la quantité minimum de commande (MOQ) ?', a: 'Notre MOQ est de 1 unité pour la plupart des machines standard. Nous acceptons les commandes d\'échantillons et les achats en gros pour l\'équipement de lignes de production.' },
+        { q: 'Pouvez-vous personnaliser les machines selon nos spécifications ?', a: 'Oui. Notre équipe d\'ingénierie peut personnaliser les dimensions, les matériaux (SUS304/316L), la capacité de production, la tension (110V-480V) et le niveau d\'automatisation selon votre environnement de production.' },
+        { q: 'Vers quels pays exportez-vous ?', a: 'Nous exportons vers plus de 50 pays en Asie du Sud-Est, au Moyen-Orient, en Afrique, en Europe et dans les Amériques. Toutes les machines sont certifiées CE avec support logistique international.' },
+        { q: 'Proposez-vous un service après-vente ?', a: 'Oui. Nous offrons une assistance à l\'installation par vidéo à distance, la formation des opérateurs, un support technique 24h/24 et 7j/7, et la fourniture de pièces détachées avec expédition internationale rapide.' },
+        { q: 'Quel est le délai de fabrication ?', a: 'Machines standard : 15-30 jours. Machines sur mesure : 30-60 jours. Nous fournissons des vidéos et photos de tests usine avant expédition pour votre validation.' },
+        { q: 'Puis-je visiter votre usine ?', a: 'Absolument. Nous accueillons les visites d\'usine dans nos installations de production à Taichung, Taïwan. Nous pouvons organiser le transfert depuis l\'aéroport et une visite complète de nos lignes de production.' },
+      ]
+    },
+    es: {
+      kicker: 'FAQ',
+      title: 'Preguntas frecuentes',
+      items: [
+        { q: '¿Cuál es la cantidad mínima de pedido (MOQ)?', a: 'Nuestro MOQ es de 1 unidad para la mayoría de las máquinas estándar. Aceptamos pedidos de muestra y compras al por mayor para configuraciones de líneas de producción.' },
+        { q: '¿Pueden personalizar las máquinas según nuestras especificaciones?', a: 'Sí. Nuestro equipo de ingeniería puede personalizar dimensiones, materiales (SUS304/316L), capacidad de producción, voltaje (110V-480V) y nivel de automatización según su entorno productivo.' },
+        { q: '¿A qué países exportan?', a: 'Exportamos a más de 50 países en el Sudeste Asiático, Medio Oriente, África, Europa y las Américas. Todas las máquinas cuentan con certificación CE y soporte logístico internacional.' },
+        { q: '¿Ofrecen soporte postventa?', a: 'Sí. Ofrecemos asistencia de instalación por video remoto, capacitación de operadores, soporte técnico 24/7 y suministro de repuestos con envío internacional rápido.' },
+        { q: '¿Cuál es el tiempo de fabricación?', a: 'Máquinas estándar: 15-30 días. Máquinas personalizadas: 30-60 días. Proporcionamos videos y fotos de pruebas en fábrica antes del envío para su confirmación.' },
+        { q: '¿Puedo visitar su fábrica?', a: 'Por supuesto. Recibimos visitas en nuestras instalaciones de producción en Taichung, Taiwán. Podemos organizar el traslado desde el aeropuerto y un recorrido completo por nuestras líneas de producción.' },
+      ]
     }
   }
 

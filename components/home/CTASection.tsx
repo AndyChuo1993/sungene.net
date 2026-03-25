@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
@@ -22,6 +21,18 @@ export default function CTASection({ lang }: { lang: Lang }) {
       desc: '告訴我們您需要生產或包裝什麼——產品類型、目標產能和預算範圍。我們的工程團隊將在24小時內為您推薦最佳機械方案。',
       btn: '立即取得免費報價',
       features: ['無最低起訂量要求', '發貨前提供工廠測試影片', '可客製電壓', '安排國際物流'],
+    },
+    fr: {
+      title: 'Prêt à trouver la bonne machine ?',
+      desc: 'Dites-nous ce que vous devez produire ou emballer — type de produit, objectif de production et fourchette budgétaire. Notre équipe d\'ingénierie vous recommandera la meilleure solution machines sous 24 heures.',
+      btn: 'Obtenir un devis gratuit',
+      features: ['Aucune quantité minimum requise', 'Vidéo de test usine avant expédition', 'Adaptation de tension disponible', 'Expédition internationale organisée'],
+    },
+    es: {
+      title: '¿Listo para encontrar la máquina adecuada?',
+      desc: 'Cuéntenos qué necesita producir o empacar — tipo de producto, producción objetivo y rango de presupuesto. Nuestro equipo de ingeniería le recomendará la mejor solución de maquinaria en 24 horas.',
+      btn: 'Obtener cotización gratuita',
+      features: ['Sin pedido mínimo requerido', 'Video de prueba en fábrica antes del envío', 'Personalización de voltaje disponible', 'Envío internacional coordinado'],
     }
   }
 
@@ -29,17 +40,11 @@ export default function CTASection({ lang }: { lang: Lang }) {
 
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Background with industrial pattern */}
       <div className="absolute inset-0">
-        <Image
-          src="/banner/banner2.png"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-brand-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-950/80" />
+        <div className="absolute inset-0 bg-brand-950" />
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.04]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-900/90 to-brand-950" />
       </div>
 
       <Container className="relative text-white">

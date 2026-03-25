@@ -43,6 +43,32 @@ export default function HeroSection({ lang }: { lang: Lang }) {
         { value: '15+', label: '年行業經驗' },
         { value: '24/7', label: '技術支援' },
       ]
+    },
+    fr: {
+      kicker: 'FOURNISSEUR DE MACHINES DE CONFIANCE DEPUIS TAÏWAN',
+      h1: 'Machines industrielles pour l\'emballage, l\'agroalimentaire et l\'automatisation',
+      sub: 'Nous fabriquons et exportons des machines d\'emballage haute performance, des équipements de transformation alimentaire, des systèmes de remplissage et de scellage, ainsi que des lignes de production automatisées à destination d\'acheteurs du monde entier.',
+      btnQuote: 'Devis gratuit',
+      btnCatalog: 'Voir le catalogue machines',
+      stats: [
+        { value: '500+', label: 'Machines exportées' },
+        { value: '50+', label: 'Pays desservis' },
+        { value: '15+', label: 'Années d\'expérience' },
+        { value: '24/7', label: 'Support technique' },
+      ]
+    },
+    es: {
+      kicker: 'PROVEEDOR DE MAQUINARIA DE CONFIANZA DESDE TAIWÁN',
+      h1: 'Maquinaria industrial para empaque, procesamiento de alimentos y automatización',
+      sub: 'Fabricamos y exportamos máquinas de empaque de alto rendimiento, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas para compradores de todo el mundo.',
+      btnQuote: 'Cotización gratuita',
+      btnCatalog: 'Ver catálogo de maquinaria',
+      stats: [
+        { value: '500+', label: 'Máquinas exportadas' },
+        { value: '50+', label: 'Países atendidos' },
+        { value: '15+', label: 'Años de experiencia' },
+        { value: '24/7', label: 'Soporte técnico' },
+      ]
     }
   }
 
@@ -78,18 +104,17 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             </div>
           </div>
 
-          {/* Hero image */}
+          {/* Hero image - machinery illustration */}
           <div className="relative hidden lg:block">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+            <div className="relative overflow-hidden rounded-t-2xl">
               <Image
-                src="/banner/banner1.png"
-                alt="SunGene Industrial Packaging Machinery"
-                fill
-                className="object-cover object-center"
+                src="/machinery/hero-main.svg"
+                alt="SunGene Industrial Production Line - Packaging Machinery, Conveyor Systems, and Palletizer"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
                 priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
             </div>
           </div>
         </div>
