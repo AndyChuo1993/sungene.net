@@ -1,15 +1,23 @@
 import { Lang } from '@/lib/i18n'
 import InquiryForm from '@/components/InquiryForm'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  if (lang === 'cn') return { title: '提交询价｜SunGene' }
-  if (lang === 'zh') return { title: '提交詢價｜SunGene' }
-  return { title: 'Send an Inquiry | SunGene' }
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  const titles = {
+    en: 'Get a Free Quote | Contact SunGene Machinery',
+    cn: '获取免费报价 | 联系 SunGene 机械',
+    zh: '取得免費報價 | 聯繫 SunGene 機械',
+  }
+  const descriptions = {
+    en: 'Request a free quote for packaging machinery, food processing equipment, or any industrial machinery. Our engineers will respond within 24 hours with a customized recommendation.',
+    cn: '请求包装机械、食品加工设备或任何工业机械的免费报价。我们的工程师将在24小时内提供定制建议。',
+    zh: '請求包裝機械、食品加工設備或任何工業機械的免費報價。我們的工程師將在24小時內提供客製建議。',
+  }
+  return { title: titles[l], description: descriptions[l] }
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -17,55 +25,73 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   const content = {
     en: {
-      title: 'Tell Us About Your Machinery Requirement',
-      desc: 'You do not need to know the exact machine model before contacting us. The more helpful starting point is your product, production target, packaging style, automation expectation, and destination market. Based on that, we can help suggest a more suitable machinery direction.',
-      formDesc: 'Please share any of the following if available:',
+      kicker: 'GET A FREE QUOTE',
+      title: 'Tell Us What You Need',
+      desc: 'Share your product type, target output, and requirements. Our engineering team will analyze your needs and provide a customized machinery recommendation within 24 hours.',
+      infoTitle: 'What to Include',
       formList: [
         'What product do you process or pack?',
-        'What output do you need per hour or per day?',
-        'What packaging format or production result do you want?',
-        'Do you prefer semi-automatic or fully automatic?',
-        'Which country will the machine be used in?',
-        'Do you have voltage requirements?',
-        'What is your expected budget range?',
-        'Do you need a single machine or a broader solution?'
+        'Target output per hour or per day',
+        'Packaging format (bags, bottles, pouches, etc.)',
+        'Automation level preference',
+        'Destination country & voltage',
+        'Budget range (optional)',
+      ],
+      contactTitle: 'Direct Contact',
+      contacts: [
+        { label: 'Email', value: 'contact@sungene.net' },
+        { label: 'WhatsApp', value: '+886 4-3703-2705' },
+        { label: 'Location', value: 'Taichung, Taiwan' },
+        { label: 'Hours', value: 'Mon-Fri 9:00-18:00 (GMT+8)' },
       ],
       btn: 'Submit Inquiry',
-      footer: 'If your project is still in an early discussion stage, that is fine. A clear application description is often enough to begin.'
+      responseNote: 'Average response time: < 24 hours',
     },
     cn: {
-      title: '告诉我们您的机械需求',
-      desc: '在联系我们之前，您不需要知道确切的机器型号。更有帮助的起点是您的产品、生产目标、包装形式、自动化预期和目标市场。基于这些，我们可以协助建议更合适的机械方向。',
-      formDesc: '如果可以，请分享以下信息：',
+      kicker: '获取免费报价',
+      title: '告诉我们您的需求',
+      desc: '分享您的产品类型、目标产能和要求。我们的工程团队将在24小时内分析您的需求并提供定制机械建议。',
+      infoTitle: '请提供以下信息',
       formList: [
         '您加工或包装什么产品？',
-        '您每小时或每天需要多少产量？',
-        '您希望达到什么包装格式或生产结果？',
-        '您倾向半自动还是全自动？',
-        '机器将在哪个国家使用？',
-        '您有电压要求吗？',
-        '您的预期预算范围是多少？',
-        '您需要单台机器还是更广泛的解决方案？'
+        '每小时或每天的目标产量',
+        '包装形式（袋装、瓶装、袋包等）',
+        '自动化水平偏好',
+        '目的国及电压要求',
+        '预算范围（可选）',
+      ],
+      contactTitle: '直接联系',
+      contacts: [
+        { label: '邮箱', value: 'contact@sungene.net' },
+        { label: 'WhatsApp', value: '+886 4-3703-2705' },
+        { label: '地址', value: '台湾台中' },
+        { label: '工作时间', value: '周一至周五 9:00-18:00 (GMT+8)' },
       ],
       btn: '提交询价',
-      footer: '如果您的项目仍处于早期讨论阶段，没关系。清晰的应用场景描述通常就足以开始。'
+      responseNote: '平均回复时间：< 24小时',
     },
     zh: {
-      title: '告訴我們您的機械需求',
-      desc: '在聯絡我們之前，您不需要知道確切的機器型號。更有幫助的起點是您的產品、生產目標、包裝形式、自動化預期和目標市場。基於這些，我們可以協助建議更合適的機械方向。',
-      formDesc: '如果可以，請分享以下資訊：',
+      kicker: '取得免費報價',
+      title: '告訴我們您的需求',
+      desc: '分享您的產品類型、目標產能和要求。我們的工程團隊將在24小時內分析您的需求並提供客製機械建議。',
+      infoTitle: '請提供以下資訊',
       formList: [
         '您加工或包裝什麼產品？',
-        '您每小時或每天需要多少產量？',
-        '您希望達到什麼包裝格式或生產結果？',
-        '您傾向半自動還是全自動？',
-        '機器將在哪個國家使用？',
-        '您有電壓要求嗎？',
-        '您的預期預算範圍是多少？',
-        '您需要單臺機器還是更廣泛的解決方案？'
+        '每小時或每天的目標產量',
+        '包裝形式（袋裝、瓶裝、袋包等）',
+        '自動化水平偏好',
+        '目的國及電壓要求',
+        '預算範圍（可選）',
+      ],
+      contactTitle: '直接聯繫',
+      contacts: [
+        { label: '信箱', value: 'contact@sungene.net' },
+        { label: 'WhatsApp', value: '+886 4-3703-2705' },
+        { label: '地址', value: '台灣台中' },
+        { label: '工作時間', value: '週一至週五 9:00-18:00 (GMT+8)' },
       ],
       btn: '提交詢價',
-      footer: '如果您的專案仍處於早期討論階段，沒關係。清晰的應用場景描述通常就足以開始。'
+      responseNote: '平均回覆時間：< 24小時',
     }
   }
 
@@ -73,42 +99,67 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.desc} />
+      {/* Header */}
+      <section className="bg-brand-950 pt-8 pb-16">
+        <Container>
+          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-300">{t.desc}</p>
+        </Container>
+      </section>
+
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Card className="p-8">
-              <h2 className="text-base font-semibold text-gray-950">{t.formDesc}</h2>
-              <ul className="mt-5 space-y-2 text-gray-700">
-                {t.formList.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
-                      ✓
-                    </span>
-                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm leading-relaxed text-gray-500">{t.footer}</p>
-            </Card>
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+            {/* Left side - info */}
+            <div className="space-y-6">
+              <Card className="p-8">
+                <h2 className="text-lg font-bold text-gray-950">{t.infoTitle}</h2>
+                <ul className="mt-5 space-y-3">
+                  {t.formList.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-sm leading-relaxed sm:text-base">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
 
+              <Card className="p-8">
+                <h2 className="text-lg font-bold text-gray-950">{t.contactTitle}</h2>
+                <ul className="mt-5 space-y-4">
+                  {t.contacts.map((c, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-sm font-semibold text-gray-500 w-20">{c.label}</span>
+                      <span className="text-sm text-gray-900">{c.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <div className="rounded-xl bg-accent-50 p-4 text-center">
+                <p className="text-sm font-semibold text-accent-700">{t.responseNote}</p>
+              </div>
+            </div>
+
+            {/* Right side - form */}
             <Card className="p-8">
               <InquiryForm
                 lang={lang}
                 type="Contact"
                 submitLabel={t.btn}
                 fields={[
-                  { name: 'name', label: lang === 'en' ? 'Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
-                  { name: 'email', label: lang === 'en' ? 'Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
-                  { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true },
-                  { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text' },
-                  { name: 'packaging', label: lang === 'en' ? 'Packaging Format / Result' : (lang === 'cn' ? '包装格式 / 结果' : '包裝格式 / 結果'), type: 'text' },
-                  { name: 'automation', label: lang === 'en' ? 'Automation Preference' : (lang === 'cn' ? '自动化偏好' : '自動化偏好'), type: 'text' },
+                  { name: 'name', label: lang === 'en' ? 'Your Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
+                  { name: 'email', label: lang === 'en' ? 'Email Address' : (lang === 'cn' ? '邮箱地址' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
+                  { name: 'company', label: lang === 'en' ? 'Company Name' : (lang === 'cn' ? '公司名称' : '公司名稱'), type: 'text', autoComplete: 'organization' },
+                  { name: 'product', label: lang === 'en' ? 'Product / Application' : (lang === 'cn' ? '产品 / 应用' : '產品 / 應用'), type: 'text', required: true, placeholder: lang === 'en' ? 'e.g., Powder packaging, Liquid filling, Food processing...' : '' },
+                  { name: 'capacity', label: lang === 'en' ? 'Target Output' : (lang === 'cn' ? '目标产能' : '目標產能'), type: 'text', placeholder: lang === 'en' ? 'e.g., 30 bags/min, 1000 bottles/hour...' : '' },
                   { name: 'country', label: lang === 'en' ? 'Destination Country' : (lang === 'cn' ? '使用国家' : '使用國家'), type: 'text' },
-                  { name: 'voltage', label: lang === 'en' ? 'Voltage Requirement' : (lang === 'cn' ? '电压要求' : '電壓要求'), type: 'text' },
-                  { name: 'budget', label: lang === 'en' ? 'Budget Range' : (lang === 'cn' ? '预算范围' : '預算範圍'), type: 'text' },
-                  { name: 'scope', label: lang === 'en' ? 'Project Scope' : (lang === 'cn' ? '需求范围' : '需求範圍'), type: 'text' },
-                  { name: 'message', label: lang === 'en' ? 'Notes' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 6 },
+                  { name: 'voltage', label: lang === 'en' ? 'Voltage (if known)' : (lang === 'cn' ? '电压（如已知）' : '電壓（如已知）'), type: 'text', placeholder: lang === 'en' ? 'e.g., 220V/380V/480V, 50Hz/60Hz' : '' },
+                  { name: 'budget', label: lang === 'en' ? 'Budget Range (USD)' : (lang === 'cn' ? '预算范围（美元）' : '預算範圍（美元）'), type: 'text' },
+                  { name: 'message', label: lang === 'en' ? 'Additional Details' : (lang === 'cn' ? '补充说明' : '補充說明'), type: 'textarea', rows: 5, placeholder: lang === 'en' ? 'Tell us more about your requirements, current production setup, or any specific features you need...' : '' },
                 ]}
               />
             </Card>

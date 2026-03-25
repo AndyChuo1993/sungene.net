@@ -15,19 +15,25 @@ type PageParams = {
 
 const HOME_SEO = {
   en: {
-    title: 'Packaging, Food Processing & Industrial Machinery | SunGene',
-    description: 'SunGene provides machinery solutions for packaging, food processing, and industrial applications — helping global buyers move from machine selection to export delivery with greater clarity and efficiency.',
-    keywords: ['packaging machinery', 'food processing machinery', 'custom machinery', 'industrial equipment', 'export delivery'],
+    title: 'SunGene | Packaging Machinery, Food Processing Equipment & Industrial Automation | Taiwan Manufacturer',
+    description: 'SunGene manufactures and exports packaging machines, food processing equipment, filling & sealing systems, and automated production lines. CE certified, factory-direct pricing, export to 50+ countries. Get a free quote today.',
+    keywords: [
+      'packaging machinery manufacturer', 'food processing equipment supplier', 'filling machine Taiwan',
+      'sealing machine exporter', 'VFFS packaging machine', 'powder packaging machine',
+      'liquid filling machine', 'automated production line', 'industrial machinery Taiwan',
+      'packaging equipment factory', 'food machinery supplier', 'custom machinery manufacturer',
+      'CE certified packaging machine', 'conveyor system supplier', 'granule packaging machine',
+    ],
   },
   zh: {
-    title: '包裝、食品加工與工業應用機械解決方案｜SunGene',
-    description: 'SunGene 為全球買家提供包裝、食品加工與工業應用機械解決方案，從設備匹配到出口交付，協助客戶找到更合適的設備方案。',
-    keywords: ['包裝機械', '食品加工機械', '客製機械', '工業設備', '設備出口'],
+    title: 'SunGene | 包裝機械、食品加工設備與工業自動化 | 台灣製造商',
+    description: 'SunGene 製造並出口包裝機、食品加工設備、灌裝封口系統和自動化生產線。CE認證、工廠直銷、出口50多個國家。立即取得免費報價。',
+    keywords: ['包裝機械製造商', '食品加工設備', '灌裝機', '封口機', '自動化生產線', '台灣機械出口'],
   },
   cn: {
-    title: '包装、食品加工与工业应用机械解决方案｜SunGene',
-    description: 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案，从设备匹配到出口交付，协助客户找到更合适的设备方案。',
-    keywords: ['包装机械', '食品加工机械', '定制机械', '工业设备', '设备出口'],
+    title: 'SunGene | 包装机械、食品加工设备与工业自动化 | 台湾制造商',
+    description: 'SunGene 制造并出口包装机、食品加工设备、灌装封口系统和自动化生产线。CE认证、工厂直销、出口50多个国家。立即获取免费报价。',
+    keywords: ['包装机械制造商', '食品加工设备', '灌装机', '封口机', '自动化生产线', '台湾机械出口'],
   },
 } as const
 
@@ -64,7 +70,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       title: data.title,
       description: data.description,
       url: `${baseUrl}/${safeLang}`,
-      siteName: 'SunGene',
+      siteName: 'SunGene Industrial Machinery',
       type: 'website',
       locale: safeLang === 'zh' ? 'zh_TW' : safeLang === 'cn' ? 'zh_CN' : 'en_US',
       images: [
@@ -89,8 +95,37 @@ export default async function Page({ params }: PageParams) {
   const { lang } = await params
   const safeLang = normalizeLang(lang)
 
+  // Product schema for SEO
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'SunGene Industrial Machinery',
+    description: 'Complete range of packaging machinery, food processing equipment, and industrial automation systems.',
+    numberOfItems: 5,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', url: `https://sungene.net/${safeLang}/machinery/packaging` },
+      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', url: `https://sungene.net/${safeLang}/machinery/food-processing` },
+      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', url: `https://sungene.net/${safeLang}/machinery/filling-sealing` },
+      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', url: `https://sungene.net/${safeLang}/machinery/conveying-automation` },
+      { '@type': 'ListItem', position: 5, name: 'Customized Machinery', url: `https://sungene.net/${safeLang}/machinery/custom` },
+    ]
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What is the minimum order quantity?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is 1 unit for most standard machines.' } },
+      { '@type': 'Question', name: 'Can you customize machines?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We customize dimensions, materials, output capacity, voltage, and automation level.' } },
+      { '@type': 'Question', name: 'What countries do you export to?', acceptedAnswer: { '@type': 'Answer', text: 'We export to 50+ countries with CE certification and international shipping support.' } },
+      { '@type': 'Question', name: 'What is the production lead time?', acceptedAnswer: { '@type': 'Answer', text: 'Standard machines: 15-30 days. Custom machines: 30-60 days.' } },
+    ]
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <HeroSection lang={safeLang} />
       <ServicesPreview lang={safeLang} />
       <WhyUs lang={safeLang} />

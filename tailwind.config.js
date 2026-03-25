@@ -5,7 +5,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Slate for metallic feel
         gray: colors.slate,
         brand: {
           50: '#f0f4f8',
@@ -21,10 +20,10 @@ module.exports = {
           950: '#081a2a',
         },
         accent: colors.orange,
-      }
-    },
+      },
       fontFamily: {
         sans: [
+          'Inter',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
@@ -40,12 +39,13 @@ module.exports = {
         ],
       },
       boxShadow: {
-        'elev-1': '0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 1px rgba(2, 6, 23, 0.04)',
-        'elev-2': '0 8px 24px rgba(2, 6, 23, 0.10)',
+        'elev-1': '0 1px 3px rgba(2, 6, 23, 0.08), 0 1px 2px rgba(2, 6, 23, 0.06)',
+        'elev-2': '0 10px 30px rgba(2, 6, 23, 0.12), 0 4px 10px rgba(2, 6, 23, 0.06)',
       },
       backgroundImage: {
         'hero-radial': 'radial-gradient(1200px circle at 10% -10%, rgba(16, 42, 67, 0.16), transparent 55%), radial-gradient(900px circle at 90% 0%, rgba(234, 88, 12, 0.12), transparent 50%)',
       },
+    },
   },
   plugins: []
 }

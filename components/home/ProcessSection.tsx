@@ -4,33 +4,36 @@ import { Container } from '@/components/ui/Container'
 export default function ProcessSection({ lang }: { lang: Lang }) {
   const content = {
     en: {
-      title: 'How We Work',
+      kicker: 'HOW WE WORK',
+      title: 'From Inquiry to Delivery in 5 Steps',
       items: [
-        { title: '1. Understand Your Application', desc: 'We review your product type, output target, packaging format, production workflow, and market requirements.' },
-        { title: '2. Define the Right Direction', desc: 'We help narrow the equipment type, automation level, and configuration based on your priorities.' },
-        { title: '3. Match Suitable Options', desc: 'We present suitable machinery directions, including standard or customized possibilities.' },
-        { title: '4. Confirm Technical & Commercial Details', desc: 'We align on specifications, voltage, layout logic, lead time, and delivery expectations.' },
-        { title: '5. Support Export Delivery', desc: 'We coordinate the next steps toward order execution and shipment arrangement.' }
+        { step: '01', title: 'Share Your Requirements', desc: 'Tell us your product type, target output, packaging format, and destination country. We start from your application, not a catalog.' },
+        { step: '02', title: 'Engineering Consultation', desc: 'Our technical team analyzes your needs and recommends the optimal machine configuration, materials, and automation level.' },
+        { step: '03', title: 'Quotation & Proposal', desc: 'Receive a detailed proposal with machine specifications, layout drawings, pricing, lead time, and warranty terms.' },
+        { step: '04', title: 'Manufacturing & QC', desc: 'Your machine is built to spec with full quality inspections. We share factory test videos and photos before shipment.' },
+        { step: '05', title: 'Export & Installation', desc: 'Professional crating, international shipping, customs documentation, and remote video-guided installation support.' }
       ]
     },
     cn: {
-      title: '解决方案流程',
+      kicker: '合作流程',
+      title: '从询价到交付只需5步',
       items: [
-        { title: '1. 了解您的应用需求', desc: '我们评估您的产品类型、产能目标、包装格式、生产流程与市场要求。' },
-        { title: '2. 确立正确方向', desc: '根据您的优先考量，协助缩小设备类型、自动化程度与配置选项的范围。' },
-        { title: '3. 匹配合适方案', desc: '提供合适的机械方向，包含标准机型或定制化可能性。' },
-        { title: '4. 确认技术与商务细节', desc: '对接规格、电压、产线布局、交期与交付期望。' },
-        { title: '5. 支持出口交付', desc: '协调订单执行与发货安排的后续步骤。' }
+        { step: '01', title: '提交需求', desc: '告诉我们您的产品类型、目标产能、包装形式和目的国。我们从您的应用出发，而非产品目录。' },
+        { step: '02', title: '工程咨询', desc: '我们的技术团队分析您的需求，推荐最优的机器配置、材料和自动化水平。' },
+        { step: '03', title: '报价与方案', desc: '获取详细方案书，包含设备规格、布局图、价格、交期和保修条款。' },
+        { step: '04', title: '制造与质检', desc: '按规格制造，全程品质检验。发货前提供工厂测试视频和照片。' },
+        { step: '05', title: '出口与安装', desc: '专业木箱包装、国际运输、报关文件及远程视频安装指导。' }
       ]
     },
     zh: {
-      title: '解決方案流程',
+      kicker: '合作流程',
+      title: '從詢價到交付只需5步',
       items: [
-        { title: '1. 了解您的應用需求', desc: '我們評估您的產品類型、產能目標、包裝格式、生產流程與市場要求。' },
-        { title: '2. 確立正確方向', desc: '根據您的優先考量，協助縮小設備類型、自動化程度與配置選項的範圍。' },
-        { title: '3. 匹配合適方案', desc: '提供合適的機械方向，包含標準機型或客製化可能性。' },
-        { title: '4. 確認技術與商務細節', desc: '對接規格、電壓、產線佈局、交期與交付期望。' },
-        { title: '5. 支援出口交付', desc: '協調訂單執行與發貨安排的後續步驟。' }
+        { step: '01', title: '提交需求', desc: '告訴我們您的產品類型、目標產能、包裝形式和目的國。我們從您的應用出發，而非產品目錄。' },
+        { step: '02', title: '工程諮詢', desc: '我們的技術團隊分析您的需求，推薦最優的機器配置、材料和自動化水平。' },
+        { step: '03', title: '報價與方案', desc: '獲取詳細方案書，包含設備規格、佈局圖、價格、交期和保修條款。' },
+        { step: '04', title: '製造與質檢', desc: '按規格製造，全程品質檢驗。發貨前提供工廠測試影片和照片。' },
+        { step: '05', title: '出口與安裝', desc: '專業木箱包裝、國際運輸、報關文件及遠端視訊安裝指導。' }
       ]
     }
   }
@@ -38,18 +41,24 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="py-20 sm:py-24 bg-gray-950 text-white">
-      <Container>
-        <div className="max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t.title}</h2>
+    <section className="py-20 sm:py-28 bg-brand-950 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]" />
+      <Container className="relative">
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{t.title}</h2>
         </div>
-        <div className="mt-12 space-y-5">
+        <div className="mt-16 grid gap-6 md:grid-cols-5">
           {t.items.map((item, i) => (
-            <div key={i} className="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
-              <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
-                <h3 className="w-full text-base font-semibold text-accent-200 md:w-1/3">{item.title}</h3>
-                <p className="text-base leading-relaxed text-gray-200 md:text-lg">{item.desc}</p>
+            <div key={i} className="relative text-center">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-600 text-xl font-bold text-white shadow-lg">
+                {item.step}
               </div>
+              {i < t.items.length - 1 && (
+                <div className="absolute top-8 left-[calc(50%+2rem)] hidden h-px w-[calc(100%-4rem)] bg-gradient-to-r from-accent-500/50 to-accent-500/10 md:block" />
+              )}
+              <h3 className="mt-5 text-lg font-bold">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-300">{item.desc}</p>
             </div>
           ))}
         </div>

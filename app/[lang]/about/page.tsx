@@ -1,17 +1,19 @@
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import { ButtonLink } from '@/components/ui/Button'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return {
-    title: lang === 'en' ? 'About Us | SunGene' : (lang === 'cn' ? '关于我们｜SunGene' : '關於我們｜SunGene'),
-    description: lang === 'en' 
-      ? 'SunGene is a machinery solution partner serving global buyers who are evaluating equipment for packaging, food processing, and selected industrial applications.' 
-      : 'SunGene 为全球买家提供包装、食品加工与工业应用机械解决方案。',
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  const titles = {
+    en: 'About SunGene | Industrial Machinery Manufacturer from Taiwan',
+    cn: '关于 SunGene | 台湾工业机械制造商',
+    zh: '關於 SunGene | 台灣工業機械製造商',
   }
+  return { title: titles[l] }
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -19,85 +21,67 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
 
   const content = {
     en: {
-      title: 'About SunGene',
-      p1: 'SunGene is a machinery solution partner serving global buyers who are evaluating equipment for packaging, food processing, and selected industrial applications. We support buyers who need clearer direction when comparing machinery options, planning future production, or sourcing equipment suitable for export markets.',
-      p2: 'Rather than limiting the conversation to one fixed machine category too early, we focus on helping customers identify a practical machinery path based on real production needs. This may include standard equipment, semi-automatic setups, full-line thinking, or customized machinery support depending on the project.',
-      p3: 'Our role is to simplify communication, reduce mismatch, and make the buying process more efficient for importers, distributors, factories, and project-based buyers.',
-      beliefsTitle: 'What We Believe',
-      beliefs: [
-        { title: 'A machine is only useful when it fits the production reality.', desc: 'A technically impressive machine that does not match product type, labor conditions, maintenance ability, or capacity goals is still the wrong machine.' },
-        { title: 'Many buyers need guidance before they need a quotation.', desc: 'At the early stage, buyers often need help narrowing down equipment direction more than they need a random price list.' },
-        { title: 'Export projects need clear communication.', desc: 'International buyers need practical information, reliable process handling, and fewer misunderstandings.' }
+      kicker: 'ABOUT SUNGENE',
+      title: 'Your Trusted Machinery Manufacturer in Taiwan',
+      intro: 'SunGene is a Taiwan-based industrial machinery manufacturer specializing in packaging equipment, food processing machines, filling & sealing systems, and automated production lines. With over 15 years of experience and exports to 50+ countries, we are committed to delivering high-quality, CE-certified machinery at factory-direct prices.',
+      mission: 'Our mission is to make industrial machinery accessible, reliable, and customizable for global buyers — from single machines to complete turnkey production lines.',
+      stats: [
+        { value: '15+', label: 'Years of Manufacturing' },
+        { value: '500+', label: 'Machines Delivered' },
+        { value: '50+', label: 'Export Countries' },
+        { value: '100%', label: 'CE Certified' },
       ],
-      serveTitle: 'Who We Serve',
-      serve: [
-        'Importers building machinery product lines',
-        'Distributors expanding into new equipment categories',
-        'Manufacturers upgrading production capacity',
-        'Project buyers sourcing machinery for specific applications'
+      strengthsTitle: 'Our Strengths',
+      strengths: [
+        { title: 'In-House Manufacturing', desc: 'Our own factory in Taichung, Taiwan ensures quality control from raw materials to final testing. No outsourcing, no middlemen.' },
+        { title: 'Engineering-First Approach', desc: 'Every project starts with our engineering team understanding your application, product type, and production goals before recommending equipment.' },
+        { title: 'Global Export Experience', desc: 'We handle international voltage standards, documentation, crating, and logistics for seamless delivery to any country.' },
       ],
-      supportTitle: 'What We Support',
-      support: [
-        'Machinery category matching',
-        'Application-based recommendation',
-        'Standard and customized machinery direction',
-        'Export communication and coordination',
-        'Inquiry-to-delivery support'
-      ]
+      ctaTitle: 'Ready to Work with Us?',
+      ctaDesc: 'Contact our sales team to discuss your machinery requirements.',
+      ctaBtn: 'Get a Free Quote',
     },
     cn: {
-      title: '关于 SunGene',
-      p1: 'SunGene 是一家为全球买家提供包装、食品加工及特定工业应用设备的机械解决方案合作伙伴。我们协助仍在比较选项、规划未来生产或寻找适合出口市场设备的买家获得更清晰的方向。',
-      p2: '与其过早将讨论局限于单一机器类别，我们更倾向于根据真实的生产需求，协助客户找出务实的机械配置路径。这可能包含标准设备、半自动配置、全线规划，或是根据专案需求的定制化支持。',
-      p3: '我们的角色是简化沟通、减少错配，并使进口商、经销商、工厂与专案买家的采购流程更加高效。',
-      beliefsTitle: '我们的信念',
-      beliefs: [
-        { title: '机器只有符合生产实际才有价值。', desc: '一台技术惊艳但无法匹配产品类型、劳动力条件、维护能力或产能目标的机器，依然是错误的机器。' },
-        { title: '在需要报价之前，买家往往更需要指引。', desc: '在初期阶段，比起一张随机的报价单，买家通常更需要协助缩小设备方向。' },
-        { title: '出口专案需要清晰的沟通。', desc: '国际买家需要务实的信息、可靠的流程处理，并减少误解。' }
+      kicker: '关于我们',
+      title: '您值得信赖的台湾机械制造商',
+      intro: 'SunGene 是一家位于台湾的工业机械制造商，专注于包装设备、食品加工机械、灌装封口系统和自动化生产线。凭借超过15年的经验和出口至50多个国家的业绩，我们致力于以工厂直销价格提供高品质、CE认证的机械设备。',
+      mission: '我们的使命是让全球买家更容易获得可靠、可定制的工业机械——从单机到完整的交钥匙生产线。',
+      stats: [
+        { value: '15+', label: '年制造经验' },
+        { value: '500+', label: '台设备交付' },
+        { value: '50+', label: '个出口国家' },
+        { value: '100%', label: 'CE认证' },
       ],
-      serveTitle: '我们服务谁',
-      serve: [
-        '建立机械产品线的进口商',
-        '拓展新设备类别的经销商',
-        '升级产能的制造商',
-        '为特定应用采购机械的专案买家'
+      strengthsTitle: '我们的优势',
+      strengths: [
+        { title: '自有工厂生产', desc: '位于台湾台中的自有工厂确保从原材料到最终测试的全程品质管控。无外包，无中间商。' },
+        { title: '工程优先方法', desc: '每个项目都从我们的工程团队了解您的应用、产品类型和生产目标开始，然后再推荐设备。' },
+        { title: '全球出口经验', desc: '我们处理国际电压标准、文件、包装和物流，确保向任何国家无缝交付。' },
       ],
-      supportTitle: '我们提供什么',
-      support: [
-        '机械类别匹配',
-        '基于应用的推荐',
-        '标准与定制化机械方向',
-        '出口沟通与协调',
-        '从询价到交付的支持'
-      ]
+      ctaTitle: '准备好与我们合作了吗？',
+      ctaDesc: '联系我们的销售团队讨论您的机械需求。',
+      ctaBtn: '获取免费报价',
     },
     zh: {
-      title: '關於 SunGene',
-      p1: 'SunGene 是一家為全球買家提供包裝、食品加工及特定工業應用設備的機械解決方案合作夥伴。我們協助仍在比較選項、規劃未來生產或尋找適合出口市場設備的買家獲得更清晰的方向。',
-      p2: '與其過早將討論侷限於單一機器類別，我們更傾向於根據真實的生產需求，協助客戶找出務實的機械配置路徑。這可能包含標準設備、半自動配置、全線規劃，或是根據專案需求的客製化支援。',
-      p3: '我們的角色是簡化溝通、減少錯配，並使進口商、經銷商、工廠與專案買家的採購流程更加高效。',
-      beliefsTitle: '我們的信念',
-      beliefs: [
-        { title: '機器只有符合生產實際才有價值。', desc: '一台技術驚豔但無法匹配產品類型、勞動力條件、維護能力或產能目標的機器，依然是錯誤的機器。' },
-        { title: '在需要報價之前，買家往往更需要指引。', desc: '在初期階段，比起一張隨機的報價單，買家通常更需要協助縮小設備方向。' },
-        { title: '出口專案需要清晰的溝通。', desc: '國際買家需要務實的資訊、可靠的流程處理，並減少誤解。' }
+      kicker: '關於我們',
+      title: '您值得信賴的台灣機械製造商',
+      intro: 'SunGene 是一家位於台灣的工業機械製造商，專注於包裝設備、食品加工機械、灌裝封口系統和自動化生產線。憑藉超過15年的經驗和出口至50多個國家的業績，我們致力於以工廠直銷價格提供高品質、CE認證的機械設備。',
+      mission: '我們的使命是讓全球買家更容易獲得可靠、可客製的工業機械——從單機到完整的交鑰匙生產線。',
+      stats: [
+        { value: '15+', label: '年製造經驗' },
+        { value: '500+', label: '台設備交付' },
+        { value: '50+', label: '個出口國家' },
+        { value: '100%', label: 'CE認證' },
       ],
-      serveTitle: '我們服務誰',
-      serve: [
-        '建立機械產品線的進口商',
-        '拓展新設備類別的經銷商',
-        '升級產能的製造商',
-        '為特定應用採購機械的專案買家'
+      strengthsTitle: '我們的優勢',
+      strengths: [
+        { title: '自有工廠生產', desc: '位於台灣台中的自有工廠確保從原材料到最終測試的全程品質管控。無外包，無中間商。' },
+        { title: '工程優先方法', desc: '每個專案都從我們的工程團隊了解您的應用、產品類型和生產目標開始，然後再推薦設備。' },
+        { title: '全球出口經驗', desc: '我們處理國際電壓標準、文件、包裝和物流，確保向任何國家無縫交付。' },
       ],
-      supportTitle: '我們提供什麼',
-      support: [
-        '機械類別匹配',
-        '基於應用的推薦',
-        '標準與客製化機械方向',
-        '出口溝通與協調',
-        '從詢價到交付的支援'
-      ]
+      ctaTitle: '準備好與我們合作了嗎？',
+      ctaDesc: '聯繫我們的銷售團隊討論您的機械需求。',
+      ctaBtn: '取得免費報價',
     }
   }
 
@@ -105,54 +89,72 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} />
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-brand-950 pt-8 pb-20">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]" />
+        <Container className="relative">
+          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
+          <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">{t.title}</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">{t.intro}</p>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-400">{t.mission}</p>
+        </Container>
+      </section>
+
+      {/* Stats */}
+      <section className="-mt-10">
+        <Container>
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-gray-200 shadow-elev-2 md:grid-cols-4">
+            {t.stats.map((stat, i) => (
+              <div key={i} className="bg-white px-6 py-8 text-center">
+                <div className="text-3xl font-bold text-accent-600">{stat.value}</div>
+                <div className="mt-1 text-sm font-medium text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Factory Image */}
       <section className="py-16 sm:py-20">
-        <Container className="max-w-5xl">
-          <div className="max-w-3xl space-y-6">
-            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
-            <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p3}</p>
+        <Container>
+          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl">
+            <Image
+              src="/banner/banner2.png"
+              alt="SunGene Factory - Industrial Machinery Manufacturing"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-950/40 to-transparent" />
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-14">
-            <h2 className="text-2xl font-semibold tracking-tight text-gray-950 sm:text-3xl">{t.beliefsTitle}</h2>
-            <div className="mt-8 grid gap-6">
-              {t.beliefs.map((b, i) => (
-                <Card key={i} className="p-8">
-                  <h3 className="text-base font-semibold text-brand-950 sm:text-lg">{b.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-gray-600">{b.desc}</p>
-                </Card>
-              ))}
-            </div>
+      {/* Strengths */}
+      <section className="pb-16 sm:pb-20">
+        <Container>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-950">{t.strengthsTitle}</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {t.strengths.map((s, i) => (
+              <Card key={i} className="p-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-100 text-lg font-bold text-accent-700">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-gray-950">{s.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-gray-600">{s.desc}</p>
+              </Card>
+            ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            <Card className="p-8">
-              <h2 className="text-lg font-semibold text-gray-950">{t.serveTitle}</h2>
-              <ul className="mt-6 space-y-3">
-                {t.serve.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
-                      ✓
-                    </span>
-                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-
-            <Card className="p-8">
-              <h2 className="text-lg font-semibold text-gray-950">{t.supportTitle}</h2>
-              <ul className="mt-6 space-y-3">
-                {t.support.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded bg-brand-50 text-brand-900 ring-1 ring-brand-100">
-                      ✓
-                    </span>
-                    <span className="text-sm leading-relaxed sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
+      {/* CTA */}
+      <section className="bg-brand-950 py-16 sm:py-20">
+        <Container className="text-center">
+          <h2 className="text-3xl font-bold text-white">{t.ctaTitle}</h2>
+          <p className="mt-4 text-lg text-gray-300">{t.ctaDesc}</p>
+          <div className="mt-8">
+            <ButtonLink href={`/${lang}/contact`} size="lg">{t.ctaBtn}</ButtonLink>
           </div>
         </Container>
       </section>

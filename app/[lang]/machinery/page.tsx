@@ -1,55 +1,80 @@
 import { Lang } from '@/lib/i18n'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
+import { ButtonLink } from '@/components/ui/Button'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  if (lang === 'cn') return { title: '机械类别｜SunGene' }
-  if (lang === 'zh') return { title: '機械類別｜SunGene' }
-  return { title: 'Machinery Categories | SunGene' }
+  const titles = {
+    en: 'Industrial Machinery Catalog | Packaging, Food Processing & Automation | SunGene',
+    cn: '工业机械目录 | 包装、食品加工与自动化 | SunGene',
+    zh: '工業機械目錄 | 包裝、食品加工與自動化 | SunGene',
+  }
+  const descriptions = {
+    en: 'Browse our complete range of industrial machinery: packaging machines, food processing equipment, filling & sealing systems, conveyor automation, and custom-engineered solutions. CE certified, factory-direct from Taiwan.',
+    cn: '浏览我们的全系列工业机械：包装机、食品加工设备、灌装封口系统、输送自动化和定制解决方案。CE认证，台湾工厂直销。',
+    zh: '瀏覽我們的全系列工業機械：包裝機、食品加工設備、灌裝封口系統、輸送自動化和客製解決方案。CE認證，台灣工廠直銷。',
+  }
+  const l = (lang === 'en' || lang === 'zh' || lang === 'cn') ? lang : 'en'
+  return { title: titles[l], description: descriptions[l] }
 }
+
+const categoryIcons = [
+  <svg key="0" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>,
+  <svg key="1" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>,
+  <svg key="2" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" /></svg>,
+  <svg key="3" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>,
+  <svg key="4" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72A9.96 9.96 0 0012 22a9.96 9.96 0 007.74-2.28" /></svg>,
+]
 
 export default async function MachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
 
   const content = {
     en: {
-      title: 'Machinery Categories',
-      desc: 'We support machinery solutions across multiple categories, especially where buyers are still evaluating the right equipment direction. Instead of forcing a fixed answer too early, we help clarify what type of machine, configuration, and automation level may better match the application.',
+      kicker: 'MACHINERY CATALOG',
+      title: 'Our Industrial Machinery',
+      desc: 'Browse our complete range of industrial equipment. From packaging and food processing to custom-engineered automation systems — all manufactured in Taiwan with CE certification.',
       cats: [
-        { title: 'Packaging Machinery', desc: 'For pouch, bag, bottle, container, powder, liquid, granule, and related packaging needs.' },
-        { title: 'Food Processing Machinery', desc: 'For preparation, cutting, mixing, handling, and selected food production requirements.' },
-        { title: 'Filling & Sealing Equipment', desc: 'For liquid, paste, powder, or semi-fluid product handling and packaging operations.' },
-        { title: 'Conveying & Automation', desc: 'For supporting workflow movement, line arrangement, and production coordination.' },
-        { title: 'Customized Machinery', desc: 'For projects requiring adaptation in dimensions, structure, function, or application logic.' }
+        { title: 'Packaging Machinery', desc: 'VFFS, HFFS, pouch packaging, vacuum sealers, shrink wrappers, carton packers, and multi-head weighers for powder, granule, liquid, and solid products.', badge: 'Most Popular' },
+        { title: 'Food Processing Equipment', desc: 'Industrial mixers, meat grinders, vegetable slicers, cooking kettles, blanching systems, and complete food preparation lines.', badge: '' },
+        { title: 'Filling & Sealing Systems', desc: 'Automatic liquid fillers, paste fillers, powder dosers, cup sealers, bottle cappers, induction sealers, and tube filling machines.', badge: '' },
+        { title: 'Conveying & Automation', desc: 'Belt conveyors, bucket elevators, screw feeders, pick-and-place robots, palletizers, and PLC-integrated line control systems.', badge: '' },
+        { title: 'Customized Machinery', desc: 'OEM machinery design, custom dimensions, special materials, modified output capacity, and application-specific engineering.', badge: 'Engineering Team' }
       ],
-      footer: 'If your exact machinery category is still undecided, we can start from your product and production target first.'
+      cta: 'Need help choosing? Get a free consultation.',
+      ctaBtn: 'Contact Our Engineers',
     },
     cn: {
-      title: '机械类别',
-      desc: '我们支持多个类别的机械解决方案，特别是当买家仍在评估合适的设备方向时。与其过早强加一个固定的答案，我们协助厘清哪种类型的机器、配置和自动化水平能更好地匹配应用场景。',
+      kicker: '机械目录',
+      title: '我们的工业机械',
+      desc: '浏览我们的全系列工业设备。从包装和食品加工到定制自动化系统——均在台湾制造，CE认证。',
       cats: [
-        { title: '包装机械', desc: '针对袋装、瓶装、容器、粉末、液体、颗粒及相关包装需求。' },
-        { title: '食品加工机械', desc: '针对食品备料、切割、混合、处理及特定生产需求。' },
-        { title: '灌装与封口设备', desc: '针对液体、膏体、粉末或半流体产品的处理与包装操作。' },
-        { title: '输送与自动化', desc: '支持工作流移动、产线布置与生产协调。' },
-        { title: '定制机械', desc: '针对在尺寸、结构、功能或应用逻辑上需要调整的项目。' }
+        { title: '包装机械', desc: '立式/卧式充填封口机、袋装机、真空封口机、热缩包装机、装箱机和多头秤，适用于粉末、颗粒、液体和固体产品。', badge: '最受欢迎' },
+        { title: '食品加工设备', desc: '工业搅拌机、绞肉机、切菜机、蒸煮锅、漂烫系统和完整食品备料产线。', badge: '' },
+        { title: '灌装与封口系统', desc: '自动液体灌装机、膏体灌装机、粉末计量机、杯盖封口机、瓶盖旋盖机和管装充填机。', badge: '' },
+        { title: '输送与自动化', desc: '皮带输送机、斗式提升机、螺旋给料机、机械手、码垛机和PLC集成控制系统。', badge: '' },
+        { title: '定制机械', desc: 'OEM设计、定制尺寸、特殊材料、改装产能和应用专属工程。', badge: '工程团队' }
       ],
-      footer: '如果您的确切机械类别仍未确定，我们可以先从您的产品和生产目标开始。'
+      cta: '需要选型帮助？获取免费咨询。',
+      ctaBtn: '联系我们的工程师',
     },
     zh: {
-      title: '機械類別',
-      desc: '我們支援多個類別的機械解決方案，特別是當買家仍在評估合適的設備方向時。與其過早強加一個固定的答案，我們協助釐清哪種類型的機器、配置和自動化水準能更好地匹配應用場景。',
+      kicker: '機械目錄',
+      title: '我們的工業機械',
+      desc: '瀏覽我們的全系列工業設備。從包裝和食品加工到客製自動化系統——均在台灣製造，CE認證。',
       cats: [
-        { title: '包裝機械', desc: '針對袋裝、瓶裝、容器、粉末、液體、顆粒及相關包裝需求。' },
-        { title: '食品加工機械', desc: '針對食品備料、切割、混合、處理及特定生產需求。' },
-        { title: '灌裝與封口設備', desc: '針對液體、膏體、粉末或半流體產品的處理與包裝操作。' },
-        { title: '輸送與自動化', desc: '支援工作流移動、產線佈置與生產協調。' },
-        { title: '客製機械', desc: '針對在尺寸、結構、功能或應用邏輯上需要調整的專案。' }
+        { title: '包裝機械', desc: '立式/臥式充填封口機、袋裝機、真空封口機、熱縮包裝機、裝箱機和多頭秤，適用於粉末、顆粒、液體和固體產品。', badge: '最受歡迎' },
+        { title: '食品加工設備', desc: '工業攪拌機、絞肉機、切菜機、蒸煮鍋、漂燙系統和完整食品備料產線。', badge: '' },
+        { title: '灌裝與封口系統', desc: '自動液體灌裝機、膏體灌裝機、粉末計量機、杯蓋封口機、瓶蓋旋蓋機和管裝充填機。', badge: '' },
+        { title: '輸送與自動化', desc: '皮帶輸送機、斗式提升機、螺旋給料機、機械手、碼垛機和PLC整合控制系統。', badge: '' },
+        { title: '客製機械', desc: 'OEM設計、客製尺寸、特殊材料、改裝產能和應用專屬工程。', badge: '工程團隊' }
       ],
-      footer: '如果您的確切機械類別仍未確定，我們可以先從您的產品和生產目標開始。'
+      cta: '需要選型幫助？取得免費諮詢。',
+      ctaBtn: '聯繫我們的工程師',
     }
   }
 
@@ -64,7 +89,14 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.desc} />
+      <section className="bg-brand-950 pt-8 pb-16">
+        <Container>
+          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-300">{t.desc}</p>
+        </Container>
+      </section>
+
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
@@ -72,19 +104,29 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
               <Link
                 key={i}
                 href={categoryHrefs[i] || `/${lang}/machinery`}
-                className="group rounded-2xl bg-white p-8 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2"
+                className="group relative rounded-2xl bg-white p-8 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2 hover:ring-accent-200"
               >
-                <h2 className="text-lg font-semibold text-gray-950 sm:text-xl">{c.title}</h2>
+                {c.badge && (
+                  <span className="absolute top-4 right-4 rounded-full bg-accent-100 px-3 py-1 text-xs font-bold text-accent-700">{c.badge}</span>
+                )}
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-950 text-white">
+                  {categoryIcons[i]}
+                </div>
+                <h2 className="mt-5 text-xl font-bold text-gray-950">{c.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
-                <div className="mt-5 text-sm font-semibold text-brand-800 group-hover:text-brand-950">
-                  {lang === 'en' ? 'View details' : (lang === 'cn' ? '查看详情' : '查看詳情')}
+                <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-accent-600 group-hover:text-accent-700">
+                  {lang === 'en' ? 'View Details' : (lang === 'cn' ? '查看详情' : '查看詳情')}
+                  <svg className="h-4 w-4 transition group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl bg-brand-50 p-8 ring-1 ring-brand-100">
-            <p className="text-base font-semibold text-brand-950 sm:text-lg">{t.footer}</p>
+          <div className="mt-12 rounded-2xl bg-brand-950 p-8 text-center sm:p-12">
+            <p className="text-xl font-bold text-white">{t.cta}</p>
+            <div className="mt-6">
+              <ButtonLink href={`/${lang}/contact`} size="lg">{t.ctaBtn}</ButtonLink>
+            </div>
           </div>
         </Container>
       </section>

@@ -9,10 +9,30 @@ html, body {
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-950 antialiased;
+    @apply bg-white text-gray-950 antialiased;
   }
 
   ::selection {
     @apply bg-accent-200 text-gray-950;
   }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
