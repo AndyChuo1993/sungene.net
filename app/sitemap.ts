@@ -1,39 +1,70 @@
 import { MetadataRoute } from 'next'
-import { headers } from 'next/headers'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const host = (await headers()).get('host') || 'sungene.net'
-  const protocol = host.includes('localhost') ? 'http' : 'https'
-  const baseUrl = `${protocol}://${host}`
-  
-  const langs = ['zh', 'cn', 'en'] as const
-  
-  const routes = [
-    '',
-    '/about',
-    '/contact',
+  const baseUrl = 'https://sungene.net'
+
+  const langs = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de'] as const
+
+  // Priority 1.0 - Homepage
+  const homepages = langs.map(lang => ({
+    url: `${baseUrl}/${lang}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 1.0,
+  }))
+
+  // Priority 0.9 - Machine landing pages (highest conversion value)
+  const machinePages = [
+    '/machines/pouch-packing-machine',
+    '/machines/powder-filling-machine',
+    '/machines/liquid-filling-machine',
+    '/machines/snack-processing-line',
+    '/machines/conveyor-system',
+  ]
+  const machineSitemap = machinePages.flatMap(route =>
+    langs.map(lang => ({
+      url: `${baseUrl}/${lang}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    }))
+  )
+
+  // Priority 0.85 - Machinery categories + recommend
+  const machineryRoutes = [
     '/machinery',
     '/machinery/packaging',
     '/machinery/food-processing',
+    '/machinery/filling-sealing',
+    '/machinery/conveying-automation',
     '/machinery/custom',
+    '/recommend',
+  ]
+  const machinerySitemap = machineryRoutes.flatMap(route =>
+    langs.map(lang => ({
+      url: `${baseUrl}/${lang}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    }))
+  )
+
+  // Priority 0.7 - Supporting pages
+  const supportRoutes = [
     '/industries',
     '/solutions',
-    '/resources'
+    '/about',
+    '/contact',
+    '/resources',
   ]
+  const supportSitemap = supportRoutes.flatMap(route =>
+    langs.map(lang => ({
+      url: `${baseUrl}/${lang}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  )
 
-  const sitemap: MetadataRoute.Sitemap = []
-  const staticLastMod = new Date()
-
-  routes.forEach(route => {
-    langs.forEach(lang => {
-      sitemap.push({
-        url: `${baseUrl}/${lang}${route}`,
-        lastModified: staticLastMod,
-        changeFrequency: 'weekly',
-        priority: route === '' ? 1 : 0.8,
-      })
-    })
-  })
-
-  return sitemap
+  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap]
 }
