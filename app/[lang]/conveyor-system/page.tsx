@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
@@ -309,117 +310,18 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {/* Box 1: Belt Conveyor with control panel */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Conveyor frame */}
-                <rect x="10" y="90" width="170" height="40" rx="4" fill="#d1d5db" stroke="#9ca3af" strokeWidth="2"/>
-                {/* Belt surface */}
-                <rect x="10" y="90" width="170" height="16" rx="4" fill="#9ca3af"/>
-                {/* Belt lines */}
-                {[30, 55, 80, 105, 130, 155].map((x) => (
-                  <line key={x} x1={x} y1="90" x2={x} y2="106" stroke="#6b7280" strokeWidth="1"/>
-                ))}
-                {/* Rollers */}
-                <circle cx="20" cy="110" r="10" fill="#6b7280" stroke="#4b5563" strokeWidth="1.5"/>
-                <circle cx="170" cy="110" r="10" fill="#6b7280" stroke="#4b5563" strokeWidth="1.5"/>
-                {/* Legs */}
-                <rect x="30" y="130" width="8" height="35" rx="2" fill="#9ca3af"/>
-                <rect x="152" y="130" width="8" height="35" rx="2" fill="#9ca3af"/>
-                {/* Products on belt */}
-                <rect x="25" y="74" width="28" height="18" rx="3" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                <rect x="68" y="74" width="28" height="18" rx="3" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5"/>
-                <rect x="111" y="74" width="28" height="18" rx="3" fill="#d1fae5" stroke="#34d399" strokeWidth="1.5"/>
-                {/* Control panel */}
-                <rect x="190" y="50" width="45" height="65" rx="4" fill="#374151" stroke="#1f2937" strokeWidth="2"/>
-                <rect x="196" y="57" width="33" height="20" rx="2" fill="#1d4ed8" opacity="0.8"/>
-                <circle cx="202" cy="90" r="4" fill="#22c55e"/>
-                <circle cx="215" cy="90" r="4" fill="#f59e0b"/>
-                <circle cx="228" cy="90" r="4" fill="#ef4444"/>
-                <rect x="196" y="100" width="33" height="8" rx="2" fill="#4b5563"/>
-                <text x="120" y="175" textAnchor="middle" fontSize="9" fill="#6b7280">Belt Conveyor System</text>
-              </svg>
-            </div>
-
-            {/* Box 2: Complete Packaging Line Schematic */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Flow line */}
-                <line x1="20" y1="90" x2="220" y2="90" stroke="#d1d5db" strokeWidth="2" strokeDasharray="4,3"/>
-                {/* Arrow */}
-                <polygon points="215,85 225,90 215,95" fill="#9ca3af"/>
-
-                {/* Station 1: Fill */}
-                <rect x="10" y="65" width="36" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5"/>
-                <text x="28" y="86" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#1e40af">FILL</text>
-                <rect x="22" y="88" width="12" height="18" rx="2" fill="#93c5fd" opacity="0.7"/>
-
-                {/* Station 2: Seal */}
-                <rect x="56" y="65" width="36" height="50" rx="4" fill="#d1fae5" stroke="#34d399" strokeWidth="1.5"/>
-                <text x="74" y="86" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#065f46">SEAL</text>
-                <rect x="62" y="90" width="24" height="8" rx="2" fill="#6ee7b7" opacity="0.7"/>
-                <rect x="62" y="100" width="24" height="8" rx="2" fill="#6ee7b7" opacity="0.7"/>
-
-                {/* Station 3: Label */}
-                <rect x="102" y="65" width="36" height="50" rx="4" fill="#fef3c7" stroke="#fbbf24" strokeWidth="1.5"/>
-                <text x="120" y="86" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#78350f">LABEL</text>
-                <rect x="108" y="89" width="24" height="14" rx="2" fill="#fcd34d" opacity="0.7"/>
-
-                {/* Station 4: Code */}
-                <rect x="148" y="65" width="36" height="50" rx="4" fill="#f3e8ff" stroke="#a855f7" strokeWidth="1.5"/>
-                <text x="166" y="86" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#4c1d95">CODE</text>
-                <text x="166" y="100" textAnchor="middle" fontSize="6" fill="#7c3aed">2026</text>
-
-                {/* Station 5: Pack */}
-                <rect x="194" y="65" width="36" height="50" rx="4" fill="#fee2e2" stroke="#f87171" strokeWidth="1.5"/>
-                <text x="212" y="83" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#7f1d1d">PACK</text>
-                <rect x="200" y="86" width="12" height="14" rx="2" fill="#fca5a5" opacity="0.7"/>
-                <rect x="214" y="86" width="12" height="14" rx="2" fill="#fca5a5" opacity="0.7"/>
-
-                {/* PLC Box at bottom */}
-                <rect x="80" y="130" width="80" height="30" rx="4" fill="#1f2937" stroke="#374151" strokeWidth="1.5"/>
-                <text x="120" y="148" textAnchor="middle" fontSize="8" fill="#e5e7eb">PLC Control Panel</text>
-
-                {/* Connect lines to PLC */}
-                <line x1="28" y1="115" x2="28" y2="130" stroke="#6b7280" strokeWidth="1" strokeDasharray="2,2"/>
-                <line x1="120" y1="130" x2="120" y2="130" stroke="#6b7280" strokeWidth="1"/>
-                <line x1="212" y1="115" x2="212" y2="130" stroke="#6b7280" strokeWidth="1" strokeDasharray="2,2"/>
-
-                <text x="120" y="172" textAnchor="middle" fontSize="9" fill="#6b7280">Complete Packaging Line</text>
-              </svg>
-            </div>
-
-            {/* Box 3: Palletizer / End-of-Line SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Pallet base */}
-                <rect x="50" y="140" width="120" height="12" rx="3" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                <rect x="55" y="136" width="12" height="8" rx="2" fill="#6b7280"/>
-                <rect x="114" y="136" width="12" height="8" rx="2" fill="#6b7280"/>
-                <rect x="153" y="136" width="12" height="8" rx="2" fill="#6b7280"/>
-                {/* Boxes layer 1 */}
-                <rect x="52" y="110" width="38" height="28" rx="2" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                <rect x="92" y="110" width="38" height="28" rx="2" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                <rect x="132" y="110" width="38" height="28" rx="2" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                {/* Boxes layer 2 */}
-                <rect x="62" y="82" width="38" height="28" rx="2" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5"/>
-                <rect x="102" y="82" width="38" height="28" rx="2" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5"/>
-                {/* Boxes layer 3 */}
-                <rect x="82" y="54" width="38" height="28" rx="2" fill="#d1fae5" stroke="#34d399" strokeWidth="1.5"/>
-                {/* Robotic arm */}
-                <line x1="195" y1="20" x2="195" y2="80" stroke="#374151" strokeWidth="4" strokeLinecap="round"/>
-                <line x1="195" y1="80" x2="150" y2="60" stroke="#374151" strokeWidth="3" strokeLinecap="round"/>
-                <circle cx="195" cy="20" r="8" fill="#374151" stroke="#1f2937" strokeWidth="1.5"/>
-                <circle cx="195" cy="80" r="6" fill="#6b7280"/>
-                {/* Gripper */}
-                <rect x="140" y="55" width="20" height="10" rx="3" fill="#6b7280"/>
-                <text x="120" y="172" textAnchor="middle" fontSize="9" fill="#6b7280">Palletizer &amp; End-of-Line</text>
-              </svg>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+                <Image
+                  src={`/machines/conveyor/${n}.jpg`}
+                  alt={`Conveyor system photo ${n}`}
+                  fill
+                  sizes="(max-width:640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
         </Container>

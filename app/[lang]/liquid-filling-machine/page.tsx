@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
@@ -309,111 +310,24 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {/* Box 1: Piston Filler SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Cylinder body */}
-                <rect x="95" y="20" width="50" height="90" rx="4" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="2"/>
-                {/* Piston rod */}
-                <rect x="115" y="10" width="10" height="30" rx="2" fill="#6b7280" stroke="#4b5563" strokeWidth="1.5"/>
-                {/* Piston head */}
-                <rect x="98" y="38" width="44" height="14" rx="2" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                {/* Nozzle */}
-                <rect x="110" y="110" width="20" height="28" rx="3" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                {/* Nozzle tip */}
-                <polygon points="110,138 130,138 125,148 115,148" fill="#6b7280"/>
-                {/* Bottle */}
-                <rect x="104" y="150" width="32" height="24" rx="4" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1.5"/>
-                <rect x="112" y="146" width="16" height="8" rx="2" fill="#93c5fd"/>
-                {/* Liquid in bottle */}
-                <rect x="106" y="160" width="28" height="12" rx="2" fill="#bfdbfe" opacity="0.8"/>
-                {/* Product reservoir */}
-                <rect x="150" y="40" width="40" height="50" rx="4" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Connecting pipe */}
-                <line x1="145" y1="65" x2="150" y2="65" stroke="#9ca3af" strokeWidth="3"/>
-                <text x="120" y="176" textAnchor="middle" fontSize="9" fill="#6b7280">Piston Filler</text>
-              </svg>
-            </div>
-
-            {/* Box 2: Rotary Filling Carousel SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Central hub */}
-                <circle cx="120" cy="80" r="30" fill="#d1d5db" stroke="#9ca3af" strokeWidth="2"/>
-                <circle cx="120" cy="80" r="12" fill="#6b7280"/>
-                {/* Arms + nozzles at positions */}
-                {[0, 60, 120, 180, 240, 300].map((deg, i) => {
-                  const rad = (deg * Math.PI) / 180
-                  const x1 = 120 + 30 * Math.cos(rad)
-                  const y1 = 80 + 30 * Math.sin(rad)
-                  const x2 = 120 + 52 * Math.cos(rad)
-                  const y2 = 80 + 52 * Math.sin(rad)
-                  return null // SVG in JSX needs different approach
-                })}
-                {/* Manually drawn arms */}
-                <line x1="120" y1="50" x2="120" y2="30" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="120" cy="27" r="5" fill="#6b7280"/>
-                <line x1="146" y1="65" x2="163" y2="55" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="166" cy="53" r="5" fill="#6b7280"/>
-                <line x1="146" y1="95" x2="163" y2="105" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="166" cy="107" r="5" fill="#6b7280"/>
-                <line x1="120" y1="110" x2="120" y2="130" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="120" cy="133" r="5" fill="#6b7280"/>
-                <line x1="94" y1="95" x2="77" y2="105" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="74" cy="107" r="5" fill="#6b7280"/>
-                <line x1="94" y1="65" x2="77" y2="55" stroke="#9ca3af" strokeWidth="3"/>
-                <circle cx="74" cy="53" r="5" fill="#6b7280"/>
-                {/* Bottles at positions */}
-                <rect x="113" y="133" width="14" height="18" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1"/>
-                <rect x="159" y="107" width="14" height="18" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1"/>
-                <text x="120" y="170" textAnchor="middle" fontSize="9" fill="#6b7280">Rotary Filling Carousel</text>
-              </svg>
-            </div>
-
-            {/* Box 3: Filled Bottles on Conveyor SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Conveyor belt */}
-                <rect x="10" y="130" width="220" height="16" rx="8" fill="#d1d5db" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Belt lines */}
-                <line x1="50" y1="130" x2="50" y2="146" stroke="#9ca3af" strokeWidth="1"/>
-                <line x1="90" y1="130" x2="90" y2="146" stroke="#9ca3af" strokeWidth="1"/>
-                <line x1="130" y1="130" x2="130" y2="146" stroke="#9ca3af" strokeWidth="1"/>
-                <line x1="170" y1="130" x2="170" y2="146" stroke="#9ca3af" strokeWidth="1"/>
-                {/* Conveyor rollers */}
-                <circle cx="20" cy="138" r="8" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                <circle cx="220" cy="138" r="8" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                {/* Bottle 1 - sauce */}
-                <rect x="28" y="88" width="24" height="42" rx="5" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                <rect x="32" y="84" width="16" height="8" rx="2" fill="#f59e0b"/>
-                <rect x="30" y="108" width="20" height="18" fill="#fbbf24" opacity="0.6" rx="3"/>
-                {/* Bottle 2 - juice */}
-                <rect x="68" y="82" width="24" height="48" rx="5" fill="#d1fae5" stroke="#34d399" strokeWidth="1.5"/>
-                <rect x="72" y="78" width="16" height="8" rx="2" fill="#34d399"/>
-                <rect x="70" y="100" width="20" height="26" fill="#6ee7b7" opacity="0.6" rx="3"/>
-                {/* Bottle 3 - oil */}
-                <rect x="108" y="78" width="24" height="52" rx="5" fill="#fef3c7" stroke="#fbbf24" strokeWidth="1.5"/>
-                <rect x="112" y="74" width="16" height="8" rx="2" fill="#fbbf24"/>
-                <rect x="110" y="98" width="20" height="28" fill="#fcd34d" opacity="0.6" rx="3"/>
-                {/* Bottle 4 - shampoo */}
-                <rect x="148" y="88" width="24" height="42" rx="5" fill="#ede9fe" stroke="#a78bfa" strokeWidth="1.5"/>
-                <rect x="152" y="84" width="16" height="8" rx="2" fill="#a78bfa"/>
-                <rect x="150" y="106" width="20" height="20" fill="#c4b5fd" opacity="0.6" rx="3"/>
-                {/* Bottle 5 */}
-                <rect x="188" y="92" width="24" height="38" rx="5" fill="#fee2e2" stroke="#f87171" strokeWidth="1.5"/>
-                <rect x="192" y="88" width="16" height="8" rx="2" fill="#f87171"/>
-                <rect x="190" y="108" width="20" height="18" fill="#fca5a5" opacity="0.6" rx="3"/>
-                <text x="120" y="165" textAnchor="middle" fontSize="9" fill="#6b7280">Filled Bottles on Conveyor</text>
-              </svg>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+                <Image
+                  src={`/machines/liquid/${n}.jpg`}
+                  alt={`Liquid filling machine photo ${n}`}
+                  fill
+                  sizes="(max-width:640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
         </Container>
       </section>
+
+
 
       {/* FAQ Section */}
       <section className="py-16 sm:py-20">

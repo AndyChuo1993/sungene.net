@@ -84,12 +84,17 @@ export default function Footer({ lang }: { lang: Lang }) {
             <div className="grid gap-6 sm:grid-cols-2">
               {/* Taiwan Office */}
               <div>
-                <h5 className="mb-2 text-sm font-semibold text-white">{(['cn','zh'] as string[]).includes(lang) ? '台灣辦公室' : 'Taiwan Office'}</h5>
+                <h5 className="mb-2 text-sm font-semibold text-white">
+                  {({'zh':'台灣辦公室','cn':'台湾办公室','fr':'Bureau Taïwan','es':'Oficina Taiwán','pt':'Escritório Taiwan','ko':'대만 사무소','ja':'台湾事務所','ar':'مكتب تايوان','th':'สำนักงานไต้หวัน','vi':'Văn phòng Đài Loan','de':'Büro Taiwan'} as Record<string,string>)[lang] || 'Taiwan Office'}
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-400">
-                  <li>上瑾錸有限公司 (SunGene Co., LTD.)</li>
-                  <li>{(['cn','zh'] as string[]).includes(lang) ? '統編' : 'Tax ID'}: 94111922</li>
-                  <li>台中市中區光復路201號</li>
-                  <li>Tel: +886 4 3703 2705</li>
+                  <li>
+                    {lang === 'zh' ? '上瑾錸有限公司' : lang === 'cn' ? '上瑾錸有限公司' : 'SunGene Co., LTD.'}
+                  </li>
+                  <li>
+                    {({'zh':'40041 台中市中區光復路201號','cn':'台中市中区光复路201号','fr':'201 Guangfu Rd., Taichung, Taïwan','es':'201 Guangfu Rd., Taichung, Taiwán','pt':'201 Guangfu Rd., Taichung, Taiwan','ko':'201 Guangfu Rd., 타이중, 대만','ja':'台湾台中市中区光復路201号','ar':'201 Guangfu Rd.، تايتشونغ، تايوان','th':'201 Guangfu Rd., ไทจุง, ไต้หวัน','vi':'201 Đường Guangfu, Đài Trung, Đài Loan','de':'Guangfu-Str. 201, Taichung, Taiwan'} as Record<string,string>)[lang] || '201 Guangfu Rd., Central District, Taichung 40041, Taiwan'}
+                  </li>
+                  <li>Tel: +886 4-3703-2705</li>
                   <li>WhatsApp: +86 18144132078</li>
                   <li>LINE: @sungene</li>
                   <li>Email: contact@sungene.net</li>
@@ -97,11 +102,17 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
               {/* Xiamen Office */}
               <div>
-                <h5 className="mb-2 text-sm font-semibold text-white">{(['cn','zh'] as string[]).includes(lang) ? '厦门办公室' : 'Xiamen Office'}</h5>
+                <h5 className="mb-2 text-sm font-semibold text-white">
+                  {({'zh':'廈門辦公室','cn':'厦门办公室','fr':'Bureau Xiamen','es':'Oficina Xiamen','pt':'Escritório Xiamen','ko':'샤먼 사무소','ja':'厦門事務所','ar':'مكتب شيامن','th':'สำนักงานเซียเหมิน','vi':'Văn phòng Hạ Môn','de':'Büro Xiamen'} as Record<string,string>)[lang] || 'Xiamen Office'}
+                </h5>
                 <ul className="space-y-2 text-sm text-gray-400">
-                  <li>厦门上瑾铼贸易有限公司</li>
-                  <li>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</li>
-                  <li>Tel: 18144132078 (WeChat)</li>
+                  <li>
+                    {lang === 'zh' ? '廈門上瑾錸貿易有限公司' : lang === 'cn' ? '厦门上瑾铼贸易有限公司' : 'SunGene Co., LTD.'}
+                  </li>
+                  <li>
+                    {lang === 'zh' ? '廈門市同安區濱海西大道6788-1號銀城智谷A1棟1001單元之二' : lang === 'cn' ? '厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二' : 'Rm. 1001-2, Bldg. A1, Yincheng Zhigu, No. 6788-1 Binhai W. Ave., Tong\'an, Xiamen, China'}
+                  </li>
+                  <li>Tel: +86 18144132078 (WeChat)</li>
                 </ul>
               </div>
             </div>

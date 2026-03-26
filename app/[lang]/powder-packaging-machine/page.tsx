@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
@@ -309,92 +310,18 @@ export default async function PowderPackagingMachinePage({ params }: { params: P
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {/* Box 1: Auger Filler SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Hopper */}
-                <polygon points="80,10 160,10 140,60 100,60" fill="#d1d5db" stroke="#9ca3af" strokeWidth="2"/>
-                {/* Hopper top rim */}
-                <rect x="75" y="6" width="90" height="8" rx="2" fill="#9ca3af"/>
-                {/* Auger tube */}
-                <rect x="108" y="60" width="24" height="70" rx="4" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="2"/>
-                {/* Auger screw helix lines */}
-                <line x1="108" y1="75" x2="132" y2="80" stroke="#6b7280" strokeWidth="1.5"/>
-                <line x1="108" y1="88" x2="132" y2="93" stroke="#6b7280" strokeWidth="1.5"/>
-                <line x1="108" y1="101" x2="132" y2="106" stroke="#6b7280" strokeWidth="1.5"/>
-                <line x1="108" y1="114" x2="132" y2="119" stroke="#6b7280" strokeWidth="1.5"/>
-                {/* Nozzle */}
-                <polygon points="108,130 132,130 126,148 114,148" fill="#9ca3af" stroke="#6b7280" strokeWidth="1.5"/>
-                {/* Bag */}
-                <rect x="100" y="150" width="40" height="24" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1.5"/>
-                <line x1="100" y1="162" x2="140" y2="162" stroke="#93c5fd" strokeWidth="1"/>
-                {/* Motor */}
-                <rect x="132" y="55" width="22" height="18" rx="3" fill="#6b7280"/>
-                <circle cx="143" cy="64" r="5" fill="#374151"/>
-                {/* Label */}
-                <text x="120" y="175" textAnchor="middle" fontSize="9" fill="#6b7280">Auger Filler</text>
-              </svg>
-            </div>
-
-            {/* Box 2: VFFS Machine SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Film roll at top */}
-                <circle cx="120" cy="20" r="16" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="2"/>
-                <circle cx="120" cy="20" r="6" fill="#9ca3af"/>
-                {/* Film path lines */}
-                <line x1="106" y1="20" x2="100" y2="40" stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3,2"/>
-                <line x1="134" y1="20" x2="140" y2="40" stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3,2"/>
-                {/* Forming tube / collar */}
-                <path d="M95,40 L100,55 L120,60 L140,55 L145,40 Z" fill="#d1d5db" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Vertical tube */}
-                <rect x="108" y="60" width="24" height="65" rx="0" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Sealing jaws horizontal */}
-                <rect x="95" y="100" width="20" height="8" rx="2" fill="#6b7280"/>
-                <rect x="125" y="100" width="20" height="8" rx="2" fill="#6b7280"/>
-                {/* Vertical sealing strips */}
-                <rect x="105" y="60" width="5" height="65" rx="1" fill="#6b7280" opacity="0.5"/>
-                <rect x="130" y="60" width="5" height="65" rx="1" fill="#6b7280" opacity="0.5"/>
-                {/* Filled bags below */}
-                <rect x="105" y="128" width="30" height="20" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1.5"/>
-                <rect x="105" y="150" width="30" height="20" rx="3" fill="#bfdbfe" stroke="#93c5fd" strokeWidth="1.5"/>
-                <text x="120" y="175" textAnchor="middle" fontSize="9" fill="#6b7280">VFFS Machine</text>
-              </svg>
-            </div>
-
-            {/* Box 3: Packaged Products SVG */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Row of powder bags */}
-                {/* Bag 1 */}
-                <rect x="20" y="40" width="50" height="70" rx="6" fill="#fde68a" stroke="#f59e0b" strokeWidth="2"/>
-                <rect x="28" y="48" width="34" height="20" rx="3" fill="#fbbf24" opacity="0.7"/>
-                <text x="45" y="85" textAnchor="middle" fontSize="7" fill="#92400e">COFFEE</text>
-                <text x="45" y="94" textAnchor="middle" fontSize="7" fill="#92400e">POWDER</text>
-                <line x1="20" y1="110" x2="70" y2="110" stroke="#f59e0b" strokeWidth="2"/>
-                {/* Bag 2 */}
-                <rect x="85" y="30" width="50" height="80" rx="6" fill="#d1fae5" stroke="#34d399" strokeWidth="2"/>
-                <rect x="93" y="40" width="34" height="20" rx="3" fill="#6ee7b7" opacity="0.7"/>
-                <text x="110" y="80" textAnchor="middle" fontSize="7" fill="#065f46">PROTEIN</text>
-                <text x="110" y="91" textAnchor="middle" fontSize="7" fill="#065f46">POWDER</text>
-                <line x1="85" y1="108" x2="135" y2="108" stroke="#34d399" strokeWidth="2"/>
-                {/* Bag 3 */}
-                <rect x="150" y="40" width="50" height="70" rx="6" fill="#fee2e2" stroke="#f87171" strokeWidth="2"/>
-                <rect x="158" y="48" width="34" height="20" rx="3" fill="#fca5a5" opacity="0.7"/>
-                <text x="175" y="85" textAnchor="middle" fontSize="7" fill="#7f1d1d">SPICE</text>
-                <text x="175" y="94" textAnchor="middle" fontSize="7" fill="#7f1d1d">MIX</text>
-                <line x1="150" y1="110" x2="200" y2="110" stroke="#f87171" strokeWidth="2"/>
-                {/* Labels */}
-                <text x="45" y="125" textAnchor="middle" fontSize="8" fill="#6b7280">100g</text>
-                <text x="110" y="120" textAnchor="middle" fontSize="8" fill="#6b7280">500g</text>
-                <text x="175" y="125" textAnchor="middle" fontSize="8" fill="#6b7280">50g</text>
-                <text x="120" y="160" textAnchor="middle" fontSize="9" fill="#6b7280">Packaged Products</text>
-              </svg>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+                <Image
+                  src={`/machines/powder/${n}.jpg`}
+                  alt={`Powder packaging machine photo ${n}`}
+                  fill
+                  sizes="(max-width:640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
         </Container>

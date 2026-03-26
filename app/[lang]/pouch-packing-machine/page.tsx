@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
@@ -306,100 +307,18 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {/* Box 1: VFFS with roll film */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Roll film */}
-                <circle cx="120" cy="18" r="14" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="2"/>
-                <circle cx="120" cy="18" r="5" fill="#9ca3af"/>
-                {/* Film guides */}
-                <line x1="108" y1="18" x2="102" y2="38" stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3,2"/>
-                <line x1="132" y1="18" x2="138" y2="38" stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3,2"/>
-                {/* Forming collar */}
-                <path d="M96,38 L102,52 L120,58 L138,52 L144,38 Z" fill="#d1d5db" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Forming tube */}
-                <rect x="109" y="58" width="22" height="60" rx="0" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1.5"/>
-                {/* Vertical seal bars */}
-                <rect x="104" y="58" width="6" height="60" rx="1" fill="#6b7280" opacity="0.4"/>
-                <rect x="130" y="58" width="6" height="60" rx="1" fill="#6b7280" opacity="0.4"/>
-                {/* Horizontal seal jaws */}
-                <rect x="96" y="97" width="18" height="7" rx="2" fill="#374151"/>
-                <rect x="126" y="97" width="18" height="7" rx="2" fill="#374151"/>
-                {/* Bags output */}
-                <rect x="106" y="120" width="28" height="20" rx="3" fill="#fde68a" stroke="#f59e0b" strokeWidth="1.5"/>
-                <line x1="106" y1="130" x2="134" y2="130" stroke="#f59e0b" strokeWidth="1" opacity="0.6"/>
-                <rect x="106" y="143" width="28" height="20" rx="3" fill="#fcd34d" stroke="#f59e0b" strokeWidth="1.5"/>
-                <text x="120" y="171" textAnchor="middle" fontSize="9" fill="#6b7280">VFFS Machine</text>
-              </svg>
-            </div>
-
-            {/* Box 2: Stand-up zipper pouches */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Pouch 1 - stand-up */}
-                <path d="M30,140 L30,60 Q30,50 40,50 L80,50 Q90,50 90,60 L90,140 Q85,148 60,148 Q35,148 30,140 Z" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2"/>
-                {/* Zipper line */}
-                <rect x="30" y="56" width="60" height="6" rx="2" fill="#2563eb" opacity="0.6"/>
-                <rect x="30" y="56" width="60" height="3" rx="1" fill="#1d4ed8" opacity="0.4"/>
-                {/* Window / label area */}
-                <rect x="36" y="70" width="48" height="40" rx="3" fill="white" opacity="0.6"/>
-                <text x="60" y="93" textAnchor="middle" fontSize="8" fill="#1e40af">SNACK</text>
-                <text x="60" y="103" textAnchor="middle" fontSize="7" fill="#3b82f6">Net 200g</text>
-                {/* Base gusset */}
-                <line x1="30" y1="130" x2="90" y2="130" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="4,2"/>
-
-                {/* Pouch 2 - stand-up kraft */}
-                <path d="M110,135 L110,58 Q110,48 120,48 L160,48 Q170,48 170,58 L170,135 Q165,143 140,143 Q115,143 110,135 Z" fill="#fef3c7" stroke="#d97706" strokeWidth="2"/>
-                <rect x="110" y="54" width="60" height="6" rx="2" fill="#b45309" opacity="0.6"/>
-                <rect x="116" y="68" width="48" height="40" rx="3" fill="white" opacity="0.5"/>
-                <text x="140" y="91" textAnchor="middle" fontSize="8" fill="#78350f">COFFEE</text>
-                <text x="140" y="101" textAnchor="middle" fontSize="7" fill="#92400e">250g</text>
-                <line x1="110" y1="123" x2="170" y2="123" stroke="#d97706" strokeWidth="1.5" strokeDasharray="4,2"/>
-
-                {/* Pouch 3 - stand-up red */}
-                <path d="M190,138 L190,62 Q190,52 198,52 L228,52 Q236,52 236,62 L236,138 Q232,145 213,145 Q194,145 190,138 Z" fill="#fee2e2" stroke="#ef4444" strokeWidth="2"/>
-                <rect x="190" y="58" width="46" height="5" rx="2" fill="#dc2626" opacity="0.6"/>
-                <rect x="194" y="70" width="38" height="34" rx="3" fill="white" opacity="0.5"/>
-                <text x="213" y="90" textAnchor="middle" fontSize="8" fill="#7f1d1d">NUTS</text>
-                <text x="213" y="100" textAnchor="middle" fontSize="7" fill="#7f1d1d">150g</text>
-                <line x1="190" y1="127" x2="236" y2="127" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,2"/>
-
-                <text x="120" y="170" textAnchor="middle" fontSize="9" fill="#6b7280">Stand-up Zipper Pouches</text>
-              </svg>
-            </div>
-
-            {/* Box 3: Pre-made pouch filling machine */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
-              <svg viewBox="0 0 240 180" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="180" fill="#f3f4f6"/>
-                {/* Machine frame */}
-                <rect x="30" y="20" width="180" height="130" rx="6" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="2"/>
-                {/* Pouch gripper conveyor */}
-                <rect x="40" y="40" width="160" height="8" rx="3" fill="#9ca3af"/>
-                {/* Grip clamps */}
-                {[50, 85, 120, 155, 175].map((x, i) => (
-                  <rect key={i} x={x} y={38} width={8} height={12} rx="2" fill="#374151"/>
-                ))}
-                {/* Stations indicators */}
-                <circle cx="60" cy="80" r="14" fill="white" stroke="#6b7280" strokeWidth="1.5"/>
-                <text x="60" y="84" textAnchor="middle" fontSize="7" fill="#374151">Open</text>
-                <circle cx="105" cy="80" r="14" fill="white" stroke="#6b7280" strokeWidth="1.5"/>
-                <text x="105" y="84" textAnchor="middle" fontSize="7" fill="#374151">Fill</text>
-                <circle cx="150" cy="80" r="14" fill="white" stroke="#6b7280" strokeWidth="1.5"/>
-                <text x="150" y="84" textAnchor="middle" fontSize="7" fill="#374151">Seal</text>
-                <circle cx="193" cy="80" r="14" fill="white" stroke="#6b7280" strokeWidth="1.5"/>
-                <text x="193" y="84" textAnchor="middle" fontSize="7" fill="#374151">Out</text>
-                {/* Pouches at fill station */}
-                <rect x="92" y="100" width="26" height="38" rx="4" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5"/>
-                <rect x="92" y="100" width="26" height="6" rx="2" fill="#2563eb" opacity="0.5"/>
-                {/* Fill nozzle */}
-                <rect x="102" y="88" width="6" height="14" rx="2" fill="#6b7280"/>
-                <text x="120" y="172" textAnchor="middle" fontSize="9" fill="#6b7280">Pre-made Pouch Machine</text>
-              </svg>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+                <Image
+                  src={`/machines/pouch/${n}.jpg`}
+                  alt={`Pouch packing machine photo ${n}`}
+                  fill
+                  sizes="(max-width:640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
         </Container>
