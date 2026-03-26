@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import HeroSection from '@/components/home/HeroSection'
+import MachineByProduct from '@/components/home/MachineByProduct'
 import ServicesPreview from '@/components/home/ServicesPreview'
 import WhyUs from '@/components/home/WhyUs'
 import WhoWeWorkWith from '@/components/home/WhoWeWorkWith'
@@ -175,6 +176,7 @@ export default async function Page({ params }: PageParams) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <HeroSection lang={safeLang} />
+      <MachineByProduct lang={safeLang} />
       <ServicesPreview lang={safeLang} />
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />

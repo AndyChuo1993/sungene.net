@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import React from 'react'
 import { headers } from 'next/headers'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'SunGene | Industrial Machinery Manufacturer & Exporter from Taiwan',
@@ -25,7 +26,20 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-screen font-sans">{children}</body>
+      <body className="min-h-screen font-sans">
+        {children}
+        {process.env.NEXT_PUBLIC_GA4_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
+            `}</Script>
+          </>
+        )}
+      </body>
     </html>
   )
 }
