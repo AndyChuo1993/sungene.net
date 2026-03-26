@@ -23,7 +23,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // === 2. Old site 410 Gone (legacy product pages) ===
+  // === 2. Old WordPress query strings (/?post_type=product&p=X) → homepage ===
+  const searchParams = request.nextUrl.searchParams
+  if (searchParams.has('post_type') || searchParams.has('p') && pathname === '/') {
+    return NextResponse.redirect(new URL('/en', request.url), 301)
+  }
+
+  // === 2b. Old site 410 Gone (legacy product pages) ===
   const gonePatterns = ['/products', '/product', '/cooperation', '/news', '/category', '/tag', '/author']
   if (gonePatterns.some(pattern => pathname.startsWith(pattern))) {
     return new NextResponse(null, { status: 410 })
