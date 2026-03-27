@@ -15,8 +15,8 @@ const nextConfig = {
       // Old market/industry/blog → relevant pages
       { source: '/:lang/market/:slug*', destination: '/:lang/industries', permanent: true },
       { source: '/:lang/industry/:slug*', destination: '/:lang/industries', permanent: true },
-      { source: '/:lang/resources/:slug*', destination: '/:lang/resources', permanent: true },
-      { source: '/:lang/blog/:slug*', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/resources/:slug+', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/blog/:slug+', destination: '/:lang/resources', permanent: true },
       // Old WordPress product pages without lang prefix → homepage
       { source: '/product/:slug*', destination: '/en', permanent: true },
       { source: '/products/:slug*', destination: '/en', permanent: true },
