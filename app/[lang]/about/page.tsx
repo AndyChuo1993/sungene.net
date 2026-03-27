@@ -303,15 +303,15 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
           <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{t.title}</h1>
 
           {/* Intro */}
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-300">{t.intro}</p>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-brand-400">{t.mission}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/85">{t.intro}</p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/65">{t.mission}</p>
 
           {/* Stats — inside dark hero, clean grid */}
           <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 gap-px md:grid-cols-4">
             {t.stats.map((stat: { value: string; label: string }, i: number) => (
               <div key={i} className="flex flex-col items-center py-6 px-4 first:pl-0 last:pr-0">
                 <div className="text-4xl font-black text-accent-400">{stat.value}</div>
-                <div className="mt-2 text-sm font-medium text-brand-300 text-center">{stat.label}</div>
+                <div className="mt-2 text-sm font-medium text-white/70 text-center">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -341,11 +341,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-950 bg-industrial-grid py-20 sm:py-24">
+      <section className="relative bg-brand-950 bg-industrial-grid py-20 sm:py-24">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90 pointer-events-none" />
         <Container className="relative text-center">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">{t.ctaTitle}</h2>
-          <p className="mt-4 text-lg text-brand-300 max-w-xl mx-auto">{t.ctaDesc}</p>
+          <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">{t.ctaDesc}</p>
           <div className="mt-10">
             <ButtonLink href={`/${lang}/contact`} size="lg" className="shadow-lg shadow-accent-700/30">{t.ctaBtn}</ButtonLink>
           </div>
