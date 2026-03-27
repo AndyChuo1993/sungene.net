@@ -147,6 +147,12 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://www.sungene.net' },
     category: 'Filling Machinery',
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      priceCurrency: 'USD',
+      seller: { '@type': 'Organization', name: 'SunGene Co., LTD' },
+    },
   }
 
   return (
