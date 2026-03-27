@@ -227,9 +227,20 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Pouch Packing Machine', item: `https://sungene.net/${lang}/pouch-packing-machine` },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
       <PageHeader kicker={t.kicker} title={t.title} desc={t.subtitle} />
 
       {/* CTA Banner */}

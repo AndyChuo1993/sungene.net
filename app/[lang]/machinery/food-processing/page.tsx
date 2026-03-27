@@ -1,8 +1,51 @@
+import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params
+  const titles: Record<string, string> = {
+    en: 'Food Processing Equipment | Snack Line, Frying, Roasting, Mixing | SunGene',
+    cn: '食品加工设备 | 零食生产线、油炸、烘焙、搅拌 | SunGene',
+    zh: '食品加工設備 | 零食生產線、油炸、烘焙、攪拌 | SunGene',
+    fr: 'Équipement de traitement alimentaire | Ligne snack, Friture, Torréfaction | SunGene',
+    es: 'Equipo de procesamiento de alimentos | Línea de snacks, Fritura, Tostado | SunGene',
+    pt: 'Equipamento de processamento de alimentos | Linha de snacks, Fritura, Torração | SunGene',
+    ko: '식품 가공 장비 | 스낵 라인, 튀김, 로스팅, 혼합 | SunGene',
+    ja: '食品加工設備 | スナックライン、フライ、ローストミキシング | SunGene',
+    ar: 'معدات تصنيع الأغذية | خط الوجبات الخفيفة والقلي والتحميص | SunGene',
+    th: 'อุปกรณ์แปรรูปอาหาร | สายผลิตขนม ทอด อบ ผสม | SunGene',
+    vi: 'Thiết bị chế biến thực phẩm | Dây chuyền snack, chiên, rang, trộn | SunGene',
+    de: 'Lebensmittelverarbeitungsmaschinen | Snack-Linie, Frittieren, Rösten | SunGene',
+  }
+  const descriptions: Record<string, string> = {
+    en: 'SunGene manufactures food processing equipment including snack production lines, frying machines, roasting ovens, mixing systems, and continuous cooking lines. CE certified, factory-direct from Taiwan.',
+    cn: 'SunGene生产食品加工设备，包括零食生产线、油炸机、烘烤炉、搅拌系统和连续蒸煮线。CE认证，台湾工厂直销。',
+    zh: 'SunGene生產食品加工設備，包括零食生產線、油炸機、烘烤爐、攪拌系統和連續蒸煮線。CE認證，台灣工廠直銷。',
+    fr: 'SunGene fabrique des équipements de traitement alimentaire incluant des lignes de production de snacks, friteuses, fours de torréfaction, systèmes de mélange et lignes de cuisson continues.',
+    es: 'SunGene fabrica equipos de procesamiento de alimentos incluyendo líneas de producción de snacks, máquinas de freír, hornos de tostado, sistemas de mezcla y líneas de cocción continua.',
+    pt: 'SunGene fabrica equipamentos de processamento de alimentos incluindo linhas de produção de snacks, fritadeiras, fornos de torra, sistemas de mistura e linhas de cozimento contínuo.',
+    ko: 'SunGene은 스낵 생산 라인, 튀김 기계, 로스팅 오븐, 혼합 시스템 및 연속 조리 라인을 포함한 식품 가공 장비를 제조합니다.',
+    ja: 'SunGeneはスナック生産ライン、フライヤー、ロースティングオーブン、ミキシングシステム、連続調理ラインなどの食品加工設備を製造しています。',
+    ar: 'تصنع SunGene معدات تصنيع الأغذية بما في ذلك خطوط إنتاج الوجبات الخفيفة وآلات القلي وأفران التحميص وأنظمة الخلط وخطوط الطهي المستمر.',
+    th: 'SunGene ผลิตอุปกรณ์แปรรูปอาหาร รวมถึงสายการผลิตขนม เครื่องทอด เตาอบ ระบบผสม และสายการปรุงอาหารต่อเนื่อง',
+    vi: 'SunGene sản xuất thiết bị chế biến thực phẩm bao gồm dây chuyền sản xuất snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
+    de: 'SunGene stellt Lebensmittelverarbeitungsmaschinen her, darunter Snack-Produktionslinien, Frittiermaschinen, Röstöfen, Mischanlagen und kontinuierliche Kochlinien.',
+  }
+  return {
+    title: titles[lang] || titles.en,
+    description: descriptions[lang] || descriptions.en,
+    alternates: { canonical: `https://sungene.net/${lang}/machinery/food-processing` },
+    openGraph: {
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      url: `https://sungene.net/${lang}/machinery/food-processing`,
+    },
+  }
+}
 
 export default async function FoodProcessingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params

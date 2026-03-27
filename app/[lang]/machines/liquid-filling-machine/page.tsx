@@ -34,6 +34,39 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: titles[lang] || titles.en,
     description: descriptions[lang] || descriptions.en,
+    keywords: ['liquid filling machine', 'bottle filling machine', 'piston filler', 'gravity filler', 'sauce filling machine', 'beverage filling machine', 'Taiwan liquid filler'],
+    alternates: {
+      canonical: `https://sungene.net/${lang}/machines/liquid-filling-machine`,
+      languages: {
+        'en': 'https://sungene.net/en/machines/liquid-filling-machine',
+        'zh-TW': 'https://sungene.net/zh/machines/liquid-filling-machine',
+        'zh-CN': 'https://sungene.net/cn/machines/liquid-filling-machine',
+        'fr': 'https://sungene.net/fr/machines/liquid-filling-machine',
+        'es': 'https://sungene.net/es/machines/liquid-filling-machine',
+        'pt': 'https://sungene.net/pt/machines/liquid-filling-machine',
+        'ko': 'https://sungene.net/ko/machines/liquid-filling-machine',
+        'ja': 'https://sungene.net/ja/machines/liquid-filling-machine',
+        'ar': 'https://sungene.net/ar/machines/liquid-filling-machine',
+        'th': 'https://sungene.net/th/machines/liquid-filling-machine',
+        'vi': 'https://sungene.net/vi/machines/liquid-filling-machine',
+        'de': 'https://sungene.net/de/machines/liquid-filling-machine',
+        'x-default': 'https://sungene.net/en/machines/liquid-filling-machine',
+      }
+    },
+    openGraph: {
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      url: `https://sungene.net/${lang}/machines/liquid-filling-machine`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      images: ['https://sungene.net/og/og.png'],
+    },
   }
 }
 
@@ -155,9 +188,20 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `https://sungene.net/${lang}/machines/liquid-filling-machine` },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
       <PageHeader title={t.title} desc={t.p1} kicker={t.kicker} />
 
       <section className="py-16 sm:py-20">

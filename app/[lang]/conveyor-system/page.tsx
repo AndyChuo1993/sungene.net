@@ -230,9 +230,20 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Conveyor System', item: `https://sungene.net/${lang}/conveyor-system` },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
       <PageHeader kicker={t.kicker} title={t.title} desc={t.subtitle} />
 
       {/* CTA Banner */}

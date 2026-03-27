@@ -34,6 +34,39 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: titles[lang] || titles.en,
     description: descriptions[lang] || descriptions.en,
+    keywords: ['conveyor system', 'belt conveyor', 'production line automation', 'automated packaging line', 'industrial conveyor', 'PLC control system', 'factory automation Taiwan'],
+    alternates: {
+      canonical: `https://sungene.net/${lang}/machines/conveyor-system`,
+      languages: {
+        'en': 'https://sungene.net/en/machines/conveyor-system',
+        'zh-TW': 'https://sungene.net/zh/machines/conveyor-system',
+        'zh-CN': 'https://sungene.net/cn/machines/conveyor-system',
+        'fr': 'https://sungene.net/fr/machines/conveyor-system',
+        'es': 'https://sungene.net/es/machines/conveyor-system',
+        'pt': 'https://sungene.net/pt/machines/conveyor-system',
+        'ko': 'https://sungene.net/ko/machines/conveyor-system',
+        'ja': 'https://sungene.net/ja/machines/conveyor-system',
+        'ar': 'https://sungene.net/ar/machines/conveyor-system',
+        'th': 'https://sungene.net/th/machines/conveyor-system',
+        'vi': 'https://sungene.net/vi/machines/conveyor-system',
+        'de': 'https://sungene.net/de/machines/conveyor-system',
+        'x-default': 'https://sungene.net/en/machines/conveyor-system',
+      }
+    },
+    openGraph: {
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      url: `https://sungene.net/${lang}/machines/conveyor-system`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      images: ['https://sungene.net/og/og.png'],
+    },
   }
 }
 
@@ -152,9 +185,20 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Conveyor & Automation Systems', item: `https://sungene.net/${lang}/machines/conveyor-system` },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
       <PageHeader title={t.title} desc={t.p1} kicker={t.kicker} />
 
       <section className="py-16 sm:py-20">

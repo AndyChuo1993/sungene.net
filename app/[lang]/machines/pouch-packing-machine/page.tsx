@@ -34,6 +34,39 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: titles[lang] || titles.en,
     description: descriptions[lang] || descriptions.en,
+    keywords: ['pouch packing machine', 'stand-up pouch machine', 'VFFS machine', 'zipper pouch machine', 'doypack machine', 'snack packing machine', 'pillow bag machine'],
+    alternates: {
+      canonical: `https://sungene.net/${lang}/machines/pouch-packing-machine`,
+      languages: {
+        'en': 'https://sungene.net/en/machines/pouch-packing-machine',
+        'zh-TW': 'https://sungene.net/zh/machines/pouch-packing-machine',
+        'zh-CN': 'https://sungene.net/cn/machines/pouch-packing-machine',
+        'fr': 'https://sungene.net/fr/machines/pouch-packing-machine',
+        'es': 'https://sungene.net/es/machines/pouch-packing-machine',
+        'pt': 'https://sungene.net/pt/machines/pouch-packing-machine',
+        'ko': 'https://sungene.net/ko/machines/pouch-packing-machine',
+        'ja': 'https://sungene.net/ja/machines/pouch-packing-machine',
+        'ar': 'https://sungene.net/ar/machines/pouch-packing-machine',
+        'th': 'https://sungene.net/th/machines/pouch-packing-machine',
+        'vi': 'https://sungene.net/vi/machines/pouch-packing-machine',
+        'de': 'https://sungene.net/de/machines/pouch-packing-machine',
+        'x-default': 'https://sungene.net/en/machines/pouch-packing-machine',
+      }
+    },
+    openGraph: {
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      url: `https://sungene.net/${lang}/machines/pouch-packing-machine`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang] || titles.en,
+      description: descriptions[lang] || descriptions.en,
+      images: ['https://sungene.net/og/og.png'],
+    },
   }
 }
 
@@ -155,9 +188,20 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     },
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Pouch Packing Machine', item: `https://sungene.net/${lang}/machines/pouch-packing-machine` },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
       <PageHeader title={t.title} desc={t.p1} kicker={t.kicker} />
 
       {/* Main content: two-column layout */}
