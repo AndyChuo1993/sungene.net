@@ -287,58 +287,52 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-brand-950 pt-8 pb-20">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]" />
-        <Container className="relative">
-          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
-          <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">{t.title}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">{t.intro}</p>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-400">{t.mission}</p>
-        </Container>
-      </section>
+      {/* Hero — stats integrated inside dark section, no floating */}
+      <section className="relative overflow-hidden bg-brand-950 bg-industrial-grid">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-600/[0.06] rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Stats */}
-      <section className="-mt-10">
-        <Container>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-gray-200 shadow-elev-2 md:grid-cols-4">
+        <Container className="relative py-20 sm:py-28">
+          {/* Kicker */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-8 bg-accent-500" />
+            <span className="text-accent-400 text-xs font-bold uppercase tracking-[0.2em]">{t.kicker}</span>
+          </div>
+
+          {/* Title */}
+          <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{t.title}</h1>
+
+          {/* Intro */}
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-300">{t.intro}</p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-brand-400">{t.mission}</p>
+
+          {/* Stats — inside dark hero, clean grid */}
+          <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 gap-px md:grid-cols-4">
             {t.stats.map((stat: { value: string; label: string }, i: number) => (
-              <div key={i} className="bg-white px-6 py-8 text-center">
-                <div className="text-3xl font-bold text-accent-600">{stat.value}</div>
-                <div className="mt-1 text-sm font-medium text-gray-600">{stat.label}</div>
+              <div key={i} className="flex flex-col items-center py-6 px-4 first:pl-0 last:pr-0">
+                <div className="text-4xl font-black text-accent-400">{stat.value}</div>
+                <div className="mt-2 text-sm font-medium text-brand-300 text-center">{stat.label}</div>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Factory Image */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <div className="relative overflow-hidden rounded-2xl">
-            <Image
-              src="/machinery/factory-floor.svg"
-              alt="SunGene Factory Floor - Industrial Machinery Manufacturing Facility"
-              width={1200}
-              height={500}
-              className="w-full h-auto"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-950/40 to-transparent" />
-          </div>
-        </Container>
-      </section>
-
       {/* Strengths */}
-      <section className="pb-16 sm:pb-20">
+      <section className="py-20 sm:py-28 bg-white">
         <Container>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-950">{t.strengthsTitle}</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-accent-500" />
+            <span className="text-accent-600 text-xs font-bold uppercase tracking-[0.2em]">{t.strengthsTitle}</span>
+          </div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl max-w-2xl">{t.strengthsTitle}</h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {t.strengths.map((s: { title: string; desc: string }, i: number) => (
-              <Card key={i} className="p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-100 text-lg font-bold text-accent-700">
-                  {String(i + 1).padStart(2, '0')}
+              <Card key={i} className="p-8 border-0 shadow-elev-1 hover:shadow-elev-2 transition-shadow">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 border border-accent-200">
+                  <span className="text-base font-black text-accent-600">{String(i + 1).padStart(2, '0')}</span>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-gray-950">{s.title}</h3>
+                <h3 className="mt-5 text-lg font-bold text-gray-950">{s.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-gray-600">{s.desc}</p>
               </Card>
             ))}
@@ -347,12 +341,13 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-950 py-16 sm:py-20">
-        <Container className="text-center">
-          <h2 className="text-3xl font-bold text-white">{t.ctaTitle}</h2>
-          <p className="mt-4 text-lg text-gray-300">{t.ctaDesc}</p>
-          <div className="mt-8">
-            <ButtonLink href={`/${lang}/contact`} size="lg">{t.ctaBtn}</ButtonLink>
+      <section className="bg-brand-950 bg-industrial-grid py-20 sm:py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90 pointer-events-none" />
+        <Container className="relative text-center">
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">{t.ctaTitle}</h2>
+          <p className="mt-4 text-lg text-brand-300 max-w-xl mx-auto">{t.ctaDesc}</p>
+          <div className="mt-10">
+            <ButtonLink href={`/${lang}/contact`} size="lg" className="shadow-lg shadow-accent-700/30">{t.ctaBtn}</ButtonLink>
           </div>
         </Container>
       </section>
