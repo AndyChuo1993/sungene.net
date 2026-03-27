@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
@@ -164,44 +163,65 @@ export default function WhyUs({ lang }: { lang: Lang }) {
 
   const t = content[lang] || content['en']
 
+  const featureIcons = [
+    // Factory icon
+    <svg key="0" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>,
+    // Puzzle icon
+    <svg key="1" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" /></svg>,
+    // Globe icon
+    <svg key="2" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>,
+    // Chat/Support icon
+    <svg key="3" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>,
+    // Wrench/Custom icon
+    <svg key="4" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72A9.96 9.96 0 0012 22a9.96 9.96 0 007.74-2.28" /><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>,
+    // Shield/Certified icon
+    <svg key="5" className="h-5 w-5 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>,
+  ]
+
   return (
-    <section className="py-20 sm:py-28 bg-gray-50 border-y border-gray-200/60">
+    <section className="py-20 sm:py-28 bg-gray-50 bg-stripe-accent border-y border-gray-200/60">
       <Container>
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="text-sm font-bold uppercase tracking-wider text-accent-600">{t.kicker}</span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-950 md:text-4xl lg:text-5xl">{t.title}</h2>
-          <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
-        </div>
-
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {t.items.map((item: any, i: number) => (
-            <div key={i} className="relative">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-600 text-sm font-bold text-white shadow-elev-1">
-                {item.icon}
-              </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-950">{item.title}</h3>
-              <p className="mt-2 text-base leading-relaxed text-gray-600">{item.desc}</p>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+          {/* Left: heading + lead text + highlighted stat */}
+          <div className="lg:sticky lg:top-24">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8 bg-accent-500" />
+              <span className="text-accent-600 text-xs font-bold uppercase tracking-[0.2em]">{t.kicker}</span>
             </div>
-          ))}
-        </div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">{t.title}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
 
-        {/* Trust badge row */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 border-t border-gray-200 pt-12">
-          <div className="flex items-center gap-3 text-gray-500">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-            <span className="text-sm font-semibold">CE Certified</span>
+            {/* Highlighted stat */}
+            <div className="mt-8 inline-flex items-center gap-4 rounded-xl bg-brand-950 px-6 py-4">
+              <div className="text-3xl font-black text-accent-400">50+</div>
+              <div className="text-sm font-medium text-brand-300">Countries Served<br/><span className="text-xs text-brand-400">Factory direct pricing</span></div>
+            </div>
+
+            {/* Trust badges */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {['CE Certified', 'SUS304/316L', '15+ Years'].map((badge) => (
+                <span key={badge} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
+                  <svg className="h-3.5 w-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                  {badge}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-3 text-gray-500">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
-            <span className="text-sm font-semibold">Export to 50+ Countries</span>
-          </div>
-          <div className="flex items-center gap-3 text-gray-500">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72A9.96 9.96 0 0012 22a9.96 9.96 0 007.74-2.28" /></svg>
-            <span className="text-sm font-semibold">SUS304/316L Stainless Steel</span>
-          </div>
-          <div className="flex items-center gap-3 text-gray-500">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
-            <span className="text-sm font-semibold">15+ Years Experience</span>
+
+          {/* Right: 2-column feature grid */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {t.items.map((item: any, i: number) => (
+              <div key={i} className="relative bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-50">
+                    {featureIcons[i]}
+                  </div>
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{item.icon}</span>
+                </div>
+                <h3 className="font-bold text-gray-900 text-sm leading-snug">{item.title}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-gray-500">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </Container>

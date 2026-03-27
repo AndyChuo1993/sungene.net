@@ -36,3 +36,38 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
+
+/* Industrial grid pattern for dark sections */
+.bg-industrial-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Diagonal stripe accent */
+.bg-stripe-accent {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(232, 84, 7, 0.04) 10px,
+    rgba(232, 84, 7, 0.04) 11px
+  );
+}
+
+/* Section divider — industrial angle */
+.clip-angle-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%);
+}
+.clip-angle-top {
+  clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Machine spec table styling */
+.spec-table td:first-child {
+  @apply font-medium text-gray-500 uppercase tracking-wider text-xs;
+}
+.spec-table td:last-child {
+  @apply font-semibold text-gray-900;
+}

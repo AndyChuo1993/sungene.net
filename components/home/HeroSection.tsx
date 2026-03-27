@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
@@ -166,58 +165,78 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
   return (
-    <section className="relative overflow-hidden bg-brand-950 pb-0 pt-12 sm:pt-16">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]" />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-950" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-500/10 to-transparent" />
+    <section className="relative overflow-hidden bg-brand-950 bg-industrial-grid min-h-[90vh] flex items-center">
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-600/[0.08] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-700/20 rounded-full blur-[100px] pointer-events-none" />
 
-      <Container className="relative">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Text content */}
-          <div className="py-8 lg:py-16">
-            <span className="inline-block rounded-full border border-accent-500/30 bg-accent-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-400">
-              {t.kicker}
-            </span>
-            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+      <Container className="relative z-10 py-24 sm:py-32">
+        <div className="grid gap-16 lg:grid-cols-2 items-center">
+          {/* Text column */}
+          <div>
+            {/* Kicker */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-accent-500" />
+              <span className="text-accent-400 text-xs font-bold uppercase tracking-[0.2em]">
+                {t.kicker}
+              </span>
+            </div>
+
+            {/* H1 Headline */}
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               {t.h1}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-gray-300 sm:text-xl">
+
+            {/* Sub */}
+            <p className="mt-6 text-lg leading-relaxed text-brand-300 max-w-xl">
               {t.sub}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={`/${lang}/recommend`} size="lg">
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap gap-4">
+              <ButtonLink href={`/${lang}/recommend`} size="lg" className="shadow-lg shadow-accent-700/30">
                 {t.btnQuote}
+                <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </ButtonLink>
               <ButtonLink href={`/${lang}/machinery`} variant="secondary" size="lg" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">
                 {t.btnCatalog}
               </ButtonLink>
             </div>
-          </div>
 
-          {/* Hero image - machinery illustration */}
-          <div className="relative hidden lg:block">
-            <div className="relative overflow-hidden rounded-t-2xl">
-              <Image
-                src="/machinery/hero-main.svg"
-                alt="SunGene Industrial Production Line - Packaging Machinery, Conveyor Systems, and Palletizer"
-                width={1200}
-                height={800}
-                className="w-full h-auto"
-                priority
-              />
+            {/* Trust badges */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-8">
+              {['CE Certified', 'ISO Quality', 'SUS304 Steel', 'Factory Direct'].map((badge) => (
+                <div key={badge} className="flex items-center gap-2 text-brand-300">
+                  <svg className="h-4 w-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                  <span className="text-sm font-medium">{badge}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Stats bar */}
-        <div className="relative -mb-px grid grid-cols-2 gap-px rounded-t-2xl bg-white/10 md:grid-cols-4">
-          {t.stats.map((stat: any, i: number) => (
-            <div key={i} className="bg-brand-900/50 px-6 py-6 text-center backdrop-blur first:rounded-tl-2xl last:rounded-tr-2xl">
-              <div className="text-3xl font-bold text-accent-400">{stat.value}</div>
-              <div className="mt-1 text-sm text-gray-300">{stat.label}</div>
+          {/* Stats column — industrial data panel */}
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-2 gap-4">
+              {t.stats.map((stat: any, i: number) => (
+                <div key={i} className="relative bg-brand-900/60 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-accent-500/30 transition-colors">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-accent-500 rounded-l-xl" />
+                  <div className="text-3xl font-black text-accent-400">{stat.value}</div>
+                  <div className="mt-1 text-sm font-medium text-brand-300">{stat.label}</div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Industrial certification bar */}
+            <div className="mt-4 bg-brand-900/40 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+              <span className="text-xs text-brand-400 uppercase tracking-wider">Certifications</span>
+              <div className="flex gap-3">
+                {['CE', 'ISO', 'SUS304'].map(c => (
+                  <span key={c} className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded">{c}</span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

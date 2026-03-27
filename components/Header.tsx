@@ -52,7 +52,7 @@ export default function Header({ lang }: { lang: Lang }) {
         </Container>
       </div>
 
-      <header className="sticky top-0 z-50 w-full border-b border-gray-200/60 bg-white/95 shadow-elev-1 backdrop-blur">
+      <header className="sticky top-0 z-50 w-full border-b border-brand-800/40 bg-white/95 shadow-elev-1 backdrop-blur">
         <Container className="flex h-16 items-center justify-between lg:h-20">
           <Link href={`/${lang}`} className="flex items-center gap-3">
             <Image src="/logo/sungene.png" alt="SunGene Machinery" width={36} height={36} className="h-9 w-auto" priority />
@@ -64,7 +64,7 @@ export default function Header({ lang }: { lang: Lang }) {
 
           <nav className="hidden items-center gap-1 xl:gap-2 lg:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:text-brand-950 whitespace-nowrap">
+              <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 hover:text-brand-950 whitespace-nowrap">
                 {l.label}
               </Link>
             ))}
@@ -74,7 +74,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <ButtonLink href={`/${lang}/contact`} size="sm">
+            <ButtonLink href={`/${lang}/contact`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
               {t(lang, 'nav_free_analysis')}
             </ButtonLink>
           </div>
