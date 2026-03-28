@@ -218,17 +218,12 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Liquid Filling Machine',
+    name: t.title,
     description: descriptions[lang] || descriptions.en,
+    url: `https://sungene.net/${lang}/liquid-filling-machine`,
     brand: { '@type': 'Brand', name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://www.sungene.net' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
     category: 'Packaging Machinery',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      seller: { '@type': 'Organization', name: 'SunGene Co., LTD' },
-    },
   }
 
   const breadcrumbLd = {

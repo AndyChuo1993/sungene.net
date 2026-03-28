@@ -218,17 +218,12 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Automated Conveyor System & Production Line',
+    name: t.title,
     description: descriptions[lang] || descriptions.en,
+    url: `https://sungene.net/${lang}/conveyor-system`,
     brand: { '@type': 'Brand', name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://www.sungene.net' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
     category: 'Industrial Automation',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      seller: { '@type': 'Organization', name: 'SunGene Co., LTD' },
-    },
   }
 
   const breadcrumbLd = {

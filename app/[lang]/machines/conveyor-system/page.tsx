@@ -188,13 +188,6 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
     category: 'Industrial Automation',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      url: `https://sungene.net/${lang}/contact`,
-      seller: { '@type': 'Organization', name: 'SunGene Co., LTD' },
-    },
   }
 
   const breadcrumbLd = {
