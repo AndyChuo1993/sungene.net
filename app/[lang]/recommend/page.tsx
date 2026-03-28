@@ -35,7 +35,38 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'Cho chúng tôi biết về sản phẩm và mục tiêu sản xuất của bạn. Kỹ sư sẽ đề xuất giải pháp máy móc tốt nhất trong vòng 24 giờ. Tư vấn miễn phí, không ràng buộc.',
     de: 'Erzählen Sie uns von Ihrem Produkt und Ihren Produktionszielen. Unsere Ingenieure empfehlen die beste Maschinenlösung innerhalb von 24 Stunden. Kostenlose Beratung, unverbindlich.',
   }
-  return { title: titles[l] || titles.en, description: descriptions[l] || descriptions.en }
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['get machinery recommendation', 'packaging machine recommendation', 'find the right packaging machine', 'machinery selection service', 'product packaging consultation'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/recommend`,
+      languages: {
+        'en': 'https://sungene.net/en/recommend',
+        'zh-TW': 'https://sungene.net/zh/recommend',
+        'zh-CN': 'https://sungene.net/cn/recommend',
+        'fr': 'https://sungene.net/fr/recommend',
+        'es': 'https://sungene.net/es/recommend',
+        'pt': 'https://sungene.net/pt/recommend',
+        'ko': 'https://sungene.net/ko/recommend',
+        'ja': 'https://sungene.net/ja/recommend',
+        'ar': 'https://sungene.net/ar/recommend',
+        'th': 'https://sungene.net/th/recommend',
+        'vi': 'https://sungene.net/vi/recommend',
+        'de': 'https://sungene.net/de/recommend',
+        'x-default': 'https://sungene.net/en/recommend',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/recommend`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function RecommendPage({ params }: { params: Promise<{ lang: Lang }> }) {

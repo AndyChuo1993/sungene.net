@@ -3,6 +3,7 @@ import InquiryForm from '@/components/InquiryForm'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import JsonLd from '@/components/JsonLd'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -35,7 +36,38 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'Yêu cầu báo giá miễn phí cho máy móc công nghiệp. Kỹ sư phản hồi trong 24 giờ.',
     de: 'Kostenloses Angebot für Industriemaschinen. Unsere Ingenieure antworten innerhalb von 24 Stunden.',
   }
-  return { title: titles[l] || titles.en, description: descriptions[l] || descriptions.en }
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'free machinery quote', 'Taiwan factory contact'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/contact`,
+      languages: {
+        'en': 'https://sungene.net/en/contact',
+        'zh-TW': 'https://sungene.net/zh/contact',
+        'zh-CN': 'https://sungene.net/cn/contact',
+        'fr': 'https://sungene.net/fr/contact',
+        'es': 'https://sungene.net/es/contact',
+        'pt': 'https://sungene.net/pt/contact',
+        'ko': 'https://sungene.net/ko/contact',
+        'ja': 'https://sungene.net/ja/contact',
+        'ar': 'https://sungene.net/ar/contact',
+        'th': 'https://sungene.net/th/contact',
+        'vi': 'https://sungene.net/vi/contact',
+        'de': 'https://sungene.net/de/contact',
+        'x-default': 'https://sungene.net/en/contact',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/contact`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 type OfficeInfo = { company: string; taxId?: string; address: string; tel: string }
@@ -392,6 +424,39 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           </div>
         </Container>
       </section>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'SunGene Co., LTD.',
+        url: 'https://sungene.net',
+        logo: 'https://sungene.net/logo/sungene.png',
+        email: 'contact@sungenelite.com',
+        location: [
+          {
+            '@type': 'Place',
+            name: 'SunGene Taiwan HQ',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '201 Guangfu Rd., Central District',
+              addressLocality: 'Taichung',
+              postalCode: '40041',
+              addressCountry: 'TW',
+            },
+            telephone: '+886-4-3703-2705',
+          },
+          {
+            '@type': 'Place',
+            name: 'SunGene Xiamen Office',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Rm. 1001-2, Bldg. A1, Yincheng Zhigu, No. 6788-1 Binhai W. Ave., Tong\'an District',
+              addressLocality: 'Xiamen',
+              addressCountry: 'CN',
+            },
+            telephone: '+86-18144132078',
+          },
+        ],
+      }} />
     </>
   )
 }

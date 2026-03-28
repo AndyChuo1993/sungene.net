@@ -20,9 +20,56 @@ const titles: Record<string, string> = {
   de: 'F\u00F6rder- & Automatisierungssysteme | F\u00F6rderb\u00E4nder, Palettierer, SPS | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'SunGene conveying and automation systems: belt conveyors, bucket elevators, screw conveyors, vibratory feeders, robotic arms, palletizers, and PLC-controlled production lines. CE certified, Taiwan.',
+  cn: 'SunGene输送与自动化系统：皮带输送机、斗式提升机、螺旋输送机、振动给料机、机械臂、码垛机和PLC控制生产线。CE认证，台湾。',
+  zh: 'SunGene輸送與自動化系統：皮帶輸送機、斗式提升機、螺旋輸送機、振動給料機、機械臂、碼垛機和PLC控制生產線。CE認證，台灣。',
+  fr: 'Systèmes de convoyage et automatisation SunGene : convoyeurs à bande, élévateurs à godets, convoyeurs à vis, alimentateurs vibrants, bras robotiques, palettiseurs, lignes PLC. Certifiés CE.',
+  es: 'Sistemas de transporte y automatización SunGene: cintas transportadoras, elevadores de cangilones, tornillos, alimentadores vibratorios, brazos robóticos, paletizadores, líneas PLC. CE.',
+  pt: 'Sistemas de transporte e automação SunGene: transportadores de correia, elevadores de caçamba, sem-fim, alimentadores vibratórios, braços robóticos, paletizadores, linhas PLC. CE.',
+  ko: 'SunGene 컨베이어 및 자동화 시스템: 벨트, 버킷 엘리베이터, 스크류, 진동 피더, 로봇 암, 팔레타이저, PLC 생산 라인. CE 인증, 대만.',
+  ja: 'SunGeneコンベア・自動化システム：ベルト、バケットエレベーター、スクリュー、振動フィーダー、ロボットアーム、パレタイザー、PLC制御ライン。CE認証、台湾。',
+  ar: 'أنظمة النقل والأتمتة SunGene: ناقلات سيرية، رافعات دلو، لولبية، مغذيات اهتزازية، أذرع روبوتية، مكدسات وخطوط PLC. معتمدة CE، تايوان.',
+  th: 'ระบบลำเลียงและอัตโนมัติ SunGene: สายพาน ถังตัก สกรู เครื่องป้อนสั่น แขนหุ่นยนต์ พาเลทไทเซอร์ สายการผลิต PLC รับรอง CE ไต้หวัน',
+  vi: 'Hệ thống băng tải và tự động hóa SunGene: băng đai, gàu nâng, trục vít, cấp liệu rung, cánh tay robot, palletizer, dây chuyền PLC. CE, Đài Loan.',
+  de: 'SunGene Förder- und Automatisierungssysteme: Gurtförderer, Becherwerke, Schnecken, Schwingförderer, Roboterarme, Palettierer, PLC-Linien. CE-zertifiziert, Taiwan.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['belt conveyor Taiwan', 'bucket elevator', 'screw conveyor', 'production line automation', 'robotic palletizer', 'PLC control system', 'factory automation Taiwan'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/machinery/conveying-automation`,
+      languages: {
+        'en': 'https://sungene.net/en/machinery/conveying-automation',
+        'zh-TW': 'https://sungene.net/zh/machinery/conveying-automation',
+        'zh-CN': 'https://sungene.net/cn/machinery/conveying-automation',
+        'fr': 'https://sungene.net/fr/machinery/conveying-automation',
+        'es': 'https://sungene.net/es/machinery/conveying-automation',
+        'pt': 'https://sungene.net/pt/machinery/conveying-automation',
+        'ko': 'https://sungene.net/ko/machinery/conveying-automation',
+        'ja': 'https://sungene.net/ja/machinery/conveying-automation',
+        'ar': 'https://sungene.net/ar/machinery/conveying-automation',
+        'th': 'https://sungene.net/th/machinery/conveying-automation',
+        'vi': 'https://sungene.net/vi/machinery/conveying-automation',
+        'de': 'https://sungene.net/de/machinery/conveying-automation',
+        'x-default': 'https://sungene.net/en/machinery/conveying-automation',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/machinery/conveying-automation`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function ConveyingAutomationPage({ params }: { params: Promise<{ lang: Lang }> }) {

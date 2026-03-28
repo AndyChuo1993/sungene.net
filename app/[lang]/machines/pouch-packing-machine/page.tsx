@@ -27,6 +27,15 @@ const descriptions: Record<string, string> = {
   en: 'SunGene manufactures pouch packing machines for stand-up pouches, pillow bags, zipper pouches, vacuum pouches, doypacks and retort pouches. CE certified, factory-direct.',
   cn: 'SunGene生产自立袋、枕型袋、拉链袋、真空袋、多伊包和蒸煮袋包装机。CE认证，工厂直销。',
   zh: 'SunGene生產自立袋、枕型袋、拉鏈袋、真空袋、多伊包和蒸煮袋包裝機。CE認證，工廠直銷。',
+  fr: 'SunGene fabrique des machines d\'emballage en sachets pour sachets stand-up, sachets coussin, sachets à glissière, sachets sous vide, doypacks et sachets rétort. Certifiées CE, directement d\'usine.',
+  es: 'SunGene fabrica máquinas empacadoras de bolsas stand-up, almohada, cremallera, vacío, doypack y retort. Certificadas CE, directo de fábrica.',
+  pt: 'SunGene fabrica máquinas de embalagem para sachês stand-up, travesseiro, zíper, vácuo, doypack e retort. Certificadas CE, diretamente da fábrica.',
+  ko: 'SunGene은 스탠드업 파우치, 필로우 백, 지퍼 파우치, 진공 파우치, 도이팩, 레토르트 파우치 포장기를 제조합니다. CE 인증, 공장 직납.',
+  ja: 'SunGeneはスタンドアップパウチ、ピローバッグ、ジッパーパウチ、真空パウチ、ドイパック、レトルトパウチ包装機を製造。CE認証、工場直送。',
+  ar: 'SunGene تصنع آلات تعبئة الأكياس القائمة والوسادية والمسحاب والتفريغ والدوي باك وأكياس الريتورت. معتمدة CE، مباشرة من المصنع.',
+  th: 'SunGene ผลิตเครื่องบรรจุซองตั้ง หมอน ซิป สุญญากาศ ดอยแพ็ค และเรทอร์ทเพาช์ ได้รับการรับรอง CE ตรงจากโรงงาน',
+  vi: 'SunGene sản xuất máy đóng gói túi đứng, gối, có dây kéo, hút chân không, doypack và túi retort. Chứng nhận CE, trực tiếp từ nhà máy.',
+  de: 'SunGene stellt Beutelverpackungsmaschinen für Stand-up-Beutel, Kissenbeutel, Reißverschlussbeutel, Vakuumbeutel, Doypacks und Retortbeutel her. CE-zertifiziert, direkt vom Werk.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

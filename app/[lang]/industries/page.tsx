@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import Link from 'next/link'
+import JsonLd from '@/components/JsonLd'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -20,9 +21,57 @@ const titles: Record<string, string> = {
   de: 'Branchen & Anwendungen | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'SunGene machinery serves food, beverage, pharmaceutical, cosmetic, and industrial sectors. Packaging, filling, processing, and automation equipment for powder, liquid, granule, and solid products.',
+  cn: 'SunGene机械服务于食品、饮料、制药、化妆品和工业行业。适用于粉末、液体、颗粒和固体产品的包装、灌装、加工和自动化设备。',
+  zh: 'SunGene機械服務於食品、飲料、製藥、化妝品和工業行業。適用於粉末、液體、顆粒和固體產品的包裝、灌裝、加工和自動化設備。',
+  fr: 'Les machines SunGene servent les secteurs alimentaire, boisson, pharmaceutique, cosmétique et industriel. Équipements pour produits en poudre, liquide, granulé et solide.',
+  es: 'Maquinaria SunGene sirve a industrias alimentaria, bebidas, farmacéutica, cosmética e industrial. Equipos de empaque, llenado, procesamiento y automatización.',
+  pt: 'Maquinário SunGene atende setores de alimentos, bebidas, farmacêutico, cosmético e industrial. Equipamentos para produtos em pó, líquido, grânulo e sólido.',
+  ko: 'SunGene 기계는 식품, 음료, 제약, 화장품, 산업 분야를 지원합니다. 분말, 액체, 과립, 고체 제품용 포장, 충전, 가공, 자동화 장비.',
+  ja: 'SunGeneの機械は食品、飲料、製薬、化粧品、工業分野に対応。粉末、液体、顆粒、固体製品向けの包装・充填・加工・自動化設備。',
+  ar: 'تخدم آلات SunGene قطاعات الأغذية والمشروبات والأدوية ومستحضرات التجميل والصناعة. معدات تعبئة وتغليف ومعالجة وأتمتة للمنتجات المسحوقة والسائلة والحبيبية والصلبة.',
+  th: 'เครื่องจักร SunGene ให้บริการอุตสาหกรรมอาหาร เครื่องดื่ม ยา เครื่องสำอาง และอุตสาหกรรม อุปกรณ์บรรจุภัณฑ์ การเติม การแปรรูป และระบบอัตโนมัติ',
+  vi: 'Máy SunGene phục vụ ngành thực phẩm, đồ uống, dược phẩm, mỹ phẩm và công nghiệp. Thiết bị đóng gói, chiết rót, chế biến và tự động hóa.',
+  de: 'SunGene-Maschinen bedienen Lebensmittel-, Getränke-, Pharma-, Kosmetik- und Industriesektoren. Ausrüstung für Pulver-, Flüssigkeits-, Granulat- und Feststoffprodukte.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const langs = ['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de']
+  const l = langs.includes(lang) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['food packaging machinery', 'beverage filling equipment', 'pharmaceutical packaging', 'cosmetic filling machine', 'powder packaging industry', 'liquid filling industry', 'industrial packaging solutions'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/industries`,
+      languages: {
+        'en': 'https://sungene.net/en/industries',
+        'zh-TW': 'https://sungene.net/zh/industries',
+        'zh-CN': 'https://sungene.net/cn/industries',
+        'fr': 'https://sungene.net/fr/industries',
+        'es': 'https://sungene.net/es/industries',
+        'pt': 'https://sungene.net/pt/industries',
+        'ko': 'https://sungene.net/ko/industries',
+        'ja': 'https://sungene.net/ja/industries',
+        'ar': 'https://sungene.net/ar/industries',
+        'th': 'https://sungene.net/th/industries',
+        'vi': 'https://sungene.net/vi/industries',
+        'de': 'https://sungene.net/de/industries',
+        'x-default': 'https://sungene.net/en/industries',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/industries`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function IndustriesPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -182,6 +231,19 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           </div>
         </Container>
       </section>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: t.title,
+        description: t.desc,
+        itemListElement: t.cats.map((cat: any, i: number) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: cat.title,
+          description: cat.desc,
+          url: `https://sungene.net${cat.href}`,
+        })),
+      }} />
     </>
   )
 }

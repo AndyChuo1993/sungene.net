@@ -27,6 +27,15 @@ const descriptions: Record<string, string> = {
   en: 'SunGene manufactures powder filling and packaging machines including auger fillers, volumetric fillers, multi-head weighers, and VFFS with auger systems. CE certified, factory-direct.',
   cn: 'SunGene生产粉末充填包装机，包括螺旋充填器、容积式充填器、多头秤和带螺旋的立式充填封口机。CE认证，工厂直销。',
   zh: 'SunGene生產粉末充填包裝機，包括螺旋充填器、容積式充填器、多頭秤和帶螺旋的立式充填封口機。CE認證，工廠直銷。',
+  fr: 'SunGene fabrique des machines de remplissage et d\'emballage de poudre : doseuses à vis, volumétriques, peseuses multicanaux et VFFS avec dosage à vis. Certifiées CE, directement de l\'usine.',
+  es: 'SunGene fabrica máquinas llenadoras y empacadoras de polvo: dosificadoras de tornillo, volumétricas, pesadoras multicabezal y VFFS con dosificación. Certificadas CE, directo de fábrica.',
+  pt: 'SunGene fabrica máquinas de enchimento e embalagem de pó: dosadoras de rosca, volumétricas, pesadoras multicanal e VFFS com dosagem. Certificadas CE, diretamente da fábrica.',
+  ko: 'SunGene은 오거 충전기, 용적식 충전기, 다두 계량기, 오거 도징 VFFS 등 분말 충전 포장기를 제조합니다. CE 인증, 공장 직납.',
+  ja: 'SunGeneはオーガーフィラー、容積式フィラー、マルチヘッド計量機、オーガードージングVFFS等の粉末充填包装機を製造。CE認証、工場直送。',
+  ar: 'تصنع SunGene آلات تعبئة وتغليف المسحوق: دوازات لولبية، حجمية، موازين متعددة الرؤوس وVFFS مع الجرعات. معتمدة CE، مباشرة من المصنع.',
+  th: 'SunGene ผลิตเครื่องบรรจุผงด้วยสกรู แบบปริมาตร เครื่องชั่งหลายหัว และ VFFS พร้อมระบบโดส ได้รับการรับรอง CE ตรงจากโรงงาน',
+  vi: 'SunGene sản xuất máy chiết rót và đóng gói bột: máy nạp trục vít, thể tích, cân nhiều đầu và VFFS với hệ thống dosing. Chứng nhận CE, trực tiếp từ nhà máy.',
+  de: 'SunGene stellt Pulverfüll- und Verpackungsmaschinen her: Schneckendosierer, Volumetrische Filler, Mehrkopfwaagen und VFFS mit Schneckendosierung. CE-zertifiziert, direkt vom Werk.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

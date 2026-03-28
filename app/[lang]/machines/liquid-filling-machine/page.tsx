@@ -27,6 +27,15 @@ const descriptions: Record<string, string> = {
   en: 'SunGene manufactures liquid filling machines for bottles, pouches, cups and tubes. Gravity, piston, overflow, peristaltic pump and net weight fillers. CE certified, factory-direct.',
   cn: 'SunGene生产瓶、袋、杯和管液体灌装机。重力式、活塞式、溢流式、蠕动泵和净重灌装机。CE认证，工厂直销。',
   zh: 'SunGene生產瓶、袋、杯和管液體灌裝機。重力式、活塞式、溢流式、蠕動泵和淨重灌裝機。CE認證，工廠直銷。',
+  fr: 'SunGene fabrique des machines de remplissage de liquides pour bouteilles, sachets, gobelets et tubes. Remplissage gravitaire, piston, débordement, pompe péristaltique et poids net. Certifiées CE.',
+  es: 'SunGene fabrica máquinas llenadoras de líquidos para botellas, bolsas, vasos y tubos. Llenado por gravedad, pistón, rebose, bomba peristáltica y peso neto. Certificadas CE.',
+  pt: 'SunGene fabrica máquinas de enchimento de líquidos para garrafas, sachês, copos e tubos. Enchimento por gravidade, pistão, transbordamento, bomba peristáltica e peso líquido. Certificadas CE.',
+  ko: 'SunGene은 병, 파우치, 컵, 튜브용 액체 충전기를 제조합니다. 중력식, 피스톤, 오버플로, 연동 펌프, 순중량 충전기. CE 인증.',
+  ja: 'SunGeneはボトル、パウチ、カップ、チューブ用液体充填機を製造。重力式、ピストン式、オーバーフロー式、蠕動ポンプ式、正味重量式。CE認証。',
+  ar: 'SunGene تصنع آلات تعبئة السوائل للزجاجات والأكياس والأكواب والأنابيب. تعبئة بالجاذبية والمكبس والتدفق الزائد ومضخة التمعج والوزن الصافي. معتمدة CE.',
+  th: 'SunGene ผลิตเครื่องบรรจุของเหลวสำหรับขวด ซอง ถ้วย และหลอด แบบแรงโน้มถ่วง ลูกสูบ โอเวอร์โฟลว์ ปั๊มรูดลวด และน้ำหนักสุทธิ ได้รับการรับรอง CE',
+  vi: 'SunGene sản xuất máy chiết rót chất lỏng cho chai, túi, cốc và tuýp. Chiết rót trọng lực, piston, tràn, bơm nhu động và trọng lượng tịnh. Chứng nhận CE.',
+  de: 'SunGene stellt Flüssigkeitsabfüllmaschinen für Flaschen, Beutel, Becher und Tuben her. Schwerkraft-, Kolben-, Überlauf-, Schlauchpumpen- und Nettoge wichtabfüllung. CE-zertifiziert.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

@@ -22,7 +22,52 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'Về SunGene | Nhà sản xuất máy móc công nghiệp từ Đài Loan',
     de: 'Über SunGene | Industriemaschinenhersteller aus Taiwan',
   }
-  return { title: (titles as Record<string,string>)[l] || titles.en }
+const descriptions: Record<string,string> = {
+  en: 'SunGene is a Taiwan-based industrial machinery manufacturer with 15+ years experience, CE-certified machines, and exports to 50+ countries. Factory-direct packaging, filling & food processing equipment.',
+  cn: 'SunGene是一家台湾工业机械制造商，拥有15年以上经验，CE认证机械，出口至50多个国家。工厂直销包装、灌装和食品加工设备。',
+  zh: 'SunGene是一家台灣工業機械製造商，擁有15年以上經驗，CE認證機械，出口至50多個國家。工廠直銷包裝、灌裝和食品加工設備。',
+  fr: 'SunGene est un fabricant taïwanais de machines industrielles avec 15+ ans d\'expérience, machines CE certifiées, exportations vers 50+ pays. Équipements usine directe.',
+  es: 'SunGene es un fabricante taiwanés de maquinaria industrial con 15+ años de experiencia, máquinas CE certificadas y exportaciones a 50+ países. Equipos directo de fábrica.',
+  pt: 'SunGene é um fabricante taiwanês de máquinas industriais com 15+ anos de experiência, máquinas CE certificadas e exportações para 50+ países. Equipamentos direto da fábrica.',
+  ko: 'SunGene은 15년 이상의 경험을 가진 대만 산업 기계 제조업체로 CE 인증 기계를 50개국 이상에 수출합니다. 공장 직납 포장·충전·식품 가공 설비.',
+  ja: 'SunGeneは台湾の産業機械メーカー。15年以上の実績、CE認証取得済み、50カ国以上への輸出実績。工場直送の包装・充填・食品加工機器。',
+  ar: 'SunGene شركة تصنيع آلات صناعية تايوانية بخبرة 15+ عامًا، آلات معتمدة CE، تصدير إلى 50+ دولة. معدات تعبئة وتغليف ومعالجة مباشرة من المصنع.',
+  th: 'SunGene ผู้ผลิตเครื่องจักรอุตสาหกรรมจากไต้หวัน ประสบการณ์กว่า 15 ปี ได้รับการรับรอง CE ส่งออกไปกว่า 50 ประเทศ อุปกรณ์ตรงจากโรงงาน',
+  vi: 'SunGene là nhà sản xuất máy móc công nghiệp Đài Loan với 15+ năm kinh nghiệm, máy đạt chuẩn CE, xuất khẩu đến 50+ quốc gia. Thiết bị trực tiếp từ nhà máy.',
+  de: 'SunGene ist ein taiwanesischer Industriemaschinenhersteller mit 15+ Jahren Erfahrung, CE-zertifizierten Maschinen und Export in 50+ Länder. Direktlieferung ab Werk.',
+}
+  return {
+    title: (titles as Record<string,string>)[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['SunGene machinery', 'Taiwan machinery manufacturer', 'packaging machine manufacturer', 'food processing equipment Taiwan', 'industrial machinery Taiwan', 'CE certified machinery', 'factory direct machinery'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/about`,
+      languages: {
+        'en': 'https://sungene.net/en/about',
+        'zh-TW': 'https://sungene.net/zh/about',
+        'zh-CN': 'https://sungene.net/cn/about',
+        'fr': 'https://sungene.net/fr/about',
+        'es': 'https://sungene.net/es/about',
+        'pt': 'https://sungene.net/pt/about',
+        'ko': 'https://sungene.net/ko/about',
+        'ja': 'https://sungene.net/ja/about',
+        'ar': 'https://sungene.net/ar/about',
+        'th': 'https://sungene.net/th/about',
+        'vi': 'https://sungene.net/vi/about',
+        'de': 'https://sungene.net/de/about',
+        'x-default': 'https://sungene.net/en/about',
+      }
+    },
+    openGraph: {
+      title: (titles as Record<string,string>)[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/about`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: Lang }> }) {

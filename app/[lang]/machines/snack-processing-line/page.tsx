@@ -27,6 +27,15 @@ const descriptions: Record<string, string> = {
   en: 'SunGene designs and manufactures complete snack and food processing lines including fryers, seasoning drums, cooling conveyors, multi-head weighers and packaging systems. CE certified.',
   cn: 'SunGene设计和生产完整的零食食品加工线，包括油炸机、调味滚筒、冷却输送带、多头秤和包装系统。CE认证。',
   zh: 'SunGene設計和生產完整的零食食品加工線，包括油炸機、調味滾筒、冷卻輸送帶、多頭秤和包裝系統。CE認證。',
+  fr: 'SunGene conçoit et fabrique des lignes complètes de production de snacks et d\'aliments : friteuses, tambours d\'assaisonnement, convoyeurs de refroidissement, peseuses multicanaux et systèmes d\'emballage. Certifiées CE.',
+  es: 'SunGene diseña y fabrica líneas completas de procesamiento de snacks: freidoras, tambores sazonadores, cintas transportadoras de enfriamiento, pesadoras multicabezal y sistemas de empaque. Certificadas CE.',
+  pt: 'SunGene projeta e fabrica linhas completas de processamento de snacks: fritadeiras, tambores de tempero, transportadores de resfriamento, pesadoras multicanal e sistemas de embalagem. Certificadas CE.',
+  ko: 'SunGene은 튀김기, 시즈닝 드럼, 냉각 컨베이어, 다두 계량기, 포장 시스템을 포함한 완전한 스낵 식품 가공 라인을 설계 제조합니다. CE 인증.',
+  ja: 'SunGeneはフライヤー、シーズニングドラム、冷却コンベア、マルチヘッド計量機、包装システムを含む完全なスナック食品加工ラインを設計・製造。CE認証。',
+  ar: 'SunGene تصمم وتصنع خطوط إنتاج وجبات خفيفة كاملة: قلايات، أسطوانات تتبيل، ناقلات تبريد، موازين متعددة الرؤوس وأنظمة تعبئة. معتمدة CE.',
+  th: 'SunGene ออกแบบและผลิตสายการผลิตขนมครบวงจร ได้แก่ เครื่องทอด กลองปรุงรส สายพานระบายความร้อน เครื่องชั่งหลายหัว และระบบบรรจุภัณฑ์ รับรอง CE',
+  vi: 'SunGene thiết kế và sản xuất dây chuyền chế biến snack và thực phẩm hoàn chỉnh: máy chiên, trống gia vị, băng tải làm lạnh, cân nhiều đầu và hệ thống đóng gói. Chứng nhận CE.',
+  de: 'SunGene entwirft und fertigt komplette Snack- und Lebensmittelverarbeitungslinien: Frittiermaschinen, Gewürztrommeln, Kühlbänder, Mehrkopfwaagen und Verpackungssysteme. CE-zertifiziert.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

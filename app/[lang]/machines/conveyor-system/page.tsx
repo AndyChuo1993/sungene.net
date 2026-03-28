@@ -27,6 +27,15 @@ const descriptions: Record<string, string> = {
   en: 'SunGene designs conveyor and automation systems including belt conveyors, bucket elevators, screw conveyors, robotic arms, palletizers, and PLC control systems. CE certified.',
   cn: 'SunGene设计输送与自动化系统，包括皮带输送机、斗式提升机、螺旋输送机、机械臂、码垛机和PLC控制系统。CE认证。',
   zh: 'SunGene設計輸送與自動化系統，包括皮帶輸送機、斗式提升機、螺旋輸送機、機械臂、碼垛機和PLC控制系統。CE認證。',
+  fr: 'SunGene conçoit des convoyeurs et systèmes d\'automatisation : convoyeurs à bandes, élévateurs à godets, convoyeurs à vis, bras robotisés, palettiseurs et systèmes de contrôle PLC. Certifiés CE.',
+  es: 'SunGene diseña sistemas de transporte y automatización: cintas transportadoras, elevadores de cangilones, transportadores de tornillo, brazos robóticos, paletizadores y sistemas de control PLC. Certificados CE.',
+  pt: 'SunGene projeta sistemas de transporte e automação: transportadores de correia, elevadores de caçamba, transportadores de rosca, braços robóticos, paletizadores e sistemas de controle PLC. Certificados CE.',
+  ko: 'SunGene은 벨트 컨베이어, 버킷 엘리베이터, 스크류 컨베이어, 로봇 암, 팔레타이저, PLC 제어 시스템을 포함한 컨베이어 및 자동화 시스템을 설계합니다. CE 인증.',
+  ja: 'SunGeneはベルトコンベア、バケットエレベーター、スクリューコンベア、ロボットアーム、パレタイザー、PLC制御システムを含むコンベア・自動化システムを設計。CE認証。',
+  ar: 'SunGene تصمم أنظمة نقل وأتمتة: ناقلات سيرية، رافعات دلو، ناقلات لولبية، أذرع روبوتية، مكدسات وأنظمة تحكم PLC. معتمدة CE.',
+  th: 'SunGene ออกแบบระบบลำเลียงและระบบอัตโนมัติ: สายพานลำเลียง เครื่องยกถัง สกรูลำเลียง แขนหุ่นยนต์ พาเลทไทเซอร์ และระบบควบคุม PLC รับรอง CE',
+  vi: 'SunGene thiết kế hệ thống băng tải và tự động hóa: băng tải đai, gàu nâng, băng tải trục vít, cánh tay robot, máy xếp pallet và hệ thống điều khiển PLC. Chứng nhận CE.',
+  de: 'SunGene entwirft Förder- und Automatisierungssysteme: Gurtförderer, Becherwerke, Schneckenförderer, Roboterarme, Palettierer und PLC-Steuerungssysteme. CE-zertifiziert.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

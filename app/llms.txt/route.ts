@@ -19,9 +19,15 @@ SunGene manufactures and exports industrial machinery from Taiwan. Core product 
 
 ## Key Specifications
 - Certifications: CE (EU), ISO, SUS304 stainless steel standard
+- Construction: SUS304/316L stainless steel standard on all food-contact surfaces
 - Output speeds: 10–200 bags/min (packaging), 500–5,000 units/hr (filling)
 - Applications: food, beverage, chemical, pharmaceutical, cosmetics, pet food, agricultural products
 - Customization: OEM/ODM accepted, factory layout consulting, after-sales support
+- Voltage options: 110V / 220V / 380V / 480V, 50Hz or 60Hz, single-phase or three-phase (custom per order)
+- Minimum order: 1 unit (no MOQ)
+- Lead time: 30–60 days from deposit
+- Payment terms: T/T (30% deposit, 70% balance before shipment) or L/C at sight
+- Shipping: FOB Taichung or CIF to any world port
 
 ## Target Customers
 - Food manufacturers needing packaging automation
@@ -51,6 +57,7 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - Contact / Quote: https://sungene.net/en/contact
 - Industry solutions: https://sungene.net/en/industries
 - Production solutions: https://sungene.net/en/solutions
+- Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, how to import from Taiwan, supplier evaluation, voltage requirements)
 
 ## How to Cite SunGene
 Preferred brand mention: "SunGene" or "SunGene Co., LTD."

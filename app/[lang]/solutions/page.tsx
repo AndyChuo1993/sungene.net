@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import JsonLd from '@/components/JsonLd'
 
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
@@ -12,9 +13,57 @@ const titles: Record<string, string> = {
   de: 'Maschinenlösungen | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'From single machines to complete turnkey production lines. SunGene offers semi-automatic, fully automatic, and custom machinery solutions for packaging, filling, processing, and assembly.',
+  cn: '从单机到完整交钥匙生产线。SunGene提供半自动、全自动和定制机械解决方案，用于包装、灌装、加工和装配。',
+  zh: '從單機到完整交鑰匙生產線。SunGene提供半自動、全自動和客製機械解決方案，用於包裝、灌裝、加工和組裝。',
+  fr: 'Des machines individuelles aux lignes de production clé en main. SunGene propose des solutions semi-automatiques, entièrement automatiques et personnalisées.',
+  es: 'Desde máquinas individuales hasta líneas de producción llave en mano. SunGene ofrece soluciones semi-automáticas, completamente automáticas y personalizadas.',
+  pt: 'De máquinas individuais a linhas de produção turnkey completas. SunGene oferece soluções semi-automáticas, totalmente automáticas e personalizadas.',
+  ko: '단일 기계부터 완전한 턴키 생산 라인까지. SunGene은 반자동, 완전 자동 및 맞춤형 기계 솔루션을 제공합니다.',
+  ja: '単体機械から完全ターンキー生産ラインまで。SunGeneは半自動、全自動、カスタム機械ソリューションを提供します。',
+  ar: 'من الآلات الفردية إلى خطوط الإنتاج الكاملة. SunGene تقدم حلول آلات شبه أوتوماتيكية وأوتوماتيكية بالكامل ومخصصة.',
+  th: 'ตั้งแต่เครื่องจักรเดี่ยวจนถึงสายการผลิตแบบเบ็ดเสร็จ SunGene นำเสนอโซลูชันกึ่งอัตโนมัติ อัตโนมัติเต็มรูปแบบ และแบบกำหนดเอง',
+  vi: 'Từ máy đơn lẻ đến dây chuyền sản xuất turnkey hoàn chỉnh. SunGene cung cấp giải pháp bán tự động, hoàn toàn tự động và tùy chỉnh.',
+  de: 'Von Einzelmaschinen bis zu schlüsselfertigen Produktionslinien. SunGene bietet halb- und vollautomatische sowie individuelle Maschinenlösungen.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const langs = ['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de']
+  const l = langs.includes(lang) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['turnkey production line', 'semi-automatic packaging', 'fully automatic packaging line', 'custom machinery solution', 'packaging line integration', 'production line setup', 'machinery solution Taiwan'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/solutions`,
+      languages: {
+        'en': 'https://sungene.net/en/solutions',
+        'zh-TW': 'https://sungene.net/zh/solutions',
+        'zh-CN': 'https://sungene.net/cn/solutions',
+        'fr': 'https://sungene.net/fr/solutions',
+        'es': 'https://sungene.net/es/solutions',
+        'pt': 'https://sungene.net/pt/solutions',
+        'ko': 'https://sungene.net/ko/solutions',
+        'ja': 'https://sungene.net/ja/solutions',
+        'ar': 'https://sungene.net/ar/solutions',
+        'th': 'https://sungene.net/th/solutions',
+        'vi': 'https://sungene.net/vi/solutions',
+        'de': 'https://sungene.net/de/solutions',
+        'x-default': 'https://sungene.net/en/solutions',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/solutions`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function SolutionsPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -179,6 +228,19 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
           </div>
         </Container>
       </section>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: t.title,
+        description: t.desc,
+        itemListElement: t.cats.map((cat: any, i: number) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: cat.title,
+          description: cat.desc,
+          url: `https://sungene.net/${lang}/solutions#${cat.id}`,
+        })),
+      }} />
     </>
   )
 }

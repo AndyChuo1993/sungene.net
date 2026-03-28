@@ -37,7 +37,37 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Entdecken Sie unsere vollständige Palette an Industriemaschinen: Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme, Förderautomatisierung und maßgeschneiderte Lösungen. CE-zertifiziert, direkt ab Werk aus Taiwan.',
   }
   const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return { title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en }
+  return {
+    title: (titles as Record<string,string>)[l] || titles.en,
+    description: (descriptions as Record<string,string>)[l] || descriptions.en,
+    alternates: {
+      canonical: `https://sungene.net/${l}/machinery`,
+      languages: {
+        'en': 'https://sungene.net/en/machinery',
+        'zh-TW': 'https://sungene.net/zh/machinery',
+        'zh-CN': 'https://sungene.net/cn/machinery',
+        'fr': 'https://sungene.net/fr/machinery',
+        'es': 'https://sungene.net/es/machinery',
+        'pt': 'https://sungene.net/pt/machinery',
+        'ko': 'https://sungene.net/ko/machinery',
+        'ja': 'https://sungene.net/ja/machinery',
+        'ar': 'https://sungene.net/ar/machinery',
+        'th': 'https://sungene.net/th/machinery',
+        'vi': 'https://sungene.net/vi/machinery',
+        'de': 'https://sungene.net/de/machinery',
+        'x-default': 'https://sungene.net/en/machinery',
+      }
+    },
+    openGraph: {
+      title: (titles as Record<string,string>)[l] || titles.en,
+      description: (descriptions as Record<string,string>)[l] || descriptions.en,
+      url: `https://sungene.net/${l}/machinery`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 const categoryIcons = [

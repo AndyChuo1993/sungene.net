@@ -20,9 +20,56 @@ const titles: Record<string, string> = {
   de: 'Verpackungsmaschinen | VFFS, HFFS, Beutel- & Kartonverpackung | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'SunGene packaging machinery includes VFFS, HFFS, premade pouch, vacuum, shrink wrap, and carton packing machines for powder, granule, liquid, and solid products. CE certified, factory-direct Taiwan.',
+  cn: 'SunGene包装机械包括立式充填封口机、卧式充填封口机、预制袋包装机、真空包装机、热缩包装机和装箱机，适用于粉末、颗粒、液体和固体产品。CE认证，台湾工厂直销。',
+  zh: 'SunGene包裝機械包括立式充填封口機、臥式充填封口機、預製袋包裝機、真空包裝機、熱縮包裝機和裝箱機，適用於粉末、顆粒、液體和固體產品。CE認證，台灣工廠直銷。',
+  fr: 'Machines d\'emballage SunGene : VFFS, HFFS, sachets préformés, sous vide, film rétractable et cartons pour poudres, granulés, liquides et solides. Certifiées CE, directement d\'usine, Taïwan.',
+  es: 'Maquinaria de empaque SunGene: VFFS, HFFS, bolsas preformadas, vacío, termoencogibles y cajas para polvos, granulados, líquidos y sólidos. Certificadas CE, directo de fábrica, Taiwán.',
+  pt: 'Maquinário de embalagem SunGene: VFFS, HFFS, sachês pré-formados, vácuo, encolhimento e caixas para pós, grânulos, líquidos e sólidos. Certificadas CE, direto da fábrica, Taiwan.',
+  ko: 'SunGene 포장 기계: 분말, 과립, 액체, 고체 제품용 VFFS, HFFS, 프리메이드 파우치, 진공, 수축포장, 박스 포장기. CE 인증, 대만 공장 직납.',
+  ja: 'SunGene包装機：粉末、顆粒、液体、固体製品向けVFFS、HFFS、プリメイドパウチ、真空、シュリンク、カートン包装機。CE認証、台湾工場直送。',
+  ar: 'آلات التعبئة SunGene: VFFS وHFFS وأكياس جاهزة وتفريغ ورقم حرارية وكراتين للمساحيق والحبيبات والسوائل والمواد الصلبة. معتمدة CE، مباشرة من المصنع، تايوان.',
+  th: 'เครื่องบรรจุภัณฑ์ SunGene: VFFS, HFFS, ถุงสำเร็จรูป, สุญญากาศ, ฟิล์มหด และกล่อง สำหรับผง เม็ด ของเหลว และของแข็ง รับรอง CE ตรงจากโรงงานไต้หวัน',
+  vi: 'Máy đóng gói SunGene: VFFS, HFFS, túi đúc sẵn, chân không, co nhiệt và thùng carton cho bột, hạt, lỏng và cứng. CE, trực tiếp từ nhà máy Đài Loan.',
+  de: 'SunGene Verpackungsmaschinen: VFFS, HFFS, vorgefertigte Beutel, Vakuum, Schrumpffolie und Kartonverpackung für Pulver, Granulate, Flüssigkeiten und Feststoffe. CE-zertifiziert, direkt ab Werk Taiwan.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['VFFS machine', 'HFFS machine', 'pouch packing machine', 'vacuum packing machine', 'shrink wrap machine', 'carton packing machine', 'packaging machine Taiwan'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/machinery/packaging`,
+      languages: {
+        'en': 'https://sungene.net/en/machinery/packaging',
+        'zh-TW': 'https://sungene.net/zh/machinery/packaging',
+        'zh-CN': 'https://sungene.net/cn/machinery/packaging',
+        'fr': 'https://sungene.net/fr/machinery/packaging',
+        'es': 'https://sungene.net/es/machinery/packaging',
+        'pt': 'https://sungene.net/pt/machinery/packaging',
+        'ko': 'https://sungene.net/ko/machinery/packaging',
+        'ja': 'https://sungene.net/ja/machinery/packaging',
+        'ar': 'https://sungene.net/ar/machinery/packaging',
+        'th': 'https://sungene.net/th/machinery/packaging',
+        'vi': 'https://sungene.net/vi/machinery/packaging',
+        'de': 'https://sungene.net/de/machinery/packaging',
+        'x-default': 'https://sungene.net/en/machinery/packaging',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/machinery/packaging`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function PackagingPage({ params }: { params: Promise<{ lang: Lang }> }) {

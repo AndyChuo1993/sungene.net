@@ -20,9 +20,56 @@ const titles: Record<string, string> = {
   de: 'Abf\u00FCll- & Versiegelungsmaschinen | Fl\u00FCssigkeit, Paste, Pulver | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'SunGene filling and sealing machinery: liquid fillers, paste fillers, powder dosing, cup sealers, bottle cappers, induction sealers and tube fillers for food, beverage, cosmetics and pharma. CE certified.',
+  cn: 'SunGene灌装封口机械：液体灌装机、膏体灌装机、粉末计量机、杯封机、旋盖机、铝箔封口机和软管灌装机，适用于食品、饮料、化妆品和制药行业。CE认证。',
+  zh: 'SunGene灌裝封口機械：液體灌裝機、膏體灌裝機、粉末計量機、杯封機、旋蓋機、鋁箔封口機和軟管灌裝機，適用於食品、飲料、化妝品和製藥行業。CE認證。',
+  fr: 'Machines de remplissage et scellage SunGene : doseuses pour liquides, pâtes et poudres, scelleuses de gobelets, capseuleuses, scelleuses par induction et machines pour tubes. Certifiées CE.',
+  es: 'Maquinaria de llenado y sellado SunGene: dosificadoras de líquidos, pastas, polvos, selladoras de vasos, tapadores de botellas, selladoras por inducción y llenadoras de tubos. CE.',
+  pt: 'Maquinário de envase e selagem SunGene: dosadoras de líquidos, pastas e pós, seladoras de copos, tampadores de garrafas, seladoras por indução e enchedoras de tubos. CE.',
+  ko: 'SunGene 충전 및 밀봉 기계: 액체, 페이스트, 분말 도징기, 컵 실러, 병 캐퍼, 유도 실러, 튜브 충전기. 식품, 음료, 화장품, 제약용. CE 인증.',
+  ja: 'SunGene充填・封口機械：液体・ペースト・粉末ドージング機、カップシーラー、瓶キャッパー、インダクションシーラー、チューブ充填機。食品・飲料・化粧品・製薬向け。CE認証。',
+  ar: 'آلات التعبئة والختم SunGene: دوازات للسوائل والمعاجين والمساحيق، سدادات أكواب، مقومات زجاجات، سدادات حثية، آلات تعبئة أنابيب. للأغذية والمشروبات ومستحضرات التجميل. CE.',
+  th: 'เครื่องบรรจุและปิดผนึก SunGene: เครื่องเติมของเหลว เพสต์ และผง เครื่องซีลถ้วย เครื่องปิดขวด เครื่องซีลอินดักชัน เครื่องบรรจุหลอด CE',
+  vi: 'Máy chiết rót và seal SunGene: máy định lượng lỏng, paste, bột; máy seal cốc; máy vặn nắp chai; máy seal cảm ứng; máy bơm tube. Thực phẩm, đồ uống, mỹ phẩm, dược. CE.',
+  de: 'SunGene Abfüll- und Versiegelungsmaschinen: Dosierer für Flüssigkeiten, Pasten und Pulver, Becherverschließer, Flaschenverschließer, Induktionsversiegler, Tubenfüller. CE.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['liquid filling machine', 'paste filling machine', 'cup sealer', 'bottle capper', 'induction sealer', 'tube filling machine', 'filling machine Taiwan'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/machinery/filling-sealing`,
+      languages: {
+        'en': 'https://sungene.net/en/machinery/filling-sealing',
+        'zh-TW': 'https://sungene.net/zh/machinery/filling-sealing',
+        'zh-CN': 'https://sungene.net/cn/machinery/filling-sealing',
+        'fr': 'https://sungene.net/fr/machinery/filling-sealing',
+        'es': 'https://sungene.net/es/machinery/filling-sealing',
+        'pt': 'https://sungene.net/pt/machinery/filling-sealing',
+        'ko': 'https://sungene.net/ko/machinery/filling-sealing',
+        'ja': 'https://sungene.net/ja/machinery/filling-sealing',
+        'ar': 'https://sungene.net/ar/machinery/filling-sealing',
+        'th': 'https://sungene.net/th/machinery/filling-sealing',
+        'vi': 'https://sungene.net/vi/machinery/filling-sealing',
+        'de': 'https://sungene.net/de/machinery/filling-sealing',
+        'x-default': 'https://sungene.net/en/machinery/filling-sealing',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/machinery/filling-sealing`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function FillingSeaingPage({ params }: { params: Promise<{ lang: Lang }> }) {

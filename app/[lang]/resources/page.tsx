@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import ResourceArticles from './ResourceArticles'
+import JsonLd from '@/components/JsonLd'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -12,9 +13,56 @@ const titles: Record<string, string> = {
   de: 'Maschinenkaufratgeber & Ressourcen | SunGene',
 }
 
+const descriptions: Record<string, string> = {
+  en: 'Practical buying guides for industrial machinery: how to choose packaging machines, VFFS vs HFFS comparison, import process from Taiwan, voltage requirements, and supplier evaluation tips.',
+  cn: '工业机械实用采购指南：如何选择包装机械、VFFS与HFFS比较、台湾进口流程、电压要求和供应商评估技巧。',
+  zh: '工業機械實用採購指南：如何選擇包裝機械、VFFS與HFFS比較、台灣進口流程、電壓要求和供應商評估技巧。',
+  fr: 'Guides pratiques d\'achat de machines industrielles : choisir sa machine, VFFS vs HFFS, importation depuis Taïwan, exigences de tension et évaluation des fournisseurs.',
+  es: 'Guías prácticas de compra de maquinaria industrial: elegir máquinas de empaque, VFFS vs HFFS, importación desde Taiwán, requisitos de voltaje y evaluación de proveedores.',
+  pt: 'Guias práticos de compra de maquinário industrial: como escolher máquinas de embalagem, VFFS vs HFFS, importação de Taiwan, requisitos de tensão e avaliação de fornecedores.',
+  ko: '산업 기계 실용 구매 가이드: 포장 기계 선택 방법, VFFS vs HFFS 비교, 대만 수입 절차, 전압 요건, 공급업체 평가 팁.',
+  ja: '産業機械の実用的な購買ガイド：包装機の選び方、VFFS vs HFFS比較、台湾からの輸入手続き、電圧要件、サプライヤー評価のヒント。',
+  ar: 'أدلة شراء عملية للآلات الصناعية: اختيار آلات التعبئة، مقارنة VFFS وHFFS، الاستيراد من تايوان، متطلبات الجهد وتقييم الموردين.',
+  th: 'คู่มือการซื้อเครื่องจักรอุตสาหกรรม: วิธีเลือกเครื่องบรรจุภัณฑ์ VFFS กับ HFFS การนำเข้าจากไต้หวัน ข้อกำหนดแรงดันไฟฟ้า และการประเมินซัพพลายเออร์',
+  vi: 'Hướng dẫn mua máy móc công nghiệp thực tế: cách chọn máy đóng gói, so sánh VFFS và HFFS, nhập khẩu từ Đài Loan, yêu cầu điện áp và đánh giá nhà cung cấp.',
+  de: 'Praktische Kaufratgeber für Industriemaschinen: Verpackungsmaschinen auswählen, VFFS vs HFFS Vergleich, Import aus Taiwan, Spannungsanforderungen und Lieferantenbeurteilung.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  return { title: titles[lang] || titles.en }
+  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  return {
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    keywords: ['packaging machine buying guide', 'how to choose packaging machine', 'VFFS HFFS comparison', 'import machinery Taiwan', 'machinery voltage requirements', 'packaging machinery guide'],
+    alternates: {
+      canonical: `https://sungene.net/${l}/resources`,
+      languages: {
+        'en': 'https://sungene.net/en/resources',
+        'zh-TW': 'https://sungene.net/zh/resources',
+        'zh-CN': 'https://sungene.net/cn/resources',
+        'fr': 'https://sungene.net/fr/resources',
+        'es': 'https://sungene.net/es/resources',
+        'pt': 'https://sungene.net/pt/resources',
+        'ko': 'https://sungene.net/ko/resources',
+        'ja': 'https://sungene.net/ja/resources',
+        'ar': 'https://sungene.net/ar/resources',
+        'th': 'https://sungene.net/th/resources',
+        'vi': 'https://sungene.net/vi/resources',
+        'de': 'https://sungene.net/de/resources',
+        'x-default': 'https://sungene.net/en/resources',
+      }
+    },
+    openGraph: {
+      title: titles[l] || titles.en,
+      description: descriptions[l] || descriptions.en,
+      url: `https://sungene.net/${l}/resources`,
+      siteName: 'SunGene Machinery',
+      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      type: 'website',
+    },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+  }
 }
 
 export default async function ResourcesPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -177,6 +225,44 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
           <ResourceArticles articles={t.articles} />
         </Container>
       </section>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Choose the Right Industrial Packaging Machine',
+        description: 'A step-by-step guide to selecting the optimal packaging or filling machine for your product, production goals, and budget.',
+        step: [
+          {
+            '@type': 'HowToStep',
+            position: 1,
+            name: 'Identify your product type',
+            text: 'Determine if your product is powder, liquid, granule, solid, or a combination. This determines the filling and packaging mechanism.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 2,
+            name: 'Define your packaging format',
+            text: 'Choose between pillow bag, stand-up pouch, bottle, sachet, can, or bulk. Each format requires different machinery.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 3,
+            name: 'Set your production speed target',
+            text: 'Calculate the bags, bottles, or units per minute or per hour you need. This determines whether you need semi-automatic or fully automatic equipment.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 4,
+            name: 'Confirm voltage and certification requirements',
+            text: 'Check your local power supply (voltage, phase, frequency) and required certifications (CE, FDA, etc.) before ordering from a foreign manufacturer.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 5,
+            name: 'Contact manufacturer for engineering consultation',
+            text: 'Send your product sample, target output, and packaging specs to SunGene engineers. They will recommend the optimal machine model and provide a detailed quote.',
+          },
+        ],
+      }} />
     </>
   )
 }
