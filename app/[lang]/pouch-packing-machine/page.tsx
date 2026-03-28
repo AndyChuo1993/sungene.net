@@ -9,6 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Pouch Packing Machine | Stand-up, Pillow Bag, Zipper Pouch | SunGene',
@@ -318,12 +319,30 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
+          {(() => {
+            const photos = [
+              aiImageUrl(
+                photoPrompt('pouch packing machine, stainless steel frame, 3/4 angle view, clean workshop background', 'machinePortrait'),
+                'landscape_4_3'
+              ),
+              aiImageUrl(
+                photoPrompt('close-up of sealing jaws and film feed rollers on an industrial packaging machine, stainless steel details', 'machineDetail'),
+                'landscape_4_3'
+              ),
+              aiImageUrl(
+                photoPrompt('industrial machine control panel with HMI touchscreen, neat wiring and buttons, factory background', 'machineDetail'),
+                'landscape_4_3'
+              ),
+            ]
+
+            return (
+              <>
           <div className="grid gap-4 sm:grid-cols-3">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+            {photos.map((src, i) => (
+              <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
                 <Image
-                  src={`/machines/pouch/${n}.jpg`}
-                  alt={`Pouch packing machine photo ${n}`}
+                  src={src}
+                  alt={`Pouch packing machine photo ${i + 1}`}
                   fill
                   sizes="(max-width:640px) 100vw, 33vw"
                   className="object-cover"
@@ -332,6 +351,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
             ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
+              </>
+            )
+          })()}
         </Container>
       </section>
 

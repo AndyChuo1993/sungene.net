@@ -15,11 +15,52 @@ export type PhotoKind =
   | 'shipping'
   | 'engineering'
 
-const BASE = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image'
+function hashToInt(input: string) {
+  let h = 2166136261
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return h >>> 0
+}
+
+function extractKind(prompt: string): PhotoKind {
+  const m = prompt.match(/\bkind=(factoryWide|lineWide|machinePortrait|machineDetail|qcDetail|shipping|engineering)\b/)
+  return (m?.[1] as PhotoKind) || 'factoryWide'
+}
 
 export function aiImageUrl(prompt: string, imageSize: AiImageSize) {
-  const p = encodeURIComponent(prompt)
-  return `${BASE}?prompt=${p}&image_size=${imageSize}`
+  const kind = extractKind(prompt)
+  const bank: Record<PhotoKind, string[]> = {
+    factoryWide: [
+      '/photos/factory/factory-wide-01.png',
+      '/photos/factory/factory-wide-02.png',
+      '/photos/factory/factory-wide-03.png',
+    ],
+    lineWide: [
+      '/photos/line/line-wide-01.png',
+      '/photos/line/line-wide-02.png',
+      '/photos/line/line-wide-03.png',
+    ],
+    machinePortrait: [
+      '/photos/machines/machine-portrait-01.png',
+      '/photos/machines/machine-portrait-02.png',
+      '/photos/machines/machine-portrait-03.png',
+    ],
+    machineDetail: [
+      '/photos/details/machine-detail-01.png',
+      '/photos/details/machine-detail-02.png',
+      '/photos/details/machine-detail-03.png',
+      '/photos/details/machine-detail-04.png',
+    ],
+    qcDetail: ['/photos/qc/qc-detail-01.png', '/photos/qc/qc-detail-02.png'],
+    shipping: ['/photos/shipping/shipping-01.png', '/photos/shipping/shipping-02.png'],
+    engineering: ['/photos/team/engineering-01.png'],
+  }
+
+  const picks = bank[kind]
+  const idx = hashToInt(`${prompt}|${imageSize}`) % picks.length
+  return picks[idx]
 }
 
 function cameraSpec(kind: PhotoKind) {
@@ -48,5 +89,5 @@ const NEGATIVE =
   'no text, no watermark, no logo, no brand, no CGI, no render, no 3d, no illustration, no cartoon, no fake lens flare, no oversaturated colors, no plastic look, no oversharpening, no HDR halos'
 
 export function photoPrompt(scene: string, kind: PhotoKind = 'factoryWide') {
-  return `${scene}, ${STYLE}, ${cameraSpec(kind)}, ${NEGATIVE}`
+  return `kind=${kind}; ${scene}, ${STYLE}, ${cameraSpec(kind)}, ${NEGATIVE}`
 }

@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sungene.net'
 
-  const langs = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de'] as const
+  const langs = ['en', 'zh', 'cn'] as const
 
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => ({
@@ -20,10 +20,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/machines/liquid-filling-machine',
     '/machines/snack-processing-line',
     '/machines/conveyor-system',
-    '/powder-packaging-machine',
-    '/liquid-filling-machine',
-    '/pouch-packing-machine',
-    '/conveyor-system',
   ]
   const machineSitemap = machinePages.flatMap(route =>
     langs.map(lang => ({

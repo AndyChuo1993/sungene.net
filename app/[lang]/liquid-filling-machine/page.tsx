@@ -9,6 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Liquid Filling Machine | Piston, Gravity, Pump Filler | SunGene',
@@ -321,12 +322,21 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
+          {(() => {
+            const photos = [
+              aiImageUrl(photoPrompt('liquid filling machine in clean factory, stainless steel, nozzles visible, 3/4 angle', 'machinePortrait'), 'landscape_4_3'),
+              aiImageUrl(photoPrompt('close-up of filling nozzles and piping on liquid filling equipment, stainless steel detail', 'machineDetail'), 'landscape_4_3'),
+              aiImageUrl(photoPrompt('bottle filling line with conveyor and capping, wide shot of production line', 'lineWide'), 'landscape_4_3'),
+            ]
+
+            return (
+              <>
           <div className="grid gap-4 sm:grid-cols-3">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
+            {photos.map((src, i) => (
+              <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
                 <Image
-                  src={`/machines/liquid/${n}.jpg`}
-                  alt={`Liquid filling machine photo ${n}`}
+                  src={src}
+                  alt={`Liquid filling machine photo ${i + 1}`}
                   fill
                   sizes="(max-width:640px) 100vw, 33vw"
                   className="object-cover"
@@ -335,6 +345,9 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
             ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
+              </>
+            )
+          })()}
         </Container>
       </section>
 

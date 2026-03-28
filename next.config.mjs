@@ -5,8 +5,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'coresg-normal.trae.ai',
-        pathname: '/api/ide/v1/text_to_image',
+        hostname: 'source.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
       },
     ],
   },
@@ -29,6 +34,12 @@ const nextConfig = {
       // Old WordPress product pages without lang prefix → homepage
       { source: '/product/:slug*', destination: '/en', permanent: true },
       { source: '/products/:slug*', destination: '/en', permanent: true },
+
+      // Legacy machine SEO pages → consolidated machine landing pages
+      { source: '/:lang/pouch-packing-machine', destination: '/:lang/machines/pouch-packing-machine', permanent: true },
+      { source: '/:lang/liquid-filling-machine', destination: '/:lang/machines/liquid-filling-machine', permanent: true },
+      { source: '/:lang/conveyor-system', destination: '/:lang/machines/conveyor-system', permanent: true },
+      { source: '/:lang/powder-packaging-machine', destination: '/:lang/machines/powder-filling-machine', permanent: true },
     ]
   },
 }
