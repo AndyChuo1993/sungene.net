@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card'
 import Link from 'next/link'
 import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -215,21 +215,9 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
   }
 
   const t = content[lang] || content['en']
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'wide shot of modern industrial production lines, stainless steel machinery, clean professional environment',
-      'factoryWide'
-    ),
-    'landscape_16_9'
-  )
+  const heroPhoto = PHOTO.pages.industries.hero
 
-  const cardPhotos = [
-    aiImageUrl(photoPrompt('powder product packaging line in factory, stainless steel packaging machine, clean environment', 'lineWide'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('liquid filling line in factory, stainless steel nozzles and bottles on conveyor', 'lineWide'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('granule and snack packaging line, multihead weigher feeding packaging machine, clean factory', 'lineWide'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('food processing line, stainless steel mixers and conveyors, hygienic factory', 'lineWide'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('consumer goods packaging line, carton packing and labeling machine, clean factory', 'lineWide'), 'landscape_4_3'),
-  ]
+  const cardPhotos = PHOTO.pages.industries.cards
 
   return (
     <>

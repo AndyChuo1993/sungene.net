@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -312,21 +312,8 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const t = content[lang] || content['en']
   const offices = officesData[lang] || officesData['en']
 
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'wide shot of an industrial machinery factory floor with stainless steel equipment, clean professional environment, subtle haze',
-      'factoryWide'
-    ),
-    'landscape_16_9'
-  )
-
-  const formPhoto = aiImageUrl(
-    photoPrompt(
-      'factory acceptance test for industrial machinery, technician hands checking HMI screen, clean workshop, faces not visible',
-      'qcDetail'
-    ),
-    'landscape_4_3'
-  )
+  const heroPhoto = PHOTO.pages.contact.hero
+  const formPhoto = PHOTO.pages.contact.formSide
 
   return (
     <>

@@ -23,7 +23,6 @@ export function Photo({
         alt={alt}
         fill
         priority={priority}
-        unoptimized={src.includes('source.unsplash.com')}
         sizes={sizes || '100vw'}
         className={cx('object-cover', imageClassName)}
       />

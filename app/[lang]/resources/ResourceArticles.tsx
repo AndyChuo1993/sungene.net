@@ -46,7 +46,7 @@ export default function ResourceArticles({
   thumbs,
 }: {
   articles: { title: string; body: string }[]
-  thumbs?: string[]
+  thumbs?: readonly string[]
 }) {
   return (
     <div className="grid gap-4">

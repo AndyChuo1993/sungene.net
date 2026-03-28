@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -332,34 +332,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const t = content[lang] || content['en']
 
   const gallery = [
-    {
-      src: aiImageUrl(
-        photoPrompt('factory exterior of a modern industrial machinery manufacturer, clean building facade, soft daylight', 'factoryWide'),
-        'landscape_4_3'
-      ),
-      alt: 'Factory exterior',
-    },
-    {
-      src: aiImageUrl(
-        photoPrompt('wide shot of a clean machinery workshop, stainless steel machines, organized tools and floor markings', 'factoryWide'),
-        'landscape_4_3'
-      ),
-      alt: 'Workshop floor',
-    },
-    {
-      src: aiImageUrl(
-        photoPrompt('quality control inspection of stainless steel machine parts, caliper and gauges, clean bench', 'qcDetail'),
-        'landscape_4_3'
-      ),
-      alt: 'Quality inspection',
-    },
-    {
-      src: aiImageUrl(
-        photoPrompt('export shipment scene: wooden crates and a container loading area, straps and pallet, professional logistics', 'shipping'),
-        'landscape_4_3'
-      ),
-      alt: 'Export shipment',
-    },
+    { src: PHOTO.pages.about.gallery[0], alt: 'Factory workshop line' },
+    { src: PHOTO.pages.about.gallery[1], alt: 'Bottling line in operation' },
+    { src: PHOTO.pages.about.gallery[2], alt: 'Industrial filling system detail' },
+    { src: PHOTO.pages.about.gallery[3], alt: 'Control system and automation' },
   ]
 
   return (

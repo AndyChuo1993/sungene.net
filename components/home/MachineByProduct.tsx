@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const content: Record<string, any> = {
   en: {
@@ -155,34 +155,10 @@ function ConveyorIcon() {
 const cardIcons = [<PowderIcon key="powder" />, <LiquidIcon key="liquid" />, <PouchIcon key="pouch" />, <ConveyorIcon key="conveyor" />]
 
 const cardPhotos = [
-  aiImageUrl(
-    photoPrompt(
-      'stainless steel powder packaging machine, auger filler head and forming tube visible, clean factory background',
-      'machinePortrait'
-    ),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt(
-      'liquid filling line, stainless steel nozzles, bottles on a conveyor, clean workshop, shallow depth of field',
-      'lineWide'
-    ),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt(
-      'pouch packing machine operating, stand-up pouches on stainless steel conveyor, clean factory',
-      'lineWide'
-    ),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt(
-      'automated conveyor production line, stainless steel belt conveyor, boxed products, clean factory',
-      'factoryWide'
-    ),
-    'landscape_4_3'
-  ),
+  PHOTO.home.machineByProduct[0],
+  PHOTO.home.machineByProduct[1],
+  PHOTO.home.machineByProduct[2],
+  PHOTO.home.machineByProduct[3],
 ]
 
 export default function MachineByProduct({ lang }: { lang: Lang }) {

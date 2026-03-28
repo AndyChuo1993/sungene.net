@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -51,13 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function CustomMachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'engineers assembling a custom stainless steel industrial machine, precision tools on workbench, clean workshop, faces not visible',
-      'engineering'
-    ),
-    'landscape_16_9'
-  )
+  const heroPhoto = PHOTO.machinery.subpageHeroes.custom
   const content: Record<string, any> = {
     en: {
       title: 'Customized Machinery Support',

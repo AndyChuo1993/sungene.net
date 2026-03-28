@@ -2,7 +2,7 @@ import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
@@ -165,13 +165,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   }
 
   const t = content[lang] || content['en']
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'wide shot of a modern stainless steel industrial machinery factory floor, packaging machines connected by conveyors, clean organized workshop, soft skylight, slight haze',
-      'factoryWide'
-    ),
-    'landscape_16_9'
-  )
+  const heroPhoto = PHOTO.home.hero
 
   return (
     <section className="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">

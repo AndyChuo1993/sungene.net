@@ -7,7 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Liquid Filling Machine | Bottles, Pouches, Cups, Tubes | SunGene',
@@ -173,13 +173,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
   const t = content[lang] || content['en']
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
 
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'liquid filling machine line, stainless steel filling nozzles, bottles on conveyor, clean factory environment',
-      'lineWide'
-    ),
-    'landscape_4_3'
-  )
+  const heroPhoto = PHOTO.machines.liquidFillingHero
 
   const jsonLd = {
     '@context': 'https://schema.org',

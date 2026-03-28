@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
@@ -70,13 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function SolutionsPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'wide shot of an integrated turnkey production line in a clean factory, stainless steel machines connected with conveyors, balanced exposure',
-      'factoryWide'
-    ),
-    'landscape_16_9'
-  )
+  const heroPhoto = PHOTO.pages.solutions.hero
 
   const content: Record<string, { title: string; desc: string; cats: { id: string; title: string; desc: string }[] }> = {
     en: {

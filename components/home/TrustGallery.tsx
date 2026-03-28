@@ -1,67 +1,31 @@
 import { Container } from '@/components/ui/Container'
 import { Photo } from '@/components/ui/Photo'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 import { Lang } from '@/lib/i18n'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const photos = [
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'macro detail of SUS304 stainless steel weld seam on industrial machinery, clean brushed surface, sharp reflections',
-        'machineDetail'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[0],
     alt: 'SUS304 weld detail',
   },
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'stainless steel control cabinet interior, neat PLC wiring and cable management, professional assembly',
-        'machineDetail'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[1],
     alt: 'Control cabinet and PLC wiring',
   },
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'close-up of packaging machine sealing jaw, stainless steel, clean workshop background',
-        'machineDetail'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[2],
     alt: 'Sealing jaw close-up',
   },
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'factory acceptance test of industrial machinery, technician hands operating HMI screen, clean production area, faces not visible',
-        'qcDetail'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[3],
     alt: 'Factory acceptance test',
   },
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'industrial machinery being packed into a wooden crate with protective foam and straps, export packaging',
-        'shipping'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[4],
     alt: 'Export wooden crate packing',
   },
   {
-    src: aiImageUrl(
-      photoPrompt(
-        'shipping container loading with industrial equipment crates, logistics scene, overcast daylight',
-        'shipping'
-      ),
-      'square_hd'
-    ),
+    src: PHOTO.home.trustGallery[5],
     alt: 'Container loading for export',
   },
 ]

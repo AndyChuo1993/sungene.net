@@ -1,30 +1,12 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const stepThumbs = {
-  0: aiImageUrl(
-    photoPrompt(
-      'engineer reviewing machinery requirements with technical drawings on a desk, industrial office, hands visible, faces not visible',
-      'engineering'
-    ),
-    'landscape_4_3'
-  ),
-  3: aiImageUrl(
-    photoPrompt(
-      'quality control inspection in a machinery factory, caliper measuring stainless steel parts, clean workshop, shallow depth of field',
-      'qcDetail'
-    ),
-    'landscape_4_3'
-  ),
-  4: aiImageUrl(
-    photoPrompt(
-      'industrial machinery packed in a wooden crate ready for export shipment, straps and corner protectors, factory loading area',
-      'shipping'
-    ),
-    'landscape_4_3'
-  ),
+  0: PHOTO.home.processThumbs[0],
+  3: PHOTO.home.processThumbs[3],
+  4: PHOTO.home.processThumbs[4],
 } as const
 
 export default function ProcessSection({ lang }: { lang: Lang }) {

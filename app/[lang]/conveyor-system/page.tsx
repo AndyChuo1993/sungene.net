@@ -9,7 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Automated Conveyor System & Production Line | Factory Automation | SunGene',
@@ -318,11 +318,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
           {(() => {
-            const photos = [
-              aiImageUrl(photoPrompt('industrial conveyor system line in factory, stainless steel belt conveyor, 3/4 angle', 'lineWide'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('close-up of conveyor rollers and stainless steel frame, industrial machinery detail', 'machineDetail'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('conveyor integration in a packaging line, wide shot of production floor with conveyors', 'factoryWide'), 'landscape_4_3'),
-            ]
+            const photos = PHOTO.legacy.conveyor
 
             return (
               <>

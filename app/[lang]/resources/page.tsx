@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import ResourceArticles from './ResourceArticles'
 import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -75,13 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function ResourcesPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'engineer reviewing packaging machinery documents on a factory floor, stainless steel machines in background, faces not visible',
-      'engineering'
-    ),
-    'landscape_16_9'
-  )
+  const heroPhoto = PHOTO.pages.resources.hero
 
   const content: Record<string, { title: string; desc: string; articles: { title: string; body: string }[] }> = {
     en: {
@@ -232,14 +226,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
 
   const t = content[lang] || content['en']
 
-  const thumbs = [
-    aiImageUrl(photoPrompt('packaging machinery selection scene in a factory, stainless steel machine, clean background', 'machinePortrait'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('two packaging machines in a clean workshop, one vertical and one horizontal, side-by-side comparison', 'lineWide'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('semi-automatic packaging station, operator hands only, bags and sealing area visible', 'engineering'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('export shipping documents on a pallet next to a wooden crate in factory loading area', 'shipping'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('industrial electrical control panel, voltage label area and neat wiring', 'machineDetail'), 'landscape_4_3'),
-    aiImageUrl(photoPrompt('factory audit scene, clipboard and checklist on a workbench with machinery in background, faces not visible', 'engineering'), 'landscape_4_3'),
-  ]
+  const thumbs = PHOTO.pages.resources.cards
 
   return (
     <>

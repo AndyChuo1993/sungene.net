@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -79,36 +79,9 @@ const categoryIcons = [
   <svg key="4" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72A9.96 9.96 0 0012 22a9.96 9.96 0 007.74-2.28" /></svg>,
 ]
 
-const catalogHero = aiImageUrl(
-  photoPrompt(
-    'wide shot of an industrial machinery workshop with packaging machines and conveyors, clean organized factory floor, soft natural light',
-    'factoryWide'
-  ),
-  'landscape_16_9'
-)
+const catalogHero = PHOTO.machinery.catalogHero
 
-const categoryPhotos = [
-  aiImageUrl(
-    photoPrompt('vertical form fill seal packaging machine, stainless steel, clean factory background', 'machinePortrait'),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt('food processing equipment in stainless steel, industrial mixer and preparation line, clean workshop', 'lineWide'),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt('filling and sealing line, nozzles and conveyor, clean factory', 'lineWide'),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt('conveyor automation system in a factory, belt conveyor and sensors, professional lighting', 'lineWide'),
-    'landscape_4_3'
-  ),
-  aiImageUrl(
-    photoPrompt('engineer assembling a custom industrial machine, stainless steel frame, clean workshop, faces not visible', 'engineering'),
-    'landscape_4_3'
-  ),
-]
+const categoryPhotos = PHOTO.machinery.categoryPhotos
 
 export default async function MachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params

@@ -9,7 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Liquid Filling Machine | Piston, Gravity, Pump Filler | SunGene',
@@ -318,11 +318,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
           {(() => {
-            const photos = [
-              aiImageUrl(photoPrompt('liquid filling machine in clean factory, stainless steel, nozzles visible, 3/4 angle', 'machinePortrait'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('close-up of filling nozzles and piping on liquid filling equipment, stainless steel detail', 'machineDetail'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('bottle filling line with conveyor and capping, wide shot of production line', 'lineWide'), 'landscape_4_3'),
-            ]
+            const photos = PHOTO.legacy.liquid
 
             return (
               <>

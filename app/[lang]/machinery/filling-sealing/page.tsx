@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
@@ -76,13 +76,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function FillingSeaingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
-  const heroPhoto = aiImageUrl(
-    photoPrompt(
-      'stainless steel liquid filling and sealing line, filling nozzles over bottles on conveyor, clean factory environment, shallow depth of field',
-      'lineWide'
-    ),
-    'landscape_4_3'
-  )
+  const heroPhoto = PHOTO.machinery.subpageHeroes.fillingSealing
 
   const content: Record<string, any> = {
     en: {

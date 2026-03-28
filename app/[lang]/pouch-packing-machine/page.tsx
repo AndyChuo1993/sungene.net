@@ -9,7 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Pouch Packing Machine | Stand-up, Pillow Bag, Zipper Pouch | SunGene',
@@ -315,20 +315,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
           {(() => {
-            const photos = [
-              aiImageUrl(
-                photoPrompt('pouch packing machine, stainless steel frame, 3/4 angle view, clean workshop background', 'machinePortrait'),
-                'landscape_4_3'
-              ),
-              aiImageUrl(
-                photoPrompt('close-up of sealing jaws and film feed rollers on an industrial packaging machine, stainless steel details', 'machineDetail'),
-                'landscape_4_3'
-              ),
-              aiImageUrl(
-                photoPrompt('industrial machine control panel with HMI touchscreen, neat wiring and buttons, factory background', 'machineDetail'),
-                'landscape_4_3'
-              ),
-            ]
+            const photos = PHOTO.legacy.pouch
 
             return (
               <>

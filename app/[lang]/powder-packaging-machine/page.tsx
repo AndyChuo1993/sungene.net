@@ -9,7 +9,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
-import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+import { PHOTO } from '@/lib/photoLibrary'
 
 const titles: Record<string, string> = {
   en: 'Powder Packaging Machine | Auger Filler, VFFS, Semi-Auto | SunGene',
@@ -318,11 +318,7 @@ export default async function PowderPackagingMachinePage({ params }: { params: P
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
           {(() => {
-            const photos = [
-              aiImageUrl(photoPrompt('powder packaging machine in clean workshop, stainless steel auger filler, 3/4 angle', 'machinePortrait'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('close-up of auger filler and hopper on powder filling equipment, stainless steel detail', 'machineDetail'), 'landscape_4_3'),
-              aiImageUrl(photoPrompt('powder filling production line with conveyors, wide shot of packaging line in factory', 'lineWide'), 'landscape_4_3'),
-            ]
+            const photos = PHOTO.legacy.powderPackaging
 
             return (
               <>
