@@ -3,30 +3,6 @@ import { useState } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { t, Lang } from '@/lib/i18n'
 
-const COUNTRY_CODES = [
-  { code: '+1', label: '+1 (US/CA)' },
-  { code: '+44', label: '+44 (UK)' },
-  { code: '+86', label: '+86 (CN)' },
-  { code: '+886', label: '+886 (TW)' },
-  { code: '+81', label: '+81 (JP)' },
-  { code: '+82', label: '+82 (KR)' },
-  { code: '+91', label: '+91 (IN)' },
-  { code: '+66', label: '+66 (TH)' },
-  { code: '+84', label: '+84 (VN)' },
-  { code: '+62', label: '+62 (ID)' },
-  { code: '+63', label: '+63 (PH)' },
-  { code: '+55', label: '+55 (BR)' },
-  { code: '+49', label: '+49 (DE)' },
-  { code: '+33', label: '+33 (FR)' },
-  { code: '+34', label: '+34 (ES)' },
-  { code: '+971', label: '+971 (UAE)' },
-  { code: '+966', label: '+966 (SA)' },
-  { code: '+234', label: '+234 (NG)' },
-  { code: '+27', label: '+27 (ZA)' },
-  { code: '+61', label: '+61 (AU)' },
-  { code: '+65', label: '+65 (SG)' },
-  { code: '+60', label: '+60 (MY)' },
-]
 
 export type FormField = {
   name: string
@@ -95,13 +71,7 @@ export default function InquiryForm({
     const data: Record<string, string> = {}
     
     fields.forEach(field => {
-      if (field.type === 'phone-intl') {
-        const countryCode = formData.get(`${field.name}_code`) as string || ''
-        const phoneNumber = formData.get(`${field.name}_number`) as string || ''
-        data[field.name] = phoneNumber ? `${countryCode} ${phoneNumber}` : ''
-      } else {
-        data[field.name] = formData.get(field.name) as string
-      }
+      data[field.name] = formData.get(field.name) as string || ''
     })
 
     // Validate email if present
@@ -215,26 +185,15 @@ export default function InquiryForm({
               className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
             />
           ) : field.type === 'phone-intl' ? (
-            <div className="flex gap-2">
-              <select
-                name={`${field.name}_code`}
-                defaultValue="+886"
-                className="w-[130px] shrink-0 rounded-md border border-gray-300 bg-white px-3 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
-              >
-                {COUNTRY_CODES.map(cc => (
-                  <option key={cc.code} value={cc.code}>{cc.label}</option>
-                ))}
-              </select>
-              <input
-                type="tel"
-                id={field.name}
-                name={`${field.name}_number`}
-                required={field.required}
-                placeholder={field.placeholder || '912345678'}
-                autoComplete="tel-national"
-                className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
-              />
-            </div>
+            <input
+              type="tel"
+              id={field.name}
+              name={field.name}
+              required={field.required}
+              placeholder={field.placeholder || '+1 555 123 4567'}
+              autoComplete="tel"
+              className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
+            />
           ) : (
             <input
               type={field.type}

@@ -30,6 +30,12 @@ const descriptions: Record<string, string> = {
   de: 'Praktische Kaufratgeber für Industriemaschinen: Verpackungsmaschinen auswählen, VFFS vs HFFS Vergleich, Import aus Taiwan, Spannungsanforderungen und Lieferantenbeurteilung.',
 }
 
+export const dynamic = 'force-static'
+
+export async function generateStaticParams() {
+  return ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de'].map(lang => ({ lang }))
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
