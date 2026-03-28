@@ -33,29 +33,37 @@ export function aiImageUrl(prompt: string, imageSize: AiImageSize) {
   const kind = extractKind(prompt)
   const bank: Record<PhotoKind, string[]> = {
     factoryWide: [
-      '/photos/factory/factory-wide-01.png',
-      '/photos/factory/factory-wide-02.png',
-      '/photos/factory/factory-wide-03.png',
+      'https://images.unsplash.com/photo-1681823291555-5eff16619bc9?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1566930665082-4ae9dbbb5b6b?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1568561586426-10f4ce2dafc5?w=1200&q=80&auto=format&fit=crop',
     ],
     lineWide: [
-      '/photos/line/line-wide-01.png',
-      '/photos/line/line-wide-02.png',
-      '/photos/line/line-wide-03.png',
+      'https://images.unsplash.com/photo-1661962510909-4be27f3637a2?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1651525670114-2b8117390b28?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1617448570646-652843c87581?w=1200&q=80&auto=format&fit=crop',
     ],
     machinePortrait: [
-      '/photos/machines/machine-portrait-01.png',
-      '/photos/machines/machine-portrait-02.png',
-      '/photos/machines/machine-portrait-03.png',
+      'https://images.unsplash.com/photo-1682144944581-7ed4b3e8ea93?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1200&q=80&auto=format&fit=crop',
     ],
     machineDetail: [
-      '/photos/details/machine-detail-01.png',
-      '/photos/details/machine-detail-02.png',
-      '/photos/details/machine-detail-03.png',
-      '/photos/details/machine-detail-04.png',
+      'https://images.unsplash.com/photo-1682146121756-10d8209fe077?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1512843481120-4dacde663335?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1683129724452-f22cabb0ff4d?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1670490340295-95b418fe59a4?w=1200&q=80&auto=format&fit=crop',
     ],
-    qcDetail: ['/photos/qc/qc-detail-01.png', '/photos/qc/qc-detail-02.png'],
-    shipping: ['/photos/shipping/shipping-01.png', '/photos/shipping/shipping-02.png'],
-    engineering: ['/photos/team/engineering-01.png'],
+    qcDetail: [
+      'https://images.unsplash.com/photo-1664475199571-78ba92b90e24?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1599583863916-e06c29087f51?w=1200&q=80&auto=format&fit=crop',
+    ],
+    shipping: [
+      'https://images.unsplash.com/photo-1578351709091-33ee78a1565d?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1608497454474-29b2a8e9fa91?w=1200&q=80&auto=format&fit=crop',
+    ],
+    engineering: [
+      'https://images.unsplash.com/photo-1681822947398-fa5de700de71?w=1200&q=80&auto=format&fit=crop',
+    ],
   }
 
   const picks = bank[kind]
