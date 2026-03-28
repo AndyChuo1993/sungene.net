@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -76,6 +77,37 @@ const categoryIcons = [
   <svg key="2" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" /></svg>,
   <svg key="3" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>,
   <svg key="4" className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72A9.96 9.96 0 0012 22a9.96 9.96 0 007.74-2.28" /></svg>,
+]
+
+const catalogHero = aiImageUrl(
+  photoPrompt(
+    'wide shot of an industrial machinery workshop with packaging machines and conveyors, clean organized factory floor, soft natural light',
+    'factoryWide'
+  ),
+  'landscape_16_9'
+)
+
+const categoryPhotos = [
+  aiImageUrl(
+    photoPrompt('vertical form fill seal packaging machine, stainless steel, clean factory background', 'machinePortrait'),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt('food processing equipment in stainless steel, industrial mixer and preparation line, clean workshop', 'lineWide'),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt('filling and sealing line, nozzles and conveyor, clean factory', 'lineWide'),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt('conveyor automation system in a factory, belt conveyor and sensors, professional lighting', 'lineWide'),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt('engineer assembling a custom industrial machine, stainless steel frame, clean workshop, faces not visible', 'engineering'),
+    'landscape_4_3'
+  ),
 ]
 
 export default async function MachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -263,8 +295,14 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <section className="bg-brand-950 pt-8 pb-16">
-        <Container>
+      <section className="relative overflow-hidden bg-brand-950 pt-10 pb-16">
+        <div className="absolute inset-0">
+          <Image src={catalogHero} alt="Industrial machinery catalog" fill priority sizes="100vw" className="object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-950/70 to-brand-950/95" />
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.06]" />
+
+        <Container className="relative">
           <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-300">{t.desc}</p>
@@ -280,6 +318,16 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
                 href={categoryHrefs[i] || `/${lang}/machinery`}
                 className="group relative rounded-2xl bg-white p-8 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2 hover:ring-accent-200"
               >
+                <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-xl bg-gray-100">
+                  <Image
+                    src={categoryPhotos[i]}
+                    alt={`${c.title} photo`}
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 92vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/10 via-transparent to-transparent" />
+                </div>
                 {c.badge && (
                   <span className="absolute top-4 right-4 rounded-full bg-accent-100 px-3 py-1 text-xs font-bold text-accent-700">{c.badge}</span>
                 )}

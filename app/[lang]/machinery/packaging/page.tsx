@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
@@ -75,6 +76,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function PackagingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'stainless steel VFFS packaging machine in a clean factory, packaging film and forming tube visible, shallow depth of field',
+      'machinePortrait'
+    ),
+    'landscape_4_3'
+  )
 
   const content: Record<string, { title: string; p1: string; p2: string; subTitle: string; cons: string[]; cta: string; machines: string[] }> = {
     en: {
@@ -205,7 +213,9 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
               </div>
 
               <div className="mt-8">
-                <Image src="/machinery/hero-packaging.svg" alt="Packaging Machinery - VFFS Machine" width={600} height={400} className="rounded-xl" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+                  <Image src={heroPhoto} alt="Packaging machinery in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
+                </div>
               </div>
             </div>
 

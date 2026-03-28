@@ -4,6 +4,8 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
@@ -68,6 +70,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function SolutionsPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'wide shot of an integrated turnkey production line in a clean factory, stainless steel machines connected with conveyors, balanced exposure',
+      'factoryWide'
+    ),
+    'landscape_16_9'
+  )
 
   const content: Record<string, { title: string; desc: string; cats: { id: string; title: string; desc: string }[] }> = {
     en: {
@@ -209,6 +218,15 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   return (
     <>
       <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-12">
+        <Container>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+            <div className="relative aspect-[16/9] bg-gray-100">
+              <Image src={heroPhoto} alt="Turnkey production line in factory" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
+            </div>
+          </div>
+        </Container>
+      </section>
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6">

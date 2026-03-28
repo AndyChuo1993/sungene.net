@@ -5,6 +5,8 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import Link from 'next/link'
 import JsonLd from '@/components/JsonLd'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -213,16 +215,43 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
   }
 
   const t = content[lang] || content['en']
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'wide shot of modern industrial production lines, stainless steel machinery, clean professional environment',
+      'factoryWide'
+    ),
+    'landscape_16_9'
+  )
+
+  const cardPhotos = [
+    aiImageUrl(photoPrompt('powder product packaging line in factory, stainless steel packaging machine, clean environment', 'lineWide'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('liquid filling line in factory, stainless steel nozzles and bottles on conveyor', 'lineWide'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('granule and snack packaging line, multihead weigher feeding packaging machine, clean factory', 'lineWide'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('food processing line, stainless steel mixers and conveyors, hygienic factory', 'lineWide'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('consumer goods packaging line, carton packing and labeling machine, clean factory', 'lineWide'), 'landscape_4_3'),
+  ]
 
   return (
     <>
       <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-12">
+        <Container>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+            <div className="relative aspect-[16/9] bg-gray-100">
+              <Image src={heroPhoto} alt="Industrial applications" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
+            </div>
+          </div>
+        </Container>
+      </section>
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             {t.cats.map((c, i) => (
               <Link key={i} href={c.href} className="block transition hover:opacity-90">
                 <Card className="p-8 h-full">
+                  <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-xl bg-gray-100">
+                    <Image src={cardPhotos[i] || heroPhoto} alt={`${c.title} factory photo`} fill sizes="(min-width: 1024px) 45vw, 92vw" className="object-cover" />
+                  </div>
                   <h2 className="text-lg font-semibold text-gray-950 sm:text-xl">{c.title}</h2>
                   <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
                 </Card>

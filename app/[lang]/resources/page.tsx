@@ -4,6 +4,8 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import ResourceArticles from './ResourceArticles'
 import JsonLd from '@/components/JsonLd'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -67,6 +69,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function ResourcesPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'engineer reviewing packaging machinery documents on a factory floor, stainless steel machines in background, faces not visible',
+      'engineering'
+    ),
+    'landscape_16_9'
+  )
 
   const content: Record<string, { title: string; desc: string; articles: { title: string; body: string }[] }> = {
     en: {
@@ -217,12 +226,30 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
 
   const t = content[lang] || content['en']
 
+  const thumbs = [
+    aiImageUrl(photoPrompt('packaging machinery selection scene in a factory, stainless steel machine, clean background', 'machinePortrait'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('two packaging machines in a clean workshop, one vertical and one horizontal, side-by-side comparison', 'lineWide'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('semi-automatic packaging station, operator hands only, bags and sealing area visible', 'engineering'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('export shipping documents on a pallet next to a wooden crate in factory loading area', 'shipping'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('industrial electrical control panel, voltage label area and neat wiring', 'machineDetail'), 'landscape_4_3'),
+    aiImageUrl(photoPrompt('factory audit scene, clipboard and checklist on a workbench with machinery in background, faces not visible', 'engineering'), 'landscape_4_3'),
+  ]
+
   return (
     <>
       <PageHeader title={t.title} desc={t.desc} />
+      <section className="py-12">
+        <Container>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+            <div className="relative aspect-[16/9] bg-gray-100">
+              <Image src={heroPhoto} alt="Machinery buying guides" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
+            </div>
+          </div>
+        </Container>
+      </section>
       <section className="py-16 sm:py-20">
         <Container>
-          <ResourceArticles articles={t.articles} />
+          <ResourceArticles articles={t.articles} thumbs={thumbs} />
         </Container>
       </section>
       <JsonLd data={{

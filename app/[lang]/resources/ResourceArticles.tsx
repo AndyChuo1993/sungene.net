@@ -1,8 +1,19 @@
 'use client'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import Image from 'next/image'
 
-function ArticleItem({ index, title, body }: { index: number; title: string; body: string }) {
+function ArticleItem({
+  index,
+  title,
+  body,
+  thumbSrc,
+}: {
+  index: number
+  title: string
+  body: string
+  thumbSrc?: string
+}) {
   const [open, setOpen] = useState(false)
   return (
     <Card className="overflow-hidden">
@@ -12,6 +23,11 @@ function ArticleItem({ index, title, body }: { index: number; title: string; bod
       >
         <div className="flex items-center gap-4 min-w-0">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-100 text-sm font-bold text-accent-700">{index + 1}</span>
+          {thumbSrc ? (
+            <span className="relative hidden h-12 w-16 shrink-0 overflow-hidden rounded-lg bg-gray-100 ring-1 ring-gray-200/60 sm:inline-block">
+              <Image src={thumbSrc} alt="" fill sizes="64px" className="object-cover" />
+            </span>
+          ) : null}
           <span className="min-w-0 text-base font-semibold text-gray-950">{title}</span>
         </div>
         <svg className={`h-5 w-5 shrink-0 text-gray-400 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -25,11 +41,17 @@ function ArticleItem({ index, title, body }: { index: number; title: string; bod
   )
 }
 
-export default function ResourceArticles({ articles }: { articles: { title: string; body: string }[] }) {
+export default function ResourceArticles({
+  articles,
+  thumbs,
+}: {
+  articles: { title: string; body: string }[]
+  thumbs?: string[]
+}) {
   return (
     <div className="grid gap-4">
       {articles.map((a, i) => (
-        <ArticleItem key={i} index={i} title={a.title} body={a.body} />
+        <ArticleItem key={i} index={i} title={a.title} body={a.body} thumbSrc={thumbs?.[i]} />
       ))}
     </div>
   )

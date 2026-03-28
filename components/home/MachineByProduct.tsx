@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const content: Record<string, any> = {
   en: {
@@ -152,6 +154,37 @@ function ConveyorIcon() {
 
 const cardIcons = [<PowderIcon key="powder" />, <LiquidIcon key="liquid" />, <PouchIcon key="pouch" />, <ConveyorIcon key="conveyor" />]
 
+const cardPhotos = [
+  aiImageUrl(
+    photoPrompt(
+      'stainless steel powder packaging machine, auger filler head and forming tube visible, clean factory background',
+      'machinePortrait'
+    ),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt(
+      'liquid filling line, stainless steel nozzles, bottles on a conveyor, clean workshop, shallow depth of field',
+      'lineWide'
+    ),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt(
+      'pouch packing machine operating, stand-up pouches on stainless steel conveyor, clean factory',
+      'lineWide'
+    ),
+    'landscape_4_3'
+  ),
+  aiImageUrl(
+    photoPrompt(
+      'automated conveyor production line, stainless steel belt conveyor, boxed products, clean factory',
+      'factoryWide'
+    ),
+    'landscape_4_3'
+  ),
+]
+
 export default function MachineByProduct({ lang }: { lang: Lang }) {
   const t = content[lang] || content['en']
 
@@ -172,8 +205,19 @@ export default function MachineByProduct({ lang }: { lang: Lang }) {
               href={`/${lang}/${card.slug}`}
               className="group block rounded-2xl bg-brand-900 border border-brand-800 p-6 transition duration-200 hover:border-accent-500 hover:shadow-[0_0_0_1px_theme(colors.accent.500)] hover:-translate-y-0.5"
             >
+              <div className="relative aspect-[3/2] overflow-hidden rounded-xl bg-brand-800">
+                <Image
+                  src={cardPhotos[i]}
+                  alt={`${card.label} machinery in factory`}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 92vw"
+                  className="object-cover opacity-90 transition duration-300 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-brand-950/0 to-brand-950/0" />
+              </div>
+
               {/* Icon circle */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-500/20 text-accent-400 mb-4 group-hover:bg-accent-500/30 transition">
+              <div className="-mt-7 inline-flex h-14 w-14 items-center justify-center rounded-full bg-accent-500/20 text-accent-300 ring-1 ring-white/10 backdrop-blur transition group-hover:bg-accent-500/30">
                 {cardIcons[i]}
               </div>
 

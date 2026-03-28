@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
@@ -75,6 +76,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function ConveyingAutomationPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'conveyor automation system in a clean factory, stainless steel belt conveyor with sensors and guards, neat cable routing',
+      'lineWide'
+    ),
+    'landscape_4_3'
+  )
 
   const content: Record<string, any> = {
     en: {
@@ -205,7 +213,9 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
               </div>
 
               <div className="mt-8">
-                <Image src="/machinery/hero-conveyor.svg" alt="Conveying & Automation Systems" width={600} height={400} className="rounded-xl" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+                  <Image src={heroPhoto} alt="Conveying automation system in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
+                </div>
               </div>
             </div>
 

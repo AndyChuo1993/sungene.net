@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'coresg-normal.trae.ai',
+        pathname: '/api/ide/v1/text_to_image',
+      },
+    ],
+  },
   async redirects() {
     return [
       // All old service/export pages → machinery

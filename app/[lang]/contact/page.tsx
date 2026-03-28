@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -310,11 +312,33 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const t = content[lang] || content['en']
   const offices = officesData[lang] || officesData['en']
 
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'wide shot of an industrial machinery factory floor with stainless steel equipment, clean professional environment, subtle haze',
+      'factoryWide'
+    ),
+    'landscape_16_9'
+  )
+
+  const formPhoto = aiImageUrl(
+    photoPrompt(
+      'factory acceptance test for industrial machinery, technician hands checking HMI screen, clean workshop, faces not visible',
+      'qcDetail'
+    ),
+    'landscape_4_3'
+  )
+
   return (
     <>
       {/* Header */}
-      <section className="bg-brand-950 py-16 sm:py-20">
-        <Container>
+      <section className="relative overflow-hidden bg-brand-950 py-16 sm:py-20">
+        <div className="absolute inset-0">
+          <Image src={heroPhoto} alt="Contact SunGene factory" fill priority sizes="100vw" className="object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-950/70 to-brand-950/95" />
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.06]" />
+
+        <Container className="relative">
           <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-300">{t.desc}</p>
@@ -401,6 +425,11 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
             {/* ── Right column — Form ── */}
             <div className="lg:col-span-3">
               <Card className="p-8 shadow-elev-2">
+                <div className="mb-8 overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+                  <div className="relative aspect-[4/3] bg-gray-100">
+                    <Image src={formPhoto} alt="Factory test and engineering" fill sizes="(min-width: 1024px) 56vw, 92vw" className="object-cover" />
+                  </div>
+                </div>
                 <InquiryForm
                   lang={lang}
                   type="Contact"

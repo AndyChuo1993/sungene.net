@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -330,6 +331,37 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
 
   const t = content[lang] || content['en']
 
+  const gallery = [
+    {
+      src: aiImageUrl(
+        photoPrompt('factory exterior of a modern industrial machinery manufacturer, clean building facade, soft daylight', 'factoryWide'),
+        'landscape_4_3'
+      ),
+      alt: 'Factory exterior',
+    },
+    {
+      src: aiImageUrl(
+        photoPrompt('wide shot of a clean machinery workshop, stainless steel machines, organized tools and floor markings', 'factoryWide'),
+        'landscape_4_3'
+      ),
+      alt: 'Workshop floor',
+    },
+    {
+      src: aiImageUrl(
+        photoPrompt('quality control inspection of stainless steel machine parts, caliper and gauges, clean bench', 'qcDetail'),
+        'landscape_4_3'
+      ),
+      alt: 'Quality inspection',
+    },
+    {
+      src: aiImageUrl(
+        photoPrompt('export shipment scene: wooden crates and a container loading area, straps and pallet, professional logistics', 'shipping'),
+        'landscape_4_3'
+      ),
+      alt: 'Export shipment',
+    },
+  ]
+
   return (
     <>
       {/* Hero — stats integrated inside dark section, no floating */}
@@ -371,6 +403,17 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
             <span className="text-accent-600 text-xs font-bold uppercase tracking-[0.2em]">{t.strengthsTitle}</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl max-w-2xl">{t.strengthsTitle}</h2>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {gallery.map((p) => (
+              <div key={p.alt} className="overflow-hidden rounded-2xl bg-gray-100 ring-1 ring-gray-200/60">
+                <div className="relative aspect-[4/3]">
+                  <Image src={p.src} alt={p.alt} fill sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 92vw" className="object-cover" />
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {t.strengths.map((s: { title: string; desc: string }, i: number) => (
               <Card key={i} className="p-8 border-0 shadow-elev-1 hover:shadow-elev-2 transition-shadow">

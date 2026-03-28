@@ -7,6 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 const titles: Record<string, string> = {
   en: 'Conveyor & Automation Systems | Belt, Bucket, Screw, Robotic | SunGene',
@@ -178,6 +179,14 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
   const t = content[lang] || content['en']
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
 
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'conveyor and automation system in a clean factory, stainless steel belt conveyor with sensors, guards and neat cable routing',
+      'lineWide'
+    ),
+    'landscape_4_3'
+  )
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -221,7 +230,9 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
                 ))}
               </div>
               <div className="mt-8">
-                <Image src="/machinery/hero-conveyor.svg" alt="Conveyor and Automation Systems" width={600} height={400} className="rounded-xl" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+                  <Image src={heroPhoto} alt="Conveyor and automation systems in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
+                </div>
               </div>
             </div>
             <div className="space-y-6">

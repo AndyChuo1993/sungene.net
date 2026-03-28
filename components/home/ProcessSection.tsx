@@ -1,5 +1,31 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
+
+const stepThumbs = {
+  0: aiImageUrl(
+    photoPrompt(
+      'engineer reviewing machinery requirements with technical drawings on a desk, industrial office, hands visible, faces not visible',
+      'engineering'
+    ),
+    'landscape_4_3'
+  ),
+  3: aiImageUrl(
+    photoPrompt(
+      'quality control inspection in a machinery factory, caliper measuring stainless steel parts, clean workshop, shallow depth of field',
+      'qcDetail'
+    ),
+    'landscape_4_3'
+  ),
+  4: aiImageUrl(
+    photoPrompt(
+      'industrial machinery packed in a wooden crate ready for export shipment, straps and corner protectors, factory loading area',
+      'shipping'
+    ),
+    'landscape_4_3'
+  ),
+} as const
 
 export default function ProcessSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
@@ -158,6 +184,20 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
               )}
               <h3 className="mt-5 text-lg font-bold">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-300">{item.desc}</p>
+
+              {i in stepThumbs ? (
+                <div className="mx-auto mt-5 hidden w-[150px] overflow-hidden rounded-xl ring-1 ring-white/10 md:block">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={stepThumbs[i as keyof typeof stepThumbs]}
+                      alt={`${item.title} - factory photo`}
+                      fill
+                      sizes="150px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ) : null}
             </div>
           ))}
         </div>

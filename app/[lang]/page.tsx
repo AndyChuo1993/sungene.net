@@ -9,6 +9,7 @@ import ProcessSection from '@/components/home/ProcessSection'
 import Applications from '@/components/home/Applications'
 import CTASection from '@/components/home/CTASection'
 import FAQ from '@/components/home/FAQ'
+import TrustGallery from '@/components/home/TrustGallery'
 
 type PageParams = {
   params: Promise<{ lang?: string }>
@@ -181,6 +182,7 @@ export default async function Page({ params }: PageParams) {
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />
       <ProcessSection lang={safeLang} />
+      <TrustGallery lang={safeLang} />
       <Applications lang={safeLang} />
       <CTASection lang={safeLang} />
       <FAQ lang={safeLang} />

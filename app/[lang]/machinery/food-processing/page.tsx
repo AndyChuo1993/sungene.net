@@ -4,6 +4,8 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
+import Image from 'next/image'
+import { aiImageUrl, photoPrompt } from '@/lib/aiImage'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -49,6 +51,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function FoodProcessingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const heroPhoto = aiImageUrl(
+    photoPrompt(
+      'food processing production line in a clean stainless steel factory, industrial mixer and conveyor, hygienic environment',
+      'lineWide'
+    ),
+    'landscape_16_9'
+  )
   const content: Record<string, any> = {
     en: {
       title: 'Food Processing Machinery Solutions',
@@ -156,6 +165,12 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
         <Container className="max-w-5xl">
           <div className="max-w-3xl">
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
+          </div>
+
+          <div className="mt-10 overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
+            <div className="relative aspect-[16/9] bg-gray-100">
+              <Image src={heroPhoto} alt="Food processing machinery in factory" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
+            </div>
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
