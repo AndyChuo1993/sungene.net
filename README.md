@@ -13,7 +13,7 @@
 ## 必填環境變數（Production）
 | 變數名稱 | 說明 |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | 站點正式網域（含 https://，不含結尾 /）。用於 sitemap / layout canonical。目前機器頁（machines/*）仍有硬編碼，未完全套用此變數。 |
+| `NEXT_PUBLIC_SITE_URL` | 站點正式網域（含 https://，不含結尾 /）。由 `lib/siteConfig.ts` 的 `SITE_URL` 統一讀取，套用至所有頁面 canonical / hreflang / OG / sitemap / robots。 |
 
 ## 可選環境變數
 | 變數名稱 | 說明 |
@@ -41,7 +41,9 @@
 ## 打包/交付注意
 - 交付/部署請只包含原始碼與必要設定（app、components、data、lib、public、package.json/lock）。
 - 請勿把敏感或雜項一起打包：`.env*`、`.git`、`.next`、`node_modules`、`reports`、`*.log`、`*.zip`。
-- `data/inquiries.ndjson` 已在 `.gitignore`，不納入版本控制。
+- 執行期產生的 `data/*.ndjson` / `data/*.json` 已在 `.gitignore`，不納入版本控制。
+
+> **⚠️ 正式環境 SMTP 必確認**：SMTP 相關變數若全部未設定，email 停用，詢價 / 產品詢價 / analytics 會回落寫入本機 `data/` 目錄。Cloud Run 容器重啟後該目錄不保留，資料將消失。上線前請確認 `MAIL_HOST`、`MAIL_USER`、`MAIL_PASS`（或 `SMTP_URL`）已正確設定，並實測收信。
 
 ## SEO 與 Sitemap/Robots
 - `/sitemap.xml`：靜態手寫路由，涵蓋全部 12 語系（ALL_LANGS）× 各頁面，依優先度分組（homepage 1.0、machine pages 0.9、machinery 0.85、support 0.7）
@@ -49,4 +51,4 @@
 - Metadata：
   - layout 設定 metadataBase / canonical，所有 12 語系均有 description
   - 詳細頁帶 description / OG images / canonical / hreflang（12 語系）
-  - 站點 URL 主要由 `lib/siteConfig.ts` 的 `SITE_URL` 常數管理（讀取 `NEXT_PUBLIC_SITE_URL`，預設 `https://sungene.net`）；machines/* 子頁目前仍有硬編碼待統一
+  - 所有頁面站點 URL 統一由 `lib/siteConfig.ts` 的 `SITE_URL` 管理（canonical、hreflang、openGraph、JSON-LD、robots、sitemap 全部套用）
