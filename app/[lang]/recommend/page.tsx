@@ -1,447 +1,401 @@
-import { Lang } from '@/lib/i18n'
-import InquiryForm from '@/components/InquiryForm'
 import type { Metadata } from 'next'
-import { Container } from '@/components/ui/Container'
-import { Card } from '@/components/ui/Card'
+import { Lang } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
+import { Container } from '@/components/ui/Container'
+import JsonLd from '@/components/JsonLd'
+import RecommendForm from '@/components/RecommendForm'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+// ── Metadata ──────────────────────────────────────────────────────────────────
+
+const metaTitles: Record<string, string> = {
+  en: 'Get a Machine Recommendation | Packaging & Filling Machinery | SunGene',
+  cn: '获取机械推荐 | 包装与灌装机械 | SunGene',
+  zh: '取得機械推薦 | 包裝與灌裝機械 | SunGene',
+  fr: 'Obtenir une recommandation de machine | Machines d\'emballage et de remplissage | SunGene',
+  es: 'Obtener recomendación de máquina | Maquinaria de empaque y llenado | SunGene',
+  pt: 'Obter recomendação de máquina | Máquinas de embalagem e enchimento | SunGene',
+  ko: '기계 추천 받기 | 포장 및 충전 기계 | SunGene',
+  ja: '機械の推薦を受ける | 包装・充填機械 | SunGene',
+  ar: 'احصل على توصية بالآلة | آلات التعبئة والتغليف والملء | SunGene',
+  th: 'รับคำแนะนำเครื่องจักร | เครื่องบรรจุภัณฑ์และบรรจุ | SunGene',
+  vi: 'Nhận đề xuất máy | Máy đóng gói và chiết rót | SunGene',
+  de: 'Maschinenempfehlung erhalten | Verpackungs- und Abfüllmaschinen | SunGene',
+}
+
+const metaDescriptions: Record<string, string> = {
+  en: 'Describe your product and production goals. Our engineers will match you with the right packaging or filling machine — free, within 1–2 business days. No model numbers needed.',
+  cn: '描述您的产品和生产目标。我们的工程师将在1-2个工作日内为您匹配合适的包装或灌装机械——免费，无需型号。',
+  zh: '描述您的產品和生產目標。我們的工程師將在1-2個工作日內為您匹配合適的包裝或灌裝機械——免費，無需型號。',
+  fr: 'Décrivez votre produit et vos objectifs. Nos ingénieurs vous recommandent la bonne machine d\'emballage ou de remplissage — gratuitement, sous 1 à 2 jours ouvrés.',
+  es: 'Describa su producto y metas de producción. Nuestros ingenieros le recomendarán la máquina de empaque o llenado adecuada — gratis, en 1-2 días hábiles.',
+  pt: 'Descreva seu produto e metas de produção. Nossos engenheiros indicarão a máquina de embalagem ou enchimento certa — gratuitamente, em 1 a 2 dias úteis.',
+  ko: '제품과 생산 목표를 설명해 주세요. 당사 엔지니어가 1-2 영업일 내에 적합한 포장 또는 충전 기계를 무료로 추천해 드립니다.',
+  ja: '製品と生産目標を教えてください。エンジニアが1〜2営業日以内に適切な包装・充填機械を無料でご提案します。',
+  ar: 'صف منتجك وأهداف إنتاجك. سيقترح مهندسونا الآلة المناسبة للتعبئة أو التغليف مجاناً خلال 1-2 يوم عمل.',
+  th: 'อธิบายผลิตภัณฑ์และเป้าหมายการผลิตของคุณ วิศวกรจะแนะนำเครื่องบรรจุหรือเครื่องบรรจุภัณฑ์ที่เหมาะสม ฟรี ภายใน 1-2 วันทำการ',
+  vi: 'Mô tả sản phẩm và mục tiêu sản xuất. Kỹ sư sẽ đề xuất máy đóng gói hoặc chiết rót phù hợp — miễn phí, trong 1-2 ngày làm việc.',
+  de: 'Beschreiben Sie Ihr Produkt und Ihre Produktionsziele. Unsere Ingenieure empfehlen die passende Verpackungs- oder Abfüllmaschine — kostenlos, innerhalb von 1–2 Werktagen.',
+}
+
+const VALID_LANGS = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  const titles: Record<string, string> = {
-    en: 'Get a Machine Recommendation | SunGene Machinery',
-    cn: '获取机器推荐 | SunGene 机械',
-    zh: '取得機器推薦 | SunGene 機械',
-    fr: 'Obtenez une recommandation de machine | SunGene Machinery',
-    es: 'Obtenga una recomendación de máquina | SunGene Machinery',
-    pt: 'Receba uma recomendação de máquina | SunGene Machinery',
-    ko: '기계 추천 받기 | SunGene Machinery',
-    ja: '機械推薦を受ける | SunGene Machinery',
-    ar: 'احصل على توصية بالماكينة | SunGene Machinery',
-    th: 'รับคำแนะนำเครื่องจักร | SunGene Machinery',
-    vi: 'Nhận đề xuất máy | SunGene Machinery',
-    de: 'Maschinenempfehlung erhalten | SunGene Machinery',
-  }
-  const descriptions: Record<string, string> = {
-    en: 'Tell us about your product and production goals. Our engineers will recommend the best machinery solution within 24 hours. Free consultation, no obligation.',
-    cn: '告诉我们您的产品和生产目标。我们的工程师将在24小时内推荐最佳机械方案。免费咨询，无义务。',
-    zh: '告訴我們您的產品和生產目標。我們的工程師將在24小時內推薦最佳機械方案。免費諮詢，無義務。',
-    fr: 'Parlez-nous de votre produit et de vos objectifs de production. Nos ingénieurs vous recommanderont la meilleure solution machines sous 24 heures. Consultation gratuite, sans obligation.',
-    es: 'Cuéntenos sobre su producto y objetivos de producción. Nuestros ingenieros le recomendarán la mejor solución de maquinaria en 24 horas. Consulta gratuita, sin compromiso.',
-    pt: 'Conte-nos sobre seu produto e metas de produção. Nossos engenheiros recomendarão a melhor solução em maquinário em 24 horas. Consulta gratuita, sem compromisso.',
-    ko: '제품과 생산 목표를 알려주세요. 당사 엔지니어가 24시간 이내에 최적의 기계 솔루션을 추천해 드립니다. 무료 상담, 의무 없음.',
-    ja: '製品と生産目標をお知らせください。エンジニアが24時間以内に最適な機械ソリューションをご提案します。無料相談、義務なし。',
-    ar: 'أخبرنا عن منتجك وأهداف الإنتاج. سيوصي مهندسونا بأفضل حل للماكينات خلال 24 ساعة. استشارة مجانية بدون التزام.',
-    th: 'บอกเราเกี่ยวกับผลิตภัณฑ์และเป้าหมายการผลิตของคุณ วิศวกรจะแนะนำโซลูชันเครื่องจักรที่ดีที่สุดภายใน 24 ชั่วโมง ปรึกษาฟรี ไม่มีข้อผูกมัด',
-    vi: 'Cho chúng tôi biết về sản phẩm và mục tiêu sản xuất của bạn. Kỹ sư sẽ đề xuất giải pháp máy móc tốt nhất trong vòng 24 giờ. Tư vấn miễn phí, không ràng buộc.',
-    de: 'Erzählen Sie uns von Ihrem Produkt und Ihren Produktionszielen. Unsere Ingenieure empfehlen die beste Maschinenlösung innerhalb von 24 Stunden. Kostenlose Beratung, unverbindlich.',
-  }
+  const l = VALID_LANGS.includes(lang) ? lang : 'en'
+  const title = metaTitles[l] ?? metaTitles.en
+  const description = metaDescriptions[l] ?? metaDescriptions.en
+
   return {
-    title: titles[l] || titles.en,
-    description: descriptions[l] || descriptions.en,
-    keywords: ['get machinery recommendation', 'packaging machine recommendation', 'find the right packaging machine', 'machinery selection service', 'product packaging consultation'],
+    title,
+    description,
+    keywords: [
+      'machinery recommendation',
+      'packaging machine selection',
+      'filling machine recommendation',
+      'free machine consultation',
+      'find the right packaging machine',
+      'Taiwan industrial machinery',
+      'VFFS machine recommendation',
+      'pouch packing machine',
+    ],
     alternates: {
       canonical: `${SITE_URL}/${l}/recommend`,
       languages: {
-        'en': `${SITE_URL}/en/recommend`,
+        en: `${SITE_URL}/en/recommend`,
         'zh-TW': `${SITE_URL}/zh/recommend`,
         'zh-CN': `${SITE_URL}/cn/recommend`,
-        'fr': `${SITE_URL}/fr/recommend`,
-        'es': `${SITE_URL}/es/recommend`,
-        'pt': `${SITE_URL}/pt/recommend`,
-        'ko': `${SITE_URL}/ko/recommend`,
-        'ja': `${SITE_URL}/ja/recommend`,
-        'ar': `${SITE_URL}/ar/recommend`,
-        'th': `${SITE_URL}/th/recommend`,
-        'vi': `${SITE_URL}/vi/recommend`,
-        'de': `${SITE_URL}/de/recommend`,
+        fr: `${SITE_URL}/fr/recommend`,
+        es: `${SITE_URL}/es/recommend`,
+        pt: `${SITE_URL}/pt/recommend`,
+        ko: `${SITE_URL}/ko/recommend`,
+        ja: `${SITE_URL}/ja/recommend`,
+        ar: `${SITE_URL}/ar/recommend`,
+        th: `${SITE_URL}/th/recommend`,
+        vi: `${SITE_URL}/vi/recommend`,
+        de: `${SITE_URL}/de/recommend`,
         'x-default': `${SITE_URL}/en/recommend`,
-      }
+      },
     },
     openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
+      title,
+      description,
       url: `${SITE_URL}/${l}/recommend`,
       siteName: 'SunGene Machinery',
       images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${SITE_URL}/og/og.png`],
+    },
   }
 }
 
-export default async function RecommendPage({ params }: { params: Promise<{ lang: Lang }> }) {
-  const { lang } = await params
+// ── Page copy ─────────────────────────────────────────────────────────────────
 
-  const content: Record<string, any> = {
-    en: {
-      title: 'Send Us Your Product — We\'ll Recommend the Right Machine',
-      subtitle: 'You don\'t need to know the machine name. Just tell us about your product, and our engineers will recommend the best solution within 24 hours.',
-      sidebar: [
-        'Free consultation — no obligation',
-        'Response within 24 hours',
-        'Factory test video available',
-        'CE certified machines',
-      ],
-      fields: {
-        name: 'Your Name',
-        email: 'Email Address',
-        phone: 'Phone Number',
-        productDescription: 'What is your product?',
-        productDescPlaceholder: 'e.g., Coffee powder, 500g bags, need 30 bags/min',
-        productCategory: 'Product Category',
-        productCategoryPlaceholder: 'Powder / Liquid / Granule / Snack / Mixed / Other',
-        packagingFormat: 'Desired Packaging Format',
-        packagingFormatPlaceholder: 'Bag / Pouch / Bottle / Can / Bulk / Other',
-        targetOutput: 'Target Output',
-        targetOutputPlaceholder: 'e.g., 30 bags/min, 1000 bottles/hour',
-        country: 'Destination Country',
-        message: 'Additional Notes',
+const kicker: Record<string, string> = {
+  en: 'FREE RECOMMENDATION',
+  cn: '免费选型推荐',
+  zh: '免費選型推薦',
+  fr: 'RECOMMANDATION GRATUITE',
+  es: 'RECOMENDACIÓN GRATUITA',
+  pt: 'RECOMENDAÇÃO GRATUITA',
+  ko: '무료 추천',
+  ja: '無料推薦',
+  ar: 'توصية مجانية',
+  th: 'คำแนะนำฟรี',
+  vi: 'TƯ VẤN MIỄN PHÍ',
+  de: 'KOSTENLOSE EMPFEHLUNG',
+}
+
+const h1: Record<string, string> = {
+  en: "Tell us what you need to pack — we'll match the right machine.",
+  cn: '告诉我们您要包装什么——我们为您匹配合适的机械方案。',
+  zh: '告訴我們您要包裝什麼——我們為您匹配合適的機械方案。',
+  fr: 'Dites-nous ce que vous souhaitez emballer — nous vous recommandons la bonne machine.',
+  es: 'Cuéntenos qué desea empacar — encontraremos la máquina adecuada para usted.',
+  pt: 'Diga-nos o que você precisa embalar — recomendaremos a máquina certa.',
+  ko: '포장해야 하는 것을 알려주세요 — 최적의 기계를 추천해 드립니다.',
+  ja: '包装したいものを教えてください — 最適な機械をご提案します。',
+  ar: 'أخبرنا بما تحتاج لتعبئته — سنقترح لك الآلة المناسبة.',
+  th: 'บอกเราว่าคุณต้องการบรรจุอะไร — เราจะแนะนำเครื่องจักรที่เหมาะสม',
+  vi: 'Cho chúng tôi biết bạn cần đóng gói gì — chúng tôi sẽ đề xuất máy phù hợp.',
+  de: 'Sagen Sie uns, was Sie verpacken möchten — wir empfehlen die richtige Maschine.',
+}
+
+const subtitle: Record<string, string> = {
+  en: 'No model numbers, no catalog browsing. Describe your product and production goals, and our engineers will recommend the right machine configuration for your specific application.',
+  cn: '无需型号，无需目录。描述您的产品和生产目标，我们的工程师将为您的具体应用推荐合适的机械配置。',
+  zh: '無需型號，無需目錄。描述您的產品和生產目標，我們的工程師將為您的具體應用推薦合適的機械配置。',
+}
+
+function getSubtitle(lang: Lang): string {
+  return subtitle[lang] ?? subtitle.en
+}
+
+// ── How it works steps ────────────────────────────────────────────────────────
+
+const howItWorks = [
+  'Fill in your requirements (2 minutes)',
+  'Our engineers review your product specs',
+  'We reply with a matched machine path + options',
+  'You request samples, videos, or a detailed quote',
+]
+
+const whatWeHelp = [
+  'Powder, flour, granule filling & packaging',
+  'Liquid, sauce, paste filling systems',
+  'Pouch, bag, sachet packaging',
+  'Snack & food processing lines',
+  'Conveyor & production line automation',
+  'Custom or OEM machinery engineering',
+]
+
+const trustSignals = [
+  'CE Certified Machinery',
+  'SUS304 / SUS316L Food-Grade Materials',
+  'Factory-Direct from Taiwan',
+  'Custom Voltage & Configuration',
+  'Exported to 50+ Countries',
+  'OEM & Custom Engineering Available',
+]
+
+// ── JSON-LD ───────────────────────────────────────────────────────────────────
+
+function buildJsonLd(lang: string) {
+  const pageUrl = `${SITE_URL}/${lang}/recommend`
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long does it take to get a recommendation?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Our engineers typically respond within 1–2 business days after reviewing your product and packaging requirements.',
+        },
       },
-      submit: 'Send Product Details → Get Recommendation',
-    },
-    cn: {
-      title: '发送您的产品信息——我们推荐合适的机器',
-      subtitle: '您不需要知道机器的名称。只需告诉我们您的产品，我们的工程师将在24小时内推荐最佳方案。',
-      sidebar: [
-        '免费咨询——无义务',
-        '24小时内回复',
-        '可提供工厂测试视频',
-        'CE认证机器',
-      ],
-      fields: {
-        name: '您的姓名',
-        email: '电子邮箱',
-        phone: '电话号码',
-        productDescription: '您的产品是什么？',
-        productDescPlaceholder: '例如：咖啡粉，500克袋装，需要30袋/分钟',
-        productCategory: '产品类别',
-        productCategoryPlaceholder: '粉末 / 液体 / 颗粒 / 休闲食品 / 混合 / 其他',
-        packagingFormat: '期望的包装形式',
-        packagingFormatPlaceholder: '袋 / 自立袋 / 瓶 / 罐 / 散装 / 其他',
-        targetOutput: '目标产量',
-        targetOutputPlaceholder: '例如：30袋/分钟，1000瓶/小时',
-        country: '目的地国家',
-        message: '补充说明',
+      {
+        '@type': 'Question',
+        name: 'Do I need to know the exact machine model?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. Describe what you want to pack and your target output — we\'ll identify the right machine type and configuration.',
+        },
       },
-      submit: '发送产品信息 → 获取推荐',
-    },
-    zh: {
-      title: '發送您的產品資訊——我們推薦合適的機器',
-      subtitle: '您不需要知道機器的名稱。只需告訴我們您的產品，我們的工程師將在24小時內推薦最佳方案。',
-      sidebar: [
-        '免費諮詢——無義務',
-        '24小時內回覆',
-        '可提供工廠測試影片',
-        'CE認證機器',
-      ],
-      fields: {
-        name: '您的姓名',
-        email: '電子郵件',
-        phone: '電話號碼',
-        productDescription: '您的產品是什麼？',
-        productDescPlaceholder: '例如：咖啡粉，500克袋裝，需要30袋/分鐘',
-        productCategory: '產品類別',
-        productCategoryPlaceholder: '粉末 / 液體 / 顆粒 / 休閒食品 / 混合 / 其他',
-        packagingFormat: '期望的包裝形式',
-        packagingFormatPlaceholder: '袋 / 自立袋 / 瓶 / 罐 / 散裝 / 其他',
-        targetOutput: '目標產量',
-        targetOutputPlaceholder: '例如：30袋/分鐘，1000瓶/小時',
-        country: '目的地國家',
-        message: '補充說明',
+      {
+        '@type': 'Question',
+        name: 'What information should I prepare?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Product type, state (powder/liquid/solid), target packaging format, fill weight, required output speed, and your location/voltage.',
+        },
       },
-      submit: '發送產品資訊 → 取得推薦',
-    },
-    fr: {
-      title: 'Envoyez-nous votre produit — Nous vous recommanderons la bonne machine',
-      subtitle: 'Vous n\'avez pas besoin de connaître le nom de la machine. Décrivez simplement votre produit, et nos ingénieurs vous recommanderont la meilleure solution sous 24 heures.',
-      sidebar: [
-        'Consultation gratuite — sans obligation',
-        'Réponse sous 24 heures',
-        'Vidéo de test usine disponible',
-        'Machines certifiées CE',
-      ],
-      fields: {
-        name: 'Votre nom',
-        email: 'Adresse e-mail',
-        phone: 'Numéro de téléphone',
-        productDescription: 'Quel est votre produit ?',
-        productDescPlaceholder: 'ex. Poudre de café, sachets de 500g, besoin de 30 sachets/min',
-        productCategory: 'Catégorie de produit',
-        productCategoryPlaceholder: 'Poudre / Liquide / Granulé / Snack / Mixte / Autre',
-        packagingFormat: 'Format d\'emballage souhaité',
-        packagingFormatPlaceholder: 'Sac / Sachet / Bouteille / Boîte / Vrac / Autre',
-        targetOutput: 'Production cible',
-        targetOutputPlaceholder: 'ex. 30 sachets/min, 1000 bouteilles/heure',
-        country: 'Pays de destination',
-        message: 'Notes supplémentaires',
+      {
+        '@type': 'Question',
+        name: 'Is there a cost for the recommendation?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. The recommendation service is free. We only ask that you provide accurate product details so we can give you the most useful advice.',
+        },
       },
-      submit: 'Envoyer les détails du produit → Obtenir une recommandation',
-    },
-    es: {
-      title: 'Envíenos su producto — Le recomendaremos la máquina adecuada',
-      subtitle: 'No necesita saber el nombre de la máquina. Solo cuéntenos sobre su producto, y nuestros ingenieros le recomendarán la mejor solución en 24 horas.',
-      sidebar: [
-        'Consulta gratuita — sin compromiso',
-        'Respuesta en 24 horas',
-        'Video de prueba de fábrica disponible',
-        'Máquinas certificadas CE',
-      ],
-      fields: {
-        name: 'Su nombre',
-        email: 'Correo electrónico',
-        phone: 'Número de teléfono',
-        productDescription: '¿Cuál es su producto?',
-        productDescPlaceholder: 'ej. Café en polvo, bolsas de 500g, necesito 30 bolsas/min',
-        productCategory: 'Categoría del producto',
-        productCategoryPlaceholder: 'Polvo / Líquido / Granulado / Snack / Mixto / Otro',
-        packagingFormat: 'Formato de empaque deseado',
-        packagingFormatPlaceholder: 'Bolsa / Sobre / Botella / Lata / Granel / Otro',
-        targetOutput: 'Producción objetivo',
-        targetOutputPlaceholder: 'ej. 30 bolsas/min, 1000 botellas/hora',
-        country: 'País de destino',
-        message: 'Notas adicionales',
+      {
+        '@type': 'Question',
+        name: 'Can you handle custom or non-standard requirements?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We specialize in custom machinery engineering for unusual products, special packaging formats, or specific hygiene/material requirements.',
+        },
       },
-      submit: 'Enviar detalles del producto → Obtener recomendación',
-    },
-    pt: {
-      title: 'Envie-nos seu produto — Recomendaremos a máquina certa',
-      subtitle: 'Você não precisa saber o nome da máquina. Apenas conte-nos sobre seu produto, e nossos engenheiros recomendarão a melhor solução em 24 horas.',
-      sidebar: [
-        'Consulta gratuita — sem compromisso',
-        'Resposta em 24 horas',
-        'Vídeo de teste de fábrica disponível',
-        'Máquinas certificadas CE',
-      ],
-      fields: {
-        name: 'Seu nome',
-        email: 'Endereço de e-mail',
-        phone: 'Número de telefone',
-        productDescription: 'Qual é o seu produto?',
-        productDescPlaceholder: 'ex. Café em pó, sacos de 500g, preciso de 30 sacos/min',
-        productCategory: 'Categoria do produto',
-        productCategoryPlaceholder: 'Pó / Líquido / Grânulo / Snack / Misto / Outro',
-        packagingFormat: 'Formato de embalagem desejado',
-        packagingFormatPlaceholder: 'Saco / Sachê / Garrafa / Lata / Granel / Outro',
-        targetOutput: 'Produção alvo',
-        targetOutputPlaceholder: 'ex. 30 sacos/min, 1000 garrafas/hora',
-        country: 'País de destino',
-        message: 'Notas adicionais',
-      },
-      submit: 'Enviar detalhes do produto → Receber recomendação',
-    },
-    ko: {
-      title: '제품 정보를 보내주세요 — 최적의 기계를 추천해 드립니다',
-      subtitle: '기계 이름을 몰라도 괜찮습니다. 제품에 대해 알려주시면, 엔지니어가 24시간 이내에 최적의 솔루션을 추천해 드립니다.',
-      sidebar: [
-        '무료 상담 — 의무 없음',
-        '24시간 이내 응답',
-        '공장 테스트 영상 제공 가능',
-        'CE 인증 기계',
-      ],
-      fields: {
-        name: '이름',
-        email: '이메일 주소',
-        phone: '전화번호',
-        productDescription: '제품이 무엇인가요?',
-        productDescPlaceholder: '예: 커피 분말, 500g 봉지, 30봉지/분 필요',
-        productCategory: '제품 카테고리',
-        productCategoryPlaceholder: '분말 / 액체 / 과립 / 스낵 / 혼합 / 기타',
-        packagingFormat: '원하는 포장 형태',
-        packagingFormatPlaceholder: '봉지 / 파우치 / 병 / 캔 / 대량 / 기타',
-        targetOutput: '목표 생산량',
-        targetOutputPlaceholder: '예: 30봉지/분, 1000병/시간',
-        country: '목적지 국가',
-        message: '추가 메모',
-      },
-      submit: '제품 정보 보내기 → 추천 받기',
-    },
-    ja: {
-      title: '製品情報をお送りください — 最適な機械をご提案します',
-      subtitle: '機械の名前をご存じなくても大丈夫です。製品についてお知らせいただければ、エンジニアが24時間以内に最適なソリューションをご提案します。',
-      sidebar: [
-        '無料相談 — 義務なし',
-        '24時間以内に返答',
-        '工場テスト動画あり',
-        'CE認証機械',
-      ],
-      fields: {
-        name: 'お名前',
-        email: 'メールアドレス',
-        phone: '電話番号',
-        productDescription: '製品は何ですか？',
-        productDescPlaceholder: '例：コーヒー粉末、500g袋、30袋/分必要',
-        productCategory: '製品カテゴリ',
-        productCategoryPlaceholder: '粉末 / 液体 / 顆粒 / スナック / ミックス / その他',
-        packagingFormat: '希望の包装形態',
-        packagingFormatPlaceholder: '袋 / パウチ / ボトル / 缶 / バルク / その他',
-        targetOutput: '目標生産量',
-        targetOutputPlaceholder: '例：30袋/分、1000本/時間',
-        country: '仕向地国',
-        message: '追加メモ',
-      },
-      submit: '製品情報を送信 → 提案を受ける',
-    },
-    ar: {
-      title: 'أرسل لنا منتجك — وسنوصي بالماكينة المناسبة',
-      subtitle: 'لا تحتاج لمعرفة اسم الماكينة. فقط أخبرنا عن منتجك، وسيوصي مهندسونا بأفضل حل خلال 24 ساعة.',
-      sidebar: [
-        'استشارة مجانية — بدون التزام',
-        'رد خلال 24 ساعة',
-        'فيديو اختبار المصنع متاح',
-        'ماكينات معتمدة CE',
-      ],
-      fields: {
-        name: 'اسمك',
-        email: 'البريد الإلكتروني',
-        phone: 'رقم الهاتف',
-        productDescription: 'ما هو منتجك؟',
-        productDescPlaceholder: 'مثال: مسحوق القهوة، أكياس 500 جرام، أحتاج 30 كيس/دقيقة',
-        productCategory: 'فئة المنتج',
-        productCategoryPlaceholder: 'مسحوق / سائل / حبيبات / وجبات خفيفة / مختلط / أخرى',
-        packagingFormat: 'شكل التغليف المطلوب',
-        packagingFormatPlaceholder: 'كيس / كيس قائم / زجاجة / علبة / سائب / أخرى',
-        targetOutput: 'الطاقة الإنتاجية المستهدفة',
-        targetOutputPlaceholder: 'مثال: 30 كيس/دقيقة، 1000 زجاجة/ساعة',
-        country: 'بلد الوجهة',
-        message: 'ملاحظات إضافية',
-      },
-      submit: 'أرسل تفاصيل المنتج → احصل على توصية',
-    },
-    th: {
-      title: 'ส่งข้อมูลผลิตภัณฑ์ของคุณ — เราจะแนะนำเครื่องจักรที่เหมาะสม',
-      subtitle: 'คุณไม่จำเป็นต้องรู้ชื่อเครื่องจักร แค่บอกเราเกี่ยวกับผลิตภัณฑ์ของคุณ วิศวกรของเราจะแนะนำโซลูชันที่ดีที่สุดภายใน 24 ชั่วโมง',
-      sidebar: [
-        'ปรึกษาฟรี — ไม่มีข้อผูกมัด',
-        'ตอบกลับภายใน 24 ชั่วโมง',
-        'วิดีโอทดสอบจากโรงงานพร้อมให้',
-        'เครื่องจักรรับรอง CE',
-      ],
-      fields: {
-        name: 'ชื่อของคุณ',
-        email: 'ที่อยู่อีเมล',
-        phone: 'หมายเลขโทรศัพท์',
-        productDescription: 'ผลิตภัณฑ์ของคุณคืออะไร?',
-        productDescPlaceholder: 'เช่น ผงกาแฟ ถุง 500 กรัม ต้องการ 30 ถุง/นาที',
-        productCategory: 'หมวดหมู่ผลิตภัณฑ์',
-        productCategoryPlaceholder: 'ผง / ของเหลว / เม็ด / ขนม / ผสม / อื่นๆ',
-        packagingFormat: 'รูปแบบบรรจุภัณฑ์ที่ต้องการ',
-        packagingFormatPlaceholder: 'ถุง / ซอง / ขวด / กระป๋อง / สินค้าเทกอง / อื่นๆ',
-        targetOutput: 'กำลังการผลิตเป้าหมาย',
-        targetOutputPlaceholder: 'เช่น 30 ถุง/นาที, 1000 ขวด/ชั่วโมง',
-        country: 'ประเทศปลายทาง',
-        message: 'หมายเหตุเพิ่มเติม',
-      },
-      submit: 'ส่งรายละเอียดผลิตภัณฑ์ → รับคำแนะนำ',
-    },
-    vi: {
-      title: 'Gửi thông tin sản phẩm — Chúng tôi sẽ đề xuất máy phù hợp',
-      subtitle: 'Bạn không cần biết tên máy. Chỉ cần cho chúng tôi biết về sản phẩm của bạn, đội ngũ kỹ sư sẽ đề xuất giải pháp tốt nhất trong vòng 24 giờ.',
-      sidebar: [
-        'Tư vấn miễn phí — không ràng buộc',
-        'Phản hồi trong 24 giờ',
-        'Video thử nghiệm tại nhà máy',
-        'Máy đạt chứng nhận CE',
-      ],
-      fields: {
-        name: 'Họ và tên',
-        email: 'Địa chỉ email',
-        phone: 'Số điện thoại',
-        productDescription: 'Sản phẩm của bạn là gì?',
-        productDescPlaceholder: 'VD: Bột cà phê, túi 500g, cần 30 túi/phút',
-        productCategory: 'Danh mục sản phẩm',
-        productCategoryPlaceholder: 'Bột / Lỏng / Hạt / Đồ ăn nhẹ / Hỗn hợp / Khác',
-        packagingFormat: 'Hình thức đóng gói mong muốn',
-        packagingFormatPlaceholder: 'Túi / Bao bì / Chai / Lon / Rời / Khác',
-        targetOutput: 'Công suất mục tiêu',
-        targetOutputPlaceholder: 'VD: 30 túi/phút, 1000 chai/giờ',
-        country: 'Quốc gia đích',
-        message: 'Ghi chú thêm',
-      },
-      submit: 'Gửi thông tin sản phẩm → Nhận đề xuất',
-    },
-    de: {
-      title: 'Senden Sie uns Ihr Produkt — Wir empfehlen die richtige Maschine',
-      subtitle: 'Sie müssen den Maschinennamen nicht kennen. Beschreiben Sie einfach Ihr Produkt, und unsere Ingenieure empfehlen die beste Lösung innerhalb von 24 Stunden.',
-      sidebar: [
-        'Kostenlose Beratung — unverbindlich',
-        'Antwort innerhalb von 24 Stunden',
-        'Werkstestvideos verfügbar',
-        'CE-zertifizierte Maschinen',
-      ],
-      fields: {
-        name: 'Ihr Name',
-        email: 'E-Mail-Adresse',
-        phone: 'Telefonnummer',
-        productDescription: 'Was ist Ihr Produkt?',
-        productDescPlaceholder: 'z.B. Kaffeepulver, 500g-Beutel, 30 Beutel/Min benötigt',
-        productCategory: 'Produktkategorie',
-        productCategoryPlaceholder: 'Pulver / Flüssigkeit / Granulat / Snack / Gemischt / Andere',
-        packagingFormat: 'Gewünschtes Verpackungsformat',
-        packagingFormatPlaceholder: 'Beutel / Standbeutel / Flasche / Dose / Schüttgut / Andere',
-        targetOutput: 'Zielleistung',
-        targetOutputPlaceholder: 'z.B. 30 Beutel/Min, 1000 Flaschen/Stunde',
-        country: 'Zielland',
-        message: 'Zusätzliche Anmerkungen',
-      },
-      submit: 'Produktdetails senden → Empfehlung erhalten',
-    },
+    ],
   }
 
-  const t = content[lang] || content['en']
-  const f = t.fields
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${SITE_URL}/${lang}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Recommend',
+        item: pageUrl,
+      },
+    ],
+  }
+
+  return [faqSchema, breadcrumbSchema]
+}
+
+// ── Sidebar blocks ────────────────────────────────────────────────────────────
+
+function CheckIcon() {
+  return (
+    <svg
+      className="mt-0.5 h-4 w-4 shrink-0 text-accent-500"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2.5}
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+  )
+}
+
+function NumberBadge({ n }: { n: number }) {
+  return (
+    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-600 text-xs font-bold text-white">
+      {n}
+    </span>
+  )
+}
+
+function SidebarCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`rounded-xl border border-gray-200 bg-white p-6 shadow-sm ${className}`}>
+      {children}
+    </div>
+  )
+}
+
+// ── Page component ────────────────────────────────────────────────────────────
+
+export default async function RecommendPage({
+  params,
+}: {
+  params: Promise<{ lang: Lang }>
+}) {
+  const { lang } = await params
+  const jsonLdData = buildJsonLd(lang)
 
   return (
     <>
-      <section className="bg-brand-950 py-16 sm:py-20">
+      <JsonLd data={jsonLdData} />
+
+      {/* Hero strip */}
+      <section className="bg-brand-950 py-14 sm:py-16">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t.title}
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-accent-400">
+              {kicker[lang] ?? kicker.en}
+            </p>
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem] lg:leading-tight">
+              {h1[lang] ?? h1.en}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-gray-300">
-              {t.subtitle}
+            <p className="mt-5 text-base leading-relaxed text-gray-300 sm:text-lg">
+              {getSubtitle(lang)}
             </p>
           </div>
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20 bg-gray-50">
+      {/* Main two-column layout */}
+      <section className="py-14 sm:py-18 bg-gray-50">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-3">
-            {/* Form */}
-            <div className="lg:col-span-2">
-              <Card className="p-8">
-                <InquiryForm
-                  lang={lang}
-                  type="Product Recommendation"
-                  submitLabel={t.submit}
-                  fields={[
-                    { name: 'name', label: f.name, type: 'text', required: true, autoComplete: 'name' },
-                    { name: 'email', label: f.email, type: 'email', required: true, autoComplete: 'email' },
-                    { name: 'phone', label: f.phone, type: 'tel', required: true, autoComplete: 'tel' },
-                    { name: 'productDescription', label: f.productDescription, type: 'textarea', required: true, placeholder: f.productDescPlaceholder, rows: 4 },
-                    { name: 'productCategory', label: f.productCategory, type: 'text', placeholder: f.productCategoryPlaceholder },
-                    { name: 'packagingFormat', label: f.packagingFormat, type: 'text', placeholder: f.packagingFormatPlaceholder },
-                    { name: 'targetOutput', label: f.targetOutput, type: 'text', placeholder: f.targetOutputPlaceholder },
-                    { name: 'country', label: f.country, type: 'text', autoComplete: 'country-name' },
-                    { name: 'message', label: f.message, type: 'textarea', required: true, rows: 3 },
-                  ]}
-                />
-              </Card>
+          <div className="gap-10 lg:grid lg:grid-cols-5">
+            {/* Left: Form — ~60% */}
+            <div className="lg:col-span-3">
+              <RecommendForm lang={lang} />
             </div>
 
-            {/* Sidebar */}
-            <div className="space-y-4">
-              {t.sidebar.map((item: string, i: number) => (
-                <div key={i} className="flex items-start gap-4 rounded-xl bg-white px-6 py-5 shadow-sm ring-1 ring-gray-100">
-                  <svg className="h-6 w-6 shrink-0 text-accent-500 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-base font-medium text-gray-800">{item}</span>
-                </div>
-              ))}
-            </div>
+            {/* Right: Sidebar — ~40% */}
+            <aside className="mt-10 space-y-6 lg:col-span-2 lg:mt-0">
+              {/* How it works */}
+              <SidebarCard>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">How it works</h2>
+                <ol className="space-y-3">
+                  {howItWorks.map((step, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
+                      <NumberBadge n={i + 1} />
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </SidebarCard>
+
+              {/* What we can help with */}
+              <SidebarCard>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">What we can help with</h2>
+                <ul className="space-y-2">
+                  {whatWeHelp.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                      <CheckIcon />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </SidebarCard>
+
+              {/* Trust signals */}
+              <SidebarCard>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">Why SunGene</h2>
+                <ul className="space-y-2">
+                  {trustSignals.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                      <CheckIcon />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </SidebarCard>
+
+              {/* Need to talk first */}
+              <SidebarCard className="border-accent-200 bg-accent-50">
+                <h2 className="mb-3 text-base font-semibold text-gray-900">Need to talk first?</h2>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <svg
+                      className="h-4 w-4 shrink-0 text-green-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                      <path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.554 4.104 1.523 5.83L.057 23.27a.75.75 0 00.916.948l5.42-1.47A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+                    </svg>
+                    <a
+                      href="https://wa.me/8618144132078"
+                      className="font-medium text-accent-700 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      WhatsApp: +86 181 4413 2078
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg
+                      className="h-4 w-4 shrink-0 text-accent-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.8}
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    <a
+                      href="mailto:contact@sungene.net"
+                      className="font-medium text-accent-700 hover:underline"
+                    >
+                      contact@sungene.net
+                    </a>
+                  </li>
+                </ul>
+                <p className="mt-3 text-xs text-gray-500">Response within 1–2 business days</p>
+              </SidebarCard>
+            </aside>
           </div>
         </Container>
       </section>

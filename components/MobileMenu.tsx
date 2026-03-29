@@ -57,7 +57,7 @@ export default function MobileMenu({
             <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <ButtonLink href={`/${lang}/contact`} size="sm" onClick={() => setOpen(false)}>
+            <ButtonLink href={`/${lang}/recommend`} size="sm" onClick={() => setOpen(false)}>
               {ctaLabel}
             </ButtonLink>
           </div>

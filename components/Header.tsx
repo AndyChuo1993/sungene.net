@@ -14,6 +14,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
     { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
     { href: `/${lang}/resources`, label: t(lang, 'nav_resources') },
+    { href: `/${lang}/recommend`, label: t(lang, 'nav_recommend') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
@@ -75,7 +76,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <ButtonLink href={`/${lang}/contact`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
+            <ButtonLink href={`/${lang}/recommend`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
               {t(lang, 'nav_free_analysis')}
             </ButtonLink>
           </div>

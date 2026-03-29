@@ -1,4 +1,4 @@
-import { Lang } from '@/lib/i18n'
+import { Lang, ALL_LANGS } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
@@ -9,44 +9,51 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 
-const titles: Record<string, string> = {
-  en: 'Pouch Packing Machine | Stand-up, Pillow, Vacuum Pouches | SunGene',
-  cn: '给袋包装机 | 自立袋、枕型袋、真空袋 | SunGene',
-  zh: '給袋包裝機 | 自立袋、枕型袋、真空袋 | SunGene',
-  fr: 'Machine d\'emballage en sachets | Sachets stand-up, coussin, sous vide | SunGene',
-  es: 'Máquina empacadora de bolsas | Stand-up, almohada, vacío | SunGene',
-  pt: 'Máquina de Embalagem de Sachês | Stand-up, Travesseiro, Vácuo | SunGene',
-  ko: '파우치 포장기 | 스탠드업, 필로우, 진공 파우치 | SunGene',
-  ja: 'パウチ包装機 | スタンドアップ、ピロー、真空パウチ | SunGene',
-  ar: 'آلة تعبئة الأكياس | أكياس قائمة، وسادية، تفريغ | SunGene',
-  th: 'เครื่องบรรจุซอง | ซองตั้ง, หมอน, สุญญากาศ | SunGene',
-  vi: 'Máy đóng gói túi | Túi đứng, gối, hút chân không | SunGene',
-  de: 'Beutelverpackungsmaschine | Stand-up, Kissen, Vakuumbeutel | SunGene',
+// ─── Metadata ────────────────────────────────────────────────────────────────
+
+const metaTitles: Record<string, string> = {
+  en: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch & Vacuum | SunGene',
+  cn: '袋装包装机 — VFFS、HFFS、预制袋及真空包装系统 | SunGene',
+  zh: '袋裝包裝機 — VFFS、HFFS、預製袋及真空包裝系統 | SunGene',
+  fr: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé & Vide | SunGene',
+  es: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y Vacío | SunGene',
+  pt: 'Máquinas de embalagem em saco — VFFS, HFFS, Saco pré-formado e Vácuo | SunGene',
+  ko: '파우치 포장 기계 — VFFS, HFFS, 프리메이드 파우치 및 진공 포장 | SunGene',
+  ja: 'パウチ包装機 — VFFS、HFFS、プレメードパウチ・真空システム | SunGene',
+  ar: 'آلات تعبئة الأكياس — VFFS وHFFS والأكياس الجاهزة والتعبئة الفراغية | SunGene',
+  th: 'เครื่องบรรจุถุง — VFFS, HFFS, ถุงสำเร็จรูป และระบบสูญญากาศ | SunGene',
+  vi: 'Máy đóng gói túi — VFFS, HFFS, Túi thành phẩm & Chân không | SunGene',
+  de: 'Beutelverpackungsmaschinen — VFFS, HFFS, Fertigbeutel & Vakuum | SunGene',
 }
 
-const descriptions: Record<string, string> = {
-  en: 'SunGene manufactures pouch packing machines for stand-up pouches, pillow bags, zipper pouches, vacuum pouches, doypacks and retort pouches. CE certified, factory-direct.',
-  cn: 'SunGene生产自立袋、枕型袋、拉链袋、真空袋、多伊包和蒸煮袋包装机。CE认证，工厂直销。',
-  zh: 'SunGene生產自立袋、枕型袋、拉鏈袋、真空袋、多伊包和蒸煮袋包裝機。CE認證，工廠直銷。',
-  fr: 'SunGene fabrique des machines d\'emballage en sachets pour sachets stand-up, sachets coussin, sachets à glissière, sachets sous vide, doypacks et sachets rétort. Certifiées CE, directement d\'usine.',
-  es: 'SunGene fabrica máquinas empacadoras de bolsas stand-up, almohada, cremallera, vacío, doypack y retort. Certificadas CE, directo de fábrica.',
-  pt: 'SunGene fabrica máquinas de embalagem para sachês stand-up, travesseiro, zíper, vácuo, doypack e retort. Certificadas CE, diretamente da fábrica.',
-  ko: 'SunGene은 스탠드업 파우치, 필로우 백, 지퍼 파우치, 진공 파우치, 도이팩, 레토르트 파우치 포장기를 제조합니다. CE 인증, 공장 직납.',
-  ja: 'SunGeneはスタンドアップパウチ、ピローバッグ、ジッパーパウチ、真空パウチ、ドイパック、レトルトパウチ包装機を製造。CE認証、工場直送。',
-  ar: 'SunGene تصنع آلات تعبئة الأكياس القائمة والوسادية والمسحاب والتفريغ والدوي باك وأكياس الريتورت. معتمدة CE، مباشرة من المصنع.',
-  th: 'SunGene ผลิตเครื่องบรรจุซองตั้ง หมอน ซิป สุญญากาศ ดอยแพ็ค และเรทอร์ทเพาช์ ได้รับการรับรอง CE ตรงจากโรงงาน',
-  vi: 'SunGene sản xuất máy đóng gói túi đứng, gối, có dây kéo, hút chân không, doypack và túi retort. Chứng nhận CE, trực tiếp từ nhà máy.',
-  de: 'SunGene stellt Beutelverpackungsmaschinen für Stand-up-Beutel, Kissenbeutel, Reißverschlussbeutel, Vakuumbeutel, Doypacks und Retortbeutel her. CE-zertifiziert, direkt vom Werk.',
+const metaDescs: Record<string, string> = {
+  en: 'SunGene manufactures pouch packing machines including VFFS, HFFS flow wrappers, pre-made pouch machines, and vacuum packers. For snacks, nuts, coffee, sauces, and consumer goods. CE certified, factory-direct.',
+  cn: 'SunGene生产袋装包装机，包括VFFS、HFFS流动包装机、预制袋机和真空包装机。适用于零食、坚果、咖啡、酱料和消费品。CE认证，工厂直销。',
+  zh: 'SunGene生產袋裝包裝機，包括VFFS、HFFS流動包裝機、預製袋機和真空包裝機。適用於零食、堅果、咖啡、醬料和消費品。CE認證，工廠直銷。',
+  fr: 'SunGene fabrique des machines d\'emballage en sachet incluant VFFS, HFFS, machines à sachet préformé et emballeuses sous vide. Pour snacks, noix, café, sauces et produits de grande consommation. CE certifié.',
+  es: 'SunGene fabrica máquinas envasadoras en bolsa incluyendo VFFS, HFFS, máquinas de bolsa preformada y envasadoras al vacío. Para snacks, frutos secos, café, salsas y bienes de consumo. CE certificado.',
+  pt: 'SunGene fabrica máquinas de embalagem em saco incluindo VFFS, HFFS, máquinas de saco pré-formado e embaladoras a vácuo. Para snacks, nozes, café, molhos e bens de consumo. CE certificado.',
+  ko: 'SunGene은 VFFS, HFFS 플로우 랩퍼, 프리메이드 파우치 기계 및 진공 포장기를 포함한 파우치 포장 기계를 제조합니다. 스낵, 견과류, 커피, 소스 및 소비재용. CE 인증, 공장 직납.',
+  ja: 'SunGeneはVFFS、HFFSフロー包装機、プレメードパウチ機、真空包装機を含むパウチ包装機を製造。スナック、ナッツ、コーヒー、ソース、消費財向け。CE認証、工場直送。',
+  ar: 'SunGene تصنع آلات تعبئة الأكياس بما في ذلك VFFS وHFFS وآلات الأكياس الجاهزة ومعدات التعبئة الفراغية. للوجبات الخفيفة والمكسرات والقهوة والصلصات والسلع الاستهلاكية. معتمدة CE.',
+  th: 'SunGene ผลิตเครื่องบรรจุถุงรวมถึง VFFS, HFFS, เครื่องบรรจุถุงสำเร็จรูป และเครื่องบรรจุสูญญากาศ สำหรับของว่าง ถั่ว กาแฟ ซอส และสินค้าอุปโภคบริโภค ได้รับการรับรอง CE',
+  vi: 'SunGene sản xuất máy đóng gói túi bao gồm VFFS, HFFS, máy đóng gói túi thành phẩm và máy đóng gói chân không. Cho đồ ăn vặt, hạt, cà phê, nước sốt và hàng tiêu dùng. Chứng nhận CE.',
+  de: 'SunGene stellt Beutelverpackungsmaschinen her, einschließlich VFFS, HFFS-Schlauchbeutelmaschinen, Fertigbeutelmaschinen und Vakuumverpackern. Für Snacks, Nüsse, Kaffee, Saucen und Konsumgüter. CE-zertifiziert.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
+  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
   return {
-    title: titles[lang] || titles.en,
-    description: descriptions[lang] || descriptions.en,
-    keywords: ['pouch packing machine', 'stand-up pouch machine', 'VFFS machine', 'zipper pouch machine', 'doypack machine', 'snack packing machine', 'pillow bag machine'],
+    title: metaTitles[l] || metaTitles.en,
+    description: metaDescs[l] || metaDescs.en,
+    keywords: [
+      'pouch packing machine', 'VFFS machine', 'HFFS machine', 'flow wrapper', 'pre-made pouch machine',
+      'vacuum packing machine', 'stand-up pouch machine', 'stick pack machine', 'sachet machine',
+      'Taiwan pouch packaging', 'CE certified packing machine',
+    ],
     alternates: {
-      canonical: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
+      canonical: `${SITE_URL}/${l}/machines/pouch-packing-machine`,
       languages: {
         'en': `${SITE_URL}/en/machines/pouch-packing-machine`,
         'zh-TW': `${SITE_URL}/zh/machines/pouch-packing-machine`,
@@ -61,142 +68,407 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         'vi': `${SITE_URL}/vi/machines/pouch-packing-machine`,
         'de': `${SITE_URL}/de/machines/pouch-packing-machine`,
         'x-default': `${SITE_URL}/en/machines/pouch-packing-machine`,
-      }
+      },
     },
     openGraph: {
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
-      url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
+      title: metaTitles[l] || metaTitles.en,
+      description: metaDescs[l] || metaDescs.en,
+      url: `${SITE_URL}/${l}/machines/pouch-packing-machine`,
       siteName: 'SunGene Machinery',
       images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
+      title: metaTitles[l] || metaTitles.en,
+      description: metaDescs[l] || metaDescs.en,
       images: [`${SITE_URL}/og/og.png`],
     },
   }
 }
 
+// ─── Static content (en/cn/zh translated; all others fall back to en) ─────────
+
+interface PageContent {
+  kicker: string
+  heroTitle: string
+  heroSubtitle: string
+  // Section 2 — Who it's for
+  whoTitle: string
+  whoItems: { title: string; desc: string }[]
+  // Section 3 — Suitable products
+  productsTitle: string
+  productGroups: { label: string; items: string[] }[]
+  productsNote: string
+  // Section 4 — Packaging & Output
+  packagingTitle: string
+  packagingItems: { label: string; value: string }[]
+  packagingNote: string
+  // Section 5 — Available configurations
+  configurationsTitle: string
+  configurations: { name: string; desc: string }[]
+  // Section 6 — Key decision factors
+  decisionsTitle: string
+  decisions: { factor: string; guide: string }[]
+  // Section 7 — Process integration
+  integrationTitle: string
+  integrationDesc: string
+  integrationSteps: string[]
+  integrationFooter: string
+  // Section 8 — FAQ
+  faqTitle: string
+  faq: { q: string; a: string }[]
+  // Section 9 — Related
+  relatedTitle: string
+  relatedLinks: { label: string; href: string }[]
+  // Section 10 — CTA
+  ctaTitle: string
+  ctaSubtitle: string
+  ctaBtn1: string
+  ctaBtn2: string
+}
+
+const content: Record<string, PageContent> = {
+  en: {
+    kicker: 'POUCH & BAG PACKAGING',
+    heroTitle: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch, and Vacuum Systems',
+    heroSubtitle: 'SunGene manufactures pouch packing machines for pillow bags, stand-up pouches, zipper pouches, vacuum bags, flow wrap, and stick packs. Machine selection depends on your product, bag format, required speed, and sealing method.',
+
+    whoTitle: 'Who It\'s For',
+    whoItems: [
+      { title: 'Snack & Food Brands', desc: 'Chips, nuts, candy, dried fruit, coffee — needing attractive bags with good shelf presence.' },
+      { title: 'Liquid & Sauce Producers', desc: 'Sachets, stand-up pouches with spouts, retort pouches for sauces, condiments, and dairy.' },
+      { title: 'Pharmaceutical & Supplement', desc: 'Single-dose stick packs, sachets with precise fill for powder or liquid pharmaceuticals.' },
+      { title: 'FMCG & Consumer Goods', desc: 'Branded flexible packaging for consumer markets — zipper pouches, spout pouches, flow wrap.' },
+    ],
+
+    productsTitle: 'Suitable Products',
+    productGroups: [
+      { label: 'Dry solids & snacks', items: ['Chips', 'Nuts', 'Granola', 'Coffee', 'Pet food', 'Candy', 'Dried fruit'] },
+      { label: 'Powder in pouches', items: ['Spice sachets', 'Instant beverage', 'Protein powder', 'Detergent'] },
+      { label: 'Liquid & paste', items: ['Sauce pouches', 'Ketchup sachets', 'Cosmetic cream', 'Yogurt'] },
+      { label: 'Special formats', items: ['Retort pouches (sterile)', 'Vacuum bags (meat, cheese)', 'Nitrogen-flushed (coffee)'] },
+    ],
+    productsNote: 'Bag material selection (PE, PET, aluminum foil, multilayer) affects sealing method and machine type. We advise on film selection as part of the recommendation.',
+
+    packagingTitle: 'Packaging & Output Options',
+    packagingItems: [
+      { label: 'Bag types', value: 'Pillow bag (VFFS), stand-up pouch (VFFS/pre-made), zipper pouch, flow wrap (HFFS), sachet/stick pack, vacuum bag, retort pouch' },
+      { label: 'Fill weight range', value: '1g stick packs to 5kg bags — depends on machine type and format' },
+      { label: 'Output range', value: '20–300 bags/min depending on bag format, fill type, and machine configuration' },
+    ],
+    packagingNote: 'All stated ranges are configuration-dependent — we confirm based on your specific product, bag format, and fill type.',
+
+    configurationsTitle: 'Available Configurations',
+    configurations: [
+      { name: 'VFFS (Vertical Form-Fill-Seal)', desc: 'Forms bags from roll film vertically. For powders, granules, liquids. 30–150 bags/min. Low per-bag film cost.' },
+      { name: 'HFFS / Flow Wrap (Horizontal)', desc: 'For solid, shaped products. Pillow wrap format. 50–300 bags/min. Best for biscuits, bars, produce.' },
+      { name: 'Pre-made Pouch Machine (Rotary / Linear)', desc: 'Fills into pre-formed stand-up or zipper pouches. 20–80 bags/min. Premium appearance, supports ziplock/spout.' },
+      { name: 'Stick Pack / Sachet Machine', desc: 'High-speed multi-lane sachet filling for single-serve powder or liquid. 50–400 sachets/min.' },
+      { name: 'Vacuum Packing Machine', desc: 'Single or double chamber. Removes air for shelf life extension. For meat, cheese, coffee, dry goods.' },
+      { name: 'Nitrogen Flushing', desc: 'Integrated gas flush module for oxidation-sensitive products. Available on VFFS, pre-made pouch, and chamber vacuum machines.' },
+      { name: 'Materials & Compliance', desc: 'CE certified; SUS304/316L stainless steel; voltage/frequency configurable; film width and length servo-adjustable.' },
+    ],
+
+    decisionsTitle: 'Key Decision Factors',
+    decisions: [
+      { factor: 'Product form', guide: 'Solid/shaped → HFFS. Powder/granule/liquid → VFFS. Premium brand → pre-made pouch.' },
+      { factor: 'Bag format', guide: 'Pillow bag → VFFS or HFFS. Stand-up/zipper → pre-made pouch. Sachet → stick pack machine.' },
+      { factor: 'Output speed', guide: '< 30 bags/min → pre-made pouch. 30–100 → VFFS with weigher. > 100 → high-speed VFFS or HFFS.' },
+      { factor: 'Shelf life requirement', guide: 'Standard → heat seal. Extended → vacuum + gas flush + barrier film.' },
+      { factor: 'Budget', guide: 'Basic VFFS is most cost-effective. Pre-made pouch has higher per-bag cost but better appearance.' },
+      { factor: 'Format flexibility', guide: 'Multiple bag sizes → servo VFFS with adjustable former. High mix → pre-made pouch.' },
+    ],
+
+    integrationTitle: 'Process Integration',
+    integrationDesc: 'This machine integrates into your broader production workflow at the packing stage. A typical integrated pouch line may include:',
+    integrationSteps: [
+      'Raw material / product infeed',
+      'Weigher / filler',
+      'Film feeding / pouch feeding',
+      'Form-fill-seal',
+      'Gas flush (optional)',
+      'Sealing / cutting',
+      'Inspection (weight / vision)',
+      'Date coding',
+      'Conveyor out',
+      'Case packing',
+    ],
+    integrationFooter: 'We design the full pouch line around your product and facility. Single machines or complete lines with weigher, metal detector, labeler, and case packer.',
+
+    faqTitle: 'Frequently Asked Questions',
+    faq: [
+      {
+        q: 'What is the difference between VFFS and pre-made pouch machines?',
+        a: 'VFFS forms bags from a film roll on-the-fly — lower per-bag material cost, good for high-volume standard formats. Pre-made pouch machines use finished pouches — better appearance, supports premium features (zipper, spout, gusset), but higher per-bag cost. Most snack producers start with VFFS; premium/export brands often prefer pre-made pouch.',
+      },
+      {
+        q: 'Can the machine handle both powder and liquid products?',
+        a: 'Not typically on the same machine without reconfiguration. Powder VFFS uses an auger or multi-head weigher; liquid VFFS uses a piston pump or flow meter. We recommend separate machines for powder and liquid, or a pre-made pouch machine if your product mix requires flexibility.',
+      },
+      {
+        q: 'What bag sizes can one VFFS machine handle?',
+        a: 'Most VFFS machines cover a range — e.g. 80–300mm bag width with servo-adjustable length. Format changes take 15–30 minutes. For very different formats (5g sachet vs 1kg bag), separate machines are recommended.',
+      },
+      {
+        q: 'Do you support zipper pouches and spout pouches?',
+        a: 'Yes. Zipper applicators are available for both VFFS and pre-made pouch machines. Spout insertion is supported on pre-made pouch rotary machines. These are add-on modules with additional investment.',
+      },
+      {
+        q: 'What film materials are compatible?',
+        a: 'PE, CPP, OPP, PET/PE laminates, aluminum foil laminates, and specialty multilayer films. We advise on film selection based on your product\'s moisture sensitivity, oxygen barrier needs, and shelf life target.',
+      },
+      {
+        q: 'What information should I provide to get a recommendation?',
+        a: 'Product name and form (solid/powder/liquid), target bag format and size, required output speed, country/voltage, and whether you need nitrogen flush or vacuum. Use our recommend form for fastest response.',
+      },
+    ],
+
+    relatedTitle: 'Related Applications & Resources',
+    relatedLinks: [
+      { label: 'Packaging Machinery Overview', href: '/machinery/packaging' },
+      { label: 'Filling & Sealing Systems', href: '/machinery/filling-sealing' },
+      { label: 'Get a Machine Recommendation', href: '/recommend' },
+    ],
+
+    ctaTitle: 'Tell us your product and packaging format — we\'ll match the right machine.',
+    ctaSubtitle: 'VFFS, pre-made pouch, stick pack, or vacuum — our engineers recommend based on your product, output target, and bag specification.',
+    ctaBtn1: 'Get a Machine Recommendation',
+    ctaBtn2: 'Talk to Engineering',
+  },
+
+  cn: {
+    kicker: '袋装与软包装',
+    heroTitle: '袋装包装机 — VFFS、HFFS、预制袋及真空系统',
+    heroSubtitle: 'SunGene生产适用于枕型袋、站立袋、拉链袋、真空袋、流动包装及条形袋的包装机。机器选型取决于您的产品、袋型、所需速度和封口方式。',
+
+    whoTitle: '适用客户',
+    whoItems: [
+      { title: '零食与食品品牌', desc: '薯片、坚果、糖果、干果、咖啡——需要具有良好货架展示效果的精美包装袋。' },
+      { title: '液体与酱料生产商', desc: '小袋包装、带吸嘴站立袋、耐高温蒸煮袋，适用于酱料、调味品和乳制品。' },
+      { title: '制药与保健品', desc: '单剂量条形袋、精准充填小袋，适用于粉末或液态药品。' },
+      { title: '快消品与消费品', desc: '面向消费市场的品牌软包装——拉链袋、吸嘴袋、流动包装。' },
+    ],
+
+    productsTitle: '适用产品',
+    productGroups: [
+      { label: '干燥固体与零食', items: ['薯片', '坚果', '麦片', '咖啡', '宠物食品', '糖果', '干果'] },
+      { label: '袋装粉末', items: ['香料小袋', '速溶饮料', '蛋白粉', '洗涤剂'] },
+      { label: '液体与膏体', items: ['酱料袋', '番茄酱小袋', '护肤霜', '酸奶'] },
+      { label: '特殊格式', items: ['蒸煮袋（无菌）', '真空袋（肉类、奶酪）', '充氮包装（咖啡）'] },
+    ],
+    productsNote: '包装材料选择（PE、PET、铝箔、多层复合膜）影响封口方式和机器类型。我们将作为推荐方案的一部分提供薄膜选型建议。',
+
+    packagingTitle: '包装与产量选项',
+    packagingItems: [
+      { label: '袋型', value: '枕型袋（VFFS）、站立袋（VFFS/预制袋）、拉链袋、流动包装（HFFS）、小袋/条形袋、真空袋、蒸煮袋' },
+      { label: '充填重量范围', value: '1克条形袋至5公斤大袋——取决于机器类型和袋型' },
+      { label: '产量范围', value: '20–300袋/分钟，取决于袋型、充填类型和机器配置' },
+    ],
+    packagingNote: '所有所示范围均取决于具体配置——我们根据您的产品、袋型和充填类型进行确认。',
+
+    configurationsTitle: '可用配置',
+    configurations: [
+      { name: 'VFFS（立式成型-充填-封口）', desc: '从卷膜立式成型制袋。适用于粉末、颗粒、液体。30–150袋/分钟。单袋薄膜成本低。' },
+      { name: 'HFFS / 流动包装（卧式）', desc: '适用于固体、有形状的产品。枕型包装格式。50–300袋/分钟。最适合饼干、营养棒和农产品。' },
+      { name: '预制袋机（旋转式/直线式）', desc: '向预制站立袋或拉链袋中充填。20–80袋/分钟。外观精美，支持拉链/吸嘴。' },
+      { name: '条形袋/小袋机', desc: '高速多排小袋充填，适用于单份粉末或液体。50–400袋/分钟。' },
+      { name: '真空包装机', desc: '单室或双室。抽真空延长货架期。适用于肉类、奶酪、咖啡、干货。' },
+      { name: '充氮冲洗', desc: '集成充气模块，适用于对氧化敏感的产品。可配置于VFFS、预制袋机和真空室机上。' },
+      { name: '材质与认证', desc: 'CE认证；SUS304/316L不锈钢；电压/频率可定制；薄膜宽度和长度伺服可调。' },
+    ],
+
+    decisionsTitle: '关键决策因素',
+    decisions: [
+      { factor: '产品形态', guide: '固体/有形状 → HFFS。粉末/颗粒/液体 → VFFS。高端品牌 → 预制袋机。' },
+      { factor: '袋型', guide: '枕型袋 → VFFS或HFFS。站立袋/拉链袋 → 预制袋机。小袋 → 条形袋机。' },
+      { factor: '产量速度', guide: '< 30袋/分钟 → 预制袋机。30–100 → 配秤VFFS。> 100 → 高速VFFS或HFFS。' },
+      { factor: '货架期要求', guide: '标准 → 热封。延长 → 真空+充气+高阻隔薄膜。' },
+      { factor: '预算', guide: '基础VFFS性价比最高。预制袋单袋成本较高，但外观更佳。' },
+      { factor: '格式灵活性', guide: '多种袋型 → 带可调成型器的伺服VFFS。产品组合多 → 预制袋机。' },
+    ],
+
+    integrationTitle: '工艺整合',
+    integrationDesc: '该设备在包装环节整合到您更广泛的生产流程中。典型的袋装整合产线可能包括：',
+    integrationSteps: ['原料/产品进料', '计量秤/充填机', '薄膜进给/袋子进给', '成型-充填-封口', '充气（可选）', '封口/切断', '检测（重量/视觉）', '打码', '输送出料', '装箱'],
+    integrationFooter: '我们围绕您的产品和工厂设计完整袋装产线。单机或配备计量秤、金属探测器、贴标机和装箱机的完整产线。',
+
+    faqTitle: '常见问题',
+    faq: [
+      {
+        q: 'VFFS和预制袋机有什么区别？',
+        a: 'VFFS从卷膜实时成型制袋——单袋材料成本低，适合大批量标准格式。预制袋机使用成品袋——外观更精美，支持高端功能（拉链、吸嘴、折角），但单袋成本更高。大多数零食生产商从VFFS起步；高端/出口品牌通常偏好预制袋机。',
+      },
+      {
+        q: '同一台机器能处理粉末和液体产品吗？',
+        a: '通常不能在不重新配置的情况下使用同一台机器处理两者。粉末VFFS使用螺旋计量或多头秤；液体VFFS使用活塞泵或流量计。我们建议粉末和液体使用独立机器，或在产品组合需要灵活性时选用预制袋机。',
+      },
+      {
+        q: '一台VFFS机能处理哪些袋型尺寸？',
+        a: '大多数VFFS机覆盖一定范围——例如袋宽80–300mm，长度伺服可调。换型通常需要15–30分钟。对于差异很大的格式（5克小袋与1公斤袋），建议使用独立机器。',
+      },
+      {
+        q: '支持拉链袋和吸嘴袋吗？',
+        a: '支持。拉链安装模块适用于VFFS和预制袋机。吸嘴插入功能支持预制袋旋转式机器。这些均为附加模块，需要额外投资。',
+      },
+      {
+        q: '兼容哪些薄膜材料？',
+        a: 'PE、CPP、OPP、PET/PE复合膜、铝箔复合膜及专业多层薄膜。我们根据您产品的防潮要求、阻氧需求和货架期目标提供薄膜选型建议。',
+      },
+      {
+        q: '获取推荐方案需要提供哪些信息？',
+        a: '产品名称和形态（固体/粉末/液体）、目标袋型和尺寸、所需产量速度、国家/电压，以及是否需要充氮或真空。使用我们的推荐表单可获得最快响应。',
+      },
+    ],
+
+    relatedTitle: '相关应用与资源',
+    relatedLinks: [
+      { label: '包装机械概览', href: '/machinery/packaging' },
+      { label: '充填与封口系统', href: '/machinery/filling-sealing' },
+      { label: '获取机器推荐', href: '/recommend' },
+    ],
+
+    ctaTitle: '告诉我们您的产品和包装格式——我们将为您匹配合适的机器。',
+    ctaSubtitle: 'VFFS、预制袋机、条形袋机或真空包装——我们的工程师根据您的产品、产量目标和袋型规格进行推荐。',
+    ctaBtn1: '获取机器推荐',
+    ctaBtn2: '联系工程团队',
+  },
+
+  zh: {
+    kicker: '袋裝與軟包裝',
+    heroTitle: '袋裝包裝機 — VFFS、HFFS、預製袋及真空系統',
+    heroSubtitle: 'SunGene生產適用於枕型袋、站立袋、拉鍊袋、真空袋、流動包裝及條形袋的包裝機。機器選型取決於您的產品、袋型、所需速度和封口方式。',
+
+    whoTitle: '適用客戶',
+    whoItems: [
+      { title: '零食與食品品牌', desc: '薯片、堅果、糖果、乾果、咖啡——需要具有良好貨架展示效果的精美包裝袋。' },
+      { title: '液體與醬料生產商', desc: '小袋包裝、帶吸嘴站立袋、耐高溫蒸煮袋，適用於醬料、調味品和乳製品。' },
+      { title: '製藥與保健品', desc: '單劑量條形袋、精準充填小袋，適用於粉末或液態藥品。' },
+      { title: '快消品與消費品', desc: '面向消費市場的品牌軟包裝——拉鍊袋、吸嘴袋、流動包裝。' },
+    ],
+
+    productsTitle: '適用產品',
+    productGroups: [
+      { label: '乾燥固體與零食', items: ['薯片', '堅果', '麥片', '咖啡', '寵物食品', '糖果', '乾果'] },
+      { label: '袋裝粉末', items: ['香料小袋', '速溶飲料', '蛋白粉', '洗滌劑'] },
+      { label: '液體與膏體', items: ['醬料袋', '番茄醬小袋', '護膚霜', '優格'] },
+      { label: '特殊格式', items: ['蒸煮袋（無菌）', '真空袋（肉類、奶酪）', '充氮包裝（咖啡）'] },
+    ],
+    productsNote: '包裝材料選擇（PE、PET、鋁箔、多層複合膜）影響封口方式和機器類型。我們將作為推薦方案的一部分提供薄膜選型建議。',
+
+    packagingTitle: '包裝與產量選項',
+    packagingItems: [
+      { label: '袋型', value: '枕型袋（VFFS）、站立袋（VFFS/預製袋）、拉鍊袋、流動包裝（HFFS）、小袋/條形袋、真空袋、蒸煮袋' },
+      { label: '充填重量範圍', value: '1克條形袋至5公斤大袋——取決於機器類型和袋型' },
+      { label: '產量範圍', value: '20–300袋/分鐘，取決於袋型、充填類型和機器配置' },
+    ],
+    packagingNote: '所有所示範圍均取決於具體配置——我們根據您的產品、袋型和充填類型進行確認。',
+
+    configurationsTitle: '可用配置',
+    configurations: [
+      { name: 'VFFS（立式成型-充填-封口）', desc: '從卷膜立式成型製袋。適用於粉末、顆粒、液體。30–150袋/分鐘。單袋薄膜成本低。' },
+      { name: 'HFFS / 流動包裝（臥式）', desc: '適用於固體、有形狀的產品。枕型包裝格式。50–300袋/分鐘。最適合餅乾、營養棒和農產品。' },
+      { name: '預製袋機（旋轉式/直線式）', desc: '向預製站立袋或拉鍊袋中充填。20–80袋/分鐘。外觀精美，支援拉鍊/吸嘴。' },
+      { name: '條形袋/小袋機', desc: '高速多排小袋充填，適用於單份粉末或液體。50–400袋/分鐘。' },
+      { name: '真空包裝機', desc: '單室或雙室。抽真空延長貨架期。適用於肉類、奶酪、咖啡、乾貨。' },
+      { name: '充氮沖洗', desc: '整合充氣模組，適用於對氧化敏感的產品。可配置於VFFS、預製袋機和真空室機上。' },
+      { name: '材質與認證', desc: 'CE認證；SUS304/316L不鏽鋼；電壓/頻率可客製；薄膜寬度和長度伺服可調。' },
+    ],
+
+    decisionsTitle: '關鍵決策因素',
+    decisions: [
+      { factor: '產品形態', guide: '固體/有形狀 → HFFS。粉末/顆粒/液體 → VFFS。高端品牌 → 預製袋機。' },
+      { factor: '袋型', guide: '枕型袋 → VFFS或HFFS。站立袋/拉鍊袋 → 預製袋機。小袋 → 條形袋機。' },
+      { factor: '產量速度', guide: '< 30袋/分鐘 → 預製袋機。30–100 → 配秤VFFS。> 100 → 高速VFFS或HFFS。' },
+      { factor: '貨架期要求', guide: '標準 → 熱封。延長 → 真空+充氣+高阻隔薄膜。' },
+      { factor: '預算', guide: '基礎VFFS性價比最高。預製袋單袋成本較高，但外觀更佳。' },
+      { factor: '格式靈活性', guide: '多種袋型 → 帶可調成型器的伺服VFFS。產品組合多 → 預製袋機。' },
+    ],
+
+    integrationTitle: '工藝整合',
+    integrationDesc: '該設備在包裝環節整合到您更廣泛的生產流程中。典型的袋裝整合產線可能包括：',
+    integrationSteps: ['原料/產品進料', '計量秤/充填機', '薄膜進給/袋子進給', '成型-充填-封口', '充氣（可選）', '封口/切斷', '檢測（重量/視覺）', '打碼', '輸送出料', '裝箱'],
+    integrationFooter: '我們圍繞您的產品和工廠設計完整袋裝產線。單機或配備計量秤、金屬探測器、貼標機和裝箱機的完整產線。',
+
+    faqTitle: '常見問題',
+    faq: [
+      {
+        q: 'VFFS和預製袋機有什麼區別？',
+        a: 'VFFS從卷膜即時成型製袋——單袋材料成本低，適合大批量標準格式。預製袋機使用成品袋——外觀更精美，支援高端功能（拉鍊、吸嘴、折角），但單袋成本更高。大多數零食生產商從VFFS起步；高端/出口品牌通常偏好預製袋機。',
+      },
+      {
+        q: '同一台機器能處理粉末和液體產品嗎？',
+        a: '通常不能在不重新配置的情況下使用同一台機器處理兩者。粉末VFFS使用螺旋計量或多頭秤；液體VFFS使用活塞泵或流量計。我們建議粉末和液體使用獨立機器，或在產品組合需要靈活性時選用預製袋機。',
+      },
+      {
+        q: '一台VFFS機能處理哪些袋型尺寸？',
+        a: '大多數VFFS機覆蓋一定範圍——例如袋寬80–300mm，長度伺服可調。換型通常需要15–30分鐘。對於差異很大的格式（5克小袋與1公斤袋），建議使用獨立機器。',
+      },
+      {
+        q: '支援拉鍊袋和吸嘴袋嗎？',
+        a: '支援。拉鍊安裝模組適用於VFFS和預製袋機。吸嘴插入功能支援預製袋旋轉式機器。這些均為附加模組，需要額外投資。',
+      },
+      {
+        q: '相容哪些薄膜材料？',
+        a: 'PE、CPP、OPP、PET/PE複合膜、鋁箔複合膜及專業多層薄膜。我們根據您產品的防潮要求、阻氧需求和貨架期目標提供薄膜選型建議。',
+      },
+      {
+        q: '取得推薦方案需要提供哪些資訊？',
+        a: '產品名稱和形態（固體/粉末/液體）、目標袋型和尺寸、所需產量速度、國家/電壓，以及是否需要充氮或真空。使用我們的推薦表單可獲得最快回應。',
+      },
+    ],
+
+    relatedTitle: '相關應用與資源',
+    relatedLinks: [
+      { label: '包裝機械概覽', href: '/machinery/packaging' },
+      { label: '充填與封口系統', href: '/machinery/filling-sealing' },
+      { label: '取得機器推薦', href: '/recommend' },
+    ],
+
+    ctaTitle: '告訴我們您的產品和包裝格式——我們將為您匹配合適的機器。',
+    ctaSubtitle: 'VFFS、預製袋機、條形袋機或真空包裝——我們的工程師根據您的產品、產量目標和袋型規格進行推薦。',
+    ctaBtn1: '取得機器推薦',
+    ctaBtn2: '聯絡工程團隊',
+  },
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default async function PouchPackingMachinePage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-
-  const content: Record<string, any> = {
-    en: {
-      title: 'Pouch Packing Machine',
-      kicker: 'POUCH PACKAGING EQUIPMENT',
-      p1: 'We manufacture a full range of pouch packing machines for stand-up pouches, pillow bags, zipper pouches, vacuum pouches, doypacks, and retort pouches. Our machines handle powder, granule, liquid, and solid products with speeds from 20 to 120 bags per minute.',
-      p2: 'All machines are built with SUS304/316L stainless steel, CE certified, and equipped with PLC + touchscreen control. We offer custom bag sizes, multi-lane configurations, and integrated date coding, gas flushing, and zipper sealing systems.',
-      subTitle: 'Machine Types Available',
-      machines: ['Stand-up Pouch', 'Pillow Bag', 'Zipper Pouch', 'Vacuum Pouch', 'Doypack', 'Retort Pouch'],
-      features: ['PLC + Touchscreen Control', 'Auto bag length detection', 'Gas flushing (N2/CO2)', 'Zipper sealing system', 'Date coding integration', 'Multi-lane options', 'SUS304/316L construction', 'CE certified'],
-      cta: 'Tell us your pouch type and product — we\'ll recommend the right machine.',
-      whoTitle: 'Who It\'s For',
-      who: [
-        { title: 'Food Manufacturers', desc: 'Packing snacks, dried fruits, nuts, coffee, rice, flour, and sugar into stand-up or pillow pouches.' },
-        { title: 'Snack Brands', desc: 'High-speed pillow bag and doypack lines for chips, candy, and dried goods.' },
-        { title: 'Pet Food Producers', desc: 'Stand-up zipper pouches and vacuum packs for pet food and treats.' },
-        { title: 'Chemical Packaging', desc: 'Durable retort and vacuum pouches for chemical powders and granules.' },
-      ],
-      appTitle: 'Application Scenarios',
-      apps: ['Coffee', 'Nuts & Seeds', 'Dried Fruits', 'Pet Food', 'Rice & Grains', 'Flour & Sugar', 'Spices & Seasonings', 'Detergent Powder'],
-      faqTitle: 'Frequently Asked Questions',
-      faq: [
-        { q: 'What pouch types can your machines make?', a: 'Our machines support stand-up pouches, pillow bags, flat pouches, zipper pouches, doypacks, vacuum pouches, retort pouches, and gusseted bags. We can customize for your specific pouch format.' },
-        { q: 'What speed range do your pouch machines offer?', a: 'Depending on the model and bag size, our machines run from 20 to 120 bags per minute. Multi-lane configurations can further increase throughput.' },
-        { q: 'Can you do zipper pouches?', a: 'Yes. We offer integrated zipper applicator systems that apply and seal zippers inline during the packing process, supporting both press-to-close and slider zippers.' },
-        { q: 'What fill weight range is supported?', a: 'Our pouch machines handle fill weights from 5g to 5kg depending on the model. Auger fillers, multi-head weighers, and volumetric cups are available for different product types.' },
-        { q: 'Do you provide gas flushing for freshness?', a: 'Yes. Our machines can be equipped with nitrogen or CO2 gas flushing systems to extend product shelf life, commonly used for coffee, snacks, and dried foods.' },
-        { q: 'Can I get a sample run before ordering?', a: 'Yes. We can run sample tests with your product and pouch material at our factory. We provide videos of the test for your review before you place an order.' },
-      ],
-      notSure: 'Not sure which machine? Send us your product details.',
-      btnQuote: 'Get a Quote',
-      btnRecommend: 'Get a Recommendation',
-    },
-    cn: {
-      title: '给袋包装机',
-      kicker: '给袋包装设备',
-      p1: '我们生产全系列给袋包装机，适用于自立袋、枕型袋、拉链袋、真空袋、多伊包和蒸煮袋。我们的机器可处理粉末、颗粒、液体和固体产品，速度从每分钟20到120袋。',
-      p2: '所有机器均采用SUS304/316L不锈钢制造，CE认证，配备PLC+触摸屏控制。我们提供定制袋型尺寸、多列配置，以及集成的打码、充氮和拉链封口系统。',
-      subTitle: '可用机型',
-      machines: ['自立袋', '枕型袋', '拉链袋', '真空袋', '多伊包', '蒸煮袋'],
-      features: ['PLC+触摸屏控制', '自动袋长检测', '充氮/充CO2', '拉链封口系统', '打码集成', '多列可选', 'SUS304/316L结构', 'CE认证'],
-      cta: '告诉我们您的袋型和产品——我们将推荐合适的机器。',
-      whoTitle: '适用客户',
-      who: [
-        { title: '食品制造商', desc: '将零食、干果、坚果、咖啡、大米、面粉和糖装入自立袋或枕型袋。' },
-        { title: '零食品牌', desc: '薯片、糖果和干货的高速枕型袋和多伊包生产线。' },
-        { title: '宠物食品生产商', desc: '宠物食品和零食的自立拉链袋和真空包装。' },
-        { title: '化工包装', desc: '化工粉末和颗粒的耐用蒸煮袋和真空袋。' },
-      ],
-      appTitle: '应用场景',
-      apps: ['咖啡', '坚果', '干果', '宠物食品', '大米谷物', '面粉糖', '调味料', '洗衣粉'],
-      faqTitle: '常见问题',
-      faq: [
-        { q: '你们的机器能做哪些袋型？', a: '我们的机器支持自立袋、枕型袋、平袋、拉链袋、多伊包、真空袋、蒸煮袋和风琴袋。可根据您的具体袋型定制。' },
-        { q: '给袋机速度范围是多少？', a: '根据机型和袋子尺寸，速度从每分钟20到120袋。多列配置可进一步提高产量。' },
-        { q: '可以做拉链袋吗？', a: '可以。我们提供集成的拉链贴合系统，在包装过程中在线贴合和封口拉链，支持按压式和滑块式拉链。' },
-        { q: '支持的充填重量范围是多少？', a: '根据机型，我们的给袋机支持5克到5公斤的充填重量。可配螺旋充填器、多头秤或量杯。' },
-        { q: '提供充气保鲜功能吗？', a: '是的。我们的机器可配备氮气或CO2充气系统，延长产品保质期，常用于咖啡、零食和干货。' },
-        { q: '下单前可以做样品测试吗？', a: '可以。我们可以用您的产品和袋材在工厂做样品测试，并提供测试视频供您确认。' },
-      ],
-      notSure: '不确定哪款机器？把您的产品信息发给我们。',
-      btnQuote: '获取报价',
-      btnRecommend: '获取推荐',
-    },
-    zh: {
-      title: '給袋包裝機',
-      kicker: '給袋包裝設備',
-      p1: '我們生產全系列給袋包裝機，適用於自立袋、枕型袋、拉鏈袋、真空袋、多伊包和蒸煮袋。我們的機器可處理粉末、顆粒、液體和固體產品，速度從每分鐘20到120袋。',
-      p2: '所有機器均採用SUS304/316L不鏽鋼製造，CE認證，配備PLC+觸控螢幕控制。我們提供客製袋型尺寸、多列配置，以及整合的打碼、充氮和拉鏈封口系統。',
-      subTitle: '可用機型',
-      machines: ['自立袋', '枕型袋', '拉鏈袋', '真空袋', '多伊包', '蒸煮袋'],
-      features: ['PLC+觸控螢幕控制', '自動袋長偵測', '充氮/充CO2', '拉鏈封口系統', '打碼整合', '多列可選', 'SUS304/316L結構', 'CE認證'],
-      cta: '告訴我們您的袋型和產品——我們將推薦合適的機器。',
-      whoTitle: '適用客戶',
-      who: [
-        { title: '食品製造商', desc: '將零食、乾果、堅果、咖啡、米、麵粉和糖裝入自立袋或枕型袋。' },
-        { title: '零食品牌', desc: '薯片、糖果和乾貨的高速枕型袋和多伊包產線。' },
-        { title: '寵物食品生產商', desc: '寵物食品和零食的自立拉鏈袋和真空包裝。' },
-        { title: '化工包裝', desc: '化工粉末和顆粒的耐用蒸煮袋和真空袋。' },
-      ],
-      appTitle: '應用場景',
-      apps: ['咖啡', '堅果', '乾果', '寵物食品', '米穀物', '麵粉糖', '調味料', '洗衣粉'],
-      faqTitle: '常見問題',
-      faq: [
-        { q: '你們的機器能做哪些袋型？', a: '我們的機器支援自立袋、枕型袋、平袋、拉鏈袋、多伊包、真空袋、蒸煮袋和風琴袋。可根據您的具體袋型客製。' },
-        { q: '給袋機速度範圍是多少？', a: '根據機型和袋子尺寸，速度從每分鐘20到120袋。多列配置可進一步提高產量。' },
-        { q: '可以做拉鏈袋嗎？', a: '可以。我們提供整合的拉鏈貼合系統，在包裝過程中線上貼合和封口拉鏈，支援按壓式和滑塊式拉鏈。' },
-        { q: '支援的充填重量範圍是多少？', a: '根據機型，我們的給袋機支援5克到5公斤的充填重量。可配螺旋充填器、多頭秤或量杯。' },
-        { q: '提供充氣保鮮功能嗎？', a: '是的。我們的機器可配備氮氣或CO2充氣系統，延長產品保質期，常用於咖啡、零食和乾貨。' },
-        { q: '下單前可以做樣品測試嗎？', a: '可以。我們可以用您的產品和袋材在工廠做樣品測試，並提供測試影片供您確認。' },
-      ],
-      notSure: '不確定哪款機器？把您的產品資訊發給我們。',
-      btnQuote: '取得報價',
-      btnRecommend: '取得推薦',
-    },
-  }
-
-  const t = content[lang] || content['en']
-  const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
-
+  const t = content[lang] || content.en
   const heroPhoto = PHOTO.machines.pouchPackingHero
 
-  const jsonLd = {
+  // JSON-LD schemas
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
+  const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: t.title,
-    description: t.p1,
+    name: 'Pouch Packing Machine',
+    description: 'SunGene manufactures VFFS, HFFS, pre-made pouch, stick pack, and vacuum packing machines for snacks, food, pharmaceutical, and consumer goods flexible packaging.',
     url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
     image: [`${SITE_URL}${heroPhoto}`],
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
-    category: 'Packaging Machinery',
+    category: 'Pouch & Bag Packaging Machinery',
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+    },
   }
 
-  const breadcrumbLd = {
+  const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -208,80 +480,138 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
 
   return (
     <>
-      <JsonLd data={jsonLd} />
-      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
+      {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero
         kicker={t.kicker}
-        title={t.title}
-        desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Pouch packing machine in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        title={t.heroTitle}
+        desc={t.heroSubtitle}
+        image={{
+          src: heroPhoto,
+          alt: 'Pouch packing machine producing flexible packaging in factory',
+          priority: true,
+          aspectClassName: 'aspect-[16/10]',
+        }}
       />
 
-      {/* Main content: two-column layout */}
+      {/* ── 2. Who It's For ──────────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
+        <Container className="max-w-6xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.whoTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.whoItems.map((item, i) => (
+              <Card key={i} className="p-6">
+                <h3 className="text-base font-bold text-gray-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 3. Suitable Products ─────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div>
-              <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {t.machines.map((m: any, i: number) => (
-                  <span key={i} className="rounded-full bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 ring-1 ring-accent-200">{m}</span>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-6">
-              <Card className="p-8">
-                <h2 className="text-xl font-bold text-gray-950">{t.subTitle}</h2>
-                <ul className="mt-6 space-y-3">
-                  {t.features.map((c: any, i: number) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      <span className="text-sm leading-relaxed sm:text-base">{c}</span>
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.productsTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.productGroups.map((group, i) => (
+              <Card key={i} className="p-6">
+                <h3 className="text-sm font-bold text-accent-700 uppercase tracking-wide mb-3">{group.label}</h3>
+                <ul className="space-y-1.5">
+                  {group.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
+                      {item}
                     </li>
                   ))}
                 </ul>
               </Card>
-              <div className="rounded-2xl bg-brand-950 p-8 text-white">
-                <h2 className="text-xl font-bold">{t.cta}</h2>
-                <div className="mt-6">
-                  <ButtonLink href={`/${lang}/contact`} size="lg">{btnLabels[lang] || btnLabels.en}</ButtonLink>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
+          <p className="mt-6 text-sm text-gray-500 italic">{t.productsNote}</p>
         </Container>
       </section>
 
-      {/* Who It's For */}
+      {/* ── 4. Packaging & Output Options ────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.whoTitle}</h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {t.who.map((w: any, i: number) => (
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.packagingTitle}</h2>
+          <div className="mt-10 space-y-4 max-w-3xl">
+            {t.packagingItems.map((item, i) => (
+              <div key={i} className="flex flex-col gap-1 rounded-xl bg-white border border-gray-200 px-6 py-4 sm:flex-row sm:items-start sm:gap-6">
+                <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-gray-500 sm:w-40">{item.label}</span>
+                <span className="text-sm leading-relaxed text-gray-800">{item.value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-gray-500 italic">{t.packagingNote}</p>
+        </Container>
+      </section>
+
+      {/* ── 5. Available Configurations ──────────────────────────────────────── */}
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-6xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.configurationsTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {t.configurations.map((cfg, i) => (
               <Card key={i} className="p-6">
-                <h3 className="text-lg font-bold text-gray-950">{w.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{w.desc}</p>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700 text-xs font-bold">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-sm font-bold text-gray-950">{cfg.name}</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-gray-600">{cfg.desc}</p>
               </Card>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Application Scenarios */}
-      <section className="py-16 sm:py-20">
-        <Container className="max-w-6xl">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.appTitle}</h2>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {t.apps.map((app: any, i: number) => (
-              <span key={i} className="rounded-full bg-brand-50 px-5 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">{app}</span>
+      {/* ── 6. Key Decision Factors ──────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
+        <Container className="max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.decisionsTitle}</h2>
+          <div className="mt-10 divide-y divide-gray-200">
+            {t.decisions.map((dec, i) => (
+              <div key={i} className="flex flex-col gap-1 py-5 sm:flex-row sm:gap-8">
+                <span className="shrink-0 text-sm font-bold text-gray-950 sm:w-44">{dec.factor}</span>
+                <span className="text-sm leading-relaxed text-gray-600">{dec.guide}</span>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* FAQ */}
+      {/* ── 7. Process Integration ───────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-5xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.integrationTitle}</h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-600">{t.integrationDesc}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            {t.integrationSteps.map((step, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
+                  {step}
+                </span>
+                {i < t.integrationSteps.length - 1 && (
+                  <svg className="h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-gray-500 italic">{t.integrationFooter}</p>
+        </Container>
+      </section>
+
+      {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
-        <Container className="max-w-6xl">
+        <Container className="max-w-3xl">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.faqTitle}</h2>
           <div className="mt-10">
             <MachineFAQ items={t.faq} />
@@ -289,13 +619,37 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
         </Container>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 sm:py-20 bg-brand-950 text-white">
-        <Container className="max-w-4xl text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">{t.cta}</h2>
+      {/* ── 9. Related Applications ──────────────────────────────────────────── */}
+      <section className="py-12 sm:py-16">
+        <Container className="max-w-4xl">
+          <h2 className="text-xl font-bold text-gray-950">{t.relatedTitle}</h2>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {t.relatedLinks.map((link, i) => (
+              <a
+                key={i}
+                href={`/${lang}${link.href}`}
+                className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
+      <section className="bg-brand-950 py-16 sm:py-20 text-white">
+        <Container className="max-w-3xl text-center">
+          <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
+          <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/contact`} size="lg">{btnLabels[lang] || btnLabels.en}</ButtonLink>
-            <a href={`/${lang}/recommend`} className="text-sm font-medium text-white/80 underline underline-offset-4 hover:text-white">{t.notSure}</a>
+            <ButtonLink href={`/${lang}/recommend`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <a
+              href={`/${lang}/contact`}
+              className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
+            >
+              {t.ctaBtn2}
+            </a>
           </div>
         </Container>
       </section>

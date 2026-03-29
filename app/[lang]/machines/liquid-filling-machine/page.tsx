@@ -1,4 +1,4 @@
-import { Lang } from '@/lib/i18n'
+import { Lang, ALL_LANGS } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
@@ -9,44 +9,51 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 
-const titles: Record<string, string> = {
-  en: 'Liquid Filling Machine | Bottles, Pouches, Cups, Tubes | SunGene',
-  cn: '液体灌装机 | 瓶、袋、杯、管 | SunGene',
-  zh: '液體灌裝機 | 瓶、袋、杯、管 | SunGene',
-  fr: 'Machine de remplissage liquide | Bouteilles, Sachets, Gobelets, Tubes | SunGene',
-  es: 'Máquina llenadora de líquidos | Botellas, Bolsas, Vasos, Tubos | SunGene',
-  pt: 'Máquina de Enchimento de Líquidos | Garrafas, Sachês, Copos, Tubos | SunGene',
-  ko: '액체 충전기 | 병, 파우치, 컵, 튜브 | SunGene',
-  ja: '液体充填機 | ボトル、パウチ、カップ、チューブ | SunGene',
-  ar: 'آلة تعبئة السوائل | زجاجات، أكياس، أكواب، أنابيب | SunGene',
-  th: 'เครื่องบรรจุของเหลว | ขวด, ซอง, ถ้วย, หลอด | SunGene',
-  vi: 'Máy chiết rót chất lỏng | Chai, Túi, Cốc, Tuýp | SunGene',
-  de: 'Flüssigkeitsabfüllmaschine | Flaschen, Beutel, Becher, Tuben | SunGene',
+// ─── Metadata ────────────────────────────────────────────────────────────────
+
+const metaTitles: Record<string, string> = {
+  en: 'Liquid Filling Machines — Piston, Gravity, Pump & Flow Meter | SunGene',
+  cn: '液体灌装机 — 活塞式、重力式、泵式与流量计灌装 | SunGene',
+  zh: '液體灌裝機 — 活塞式、重力式、泵式與流量計灌裝 | SunGene',
+  fr: 'Machines de remplissage liquide — Piston, Gravité, Pompe & Débitmètre | SunGene',
+  es: 'Máquinas llenadoras de líquidos — Pistón, Gravedad, Bomba y Caudalímetro | SunGene',
+  pt: 'Máquinas de enchimento de líquidos — Pistão, Gravidade, Bomba e Medidor de Fluxo | SunGene',
+  ko: '액체 충전 기계 — 피스톤, 중력식, 펌프 및 유량계 방식 | SunGene',
+  ja: '液体充填機 — ピストン、重力、ポンプ・流量計システム | SunGene',
+  ar: 'آلات تعبئة السوائل — بالمكبس والجاذبية والضخ وعداد التدفق | SunGene',
+  th: 'เครื่องบรรจุของเหลว — แบบลูกสูบ แรงโน้มถ่วง ปั๊ม และมิเตอร์วัดการไหล | SunGene',
+  vi: 'Máy chiết rót chất lỏng — Piston, Trọng lực, Bơm & Đồng hồ đo lưu lượng | SunGene',
+  de: 'Flüssigkeitsfüllmaschinen — Kolben, Schwerkraft, Pumpe & Durchflussmesser | SunGene',
 }
 
-const descriptions: Record<string, string> = {
-  en: 'SunGene manufactures liquid filling machines for bottles, pouches, cups and tubes. Gravity, piston, overflow, peristaltic pump and net weight fillers. CE certified, factory-direct.',
-  cn: 'SunGene生产瓶、袋、杯和管液体灌装机。重力式、活塞式、溢流式、蠕动泵和净重灌装机。CE认证，工厂直销。',
-  zh: 'SunGene生產瓶、袋、杯和管液體灌裝機。重力式、活塞式、溢流式、蠕動泵和淨重灌裝機。CE認證，工廠直銷。',
-  fr: 'SunGene fabrique des machines de remplissage de liquides pour bouteilles, sachets, gobelets et tubes. Remplissage gravitaire, piston, débordement, pompe péristaltique et poids net. Certifiées CE.',
-  es: 'SunGene fabrica máquinas llenadoras de líquidos para botellas, bolsas, vasos y tubos. Llenado por gravedad, pistón, rebose, bomba peristáltica y peso neto. Certificadas CE.',
-  pt: 'SunGene fabrica máquinas de enchimento de líquidos para garrafas, sachês, copos e tubos. Enchimento por gravidade, pistão, transbordamento, bomba peristáltica e peso líquido. Certificadas CE.',
-  ko: 'SunGene은 병, 파우치, 컵, 튜브용 액체 충전기를 제조합니다. 중력식, 피스톤, 오버플로, 연동 펌프, 순중량 충전기. CE 인증.',
-  ja: 'SunGeneはボトル、パウチ、カップ、チューブ用液体充填機を製造。重力式、ピストン式、オーバーフロー式、蠕動ポンプ式、正味重量式。CE認証。',
-  ar: 'SunGene تصنع آلات تعبئة السوائل للزجاجات والأكياس والأكواب والأنابيب. تعبئة بالجاذبية والمكبس والتدفق الزائد ومضخة التمعج والوزن الصافي. معتمدة CE.',
-  th: 'SunGene ผลิตเครื่องบรรจุของเหลวสำหรับขวด ซอง ถ้วย และหลอด แบบแรงโน้มถ่วง ลูกสูบ โอเวอร์โฟลว์ ปั๊มรูดลวด และน้ำหนักสุทธิ ได้รับการรับรอง CE',
-  vi: 'SunGene sản xuất máy chiết rót chất lỏng cho chai, túi, cốc và tuýp. Chiết rót trọng lực, piston, tràn, bơm nhu động và trọng lượng tịnh. Chứng nhận CE.',
-  de: 'SunGene stellt Flüssigkeitsabfüllmaschinen für Flaschen, Beutel, Becher und Tuben her. Schwerkraft-, Kolben-, Überlauf-, Schlauchpumpen- und Nettoge wichtabfüllung. CE-zertifiziert.',
+const metaDescs: Record<string, string> = {
+  en: 'SunGene manufactures liquid filling machines for water, juice, sauce, oil, cosmetics, cleaning agents, and pharmaceutical liquids. Piston, gravity, overflow, pump, and flow meter fillers. CE certified, factory-direct.',
+  cn: 'SunGene生产适用于水、果汁、酱料、油、化妆品、清洁剂和药品液体的灌装机。活塞式、重力式、溢流式、泵式和流量计灌装。CE认证，工厂直销。',
+  zh: 'SunGene生產適用於水、果汁、醬料、油、化妝品、清潔劑和藥品液體的灌裝機。活塞式、重力式、溢流式、泵式和流量計灌裝。CE認證，工廠直銷。',
+  fr: 'SunGene fabrique des machines de remplissage liquide pour l\'eau, les jus, les sauces, les huiles, les cosmétiques, les détergents et les liquides pharmaceutiques. Remplissage par piston, gravité, débordement, pompe et débitmètre. CE certifié.',
+  es: 'SunGene fabrica máquinas llenadoras de líquidos para agua, zumo, salsa, aceite, cosméticos, agentes de limpieza y líquidos farmacéuticos. Llenadoras de pistón, gravedad, desbordamiento, bomba y caudalímetro. CE certificado.',
+  pt: 'SunGene fabrica máquinas de enchimento de líquidos para água, sumo, molho, óleo, cosméticos, agentes de limpeza e líquidos farmacêuticos. Enchimento por pistão, gravidade, transbordamento, bomba e medidor de fluxo. CE certificado.',
+  ko: 'SunGene은 물, 주스, 소스, 오일, 화장품, 세정제 및 의약품 액체용 액체 충전 기계를 제조합니다. 피스톤, 중력식, 오버플로우, 펌프 및 유량계 방식. CE 인증, 공장 직납.',
+  ja: 'SunGeneは水、ジュース、ソース、オイル、化粧品、洗浄剤、医薬品液体向け液体充填機を製造。ピストン、重力、オーバーフロー、ポンプ、流量計方式。CE認証、工場直送。',
+  ar: 'SunGene تصنع آلات تعبئة السوائل للمياه والعصائر والصلصات والزيوت ومستحضرات التجميل والمنظفات والسوائل الصيدلانية. تعبئة بالمكبس والجاذبية والفيضان والضخ وعداد التدفق. معتمدة CE.',
+  th: 'SunGene ผลิตเครื่องบรรจุของเหลวสำหรับน้ำ น้ำผลไม้ ซอส น้ำมัน เครื่องสำอาง ผลิตภัณฑ์ทำความสะอาด และของเหลวในเภสัชกรรม แบบลูกสูบ แรงโน้มถ่วง ล้น ปั๊ม และมิเตอร์วัดการไหล ได้รับการรับรอง CE',
+  vi: 'SunGene sản xuất máy chiết rót chất lỏng cho nước, nước trái cây, nước sốt, dầu, mỹ phẩm, chất tẩy rửa và dược phẩm. Chiết rót bằng piston, trọng lực, tràn, bơm và đồng hồ đo lưu lượng. Chứng nhận CE.',
+  de: 'SunGene stellt Flüssigkeitsfüllmaschinen für Wasser, Saft, Sauce, Öl, Kosmetika, Reinigungsmittel und pharmazeutische Flüssigkeiten her. Kolben-, Schwerkraft-, Überlauf-, Pumpen- und Durchflussmesserfüller. CE-zertifiziert.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
+  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
   return {
-    title: titles[lang] || titles.en,
-    description: descriptions[lang] || descriptions.en,
-    keywords: ['liquid filling machine', 'bottle filling machine', 'piston filler', 'gravity filler', 'sauce filling machine', 'beverage filling machine', 'Taiwan liquid filler'],
+    title: metaTitles[l] || metaTitles.en,
+    description: metaDescs[l] || metaDescs.en,
+    keywords: [
+      'liquid filling machine', 'piston filler', 'gravity filler', 'overflow filler', 'pump filler',
+      'flow meter filler', 'sauce filling machine', 'oil filling machine', 'cosmetic filling machine',
+      'pharmaceutical liquid filler', 'Taiwan liquid filling', 'CE certified filling machine',
+    ],
     alternates: {
-      canonical: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
+      canonical: `${SITE_URL}/${l}/machines/liquid-filling-machine`,
       languages: {
         'en': `${SITE_URL}/en/machines/liquid-filling-machine`,
         'zh-TW': `${SITE_URL}/zh/machines/liquid-filling-machine`,
@@ -61,142 +68,410 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         'vi': `${SITE_URL}/vi/machines/liquid-filling-machine`,
         'de': `${SITE_URL}/de/machines/liquid-filling-machine`,
         'x-default': `${SITE_URL}/en/machines/liquid-filling-machine`,
-      }
+      },
     },
     openGraph: {
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
-      url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
+      title: metaTitles[l] || metaTitles.en,
+      description: metaDescs[l] || metaDescs.en,
+      url: `${SITE_URL}/${l}/machines/liquid-filling-machine`,
       siteName: 'SunGene Machinery',
       images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
+      title: metaTitles[l] || metaTitles.en,
+      description: metaDescs[l] || metaDescs.en,
       images: [`${SITE_URL}/og/og.png`],
     },
   }
 }
 
+// ─── Static content (en/cn/zh translated; all others fall back to en) ─────────
+
+interface PageContent {
+  kicker: string
+  heroTitle: string
+  heroSubtitle: string
+  // Section 2 — Who it's for
+  whoTitle: string
+  whoItems: { title: string; desc: string }[]
+  // Section 3 — Suitable products
+  productsTitle: string
+  productGroups: { label: string; items: string[] }[]
+  productsNote: string
+  // Section 4 — Packaging & Output
+  packagingTitle: string
+  packagingItems: { label: string; value: string }[]
+  packagingNote: string
+  // Section 5 — Available configurations
+  configurationsTitle: string
+  configurations: { name: string; desc: string }[]
+  // Section 6 — Key decision factors
+  decisionsTitle: string
+  decisions: { factor: string; guide: string }[]
+  // Section 7 — Process integration
+  integrationTitle: string
+  integrationDesc: string
+  integrationSteps: string[]
+  integrationFooter: string
+  // Section 8 — FAQ
+  faqTitle: string
+  faq: { q: string; a: string }[]
+  // Section 9 — Related
+  relatedTitle: string
+  relatedLinks: { label: string; href: string }[]
+  // Section 10 — CTA
+  ctaTitle: string
+  ctaSubtitle: string
+  ctaBtn1: string
+  ctaBtn2: string
+}
+
+const content: Record<string, PageContent> = {
+  en: {
+    kicker: 'LIQUID FILLING SYSTEMS',
+    heroTitle: 'Liquid Filling Machines — Piston, Gravity, Overflow, and Pump Systems',
+    heroSubtitle: 'SunGene manufactures liquid filling machines for thin liquids, viscous sauces, oils, creams, and industrial fluids. The right filling method depends on your liquid\'s viscosity, fill volume, foam sensitivity, and required accuracy.',
+
+    whoTitle: 'Who It\'s For',
+    whoItems: [
+      { title: 'Food & Beverage', desc: 'Water, juice, sauce, oil, vinegar, dairy, condiments — food-grade contact materials and hygienic design.' },
+      { title: 'Cosmetics & Personal Care', desc: 'Shampoo, lotion, cream, perfume, hand sanitizer — overflow fillers for consistent fill level in clear bottles.' },
+      { title: 'Chemical & Cleaning', desc: 'Detergent, disinfectant, industrial lubricant, pesticide — chemical-resistant materials and enclosed design.' },
+      { title: 'Pharmaceutical', desc: 'Bottles, vials, syringes — GMP-compliant systems with SUS316L contact parts and cleanroom-ready designs.' },
+    ],
+
+    productsTitle: 'Suitable Products',
+    productGroups: [
+      { label: 'Thin / low-viscosity', items: ['Water', 'Juice', 'Vinegar', 'Alcohol', 'Cleaning agents'] },
+      { label: 'Medium viscosity', items: ['Cooking oil', 'Ketchup', 'Salad dressing', 'Honey', 'Shampoo'] },
+      { label: 'High viscosity / paste', items: ['Tomato paste', 'Cream', 'Ointment', 'Adhesive'] },
+      { label: 'Foamy liquids', items: ['Beer', 'Carbonated beverages — special filling head required'] },
+    ],
+    productsNote: 'Viscosity and foam level determine the optimal filling method. We recommend based on product data.',
+
+    packagingTitle: 'Packaging & Output Options',
+    packagingItems: [
+      { label: 'Container types', value: 'Bottles (PET/glass), jars, pouches, cups, tubes, cans, vials' },
+      { label: 'Fill volume range', value: '5ml to 20L — depends on machine type and filling head configuration' },
+      { label: 'Output range', value: '5–300 bottles/min depending on container format, fill volume, and machine configuration' },
+    ],
+    packagingNote: 'All stated ranges are configuration-dependent — we confirm based on your container, fill volume, and liquid type.',
+
+    configurationsTitle: 'Available Configurations',
+    configurations: [
+      { name: 'Piston Filler', desc: 'High accuracy (±0.5–1%), suitable for thick to thin liquids. Adjustable piston stroke for volume. Servo-driven for highest accuracy.' },
+      { name: 'Gravity Filler', desc: 'For thin, free-flowing liquids. Simple, low maintenance. Fill by weight or time.' },
+      { name: 'Overflow Filler', desc: 'Fills to a consistent level regardless of volume — ideal for cosmetics in clear bottles where appearance matters.' },
+      { name: 'Peristaltic Pump Filler', desc: 'For aggressive chemicals, pharmaceuticals, or very small volumes. No product contact with pump mechanism.' },
+      { name: 'Flow Meter / Mass Flow Filler', desc: 'Highly accurate volumetric filling for valuable liquids. Used in oil, spirits, and pharmaceutical applications.' },
+      { name: 'Rotary Filling Machine', desc: 'High-speed multi-head system for bottles. 50–300 bottles/min. Integrated with capper and labeler.' },
+      { name: 'Pouch / Sachet Liquid Filler', desc: 'For sauce sachets, ketchup, or liquid pouches. Piston or peristaltic pump.' },
+      { name: 'Materials & Compliance', desc: 'CE certified; SUS304/316L contact parts meet food or pharmaceutical standards; voltage/frequency configurable.' },
+    ],
+
+    decisionsTitle: 'Key Decision Factors',
+    decisions: [
+      { factor: 'Liquid viscosity', guide: 'Thin → gravity or overflow. Medium → piston or pump. Thick/paste → piston or gear pump.' },
+      { factor: 'Fill accuracy', guide: '±1% needed → piston or flow meter. ±2% acceptable → gravity or time-based.' },
+      { factor: 'Foam sensitivity', guide: 'Foamy products → bottom-up filling or counter-pressure system.' },
+      { factor: 'Container type', guide: 'Bottles → linear or rotary filler. Pouches → pouch filler. Vials → pharmaceutical filler.' },
+      { factor: 'Output target', guide: '< 20/min → linear piston. 20–80/min → multi-head linear. > 80/min → rotary.' },
+      { factor: 'Hygiene requirements', guide: 'Cosmetic/food → SUS304 + CIP design. Pharma → SUS316L + GMP validation.' },
+    ],
+
+    integrationTitle: 'Process Integration',
+    integrationDesc: 'This machine integrates into your broader production workflow at the filling stage. A typical integrated liquid line may include:',
+    integrationSteps: [
+      'Liquid tank / hopper',
+      'Pump or gravity feed',
+      'Filling heads',
+      'Container (bottle/pouch/cup)',
+      'Capping / sealing',
+      'Date coding',
+      'Label applicator',
+      'Inspection (fill level / weight)',
+      'Conveyor',
+      'Case packer',
+    ],
+    integrationFooter: 'We design filling systems to integrate with your container format, capping method, and labeling system. Single machines or complete fill-cap-label lines.',
+
+    faqTitle: 'Frequently Asked Questions',
+    faq: [
+      {
+        q: 'What filling method is best for cooking oil?',
+        a: 'Flow meter or piston filling gives the best accuracy for oil. Overflow fillers are also used for oil in clear bottles where fill level appearance matters. We recommend flow meter filling for high-value oils where accuracy is critical.',
+      },
+      {
+        q: 'Can the same machine fill both thin liquids and thick sauces?',
+        a: 'A piston filler can handle a range of viscosities — from water-like to paste — by adjusting piston speed, valve timing, and nozzle size. For very wide viscosity range (water and thick paste on the same line), we usually recommend one machine per product type or a flexible piston filler with dedicated change parts.',
+      },
+      {
+        q: 'What is the minimum and maximum fill volume?',
+        a: 'This depends on machine type. Peristaltic pump fillers can do as little as 1–5ml. Piston fillers typically start at 5–10ml. Large industrial fillers can fill 10–20L containers. Tell us your target fill volume and container size.',
+      },
+      {
+        q: 'Do you support foamy liquids like beer or carbonated drinks?',
+        a: 'Yes, but these require counter-pressure filling heads or bottom-up filling nozzles to minimize foam. This is a specialized configuration — please specify if you\'re filling carbonated or foamy products.',
+      },
+      {
+        q: 'Can I add a capper and labeler to the filling machine?',
+        a: 'Yes. We supply complete fill-cap-label lines, including screw cappers, ROPP cappers, snap cappers, pressure-sensitive labelers, and sleeve labelers. These can be supplied as standalone machines or fully integrated lines.',
+      },
+      {
+        q: 'What information do I need to provide to get a quote?',
+        a: 'Liquid name and approximate viscosity (e.g. "similar to water" or "similar to honey"), fill volume, container type and size, required output speed, country/voltage, and whether you need a standalone filler or full line.',
+      },
+    ],
+
+    relatedTitle: 'Related Applications & Resources',
+    relatedLinks: [
+      { label: 'Filling & Sealing Systems', href: '/machinery/filling-sealing' },
+      { label: 'Packaging Machinery Overview', href: '/machinery/packaging' },
+      { label: 'Get a Machine Recommendation', href: '/recommend' },
+    ],
+
+    ctaTitle: 'Describe your liquid and container — we\'ll recommend the right filling system.',
+    ctaSubtitle: 'Piston, gravity, overflow, pump, or flow meter — our engineers select the filling method based on your product, accuracy requirement, and output target.',
+    ctaBtn1: 'Get a Machine Recommendation',
+    ctaBtn2: 'Talk to Engineering',
+  },
+
+  cn: {
+    kicker: '液体灌装系统',
+    heroTitle: '液体灌装机 — 活塞式、重力式、溢流式与泵式系统',
+    heroSubtitle: 'SunGene生产适用于稀薄液体、粘性酱料、油品、膏霜和工业流体的灌装机。最佳灌装方式取决于液体的粘度、灌装量、起泡敏感性和所需精度。',
+
+    whoTitle: '适用客户',
+    whoItems: [
+      { title: '食品与饮料', desc: '水、果汁、酱料、油、醋、乳制品、调味品——食品级接触材料和卫生设计。' },
+      { title: '化妆品与个人护理', desc: '洗发水、乳液、面霜、香水、洗手液——溢流式灌装机用于透明瓶中保持一致液位。' },
+      { title: '化工与清洁', desc: '洗涤剂、消毒剂、工业润滑油、农药——耐化学腐蚀材料和全封闭设计。' },
+      { title: '制药', desc: '瓶装、小瓶、注射器——符合GMP标准、SUS316L接触部件和洁净室设计。' },
+    ],
+
+    productsTitle: '适用产品',
+    productGroups: [
+      { label: '稀薄/低粘度', items: ['水', '果汁', '醋', '酒精', '清洁剂'] },
+      { label: '中等粘度', items: ['食用油', '番茄酱', '沙拉酱', '蜂蜜', '洗发水'] },
+      { label: '高粘度/膏状', items: ['番茄膏', '面霜', '软膏', '粘合剂'] },
+      { label: '起泡液体', items: ['啤酒', '碳酸饮料——需要特殊灌装头'] },
+    ],
+    productsNote: '粘度和起泡程度决定最佳灌装方式。我们根据产品数据进行推荐。',
+
+    packagingTitle: '包装与产量选项',
+    packagingItems: [
+      { label: '容器类型', value: '瓶装（PET/玻璃）、罐装、软袋、杯装、软管、马口铁罐、小瓶' },
+      { label: '灌装量范围', value: '5ml至20L——取决于机器类型和灌装头配置' },
+      { label: '产量范围', value: '5–300瓶/分钟，取决于容器格式、灌装量和机器配置' },
+    ],
+    packagingNote: '所有所示范围均取决于具体配置——我们根据您的容器、灌装量和液体类型进行确认。',
+
+    configurationsTitle: '可用配置',
+    configurations: [
+      { name: '活塞式灌装机', desc: '高精度（±0.5–1%），适用于稠厚到稀薄的液体。可调节活塞行程控制容量。伺服驱动精度最高。' },
+      { name: '重力式灌装机', desc: '适用于稀薄、自由流动的液体。结构简单，维护方便。按重量或时间灌装。' },
+      { name: '溢流式灌装机', desc: '无论容量多少，灌装至一致液位——理想用于透明瓶中对外观有要求的化妆品。' },
+      { name: '蠕动泵灌装机', desc: '适用于腐蚀性化学品、药品或极小容量。泵体不接触产品。' },
+      { name: '流量计/质量流量灌装机', desc: '高精度体积灌装，适用于高价值液体。用于油品、烈酒和制药应用。' },
+      { name: '旋转式灌装机', desc: '高速多头瓶装系统。50–300瓶/分钟。与封盖机和贴标机集成。' },
+      { name: '软袋/小袋液体灌装机', desc: '适用于酱料袋、番茄酱或液体软袋。活塞泵或蠕动泵。' },
+      { name: '材质与认证', desc: 'CE认证；SUS304/316L接触部件符合食品或制药标准；电压/频率可定制。' },
+    ],
+
+    decisionsTitle: '关键决策因素',
+    decisions: [
+      { factor: '液体粘度', guide: '稀薄 → 重力式或溢流式。中等 → 活塞式或泵式。稠厚/膏状 → 活塞式或齿轮泵。' },
+      { factor: '灌装精度', guide: '需要±1% → 活塞式或流量计。±2%可接受 → 重力式或时间控制。' },
+      { factor: '起泡敏感性', guide: '起泡产品 → 自下而上灌装或背压系统。' },
+      { factor: '容器类型', guide: '瓶装 → 直线式或旋转式灌装机。软袋 → 软袋灌装机。小瓶 → 制药灌装机。' },
+      { factor: '产量目标', guide: '< 20瓶/分钟 → 直线式活塞。20–80 → 多头直线式。> 80 → 旋转式。' },
+      { factor: '卫生要求', guide: '化妆品/食品 → SUS304+CIP设计。制药 → SUS316L+GMP验证。' },
+    ],
+
+    integrationTitle: '工艺整合',
+    integrationDesc: '该设备在灌装环节整合到您更广泛的生产流程中。典型的液体整合产线可能包括：',
+    integrationSteps: ['储液罐/料斗', '泵送或重力进料', '灌装头', '容器（瓶/袋/杯）', '封盖/密封', '打码', '贴标机', '检测（液位/重量）', '输送带', '装箱机'],
+    integrationFooter: '我们设计的灌装系统与您的容器格式、封盖方式和贴标系统相整合。单机或完整灌装-封盖-贴标产线。',
+
+    faqTitle: '常见问题',
+    faq: [
+      {
+        q: '食用油最适合哪种灌装方式？',
+        a: '流量计或活塞式灌装对油品精度最高。溢流式灌装也用于透明瓶中对液位外观有要求的油品。对于精度要求高的高价值油品，我们推荐流量计灌装。',
+      },
+      {
+        q: '同一台机器能灌装稀薄液体和稠厚酱料吗？',
+        a: '活塞式灌装机通过调整活塞速度、阀门时序和喷嘴尺寸，可处理从水状到膏状的多种粘度范围。对于粘度差异极大的产品（水和稠膏在同一产线），我们通常建议每种产品类型使用独立机器，或使用带专用换型部件的灵活活塞式灌装机。',
+      },
+      {
+        q: '最小和最大灌装量是多少？',
+        a: '这取决于机器类型。蠕动泵灌装机最小可灌装1–5ml。活塞式灌装机通常从5–10ml起始。大型工业灌装机可灌装10–20L容器。请告知我们您的目标灌装量和容器尺寸。',
+      },
+      {
+        q: '支持灌装啤酒或碳酸饮料等起泡液体吗？',
+        a: '支持，但需要背压灌装头或自下而上灌装喷嘴以减少泡沫。这是一种专用配置——如果您灌装碳酸或起泡产品，请务必注明。',
+      },
+      {
+        q: '可以在灌装机上添加封盖机和贴标机吗？',
+        a: '可以。我们提供完整的灌装-封盖-贴标产线，包括旋盖机、ROPP封盖机、压盖机、压敏贴标机和套标机。可作为独立机器或完全集成产线供应。',
+      },
+      {
+        q: '获取报价需要提供哪些信息？',
+        a: '液体名称和大致粘度（如"类似水"或"类似蜂蜜"）、灌装量、容器类型和尺寸、所需产量速度、国家/电压，以及是否需要单机灌装机或完整产线。',
+      },
+    ],
+
+    relatedTitle: '相关应用与资源',
+    relatedLinks: [
+      { label: '充填与封口系统', href: '/machinery/filling-sealing' },
+      { label: '包装机械概览', href: '/machinery/packaging' },
+      { label: '获取机器推荐', href: '/recommend' },
+    ],
+
+    ctaTitle: '描述您的液体和容器——我们将推荐合适的灌装系统。',
+    ctaSubtitle: '活塞式、重力式、溢流式、泵式或流量计——我们的工程师根据您的产品、精度要求和产量目标选择灌装方式。',
+    ctaBtn1: '获取机器推荐',
+    ctaBtn2: '联系工程团队',
+  },
+
+  zh: {
+    kicker: '液體灌裝系統',
+    heroTitle: '液體灌裝機 — 活塞式、重力式、溢流式與泵式系統',
+    heroSubtitle: 'SunGene生產適用於稀薄液體、黏性醬料、油品、膏霜和工業流體的灌裝機。最佳灌裝方式取決於液體的黏度、灌裝量、起泡敏感性和所需精度。',
+
+    whoTitle: '適用客戶',
+    whoItems: [
+      { title: '食品與飲料', desc: '水、果汁、醬料、油、醋、乳製品、調味品——食品級接觸材料和衛生設計。' },
+      { title: '化妝品與個人護理', desc: '洗髮水、乳液、面霜、香水、洗手液——溢流式灌裝機用於透明瓶中保持一致液位。' },
+      { title: '化工與清潔', desc: '洗滌劑、消毒劑、工業潤滑油、農藥——耐化學腐蝕材料和全封閉設計。' },
+      { title: '製藥', desc: '瓶裝、小瓶、注射器——符合GMP標準、SUS316L接觸部件和潔淨室設計。' },
+    ],
+
+    productsTitle: '適用產品',
+    productGroups: [
+      { label: '稀薄/低黏度', items: ['水', '果汁', '醋', '酒精', '清潔劑'] },
+      { label: '中等黏度', items: ['食用油', '番茄醬', '沙拉醬', '蜂蜜', '洗髮水'] },
+      { label: '高黏度/膏狀', items: ['番茄膏', '面霜', '軟膏', '黏合劑'] },
+      { label: '起泡液體', items: ['啤酒', '碳酸飲料——需要特殊灌裝頭'] },
+    ],
+    productsNote: '黏度和起泡程度決定最佳灌裝方式。我們根據產品數據進行推薦。',
+
+    packagingTitle: '包裝與產量選項',
+    packagingItems: [
+      { label: '容器類型', value: '瓶裝（PET/玻璃）、罐裝、軟袋、杯裝、軟管、馬口鐵罐、小瓶' },
+      { label: '灌裝量範圍', value: '5ml至20L——取決於機器類型和灌裝頭配置' },
+      { label: '產量範圍', value: '5–300瓶/分鐘，取決於容器格式、灌裝量和機器配置' },
+    ],
+    packagingNote: '所有所示範圍均取決於具體配置——我們根據您的容器、灌裝量和液體類型進行確認。',
+
+    configurationsTitle: '可用配置',
+    configurations: [
+      { name: '活塞式灌裝機', desc: '高精度（±0.5–1%），適用於稠厚到稀薄的液體。可調節活塞行程控制容量。伺服驅動精度最高。' },
+      { name: '重力式灌裝機', desc: '適用於稀薄、自由流動的液體。結構簡單，維護方便。按重量或時間灌裝。' },
+      { name: '溢流式灌裝機', desc: '無論容量多少，灌裝至一致液位——理想用於透明瓶中對外觀有要求的化妝品。' },
+      { name: '蠕動泵灌裝機', desc: '適用於腐蝕性化學品、藥品或極小容量。泵體不接觸產品。' },
+      { name: '流量計/質量流量灌裝機', desc: '高精度體積灌裝，適用於高價值液體。用於油品、烈酒和製藥應用。' },
+      { name: '旋轉式灌裝機', desc: '高速多頭瓶裝系統。50–300瓶/分鐘。與封蓋機和貼標機整合。' },
+      { name: '軟袋/小袋液體灌裝機', desc: '適用於醬料袋、番茄醬或液體軟袋。活塞泵或蠕動泵。' },
+      { name: '材質與認證', desc: 'CE認證；SUS304/316L接觸部件符合食品或製藥標準；電壓/頻率可客製。' },
+    ],
+
+    decisionsTitle: '關鍵決策因素',
+    decisions: [
+      { factor: '液體黏度', guide: '稀薄 → 重力式或溢流式。中等 → 活塞式或泵式。稠厚/膏狀 → 活塞式或齒輪泵。' },
+      { factor: '灌裝精度', guide: '需要±1% → 活塞式或流量計。±2%可接受 → 重力式或時間控制。' },
+      { factor: '起泡敏感性', guide: '起泡產品 → 自下而上灌裝或背壓系統。' },
+      { factor: '容器類型', guide: '瓶裝 → 直線式或旋轉式灌裝機。軟袋 → 軟袋灌裝機。小瓶 → 製藥灌裝機。' },
+      { factor: '產量目標', guide: '< 20瓶/分鐘 → 直線式活塞。20–80 → 多頭直線式。> 80 → 旋轉式。' },
+      { factor: '衛生要求', guide: '化妝品/食品 → SUS304+CIP設計。製藥 → SUS316L+GMP驗證。' },
+    ],
+
+    integrationTitle: '工藝整合',
+    integrationDesc: '該設備在灌裝環節整合到您更廣泛的生產流程中。典型的液體整合產線可能包括：',
+    integrationSteps: ['儲液罐/料斗', '泵送或重力進料', '灌裝頭', '容器（瓶/袋/杯）', '封蓋/密封', '打碼', '貼標機', '檢測（液位/重量）', '輸送帶', '裝箱機'],
+    integrationFooter: '我們設計的灌裝系統與您的容器格式、封蓋方式和貼標系統相整合。單機或完整灌裝-封蓋-貼標產線。',
+
+    faqTitle: '常見問題',
+    faq: [
+      {
+        q: '食用油最適合哪種灌裝方式？',
+        a: '流量計或活塞式灌裝對油品精度最高。溢流式灌裝也用於透明瓶中對液位外觀有要求的油品。對於精度要求高的高價值油品，我們推薦流量計灌裝。',
+      },
+      {
+        q: '同一台機器能灌裝稀薄液體和稠厚醬料嗎？',
+        a: '活塞式灌裝機通過調整活塞速度、閥門時序和噴嘴尺寸，可處理從水狀到膏狀的多種黏度範圍。對於黏度差異極大的產品（水和稠膏在同一產線），我們通常建議每種產品類型使用獨立機器，或使用帶專用換型部件的靈活活塞式灌裝機。',
+      },
+      {
+        q: '最小和最大灌裝量是多少？',
+        a: '這取決於機器類型。蠕動泵灌裝機最小可灌裝1–5ml。活塞式灌裝機通常從5–10ml起始。大型工業灌裝機可灌裝10–20L容器。請告知我們您的目標灌裝量和容器尺寸。',
+      },
+      {
+        q: '支援灌裝啤酒或碳酸飲料等起泡液體嗎？',
+        a: '支援，但需要背壓灌裝頭或自下而上灌裝噴嘴以減少泡沫。這是一種專用配置——如果您灌裝碳酸或起泡產品，請務必註明。',
+      },
+      {
+        q: '可以在灌裝機上添加封蓋機和貼標機嗎？',
+        a: '可以。我們提供完整的灌裝-封蓋-貼標產線，包括旋蓋機、ROPP封蓋機、壓蓋機、壓敏貼標機和套標機。可作為獨立機器或完全整合產線供應。',
+      },
+      {
+        q: '取得報價需要提供哪些資訊？',
+        a: '液體名稱和大致黏度（如「類似水」或「類似蜂蜜」）、灌裝量、容器類型和尺寸、所需產量速度、國家/電壓，以及是否需要單機灌裝機或完整產線。',
+      },
+    ],
+
+    relatedTitle: '相關應用與資源',
+    relatedLinks: [
+      { label: '充填與封口系統', href: '/machinery/filling-sealing' },
+      { label: '包裝機械概覽', href: '/machinery/packaging' },
+      { label: '取得機器推薦', href: '/recommend' },
+    ],
+
+    ctaTitle: '描述您的液體和容器——我們將推薦合適的灌裝系統。',
+    ctaSubtitle: '活塞式、重力式、溢流式、泵式或流量計——我們的工程師根據您的產品、精度要求和產量目標選擇灌裝方式。',
+    ctaBtn1: '取得機器推薦',
+    ctaBtn2: '聯絡工程團隊',
+  },
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default async function LiquidFillingMachinePage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-
-  const content: Record<string, any> = {
-    en: {
-      title: 'Liquid Filling Machine',
-      kicker: 'LIQUID FILLING EQUIPMENT',
-      p1: 'We manufacture liquid filling machines for bottles, pouches, cups, and tubes. Our range includes gravity fillers, piston fillers, overflow fillers, peristaltic pump fillers, and net weight fillers — handling water-thin to highly viscous products.',
-      p2: 'All machines are built with SUS304/316L stainless steel, feature CIP-ready designs, and come with servo-driven filling systems for high accuracy. Available with capping, labeling, and shrink-wrapping integration for complete filling lines.',
-      subTitle: 'Features & Specifications',
-      machines: ['Gravity Filler', 'Piston Filler', 'Overflow Filler', 'Peristaltic Pump', 'Net Weight Filler'],
-      features: ['Servo-driven filling accuracy +/-0.5%', 'CIP (Clean-in-Place) ready', 'Handles 1cP to 50,000cP viscosity', 'Anti-drip nozzle design', 'PLC + Touchscreen control', 'Multi-head configurations', 'SUS304/316L food-grade', 'CE certified'],
-      cta: 'Tell us your liquid viscosity and fill volume — we\'ll design the right solution.',
-      whoTitle: 'Who It\'s For',
-      who: [
-        { title: 'Beverage Producers', desc: 'Filling water, juice, tea, energy drinks, and dairy beverages into bottles and pouches at high speed.' },
-        { title: 'Sauce & Condiment Makers', desc: 'Piston and pump fillers for ketchup, mayonnaise, soy sauce, chili sauce, and salad dressings.' },
-        { title: 'Cosmetics & Personal Care', desc: 'Precision filling of shampoo, lotion, cream, essential oils, and perfume into bottles and tubes.' },
-        { title: 'Chemical Manufacturers', desc: 'Corrosion-resistant filling systems for cleaning agents, lubricants, paints, and industrial chemicals.' },
-      ],
-      appTitle: 'Application Scenarios',
-      apps: ['Water & Juice', 'Sauces & Dressings', 'Cooking Oil', 'Shampoo & Lotion', 'Chemicals & Cleaners', 'Milk & Dairy', 'Essential Oils', 'Pharmaceutical Liquids'],
-      faqTitle: 'Frequently Asked Questions',
-      faq: [
-        { q: 'What viscosity range can your machines handle?', a: 'Our liquid filling machines handle viscosities from 1cP (water-thin) to 50,000cP (thick pastes). Gravity fillers work best for thin liquids, piston fillers for viscous products, and peristaltic pumps for shear-sensitive materials.' },
-        { q: 'What fill volume range is available?', a: 'Our machines support fill volumes from 5ml to 20 liters depending on the model. We offer different nozzle sizes and pump configurations for each volume range.' },
-        { q: 'Can you fill hot liquids?', a: 'Yes. Our machines can handle hot-fill applications up to 95 degrees Celsius with heat-resistant seals, insulated tanks, and temperature-controlled nozzles.' },
-        { q: 'Do you offer complete filling lines?', a: 'Yes. We integrate filling machines with rinsing, capping, labeling, shrink wrapping, and case packing to provide turnkey filling line solutions.' },
-        { q: 'How do you prevent dripping between fills?', a: 'Our nozzles feature anti-drip designs including suck-back valves, positive shut-off mechanisms, and drip trays. Nozzle selection depends on liquid characteristics.' },
-        { q: 'Can I fill foamy products like shampoo?', a: 'Yes. We use overflow fillers or bottom-up filling techniques to minimize foam formation. The fill speed can be adjusted to reduce turbulence for foamy products.' },
-      ],
-      notSure: 'Not sure which machine? Send us your product details.',
-      btnQuote: 'Get a Quote',
-      btnRecommend: 'Get a Recommendation',
-    },
-    cn: {
-      title: '液体灌装机',
-      kicker: '液体灌装设备',
-      p1: '我们生产瓶、袋、杯和管液体灌装机。产品线包括重力式灌装机、活塞式灌装机、溢流式灌装机、蠕动泵灌装机和净重灌装机——处理从水状到高粘度的各种液体。',
-      p2: '所有机器均采用SUS304/316L不锈钢制造，CIP就绪设计，配备伺服驱动灌装系统。可集成旋盖、贴标和热缩包装，组成完整灌装线。',
-      subTitle: '特性与规格',
-      machines: ['重力式灌装机', '活塞式灌装机', '溢流式灌装机', '蠕动泵灌装机', '净重灌装机'],
-      features: ['伺服驱动精度+/-0.5%', 'CIP就绪设计', '处理1cP到50,000cP粘度', '防滴漏喷嘴设计', 'PLC+触摸屏控制', '多头配置', 'SUS304/316L食品级', 'CE认证'],
-      cta: '告诉我们您的液体粘度和灌装量——我们将设计合适的方案。',
-      whoTitle: '适用客户',
-      who: [
-        { title: '饮料生产商', desc: '高速将水、果汁、茶饮、能量饮料和乳制品灌装到瓶和袋中。' },
-        { title: '酱料调味品厂', desc: '番茄酱、蛋黄酱、酱油、辣椒酱和沙拉酱的活塞和泵式灌装。' },
-        { title: '化妆品个护', desc: '洗发水、乳液、面霜、精油和香水的精密灌装。' },
-        { title: '化工制造商', desc: '清洁剂、润滑油、涂料和工业化学品的耐腐蚀灌装系统。' },
-      ],
-      appTitle: '应用场景',
-      apps: ['水和果汁', '酱料和调味品', '食用油', '洗发水和乳液', '化学品和清洁剂', '牛奶和乳制品', '精油', '药液'],
-      faqTitle: '常见问题',
-      faq: [
-        { q: '你们的机器能处理什么粘度范围？', a: '我们的液体灌装机处理1cP(水状)到50,000cP(浓稠膏体)的粘度。重力式适合稀薄液体，活塞式适合粘稠产品，蠕动泵适合剪切敏感物料。' },
-        { q: '灌装量范围是多少？', a: '根据机型，支持5ml到20升的灌装量。不同容量范围提供不同的喷嘴尺寸和泵配置。' },
-        { q: '能灌装热液体吗？', a: '可以。我们的机器可处理最高95度的热灌装应用，配备耐热密封件、保温罐和温控喷嘴。' },
-        { q: '提供完整灌装线吗？', a: '是的。我们将灌装机与冲洗、旋盖、贴标、热缩包装和装箱集成，提供交钥匙灌装线方案。' },
-        { q: '如何防止灌装间隙滴漏？', a: '我们的喷嘴采用防滴漏设计，包括回吸阀、正关断机构和接滴盘。喷嘴选择取决于液体特性。' },
-        { q: '能灌装起泡产品如洗发水吗？', a: '可以。我们使用溢流式灌装或底部上升灌装技术减少泡沫。灌装速度可调以减少起泡产品的湍流。' },
-      ],
-      notSure: '不确定哪款机器？把您的产品信息发给我们。',
-      btnQuote: '获取报价',
-      btnRecommend: '获取推荐',
-    },
-    zh: {
-      title: '液體灌裝機',
-      kicker: '液體灌裝設備',
-      p1: '我們生產瓶、袋、杯和管液體灌裝機。產品線包括重力式灌裝機、活塞式灌裝機、溢流式灌裝機、蠕動泵灌裝機和淨重灌裝機——處理從水狀到高黏度的各種液體。',
-      p2: '所有機器均採用SUS304/316L不鏽鋼製造，CIP就緒設計，配備伺服驅動灌裝系統。可整合旋蓋、貼標和熱縮包裝，組成完整灌裝線。',
-      subTitle: '特性與規格',
-      machines: ['重力式灌裝機', '活塞式灌裝機', '溢流式灌裝機', '蠕動泵灌裝機', '淨重灌裝機'],
-      features: ['伺服驅動精度+/-0.5%', 'CIP就緒設計', '處理1cP到50,000cP黏度', '防滴漏噴嘴設計', 'PLC+觸控螢幕控制', '多頭配置', 'SUS304/316L食品級', 'CE認證'],
-      cta: '告訴我們您的液體黏度和灌裝量——我們將設計合適的方案。',
-      whoTitle: '適用客戶',
-      who: [
-        { title: '飲料生產商', desc: '高速將水、果汁、茶飲、能量飲料和乳製品灌裝到瓶和袋中。' },
-        { title: '醬料調味品廠', desc: '番茄醬、蛋黃醬、醬油、辣椒醬和沙拉醬的活塞和泵式灌裝。' },
-        { title: '化妝品個護', desc: '洗髮精、乳液、面霜、精油和香水的精密灌裝。' },
-        { title: '化工製造商', desc: '清潔劑、潤滑油、塗料和工業化學品的耐腐蝕灌裝系統。' },
-      ],
-      appTitle: '應用場景',
-      apps: ['水和果汁', '醬料和調味品', '食用油', '洗髮精和乳液', '化學品和清潔劑', '牛奶和乳製品', '精油', '藥液'],
-      faqTitle: '常見問題',
-      faq: [
-        { q: '你們的機器能處理什麼黏度範圍？', a: '我們的液體灌裝機處理1cP(水狀)到50,000cP(濃稠膏體)的黏度。重力式適合稀薄液體，活塞式適合黏稠產品，蠕動泵適合剪切敏感物料。' },
-        { q: '灌裝量範圍是多少？', a: '根據機型，支援5ml到20升的灌裝量。不同容量範圍提供不同的噴嘴尺寸和泵配置。' },
-        { q: '能灌裝熱液體嗎？', a: '可以。我們的機器可處理最高95度的熱灌裝應用，配備耐熱密封件、保溫罐和溫控噴嘴。' },
-        { q: '提供完整灌裝線嗎？', a: '是的。我們將灌裝機與沖洗、旋蓋、貼標、熱縮包裝和裝箱整合，提供交鑰匙灌裝線方案。' },
-        { q: '如何防止灌裝間隙滴漏？', a: '我們的噴嘴採用防滴漏設計，包括回吸閥、正關斷機構和接滴盤。噴嘴選擇取決於液體特性。' },
-        { q: '能灌裝起泡產品如洗髮精嗎？', a: '可以。我們使用溢流式灌裝或底部上升灌裝技術減少泡沫。灌裝速度可調以減少起泡產品的湍流。' },
-      ],
-      notSure: '不確定哪款機器？把您的產品資訊發給我們。',
-      btnQuote: '取得報價',
-      btnRecommend: '取得推薦',
-    },
-  }
-
-  const t = content[lang] || content['en']
-  const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
-
+  const t = content[lang] || content.en
   const heroPhoto = PHOTO.machines.liquidFillingHero
 
-  const jsonLd = {
+  // JSON-LD schemas
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
+  const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: t.title,
-    description: t.p1,
+    name: 'Liquid Filling Machine',
+    description: 'SunGene manufactures piston, gravity, overflow, peristaltic pump, and flow meter liquid filling machines for food, beverage, cosmetic, chemical, and pharmaceutical applications.',
     url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
     image: [`${SITE_URL}${heroPhoto}`],
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
-    category: 'Filling Machinery',
+    category: 'Liquid Filling Machinery',
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+    },
   }
 
-  const breadcrumbLd = {
+  const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -208,76 +483,138 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
 
   return (
     <>
-      <JsonLd data={jsonLd} />
-      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
+      {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero
         kicker={t.kicker}
-        title={t.title}
-        desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Liquid filling machine in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        title={t.heroTitle}
+        desc={t.heroSubtitle}
+        image={{
+          src: heroPhoto,
+          alt: 'Liquid filling machine filling bottles on production line',
+          priority: true,
+          aspectClassName: 'aspect-[16/10]',
+        }}
       />
 
+      {/* ── 2. Who It's For ──────────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
+        <Container className="max-w-6xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.whoTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.whoItems.map((item, i) => (
+              <Card key={i} className="p-6">
+                <h3 className="text-base font-bold text-gray-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 3. Suitable Products ─────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div>
-              <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {t.machines.map((m: any, i: number) => (
-                  <span key={i} className="rounded-full bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 ring-1 ring-accent-200">{m}</span>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-6">
-              <Card className="p-8">
-                <h2 className="text-xl font-bold text-gray-950">{t.subTitle}</h2>
-                <ul className="mt-6 space-y-3">
-                  {t.features.map((c: any, i: number) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      <span className="text-sm leading-relaxed sm:text-base">{c}</span>
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.productsTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.productGroups.map((group, i) => (
+              <Card key={i} className="p-6">
+                <h3 className="text-sm font-bold text-accent-700 uppercase tracking-wide mb-3">{group.label}</h3>
+                <ul className="space-y-1.5">
+                  {group.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
+                      {item}
                     </li>
                   ))}
                 </ul>
               </Card>
-              <div className="rounded-2xl bg-brand-950 p-8 text-white">
-                <h2 className="text-xl font-bold">{t.cta}</h2>
-                <div className="mt-6">
-                  <ButtonLink href={`/${lang}/contact`} size="lg">{btnLabels[lang] || btnLabels.en}</ButtonLink>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
+          <p className="mt-6 text-sm text-gray-500 italic">{t.productsNote}</p>
         </Container>
       </section>
 
+      {/* ── 4. Packaging & Output Options ────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.whoTitle}</h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {t.who.map((w: any, i: number) => (
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.packagingTitle}</h2>
+          <div className="mt-10 space-y-4 max-w-3xl">
+            {t.packagingItems.map((item, i) => (
+              <div key={i} className="flex flex-col gap-1 rounded-xl bg-white border border-gray-200 px-6 py-4 sm:flex-row sm:items-start sm:gap-6">
+                <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-gray-500 sm:w-40">{item.label}</span>
+                <span className="text-sm leading-relaxed text-gray-800">{item.value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-gray-500 italic">{t.packagingNote}</p>
+        </Container>
+      </section>
+
+      {/* ── 5. Available Configurations ──────────────────────────────────────── */}
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-6xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.configurationsTitle}</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {t.configurations.map((cfg, i) => (
               <Card key={i} className="p-6">
-                <h3 className="text-lg font-bold text-gray-950">{w.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{w.desc}</p>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700 text-xs font-bold">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-sm font-bold text-gray-950">{cfg.name}</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-gray-600">{cfg.desc}</p>
               </Card>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <Container className="max-w-6xl">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.appTitle}</h2>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {t.apps.map((app: any, i: number) => (
-              <span key={i} className="rounded-full bg-brand-50 px-5 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">{app}</span>
+      {/* ── 6. Key Decision Factors ──────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
+        <Container className="max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.decisionsTitle}</h2>
+          <div className="mt-10 divide-y divide-gray-200">
+            {t.decisions.map((dec, i) => (
+              <div key={i} className="flex flex-col gap-1 py-5 sm:flex-row sm:gap-8">
+                <span className="shrink-0 text-sm font-bold text-gray-950 sm:w-44">{dec.factor}</span>
+                <span className="text-sm leading-relaxed text-gray-600">{dec.guide}</span>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
+      {/* ── 7. Process Integration ───────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20">
+        <Container className="max-w-5xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.integrationTitle}</h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-600">{t.integrationDesc}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            {t.integrationSteps.map((step, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
+                  {step}
+                </span>
+                {i < t.integrationSteps.length - 1 && (
+                  <svg className="h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-gray-500 italic">{t.integrationFooter}</p>
+        </Container>
+      </section>
+
+      {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
-        <Container className="max-w-6xl">
+        <Container className="max-w-3xl">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-950 md:text-3xl">{t.faqTitle}</h2>
           <div className="mt-10">
             <MachineFAQ items={t.faq} />
@@ -285,12 +622,37 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20 bg-brand-950 text-white">
-        <Container className="max-w-4xl text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">{t.cta}</h2>
+      {/* ── 9. Related Applications ──────────────────────────────────────────── */}
+      <section className="py-12 sm:py-16">
+        <Container className="max-w-4xl">
+          <h2 className="text-xl font-bold text-gray-950">{t.relatedTitle}</h2>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {t.relatedLinks.map((link, i) => (
+              <a
+                key={i}
+                href={`/${lang}${link.href}`}
+                className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
+      <section className="bg-brand-950 py-16 sm:py-20 text-white">
+        <Container className="max-w-3xl text-center">
+          <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
+          <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/contact`} size="lg">{btnLabels[lang] || btnLabels.en}</ButtonLink>
-            <a href={`/${lang}/recommend`} className="text-sm font-medium text-white/80 underline underline-offset-4 hover:text-white">{t.notSure}</a>
+            <ButtonLink href={`/${lang}/recommend`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <a
+              href={`/${lang}/contact`}
+              className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
+            >
+              {t.ctaBtn2}
+            </a>
           </div>
         </Container>
       </section>
