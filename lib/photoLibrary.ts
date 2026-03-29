@@ -6,7 +6,7 @@ export const PHOTO = {
     machineByProduct: [
       `${BASE}/home/machine-by-product-01-powder.jpg`,
       `${BASE}/home/machine-by-product-02-liquid.jpg`,
-      `${BASE}/home/machine-by-product-03-pouch.png`,
+      `${BASE}/home/machine-by-product-03-pouch.jpg`,
       `${BASE}/home/machine-by-product-04-conveyor.jpg`,
     ],
     trustGallery: [
