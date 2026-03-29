@@ -32,13 +32,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     icons: { icon: '/logo/sungene.png' },
     alternates: {
       canonical: `${baseUrl}/${lang}`,
-      languages: {
-        'en': 'https://sungene.net/en', 'zh-TW': 'https://sungene.net/zh', 'zh-CN': 'https://sungene.net/cn',
-        'fr': 'https://sungene.net/fr', 'es': 'https://sungene.net/es', 'pt': 'https://sungene.net/pt',
-        'ko': 'https://sungene.net/ko', 'ja': 'https://sungene.net/ja', 'ar': 'https://sungene.net/ar',
-        'th': 'https://sungene.net/th', 'vi': 'https://sungene.net/vi', 'de': 'https://sungene.net/de',
-        'x-default': 'https://sungene.net/en',
-      },
     },
   }
 }
