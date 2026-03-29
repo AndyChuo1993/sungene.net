@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
+import { ALL_LANGS } from '@/lib/i18n'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sungene.net'
 
-  const langs = ['en', 'zh', 'cn'] as const
+  const langs = ALL_LANGS
 
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => ({

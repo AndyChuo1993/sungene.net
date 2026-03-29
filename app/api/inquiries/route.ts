@@ -181,7 +181,7 @@ function getTransporter() {
   const rawPass = process.env.MAIL_PASS || process.env.SMTP_PASS
   const pass = rawPass ? rawPass.replace(/\s+/g, '') : undefined
 
-  const to = process.env.INQUIRY_TO || 'contact@sungenelite.com'
+  const to = process.env.INQUIRY_TO || 'contact@sungene.net'
   let transporter: any
   let emailEnabled = true
 

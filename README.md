@@ -30,7 +30,7 @@
 - 請勿把敏感或雜項一起打包：`.env*`、`.git`、`.next`、`node_modules`、`reports`、`*.log`、`*.zip`。
 
 ## SEO 與 Sitemap/Robots
-- `/sitemap.xml`：包含 CMS pages + Blog + Case Studies（lastModified 依 CMS updatedAt/publishedAt）
+- `/sitemap.xml`：靜態手寫路由，涵蓋全部 12 語系（ALL_LANGS）× 各頁面，依優先度分組（homepage 1.0、machine pages 0.9、machinery 0.85、support 0.7）
 - `/robots.txt`：含 sitemap 位置與允許爬取規則
 - Metadata：
   - layout 設定 metadataBase/canonical/twitter
