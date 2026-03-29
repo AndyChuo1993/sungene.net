@@ -21,6 +21,8 @@ export const PHOTO = {
     ],
     processThumbs: {
       0: `${BASE}/home/process-01-requirements.jpg`,
+      1: `${BASE}/home/process-02-consultation.jpg`,
+      2: `${BASE}/home/process-03-quotation.jpg`,
       3: `${BASE}/home/process-04-qc.jpg`,
       4: `${BASE}/home/process-05-shipping.jpg`,
     } as const,

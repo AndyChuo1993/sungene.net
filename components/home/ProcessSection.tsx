@@ -5,6 +5,8 @@ import { PHOTO } from '@/lib/photoLibrary'
 
 const stepThumbs = {
   0: PHOTO.home.processThumbs[0],
+  1: PHOTO.home.processThumbs[1],
+  2: PHOTO.home.processThumbs[2],
   3: PHOTO.home.processThumbs[3],
   4: PHOTO.home.processThumbs[4],
 } as const
