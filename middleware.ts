@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
 
   // === 2. Old WordPress query strings (/?post_type=product&p=X) → homepage ===
   const searchParams = request.nextUrl.searchParams
-  if (searchParams.has('post_type') || searchParams.has('p') && pathname === '/') {
+  if ((searchParams.has('post_type') || searchParams.has('p')) && pathname === '/') {
     return NextResponse.redirect(new URL('/en', request.url), 301)
   }
 

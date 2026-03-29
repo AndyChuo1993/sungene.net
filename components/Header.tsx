@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { t, Lang } from '@/lib/i18n'
 import LanguageSwitcher from './LanguageSwitcher'
+import MobileMenu from './MobileMenu'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 
@@ -79,37 +80,13 @@ export default function Header({ lang }: { lang: Lang }) {
             </ButtonLink>
           </div>
 
-          <details className="group relative lg:hidden">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-lg border border-gray-200 p-2.5 text-gray-700 transition hover:border-gray-300 hover:bg-gray-50">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-            </summary>
-            <div className="absolute right-0 mt-3 w-[min(22rem,calc(100vw-3rem))] rounded-2xl border border-gray-200 bg-white p-4 shadow-elev-2">
-              <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-4">
-                <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
-                  <LanguageSwitcher lang={lang} />
-                </Suspense>
-                <ButtonLink href={`/${lang}/contact`} size="sm">
-                  {t(lang, 'nav_free_analysis')}
-                </ButtonLink>
-              </div>
-
-              <div className="space-y-1">
-                {links.map((l) => (
-                  <Link key={l.href} href={l.href} className="block rounded-lg px-3 py-2.5 text-gray-700 transition hover:bg-gray-50 hover:text-brand-950">
-                    {l.label}
-                  </Link>
-                ))}
-                <div className="mt-3 grid gap-1 rounded-xl bg-gray-50 p-3">
-                  <div className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-gray-400">{t(lang, 'nav_machinery')}</div>
-                  {serviceLinks.map((l) => (
-                    <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-sm text-gray-700 transition hover:bg-white hover:text-brand-950">
-                      {l.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </details>
+          <MobileMenu
+            lang={lang}
+            links={links}
+            serviceLinks={serviceLinks}
+            ctaLabel={t(lang, 'nav_free_analysis')}
+            machineryLabel={t(lang, 'nav_machinery')}
+          />
         </Container>
       </header>
     </>

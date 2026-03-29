@@ -18,9 +18,10 @@ export default async function RootLayout({
   const lang = h.get('x-lang')
   const langMap: Record<string, string> = { en: 'en', zh: 'zh-Hant', cn: 'zh-Hans', fr: 'fr', es: 'es', pt: 'pt', ko: 'ko', ja: 'ja', ar: 'ar', th: 'th', vi: 'vi', de: 'de' }
   const htmlLang = langMap[lang || ''] || 'en'
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'
 
   return (
-    <html lang={htmlLang} suppressHydrationWarning>
+    <html lang={htmlLang} dir={dir} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
