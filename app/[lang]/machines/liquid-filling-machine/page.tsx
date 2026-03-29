@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Liquid Filling Machine | Bottles, Pouches, Cups, Tubes | SunGene',
@@ -45,36 +46,36 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[lang] || descriptions.en,
     keywords: ['liquid filling machine', 'bottle filling machine', 'piston filler', 'gravity filler', 'sauce filling machine', 'beverage filling machine', 'Taiwan liquid filler'],
     alternates: {
-      canonical: `https://sungene.net/${lang}/machines/liquid-filling-machine`,
+      canonical: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
       languages: {
-        'en': 'https://sungene.net/en/machines/liquid-filling-machine',
-        'zh-TW': 'https://sungene.net/zh/machines/liquid-filling-machine',
-        'zh-CN': 'https://sungene.net/cn/machines/liquid-filling-machine',
-        'fr': 'https://sungene.net/fr/machines/liquid-filling-machine',
-        'es': 'https://sungene.net/es/machines/liquid-filling-machine',
-        'pt': 'https://sungene.net/pt/machines/liquid-filling-machine',
-        'ko': 'https://sungene.net/ko/machines/liquid-filling-machine',
-        'ja': 'https://sungene.net/ja/machines/liquid-filling-machine',
-        'ar': 'https://sungene.net/ar/machines/liquid-filling-machine',
-        'th': 'https://sungene.net/th/machines/liquid-filling-machine',
-        'vi': 'https://sungene.net/vi/machines/liquid-filling-machine',
-        'de': 'https://sungene.net/de/machines/liquid-filling-machine',
-        'x-default': 'https://sungene.net/en/machines/liquid-filling-machine',
+        'en': `${SITE_URL}/en/machines/liquid-filling-machine`,
+        'zh-TW': `${SITE_URL}/zh/machines/liquid-filling-machine`,
+        'zh-CN': `${SITE_URL}/cn/machines/liquid-filling-machine`,
+        'fr': `${SITE_URL}/fr/machines/liquid-filling-machine`,
+        'es': `${SITE_URL}/es/machines/liquid-filling-machine`,
+        'pt': `${SITE_URL}/pt/machines/liquid-filling-machine`,
+        'ko': `${SITE_URL}/ko/machines/liquid-filling-machine`,
+        'ja': `${SITE_URL}/ja/machines/liquid-filling-machine`,
+        'ar': `${SITE_URL}/ar/machines/liquid-filling-machine`,
+        'th': `${SITE_URL}/th/machines/liquid-filling-machine`,
+        'vi': `${SITE_URL}/vi/machines/liquid-filling-machine`,
+        'de': `${SITE_URL}/de/machines/liquid-filling-machine`,
+        'x-default': `${SITE_URL}/en/machines/liquid-filling-machine`,
       }
     },
     openGraph: {
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      url: `https://sungene.net/${lang}/machines/liquid-filling-machine`,
+      url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      images: ['https://sungene.net/og/og.png'],
+      images: [`${SITE_URL}/og/og.png`],
     },
   }
 }
@@ -188,10 +189,10 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     '@type': 'Product',
     name: t.title,
     description: t.p1,
-    url: `https://sungene.net/${lang}/machines/liquid-filling-machine`,
-    image: [`https://sungene.net${heroPhoto}`],
+    url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
+    image: [`${SITE_URL}${heroPhoto}`],
     brand: { '@type': 'Brand', name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Filling Machinery',
   }
 
@@ -199,9 +200,9 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `https://sungene.net/${lang}/machines/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
     ],
   }
 

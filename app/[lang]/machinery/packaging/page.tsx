@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
@@ -43,32 +44,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['VFFS machine', 'HFFS machine', 'pouch packing machine', 'vacuum packing machine', 'shrink wrap machine', 'carton packing machine', 'packaging machine Taiwan'],
     alternates: {
-      canonical: `https://sungene.net/${l}/machinery/packaging`,
+      canonical: `${SITE_URL}/${l}/machinery/packaging`,
       languages: {
-        'en': 'https://sungene.net/en/machinery/packaging',
-        'zh-TW': 'https://sungene.net/zh/machinery/packaging',
-        'zh-CN': 'https://sungene.net/cn/machinery/packaging',
-        'fr': 'https://sungene.net/fr/machinery/packaging',
-        'es': 'https://sungene.net/es/machinery/packaging',
-        'pt': 'https://sungene.net/pt/machinery/packaging',
-        'ko': 'https://sungene.net/ko/machinery/packaging',
-        'ja': 'https://sungene.net/ja/machinery/packaging',
-        'ar': 'https://sungene.net/ar/machinery/packaging',
-        'th': 'https://sungene.net/th/machinery/packaging',
-        'vi': 'https://sungene.net/vi/machinery/packaging',
-        'de': 'https://sungene.net/de/machinery/packaging',
-        'x-default': 'https://sungene.net/en/machinery/packaging',
+        'en': `${SITE_URL}/en/machinery/packaging`,
+        'zh-TW': `${SITE_URL}/zh/machinery/packaging`,
+        'zh-CN': `${SITE_URL}/cn/machinery/packaging`,
+        'fr': `${SITE_URL}/fr/machinery/packaging`,
+        'es': `${SITE_URL}/es/machinery/packaging`,
+        'pt': `${SITE_URL}/pt/machinery/packaging`,
+        'ko': `${SITE_URL}/ko/machinery/packaging`,
+        'ja': `${SITE_URL}/ja/machinery/packaging`,
+        'ar': `${SITE_URL}/ar/machinery/packaging`,
+        'th': `${SITE_URL}/th/machinery/packaging`,
+        'vi': `${SITE_URL}/vi/machinery/packaging`,
+        'de': `${SITE_URL}/de/machinery/packaging`,
+        'x-default': `${SITE_URL}/en/machinery/packaging`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/machinery/packaging`,
+      url: `${SITE_URL}/${l}/machinery/packaging`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 

@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Conveyor & Automation Systems | Belt, Bucket, Screw, Robotic | SunGene',
@@ -45,36 +46,36 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[lang] || descriptions.en,
     keywords: ['conveyor system', 'belt conveyor', 'production line automation', 'automated packaging line', 'industrial conveyor', 'PLC control system', 'factory automation Taiwan'],
     alternates: {
-      canonical: `https://sungene.net/${lang}/machines/conveyor-system`,
+      canonical: `${SITE_URL}/${lang}/machines/conveyor-system`,
       languages: {
-        'en': 'https://sungene.net/en/machines/conveyor-system',
-        'zh-TW': 'https://sungene.net/zh/machines/conveyor-system',
-        'zh-CN': 'https://sungene.net/cn/machines/conveyor-system',
-        'fr': 'https://sungene.net/fr/machines/conveyor-system',
-        'es': 'https://sungene.net/es/machines/conveyor-system',
-        'pt': 'https://sungene.net/pt/machines/conveyor-system',
-        'ko': 'https://sungene.net/ko/machines/conveyor-system',
-        'ja': 'https://sungene.net/ja/machines/conveyor-system',
-        'ar': 'https://sungene.net/ar/machines/conveyor-system',
-        'th': 'https://sungene.net/th/machines/conveyor-system',
-        'vi': 'https://sungene.net/vi/machines/conveyor-system',
-        'de': 'https://sungene.net/de/machines/conveyor-system',
-        'x-default': 'https://sungene.net/en/machines/conveyor-system',
+        'en': `${SITE_URL}/en/machines/conveyor-system`,
+        'zh-TW': `${SITE_URL}/zh/machines/conveyor-system`,
+        'zh-CN': `${SITE_URL}/cn/machines/conveyor-system`,
+        'fr': `${SITE_URL}/fr/machines/conveyor-system`,
+        'es': `${SITE_URL}/es/machines/conveyor-system`,
+        'pt': `${SITE_URL}/pt/machines/conveyor-system`,
+        'ko': `${SITE_URL}/ko/machines/conveyor-system`,
+        'ja': `${SITE_URL}/ja/machines/conveyor-system`,
+        'ar': `${SITE_URL}/ar/machines/conveyor-system`,
+        'th': `${SITE_URL}/th/machines/conveyor-system`,
+        'vi': `${SITE_URL}/vi/machines/conveyor-system`,
+        'de': `${SITE_URL}/de/machines/conveyor-system`,
+        'x-default': `${SITE_URL}/en/machines/conveyor-system`,
       }
     },
     openGraph: {
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      url: `https://sungene.net/${lang}/machines/conveyor-system`,
+      url: `${SITE_URL}/${lang}/machines/conveyor-system`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      images: ['https://sungene.net/og/og.png'],
+      images: [`${SITE_URL}/og/og.png`],
     },
   }
 }
@@ -185,10 +186,10 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     '@type': 'Product',
     name: t.title,
     description: t.p1,
-    url: `https://sungene.net/${lang}/machines/conveyor-system`,
-    image: [`https://sungene.net${heroPhoto}`],
+    url: `${SITE_URL}/${lang}/machines/conveyor-system`,
+    image: [`${SITE_URL}${heroPhoto}`],
     brand: { '@type': 'Brand', name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Industrial Automation',
   }
 
@@ -196,9 +197,9 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Conveyor & Automation Systems', item: `https://sungene.net/${lang}/machines/conveyor-system` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Conveyor & Automation Systems', item: `${SITE_URL}/${lang}/machines/conveyor-system` },
     ],
   }
 

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -43,32 +44,32 @@ const descriptions: Record<string,string> = {
     description: descriptions[l] || descriptions.en,
     keywords: ['SunGene machinery', 'Taiwan machinery manufacturer', 'packaging machine manufacturer', 'food processing equipment Taiwan', 'industrial machinery Taiwan', 'CE certified machinery', 'factory direct machinery'],
     alternates: {
-      canonical: `https://sungene.net/${l}/about`,
+      canonical: `${SITE_URL}/${l}/about`,
       languages: {
-        'en': 'https://sungene.net/en/about',
-        'zh-TW': 'https://sungene.net/zh/about',
-        'zh-CN': 'https://sungene.net/cn/about',
-        'fr': 'https://sungene.net/fr/about',
-        'es': 'https://sungene.net/es/about',
-        'pt': 'https://sungene.net/pt/about',
-        'ko': 'https://sungene.net/ko/about',
-        'ja': 'https://sungene.net/ja/about',
-        'ar': 'https://sungene.net/ar/about',
-        'th': 'https://sungene.net/th/about',
-        'vi': 'https://sungene.net/vi/about',
-        'de': 'https://sungene.net/de/about',
-        'x-default': 'https://sungene.net/en/about',
+        'en': `${SITE_URL}/en/about`,
+        'zh-TW': `${SITE_URL}/zh/about`,
+        'zh-CN': `${SITE_URL}/cn/about`,
+        'fr': `${SITE_URL}/fr/about`,
+        'es': `${SITE_URL}/es/about`,
+        'pt': `${SITE_URL}/pt/about`,
+        'ko': `${SITE_URL}/ko/about`,
+        'ja': `${SITE_URL}/ja/about`,
+        'ar': `${SITE_URL}/ar/about`,
+        'th': `${SITE_URL}/th/about`,
+        'vi': `${SITE_URL}/vi/about`,
+        'de': `${SITE_URL}/de/about`,
+        'x-default': `${SITE_URL}/en/about`,
       }
     },
     openGraph: {
       title: (titles as Record<string,string>)[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/about`,
+      url: `${SITE_URL}/${l}/about`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 

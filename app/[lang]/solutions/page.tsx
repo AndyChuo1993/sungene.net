@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
@@ -38,32 +39,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['turnkey production line', 'semi-automatic packaging', 'fully automatic packaging line', 'custom machinery solution', 'packaging line integration', 'production line setup', 'machinery solution Taiwan'],
     alternates: {
-      canonical: `https://sungene.net/${l}/solutions`,
+      canonical: `${SITE_URL}/${l}/solutions`,
       languages: {
-        'en': 'https://sungene.net/en/solutions',
-        'zh-TW': 'https://sungene.net/zh/solutions',
-        'zh-CN': 'https://sungene.net/cn/solutions',
-        'fr': 'https://sungene.net/fr/solutions',
-        'es': 'https://sungene.net/es/solutions',
-        'pt': 'https://sungene.net/pt/solutions',
-        'ko': 'https://sungene.net/ko/solutions',
-        'ja': 'https://sungene.net/ja/solutions',
-        'ar': 'https://sungene.net/ar/solutions',
-        'th': 'https://sungene.net/th/solutions',
-        'vi': 'https://sungene.net/vi/solutions',
-        'de': 'https://sungene.net/de/solutions',
-        'x-default': 'https://sungene.net/en/solutions',
+        'en': `${SITE_URL}/en/solutions`,
+        'zh-TW': `${SITE_URL}/zh/solutions`,
+        'zh-CN': `${SITE_URL}/cn/solutions`,
+        'fr': `${SITE_URL}/fr/solutions`,
+        'es': `${SITE_URL}/es/solutions`,
+        'pt': `${SITE_URL}/pt/solutions`,
+        'ko': `${SITE_URL}/ko/solutions`,
+        'ja': `${SITE_URL}/ja/solutions`,
+        'ar': `${SITE_URL}/ar/solutions`,
+        'th': `${SITE_URL}/th/solutions`,
+        'vi': `${SITE_URL}/vi/solutions`,
+        'de': `${SITE_URL}/de/solutions`,
+        'x-default': `${SITE_URL}/en/solutions`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/solutions`,
+      url: `${SITE_URL}/${l}/solutions`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 
@@ -245,7 +246,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
           position: i + 1,
           name: cat.title,
           description: cat.desc,
-          url: `https://sungene.net/${lang}/solutions#${cat.id}`,
+          url: `${SITE_URL}/${lang}/solutions#${cat.id}`,
         })),
       }} />
     </>

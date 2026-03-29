@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -39,11 +40,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: titles[lang] || titles.en,
     description: descriptions[lang] || descriptions.en,
-    alternates: { canonical: `https://sungene.net/${lang}/machinery/custom` },
+    alternates: { canonical: `${SITE_URL}/${lang}/machinery/custom` },
     openGraph: {
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      url: `https://sungene.net/${lang}/machinery/custom`,
+      url: `${SITE_URL}/${lang}/machinery/custom`,
     },
   }
 }

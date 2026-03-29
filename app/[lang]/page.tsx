@@ -10,6 +10,7 @@ import Applications from '@/components/home/Applications'
 import CTASection from '@/components/home/CTASection'
 import FAQ from '@/components/home/FAQ'
 import TrustGallery from '@/components/home/TrustGallery'
+import { SITE_URL } from '@/lib/siteConfig'
 
 type PageParams = {
   params: Promise<{ lang?: string }>
@@ -100,7 +101,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const safeLang = normalizeLang(lang)
   const data = getHomeSeo(safeLang)
 
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = SITE_URL
 
   return {
     title: data.title,
@@ -109,11 +110,11 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     alternates: {
       canonical: `${baseUrl}/${safeLang}`,
       languages: {
-        'en': 'https://sungene.net/en', 'zh-TW': 'https://sungene.net/zh', 'zh-CN': 'https://sungene.net/cn',
-        'fr': 'https://sungene.net/fr', 'es': 'https://sungene.net/es', 'pt': 'https://sungene.net/pt',
-        'ko': 'https://sungene.net/ko', 'ja': 'https://sungene.net/ja', 'ar': 'https://sungene.net/ar',
-        'th': 'https://sungene.net/th', 'vi': 'https://sungene.net/vi', 'de': 'https://sungene.net/de',
-        'x-default': 'https://sungene.net/en',
+        'en': `${SITE_URL}/en`, 'zh-TW': `${SITE_URL}/zh`, 'zh-CN': `${SITE_URL}/cn`,
+        'fr': `${SITE_URL}/fr`, 'es': `${SITE_URL}/es`, 'pt': `${SITE_URL}/pt`,
+        'ko': `${SITE_URL}/ko`, 'ja': `${SITE_URL}/ja`, 'ar': `${SITE_URL}/ar`,
+        'th': `${SITE_URL}/th`, 'vi': `${SITE_URL}/vi`, 'de': `${SITE_URL}/de`,
+        'x-default': `${SITE_URL}/en`,
       },
     },
     openGraph: {
@@ -153,11 +154,11 @@ export default async function Page({ params }: PageParams) {
     description: 'Complete range of packaging machinery, food processing equipment, and industrial automation systems.',
     numberOfItems: 5,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', url: `https://sungene.net/${safeLang}/machinery/packaging` },
-      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', url: `https://sungene.net/${safeLang}/machinery/food-processing` },
-      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', url: `https://sungene.net/${safeLang}/machinery/filling-sealing` },
-      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', url: `https://sungene.net/${safeLang}/machinery/conveying-automation` },
-      { '@type': 'ListItem', position: 5, name: 'Customized Machinery', url: `https://sungene.net/${safeLang}/machinery/custom` },
+      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', url: `${SITE_URL}/${safeLang}/machinery/packaging` },
+      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', url: `${SITE_URL}/${safeLang}/machinery/food-processing` },
+      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', url: `${SITE_URL}/${safeLang}/machinery/filling-sealing` },
+      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', url: `${SITE_URL}/${safeLang}/machinery/conveying-automation` },
+      { '@type': 'ListItem', position: 5, name: 'Customized Machinery', url: `${SITE_URL}/${safeLang}/machinery/custom` },
     ]
   }
 

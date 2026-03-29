@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Pouch Packing Machine | Stand-up, Pillow, Vacuum Pouches | SunGene',
@@ -45,36 +46,36 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[lang] || descriptions.en,
     keywords: ['pouch packing machine', 'stand-up pouch machine', 'VFFS machine', 'zipper pouch machine', 'doypack machine', 'snack packing machine', 'pillow bag machine'],
     alternates: {
-      canonical: `https://sungene.net/${lang}/machines/pouch-packing-machine`,
+      canonical: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
       languages: {
-        'en': 'https://sungene.net/en/machines/pouch-packing-machine',
-        'zh-TW': 'https://sungene.net/zh/machines/pouch-packing-machine',
-        'zh-CN': 'https://sungene.net/cn/machines/pouch-packing-machine',
-        'fr': 'https://sungene.net/fr/machines/pouch-packing-machine',
-        'es': 'https://sungene.net/es/machines/pouch-packing-machine',
-        'pt': 'https://sungene.net/pt/machines/pouch-packing-machine',
-        'ko': 'https://sungene.net/ko/machines/pouch-packing-machine',
-        'ja': 'https://sungene.net/ja/machines/pouch-packing-machine',
-        'ar': 'https://sungene.net/ar/machines/pouch-packing-machine',
-        'th': 'https://sungene.net/th/machines/pouch-packing-machine',
-        'vi': 'https://sungene.net/vi/machines/pouch-packing-machine',
-        'de': 'https://sungene.net/de/machines/pouch-packing-machine',
-        'x-default': 'https://sungene.net/en/machines/pouch-packing-machine',
+        'en': `${SITE_URL}/en/machines/pouch-packing-machine`,
+        'zh-TW': `${SITE_URL}/zh/machines/pouch-packing-machine`,
+        'zh-CN': `${SITE_URL}/cn/machines/pouch-packing-machine`,
+        'fr': `${SITE_URL}/fr/machines/pouch-packing-machine`,
+        'es': `${SITE_URL}/es/machines/pouch-packing-machine`,
+        'pt': `${SITE_URL}/pt/machines/pouch-packing-machine`,
+        'ko': `${SITE_URL}/ko/machines/pouch-packing-machine`,
+        'ja': `${SITE_URL}/ja/machines/pouch-packing-machine`,
+        'ar': `${SITE_URL}/ar/machines/pouch-packing-machine`,
+        'th': `${SITE_URL}/th/machines/pouch-packing-machine`,
+        'vi': `${SITE_URL}/vi/machines/pouch-packing-machine`,
+        'de': `${SITE_URL}/de/machines/pouch-packing-machine`,
+        'x-default': `${SITE_URL}/en/machines/pouch-packing-machine`,
       }
     },
     openGraph: {
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      url: `https://sungene.net/${lang}/machines/pouch-packing-machine`,
+      url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: titles[lang] || titles.en,
       description: descriptions[lang] || descriptions.en,
-      images: ['https://sungene.net/og/og.png'],
+      images: [`${SITE_URL}/og/og.png`],
     },
   }
 }
@@ -188,10 +189,10 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     '@type': 'Product',
     name: t.title,
     description: t.p1,
-    url: `https://sungene.net/${lang}/machines/pouch-packing-machine`,
-    image: [`https://sungene.net${heroPhoto}`],
+    url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
+    image: [`${SITE_URL}${heroPhoto}`],
     brand: { '@type': 'Brand', name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: 'https://sungene.net' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Packaging Machinery',
   }
 
@@ -199,9 +200,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://sungene.net/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `https://sungene.net/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Pouch Packing Machine', item: `https://sungene.net/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: 'Pouch Packing Machine', item: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
     ],
   }
 

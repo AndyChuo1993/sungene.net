@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   return {
@@ -9,6 +10,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://sungene.net/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }

@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
@@ -43,32 +44,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['liquid filling machine', 'paste filling machine', 'cup sealer', 'bottle capper', 'induction sealer', 'tube filling machine', 'filling machine Taiwan'],
     alternates: {
-      canonical: `https://sungene.net/${l}/machinery/filling-sealing`,
+      canonical: `${SITE_URL}/${l}/machinery/filling-sealing`,
       languages: {
-        'en': 'https://sungene.net/en/machinery/filling-sealing',
-        'zh-TW': 'https://sungene.net/zh/machinery/filling-sealing',
-        'zh-CN': 'https://sungene.net/cn/machinery/filling-sealing',
-        'fr': 'https://sungene.net/fr/machinery/filling-sealing',
-        'es': 'https://sungene.net/es/machinery/filling-sealing',
-        'pt': 'https://sungene.net/pt/machinery/filling-sealing',
-        'ko': 'https://sungene.net/ko/machinery/filling-sealing',
-        'ja': 'https://sungene.net/ja/machinery/filling-sealing',
-        'ar': 'https://sungene.net/ar/machinery/filling-sealing',
-        'th': 'https://sungene.net/th/machinery/filling-sealing',
-        'vi': 'https://sungene.net/vi/machinery/filling-sealing',
-        'de': 'https://sungene.net/de/machinery/filling-sealing',
-        'x-default': 'https://sungene.net/en/machinery/filling-sealing',
+        'en': `${SITE_URL}/en/machinery/filling-sealing`,
+        'zh-TW': `${SITE_URL}/zh/machinery/filling-sealing`,
+        'zh-CN': `${SITE_URL}/cn/machinery/filling-sealing`,
+        'fr': `${SITE_URL}/fr/machinery/filling-sealing`,
+        'es': `${SITE_URL}/es/machinery/filling-sealing`,
+        'pt': `${SITE_URL}/pt/machinery/filling-sealing`,
+        'ko': `${SITE_URL}/ko/machinery/filling-sealing`,
+        'ja': `${SITE_URL}/ja/machinery/filling-sealing`,
+        'ar': `${SITE_URL}/ar/machinery/filling-sealing`,
+        'th': `${SITE_URL}/th/machinery/filling-sealing`,
+        'vi': `${SITE_URL}/vi/machinery/filling-sealing`,
+        'de': `${SITE_URL}/de/machinery/filling-sealing`,
+        'x-default': `${SITE_URL}/en/machinery/filling-sealing`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/machinery/filling-sealing`,
+      url: `${SITE_URL}/${l}/machinery/filling-sealing`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 

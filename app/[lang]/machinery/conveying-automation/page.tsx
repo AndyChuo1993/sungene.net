@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
@@ -43,32 +44,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['belt conveyor Taiwan', 'bucket elevator', 'screw conveyor', 'production line automation', 'robotic palletizer', 'PLC control system', 'factory automation Taiwan'],
     alternates: {
-      canonical: `https://sungene.net/${l}/machinery/conveying-automation`,
+      canonical: `${SITE_URL}/${l}/machinery/conveying-automation`,
       languages: {
-        'en': 'https://sungene.net/en/machinery/conveying-automation',
-        'zh-TW': 'https://sungene.net/zh/machinery/conveying-automation',
-        'zh-CN': 'https://sungene.net/cn/machinery/conveying-automation',
-        'fr': 'https://sungene.net/fr/machinery/conveying-automation',
-        'es': 'https://sungene.net/es/machinery/conveying-automation',
-        'pt': 'https://sungene.net/pt/machinery/conveying-automation',
-        'ko': 'https://sungene.net/ko/machinery/conveying-automation',
-        'ja': 'https://sungene.net/ja/machinery/conveying-automation',
-        'ar': 'https://sungene.net/ar/machinery/conveying-automation',
-        'th': 'https://sungene.net/th/machinery/conveying-automation',
-        'vi': 'https://sungene.net/vi/machinery/conveying-automation',
-        'de': 'https://sungene.net/de/machinery/conveying-automation',
-        'x-default': 'https://sungene.net/en/machinery/conveying-automation',
+        'en': `${SITE_URL}/en/machinery/conveying-automation`,
+        'zh-TW': `${SITE_URL}/zh/machinery/conveying-automation`,
+        'zh-CN': `${SITE_URL}/cn/machinery/conveying-automation`,
+        'fr': `${SITE_URL}/fr/machinery/conveying-automation`,
+        'es': `${SITE_URL}/es/machinery/conveying-automation`,
+        'pt': `${SITE_URL}/pt/machinery/conveying-automation`,
+        'ko': `${SITE_URL}/ko/machinery/conveying-automation`,
+        'ja': `${SITE_URL}/ja/machinery/conveying-automation`,
+        'ar': `${SITE_URL}/ar/machinery/conveying-automation`,
+        'th': `${SITE_URL}/th/machinery/conveying-automation`,
+        'vi': `${SITE_URL}/vi/machinery/conveying-automation`,
+        'de': `${SITE_URL}/de/machinery/conveying-automation`,
+        'x-default': `${SITE_URL}/en/machinery/conveying-automation`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/machinery/conveying-automation`,
+      url: `${SITE_URL}/${l}/machinery/conveying-automation`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 

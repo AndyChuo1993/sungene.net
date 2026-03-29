@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -47,32 +48,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['food packaging machinery', 'beverage filling equipment', 'pharmaceutical packaging', 'cosmetic filling machine', 'powder packaging industry', 'liquid filling industry', 'industrial packaging solutions'],
     alternates: {
-      canonical: `https://sungene.net/${l}/industries`,
+      canonical: `${SITE_URL}/${l}/industries`,
       languages: {
-        'en': 'https://sungene.net/en/industries',
-        'zh-TW': 'https://sungene.net/zh/industries',
-        'zh-CN': 'https://sungene.net/cn/industries',
-        'fr': 'https://sungene.net/fr/industries',
-        'es': 'https://sungene.net/es/industries',
-        'pt': 'https://sungene.net/pt/industries',
-        'ko': 'https://sungene.net/ko/industries',
-        'ja': 'https://sungene.net/ja/industries',
-        'ar': 'https://sungene.net/ar/industries',
-        'th': 'https://sungene.net/th/industries',
-        'vi': 'https://sungene.net/vi/industries',
-        'de': 'https://sungene.net/de/industries',
-        'x-default': 'https://sungene.net/en/industries',
+        'en': `${SITE_URL}/en/industries`,
+        'zh-TW': `${SITE_URL}/zh/industries`,
+        'zh-CN': `${SITE_URL}/cn/industries`,
+        'fr': `${SITE_URL}/fr/industries`,
+        'es': `${SITE_URL}/es/industries`,
+        'pt': `${SITE_URL}/pt/industries`,
+        'ko': `${SITE_URL}/ko/industries`,
+        'ja': `${SITE_URL}/ja/industries`,
+        'ar': `${SITE_URL}/ar/industries`,
+        'th': `${SITE_URL}/th/industries`,
+        'vi': `${SITE_URL}/vi/industries`,
+        'de': `${SITE_URL}/de/industries`,
+        'x-default': `${SITE_URL}/en/industries`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/industries`,
+      url: `${SITE_URL}/${l}/industries`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 
@@ -254,7 +255,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           position: i + 1,
           name: cat.title,
           description: cat.desc,
-          url: `https://sungene.net${cat.href}`,
+          url: `${SITE_URL}${cat.href}`,
         })),
       }} />
     </>

@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -44,32 +45,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'free machinery quote', 'Taiwan factory contact'],
     alternates: {
-      canonical: `https://sungene.net/${l}/contact`,
+      canonical: `${SITE_URL}/${l}/contact`,
       languages: {
-        'en': 'https://sungene.net/en/contact',
-        'zh-TW': 'https://sungene.net/zh/contact',
-        'zh-CN': 'https://sungene.net/cn/contact',
-        'fr': 'https://sungene.net/fr/contact',
-        'es': 'https://sungene.net/es/contact',
-        'pt': 'https://sungene.net/pt/contact',
-        'ko': 'https://sungene.net/ko/contact',
-        'ja': 'https://sungene.net/ja/contact',
-        'ar': 'https://sungene.net/ar/contact',
-        'th': 'https://sungene.net/th/contact',
-        'vi': 'https://sungene.net/vi/contact',
-        'de': 'https://sungene.net/de/contact',
-        'x-default': 'https://sungene.net/en/contact',
+        'en': `${SITE_URL}/en/contact`,
+        'zh-TW': `${SITE_URL}/zh/contact`,
+        'zh-CN': `${SITE_URL}/cn/contact`,
+        'fr': `${SITE_URL}/fr/contact`,
+        'es': `${SITE_URL}/es/contact`,
+        'pt': `${SITE_URL}/pt/contact`,
+        'ko': `${SITE_URL}/ko/contact`,
+        'ja': `${SITE_URL}/ja/contact`,
+        'ar': `${SITE_URL}/ar/contact`,
+        'th': `${SITE_URL}/th/contact`,
+        'vi': `${SITE_URL}/vi/contact`,
+        'de': `${SITE_URL}/de/contact`,
+        'x-default': `${SITE_URL}/en/contact`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/contact`,
+      url: `${SITE_URL}/${l}/contact`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 
@@ -437,8 +438,8 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'SunGene Co., LTD.',
-        url: 'https://sungene.net',
-        logo: 'https://sungene.net/logo/sungene.png',
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo/sungene.png`,
         email: 'contact@sungenelite.com',
         location: [
           {

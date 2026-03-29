@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/siteConfig'
 
 interface BreadcrumbItem {
   label: string
@@ -19,7 +20,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.label,
-      item: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}${item.href}` : `https://sungene.net${item.href}`
+      item: `${SITE_URL}${item.href}`
     }))
   }
 

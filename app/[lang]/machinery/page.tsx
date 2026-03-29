@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -42,32 +43,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: (titles as Record<string,string>)[l] || titles.en,
     description: (descriptions as Record<string,string>)[l] || descriptions.en,
     alternates: {
-      canonical: `https://sungene.net/${l}/machinery`,
+      canonical: `${SITE_URL}/${l}/machinery`,
       languages: {
-        'en': 'https://sungene.net/en/machinery',
-        'zh-TW': 'https://sungene.net/zh/machinery',
-        'zh-CN': 'https://sungene.net/cn/machinery',
-        'fr': 'https://sungene.net/fr/machinery',
-        'es': 'https://sungene.net/es/machinery',
-        'pt': 'https://sungene.net/pt/machinery',
-        'ko': 'https://sungene.net/ko/machinery',
-        'ja': 'https://sungene.net/ja/machinery',
-        'ar': 'https://sungene.net/ar/machinery',
-        'th': 'https://sungene.net/th/machinery',
-        'vi': 'https://sungene.net/vi/machinery',
-        'de': 'https://sungene.net/de/machinery',
-        'x-default': 'https://sungene.net/en/machinery',
+        'en': `${SITE_URL}/en/machinery`,
+        'zh-TW': `${SITE_URL}/zh/machinery`,
+        'zh-CN': `${SITE_URL}/cn/machinery`,
+        'fr': `${SITE_URL}/fr/machinery`,
+        'es': `${SITE_URL}/es/machinery`,
+        'pt': `${SITE_URL}/pt/machinery`,
+        'ko': `${SITE_URL}/ko/machinery`,
+        'ja': `${SITE_URL}/ja/machinery`,
+        'ar': `${SITE_URL}/ar/machinery`,
+        'th': `${SITE_URL}/th/machinery`,
+        'vi': `${SITE_URL}/vi/machinery`,
+        'de': `${SITE_URL}/de/machinery`,
+        'x-default': `${SITE_URL}/en/machinery`,
       }
     },
     openGraph: {
       title: (titles as Record<string,string>)[l] || titles.en,
       description: (descriptions as Record<string,string>)[l] || descriptions.en,
-      url: `https://sungene.net/${l}/machinery`,
+      url: `${SITE_URL}/${l}/machinery`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 

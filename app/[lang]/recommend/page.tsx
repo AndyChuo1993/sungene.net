@@ -3,6 +3,7 @@ import InquiryForm from '@/components/InquiryForm'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -40,32 +41,32 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     keywords: ['get machinery recommendation', 'packaging machine recommendation', 'find the right packaging machine', 'machinery selection service', 'product packaging consultation'],
     alternates: {
-      canonical: `https://sungene.net/${l}/recommend`,
+      canonical: `${SITE_URL}/${l}/recommend`,
       languages: {
-        'en': 'https://sungene.net/en/recommend',
-        'zh-TW': 'https://sungene.net/zh/recommend',
-        'zh-CN': 'https://sungene.net/cn/recommend',
-        'fr': 'https://sungene.net/fr/recommend',
-        'es': 'https://sungene.net/es/recommend',
-        'pt': 'https://sungene.net/pt/recommend',
-        'ko': 'https://sungene.net/ko/recommend',
-        'ja': 'https://sungene.net/ja/recommend',
-        'ar': 'https://sungene.net/ar/recommend',
-        'th': 'https://sungene.net/th/recommend',
-        'vi': 'https://sungene.net/vi/recommend',
-        'de': 'https://sungene.net/de/recommend',
-        'x-default': 'https://sungene.net/en/recommend',
+        'en': `${SITE_URL}/en/recommend`,
+        'zh-TW': `${SITE_URL}/zh/recommend`,
+        'zh-CN': `${SITE_URL}/cn/recommend`,
+        'fr': `${SITE_URL}/fr/recommend`,
+        'es': `${SITE_URL}/es/recommend`,
+        'pt': `${SITE_URL}/pt/recommend`,
+        'ko': `${SITE_URL}/ko/recommend`,
+        'ja': `${SITE_URL}/ja/recommend`,
+        'ar': `${SITE_URL}/ar/recommend`,
+        'th': `${SITE_URL}/th/recommend`,
+        'vi': `${SITE_URL}/vi/recommend`,
+        'de': `${SITE_URL}/de/recommend`,
+        'x-default': `${SITE_URL}/en/recommend`,
       }
     },
     openGraph: {
       title: titles[l] || titles.en,
       description: descriptions[l] || descriptions.en,
-      url: `https://sungene.net/${l}/recommend`,
+      url: `${SITE_URL}/${l}/recommend`,
       siteName: 'SunGene Machinery',
-      images: [{ url: 'https://sungene.net/og/og.png', width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: ['https://sungene.net/og/og.png'] },
+    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
   }
 }
 
