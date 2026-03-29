@@ -5,11 +5,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'coresg-normal.trae.ai',
-        pathname: '/api/ide/v1/text_to_image',
-      },
-      {
-        protocol: 'https',
         hostname: 'lf-cdn.trae.ai',
         pathname: '/obj/**',
       },

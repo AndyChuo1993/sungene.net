@@ -1,361 +1,127 @@
-const IMAGE_BASE_URL = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image'
-
-type ImageSize =
-  | 'square_hd'
-  | 'square'
-  | 'portrait_4_3'
-  | 'portrait_16_9'
-  | 'landscape_4_3'
-  | 'landscape_16_9'
-
-function img(prompt: string, imageSize: ImageSize) {
-  return `${IMAGE_BASE_URL}?prompt=${encodeURIComponent(prompt)}&image_size=${imageSize}`
-}
-
-const STYLE =
-  'ultra realistic professional photograph, modern high-tech stainless steel factory, clean lighting, sharp focus, high detail, natural colors, no text, no logo, no watermark'
+const BASE = '/photo-real/library'
 
 export const PHOTO = {
   home: {
-    hero: img(
-      `wide shot of an automated packaging line with stainless steel machinery inside a modern clean factory, cinematic perspective, ${STYLE}`,
-      'landscape_16_9',
-    ),
+    hero: `${BASE}/hero/home.jpg`,
     machineByProduct: [
-      img(
-        `auger powder filling machine with stainless steel hopper and enclosed safety guard, modern factory background, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `multi-nozzle liquid filling machine on a bottling line, stainless steel, hygienic design, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `premade pouch packing machine with open pouches on conveyor, stainless steel, modern packaging equipment, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `industrial conveyor system with stainless steel frame and blue belt, automated material handling, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/home/machine-by-product-01-powder.jpg`,
+      `${BASE}/home/machine-by-product-02-liquid.jpg`,
+      `${BASE}/home/machine-by-product-03-pouch.png`,
+      `${BASE}/home/machine-by-product-04-conveyor.jpg`,
     ],
     trustGallery: [
-      img(
-        `close-up of a perfect TIG weld bead on stainless steel machinery frame, macro detail, modern factory lighting, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `PLC control cabinet interior with neatly routed wires and labeled terminals, industrial automation, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `packaging machine sealing station with heat sealing jaws, stainless steel, production environment, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `factory acceptance test scene: technician checking packaging machine parameters on a laptop beside running line, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `export wooden crate being built around a stainless steel machine, protective packing materials, warehouse setting, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `industrial machine being loaded into a shipping container with straps and wooden supports, logistics scene, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `engineering team on factory floor reviewing a machine layout on a tablet, stainless steel equipment behind, ${STYLE}`,
-        'square',
-      ),
-      img(
-        `quality control inspection in a modern factory: calipers measuring a stainless steel part, macro detail, ${STYLE}`,
-        'square',
-      ),
+      `${BASE}/home/trust-01-weld.jpg`,
+      `${BASE}/home/trust-02-plc.jpg`,
+      `${BASE}/home/trust-03-sealing.jpg`,
+      `${BASE}/home/trust-04-fat.jpg`,
+      `${BASE}/home/trust-05-crate.jpg`,
+      `${BASE}/home/trust-06-container.jpg`,
+      `${BASE}/home/trust-07-team.jpg`,
+      `${BASE}/home/trust-08-qc.jpg`,
     ],
     processThumbs: {
-      0: img(
-        `requirements workshop: engineer pointing at a machine layout drawing with stainless steel equipment in background, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      3: img(
-        `quality control process: inspector checking packaged product and machine settings on production line, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      4: img(
-        `export shipping: secured stainless steel machinery pallet being staged for container loading, warehouse logistics, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      0: `${BASE}/home/process-01-requirements.jpg`,
+      3: `${BASE}/home/process-04-qc.jpg`,
+      4: `${BASE}/home/process-05-shipping.jpg`,
     } as const,
   },
   pages: {
     about: {
-      hero: img(
-        `modern manufacturing workshop with stainless steel packaging machines and clean lighting, wide hero shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
+      hero: `${BASE}/hero/about.jpg`,
       gallery: [
-        img(
-          `bright modern machine workshop with stainless steel frames and precision tools on benches, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `industrial machine assembly area with technicians installing components on stainless steel equipment, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `clean factory production line with multiple packaging machines in sequence, depth perspective, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `close-up of industrial control panel with HMI touchscreen and status lights, modern automation cabinet, ${STYLE}`,
-          'landscape_4_3',
-        ),
+        `${BASE}/about/gallery-01-workshop.jpg`,
+        `${BASE}/about/gallery-02-assembly.jpg`,
+        `${BASE}/about/gallery-03-factoryline.jpg`,
+        `${BASE}/about/gallery-04-controlpanel.jpg`,
       ],
     },
     contact: {
-      hero: img(
-        `technical service engineer in a modern factory office area, laptop and machine background, professional tone, ${STYLE}`,
-        'landscape_16_9',
-      ),
-      formSide: img(
-        `engineer writing a project checklist on clipboard beside stainless steel packaging equipment, shallow depth of field, ${STYLE}`,
-        'portrait_4_3',
-      ),
+      hero: `${BASE}/hero/contact.jpg`,
+      formSide: `${BASE}/contact/form-side.jpg`,
     },
     resources: {
-      hero: img(
-        `technical documentation and machine commissioning scene in a modern factory, engineer reviewing manuals next to equipment, ${STYLE}`,
-        'landscape_16_9',
-      ),
+      hero: `${BASE}/hero/resources.jpg`,
       cards: [
-        img(
-          `engineer comparing packaging machine options on a tablet with stainless steel machines in the background, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `vertical form fill seal machine (VFFS) with film roll and forming tube, stainless steel, modern packaging line, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `industrial automation: robotic arm near conveyor with control cabinets, modern smart factory, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `international shipping logistics: container yard with secured industrial machinery pallet, modern port scene, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `electrical compliance scene: technician measuring voltage inside an industrial control panel with multimeter, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `supplier audit in a modern factory: inspector reviewing checklist while observing stainless steel machine line, ${STYLE}`,
-          'landscape_4_3',
-        ),
+        `${BASE}/resources/card-01-choose-machine.jpg`,
+        `${BASE}/resources/card-02-vffs.jpg`,
+        `${BASE}/resources/card-03-automation.jpg`,
+        `${BASE}/resources/card-04-import-shipping.jpg`,
+        `${BASE}/resources/card-05-voltage.jpg`,
+        `${BASE}/resources/card-06-supplier-audit.jpg`,
       ],
     },
     industries: {
-      hero: img(
-        `high-tech industrial production floor with automation and stainless steel machinery, modern factory hero shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
+      hero: `${BASE}/hero/industries.jpg`,
       cards: [
-        img(
-          `powder packaging industry: auger filler dosing powder into bags on a clean packaging line, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `liquid industry: hygienic stainless steel filling line with nozzles and bottles, modern factory, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `snack industry: automated snack processing and packaging line with conveyors and seasoning station, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `food industry: stainless steel food-grade packaging equipment in a cleanroom-like facility, ${STYLE}`,
-          'landscape_4_3',
-        ),
-        img(
-          `industrial goods: automated case packing with conveyor and labeling station, modern warehouse factory, ${STYLE}`,
-          'landscape_4_3',
-        ),
+        `${BASE}/industries/card-01-powder.jpg`,
+        `${BASE}/industries/card-02-liquid.jpg`,
+        `${BASE}/industries/card-03-snack.jpg`,
+        `${BASE}/industries/card-04-food.jpg`,
+        `${BASE}/industries/card-05-industrial.jpg`,
       ],
     },
     solutions: {
-      hero: img(
-        `end-to-end automation solution: integrated conveying filling sealing and packing line, stainless steel, modern factory, ${STYLE}`,
-        'landscape_16_9',
-      ),
+      hero: `${BASE}/hero/solutions.jpg`,
     },
   },
   machinery: {
-    catalogHero: img(
-      `machinery catalog hero: showroom-like factory area with multiple stainless steel packaging machines, wide shot, ${STYLE}`,
-      'landscape_16_9',
-    ),
+    catalogHero: `${BASE}/hero/machinery-catalog.jpg`,
     categoryPhotos: [
-      img(
-        `packaging machinery category: vertical form fill seal packaging machine with film roll, stainless steel, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `food processing category: stainless steel mixing and processing equipment in a clean food factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `filling and sealing category: rotary filling machine with sealing station, hygienic stainless steel design, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `conveying automation category: modular conveyor system with sensors and stainless steel frame, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `custom machinery category: engineering workshop with custom-built stainless steel machine frame and tools, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/machinery/category-01-packaging.jpg`,
+      `${BASE}/machinery/category-02-food-processing.jpg`,
+      `${BASE}/machinery/category-03-filling-sealing.jpg`,
+      `${BASE}/machinery/category-04-conveying.jpg`,
+      `${BASE}/machinery/category-05-custom.jpg`,
     ],
     subpageHeroes: {
-      packaging: img(
-        `packaging subpage hero: modern packaging line with stainless steel VFFS machine and conveyor, wide shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
-      foodProcessing: img(
-        `food processing subpage hero: stainless steel food processing line with clean lighting and safety guards, wide shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
-      fillingSealing: img(
-        `filling and sealing subpage hero: hygienic liquid filling and sealing line in modern factory, wide shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
-      conveyingAutomation: img(
-        `conveying automation subpage hero: long conveyor network with sensors and stainless steel frames in a modern facility, ${STYLE}`,
-        'landscape_16_9',
-      ),
-      custom: img(
-        `custom machinery subpage hero: engineers commissioning a custom stainless steel machine with laptop and tools, wide shot, ${STYLE}`,
-        'landscape_16_9',
-      ),
+      packaging: `${BASE}/machinery-sub/packaging.jpg`,
+      foodProcessing: `${BASE}/machinery-sub/food-processing.jpg`,
+      fillingSealing: `${BASE}/machinery-sub/filling-sealing.jpg`,
+      conveyingAutomation: `${BASE}/machinery-sub/conveying-automation.jpg`,
+      custom: `${BASE}/machinery-sub/custom.jpg`,
     },
   },
   machines: {
-    pouchPackingHero: img(
-      `pouch packing machine hero: stainless steel premade pouch packing machine in modern factory, dramatic lighting, ${STYLE}`,
-      'landscape_16_9',
-    ),
-    powderFillingHero: img(
-      `powder filling machine hero: stainless steel auger filler dosing system with hopper and guard, modern factory, ${STYLE}`,
-      'landscape_16_9',
-    ),
-    liquidFillingHero: img(
-      `liquid filling machine hero: multi-head stainless steel filling nozzles over bottles on conveyor, modern facility, ${STYLE}`,
-      'landscape_16_9',
-    ),
-    conveyorSystemHero: img(
-      `conveyor system hero: automated conveyor line with stainless steel structure and sensors, modern factory depth shot, ${STYLE}`,
-      'landscape_16_9',
-    ),
-    snackProcessingHero: img(
-      `snack processing line hero: conveyor-based processing and packaging line with stainless steel equipment, modern plant, ${STYLE}`,
-      'landscape_16_9',
-    ),
+    pouchPackingHero: `${BASE}/machines/pouch-packing-hero.jpg`,
+    powderFillingHero: `${BASE}/machines/powder-filling-hero.jpg`,
+    liquidFillingHero: `${BASE}/machines/liquid-filling-hero.jpg`,
+    conveyorSystemHero: `${BASE}/machines/conveyor-system-hero.jpg`,
+    snackProcessingHero: `${BASE}/machines/snack-processing-hero.jpg`,
   },
   legacy: {
     pouch: [
-      img(
-        `pouch packing gallery: pouch filling station with open pouches, stainless steel machine, modern packaging line, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `pouch packing gallery: pouch sealing and zipper inspection close-up on a stainless steel packing machine, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `pouch packing gallery: finished pouches exiting packing machine onto conveyor with sensors, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/legacy/pouch-01.jpg`,
+      `${BASE}/legacy/pouch-02.jpg`,
+      `${BASE}/legacy/pouch-03.jpg`,
     ],
     powder: [
-      img(
-        `powder filling gallery: auger filler head dispensing powder into a bag, stainless steel, macro detail, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `powder filling gallery: stainless steel powder hopper with dust extraction and level sensors, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `powder filling gallery: checkweigher conveyor downstream of powder filling station, modern packaging line, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/legacy/powder-01.jpg`,
+      `${BASE}/legacy/powder-02.jpg`,
+      `${BASE}/legacy/powder-03.jpg`,
     ],
     liquid: [
-      img(
-        `liquid filling gallery: stainless steel filling nozzles aligned over containers, hygienic design, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `liquid filling gallery: CIP-ready stainless steel piping and valves on a liquid filling system, macro detail, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `liquid filling gallery: capping or sealing station on a liquid bottling line with conveyor, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/legacy/liquid-01.jpg`,
+      `${BASE}/legacy/liquid-02.jpg`,
+      `${BASE}/legacy/liquid-03.jpg`,
     ],
     conveyor: [
-      img(
-        `conveyor gallery: modular belt conveyor with side guards and sensors, stainless steel frame, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `conveyor gallery: incline conveyor transferring packaged products between machines, clean factory lighting, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `conveyor gallery: accumulation conveyor section with rollers and photoelectric sensors, modern automation, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/legacy/conveyor-01.jpg`,
+      `${BASE}/legacy/conveyor-02.jpg`,
+      `${BASE}/legacy/conveyor-03.jpg`,
     ],
     powderPackaging: [
-      img(
-        `powder packaging gallery: VFFS machine forming tube with powder dosing auger attached, stainless steel, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `powder packaging gallery: heat sealing and cutting area of VFFS machine producing pillow bags, macro detail, ${STYLE}`,
-        'landscape_4_3',
-      ),
-      img(
-        `powder packaging gallery: finished powder bags on conveyor heading to case packer, modern factory, ${STYLE}`,
-        'landscape_4_3',
-      ),
+      `${BASE}/legacy/powder-packaging-01.jpg`,
+      `${BASE}/legacy/powder-packaging-02.jpg`,
+      `${BASE}/legacy/powder-packaging-03.jpg`,
     ],
   },
   details: {
     items: [
-      img(
-        `industrial HMI touchscreen on a stainless steel packaging machine, clear UI glow, close-up, ${STYLE}`,
-        'square_hd',
-      ),
-      img(
-        `neatly labeled wiring inside an electrical control cabinet for industrial automation, close-up, ${STYLE}`,
-        'square_hd',
-      ),
-      img(
-        `stainless steel filling nozzle close-up with drip-free design on a hygienic filling machine, ${STYLE}`,
-        'square_hd',
-      ),
-      img(
-        `precision heat sealing jaws on a packaging machine, stainless steel, macro mechanical detail, ${STYLE}`,
-        'square_hd',
-      ),
-      img(
-        `food-grade stainless steel surface finish on industrial machinery, brushed texture macro shot, ${STYLE}`,
-        'square_hd',
-      ),
+      `${BASE}/details/detail-01-hmi.jpg`,
+      `${BASE}/details/detail-02-wiring.jpg`,
+      `${BASE}/details/detail-03-nozzle.jpg`,
+      `${BASE}/details/detail-04-sealingjaw.jpg`,
+      `${BASE}/details/detail-05-stainless.jpg`,
     ],
   },
 } as const
