@@ -2,12 +2,13 @@ import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { t, Lang } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
   const lang = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(rawLang) ? rawLang : 'en') as Lang
 
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = SITE_URL
 
   const descriptions: Record<string, string> = {
     en: 'SunGene is a leading manufacturer and exporter of packaging machinery, food processing equipment, filling & sealing systems, and automated production lines from Taiwan. CE certified, serving 50+ countries worldwide. Get factory-direct pricing today.',
@@ -15,15 +16,22 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     zh: 'SunGene 是台灣領先的包裝機械、食品加工設備、灌裝封口系統和自動化生產線製造商與出口商。CE認證，服務全球50多個國家。立即取得工廠直銷價格。',
     fr: 'SunGene est un fabricant et exportateur leader de machines d\'emballage, d\'équipements de transformation alimentaire, de systèmes de remplissage et de scellage, et de lignes de production automatisées depuis Taïwan. Certifié CE, desservant plus de 50 pays.',
     es: 'SunGene es un fabricante y exportador líder de maquinaria de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de producción automatizadas desde Taiwán. Certificado CE, sirviendo a más de 50 países.',
+    pt: 'SunGene é um fabricante e exportador líder de máquinas de embalagem, equipamentos de processamento de alimentos, sistemas de enchimento e selagem e linhas de produção automatizadas de Taiwan. Certificado CE, atendendo mais de 50 países.',
+    ko: 'SunGene는 대만 최고의 포장기계, 식품가공장비, 충전·밀봉 시스템 및 자동화 생산라인 제조업체이자 수출업체입니다. CE 인증 취득, 전 세계 50개국 이상 서비스.',
+    ja: 'SunGeneは台湾を拠点とする包装機械・食品加工機器・充填シーリングシステム・自動化生産ラインの大手メーカー兼輸出業者です。CE認証取得済み、50カ国以上にサービスを提供しています。',
+    ar: 'SunGene شركة رائدة في تصنيع وتصدير آلات التعبئة والتغليف ومعدات معالجة الأغذية وأنظمة التعبئة والختم وخطوط الإنتاج الآلية من تايوان. معتمدة CE، تخدم أكثر من 50 دولة حول العالم.',
+    th: 'SunGene เป็นผู้ผลิตและผู้ส่งออกชั้นนำด้านเครื่องจักรบรรจุภัณฑ์ อุปกรณ์แปรรูปอาหาร ระบบบรรจุและปิดผนึก และสายการผลิตอัตโนมัติจากไต้หวัน ได้รับการรับรอง CE ให้บริการในกว่า 50 ประเทศ',
+    vi: 'SunGene là nhà sản xuất và xuất khẩu hàng đầu về máy đóng gói, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn miệng, cùng dây chuyền sản xuất tự động từ Đài Loan. Chứng nhận CE, phục vụ hơn 50 quốc gia.',
+    de: 'SunGene ist ein führender Hersteller und Exporteur von Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Füll- und Siegelsystemen sowie automatisierten Produktionslinien aus Taiwan. CE-zertifiziert, mit Lieferungen in über 50 Länder.',
   }
 
   return {
     metadataBase: new URL(baseUrl),
     title: t(lang, 'meta_home_title'),
-    description: descriptions[lang],
+    description: descriptions[lang] || descriptions.en,
     openGraph: {
       title: t(lang, 'meta_home_title'),
-      description: descriptions[lang],
+      description: descriptions[lang] || descriptions.en,
       url: `${baseUrl}/${lang}`,
       type: 'website',
       images: [{ url: '/og/og.png', width: 1200, height: 630 }],
@@ -40,7 +48,7 @@ export default async function RootLayout({ children, params }: { children: React
   const { lang: rawLang } = await params
   const lang = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(rawLang) ? rawLang : 'en') as Lang
 
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = SITE_URL
   const logoUrl = `${baseUrl}/logo/sungene.png`
 
   const websiteSchema = {

@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { ALL_LANGS } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/siteConfig'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = SITE_URL
 
   const langs = ALL_LANGS
 
