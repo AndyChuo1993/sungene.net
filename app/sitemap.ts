@@ -21,6 +21,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/machines/liquid-filling-machine',
     '/machines/snack-processing-line',
     '/machines/conveyor-system',
+    // Top-level product landing pages (alternate routes)
+    '/pouch-packing-machine',
+    '/powder-packaging-machine',
+    '/liquid-filling-machine',
+    '/conveyor-system',
   ]
   const machineSitemap = machinePages.flatMap(route =>
     langs.map(lang => ({
