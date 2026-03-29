@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
@@ -10,6 +9,7 @@ import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Liquid Filling Machine | Piston, Gravity, Pump Filler | SunGene',
@@ -214,6 +214,9 @@ const content: Record<string, any> = {
 export default async function LiquidFillingMachinePage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const t = content[lang] || content['en']
+  const legacyPhotos = PHOTO.legacy.liquid
+  const heroPhoto = legacyPhotos[0]
+  const galleryPhotos = legacyPhotos.slice(1)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -240,7 +243,12 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     <>
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbLd} />
-      <PageHeader kicker={t.kicker} title={t.title} desc={t.subtitle} />
+      <PageHero
+        kicker={t.kicker}
+        title={t.title}
+        desc={t.subtitle}
+        image={{ src: heroPhoto, alt: 'Liquid filling machine in operation', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
 
       {/* CTA Banner */}
       <div className="bg-accent-600 text-white py-4 px-6 text-center">
@@ -318,7 +326,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
           {(() => {
-            const photos = PHOTO.legacy.liquid
+            const photos = galleryPhotos
 
             return (
               <>

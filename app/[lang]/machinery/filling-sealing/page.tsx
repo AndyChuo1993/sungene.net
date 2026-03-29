@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
@@ -192,7 +191,12 @@ export default async function FillingSeaingPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} kicker={({ en: 'FILLING & SEALING', cn: '灌装与封口', zh: '灌裝與封口', fr: 'REMPLISSAGE & SCELLAGE', es: 'LLENADO Y SELLADO', pt: 'ENVASE E SELAGEM', ko: '충전 및 밀봉', ja: '充填・封口', ar: 'التعبئة والختم', th: 'บรรจุและปิดผนึก', vi: 'CHIẾT RÓT & SEAL', de: 'ABFÜLLUNG & VERSIEGELUNG' } as Record<string,string>)[lang] || 'FILLING & SEALING'} />
+      <PageHero
+        kicker={({ en: 'FILLING & SEALING', cn: '灌装与封口', zh: '灌裝與封口', fr: 'REMPLISSAGE & SCELLAGE', es: 'LLENADO Y SELLADO', pt: 'ENVASE E SELAGEM', ko: '충전 및 밀봉', ja: '充填・封口', ar: 'التعبئة والختم', th: 'บรรจุและปิดผนึก', vi: 'CHIẾT RÓT & SEAL', de: 'ABFÜLLUNG & VERSIEGELUNG' } as Record<string,string>)[lang] || 'FILLING & SEALING'}
+        title={t.title}
+        desc={t.p1}
+        image={{ src: heroPhoto, alt: 'Filling and sealing machinery in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -206,11 +210,6 @@ export default async function FillingSeaingPage({ params }: { params: Promise<{ 
                 ))}
               </div>
 
-              <div className="mt-8">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-                  <Image src={heroPhoto} alt="Filling and sealing machinery in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
-                </div>
-              </div>
             </div>
 
             <div className="space-y-6">

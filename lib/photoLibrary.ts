@@ -14,6 +14,8 @@ export const PHOTO = {
       '/photo-real/library/home/trust-04-fat.jpg',
       '/photo-real/library/home/trust-05-crate.jpg',
       '/photo-real/library/home/trust-06-container.jpg',
+      '/photo-real/library/home/trust-07-team.jpg',
+      '/photo-real/library/home/trust-08-qc.jpg',
     ],
     processThumbs: {
       0: '/photo-real/library/home/process-01-requirements.jpg',

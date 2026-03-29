@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -340,27 +341,18 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
 
   return (
     <>
-      {/* Hero — stats integrated inside dark section, no floating */}
-      <section className="relative overflow-hidden bg-brand-950 bg-industrial-grid">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-600/[0.06] rounded-full blur-[120px] pointer-events-none" />
-
-        <Container className="relative py-20 sm:py-28">
-          {/* Kicker */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-accent-500" />
-            <span className="text-accent-400 text-xs font-bold uppercase tracking-[0.2em]">{t.kicker}</span>
-          </div>
-
-          {/* Title */}
-          <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{t.title}</h1>
-
-          {/* Intro */}
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/85">{t.intro}</p>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/65">{t.mission}</p>
-
-          {/* Stats — inside dark hero, clean grid */}
-          <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 gap-px md:grid-cols-4">
+      <PageHero
+        kicker={t.kicker}
+        title={t.title}
+        desc={(
+          <>
+            <p className="text-white/85">{t.intro}</p>
+            <p className="mt-4 text-base text-white/70">{t.mission}</p>
+          </>
+        )}
+        image={{ src: PHOTO.pages.about.hero, alt: 'SunGene manufacturing and factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        below={(
+          <div className="pt-10 border-t border-white/10 grid grid-cols-2 gap-px md:grid-cols-4">
             {t.stats.map((stat: { value: string; label: string }, i: number) => (
               <div key={i} className="flex flex-col items-center py-6 px-4 first:pl-0 last:pr-0">
                 <div className="text-4xl font-black text-accent-400">{stat.value}</div>
@@ -368,8 +360,9 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
               </div>
             ))}
           </div>
-        </Container>
-      </section>
+        )}
+        className="border-b-0"
+      />
 
       {/* Strengths */}
       <section className="py-20 sm:py-28 bg-white">

@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
@@ -10,6 +9,7 @@ import JsonLd from '@/components/JsonLd'
 import SendProductForm from '@/components/SendProductForm'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Pouch Packing Machine | Stand-up, Pillow Bag, Zipper Pouch | SunGene',
@@ -211,6 +211,9 @@ const content: Record<string, any> = {
 export default async function PouchPackingMachinePage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const t = content[lang] || content['en']
+  const legacyPhotos = PHOTO.legacy.pouch
+  const heroPhoto = legacyPhotos[0]
+  const galleryPhotos = legacyPhotos.slice(1)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -237,7 +240,12 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     <>
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbLd} />
-      <PageHeader kicker={t.kicker} title={t.title} desc={t.subtitle} />
+      <PageHero
+        kicker={t.kicker}
+        title={t.title}
+        desc={t.subtitle}
+        image={{ src: heroPhoto, alt: 'Pouch packing machine in operation', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
 
       {/* CTA Banner */}
       <div className="bg-accent-600 text-white py-4 px-6 text-center">
@@ -314,13 +322,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-950 md:text-3xl mb-10">{t.galleryTitle}</h2>
-          {(() => {
-            const photos = PHOTO.legacy.pouch
-
-            return (
-              <>
+          <>
           <div className="grid gap-4 sm:grid-cols-3">
-            {photos.map((src, i) => (
+            {galleryPhotos.map((src, i) => (
               <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-100">
                 <Image
                   src={src}
@@ -333,9 +337,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
             ))}
           </div>
           <p className="text-sm text-center text-gray-500 mt-4">{t.galleryNote}</p>
-              </>
-            )
-          })()}
+          </>
         </Container>
       </section>
 

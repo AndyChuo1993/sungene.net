@@ -1,11 +1,10 @@
-import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
-import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
+import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -154,17 +153,16 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} />
+      <PageHero
+        kicker={({ en: 'FOOD PROCESSING', cn: '食品加工', zh: '食品加工', fr: 'AGROALIMENTAIRE', es: 'PROCESAMIENTO DE ALIMENTOS', pt: 'PROCESSAMENTO DE ALIMENTOS', ko: '식품 가공', ja: '食品加工', ar: 'معالجة الأغذية', th: 'แปรรูปอาหาร', vi: 'CHẾ BIẾN THỰC PHẨM', de: 'LEBENSMITTELVERARBEITUNG' } as Record<string,string>)[lang] || 'FOOD PROCESSING'}
+        title={t.title}
+        desc={t.p1}
+        image={{ src: heroPhoto, alt: 'Food processing machinery in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container className="max-w-5xl">
           <div className="max-w-3xl">
             <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t.p2}</p>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-            <div className="relative aspect-[16/9] bg-gray-100">
-              <Image src={heroPhoto} alt="Food processing machinery in factory" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
-            </div>
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">

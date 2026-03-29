@@ -1,6 +1,4 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
@@ -8,6 +6,7 @@ import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Powder Filling & Packaging Machine | Auger, Volumetric, Multi-Head | SunGene',
@@ -198,7 +197,12 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     <>
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbLd} />
-      <PageHeader title={t.title} desc={t.p1} kicker={t.kicker} />
+      <PageHero
+        kicker={t.kicker}
+        title={t.title}
+        desc={t.p1}
+        image={{ src: heroPhoto, alt: 'Powder filling machine in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
 
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
@@ -209,11 +213,6 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
                 {t.machines.map((m: any, i: number) => (
                   <span key={i} className="rounded-full bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 ring-1 ring-accent-200">{m}</span>
                 ))}
-              </div>
-              <div className="mt-8">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-                  <Image src={heroPhoto} alt="Powder filling machine in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
-                </div>
               </div>
             </div>
             <div className="space-y-6">

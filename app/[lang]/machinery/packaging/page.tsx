@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
@@ -192,7 +191,12 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} kicker={({ en: 'PACKAGING EQUIPMENT', cn: '包装设备', zh: '包裝設備', fr: 'ÉQUIPEMENT D\'EMBALLAGE', es: 'EQUIPO DE EMPAQUE', pt: 'EQUIPAMENTO DE EMBALAGEM', ko: '포장 장비', ja: '包装機器', ar: 'معدات التعبئة والتغليف', th: 'อุปกรณ์บรรจุภัณฑ์', vi: 'THIẾT BỊ ĐÓNG GÓI', de: 'VERPACKUNGSANLAGEN' } as Record<string,string>)[lang] || 'PACKAGING EQUIPMENT'} />
+      <PageHero
+        kicker={({ en: 'PACKAGING EQUIPMENT', cn: '包装设备', zh: '包裝設備', fr: 'ÉQUIPEMENT D\'EMBALLAGE', es: 'EQUIPO DE EMPAQUE', pt: 'EQUIPAMENTO DE EMBALAGEM', ko: '포장 장비', ja: '包装機器', ar: 'معدات التعبئة والتغليف', th: 'อุปกรณ์บรรจุภัณฑ์', vi: 'THIẾT BỊ ĐÓNG GÓI', de: 'VERPACKUNGSANLAGEN' } as Record<string,string>)[lang] || 'PACKAGING EQUIPMENT'}
+        title={t.title}
+        desc={t.p1}
+        image={{ src: heroPhoto, alt: 'Packaging machinery in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -206,11 +210,6 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
                 ))}
               </div>
 
-              <div className="mt-8">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-                  <Image src={heroPhoto} alt="Packaging machinery in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
-                </div>
-              </div>
             </div>
 
             <div className="space-y-6">

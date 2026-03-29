@@ -1,11 +1,10 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import JsonLd from '@/components/JsonLd'
-import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Machinery Solutions | SunGene', cn: '解决方案｜SunGene', zh: '解決方案｜SunGene',
@@ -211,16 +210,12 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.desc} />
-      <section className="py-12">
-        <Container>
-          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-            <div className="relative aspect-[16/9] bg-gray-100">
-              <Image src={heroPhoto} alt="Turnkey production line in factory" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        kicker={({ en: 'SOLUTIONS', cn: '解决方案', zh: '解決方案', fr: 'SOLUTIONS', es: 'SOLUCIONES', pt: 'SOLUÇÕES', ko: '솔루션', ja: 'ソリューション', ar: 'الحلول', th: 'โซลูชัน', vi: 'GIẢI PHÁP', de: 'LÖSUNGEN' } as Record<string, string>)[lang] || 'SOLUTIONS'}
+        title={t.title}
+        desc={t.desc}
+        image={{ src: heroPhoto, alt: 'Turnkey production line in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6">

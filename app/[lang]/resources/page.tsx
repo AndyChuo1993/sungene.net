@@ -1,11 +1,10 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import ResourceArticles from './ResourceArticles'
 import JsonLd from '@/components/JsonLd'
-import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -230,16 +229,12 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.desc} />
-      <section className="py-12">
-        <Container>
-          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-            <div className="relative aspect-[16/9] bg-gray-100">
-              <Image src={heroPhoto} alt="Machinery buying guides" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        kicker={({ en: 'RESOURCES', cn: '资源中心', zh: '資源中心', fr: 'RESSOURCES', es: 'RECURSOS', pt: 'RECURSOS', ko: '리소스', ja: 'リソース', ar: 'الموارد', th: 'แหล่งข้อมูล', vi: 'TÀI NGUYÊN', de: 'RESSOURCEN' } as Record<string, string>)[lang] || 'RESOURCES'}
+        title={t.title}
+        desc={t.desc}
+        image={{ src: heroPhoto, alt: 'Machinery buying guides', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container>
           <ResourceArticles articles={t.articles} thumbs={thumbs} />

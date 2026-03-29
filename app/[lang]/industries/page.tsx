@@ -1,12 +1,12 @@
 import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import Link from 'next/link'
 import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -221,16 +221,12 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.desc} />
-      <section className="py-12">
-        <Container>
-          <div className="overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-            <div className="relative aspect-[16/9] bg-gray-100">
-              <Image src={heroPhoto} alt="Industrial applications" fill sizes="(min-width: 1024px) 72vw, 92vw" className="object-cover" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        kicker={({ en: 'INDUSTRIES', cn: '行业应用', zh: '產業應用', fr: 'INDUSTRIES', es: 'INDUSTRIAS', pt: 'INDÚSTRIAS', ko: '산업', ja: '業界', ar: 'الصناعات', th: 'อุตสาหกรรม', vi: 'NGÀNH', de: 'BRANCHEN' } as Record<string, string>)[lang] || 'INDUSTRIES'}
+        title={t.title}
+        desc={t.desc}
+        image={{ src: heroPhoto, alt: 'Industrial applications', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">

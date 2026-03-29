@@ -2,10 +2,10 @@ import { Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -268,19 +268,12 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <section className="relative overflow-hidden bg-brand-950 pt-10 pb-16">
-        <div className="absolute inset-0">
-          <Image src={catalogHero} alt="Industrial machinery catalog" fill priority sizes="100vw" className="object-cover" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-950/70 to-brand-950/95" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.06]" />
-
-        <Container className="relative">
-          <span className="text-sm font-bold uppercase tracking-wider text-accent-400">{t.kicker}</span>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-300">{t.desc}</p>
-        </Container>
-      </section>
+      <PageHero
+        kicker={t.kicker}
+        title={t.title}
+        desc={t.desc}
+        image={{ src: catalogHero, alt: 'Industrial machinery catalog', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
 
       <section className="py-16 sm:py-20">
         <Container>

@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
+import { PageHero } from '@/components/ui/PageHero'
 
 const titles: Record<string, string> = {
   en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
@@ -192,7 +191,12 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
 
   return (
     <>
-      <PageHeader title={t.title} desc={t.p1} kicker={({ en: 'CONVEYING & AUTOMATION', cn: '输送与自动化', zh: '輸送與自動化', fr: 'CONVOYAGE & AUTOMATISATION', es: 'TRANSPORTE Y AUTOMATIZACIÓN', pt: 'TRANSPORTE E AUTOMAÇÃO', ko: '컨베이어 및 자동화', ja: '搬送・自動化', ar: 'النقل والأتمتة', th: 'ลำเลียงและอัตโนมัติ', vi: 'BĂNG TẢI & TỰ ĐỘNG HÓA', de: 'FÖRDERUNG & AUTOMATISIERUNG' } as Record<string,string>)[lang] || 'CONVEYING & AUTOMATION'} />
+      <PageHero
+        kicker={({ en: 'CONVEYING & AUTOMATION', cn: '输送与自动化', zh: '輸送與自動化', fr: 'CONVOYAGE & AUTOMATISATION', es: 'TRANSPORTE Y AUTOMATIZACIÓN', pt: 'TRANSPORTE E AUTOMAÇÃO', ko: '컨베이어 및 자동화', ja: '搬送・自動化', ar: 'النقل والأتمتة', th: 'ลำเลียงและอัตโนมัติ', vi: 'BĂNG TẢI & TỰ ĐỘNG HÓA', de: 'FÖRDERUNG & AUTOMATISIERUNG' } as Record<string,string>)[lang] || 'CONVEYING & AUTOMATION'}
+        title={t.title}
+        desc={t.p1}
+        image={{ src: heroPhoto, alt: 'Conveying automation system in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+      />
       <section className="py-16 sm:py-20">
         <Container className="max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -206,11 +210,6 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
                 ))}
               </div>
 
-              <div className="mt-8">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
-                  <Image src={heroPhoto} alt="Conveying automation system in factory" fill sizes="(min-width: 1024px) 46vw, 92vw" className="object-cover" />
-                </div>
-              </div>
             </div>
 
             <div className="space-y-6">
