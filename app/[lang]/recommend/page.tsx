@@ -134,6 +134,15 @@ const subtitle: Record<string, string> = {
   en: 'No model numbers, no catalog browsing. Describe your product and production goals, and our engineers will recommend the right machine configuration for your specific application.',
   cn: '无需型号，无需目录。描述您的产品和生产目标，我们的工程师将为您的具体应用推荐合适的机械配置。',
   zh: '無需型號，無需目錄。描述您的產品和生產目標，我們的工程師將為您的具體應用推薦合適的機械配置。',
+  fr: 'Pas de numéro de modèle, pas de catalogue. Décrivez votre produit et vos objectifs, nos ingénieurs recommanderont la bonne configuration de machine pour votre application.',
+  es: 'Sin números de modelo, sin catálogos. Describa su producto y metas de producción, nuestros ingenieros recomendarán la configuración de máquina adecuada para su aplicación.',
+  pt: 'Sem números de modelo, sem catálogos. Descreva seu produto e metas de produção, nossos engenheiros recomendarão a configuração de máquina certa para sua aplicação.',
+  ko: '모델 번호나 카탈로그 없이도 됩니다. 제품과 생산 목표를 설명하면 엔지니어가 맞춤 기계 구성을 추천해 드립니다.',
+  ja: '型番やカタログは不要です。製品と生産目標をお伝えください。エンジニアが最適な機械構成をご提案します。',
+  ar: 'لا أرقام نماذج، لا كتالوجات. صف منتجك وأهدافك الإنتاجية، سيوصي مهندسونا بتهيئة الآلة المناسبة لتطبيقك.',
+  th: 'ไม่ต้องการหมายเลขรุ่นหรือแคตตาล็อก อธิบายผลิตภัณฑ์และเป้าหมายการผลิต วิศวกรจะแนะนำการกำหนดค่าเครื่องจักรที่เหมาะสม',
+  vi: 'Không cần số model, không cần duyệt catalog. Mô tả sản phẩm và mục tiêu sản xuất, kỹ sư sẽ đề xuất cấu hình máy phù hợp cho ứng dụng của bạn.',
+  de: 'Keine Modellnummern, kein Katalog. Beschreiben Sie Ihr Produkt und Ihre Produktionsziele — unsere Ingenieure empfehlen die richtige Maschinenkonfiguration für Ihre Anwendung.',
 }
 
 function getSubtitle(lang: Lang): string {
@@ -142,12 +151,110 @@ function getSubtitle(lang: Lang): string {
 
 // ── How it works steps ────────────────────────────────────────────────────────
 
-const howItWorks = [
-  'Fill in your requirements (2 minutes)',
-  'Our engineers review your product specs',
-  'We reply with a matched machine path + options',
-  'You request samples, videos, or a detailed quote',
-]
+const howItWorksTitle: Record<string, string> = {
+  en: 'How it works',
+  cn: '如何运作',
+  zh: '如何運作',
+  fr: 'Comment ça marche',
+  es: 'Cómo funciona',
+  pt: 'Como funciona',
+  ko: '진행 방법',
+  ja: 'ご利用の流れ',
+  ar: 'كيف يعمل',
+  th: 'วิธีการทำงาน',
+  vi: 'Quy trình',
+  de: 'So funktioniert es',
+}
+
+const howItWorks: Record<string, string[]> = {
+  en: [
+    'Fill in your requirements (2 minutes)',
+    'Our engineers review your product specs',
+    'We reply with a matched machine path + options',
+    'You request samples, videos, or a detailed quote',
+  ],
+  cn: [
+    '填写您的需求（2分钟）',
+    '我们的工程师审查您的产品规格',
+    '我们回复匹配的机械方案与选项',
+    '您索取样品、视频或详细报价',
+  ],
+  zh: [
+    '填寫您的需求（2分鐘）',
+    '我們的工程師審查您的產品規格',
+    '我們回覆匹配的機械方案與選項',
+    '您索取樣品、影片或詳細報價',
+  ],
+  fr: [
+    'Remplissez vos exigences (2 minutes)',
+    'Nos ingénieurs examinent vos spécifications',
+    'Nous répondons avec un chemin machine adapté',
+    'Vous demandez des échantillons, vidéos ou un devis détaillé',
+  ],
+  es: [
+    'Complete sus requisitos (2 minutos)',
+    'Nuestros ingenieros revisan sus especificaciones',
+    'Respondemos con una solución de máquina adaptada',
+    'Solicita muestras, videos o cotización detallada',
+  ],
+  pt: [
+    'Preencha seus requisitos (2 minutos)',
+    'Nossos engenheiros revisam suas especificações',
+    'Respondemos com a solução de máquina adequada',
+    'Solicite amostras, vídeos ou orçamento detalhado',
+  ],
+  ko: [
+    '요구사항 입력 (2분)',
+    '엔지니어가 제품 사양 검토',
+    '적합한 기계 경로 및 옵션으로 답변',
+    '샘플, 영상 또는 상세 견적 요청',
+  ],
+  ja: [
+    '要件を入力（2分）',
+    'エンジニアが製品仕様を確認',
+    '最適な機械パスとオプションをご提案',
+    'サンプル、動画、または詳細見積を依頼',
+  ],
+  ar: [
+    'أدخل متطلباتك (دقيقتان)',
+    'يراجع مهندسونا مواصفات منتجك',
+    'نرد بمسار الآلة المناسب والخيارات',
+    'تطلب عينات أو مقاطع فيديو أو عرض أسعار مفصل',
+  ],
+  th: [
+    'กรอกข้อกำหนดของคุณ (2 นาที)',
+    'วิศวกรตรวจสอบข้อมูลผลิตภัณฑ์ของคุณ',
+    'เราตอบกลับพร้อมเส้นทางเครื่องจักรที่เหมาะสม',
+    'คุณขอตัวอย่าง วิดีโอ หรือใบเสนอราคาโดยละเอียด',
+  ],
+  vi: [
+    'Điền yêu cầu của bạn (2 phút)',
+    'Kỹ sư xem xét thông số kỹ thuật sản phẩm',
+    'Chúng tôi trả lời với giải pháp máy phù hợp',
+    'Bạn yêu cầu mẫu, video hoặc báo giá chi tiết',
+  ],
+  de: [
+    'Anforderungen ausfüllen (2 Minuten)',
+    'Unsere Ingenieure prüfen Ihre Produktspezifikationen',
+    'Wir antworten mit passendem Maschinenweg + Optionen',
+    'Sie fordern Muster, Videos oder ein Detailangebot an',
+  ],
+}
+
+const whatWeHelpTitle: Record<string, string> = {
+  en: 'What we can help with',
+  cn: '我们能帮助的范围',
+  zh: '我們能幫助的範圍',
+  fr: 'Ce que nous pouvons faire',
+  es: 'En qué podemos ayudar',
+  pt: 'O que podemos ajudar',
+  ko: '지원 가능 분야',
+  ja: '対応可能な分野',
+  ar: 'ما يمكننا مساعدتك به',
+  th: 'สิ่งที่เราช่วยได้',
+  vi: 'Những gì chúng tôi hỗ trợ',
+  de: 'Womit wir helfen können',
+}
 
 const whatWeHelp = [
   'Powder, flour, granule filling & packaging',
@@ -158,6 +265,21 @@ const whatWeHelp = [
   'Custom or OEM machinery engineering',
 ]
 
+const trustTitle: Record<string, string> = {
+  en: 'Why SunGene',
+  cn: '为什么选择 SunGene',
+  zh: '為什麼選擇 SunGene',
+  fr: 'Pourquoi SunGene',
+  es: 'Por qué SunGene',
+  pt: 'Por que SunGene',
+  ko: 'SunGene를 선택하는 이유',
+  ja: 'SunGeneを選ぶ理由',
+  ar: 'لماذا SunGene',
+  th: 'ทำไมต้องเลือก SunGene',
+  vi: 'Tại sao chọn SunGene',
+  de: 'Warum SunGene',
+}
+
 const trustSignals = [
   'CE Certified Machinery',
   'SUS304 / SUS316L Food-Grade Materials',
@@ -166,6 +288,36 @@ const trustSignals = [
   'Exported to 50+ Countries',
   'OEM & Custom Engineering Available',
 ]
+
+const talkTitle: Record<string, string> = {
+  en: 'Need to talk first?',
+  cn: '想先聊聊？',
+  zh: '想先聊聊？',
+  fr: 'Vous voulez d\'abord discuter ?',
+  es: '¿Quiere hablar primero?',
+  pt: 'Quer conversar primeiro?',
+  ko: '먼저 대화하고 싶으신가요?',
+  ja: 'まず話し合いたいですか？',
+  ar: 'تريد التحدث أولاً؟',
+  th: 'ต้องการพูดคุยก่อนไหม?',
+  vi: 'Muốn trao đổi trước?',
+  de: 'Möchten Sie zuerst sprechen?',
+}
+
+const responseTime: Record<string, string> = {
+  en: 'Response within 1–2 business days',
+  cn: '1-2个工作日内回复',
+  zh: '1-2個工作日內回覆',
+  fr: 'Réponse sous 1 à 2 jours ouvrés',
+  es: 'Respuesta en 1-2 días hábiles',
+  pt: 'Resposta em 1-2 dias úteis',
+  ko: '1-2 영업일 내 답변',
+  ja: '1〜2営業日以内に返信',
+  ar: 'الرد خلال 1-2 يوم عمل',
+  th: 'ตอบกลับภายใน 1-2 วันทำการ',
+  vi: 'Phản hồi trong 1-2 ngày làm việc',
+  de: 'Antwort innerhalb von 1–2 Werktagen',
+}
 
 // ── JSON-LD ───────────────────────────────────────────────────────────────────
 
@@ -317,9 +469,9 @@ export default async function RecommendPage({
             <aside className="mt-10 space-y-6 lg:col-span-2 lg:mt-0">
               {/* How it works */}
               <SidebarCard>
-                <h2 className="mb-4 text-base font-semibold text-gray-900">How it works</h2>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">{howItWorksTitle[lang] ?? howItWorksTitle.en}</h2>
                 <ol className="space-y-3">
-                  {howItWorks.map((step, i) => (
+                  {(howItWorks[lang] ?? howItWorks.en).map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
                       <NumberBadge n={i + 1} />
                       <span>{step}</span>
@@ -330,7 +482,7 @@ export default async function RecommendPage({
 
               {/* What we can help with */}
               <SidebarCard>
-                <h2 className="mb-4 text-base font-semibold text-gray-900">What we can help with</h2>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">{whatWeHelpTitle[lang] ?? whatWeHelpTitle.en}</h2>
                 <ul className="space-y-2">
                   {whatWeHelp.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
@@ -343,7 +495,7 @@ export default async function RecommendPage({
 
               {/* Trust signals */}
               <SidebarCard>
-                <h2 className="mb-4 text-base font-semibold text-gray-900">Why SunGene</h2>
+                <h2 className="mb-4 text-base font-semibold text-gray-900">{trustTitle[lang] ?? trustTitle.en}</h2>
                 <ul className="space-y-2">
                   {trustSignals.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
@@ -356,7 +508,7 @@ export default async function RecommendPage({
 
               {/* Need to talk first */}
               <SidebarCard className="border-accent-200 bg-accent-50">
-                <h2 className="mb-3 text-base font-semibold text-gray-900">Need to talk first?</h2>
+                <h2 className="mb-3 text-base font-semibold text-gray-900">{talkTitle[lang] ?? talkTitle.en}</h2>
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-center gap-2">
                     <svg
@@ -394,7 +546,7 @@ export default async function RecommendPage({
                     </EmailLink>
                   </li>
                 </ul>
-                <p className="mt-3 text-xs text-gray-500">Response within 1–2 business days</p>
+                <p className="mt-3 text-xs text-gray-500">{responseTime[lang] ?? responseTime.en}</p>
               </SidebarCard>
             </aside>
           </div>

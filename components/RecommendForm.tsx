@@ -48,6 +48,41 @@ const sectionTitles: Record<string, { s1: string; s2: string; submit: string }> 
     s2: 'Sus datos de contacto y proyecto',
     submit: 'Obtener mi recomendación de máquina',
   },
+  pt: {
+    s1: 'Requisitos do seu produto',
+    s2: 'Seus dados de contato e detalhes do projeto',
+    submit: 'Receber recomendação de máquina',
+  },
+  ko: {
+    s1: '제품 요구사항',
+    s2: '연락처 및 프로젝트 세부 정보',
+    submit: '기계 추천 받기',
+  },
+  ja: {
+    s1: '製品要件',
+    s2: 'お客様情報とプロジェクト詳細',
+    submit: '機械の推薦を受ける',
+  },
+  ar: {
+    s1: 'متطلبات منتجك',
+    s2: 'بيانات الاتصال وتفاصيل المشروع',
+    submit: 'احصل على توصيتي للآلة',
+  },
+  th: {
+    s1: 'ข้อกำหนดผลิตภัณฑ์ของคุณ',
+    s2: 'ข้อมูลติดต่อและรายละเอียดโครงการ',
+    submit: 'รับคำแนะนำเครื่องจักร',
+  },
+  vi: {
+    s1: 'Yêu cầu sản phẩm của bạn',
+    s2: 'Thông tin liên hệ và chi tiết dự án',
+    submit: 'Nhận đề xuất máy',
+  },
+  de: {
+    s1: 'Ihre Produktanforderungen',
+    s2: 'Ihre Kontaktdaten und Projektdetails',
+    submit: 'Maschinenempfehlung erhalten',
+  },
 }
 
 function getSectionTitles(lang: Lang) {
@@ -72,6 +107,60 @@ const successMessages: Record<string, { title: string; body: string; also: strin
     body: '我們的工程師將審核您的需求，並在1-2個工作日內回覆。',
     also: '為了提供更精準的推薦，請同時提供：產品照片、現有包裝樣品或規格說明書。',
     anotherBtn: '提交新的請求',
+  },
+  fr: {
+    title: 'Demande reçue',
+    body: 'Nos ingénieurs examineront vos exigences et répondront dans 1 à 2 jours ouvrés.',
+    also: 'Pour nous aider à formuler une recommandation précise, partagez également : photos produit, échantillons d\'emballage existants ou fiches techniques.',
+    anotherBtn: 'Soumettre une autre demande',
+  },
+  es: {
+    title: 'Solicitud recibida',
+    body: 'Nuestros ingenieros revisarán sus requisitos y responderán en 1-2 días hábiles.',
+    also: 'Para ayudarnos a dar una recomendación precisa, comparta también: fotos del producto, muestras de embalaje existentes o fichas técnicas.',
+    anotherBtn: 'Enviar otra solicitud',
+  },
+  pt: {
+    title: 'Pedido recebido',
+    body: 'Nossos engenheiros analisarão seus requisitos e responderão em 1 a 2 dias úteis.',
+    also: 'Para uma recomendação mais precisa, compartilhe também: fotos do produto, amostras de embalagem existentes ou fichas técnicas.',
+    anotherBtn: 'Enviar outra solicitação',
+  },
+  ko: {
+    title: '요청이 접수되었습니다',
+    body: '엔지니어가 요구사항을 검토하고 1-2 영업일 내에 답변 드립니다.',
+    also: '정확한 추천을 위해 제품 사진, 기존 포장 샘플 또는 사양서도 함께 보내주세요.',
+    anotherBtn: '새 요청 제출',
+  },
+  ja: {
+    title: 'リクエストを受け付けました',
+    body: 'エンジニアがご要件を確認し、1〜2営業日以内にご返信します。',
+    also: '正確な推薦のために、製品写真、既存パッケージサンプル、またはスペックシートもお送りください。',
+    anotherBtn: '別のリクエストを送信',
+  },
+  ar: {
+    title: 'تم استلام طلبك',
+    body: 'سيراجع مهندسونا متطلباتك ويردون خلال 1-2 يوم عمل.',
+    also: 'لمساعدتنا في تقديم توصية دقيقة، شارك أيضاً: صور المنتج، عينات التغليف الحالية، أو الكتالوجات التقنية.',
+    anotherBtn: 'إرسال طلب آخر',
+  },
+  th: {
+    title: 'ได้รับคำขอแล้ว',
+    body: 'วิศวกรจะตรวจสอบข้อกำหนดและตอบกลับภายใน 1-2 วันทำการ',
+    also: 'เพื่อให้ได้คำแนะนำที่แม่นยำ กรุณาแนบรูปผลิตภัณฑ์ ตัวอย่างบรรจุภัณฑ์ หรือสเปคชีต',
+    anotherBtn: 'ส่งคำขอใหม่',
+  },
+  vi: {
+    title: 'Đã nhận yêu cầu',
+    body: 'Kỹ sư sẽ xem xét yêu cầu và phản hồi trong 1-2 ngày làm việc.',
+    also: 'Để nhận đề xuất chính xác hơn, vui lòng cung cấp thêm: ảnh sản phẩm, mẫu bao bì hiện tại hoặc tài liệu kỹ thuật.',
+    anotherBtn: 'Gửi yêu cầu mới',
+  },
+  de: {
+    title: 'Anfrage eingegangen',
+    body: 'Unsere Ingenieure werden Ihre Anforderungen prüfen und innerhalb von 1–2 Werktagen antworten.',
+    also: 'Für eine präzisere Empfehlung senden Sie gerne: Produktfotos, vorhandene Verpackungsmuster oder Datenblätter.',
+    anotherBtn: 'Weitere Anfrage senden',
   },
 }
 

@@ -166,10 +166,10 @@ export default async function Page({ params }: PageParams) {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: 'What is the minimum order quantity?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is 1 unit for most standard machines.' } },
-      { '@type': 'Question', name: 'Can you customize machines?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We customize dimensions, materials, output capacity, voltage, and automation level.' } },
-      { '@type': 'Question', name: 'What countries do you export to?', acceptedAnswer: { '@type': 'Answer', text: 'We export to 50+ countries with CE certification and international shipping support.' } },
-      { '@type': 'Question', name: 'What is the production lead time?', acceptedAnswer: { '@type': 'Answer', text: 'Standard machines: 15-30 days. Custom machines: 30-60 days.' } },
+      { '@type': 'Question', name: 'What is the minimum order quantity?', acceptedAnswer: { '@type': 'Answer', text: 'Our MOQ is 1 unit. All machines are configurable to your product, output, and packaging format — no fixed standard configurations.' } },
+      { '@type': 'Question', name: 'Can you customize machines?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Dimensions, materials, output capacity, voltage, automation level, and contact-part specifications are all configurable. We engineer to your requirements.' } },
+      { '@type': 'Question', name: 'What countries do you export to?', acceptedAnswer: { '@type': 'Answer', text: 'We export to 50+ countries. All export machines carry CE certification. Voltage and frequency are configured to your local standard.' } },
+      { '@type': 'Question', name: 'What is the production lead time?', acceptedAnswer: { '@type': 'Answer', text: 'Lead time depends on the complexity of your configuration — typically 15–30 days for single machines and 45–90 days for full production lines.' } },
     ]
   }
 
