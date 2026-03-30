@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   }
 }
 
-// ─── Static content (en/cn/zh translated; all others fall back to en) ─────────
+// ─── Static content — 12 languages ─────────────────────────────────────────
 
 interface PageContent {
   kicker: string
@@ -226,8 +226,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: 'Related Applications & Resources',
     relatedLinks: [
-      { label: 'Packaging Machinery Overview', href: '/machinery/packaging' },
-      { label: 'Filling & Sealing Systems', href: '/machinery/filling-sealing' },
+      { label: 'How to Choose a Pouch Packing Machine', href: '/resources/how-to-choose-pouch-packing-machine' },
+      { label: 'VFFS vs HFFS — Which is Right for You?', href: '/resources/vffs-vs-hffs' },
+      { label: 'Pre-made Pouch Machine vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
       { label: 'Get a Machine Recommendation', href: '/recommend' },
     ],
 
@@ -323,8 +324,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相关应用与资源',
     relatedLinks: [
-      { label: '包装机械概览', href: '/machinery/packaging' },
-      { label: '充填与封口系统', href: '/machinery/filling-sealing' },
+      { label: '如何选择袋装包装机', href: '/resources/how-to-choose-pouch-packing-machine' },
+      { label: 'VFFS与HFFS包装机对比', href: '/resources/vffs-vs-hffs' },
+      { label: '预制袋机与VFFS对比', href: '/resources/premade-pouch-machine-vs-vffs' },
       { label: '获取机器推荐', href: '/recommend' },
     ],
 
@@ -420,8 +422,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相關應用與資源',
     relatedLinks: [
-      { label: '包裝機械概覽', href: '/machinery/packaging' },
-      { label: '充填與封口系統', href: '/machinery/filling-sealing' },
+      { label: '如何選擇袋裝包裝機', href: '/resources/how-to-choose-pouch-packing-machine' },
+      { label: 'VFFS與HFFS包裝機比較', href: '/resources/vffs-vs-hffs' },
+      { label: '預製袋機與VFFS比較', href: '/resources/premade-pouch-machine-vs-vffs' },
       { label: '取得機器推薦', href: '/recommend' },
     ],
 
@@ -429,6 +432,224 @@ const content: Record<string, PageContent> = {
     ctaSubtitle: 'VFFS、預製袋機、條形袋機或真空包裝——我們的工程師根據您的產品、產量目標和袋型規格進行推薦。',
     ctaBtn1: '取得機器推薦',
     ctaBtn2: '聯絡工程團隊',
+  },
+
+  fr: {
+    kicker: 'EMBALLAGE EN SACHET ET FLEXIBLE',
+    heroTitle: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé et systèmes sous vide',
+    heroSubtitle: 'SunGene fabrique des machines d\'emballage en sachet pour les sachets plats, les pochettes debout, les pochettes avec fermeture à glissière, les sachets sous vide, l\'emballage flux et les sticks. Le choix de la machine dépend de votre produit, du format du sachet, de la vitesse requise et du mode de scellage.',
+
+    whoTitle: 'Pour qui ?',
+    whoItems: [
+      { title: 'Marques de snacks & alimentaires', desc: 'Chips, noix, bonbons, fruits secs, café — nécessitant des emballages attrayants avec une bonne présence en rayon.' },
+      { title: 'Producteurs de liquides & sauces', desc: 'Sachets, pochettes debout avec bec verseur, sachets rétort pour sauces, condiments et produits laitiers.' },
+      { title: 'Pharmaceutique & compléments', desc: 'Sticks à dose unique, sachets avec remplissage précis pour produits pharmaceutiques en poudre ou liquides.' },
+      { title: 'FMCG & biens de consommation', desc: 'Emballages flexibles de marque pour marchés de consommation — pochettes à glissière, pochettes à bec, flow wrap.' },
+    ],
+
+    productsTitle: 'Produits adaptés',
+    productGroups: [
+      { label: 'Solides secs & snacks', items: ['Chips', 'Noix', 'Granola', 'Café', 'Aliments pour animaux', 'Bonbons', 'Fruits secs'] },
+      { label: 'Poudres en sachets', items: ['Sachets d\'épices', 'Boisson instantanée', 'Protéine en poudre', 'Détergent'] },
+      { label: 'Liquides & pâtes', items: ['Sachets de sauce', 'Sachets de ketchup', 'Crème cosmétique', 'Yaourt'] },
+      { label: 'Formats spéciaux', items: ['Sachets rétort (stériles)', 'Sachets sous vide (viande, fromage)', 'Flush azote (café)'] },
+    ],
+    productsNote: 'Le choix du matériau d\'emballage (PE, PET, feuille d\'aluminium, multicouche) influence le mode de scellage et le type de machine. Nous conseillons sur la sélection du film dans le cadre de notre recommandation.',
+
+    packagingTitle: 'Options d\'emballage et de production',
+    packagingItems: [
+      { label: 'Types de sachets', value: 'Sachet plat (VFFS), pochette debout (VFFS/préformé), pochette à glissière, flow wrap (HFFS), sachet/stick pack, sachet sous vide, sachet rétort' },
+      { label: 'Plage de remplissage', value: 'Sticks de 1g à sachets de 5kg — selon le type de machine et le format' },
+      { label: 'Plage de production', value: '20–300 sachets/min selon le format, le type de remplissage et la configuration de la machine' },
+    ],
+    packagingNote: 'Toutes les plages indiquées dépendent de la configuration — nous confirmons en fonction de votre produit, format de sachet et type de remplissage.',
+
+    configurationsTitle: 'Configurations disponibles',
+    configurations: [
+      { name: 'VFFS (Vertical Form-Fill-Seal)', desc: 'Forme les sachets à partir d\'un film en rouleau verticalement. Pour poudres, granulés, liquides. 30–150 sachets/min. Faible coût de film par sachet.' },
+      { name: 'HFFS / Flow Wrap (Horizontal)', desc: 'Pour produits solides et formés. Format d\'emballage plat. 50–300 sachets/min. Idéal pour biscuits, barres, produits frais.' },
+      { name: 'Machine à sachet préformé (Rotative / Linéaire)', desc: 'Remplissage dans des pochettes debout ou à glissière préformées. 20–80 sachets/min. Aspect premium, compatible zipper/bec verseur.' },
+      { name: 'Machine stick pack / sachet', desc: 'Remplissage multi-voies haute vitesse pour poudre ou liquide en dose unique. 50–400 sachets/min.' },
+      { name: 'Machine sous vide', desc: 'Simple ou double chambre. Supprime l\'air pour prolonger la durée de conservation. Pour viande, fromage, café, produits secs.' },
+      { name: 'Flush d\'azote', desc: 'Module de flush gaz intégré pour produits sensibles à l\'oxydation. Disponible sur VFFS, sachets préformés et machines sous vide à chambre.' },
+      { name: 'Matériaux & conformité', desc: 'Certifié CE ; acier inoxydable SUS304/316L ; tension/fréquence configurables ; largeur et longueur film ajustables par servo.' },
+    ],
+
+    decisionsTitle: 'Facteurs de décision clés',
+    decisions: [
+      { factor: 'Forme du produit', guide: 'Solide/formé → HFFS. Poudre/granulé/liquide → VFFS. Marque premium → sachet préformé.' },
+      { factor: 'Format du sachet', guide: 'Sachet plat → VFFS ou HFFS. Debout/glissière → sachet préformé. Sachet → machine stick pack.' },
+      { factor: 'Vitesse de production', guide: '< 30 sachets/min → sachet préformé. 30–100 → VFFS avec peseur. > 100 → VFFS haute vitesse ou HFFS.' },
+      { factor: 'Durée de conservation', guide: 'Standard → thermoscellage. Prolongée → vide + flush gaz + film barrière.' },
+      { factor: 'Budget', guide: 'VFFS de base est le plus rentable. Sachet préformé a un coût par sachet plus élevé mais meilleur aspect.' },
+      { factor: 'Flexibilité de format', guide: 'Plusieurs tailles de sachets → VFFS servo avec formeur réglable. Mix élevé → sachet préformé.' },
+    ],
+
+    integrationTitle: 'Intégration au process',
+    integrationDesc: 'Cette machine s\'intègre à votre flux de production global au stade de l\'emballage. Une ligne sachet intégrée typique peut inclure :',
+    integrationSteps: [
+      'Alimentation matière / produit',
+      'Peseuse / remplisseuse',
+      'Alimentation film / sachets',
+      'Form-fill-seal',
+      'Flush gaz (optionnel)',
+      'Scellage / découpe',
+      'Contrôle (poids / vision)',
+      'Datage',
+      'Convoyeur sortie',
+      'Mise en carton',
+    ],
+    integrationFooter: 'Nous concevons la ligne sachet complète autour de votre produit et de votre installation. Machines individuelles ou lignes complètes avec peseuse, détecteur de métaux, étiqueteuse et encaisseuse.',
+
+    faqTitle: 'Questions fréquentes',
+    faq: [
+      {
+        q: 'Quelle est la différence entre VFFS et machine à sachet préformé ?',
+        a: 'Le VFFS forme les sachets à partir d\'un rouleau de film à la volée — coût matériau par sachet plus faible, adapté aux formats standards en grand volume. Les machines à sachet préformé utilisent des pochettes finies — meilleur aspect, fonctionnalités premium (zipper, bec, soufflet), mais coût par sachet plus élevé. La plupart des producteurs de snacks commencent avec VFFS ; les marques premium/export préfèrent souvent le sachet préformé.',
+      },
+      {
+        q: 'La machine peut-elle traiter des produits en poudre et liquides ?',
+        a: 'Pas généralement sur la même machine sans reconfiguration. VFFS poudre utilise une vis doseuse ou peseuse multi-têtes ; VFFS liquide utilise une pompe à piston ou débitmètre. Nous recommandons des machines séparées pour poudre et liquide, ou une machine à sachet préformé si votre mix produit nécessite de la flexibilité.',
+      },
+      {
+        q: 'Quels formats de sachets une machine VFFS peut-elle gérer ?',
+        a: 'La plupart des machines VFFS couvrent une plage — ex. largeur sachet 80–300mm avec longueur ajustable par servo. Les changements de format prennent 15–30 minutes. Pour des formats très différents (sachet 5g vs sac 1kg), des machines séparées sont recommandées.',
+      },
+      {
+        q: 'Prenez-vous en charge les pochettes à glissière et à bec verseur ?',
+        a: 'Oui. Les applicateurs de glissière sont disponibles pour les machines VFFS et à sachet préformé. L\'insertion de bec verseur est prise en charge sur les machines rotatives à sachet préformé. Ce sont des modules additionnels avec investissement supplémentaire.',
+      },
+      {
+        q: 'Quels matériaux de film sont compatibles ?',
+        a: 'PE, CPP, OPP, stratifiés PET/PE, stratifiés feuille d\'aluminium, et films multicouches spéciaux. Nous conseillons sur la sélection du film en fonction de la sensibilité à l\'humidité, des besoins en barrière oxygène et de la durée de conservation cible de votre produit.',
+      },
+      {
+        q: 'Quelles informations dois-je fournir pour obtenir une recommandation ?',
+        a: 'Nom et forme du produit (solide/poudre/liquide), format et taille du sachet cible, vitesse de production requise, pays/tension, et si vous avez besoin d\'un flush azote ou vide. Utilisez notre formulaire de recommandation pour une réponse plus rapide.',
+      },
+    ],
+
+    relatedTitle: 'Applications & ressources associées',
+    relatedLinks: [
+      { label: 'Comment choisir une machine d\'emballage en sachet', href: '/resources/how-to-choose-pouch-packing-machine' },
+      { label: 'VFFS vs HFFS — Quel est le bon choix ?', href: '/resources/vffs-vs-hffs' },
+      { label: 'Machine à sachet préformé vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
+      { label: 'Obtenir une recommandation de machine', href: '/recommend' },
+    ],
+
+    ctaTitle: 'Dites-nous votre produit et votre format d\'emballage — nous trouverons la bonne machine.',
+    ctaSubtitle: 'VFFS, sachet préformé, stick pack ou vide — nos ingénieurs recommandent en fonction de votre produit, objectif de production et spécification de sachet.',
+    ctaBtn1: 'Obtenir une recommandation de machine',
+    ctaBtn2: 'Parler à l\'ingénierie',
+  },
+
+  es: {
+    kicker: 'ENVASADO EN BOLSA Y FLEXIBLE',
+    heroTitle: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y sistemas de vacío',
+    heroSubtitle: 'SunGene fabrica máquinas envasadoras en bolsa para bolsas planas, bolsas de pie, bolsas con cremallera, bolsas de vacío, flow wrap y sticks. La selección de la máquina depende de su producto, formato de bolsa, velocidad requerida y método de sellado.',
+
+    whoTitle: '¿Para quién es?',
+    whoItems: [
+      { title: 'Marcas de snacks y alimentos', desc: 'Patatas fritas, frutos secos, caramelos, frutas secas, café — necesitan bolsas atractivas con buena presencia en el lineal.' },
+      { title: 'Productores de líquidos y salsas', desc: 'Sobres, bolsas de pie con boquilla, bolsas retort para salsas, condimentos y lácteos.' },
+      { title: 'Farmacéutica y suplementos', desc: 'Sticks monodosis, sobres con llenado preciso para productos farmacéuticos en polvo o líquidos.' },
+      { title: 'FMCG y bienes de consumo', desc: 'Envases flexibles de marca para mercados de consumo — bolsas con cremallera, bolsas con boquilla, flow wrap.' },
+    ],
+
+    productsTitle: 'Productos adecuados',
+    productGroups: [
+      { label: 'Sólidos secos y snacks', items: ['Patatas fritas', 'Frutos secos', 'Granola', 'Café', 'Comida para mascotas', 'Caramelos', 'Frutas secas'] },
+      { label: 'Polvos en bolsa', items: ['Sobres de especias', 'Bebida instantánea', 'Proteína en polvo', 'Detergente'] },
+      { label: 'Líquidos y pastas', items: ['Bolsas de salsa', 'Sobres de ketchup', 'Crema cosmética', 'Yogur'] },
+      { label: 'Formatos especiales', items: ['Bolsas retort (estériles)', 'Bolsas de vacío (carne, queso)', 'Flush de nitrógeno (café)'] },
+    ],
+    productsNote: 'La selección del material de embalaje (PE, PET, papel de aluminio, multicapa) afecta al método de sellado y tipo de máquina. Asesoramos sobre la selección del film como parte de la recomendación.',
+
+    packagingTitle: 'Opciones de envasado y producción',
+    packagingItems: [
+      { label: 'Tipos de bolsa', value: 'Bolsa plana (VFFS), bolsa de pie (VFFS/preformada), bolsa con cremallera, flow wrap (HFFS), sobre/stick pack, bolsa de vacío, bolsa retort' },
+      { label: 'Rango de peso de llenado', value: 'Sticks de 1g a bolsas de 5kg — depende del tipo de máquina y formato' },
+      { label: 'Rango de producción', value: '20–300 bolsas/min según formato, tipo de llenado y configuración de la máquina' },
+    ],
+    packagingNote: 'Todos los rangos indicados dependen de la configuración — los confirmamos según su producto específico, formato de bolsa y tipo de llenado.',
+
+    configurationsTitle: 'Configuraciones disponibles',
+    configurations: [
+      { name: 'VFFS (Vertical Form-Fill-Seal)', desc: 'Forma bolsas a partir de film en rollo verticalmente. Para polvos, gránulos, líquidos. 30–150 bolsas/min. Bajo coste de film por bolsa.' },
+      { name: 'HFFS / Flow Wrap (Horizontal)', desc: 'Para productos sólidos y con forma. Formato de envuelto plano. 50–300 bolsas/min. Ideal para galletas, barritas, productos frescos.' },
+      { name: 'Máquina de bolsa preformada (Rotativa / Lineal)', desc: 'Llena bolsas de pie o con cremallera preformadas. 20–80 bolsas/min. Apariencia premium, compatible con zipper/boquilla.' },
+      { name: 'Máquina stick pack / sobre', desc: 'Llenado multi-carril de alta velocidad para polvo o líquido en dosis única. 50–400 sobres/min.' },
+      { name: 'Máquina envasadora al vacío', desc: 'Cámara simple o doble. Extrae aire para extender la vida útil. Para carne, queso, café, productos secos.' },
+      { name: 'Flush de nitrógeno', desc: 'Módulo de flush de gas integrado para productos sensibles a la oxidación. Disponible en VFFS, bolsa preformada y máquinas de vacío de cámara.' },
+      { name: 'Materiales y cumplimiento', desc: 'Certificado CE; acero inoxidable SUS304/316L; tensión/frecuencia configurables; anchura y longitud de film ajustables por servo.' },
+    ],
+
+    decisionsTitle: 'Factores de decisión clave',
+    decisions: [
+      { factor: 'Forma del producto', guide: 'Sólido/con forma → HFFS. Polvo/gránulo/líquido → VFFS. Marca premium → bolsa preformada.' },
+      { factor: 'Formato de bolsa', guide: 'Bolsa plana → VFFS o HFFS. De pie/cremallera → bolsa preformada. Sobre → máquina stick pack.' },
+      { factor: 'Velocidad de producción', guide: '< 30 bolsas/min → bolsa preformada. 30–100 → VFFS con pesadora. > 100 → VFFS alta velocidad o HFFS.' },
+      { factor: 'Requisito de vida útil', guide: 'Estándar → sellado térmico. Extendida → vacío + flush gas + film barrera.' },
+      { factor: 'Presupuesto', guide: 'VFFS básico es el más rentable. Bolsa preformada tiene mayor coste por bolsa pero mejor apariencia.' },
+      { factor: 'Flexibilidad de formato', guide: 'Múltiples tamaños → VFFS servo con formador ajustable. Alta variedad → bolsa preformada.' },
+    ],
+
+    integrationTitle: 'Integración en el proceso',
+    integrationDesc: 'Esta máquina se integra en su flujo de producción general en la etapa de envasado. Una línea de bolsa integrada típica puede incluir:',
+    integrationSteps: [
+      'Alimentación de materia prima / producto',
+      'Pesadora / llenadora',
+      'Alimentación de film / bolsas',
+      'Form-fill-seal',
+      'Flush de gas (opcional)',
+      'Sellado / corte',
+      'Inspección (peso / visión)',
+      'Fechado',
+      'Salida por cinta',
+      'Encajado',
+    ],
+    integrationFooter: 'Diseñamos la línea de bolsa completa en torno a su producto e instalación. Máquinas individuales o líneas completas con pesadora, detector de metales, etiquetadora y encajadora.',
+
+    faqTitle: 'Preguntas frecuentes',
+    faq: [
+      {
+        q: '¿Cuál es la diferencia entre VFFS y máquina de bolsa preformada?',
+        a: 'VFFS forma bolsas a partir de un rollo de film al vuelo — menor coste de material por bolsa, bueno para formatos estándar de alto volumen. Las máquinas de bolsa preformada usan bolsas terminadas — mejor apariencia, soporta funciones premium (cremallera, boquilla, fuelle), pero mayor coste por bolsa. La mayoría de productores de snacks comienzan con VFFS; las marcas premium/exportación suelen preferir bolsa preformada.',
+      },
+      {
+        q: '¿Puede la máquina manejar productos en polvo y líquidos?',
+        a: 'Generalmente no en la misma máquina sin reconfiguración. VFFS para polvo usa tornillo dosificador o pesadora multi-cabeza; VFFS para líquido usa bomba de pistón o caudalímetro. Recomendamos máquinas separadas para polvo y líquido, o una máquina de bolsa preformada si su mix de productos requiere flexibilidad.',
+      },
+      {
+        q: '¿Qué tamaños de bolsa puede manejar una máquina VFFS?',
+        a: 'La mayoría de máquinas VFFS cubren un rango — p. ej. ancho de bolsa 80–300mm con longitud ajustable por servo. Los cambios de formato toman 15–30 minutos. Para formatos muy diferentes (sobre de 5g vs bolsa de 1kg), se recomiendan máquinas separadas.',
+      },
+      {
+        q: '¿Soportan bolsas con cremallera y boquilla?',
+        a: 'Sí. Los aplicadores de cremallera están disponibles tanto para VFFS como para máquinas de bolsa preformada. La inserción de boquilla está soportada en máquinas rotativas de bolsa preformada. Son módulos adicionales con inversión extra.',
+      },
+      {
+        q: '¿Qué materiales de film son compatibles?',
+        a: 'PE, CPP, OPP, laminados PET/PE, laminados de papel de aluminio y films multicapa especiales. Asesoramos sobre la selección del film según la sensibilidad a la humedad, necesidades de barrera al oxígeno y objetivo de vida útil de su producto.',
+      },
+      {
+        q: '¿Qué información debo proporcionar para obtener una recomendación?',
+        a: 'Nombre y forma del producto (sólido/polvo/líquido), formato y tamaño de bolsa objetivo, velocidad de producción requerida, país/tensión, y si necesita flush de nitrógeno o vacío. Use nuestro formulario de recomendación para una respuesta más rápida.',
+      },
+    ],
+
+    relatedTitle: 'Aplicaciones y recursos relacionados',
+    relatedLinks: [
+      { label: 'Cómo elegir una máquina envasadora en bolsa', href: '/resources/how-to-choose-pouch-packing-machine' },
+      { label: 'VFFS vs HFFS — ¿Cuál es la correcta para ti?', href: '/resources/vffs-vs-hffs' },
+      { label: 'Máquina de bolsa preformada vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
+      { label: 'Obtener una recomendación de máquina', href: '/recommend' },
+    ],
+
+    ctaTitle: 'Cuéntenos su producto y formato de envasado — encontraremos la máquina adecuada.',
+    ctaSubtitle: 'VFFS, bolsa preformada, stick pack o vacío — nuestros ingenieros recomiendan según su producto, objetivo de producción y especificación de bolsa.',
+    ctaBtn1: 'Obtener una recomendación de máquina',
+    ctaBtn2: 'Hablar con ingeniería',
   },
 }
 

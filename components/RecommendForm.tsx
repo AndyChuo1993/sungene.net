@@ -174,10 +174,451 @@ const privacyNote: Record<string, string> = {
   zh: '您的資訊僅用於處理您的詢問。我們絕不共享或出售您的資料。',
   fr: 'Vos informations servent uniquement à traiter votre demande. Nous ne les partageons ni ne les vendons jamais.',
   es: 'Su información se usa únicamente para procesar su consulta. Nunca compartimos ni vendemos sus datos.',
+  pt: 'Suas informações são usadas apenas para processar sua solicitação. Nunca compartilhamos ou vendemos seus dados.',
+  ko: '입력하신 정보는 문의 처리에만 사용되며, 절대 공유하거나 판매하지 않습니다.',
+  ja: 'ご入力いただいた情報はお問い合わせ対応のためにのみ使用し、共有または販売することはありません。',
+  ar: 'تُستخدم معلوماتك فقط لمعالجة طلبك. نحن لا نشارك بياناتك ولا نبيعها مطلقًا.',
+  th: 'ข้อมูลของคุณใช้เพื่อดำเนินการตามคำขอเท่านั้น เราไม่แบ่งปันหรือขายข้อมูลของคุณ',
+  vi: 'Thông tin của bạn chỉ được dùng để xử lý yêu cầu. Chúng tôi không chia sẻ hoặc bán dữ liệu của bạn.',
+  de: 'Ihre Informationen werden nur zur Bearbeitung Ihrer Anfrage verwendet. Wir geben Ihre Daten niemals weiter oder verkaufen sie.',
 }
 
 function getPrivacy(lang: Lang) {
   return privacyNote[lang] ?? privacyNote.en
+}
+
+type Option = { value: string; label: string }
+
+const uiText: Record<string, Record<string, string>> = {
+  en: {
+    selectPlaceholder: '— Select —',
+    sending: 'Sending…',
+    sendFiles: 'Send Files / Additional Info',
+    errorFallback: 'Something went wrong. Please try again or email contact@sungene.net.',
+    productType: 'Product Type *',
+    productState: 'Product State *',
+    packagingFormat: 'Target Packaging Format *',
+    fillWeight: 'Fill Weight or Volume (e.g. 50g, 500ml)',
+    targetOutput: 'Target Output *',
+    automationLevel: 'Automation Level *',
+    fullLine: 'Do you need a full production line?',
+    name: 'Your Name *',
+    company: 'Company / Factory Name',
+    email: 'Email *',
+    phone: 'WhatsApp / Phone',
+    country: 'Country *',
+    voltage: 'Local Voltage & Frequency',
+    materialReq: 'Material Requirement',
+    budget: 'Estimated Budget (USD)',
+    timeline: 'When do you need the machine?',
+    message: 'Additional Requirements or Questions',
+    fillWeightPh: 'e.g. 250g or 500ml',
+    phonePh: '+1 555 123 4567',
+    countryPh: 'e.g. Mexico, Nigeria, Vietnam',
+    messagePh: 'Describe your product, current pain points, or any specific requirements...',
+  },
+  cn: {
+    selectPlaceholder: '— 请选择 —',
+    sending: '发送中…',
+    sendFiles: '发送文件 / 补充信息',
+    errorFallback: '发生错误。请重试或邮件联系 contact@sungene.net。',
+    productType: '产品类型 *',
+    productState: '产品状态 *',
+    packagingFormat: '目标包装形式 *',
+    fillWeight: '充填重量或容量（例如 50g、500ml）',
+    targetOutput: '目标产能 *',
+    automationLevel: '自动化程度 *',
+    fullLine: '是否需要整条生产线？',
+    name: '您的姓名 *',
+    company: '公司 / 工厂名称',
+    email: '邮箱 *',
+    phone: 'WhatsApp / 电话',
+    country: '国家 *',
+    voltage: '当地电压与频率',
+    materialReq: '材质要求',
+    budget: '预估预算（美元）',
+    timeline: '您何时需要机器？',
+    message: '其他需求或问题',
+    fillWeightPh: '例如 250g 或 500ml',
+    phonePh: '+86 138 0000 0000',
+    countryPh: '例如 墨西哥、尼日利亚、越南',
+    messagePh: '描述您的产品、当前痛点或任何特殊要求…',
+  },
+  zh: {
+    selectPlaceholder: '— 請選擇 —',
+    sending: '傳送中…',
+    sendFiles: '傳送檔案 / 補充資訊',
+    errorFallback: '發生錯誤。請重試或寄信至 contact@sungene.net。',
+    productType: '產品類型 *',
+    productState: '產品狀態 *',
+    packagingFormat: '目標包裝形式 *',
+    fillWeight: '充填重量或容量（例如 50g、500ml）',
+    targetOutput: '目標產能 *',
+    automationLevel: '自動化程度 *',
+    fullLine: '是否需要整條生產線？',
+    name: '您的姓名 *',
+    company: '公司 / 工廠名稱',
+    email: 'Email *',
+    phone: 'WhatsApp / 電話',
+    country: '國家 *',
+    voltage: '當地電壓與頻率',
+    materialReq: '材質要求',
+    budget: '預估預算（美元）',
+    timeline: '您何時需要機器？',
+    message: '其他需求或問題',
+    fillWeightPh: '例如 250g 或 500ml',
+    phonePh: '+886 9xx xxx xxx',
+    countryPh: '例如 墨西哥、奈及利亞、越南',
+    messagePh: '描述您的產品、目前痛點或任何特殊需求…',
+  },
+  fr: {
+    selectPlaceholder: '— Sélectionner —',
+    sending: 'Envoi…',
+    sendFiles: 'Envoyer des fichiers / infos',
+    errorFallback: 'Une erreur est survenue. Réessayez ou envoyez un e-mail à contact@sungene.net.',
+    productType: 'Type de produit *',
+    productState: 'État du produit *',
+    packagingFormat: 'Format d’emballage cible *',
+    fillWeight: 'Poids ou volume (ex. 50g, 500ml)',
+    targetOutput: 'Cadence cible *',
+    automationLevel: 'Niveau d’automatisation *',
+    fullLine: 'Avez-vous besoin d’une ligne complète ?',
+    name: 'Votre nom *',
+    company: 'Société / Usine',
+    email: 'E-mail *',
+    phone: 'WhatsApp / Téléphone',
+    country: 'Pays *',
+    voltage: 'Tension & fréquence locales',
+    materialReq: 'Exigence matériau',
+    budget: 'Budget estimé (USD)',
+    timeline: 'Quand en avez-vous besoin ?',
+    message: 'Exigences ou questions supplémentaires',
+    fillWeightPh: 'ex. 250g ou 500ml',
+    phonePh: '+33 6 12 34 56 78',
+    countryPh: 'ex. Mexique, Nigeria, Vietnam',
+    messagePh: 'Décrivez votre produit, vos contraintes, ou des exigences spécifiques…',
+  },
+  es: {
+    selectPlaceholder: '— Seleccionar —',
+    sending: 'Enviando…',
+    sendFiles: 'Enviar archivos / info',
+    errorFallback: 'Ocurrió un error. Intente de nuevo o escriba a contact@sungene.net.',
+    productType: 'Tipo de producto *',
+    productState: 'Estado del producto *',
+    packagingFormat: 'Formato de empaque objetivo *',
+    fillWeight: 'Peso o volumen (ej. 50g, 500ml)',
+    targetOutput: 'Producción objetivo *',
+    automationLevel: 'Nivel de automatización *',
+    fullLine: '¿Necesita una línea completa?',
+    name: 'Su nombre *',
+    company: 'Empresa / Fábrica',
+    email: 'Correo *',
+    phone: 'WhatsApp / Teléfono',
+    country: 'País *',
+    voltage: 'Voltaje y frecuencia',
+    materialReq: 'Requisito de material',
+    budget: 'Presupuesto estimado (USD)',
+    timeline: '¿Cuándo necesita la máquina?',
+    message: 'Requisitos o preguntas adicionales',
+    fillWeightPh: 'ej. 250g o 500ml',
+    phonePh: '+34 600 000 000',
+    countryPh: 'ej. México, Nigeria, Vietnam',
+    messagePh: 'Describa su producto, problemas actuales o requisitos específicos…',
+  },
+  pt: {
+    selectPlaceholder: '— Selecionar —',
+    sending: 'Enviando…',
+    sendFiles: 'Enviar arquivos / info',
+    errorFallback: 'Algo deu errado. Tente novamente ou envie e-mail para contact@sungene.net.',
+    productType: 'Tipo de produto *',
+    productState: 'Estado do produto *',
+    packagingFormat: 'Formato de embalagem *',
+    fillWeight: 'Peso ou volume (ex.: 50g, 500ml)',
+    targetOutput: 'Produção desejada *',
+    automationLevel: 'Nível de automação *',
+    fullLine: 'Você precisa de uma linha completa?',
+    name: 'Seu nome *',
+    company: 'Empresa / Fábrica',
+    email: 'E-mail *',
+    phone: 'WhatsApp / Telefone',
+    country: 'País *',
+    voltage: 'Tensão e frequência',
+    materialReq: 'Requisito de material',
+    budget: 'Orçamento estimado (USD)',
+    timeline: 'Quando você precisa da máquina?',
+    message: 'Requisitos ou dúvidas adicionais',
+    fillWeightPh: 'ex.: 250g ou 500ml',
+    phonePh: '+55 11 90000-0000',
+    countryPh: 'ex.: México, Nigéria, Vietnã',
+    messagePh: 'Descreva seu produto, dores atuais ou requisitos específicos…',
+  },
+  ko: {
+    selectPlaceholder: '— 선택 —',
+    sending: '전송 중…',
+    sendFiles: '파일/추가 정보 보내기',
+    errorFallback: '오류가 발생했습니다. 다시 시도하거나 contact@sungene.net 으로 이메일 주세요.',
+    productType: '제품 유형 *',
+    productState: '제품 상태 *',
+    packagingFormat: '목표 포장 형식 *',
+    fillWeight: '충진 중량/용량 (예: 50g, 500ml)',
+    targetOutput: '목표 생산량 *',
+    automationLevel: '자동화 수준 *',
+    fullLine: '전체 생산 라인이 필요하신가요?',
+    name: '이름 *',
+    company: '회사 / 공장명',
+    email: '이메일 *',
+    phone: 'WhatsApp / 전화',
+    country: '국가 *',
+    voltage: '현지 전압/주파수',
+    materialReq: '재질 요구사항',
+    budget: '예상 예산(USD)',
+    timeline: '기계가 필요한 시기',
+    message: '추가 요구사항/질문',
+    fillWeightPh: '예: 250g 또는 500ml',
+    phonePh: '+82 10-0000-0000',
+    countryPh: '예: 멕시코, 나이지리아, 베트남',
+    messagePh: '제품, 현재 문제점, 또는 특별 요구사항을 적어주세요…',
+  },
+  ja: {
+    selectPlaceholder: '— 選択 —',
+    sending: '送信中…',
+    sendFiles: '資料/追加情報を送る',
+    errorFallback: 'エラーが発生しました。再試行するか contact@sungene.net へメールしてください。',
+    productType: '製品タイプ *',
+    productState: '製品状態 *',
+    packagingFormat: '希望包装形式 *',
+    fillWeight: '充填重量/容量（例：50g、500ml）',
+    targetOutput: '目標生産量 *',
+    automationLevel: '自動化レベル *',
+    fullLine: '生産ライン一式が必要ですか？',
+    name: 'お名前 *',
+    company: '会社 / 工場名',
+    email: 'メール *',
+    phone: 'WhatsApp / 電話',
+    country: '国 *',
+    voltage: '電圧・周波数',
+    materialReq: '材質要件',
+    budget: '概算予算（USD）',
+    timeline: '導入希望時期',
+    message: '追加要件・質問',
+    fillWeightPh: '例：250g または 500ml',
+    phonePh: '+81 90-0000-0000',
+    countryPh: '例：メキシコ、ナイジェリア、ベトナム',
+    messagePh: '製品、課題、特別要件などをご記入ください…',
+  },
+  ar: {
+    selectPlaceholder: '— اختر —',
+    sending: 'جارٍ الإرسال…',
+    sendFiles: 'إرسال ملفات / معلومات إضافية',
+    errorFallback: 'حدث خطأ. حاول مرة أخرى أو أرسل بريدًا إلى contact@sungene.net.',
+    productType: 'نوع المنتج *',
+    productState: 'حالة المنتج *',
+    packagingFormat: 'تنسيق التغليف المستهدف *',
+    fillWeight: 'وزن/حجم التعبئة (مثال: 50g، 500ml)',
+    targetOutput: 'الإنتاج المستهدف *',
+    automationLevel: 'مستوى الأتمتة *',
+    fullLine: 'هل تحتاج إلى خط إنتاج كامل؟',
+    name: 'الاسم *',
+    company: 'الشركة / المصنع',
+    email: 'البريد الإلكتروني *',
+    phone: 'واتساب / هاتف',
+    country: 'الدولة *',
+    voltage: 'الجهد والتردد المحلي',
+    materialReq: 'متطلبات المواد',
+    budget: 'الميزانية التقديرية (USD)',
+    timeline: 'متى تحتاج الآلة؟',
+    message: 'متطلبات أو أسئلة إضافية',
+    fillWeightPh: 'مثال: 250g أو 500ml',
+    phonePh: '+966 5xxxxxxxx',
+    countryPh: 'مثال: المكسيك، نيجيريا، فيتنام',
+    messagePh: 'صف منتجك أو التحديات الحالية أو أي متطلبات خاصة…',
+  },
+  th: {
+    selectPlaceholder: '— เลือก —',
+    sending: 'กำลังส่ง…',
+    sendFiles: 'ส่งไฟล์ / ข้อมูลเพิ่มเติม',
+    errorFallback: 'เกิดข้อผิดพลาด โปรดลองอีกครั้งหรืออีเมล contact@sungene.net',
+    productType: 'ประเภทสินค้า *',
+    productState: 'สถานะสินค้า *',
+    packagingFormat: 'รูปแบบบรรจุภัณฑ์ *',
+    fillWeight: 'น้ำหนัก/ปริมาตร (เช่น 50g, 500ml)',
+    targetOutput: 'กำลังการผลิตที่ต้องการ *',
+    automationLevel: 'ระดับอัตโนมัติ *',
+    fullLine: 'ต้องการสายการผลิตทั้งไลน์หรือไม่?',
+    name: 'ชื่อ *',
+    company: 'บริษัท / โรงงาน',
+    email: 'อีเมล *',
+    phone: 'WhatsApp / โทรศัพท์',
+    country: 'ประเทศ *',
+    voltage: 'แรงดันและความถี่ไฟฟ้า',
+    materialReq: 'ข้อกำหนดวัสดุ',
+    budget: 'งบประมาณโดยประมาณ (USD)',
+    timeline: 'ต้องการเครื่องเมื่อไหร่?',
+    message: 'ความต้องการ/คำถามเพิ่มเติม',
+    fillWeightPh: 'เช่น 250g หรือ 500ml',
+    phonePh: '+66 xx xxx xxxx',
+    countryPh: 'เช่น เม็กซิโก ไนจีเรีย เวียดนาม',
+    messagePh: 'อธิบายสินค้า ปัญหาปัจจุบัน หรือข้อกำหนดพิเศษ…',
+  },
+  vi: {
+    selectPlaceholder: '— Chọn —',
+    sending: 'Đang gửi…',
+    sendFiles: 'Gửi tệp / thông tin bổ sung',
+    errorFallback: 'Có lỗi xảy ra. Vui lòng thử lại hoặc email contact@sungene.net.',
+    productType: 'Loại sản phẩm *',
+    productState: 'Trạng thái sản phẩm *',
+    packagingFormat: 'Định dạng bao bì *',
+    fillWeight: 'Khối lượng/thể tích (vd: 50g, 500ml)',
+    targetOutput: 'Sản lượng mục tiêu *',
+    automationLevel: 'Mức độ tự động hóa *',
+    fullLine: 'Bạn có cần dây chuyền hoàn chỉnh không?',
+    name: 'Tên *',
+    company: 'Công ty / Nhà máy',
+    email: 'Email *',
+    phone: 'WhatsApp / Điện thoại',
+    country: 'Quốc gia *',
+    voltage: 'Điện áp & tần số',
+    materialReq: 'Yêu cầu vật liệu',
+    budget: 'Ngân sách ước tính (USD)',
+    timeline: 'Khi nào bạn cần máy?',
+    message: 'Yêu cầu/câu hỏi thêm',
+    fillWeightPh: 'vd: 250g hoặc 500ml',
+    phonePh: '+84 xxx xxx xxx',
+    countryPh: 'vd: Mexico, Nigeria, Việt Nam',
+    messagePh: 'Mô tả sản phẩm, vấn đề hiện tại hoặc yêu cầu cụ thể…',
+  },
+  de: {
+    selectPlaceholder: '— Auswählen —',
+    sending: 'Wird gesendet…',
+    sendFiles: 'Dateien / Zusatzinfos senden',
+    errorFallback: 'Etwas ist schiefgelaufen. Bitte erneut versuchen oder an contact@sungene.net mailen.',
+    productType: 'Produkttyp *',
+    productState: 'Produktzustand *',
+    packagingFormat: 'Ziel-Verpackungsformat *',
+    fillWeight: 'Füllgewicht oder Volumen (z. B. 50g, 500ml)',
+    targetOutput: 'Ziel-Ausstoß *',
+    automationLevel: 'Automatisierungsgrad *',
+    fullLine: 'Benötigen Sie eine komplette Linie?',
+    name: 'Name *',
+    company: 'Firma / Werk',
+    email: 'E-Mail *',
+    phone: 'WhatsApp / Telefon',
+    country: 'Land *',
+    voltage: 'Lokale Spannung & Frequenz',
+    materialReq: 'Materialanforderung',
+    budget: 'Geschätztes Budget (USD)',
+    timeline: 'Wann benötigen Sie die Maschine?',
+    message: 'Zusätzliche Anforderungen oder Fragen',
+    fillWeightPh: 'z. B. 250g oder 500ml',
+    phonePh: '+49 170 0000000',
+    countryPh: 'z. B. Mexiko, Nigeria, Vietnam',
+    messagePh: 'Beschreiben Sie Ihr Produkt, aktuelle Probleme oder besondere Anforderungen…',
+  },
+}
+
+function getUi(lang: Lang) {
+  return uiText[lang] ?? uiText.en
+}
+
+const choiceLabels: Record<'cn' | 'zh', Record<string, string>> = {
+  cn: {
+    'Powder / Flour': '粉末 / 面粉',
+    'Granule / Pellet': '颗粒 / 颗粒料',
+    'Liquid / Sauce': '液体 / 酱料',
+    'Paste / Cream': '膏体 / 奶油状',
+    'Solid / Block': '固体 / 块状',
+    'Snack / Food Item': '零食 / 食品',
+    'Other': '其他',
+    'Dry / Free-flowing': '干燥 / 易流动',
+    'Sticky / Clumping': '黏稠 / 易结块',
+    'Viscous / Thick': '高黏度 / 较稠',
+    'Liquid / Watery': '液体 / 稀薄',
+    'Pillow Bag (VFFS)': '枕式袋（VFFS）',
+    'Stand-up Pouch / Doypack': '自立袋 / Doypack',
+    'Zipper Pouch': '拉链袋',
+    'Pre-made Pouch (HFFS)': '预制袋（HFFS）',
+    'Bottle / Jar': '瓶 / 罐',
+    'Cup / Tray': '杯 / 托盘',
+    'Sachet / Stick Pack': '小袋 / 条包',
+    'Bulk Bag': '大袋',
+    'Other / Not Sure': '其他 / 不确定',
+    '< 20 bags/min': '< 20 袋/分钟',
+    '20–60 bags/min': '20–60 袋/分钟',
+    '60–120 bags/min': '60–120 袋/分钟',
+    '> 120 bags/min': '> 120 袋/分钟',
+    'Not sure — advise me': '不确定 — 请建议',
+    'Single manual-fed machine': '单机（人工上料）',
+    'Semi-automatic (operator assisted)': '半自动（需操作员辅助）',
+    'Fully automatic line': '全自动生产线',
+    'Turnkey / complete line': '交钥匙 / 整线项目',
+    'Single machine only': '仅单机',
+    'Partial line integration': '部分产线整合',
+    'Full turnkey line': '整线交钥匙',
+    'Other / Tell me what you need': '其他 / 请告知需求',
+    'Standard (SUS304)': '标准（SUS304）',
+    'Food-grade (SUS316L)': '食品级（SUS316L）',
+    'Pharmaceutical grade': '制药等级',
+    'Not sure': '不确定',
+    'Prefer not to say': '不方便透露',
+    'Urgent (< 1 month)': '紧急（< 1个月）',
+    '1–3 months': '1–3 个月',
+    '3–6 months': '3–6 个月',
+    '> 6 months': '> 6 个月',
+    'Planning stage': '规划阶段',
+  },
+  zh: {
+    'Powder / Flour': '粉末 / 麵粉',
+    'Granule / Pellet': '顆粒 / 顆粒料',
+    'Liquid / Sauce': '液體 / 醬料',
+    'Paste / Cream': '膏體 / 奶油狀',
+    'Solid / Block': '固體 / 塊狀',
+    'Snack / Food Item': '零食 / 食品',
+    'Other': '其他',
+    'Dry / Free-flowing': '乾燥 / 易流動',
+    'Sticky / Clumping': '黏稠 / 易結塊',
+    'Viscous / Thick': '高黏度 / 較稠',
+    'Liquid / Watery': '液體 / 稀薄',
+    'Pillow Bag (VFFS)': '枕式袋（VFFS）',
+    'Stand-up Pouch / Doypack': '自立袋 / Doypack',
+    'Zipper Pouch': '拉鍊袋',
+    'Pre-made Pouch (HFFS)': '預製袋（HFFS）',
+    'Bottle / Jar': '瓶 / 罐',
+    'Cup / Tray': '杯 / 托盤',
+    'Sachet / Stick Pack': '小袋 / 條包',
+    'Bulk Bag': '大袋',
+    'Other / Not Sure': '其他 / 不確定',
+    '< 20 bags/min': '< 20 袋/分鐘',
+    '20–60 bags/min': '20–60 袋/分鐘',
+    '60–120 bags/min': '60–120 袋/分鐘',
+    '> 120 bags/min': '> 120 袋/分鐘',
+    'Not sure — advise me': '不確定 — 請建議',
+    'Single manual-fed machine': '單機（人工上料）',
+    'Semi-automatic (operator assisted)': '半自動（需操作員輔助）',
+    'Fully automatic line': '全自動生產線',
+    'Turnkey / complete line': '交鑰匙 / 整線專案',
+    'Single machine only': '僅單機',
+    'Partial line integration': '部分產線整合',
+    'Full turnkey line': '整線交鑰匙',
+    'Other / Tell me what you need': '其他 / 請告知需求',
+    'Standard (SUS304)': '標準（SUS304）',
+    'Food-grade (SUS316L)': '食品級（SUS316L）',
+    'Pharmaceutical grade': '製藥等級',
+    'Not sure': '不確定',
+    'Prefer not to say': '不方便透露',
+    'Urgent (< 1 month)': '緊急（< 1個月）',
+    '1–3 months': '1–3 個月',
+    '3–6 months': '3–6 個月',
+    '> 6 months': '> 6 個月',
+    'Planning stage': '規劃階段',
+  },
+}
+
+function mapOptions(lang: Lang, values: string[]): Option[] {
+  if (lang === 'cn' || lang === 'zh') {
+    const dict = choiceLabels[lang]
+    return values.map((v) => ({ value: v, label: dict[v] ?? v }))
+  }
+  return values.map((v) => ({ value: v, label: v }))
 }
 
 // ── Field helpers ──────────────────────────────────────────────────────────────
@@ -187,11 +628,12 @@ interface SelectFieldProps {
   label: string
   value: string
   onChange: (v: string) => void
-  options: string[]
+  options: Option[]
   required?: boolean
+  placeholder?: string
 }
 
-function SelectField({ id, label, value, onChange, options, required }: SelectFieldProps) {
+function SelectField({ id, label, value, onChange, options, required, placeholder }: SelectFieldProps) {
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-gray-700">
@@ -206,10 +648,10 @@ function SelectField({ id, label, value, onChange, options, required }: SelectFi
           required={required}
           className={selectClass}
         >
-          <option value="">— Select —</option>
+          <option value="">{placeholder ?? '— Select —'}</option>
           {options.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
             </option>
           ))}
         </select>
@@ -232,7 +674,7 @@ interface RadioFieldProps {
   label: string
   value: string
   onChange: (v: string) => void
-  options: string[]
+  options: Option[]
   required?: boolean
 }
 
@@ -242,17 +684,17 @@ function RadioField({ id, label, value, onChange, options, required }: RadioFiel
       <p className="mb-2 text-sm font-medium text-gray-700">{label}</p>
       <div className="flex flex-wrap gap-3">
         {options.map((opt) => (
-          <label key={opt} className="flex cursor-pointer items-center gap-2">
+          <label key={opt.value} className="flex cursor-pointer items-center gap-2">
             <input
               type="radio"
               name={id}
-              value={opt}
-              checked={value === opt}
-              onChange={() => onChange(opt)}
+              value={opt.value}
+              checked={value === opt.value}
+              onChange={() => onChange(opt.value)}
               required={required && !value}
               className="h-4 w-4 cursor-pointer accent-accent-500 border-gray-300 focus:ring-accent-500"
             />
-            <span className="text-sm text-gray-700">{opt}</span>
+            <span className="text-sm text-gray-700">{opt.label}</span>
           </label>
         ))}
       </div>
@@ -399,6 +841,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
   const st = getSectionTitles(lang)
   const sm = getSuccessMsg(lang)
   const privacy = getPrivacy(lang)
+  const ui = getUi(lang)
 
   const hasStarted = useRef(false)
 
@@ -517,7 +960,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
           </svg>
-          Send Files / Additional Info
+          {ui.sendFiles}
         </a>
         <div className="mt-4">
           <button
@@ -554,11 +997,12 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
         <div className="space-y-5">
           <SelectField
             id="productType"
-            label="Product Type *"
+            label={ui.productType}
             value={form.productType}
             onChange={set('productType')}
             required
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               'Powder / Flour',
               'Granule / Pellet',
               'Liquid / Sauce',
@@ -566,25 +1010,26 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
               'Solid / Block',
               'Snack / Food Item',
               'Other',
-            ]}
+            ])}
           />
 
           <RadioField
             id="productState"
-            label="Product State *"
+            label={ui.productState}
             value={form.productState}
             onChange={set('productState')}
             required
-            options={['Dry / Free-flowing', 'Sticky / Clumping', 'Viscous / Thick', 'Liquid / Watery']}
+            options={mapOptions(lang, ['Dry / Free-flowing', 'Sticky / Clumping', 'Viscous / Thick', 'Liquid / Watery'])}
           />
 
           <SelectField
             id="packagingFormat"
-            label="Target Packaging Format *"
+            label={ui.packagingFormat}
             value={form.packagingFormat}
             onChange={set('packagingFormat')}
             required
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               'Pillow Bag (VFFS)',
               'Stand-up Pouch / Doypack',
               'Zipper Pouch',
@@ -594,53 +1039,55 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
               'Sachet / Stick Pack',
               'Bulk Bag',
               'Other / Not Sure',
-            ]}
+            ])}
           />
 
           <TextField
             id="fillWeight"
-            label="Fill Weight or Volume (e.g. 50g, 500ml)"
+            label={ui.fillWeight}
             value={form.fillWeight}
             onChange={set('fillWeight')}
-            placeholder="e.g. 250g or 500ml"
+            placeholder={ui.fillWeightPh}
           />
 
           <SelectField
             id="targetOutput"
-            label="Target Output *"
+            label={ui.targetOutput}
             value={form.targetOutput}
             onChange={set('targetOutput')}
             required
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               '< 20 bags/min',
               '20–60 bags/min',
               '60–120 bags/min',
               '> 120 bags/min',
               'Not sure — advise me',
-            ]}
+            ])}
           />
 
           <SelectField
             id="automationLevel"
-            label="Automation Level *"
+            label={ui.automationLevel}
             value={form.automationLevel}
             onChange={set('automationLevel')}
             required
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               'Single manual-fed machine',
               'Semi-automatic (operator assisted)',
               'Fully automatic line',
               'Turnkey / complete line',
               'Not sure — advise me',
-            ]}
+            ])}
           />
 
           <RadioField
             id="fullLine"
-            label="Do you need a full production line?"
+            label={ui.fullLine}
             value={form.fullLine}
             onChange={set('fullLine')}
-            options={['Single machine only', 'Partial line integration', 'Full turnkey line']}
+            options={mapOptions(lang, ['Single machine only', 'Partial line integration', 'Full turnkey line'])}
           />
         </div>
       </div>
@@ -651,7 +1098,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
         <div className="space-y-5">
           <TextField
             id="name"
-            label="Your Name *"
+            label={ui.name}
             value={form.name}
             onChange={set('name')}
             required
@@ -660,7 +1107,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
 
           <TextField
             id="company"
-            label="Company / Factory Name"
+            label={ui.company}
             value={form.company}
             onChange={set('company')}
             autoComplete="organization"
@@ -668,7 +1115,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
 
           <TextField
             id="email"
-            label="Email *"
+            label={ui.email}
             value={form.email}
             onChange={set('email')}
             type="email"
@@ -678,87 +1125,90 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
 
           <TextField
             id="phone"
-            label="WhatsApp / Phone"
+            label={ui.phone}
             value={form.phone}
             onChange={set('phone')}
             type="tel"
-            placeholder="+1 555 123 4567"
+            placeholder={ui.phonePh}
             autoComplete="tel"
           />
 
           <TextField
             id="country"
-            label="Country *"
+            label={ui.country}
             value={form.country}
             onChange={set('country')}
             required
-            placeholder="e.g. Mexico, Nigeria, Vietnam"
+            placeholder={ui.countryPh}
             autoComplete="country-name"
           />
 
           <SelectField
             id="voltage"
-            label="Local Voltage & Frequency"
+            label={ui.voltage}
             value={form.voltage}
             onChange={set('voltage')}
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               '220V/50Hz',
               '380V/50Hz',
               '110V/60Hz',
               '220V/60Hz',
               'Other / Tell me what you need',
-            ]}
+            ])}
           />
 
           <RadioField
             id="materialReq"
-            label="Material Requirement"
+            label={ui.materialReq}
             value={form.materialReq}
             onChange={set('materialReq')}
-            options={[
+            options={mapOptions(lang, [
               'Standard (SUS304)',
               'Food-grade (SUS316L)',
               'Pharmaceutical grade',
               'Not sure',
-            ]}
+            ])}
           />
 
           <SelectField
             id="budget"
-            label="Estimated Budget (USD)"
+            label={ui.budget}
             value={form.budget}
             onChange={set('budget')}
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               '< $5,000',
               '$5,000–$15,000',
               '$15,000–$50,000',
               '$50,000–$150,000',
               '> $150,000',
               'Prefer not to say',
-            ]}
+            ])}
           />
 
           <SelectField
             id="timeline"
-            label="When do you need the machine?"
+            label={ui.timeline}
             value={form.timeline}
             onChange={set('timeline')}
-            options={[
+            placeholder={ui.selectPlaceholder}
+            options={mapOptions(lang, [
               'Urgent (< 1 month)',
               '1–3 months',
               '3–6 months',
               '> 6 months',
               'Planning stage',
-            ]}
+            ])}
           />
 
           <TextareaField
             id="message"
-            label="Additional Requirements or Questions"
+            label={ui.message}
             value={form.message}
             onChange={set('message')}
             rows={4}
-            placeholder="Describe your product, current pain points, or any specific requirements..."
+            placeholder={ui.messagePh}
           />
         </div>
       </div>
@@ -766,7 +1216,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
       {/* Error */}
       {status === 'error' && (
         <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {errorMsg || 'Something went wrong. Please try again or email contact@sungene.net.'}
+          {errorMsg || ui.errorFallback}
         </div>
       )}
 
@@ -791,7 +1241,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            Sending…
+            {ui.sending}
           </>
         ) : (
           st.submit

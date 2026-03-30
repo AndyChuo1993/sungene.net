@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   }
 }
 
-// ─── Static content (en/cn/zh translated; all others fall back to en) ─────────
+// ─── Static content — 12 languages ─────────────────────────────────────────
 
 interface PageContent {
   kicker: string
@@ -231,9 +231,10 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: 'Related Applications & Resources',
     relatedLinks: [
+      { label: 'How to Choose a Conveyor System', href: '/resources/how-to-choose-conveyor-system' },
+      { label: 'Semi-Auto vs Full-Auto Packaging Line', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Conveying & Automation Overview', href: '/machinery/conveying-automation' },
-      { label: 'Custom Machinery Engineering', href: '/machinery/custom' },
-      { label: 'Get a Line Design Recommendation', href: '/recommend' },
+      { label: 'Get a Machine Recommendation', href: '/recommend' },
     ],
 
     ctaTitle: "Tell us your production target and machine list — we'll design the automation.",
@@ -344,9 +345,10 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相关应用与资源',
     relatedLinks: [
+      { label: '如何选择输送系统', href: '/resources/how-to-choose-conveyor-system' },
+      { label: '半自动与全自动包装线对比', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '输送与自动化概览', href: '/machinery/conveying-automation' },
-      { label: '定制机械工程', href: '/machinery/custom' },
-      { label: '获取产线设计建议', href: '/recommend' },
+      { label: '获取机器推荐', href: '/recommend' },
     ],
 
     ctaTitle: '告诉我们您的生产目标和机器清单——我们来设计自动化方案。',
@@ -457,9 +459,10 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相關應用與資源',
     relatedLinks: [
+      { label: '如何選擇輸送系統', href: '/resources/how-to-choose-conveyor-system' },
+      { label: '半自動與全自動包裝線比較', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '輸送與自動化概覽', href: '/machinery/conveying-automation' },
-      { label: '客製機械工程', href: '/machinery/custom' },
-      { label: '取得產線設計建議', href: '/recommend' },
+      { label: '取得機器推薦', href: '/recommend' },
     ],
 
     ctaTitle: '告訴我們您的生產目標和機器清單——我們來設計自動化方案。',

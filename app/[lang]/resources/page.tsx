@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { getArticlesByCategory } from '@/lib/articleData'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -178,45 +179,22 @@ const categories: (lang: string) => Category[] = (lang) => {
     {
       id: 'comparison',
       label: d.comparison,
-      articles: [
-        { slug: 'vffs-vs-hffs', ...d.articles['vffs-vs-hffs'] },
-        { slug: 'auger-vs-volumetric-filler', ...d.articles['auger-vs-volumetric-filler'] },
-        { slug: 'piston-vs-pump-filler', ...d.articles['piston-vs-pump-filler'] },
-        { slug: 'premade-pouch-machine-vs-vffs', ...d.articles['premade-pouch-machine-vs-vffs'] },
-        { slug: 'semi-auto-vs-full-auto-packaging-line', ...d.articles['semi-auto-vs-full-auto-packaging-line'] },
-      ],
+      articles: getArticlesByCategory('comparison').map(a => ({ slug: a.slug, ...d.articles[a.slug] })),
     },
     {
       id: 'selection',
       label: d.selection,
-      articles: [
-        { slug: 'how-to-choose-powder-filling-machine', ...d.articles['how-to-choose-powder-filling-machine'] },
-        { slug: 'how-to-choose-liquid-filling-machine', ...d.articles['how-to-choose-liquid-filling-machine'] },
-        { slug: 'how-to-choose-pouch-packing-machine', ...d.articles['how-to-choose-pouch-packing-machine'] },
-        { slug: 'how-to-choose-conveyor-system', ...d.articles['how-to-choose-conveyor-system'] },
-      ],
+      articles: getArticlesByCategory('selection').map(a => ({ slug: a.slug, ...d.articles[a.slug] })),
     },
     {
       id: 'application',
       label: d.application,
-      articles: [
-        { slug: 'spice-powder-packaging-machine', ...d.articles['spice-powder-packaging-machine'] },
-        { slug: 'flour-packaging-machine-guide', ...d.articles['flour-packaging-machine-guide'] },
-        { slug: 'protein-powder-filling-machine', ...d.articles['protein-powder-filling-machine'] },
-        { slug: 'sauce-filling-machine-selection', ...d.articles['sauce-filling-machine-selection'] },
-        { slug: 'edible-oil-filling-machine', ...d.articles['edible-oil-filling-machine'] },
-        { slug: 'snack-packing', ...d.articles['snack-packing'] },
-        { slug: 'detergent-powder-packaging-machine', ...d.articles['detergent-powder-packaging-machine'] },
-      ],
+      articles: getArticlesByCategory('application').map(a => ({ slug: a.slug, ...d.articles[a.slug] })),
     },
     {
       id: 'buying',
       label: d.buying,
-      articles: [
-        { slug: 'what-to-prepare-before-machine-quote', ...d.articles['what-to-prepare-before-machine-quote'] },
-        { slug: 'voltage-customization-for-export', ...d.articles['voltage-customization-for-export'] },
-        { slug: 'ce-guide-for-machinery-buyers', ...d.articles['ce-guide-for-machinery-buyers'] },
-      ],
+      articles: getArticlesByCategory('buying').map(a => ({ slug: a.slug, ...d.articles[a.slug] })),
     },
   ]
 }
@@ -317,7 +295,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
               {cat.articles.map((article) => (
                 <Link
                   key={article.slug}
-                  href={`/${lang}/resources/${article.slug}`}
+                  href={`/en/resources/${article.slug}`}
                   className="group flex flex-col rounded-2xl bg-white p-6 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2 hover:ring-accent-200"
                 >
                   <span className={`mb-3 inline-flex self-start rounded-full px-2.5 py-0.5 text-xs font-semibold ${categoryBadgeColors[cat.id] || 'bg-gray-100 text-gray-700'}`}>

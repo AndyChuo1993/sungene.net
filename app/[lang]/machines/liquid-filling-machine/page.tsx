@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   }
 }
 
-// ─── Static content (en/cn/zh translated; all others fall back to en) ─────────
+// ─── Static content — 12 languages ─────────────────────────────────────────
 
 interface PageContent {
   kicker: string
@@ -227,8 +227,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: 'Related Applications & Resources',
     relatedLinks: [
-      { label: 'Filling & Sealing Systems', href: '/machinery/filling-sealing' },
-      { label: 'Packaging Machinery Overview', href: '/machinery/packaging' },
+      { label: 'How to Choose a Liquid Filling Machine', href: '/resources/how-to-choose-liquid-filling-machine' },
+      { label: 'Piston vs Pump Filler — Comparison', href: '/resources/piston-vs-pump-filler' },
+      { label: 'Sauce Filling Machine Selection Guide', href: '/resources/sauce-filling-machine-selection' },
       { label: 'Get a Machine Recommendation', href: '/recommend' },
     ],
 
@@ -325,8 +326,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相关应用与资源',
     relatedLinks: [
-      { label: '充填与封口系统', href: '/machinery/filling-sealing' },
-      { label: '包装机械概览', href: '/machinery/packaging' },
+      { label: '如何选择液体灌装机', href: '/resources/how-to-choose-liquid-filling-machine' },
+      { label: '活塞式与泵式灌装机对比', href: '/resources/piston-vs-pump-filler' },
+      { label: '酱料灌装机选型指南', href: '/resources/sauce-filling-machine-selection' },
       { label: '获取机器推荐', href: '/recommend' },
     ],
 
@@ -423,8 +425,9 @@ const content: Record<string, PageContent> = {
 
     relatedTitle: '相關應用與資源',
     relatedLinks: [
-      { label: '充填與封口系統', href: '/machinery/filling-sealing' },
-      { label: '包裝機械概覽', href: '/machinery/packaging' },
+      { label: '如何選擇液體灌裝機', href: '/resources/how-to-choose-liquid-filling-machine' },
+      { label: '活塞式與泵式灌裝機比較', href: '/resources/piston-vs-pump-filler' },
+      { label: '醬料灌裝機選型指南', href: '/resources/sauce-filling-machine-selection' },
       { label: '取得機器推薦', href: '/recommend' },
     ],
 
