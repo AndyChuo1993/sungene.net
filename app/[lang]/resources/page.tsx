@@ -547,7 +547,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
               {cat.articles.map((article) => (
                 <Link
                   key={article.slug}
-                  href={`/en/resources/${article.slug}`}
+                  href={`/${lang}/resources/${article.slug}`}
                   className="group flex flex-col rounded-2xl bg-white p-6 shadow-elev-1 ring-1 ring-gray-200/60 transition hover:shadow-elev-2 hover:ring-accent-200"
                 >
                   <span className={`mb-3 inline-flex self-start rounded-full px-2.5 py-0.5 text-xs font-semibold ${categoryBadgeColors[cat.id] || 'bg-gray-100 text-gray-700'}`}>

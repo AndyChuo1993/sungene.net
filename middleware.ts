@@ -87,15 +87,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(normalizedPathname, request.url))
   }
 
-  const resourceArticleMatch = pathname.match(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)\/resources\/([^/]+)(?:\/|$)/)
-  if (resourceArticleMatch) {
-    const langInPath = resourceArticleMatch[1]
-    const articleSlug = resourceArticleMatch[2]
-    if (langInPath !== 'en') {
-      return NextResponse.redirect(new URL(`/en/resources/${articleSlug}`, request.url), 301)
-    }
-  }
-
   // === 7. Add locale prefix if missing ===
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`

@@ -6,7 +6,7 @@ import { ARTICLE_SLUGS } from '@/lib/articleData'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
   const langs = ALL_LANGS
-  const articleLangs = ['en'] as const
+  const articleLangs = langs
 
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => ({
