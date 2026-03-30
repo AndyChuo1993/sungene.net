@@ -24,8 +24,13 @@ const nextConfig = {
       // Old market/industry/blog → relevant pages
       { source: '/:lang/market/:slug*', destination: '/:lang/industries', permanent: true },
       { source: '/:lang/industry/:slug*', destination: '/:lang/industries', permanent: true },
-      { source: '/:lang/resources/:slug+', destination: '/:lang/resources', permanent: true },
       { source: '/:lang/blog/:slug+', destination: '/:lang/resources', permanent: true },
+      // ── Deduplicated resource articles: old slugs → canonical new slugs ───────
+      { source: '/:lang/resources/spice-powder-packaging', destination: '/:lang/resources/spice-powder-packaging-machine', permanent: true },
+      { source: '/:lang/resources/flour-packaging', destination: '/:lang/resources/flour-packaging-machine-guide', permanent: true },
+      { source: '/:lang/resources/sauce-filling', destination: '/:lang/resources/sauce-filling-machine-selection', permanent: true },
+      { source: '/:lang/resources/detergent-powder-packaging', destination: '/:lang/resources/detergent-powder-packaging-machine', permanent: true },
+      { source: '/:lang/resources/what-to-include-in-quote-request', destination: '/:lang/resources/what-to-prepare-before-machine-quote', permanent: true },
       // Old WordPress product pages without lang prefix → homepage
       { source: '/product/:slug*', destination: '/en', permanent: true },
       { source: '/products/:slug*', destination: '/en', permanent: true },

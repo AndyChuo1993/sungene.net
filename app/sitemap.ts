@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   )
 
-  // Priority 0.65 - Resource articles
+  // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSlugs = [
     // Comparison
     '/resources/vffs-vs-hffs',
@@ -82,19 +82,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/resources/how-to-choose-pouch-packing-machine',
     '/resources/how-to-choose-conveyor-system',
     // Application guides
-    '/resources/spice-powder-packaging',
     '/resources/spice-powder-packaging-machine',
-    '/resources/flour-packaging',
     '/resources/flour-packaging-machine-guide',
-    '/resources/sauce-filling',
     '/resources/sauce-filling-machine-selection',
     '/resources/snack-packing',
-    '/resources/detergent-powder-packaging',
     '/resources/detergent-powder-packaging-machine',
     '/resources/protein-powder-filling-machine',
     '/resources/edible-oil-filling-machine',
     // Buying guides
-    '/resources/what-to-include-in-quote-request',
     '/resources/what-to-prepare-before-machine-quote',
     '/resources/voltage-customization-for-export',
     '/resources/ce-guide-for-machinery-buyers',

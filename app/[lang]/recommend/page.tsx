@@ -256,14 +256,20 @@ const whatWeHelpTitle: Record<string, string> = {
   de: 'Womit wir helfen können',
 }
 
-const whatWeHelp = [
-  'Powder, flour, granule filling & packaging',
-  'Liquid, sauce, paste filling systems',
-  'Pouch, bag, sachet packaging',
-  'Snack & food processing lines',
-  'Conveyor & production line automation',
-  'Custom or OEM machinery engineering',
-]
+const whatWeHelp: Record<string, string[]> = {
+  en: ['Powder, flour, granule filling & packaging', 'Liquid, sauce, paste filling systems', 'Pouch, bag, sachet packaging', 'Snack & food processing lines', 'Conveyor & production line automation', 'Custom or OEM machinery engineering'],
+  cn: ['粉末、面粉、颗粒灌装与包装', '液体、酱料、膏体灌装系统', '袋装、包装袋、小袋包装', '零食与食品加工生产线', '输送与生产线自动化', '定制与OEM机械工程'],
+  zh: ['粉末、麵粉、顆粒灌裝與包裝', '液體、醬料、膏體灌裝系統', '袋裝、包裝袋、小袋包裝', '零食與食品加工生產線', '輸送與生產線自動化', '定制與OEM機械工程'],
+  fr: ['Remplissage et conditionnement poudre, farine, granulés', 'Systèmes de remplissage liquide, sauce, pâte', 'Conditionnement sachet, pouch, stick', 'Lignes de transformation alimentaire et snacks', 'Automatisation de convoyage et de lignes', 'Ingénierie sur mesure et OEM'],
+  es: ['Llenado y envasado de polvo, harina, granulado', 'Sistemas de llenado de líquidos, salsas, pastas', 'Envasado en pouch, bolsa, sachet', 'Líneas de procesamiento de snacks y alimentos', 'Automatización de conveyors y líneas de producción', 'Ingeniería personalizada y OEM'],
+  pt: ['Enchimento e embalagem de pó, farinha, granulado', 'Sistemas de enchimento de líquidos, molhos, pastas', 'Embalagem em sachê, bolsa, pouch', 'Linhas de processamento de snacks e alimentos', 'Automação de transporte e linhas', 'Engenharia personalizada e OEM'],
+  ko: ['분말, 밀가루, 과립 충진 및 포장', '액체, 소스, 페이스트 충진 시스템', '파우치, 백, 사쉐 포장', '스낵 및 식품 가공 라인', '컨베이어 및 생산 라인 자동화', '맞춤형 및 OEM 기계 엔지니어링'],
+  ja: ['粉末・小麦粉・顆粒の充填・包装', '液体・ソース・ペーストの充填システム', 'パウチ・袋・スティックパック包装', 'スナック・食品加工ライン', 'コンベヤ・生産ライン自動化', 'カスタム・OEM機械エンジニアリング'],
+  ar: ['تعبئة وتغليف المساحيق والطحين والحبيبات', 'أنظمة تعبئة السوائل والصلصات والمعاجين', 'التغليف في الأكياس والمحافظ والأكياس الصغيرة', 'خطوط تجهيز الوجبات الخفيفة والمواد الغذائية', 'أتمتة الناقل وخطوط الإنتاج', 'هندسة الآلات المخصصة وOEM'],
+  th: ['บรรจุและแพ็คผง แป้ง เม็ด', 'ระบบบรรจุของเหลว ซอส เพสต์', 'บรรจุภัณฑ์ถุง ซอง สแต็ก', 'สายการผลิตขนมและอาหาร', 'ระบบสายพานและอัตโนมัติสายผลิต', 'วิศวกรรมเครื่องจักรเฉพาะและ OEM'],
+  vi: ['Chiết rót và đóng gói bột, bột mì, hạt', 'Hệ thống chiết rót chất lỏng, sốt, bột nhão', 'Đóng gói túi, bao, gói nhỏ', 'Dây chuyền chế biến đồ ăn nhẹ và thực phẩm', 'Tự động hóa băng tải và dây chuyền sản xuất', 'Kỹ thuật máy móc tùy chỉnh và OEM'],
+  de: ['Abfüllen und Verpacken von Pulver, Mehl, Granulat', 'Flüssigkeits-, Soßen- und Pastenfüllsysteme', 'Verpackung in Beutel, Sachet, Stick', 'Snack- und Lebensmittelverarbeitungslinien', 'Förder- und Produktionslinienautomatisierung', 'Maßgefertigte und OEM-Maschinentechnik'],
+}
 
 const trustTitle: Record<string, string> = {
   en: 'Why SunGene',
@@ -280,14 +286,20 @@ const trustTitle: Record<string, string> = {
   de: 'Warum SunGene',
 }
 
-const trustSignals = [
-  'CE Certified Machinery',
-  'SUS304 / SUS316L Food-Grade Materials',
-  'Factory-Direct from Taiwan',
-  'Custom Voltage & Configuration',
-  'Exported to 50+ Countries',
-  'OEM & Custom Engineering Available',
-]
+const trustSignals: Record<string, string[]> = {
+  en: ['CE Certified Machinery', 'SUS304 / SUS316L Food-Grade Materials', 'Factory-Direct from Taiwan', 'Custom Voltage & Configuration', 'Exported to 50+ Countries', 'OEM & Custom Engineering Available'],
+  cn: ['CE 认证机械', 'SUS304 / SUS316L 食品级材料', '台湾工厂直销', '定制电压与配置', '出口50多个国家', '提供OEM与定制工程服务'],
+  zh: ['CE 認證機械', 'SUS304 / SUS316L 食品級材料', '台灣工廠直銷', '定制電壓與配置', '出口50多個國家', '提供OEM與定制工程服務'],
+  fr: ['Machines certifiées CE', 'Matériaux alimentaires SUS304 / SUS316L', 'Vente directe usine Taiwan', 'Tension et configuration sur mesure', 'Exportation vers 50+ pays', 'OEM et ingénierie sur mesure disponibles'],
+  es: ['Maquinaria certificada CE', 'Materiales alimentarios SUS304 / SUS316L', 'Venta directa de fábrica Taiwan', 'Voltaje y configuración personalizados', 'Exportado a 50+ países', 'OEM e ingeniería personalizada disponibles'],
+  pt: ['Máquinas certificadas CE', 'Materiais alimentares SUS304 / SUS316L', 'Venda direta da fábrica Taiwan', 'Voltagem e configuração personalizados', 'Exportado para 50+ países', 'OEM e engenharia personalizada disponíveis'],
+  ko: ['CE 인증 기계', 'SUS304 / SUS316L 식품용 소재', '대만 공장 직판', '맞춤형 전압 및 구성', '50개국 이상 수출', 'OEM 및 맞춤 엔지니어링 가능'],
+  ja: ['CE認証取得機械', 'SUS304 / SUS316L 食品用材料', '台湾工場直販', 'カスタム電圧・仕様', '50カ国以上に輸出', 'OEM・カスタムエンジニアリング対応'],
+  ar: ['آلات حاصلة على شهادة CE', 'مواد SUS304 / SUS316L مخصصة للأغذية', 'مباشرة من مصنع تايوان', 'جهد كهربائي وتكوين مخصص', 'تصدير لأكثر من 50 دولة', 'OEM والهندسة المخصصة متاحة'],
+  th: ['เครื่องจักรได้รับการรับรอง CE', 'วัสดุสัมผัสอาหาร SUS304 / SUS316L', 'ส่งตรงจากโรงงานในไต้หวัน', 'แรงดันและการกำหนดค่าเฉพาะ', 'ส่งออกกว่า 50 ประเทศ', 'รองรับ OEM และวิศวกรรมเฉพาะ'],
+  vi: ['Máy được chứng nhận CE', 'Vật liệu thực phẩm SUS304 / SUS316L', 'Trực tiếp từ nhà máy Đài Loan', 'Tùy chỉnh điện áp và cấu hình', 'Xuất khẩu đến 50+ quốc gia', 'OEM và kỹ thuật tùy chỉnh'],
+  de: ['CE-zertifizierte Maschinen', 'SUS304 / SUS316L Lebensmittelmaterialien', 'Direkt ab Werk Taiwan', 'Spannung und Konfiguration anpassbar', 'Export in 50+ Länder', 'OEM und kundenspezifische Technik verfügbar'],
+}
 
 const talkTitle: Record<string, string> = {
   en: 'Need to talk first?',
@@ -484,7 +496,7 @@ export default async function RecommendPage({
               <SidebarCard>
                 <h2 className="mb-4 text-base font-semibold text-gray-900">{whatWeHelpTitle[lang] ?? whatWeHelpTitle.en}</h2>
                 <ul className="space-y-2">
-                  {whatWeHelp.map((item) => (
+                  {(whatWeHelp[lang] ?? whatWeHelp.en).map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
                       <CheckIcon />
                       <span>{item}</span>
@@ -497,7 +509,7 @@ export default async function RecommendPage({
               <SidebarCard>
                 <h2 className="mb-4 text-base font-semibold text-gray-900">{trustTitle[lang] ?? trustTitle.en}</h2>
                 <ul className="space-y-2">
-                  {trustSignals.map((item) => (
+                  {(trustSignals[lang] ?? trustSignals.en).map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
                       <CheckIcon />
                       <span>{item}</span>
