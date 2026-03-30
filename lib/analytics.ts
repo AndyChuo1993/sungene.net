@@ -1,14 +1,123 @@
 // GA4 client-side event tracking utility
-export function trackEvent(eventName: string, params?: Record<string, string | number>) {
+// All events carry: page_type, lang, content_type, product_cluster, cta_position, utm_*
+
+function getUtmParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {}
+  const p = new URLSearchParams(window.location.search)
+  const result: Record<string, string> = {}
+  const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+  keys.forEach(k => { const v = p.get(k); if (v) result[k] = v })
+  return result
+}
+
+function gtag(event: string, params: Record<string, string | number>) {
   if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-    ;(window as any).gtag('event', eventName, params)
+    ;(window as any).gtag('event', event, params)
   }
 }
 
+export function trackEvent(eventName: string, params?: Record<string, string | number>) {
+  gtag(eventName, { ...getUtmParams(), ...(params || {}) })
+}
+
+// ─── Page view (supplement Next.js auto pageview) ────────────────────────────
+export function trackPageView(params: {
+  page_type: string
+  lang: string
+  content_type?: string
+  product_cluster?: string
+}) {
+  gtag('page_view', { ...getUtmParams(), ...params })
+}
+
+// ─── Machine page CTA click ───────────────────────────────────────────────────
+export function trackMachineCtaClick(params: {
+  product_cluster: string   // e.g. 'pouch_packing' | 'powder_filling' | etc.
+  cta_position: string      // e.g. 'hero' | 'cta_band' | 'sidebar' | 'inline'
+  cta_label: string
+  lang: string
+  page_type?: string
+}) {
+  gtag('machine_cta_click', { page_type: 'machine', ...getUtmParams(), ...params })
+}
+
+// ─── Recommend flow ───────────────────────────────────────────────────────────
+export function trackRecommendStart(params: {
+  lang: string
+  source_page?: string
+  cta_position?: string
+}) {
+  gtag('recommend_start', { page_type: 'recommend', content_type: 'rfq_form', ...getUtmParams(), ...params })
+}
+
+export function trackRecommendSubmit(params: {
+  lang: string
+  product_type?: string
+  product_state?: string
+  packaging_format?: string
+  automation_level?: string
+  budget?: string
+  country?: string
+}) {
+  gtag('recommend_submit', { page_type: 'recommend', content_type: 'rfq_form', ...getUtmParams(), ...params })
+}
+
+// ─── Generic form events ──────────────────────────────────────────────────────
+export function trackFormSubmitSuccess(params: {
+  form_type: string         // 'inquiry' | 'product_inquiry' | 'recommend'
+  lang: string
+  page_type?: string
+  product_cluster?: string
+  ref_id?: string
+}) {
+  gtag('form_submit_success', { ...getUtmParams(), ...params })
+}
+
+export function trackFormSubmitFail(params: {
+  form_type: string
+  lang: string
+  error_type?: string       // 'validation' | 'recaptcha' | 'server'
+  page_type?: string
+}) {
+  gtag('form_submit_fail', { ...getUtmParams(), ...params })
+}
+
+// ─── Article / resource CTA ───────────────────────────────────────────────────
+export function trackArticleCtaClick(params: {
+  article_slug: string
+  cta_position: string      // 'inline' | 'bottom' | 'sidebar'
+  cta_label: string
+  lang: string
+  content_type?: string     // 'comparison' | 'selection_guide' | 'application_guide' | 'buying_guide'
+  product_cluster?: string
+}) {
+  gtag('article_cta_click', { page_type: 'article', ...getUtmParams(), ...params })
+}
+
+// ─── WhatsApp / contact clicks ────────────────────────────────────────────────
+export function trackWhatsappClick(params: {
+  lang: string
+  source_page: string
+  cta_position?: string
+  product_cluster?: string
+}) {
+  gtag('whatsapp_click', { content_type: 'contact', ...getUtmParams(), ...params })
+}
+
+export function trackContactClick(params: {
+  lang: string
+  source_page: string
+  contact_type: string      // 'email' | 'phone' | 'form'
+  cta_position?: string
+}) {
+  gtag('contact_click', { content_type: 'contact', ...getUtmParams(), ...params })
+}
+
+// ─── Legacy aliases (keep backward-compat) ───────────────────────────────────
 export function trackCTAClick(ctaLabel: string, sourcePage: string) {
-  trackEvent('cta_click', { cta_label: ctaLabel, source_page: sourcePage })
+  gtag('cta_click', { cta_label: ctaLabel, source_page: sourcePage, ...getUtmParams() })
 }
 
 export function trackFormSubmit(formType: string, sourcePage: string) {
-  trackEvent('form_submit', { form_type: formType, source_page: sourcePage })
+  gtag('form_submit', { form_type: formType, source_page: sourcePage, ...getUtmParams() })
 }

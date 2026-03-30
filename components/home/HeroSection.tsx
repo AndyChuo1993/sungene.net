@@ -1,8 +1,8 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
-import { ButtonLink } from '@/components/ui/Button'
 import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
+import HeroCtaWrapper from '@/components/home/HeroCtaWrapper'
 
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
@@ -208,15 +208,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             </p>
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink href={`/${lang}/recommend`} size="lg" className="shadow-lg shadow-accent-700/30">
-                {t.btnQuote}
-                <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-              </ButtonLink>
-              <ButtonLink href={`/${lang}/machinery`} variant="secondary" size="lg" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">
-                {t.btnCatalog}
-              </ButtonLink>
-            </div>
+            <HeroCtaWrapper lang={lang} btnQuote={t.btnQuote} btnCatalog={t.btnCatalog} />
 
             {/* Trust badges */}
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-8">

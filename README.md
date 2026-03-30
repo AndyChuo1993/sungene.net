@@ -32,7 +32,7 @@
 > **注意**：SMTP 相關變數若全部未設定，email 功能停用，詢價將改寫入 `data/inquiries.ndjson`（本機用，Cloud Run 上為暫存，不作為正式保存）。正式環境建議確保 SMTP 設定正確，或改接資料庫 / 物件儲存。
 
 ## 部署（Cloud Run，Cloud Build）
-- 設定檔：`web/cloudbuild.yaml`
+- 設定檔：`cloudbuild.yaml`
 - Substitutions（於 Trigger 設定）：
   - `_REGION`
   - `_NEXT_PUBLIC_SITE_URL`

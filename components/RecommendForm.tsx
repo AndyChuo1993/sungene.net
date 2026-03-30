@@ -1,8 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { Lang } from '@/lib/i18n'
+import {
+  trackRecommendStart,
+  trackRecommendSubmit,
+  trackFormSubmitSuccess,
+  trackFormSubmitFail,
+} from '@/lib/analytics'
 
 interface RecommendFormProps {
   lang: Lang
@@ -305,8 +311,16 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
   const sm = getSuccessMsg(lang)
   const privacy = getPrivacy(lang)
 
+  const hasStarted = useRef(false)
+
   function set(field: keyof FormState) {
-    return (value: string) => setForm((prev) => ({ ...prev, [field]: value }))
+    return (value: string) => {
+      if (!hasStarted.current) {
+        hasStarted.current = true
+        trackRecommendStart({ lang })
+      }
+      setForm((prev) => ({ ...prev, [field]: value }))
+    }
   }
 
   function getDeviceType(): string {
@@ -324,6 +338,16 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
 
     setStatus('loading')
     setErrorMsg('')
+
+    trackRecommendSubmit({
+      lang,
+      product_type: form.productType,
+      product_state: form.productState,
+      packaging_format: form.packagingFormat,
+      automation_level: form.automationLevel,
+      budget: form.budget,
+      country: form.country,
+    })
 
     const payload = {
       ...form,
@@ -352,10 +376,14 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
         throw new Error(data?.error ?? `Server error ${res.status}`)
       }
 
-      setRefId(data?.id ?? data?.ref ?? '')
+      const resolvedRefId = data?.id ?? data?.ref ?? ''
+      setRefId(resolvedRefId)
+      trackFormSubmitSuccess({ form_type: 'recommend', lang, ref_id: resolvedRefId })
       setStatus('success')
     } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : 'Unexpected error. Please try again.')
+      const message = err instanceof Error ? err.message : 'Unexpected error. Please try again.'
+      setErrorMsg(message)
+      trackFormSubmitFail({ form_type: 'recommend', lang, error_type: 'server' })
       setStatus('error')
     }
   }

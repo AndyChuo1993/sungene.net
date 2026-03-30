@@ -1,6 +1,6 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
-import { ButtonLink } from '@/components/ui/Button'
+import CTAButtonWrapper from '@/components/home/CTAButtonWrapper'
 
 export default function CTASection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
@@ -95,9 +95,7 @@ export default function CTASection({ lang }: { lang: Lang }) {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{t.title}</h2>
             <p className="mt-6 text-lg leading-relaxed text-gray-300">{t.desc}</p>
             <div className="mt-8">
-              <ButtonLink href={`/${lang}/recommend`} size="lg">
-                {t.btn}
-              </ButtonLink>
+              <CTAButtonWrapper lang={lang} label={t.btn} />
             </div>
           </div>
 

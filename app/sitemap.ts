@@ -68,5 +68,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   )
 
-  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap]
+  // Priority 0.65 - Resource articles
+  const articleSlugs = [
+    // Comparison
+    '/resources/vffs-vs-hffs',
+    '/resources/auger-vs-volumetric-filler',
+    '/resources/piston-vs-pump-filler',
+    // Selection guides
+    '/resources/how-to-choose-powder-filling-machine',
+    '/resources/how-to-choose-liquid-filling-machine',
+    '/resources/how-to-choose-pouch-packing-machine',
+    // Application guides
+    '/resources/spice-powder-packaging',
+    '/resources/flour-packaging',
+    '/resources/sauce-filling',
+    '/resources/snack-packing',
+    '/resources/detergent-powder-packaging',
+    // Buying guides
+    '/resources/what-to-include-in-quote-request',
+    '/resources/voltage-customization-for-export',
+    '/resources/ce-guide-for-machinery-buyers',
+  ]
+  const articleSitemap = articleSlugs.flatMap(route =>
+    langs.map(lang => ({
+      url: `${baseUrl}/${lang}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    }))
+  )
+
+  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap, ...articleSitemap]
 }
