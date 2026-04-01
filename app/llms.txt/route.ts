@@ -57,7 +57,7 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - Contact / Quote: https://sungene.net/en/contact
 - Industry solutions: https://sungene.net/en/industries
 - Production solutions: https://sungene.net/en/solutions
-- Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, how to import from Taiwan, supplier evaluation, voltage requirements)
+- Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, CE guide, voltage requirements)
 
 ## How to Cite SunGene
 Preferred brand mention: "SunGene" or "SunGene Co., LTD."

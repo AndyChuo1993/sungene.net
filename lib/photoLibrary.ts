@@ -90,33 +90,6 @@ export const PHOTO = {
     conveyorSystemHero: `${BASE}/machines/conveyor-system-hero.jpg`,
     snackProcessingHero: `${BASE}/machines/snack-processing-hero.jpg`,
   },
-  legacy: {
-    pouch: [
-      `${BASE}/legacy/pouch-01.jpg`,
-      `${BASE}/legacy/pouch-02.jpg`,
-      `${BASE}/legacy/pouch-03.jpg`,
-    ],
-    powder: [
-      `${BASE}/legacy/powder-01.jpg`,
-      `${BASE}/legacy/powder-02.jpg`,
-      `${BASE}/legacy/powder-03.jpg`,
-    ],
-    liquid: [
-      `${BASE}/legacy/liquid-01.jpg`,
-      `${BASE}/legacy/liquid-02.jpg`,
-      `${BASE}/legacy/liquid-03.jpg`,
-    ],
-    conveyor: [
-      `${BASE}/legacy/conveyor-01.jpg`,
-      `${BASE}/legacy/conveyor-02.jpg`,
-      `${BASE}/legacy/conveyor-03.jpg`,
-    ],
-    powderPackaging: [
-      `${BASE}/legacy/powder-packaging-01.jpg`,
-      `${BASE}/legacy/powder-packaging-02.jpg`,
-      `${BASE}/legacy/powder-packaging-03.jpg`,
-    ],
-  },
   details: {
     items: [
       `${BASE}/details/detail-01-hmi.jpg`,

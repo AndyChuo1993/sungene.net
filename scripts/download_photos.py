@@ -91,31 +91,6 @@ PHOTOS = [
     ("_XDK4naBbgw",  "machines/conveyor-system-hero.jpg"),   # refrigerator mfg automated production line
     ("H1dVEaatdfE",  "machines/snack-processing-hero.jpg"),  # salty snacks in factory production line
 
-    # ── LEGACY — Pouch Packing gallery ───────────────────────────────────────
-    ("bCgsKqFzUcg",  "legacy/pouch-01.jpg"),  # group of people in food processing factory
-    ("9ISK3WoMaJ8",  "legacy/pouch-02.jpg"),  # young man in protective uniform, seafood factory
-    ("sjg9jKHnKPI",  "legacy/pouch-03.jpg"),  # food plant worker holding tray of biscuits
-
-    # ── LEGACY — Powder Filling gallery ──────────────────────────────────────
-    ("UtYhjkq8-9M",  "legacy/powder-01.jpg"),  # plant facility clean room stainless steel
-    ("YD8IVSpZ1DQ",  "legacy/powder-02.jpg"),  # steel automatic equipment, cheese factory
-    ("AglcyVspWOs",  "legacy/powder-03.jpg"),  # cheese production with industrial equipment
-
-    # ── LEGACY — Liquid Filling gallery ──────────────────────────────────────
-    ("z5I0PNwlwjU",  "legacy/liquid-01.jpg"),  # bottles being filled on assembly line
-    ("cHWzlU8lEcc",  "legacy/liquid-02.jpg"),  # conveyor with bottles at beverage plant
-    ("Xlc8HG_FB2k",  "legacy/liquid-03.jpg"),  # glass bottles on gray filling machine
-
-    # ── LEGACY — Conveyor gallery ─────────────────────────────────────────────
-    ("ziF-1HQji_0",  "legacy/conveyor-01.jpg"),  # industrial machinery processing containers
-    ("TJGr72z-f0w",  "legacy/conveyor-02.jpg"),  # robotics and AI in smart warehouse logistics
-    ("A8ZIFo9CySM",  "legacy/conveyor-03.jpg"),  # robotic arms working in warehouse
-
-    # ── LEGACY — Powder Packaging gallery ────────────────────────────────────
-    ("8gr6bObQLOI",  "legacy/powder-packaging-01.jpg"),  # factory filled with orange robots
-    ("nb3-HNV07Fg",  "legacy/powder-packaging-02.jpg"),  # factory filled with metal tanks
-    ("Jn2vgcVJRAM",  "legacy/powder-packaging-03.jpg"),  # large metal tanks in industrial setting
-
     # ── DETAILS — close-up machine parts ─────────────────────────────────────
     ("HdLqoJX0IIo",  "details/detail-01-hmi.jpg"),        # green machine with yellow touchscreen
     ("cI4Xrsu-CUE",  "details/detail-02-wiring.jpg"),     # brewery worker checking scheme on screen
