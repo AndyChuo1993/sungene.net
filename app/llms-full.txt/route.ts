@@ -1,0 +1,46 @@
+import { SITE_URL } from '@/lib/siteConfig'
+
+export async function GET() {
+  const body = `# SunGene Co., LTD. — Full Reference
+
+This file provides a structured overview of key pages and topics on ${SITE_URL}.
+
+## Localized versions
+- ${SITE_URL}/en/llms-full.txt
+- ${SITE_URL}/zh/llms-full.txt
+- ${SITE_URL}/cn/llms-full.txt
+- ${SITE_URL}/fr/llms-full.txt
+- ${SITE_URL}/es/llms-full.txt
+- ${SITE_URL}/pt/llms-full.txt
+- ${SITE_URL}/ko/llms-full.txt
+- ${SITE_URL}/ja/llms-full.txt
+- ${SITE_URL}/ar/llms-full.txt
+- ${SITE_URL}/th/llms-full.txt
+- ${SITE_URL}/vi/llms-full.txt
+- ${SITE_URL}/de/llms-full.txt
+
+## Sitemap
+- ${SITE_URL}/sitemap.xml
+
+## Key pages
+- Recommendation / machine selector: ${SITE_URL}/en/recommend
+- Machinery catalog: ${SITE_URL}/en/machinery
+- Buying guides & resources: ${SITE_URL}/en/resources
+- Contact / quote request: ${SITE_URL}/en/contact
+
+## Machine landing pages
+- Pouch packing: ${SITE_URL}/en/machines/pouch-packing-machine
+- Powder filling: ${SITE_URL}/en/machines/powder-filling-machine
+- Liquid filling: ${SITE_URL}/en/machines/liquid-filling-machine
+- Snack processing line: ${SITE_URL}/en/machines/snack-processing-line
+- Conveyor systems: ${SITE_URL}/en/machines/conveyor-system
+`
+
+  return new Response(body, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  })
+}
+

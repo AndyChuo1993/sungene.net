@@ -8,6 +8,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -317,6 +318,21 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     { src: PHOTO.pages.about.gallery[2], alt: 'Industrial filling system detail' },
     { src: PHOTO.pages.about.gallery[3], alt: 'Control system and automation' },
   ]
+  const aboutLabel =
+    ({
+      en: 'About',
+      cn: '关于',
+      zh: '關於',
+      fr: 'À propos',
+      es: 'Acerca de',
+      pt: 'Sobre',
+      ko: '회사 소개',
+      ja: '会社概要',
+      ar: 'من نحن',
+      th: 'เกี่ยวกับเรา',
+      vi: 'Giới thiệu',
+      de: 'Über uns',
+    } as Record<string, string>)[lang] || 'About'
 
   return (
     <>
@@ -346,6 +362,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       {/* Strengths */}
       <section className="py-20 sm:py-28 bg-white">
         <Container>
+          <Breadcrumbs lang={lang} items={[{ label: aboutLabel, href: `/${lang}/about` }]} />
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-accent-500" />
             <span className="text-accent-600 text-xs font-bold uppercase tracking-[0.2em]">{t.strengthsTitle}</span>

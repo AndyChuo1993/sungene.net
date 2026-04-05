@@ -59,6 +59,21 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - https://sungene.net/vi/llms.txt
 - https://sungene.net/de/llms.txt
 
+## LLMs Full Reference
+- https://sungene.net/llms-full.txt
+- https://sungene.net/en/llms-full.txt
+- https://sungene.net/zh/llms-full.txt
+- https://sungene.net/cn/llms-full.txt
+- https://sungene.net/fr/llms-full.txt
+- https://sungene.net/es/llms-full.txt
+- https://sungene.net/pt/llms-full.txt
+- https://sungene.net/ko/llms-full.txt
+- https://sungene.net/ja/llms-full.txt
+- https://sungene.net/ar/llms-full.txt
+- https://sungene.net/th/llms-full.txt
+- https://sungene.net/vi/llms-full.txt
+- https://sungene.net/de/llms-full.txt
+
 ## Key Pages
 - Product selector / recommendation: https://sungene.net/en/recommend
 - Machine overview: https://sungene.net/en/machinery

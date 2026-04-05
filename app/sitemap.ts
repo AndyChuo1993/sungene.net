@@ -2,19 +2,7 @@ import { MetadataRoute } from 'next'
 import { ALL_LANGS } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { ARTICLE_SLUGS } from '@/lib/articleData'
-
-function getStableLastModified() {
-  const epoch = process.env.SOURCE_DATE_EPOCH
-  if (epoch && /^\d+$/.test(epoch)) return new Date(Number(epoch) * 1000)
-
-  const iso = process.env.BUILD_TIME || process.env.NEXT_PUBLIC_BUILD_TIME || process.env.VERCEL_GIT_COMMIT_DATE
-  if (iso) {
-    const d = new Date(iso)
-    if (!Number.isNaN(d.valueOf())) return d
-  }
-
-  return undefined
-}
+import { getStableLastModified } from '@/lib/buildTime'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
@@ -69,10 +57,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.7))
   )
 
+  const geoSitemap = [
+    item(`${baseUrl}/llms.txt`, 'monthly', 0.2),
+    item(`${baseUrl}/llms-full.txt`, 'monthly', 0.2),
+  ]
+
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
   )
 
-  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap, ...articleSitemap]
+  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap, ...geoSitemap, ...articleSitemap]
 }

@@ -8,6 +8,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -243,6 +244,21 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     `/${lang}/machinery/conveying-automation`,
     `/${lang}/machinery/custom`,
   ]
+  const label =
+    ({
+      en: 'Machinery',
+      cn: '机械目录',
+      zh: '機械目錄',
+      fr: 'Catalogue',
+      es: 'Catálogo',
+      pt: 'Catálogo',
+      ko: '기계',
+      ja: '機械',
+      ar: 'الآلات',
+      th: 'เครื่องจักร',
+      vi: 'Danh mục máy',
+      de: 'Katalog',
+    } as Record<string, string>)[lang] || 'Machinery'
 
   return (
     <>
@@ -256,6 +272,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       {/* Intro sentence + top CTAs */}
       <section className="py-10 sm:py-12">
         <Container>
+          <Breadcrumbs lang={lang} items={[{ label, href: `/${lang}/machinery` }]} />
           <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl text-lg font-medium text-gray-700">
               {({

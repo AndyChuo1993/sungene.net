@@ -7,6 +7,8 @@ import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { getResourceArticle, getResourceArticleI18n, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { LANG_META } from '@/lib/seo'
+import { getStableLastModifiedISO } from '@/lib/buildTime'
 
 export const dynamic = 'force-static'
 
@@ -191,7 +193,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: l === 'zh' ? 'zh-TW' : l === 'cn' ? 'zh-CN' : l,
+    inLanguage: LANG_META[l].htmlLang,
     mainEntity: i18n.faqs.map(f => ({
       '@type': 'Question',
       name: f.q,
@@ -199,15 +201,19 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     })),
   }
 
+  const dateModified = getStableLastModifiedISO()
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    inLanguage: l === 'zh' ? 'zh-TW' : l === 'cn' ? 'zh-CN' : l,
+    inLanguage: LANG_META[l].htmlLang,
     headline: i18n.title,
     description: i18n.description,
     author: { '@type': 'Organization', name: 'SunGene Machinery', url: SITE_URL },
     publisher: { '@type': 'Organization', name: 'SunGene Machinery', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo/sungene.png` } },
     url: `${SITE_URL}/${l}/resources/${slug}`,
+    image: [`${SITE_URL}/og/og.png`],
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
+    ...(dateModified ? { dateModified } : {}),
   }
 
   const t = ui[l] ?? ui.en

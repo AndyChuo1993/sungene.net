@@ -1,0 +1,73 @@
+import type { NextRequest } from 'next/server'
+import type { Lang } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/siteConfig'
+import { normalizeLang } from '@/lib/seo'
+
+type Tx = {
+  title: string
+  localized: string
+  sitemap: string
+  keyPages: string
+  machinePages: string
+  recommend: string
+  catalog: string
+  resources: string
+  contact: string
+}
+
+const tx: Record<Lang, Tx> = {
+  en: { title: '# SunGene Co., LTD. — Full Reference', localized: '## Localized versions', sitemap: '## Sitemap', keyPages: '## Key pages', machinePages: '## Machine landing pages', recommend: 'Recommendation / machine selector', catalog: 'Machinery catalog', resources: 'Buying guides & resources', contact: 'Contact / quote request' },
+  zh: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各語系版本', sitemap: '## 網站地圖', keyPages: '## 重要頁面', machinePages: '## 主要機型頁', recommend: '機型推薦／需求表單', catalog: '機械目錄', resources: '採購指南與資源', contact: '聯絡／詢價' },
+  cn: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各语言版本', sitemap: '## 站点地图', keyPages: '## 重要页面', machinePages: '## 主要机型页', recommend: '机型推荐／需求表单', catalog: '机械目录', resources: '采购指南与资源', contact: '联系／询价' },
+  fr: { title: '# SunGene Co., LTD. — Référence complète', localized: '## Versions localisées', sitemap: '## Sitemap', keyPages: '## Pages clés', machinePages: '## Pages machines', recommend: 'Recommandation / sélecteur', catalog: 'Catalogue machines', resources: 'Guides & ressources', contact: 'Contact / demande de devis' },
+  es: { title: '# SunGene Co., LTD. — Referencia completa', localized: '## Versiones localizadas', sitemap: '## Sitemap', keyPages: '## Páginas clave', machinePages: '## Páginas de máquinas', recommend: 'Recomendación / selector', catalog: 'Catálogo de maquinaria', resources: 'Guías y recursos', contact: 'Contacto / cotización' },
+  pt: { title: '# SunGene Co., LTD. — Referência completa', localized: '## Versões localizadas', sitemap: '## Sitemap', keyPages: '## Páginas principais', machinePages: '## Páginas de máquinas', recommend: 'Recomendação / seletor', catalog: 'Catálogo de máquinas', resources: 'Guias e recursos', contact: 'Contato / orçamento' },
+  ko: { title: '# SunGene Co., LTD. — 전체 인덱스', localized: '## 언어별 버전', sitemap: '## 사이트맵', keyPages: '## 주요 페이지', machinePages: '## 주요 기계 페이지', recommend: '추천 / 선택', catalog: '기계 카탈로그', resources: '가이드 & 리소스', contact: '문의 / 견적' },
+  ja: { title: '# SunGene Co., LTD. — 全体索引', localized: '## 各言語版', sitemap: '## サイトマップ', keyPages: '## 主要ページ', machinePages: '## 主要機種ページ', recommend: '推薦／セレクター', catalog: '機械カタログ', resources: '購買ガイド', contact: '問い合わせ／見積' },
+  ar: { title: '# SunGene Co., LTD. — فهرس كامل', localized: '## الإصدارات حسب اللغة', sitemap: '## خريطة الموقع', keyPages: '## الصفحات المهمة', machinePages: '## صفحات الماكينات', recommend: 'توصية / اختيار', catalog: 'كتالوج الماكينات', resources: 'أدلة وموارد', contact: 'تواصل / عرض سعر' },
+  th: { title: '# SunGene Co., LTD. — ดัชนีแบบเต็ม', localized: '## เวอร์ชันตามภาษา', sitemap: '## แผนผังเว็บไซต์', keyPages: '## หน้าสำคัญ', machinePages: '## หน้ารุ่นเครื่องหลัก', recommend: 'แนะนำ / ตัวเลือก', catalog: 'แคตตาล็อกเครื่องจักร', resources: 'คู่มือและแหล่งข้อมูล', contact: 'ติดต่อ / ขอราคา' },
+  vi: { title: '# SunGene Co., LTD. — Danh mục đầy đủ', localized: '## Bản theo ngôn ngữ', sitemap: '## Sitemap', keyPages: '## Trang quan trọng', machinePages: '## Trang máy chính', recommend: 'Gợi ý / chọn máy', catalog: 'Danh mục máy', resources: 'Hướng dẫn & tài nguyên', contact: 'Liên hệ / báo giá' },
+  de: { title: '# SunGene Co., LTD. — Vollständige Referenz', localized: '## Lokalisierte Versionen', sitemap: '## Sitemap', keyPages: '## Wichtige Seiten', machinePages: '## Maschinen-Seiten', recommend: 'Empfehlung / Auswahl', catalog: 'Maschinenkatalog', resources: 'Ratgeber & Ressourcen', contact: 'Kontakt / Angebot' },
+}
+
+function localizedLinks() {
+  const langs: Lang[] = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
+  return langs.map((l) => `- ${SITE_URL}/${l}/llms-full.txt`).join('\n')
+}
+
+export async function GET(_req: NextRequest, context: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await context.params
+  const lang = normalizeLang(rawLang)
+  const t = tx[lang]
+
+  const base = `${SITE_URL}/${lang}`
+  const body = `${t.title}
+
+${t.localized}
+${localizedLinks()}
+
+${t.sitemap}
+- ${SITE_URL}/sitemap.xml
+
+${t.keyPages}
+- ${t.recommend}: ${base}/recommend
+- ${t.catalog}: ${base}/machinery
+- ${t.resources}: ${base}/resources
+- ${t.contact}: ${base}/contact
+
+${t.machinePages}
+- Pouch packing: ${base}/machines/pouch-packing-machine
+- Powder filling: ${base}/machines/powder-filling-machine
+- Liquid filling: ${base}/machines/liquid-filling-machine
+- Snack processing line: ${base}/machines/snack-processing-line
+- Conveyor systems: ${base}/machines/conveyor-system
+`
+
+  return new Response(body, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  })
+}
+

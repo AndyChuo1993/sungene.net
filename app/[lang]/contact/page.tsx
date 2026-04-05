@@ -9,6 +9,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -293,6 +294,21 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   const heroPhoto = PHOTO.pages.contact.hero
   const formPhoto = PHOTO.pages.contact.formSide
+  const contactLabel =
+    ({
+      en: 'Contact',
+      cn: '联系',
+      zh: '聯絡',
+      fr: 'Contact',
+      es: 'Contacto',
+      pt: 'Contato',
+      ko: '문의',
+      ja: 'お問い合わせ',
+      ar: 'اتصل بنا',
+      th: 'ติดต่อ',
+      vi: 'Liên hệ',
+      de: 'Kontakt',
+    } as Record<string, string>)[lang] || 'Contact'
 
   return (
     <>
@@ -305,6 +321,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
       <section className="py-12 sm:py-16 bg-gray-50">
         <Container className="max-w-7xl">
+          <Breadcrumbs lang={lang} items={[{ label: contactLabel, href: `/${lang}/contact` }]} />
           <div className="grid gap-8 lg:grid-cols-5">
 
             {/* ── Left column ── */}

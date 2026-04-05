@@ -9,6 +9,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { getArticlesByCategory } from '@/lib/articleData'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -485,6 +486,163 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     de: 'Praktische Ratgeber, die Ihnen helfen, die richtige Maschine auszuwählen, Ihre Produktionslinie zu planen und den Exportprozess zu verstehen.',
   }
 
+  const howToByLang: Record<string, { name: string; description: string; steps: { name: string; text: string }[] }> = {
+    en: {
+      name: 'How to Choose Industrial Machinery',
+      description: 'A practical checklist for selecting packaging, filling, or processing equipment.',
+      steps: [
+        { name: 'Confirm product state', text: 'Powder, liquid, granule, solid, or mixed. This decides dosing and feeding.' },
+        { name: 'Confirm package format', text: 'Bag/bottle/jar/sachet/can, plus dimensions and material.' },
+        { name: 'Set output target', text: 'Units per minute/hour and expected uptime.' },
+        { name: 'Check utilities', text: 'Voltage/phase/frequency, compressed air, and hygiene requirements.' },
+        { name: 'Send specs for quotation', text: 'Share samples or technical specs so we can quote on confirmed inputs.' },
+      ],
+    },
+    cn: {
+      name: '如何选择工业机械（实用清单）',
+      description: '用于选购包装、灌装或加工设备的简明步骤。',
+      steps: [
+        { name: '确认产品形态', text: '粉末/液体/颗粒/固体或混合，决定计量与上料方式。' },
+        { name: '确认包装形式', text: '袋/瓶/罐/条包等，并提供尺寸与材质。' },
+        { name: '设定产能目标', text: '每分钟/每小时产量与预期稼动率。' },
+        { name: '确认公用工程', text: '电压/相数/频率、压缩空气，以及卫生等级需求。' },
+        { name: '提交规格以报价', text: '提供样品或技术资料，我们将基于已确认条件报价。' },
+      ],
+    },
+    zh: {
+      name: '如何選擇工業機械（實用清單）',
+      description: '用於選購包裝、灌裝或加工設備的簡明步驟。',
+      steps: [
+        { name: '確認產品形態', text: '粉末/液體/顆粒/固體或混合，決定計量與上料方式。' },
+        { name: '確認包材形式', text: '袋/瓶/罐/條包等，並提供尺寸與材質。' },
+        { name: '設定產能目標', text: '每分鐘/每小時產量與預期稼動率。' },
+        { name: '確認公用工程', text: '電壓/相數/頻率、壓縮空氣，以及衛生等級需求。' },
+        { name: '提交規格以報價', text: '提供樣品或技術資料，我們將基於已確認條件報價。' },
+      ],
+    },
+    fr: {
+      name: 'Choisir une machine industrielle (checklist)',
+      description: 'Étapes pratiques pour sélectionner emballage, remplissage ou process.',
+      steps: [
+        { name: 'État du produit', text: 'Poudre, liquide, granulé, solide ou mixte : dosage et alimentation.' },
+        { name: 'Format d’emballage', text: 'Sachet/bouteille/pot, dimensions et matériau.' },
+        { name: 'Cadence cible', text: 'Unités/min ou h et taux d’utilisation.' },
+        { name: 'Utilités', text: 'Tension/phases/fréquence, air comprimé, hygiène.' },
+        { name: 'Envoyer les specs', text: 'Échantillons ou specs pour un devis sur données confirmées.' },
+      ],
+    },
+    es: {
+      name: 'Cómo elegir maquinaria industrial (checklist)',
+      description: 'Pasos prácticos para seleccionar empaque, llenado o proceso.',
+      steps: [
+        { name: 'Estado del producto', text: 'Polvo, líquido, granulado, sólido o mixto.' },
+        { name: 'Formato de empaque', text: 'Bolsa/botella/frasco, dimensiones y material.' },
+        { name: 'Capacidad objetivo', text: 'Unidades/min u hora y disponibilidad.' },
+        { name: 'Utilidades', text: 'Voltaje/fases/frecuencia, aire comprimido, higiene.' },
+        { name: 'Enviar especificaciones', text: 'Muestras o specs para cotizar con datos confirmados.' },
+      ],
+    },
+    pt: {
+      name: 'Como escolher máquinas industriais (checklist)',
+      description: 'Passos práticos para selecionar embalagem, envase ou processo.',
+      steps: [
+        { name: 'Estado do produto', text: 'Pó, líquido, granulado, sólido ou misto.' },
+        { name: 'Formato de embalagem', text: 'Saco/garrafa/pote, dimensões e material.' },
+        { name: 'Meta de produção', text: 'Unidades/min ou hora e disponibilidade.' },
+        { name: 'Utilidades', text: 'Tensão/fases/frequência, ar comprimido, higiene.' },
+        { name: 'Enviar especificações', text: 'Amostras ou specs para orçamento com dados confirmados.' },
+      ],
+    },
+    ko: {
+      name: '산업용 기계 선택 방법(체크리스트)',
+      description: '포장/충전/가공 설비를 고를 때 필요한 핵심 단계입니다.',
+      steps: [
+        { name: '제품 상태 확인', text: '분말/액상/과립/고체/혼합 여부.' },
+        { name: '포장 형식 확인', text: '파우치/병/용기 등, 규격과 재질.' },
+        { name: '목표 생산량', text: '분당/시간당 목표와 예상 가동률.' },
+        { name: '유틸리티 확인', text: '전압/상/주파수, 압축 공기, 위생 요구.' },
+        { name: '사양 전달', text: '샘플/사양을 기반으로 확인된 조건에 맞춰 견적합니다.' },
+      ],
+    },
+    ja: {
+      name: '産業機械の選び方（チェックリスト）',
+      description: '包装・充填・加工設備を選定するための実務的な手順です。',
+      steps: [
+        { name: '製品状態の確認', text: '粉体・液体・顆粒・固体・混合。' },
+        { name: '包装形態の確認', text: '袋/ボトル/容器、寸法と材質。' },
+        { name: '目標能力', text: '分/時あたりの数量と稼働率。' },
+        { name: 'ユーティリティ', text: '電圧/相/周波数、圧縮空気、衛生要件。' },
+        { name: '仕様の共有', text: 'サンプル/仕様を基に、確定条件で見積します。' },
+      ],
+    },
+    ar: {
+      name: 'كيفية اختيار معدات صناعية (قائمة تحقق)',
+      description: 'خطوات عملية لاختيار معدات التعبئة أو التعبئة/الختم أو المعالجة.',
+      steps: [
+        { name: 'حالة المنتج', text: 'مسحوق/سائل/حبيبات/صلب أو خليط.' },
+        { name: 'شكل العبوة', text: 'كيس/زجاجة/وعاء مع الأبعاد والمادة.' },
+        { name: 'القدرة المطلوبة', text: 'عدد الوحدات بالدقيقة/الساعة ونسبة التشغيل.' },
+        { name: 'المرافق', text: 'الجهد/الطور/التردد، هواء مضغوط، ومتطلبات النظافة.' },
+        { name: 'إرسال المواصفات', text: 'إرسال عينات/مواصفات لتسعير يعتمد على بيانات مؤكدة.' },
+      ],
+    },
+    th: {
+      name: 'วิธีเลือกเครื่องจักรอุตสาหกรรม (เช็กลิสต์)',
+      description: 'ขั้นตอนสั้น ๆ สำหรับเลือกเครื่องบรรจุ/เติม/แปรรูป',
+      steps: [
+        { name: 'ยืนยันลักษณะสินค้า', text: 'ผง/ของเหลว/เม็ด/ของแข็ง/ผสม' },
+        { name: 'ยืนยันรูปแบบบรรจุภัณฑ์', text: 'ถุง/ขวด/ภาชนะ พร้อมขนาดและวัสดุ' },
+        { name: 'กำหนดกำลังการผลิต', text: 'หน่วยต่อนาที/ชั่วโมง และอัตราการเดินเครื่อง' },
+        { name: 'ตรวจยูทิลิตี้', text: 'แรงดัน/เฟส/ความถี่, ลมอัด, สุขอนามัย' },
+        { name: 'ส่งสเปกเพื่อเสนอราคา', text: 'ส่งตัวอย่างหรือสเปกเพื่อเสนอราคาตามข้อมูลที่ยืนยันแล้ว' },
+      ],
+    },
+    vi: {
+      name: 'Cách chọn máy công nghiệp (checklist)',
+      description: 'Các bước thực tế để chọn máy đóng gói, chiết rót hoặc chế biến.',
+      steps: [
+        { name: 'Xác định trạng thái sản phẩm', text: 'Bột/lỏng/hạt/rắn/hỗn hợp.' },
+        { name: 'Xác định format bao bì', text: 'Túi/chai/hũ… kèm kích thước và vật liệu.' },
+        { name: 'Đặt mục tiêu công suất', text: 'Số lượng theo phút/giờ và mức uptime.' },
+        { name: 'Kiểm tra tiện ích', text: 'Điện áp/pha/tần số, khí nén, yêu cầu vệ sinh.' },
+        { name: 'Gửi thông số', text: 'Gửi mẫu/spec để báo giá theo dữ liệu đã xác nhận.' },
+      ],
+    },
+    de: {
+      name: 'Industriemaschinen auswählen (Checkliste)',
+      description: 'Praktische Schritte zur Auswahl von Verpackungs-, Abfüll- oder Prozessanlagen.',
+      steps: [
+        { name: 'Produktzustand klären', text: 'Pulver, Flüssigkeit, Granulat, Feststoff oder Mix.' },
+        { name: 'Verpackungsformat klären', text: 'Beutel/Flasche/Behälter inkl. Maße und Material.' },
+        { name: 'Zielleistung festlegen', text: 'Einheiten pro Minute/Stunde und Auslastung.' },
+        { name: 'Utilities prüfen', text: 'Spannung/Phasen/Frequenz, Druckluft, Hygiene.' },
+        { name: 'Spezifikationen senden', text: 'Muster/Specs senden – Angebot auf bestätigten Daten.' },
+      ],
+    },
+  }
+
+  const how = howToByLang[lang] || howToByLang.en
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: how.name,
+    description: how.description,
+    step: how.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.text })),
+  }
+
+  const itemListItems = cats.flatMap((cat) => cat.articles)
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: heroTitles[lang] || heroTitles.en,
+    itemListElement: itemListItems.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: a.title,
+      item: `${SITE_URL}/${lang}/resources/${a.slug}`,
+    })),
+  }
+
   return (
     <>
       <PageHero
@@ -493,6 +651,33 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         desc={heroDescs[lang] || heroDescs.en}
         image={{ src: heroPhoto, alt: 'Machinery buying guides', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
+
+      <section className="py-6 bg-white">
+        <Container>
+          <Breadcrumbs
+            lang={lang}
+            items={[
+              {
+                label: ({
+                  en: 'Resources',
+                  cn: '资源中心',
+                  zh: '資源中心',
+                  fr: 'Ressources',
+                  es: 'Recursos',
+                  pt: 'Recursos',
+                  ko: '리소스',
+                  ja: 'リソース',
+                  ar: 'الموارد',
+                  th: 'แหล่งข้อมูล',
+                  vi: 'Tài nguyên',
+                  de: 'Ressourcen',
+                } as Record<string, string>)[lang] || 'Resources',
+                href: `/${lang}/resources`,
+              },
+            ]}
+          />
+        </Container>
+      </section>
 
       {/* Category nav anchors */}
       <div className="sticky top-0 z-20 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
@@ -560,19 +745,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
-      <JsonLd data={{
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: 'How to Choose the Right Industrial Packaging Machine',
-        description: 'A step-by-step guide to selecting the optimal packaging or filling machine for your product, production goals, and budget.',
-        step: [
-          { '@type': 'HowToStep', position: 1, name: 'Identify your product type', text: 'Determine if your product is powder, liquid, granule, solid, or a combination. This determines the filling and packaging mechanism.' },
-          { '@type': 'HowToStep', position: 2, name: 'Define your packaging format', text: 'Choose between pillow bag, stand-up pouch, bottle, sachet, can, or bulk. Each format requires different machinery.' },
-          { '@type': 'HowToStep', position: 3, name: 'Set your production speed target', text: 'Calculate the bags, bottles, or units per minute or per hour you need. This determines whether you need semi-automatic or fully automatic equipment.' },
-          { '@type': 'HowToStep', position: 4, name: 'Confirm voltage and certification requirements', text: 'Check your local power supply (voltage, phase, frequency) and required certifications (CE, FDA, etc.) before ordering from a foreign manufacturer.' },
-          { '@type': 'HowToStep', position: 5, name: 'Contact manufacturer for engineering consultation', text: 'Send your product sample, target output, and packaging specs to SunGene engineers. They will recommend the optimal machine model and provide a detailed quote.' },
-        ],
-      }} />
+      <JsonLd data={[howToSchema, itemListSchema]} />
     </>
   )
 }
