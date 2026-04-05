@@ -8,10 +8,11 @@ import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
+  const l = normalizeLang(lang)
   const titles: Record<string,string> = {
     en: 'Get a Free Quote | Contact SunGene Machinery',
     cn: '获取免费报价 | 联系 SunGene 机械',
@@ -40,38 +41,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'Yêu cầu báo giá miễn phí cho máy móc công nghiệp. Kỹ sư phản hồi trong 24 giờ.',
     de: 'Kostenloses Angebot für Industriemaschinen. Unsere Ingenieure antworten innerhalb von 24 Stunden.',
   }
-  return {
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
-    keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'free machinery quote', 'Taiwan factory contact'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/contact`,
-      languages: {
-        'en': `${SITE_URL}/en/contact`,
-        'zh-TW': `${SITE_URL}/zh/contact`,
-        'zh-CN': `${SITE_URL}/cn/contact`,
-        'fr': `${SITE_URL}/fr/contact`,
-        'es': `${SITE_URL}/es/contact`,
-        'pt': `${SITE_URL}/pt/contact`,
-        'ko': `${SITE_URL}/ko/contact`,
-        'ja': `${SITE_URL}/ja/contact`,
-        'ar': `${SITE_URL}/ar/contact`,
-        'th': `${SITE_URL}/th/contact`,
-        'vi': `${SITE_URL}/vi/contact`,
-        'de': `${SITE_URL}/de/contact`,
-        'x-default': `${SITE_URL}/en/contact`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/contact`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+    pathname: '/contact',
+    type: 'website',
+    keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'machinery quote request'],
+  })
 }
 
 type OfficeInfo = { company: string; taxId?: string; address: string; tel: string }

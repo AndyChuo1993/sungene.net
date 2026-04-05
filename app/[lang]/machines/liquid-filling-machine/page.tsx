@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -27,64 +28,35 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'SunGene manufactures liquid filling machines for water, juice, sauce, oil, cosmetics, cleaning agents, and pharmaceutical liquids. Piston, gravity, overflow, pump, and flow meter fillers. CE certified, factory-direct.',
-  cn: 'SunGene生产适用于水、果汁、酱料、油、化妆品、清洁剂和药品液体的灌装机。活塞式、重力式、溢流式、泵式和流量计灌装。CE认证，工厂直销。',
-  zh: 'SunGene生產適用於水、果汁、醬料、油、化妝品、清潔劑和藥品液體的灌裝機。活塞式、重力式、溢流式、泵式和流量計灌裝。CE認證，工廠直銷。',
-  fr: 'SunGene fabrique des machines de remplissage liquide pour l\'eau, les jus, les sauces, les huiles, les cosmétiques, les détergents et les liquides pharmaceutiques. Remplissage par piston, gravité, débordement, pompe et débitmètre. CE certifié.',
-  es: 'SunGene fabrica máquinas llenadoras de líquidos para agua, zumo, salsa, aceite, cosméticos, agentes de limpieza y líquidos farmacéuticos. Llenadoras de pistón, gravedad, desbordamiento, bomba y caudalímetro. CE certificado.',
-  pt: 'SunGene fabrica máquinas de enchimento de líquidos para água, sumo, molho, óleo, cosméticos, agentes de limpeza e líquidos farmacêuticos. Enchimento por pistão, gravidade, transbordamento, bomba e medidor de fluxo. CE certificado.',
-  ko: 'SunGene은 물, 주스, 소스, 오일, 화장품, 세정제 및 의약품 액체용 액체 충전 기계를 제조합니다. 피스톤, 중력식, 오버플로우, 펌프 및 유량계 방식. CE 인증, 공장 직납.',
-  ja: 'SunGeneは水、ジュース、ソース、オイル、化粧品、洗浄剤、医薬品液体向け液体充填機を製造。ピストン、重力、オーバーフロー、ポンプ、流量計方式。CE認証、工場直送。',
-  ar: 'SunGene تصنع آلات تعبئة السوائل للمياه والعصائر والصلصات والزيوت ومستحضرات التجميل والمنظفات والسوائل الصيدلانية. تعبئة بالمكبس والجاذبية والفيضان والضخ وعداد التدفق. معتمدة CE.',
-  th: 'SunGene ผลิตเครื่องบรรจุของเหลวสำหรับน้ำ น้ำผลไม้ ซอส น้ำมัน เครื่องสำอาง ผลิตภัณฑ์ทำความสะอาด และของเหลวในเภสัชกรรม แบบลูกสูบ แรงโน้มถ่วง ล้น ปั๊ม และมิเตอร์วัดการไหล ได้รับการรับรอง CE',
-  vi: 'SunGene sản xuất máy chiết rót chất lỏng cho nước, nước trái cây, nước sốt, dầu, mỹ phẩm, chất tẩy rửa và dược phẩm. Chiết rót bằng piston, trọng lực, tràn, bơm và đồng hồ đo lưu lượng. Chứng nhận CE.',
-  de: 'SunGene stellt Flüssigkeitsfüllmaschinen für Wasser, Saft, Sauce, Öl, Kosmetika, Reinigungsmittel und pharmazeutische Flüssigkeiten her. Kolben-, Schwerkraft-, Überlauf-, Pumpen- und Durchflussmesserfüller. CE-zertifiziert.',
+  en: 'Liquid filling machines for water, juice, sauce, oil, cosmetics, cleaning agents, and pharma liquids. Piston, gravity/overflow, pump, and flow-meter options—chosen by viscosity, particulates, and hygiene needs.',
+  cn: '液体灌装设备，适用于水、果汁、酱料、食用油、化妆品、清洁剂与药品液体。提供活塞/重力(溢流)/泵式/流量计等方案，按粘度、颗粒与卫生要求选型。',
+  zh: '液體灌裝設備，適用於水、果汁、醬料、食用油、化妝品、清潔劑與藥品液體。提供活塞/重力(溢流)/泵式/流量計等方案，依黏度、顆粒與衛生要求選型。',
+  fr: 'Machines de remplissage pour eau, jus, sauces, huiles, cosmétiques, détergents et liquides pharma. Options piston, gravité/débordement, pompe et débitmètre selon viscosité, particules et hygiène.',
+  es: 'Máquinas de llenado para agua, jugo, salsas, aceite, cosméticos, limpieza y pharma. Pistón, gravedad/desbordamiento, bomba y caudalímetro según viscosidad, partículas e higiene.',
+  pt: 'Máquinas de envase para água, suco, molhos, óleo, cosméticos, limpeza e pharma. Pistão, gravidade/transbordo, bomba e medidor de vazão conforme viscosidade, particulados e higiene.',
+  ko: '액체 충전 설비(물·주스·소스·오일·화장품·세정제·제약). 피스톤/중력(오버플로우)/펌프/유량계 옵션을 점도, 입자, 위생 요구 기준으로 선택합니다.',
+  ja: '水、ジュース、ソース、油、化粧品、洗浄剤、医薬品液体向けの充填設備。ピストン／重力（オーバーフロー）／ポンプ／流量計を粘度・粒子・衛生要件で選定します。',
+  ar: 'آلات تعبئة للسوائل (ماء، عصير، صلصات، زيت، مستحضرات، منظفات، سوائل دوائية). خيارات مكبس/جاذبية(فيضان)/مضخة/عداد تدفق حسب اللزوجة والجزيئات ومتطلبات النظافة.',
+  th: 'เครื่องบรรจุของเหลวสำหรับน้ำ น้ำผลไม้ ซอส น้ำมัน เครื่องสำอาง ผลิตภัณฑ์ทำความสะอาด และเภสัชกรรม มีแบบลูกสูบ แรงโน้มถ่วง(ล้น) ปั๊ม และมิเตอร์วัดการไหล เลือกตามความหนืด อนุภาค และสุขอนามัย',
+  vi: 'Máy chiết rót chất lỏng cho nước, nước trái cây, nước sốt, dầu, mỹ phẩm, chất tẩy rửa và dược phẩm. Tùy chọn piston, trọng lực (tràn), bơm và lưu lượng kế theo độ nhớt, hạt và yêu cầu vệ sinh.',
+  de: 'Flüssigkeitsfüllmaschinen für Wasser, Saft, Sauce, Öl, Kosmetik, Reinigungsmittel und Pharma. Kolben, Schwerkraft/Überlauf, Pumpe und Durchflussmesser – je nach Viskosität, Partikeln und Hygieneanforderungen.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/machines/liquid-filling-machine',
+    type: 'website',
     keywords: [
       'liquid filling machine', 'piston filler', 'gravity filler', 'overflow filler', 'pump filler',
       'flow meter filler', 'sauce filling machine', 'oil filling machine', 'cosmetic filling machine',
-      'pharmaceutical liquid filler', 'Taiwan liquid filling', 'CE certified filling machine',
+      'pharmaceutical liquid filler', 'Taiwan liquid filling',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machines/liquid-filling-machine`,
-      languages: {
-        'en': `${SITE_URL}/en/machines/liquid-filling-machine`,
-        'zh-TW': `${SITE_URL}/zh/machines/liquid-filling-machine`,
-        'zh-CN': `${SITE_URL}/cn/machines/liquid-filling-machine`,
-        'fr': `${SITE_URL}/fr/machines/liquid-filling-machine`,
-        'es': `${SITE_URL}/es/machines/liquid-filling-machine`,
-        'pt': `${SITE_URL}/pt/machines/liquid-filling-machine`,
-        'ko': `${SITE_URL}/ko/machines/liquid-filling-machine`,
-        'ja': `${SITE_URL}/ja/machines/liquid-filling-machine`,
-        'ar': `${SITE_URL}/ar/machines/liquid-filling-machine`,
-        'th': `${SITE_URL}/th/machines/liquid-filling-machine`,
-        'vi': `${SITE_URL}/vi/machines/liquid-filling-machine`,
-        'de': `${SITE_URL}/de/machines/liquid-filling-machine`,
-        'x-default': `${SITE_URL}/en/machines/liquid-filling-machine`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/machines/liquid-filling-machine`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Static content — 12 languages ─────────────────────────────────────────

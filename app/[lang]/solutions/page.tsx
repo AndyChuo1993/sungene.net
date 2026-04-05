@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -42,47 +43,18 @@ const metaDescs: Record<string, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/solutions',
+    type: 'website',
     keywords: [
       'turnkey production line', 'automation solutions', 'single machine', 'semi-automatic packaging',
       'fully automatic line', 'custom machinery', 'packaging line integration', 'Taiwan machinery manufacturer',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/solutions`,
-      languages: {
-        'en': `${SITE_URL}/en/solutions`,
-        'zh-TW': `${SITE_URL}/zh/solutions`,
-        'zh-CN': `${SITE_URL}/cn/solutions`,
-        'fr': `${SITE_URL}/fr/solutions`,
-        'es': `${SITE_URL}/es/solutions`,
-        'pt': `${SITE_URL}/pt/solutions`,
-        'ko': `${SITE_URL}/ko/solutions`,
-        'ja': `${SITE_URL}/ja/solutions`,
-        'ar': `${SITE_URL}/ar/solutions`,
-        'th': `${SITE_URL}/th/solutions`,
-        'vi': `${SITE_URL}/vi/solutions`,
-        'de': `${SITE_URL}/de/solutions`,
-        'x-default': `${SITE_URL}/en/solutions`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/solutions`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Hero copy ────────────────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -41,40 +42,15 @@ const descriptions: Record<string, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const langs = ['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de']
-  const l = langs.includes(lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
+    pathname: '/industries',
+    type: 'website',
     keywords: ['food packaging machinery', 'beverage filling equipment', 'pharmaceutical packaging', 'cosmetic filling machine', 'powder packaging industry', 'liquid filling industry', 'industrial packaging solutions'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/industries`,
-      languages: {
-        'en': `${SITE_URL}/en/industries`,
-        'zh-TW': `${SITE_URL}/zh/industries`,
-        'zh-CN': `${SITE_URL}/cn/industries`,
-        'fr': `${SITE_URL}/fr/industries`,
-        'es': `${SITE_URL}/es/industries`,
-        'pt': `${SITE_URL}/pt/industries`,
-        'ko': `${SITE_URL}/ko/industries`,
-        'ja': `${SITE_URL}/ja/industries`,
-        'ar': `${SITE_URL}/ar/industries`,
-        'th': `${SITE_URL}/th/industries`,
-        'vi': `${SITE_URL}/vi/industries`,
-        'de': `${SITE_URL}/de/industries`,
-        'x-default': `${SITE_URL}/en/industries`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/industries`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+  })
 }
 
 export default async function IndustriesPage({ params }: { params: Promise<{ lang: Lang }> }) {

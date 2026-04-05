@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
@@ -22,9 +23,9 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'SunGene conveying and automation systems: belt conveyors, bucket elevators, screw conveyors, vibratory feeders, robotic arms, palletizers, and PLC-controlled production lines. CE certified, Taiwan.',
-  cn: 'SunGene输送与自动化系统：皮带输送机、斗式提升机、螺旋输送机、振动给料机、机械臂、码垛机和PLC控制生产线。CE认证，台湾。',
-  zh: 'SunGene輸送與自動化系統：皮帶輸送機、斗式提升機、螺旋輸送機、振動給料機、機械臂、碼垛機和PLC控制生產線。CE認證，台灣。',
+  en: 'Conveying and automation systems: belt conveyors, bucket elevators, screw conveyors, vibratory feeders, robotic arms, palletizers, and PLC-controlled production lines.',
+  cn: '输送与自动化系统：皮带输送、斗式提升、螺旋输送、振动给料、机械臂、码垛与PLC控制产线。',
+  zh: '輸送與自動化系統：皮帶輸送、斗式提升、螺旋輸送、振動給料、機械臂、碼垛與PLC控制產線。',
   fr: 'Systèmes de convoyage et automatisation SunGene : convoyeurs à bande, élévateurs à godets, convoyeurs à vis, alimentateurs vibrants, bras robotiques, palettiseurs, lignes PLC. Certifiés CE.',
   es: 'Sistemas de transporte y automatización SunGene: cintas transportadoras, elevadores de cangilones, tornillos, alimentadores vibratorios, brazos robóticos, paletizadores, líneas PLC. CE.',
   pt: 'Sistemas de transporte e automação SunGene: transportadores de correia, elevadores de caçamba, sem-fim, alimentadores vibratórios, braços robóticos, paletizadores, linhas PLC. CE.',
@@ -38,39 +39,15 @@ const descriptions: Record<string, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
+    pathname: '/machinery/conveying-automation',
+    type: 'website',
     keywords: ['belt conveyor Taiwan', 'bucket elevator', 'screw conveyor', 'production line automation', 'robotic palletizer', 'PLC control system', 'factory automation Taiwan'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machinery/conveying-automation`,
-      languages: {
-        'en': `${SITE_URL}/en/machinery/conveying-automation`,
-        'zh-TW': `${SITE_URL}/zh/machinery/conveying-automation`,
-        'zh-CN': `${SITE_URL}/cn/machinery/conveying-automation`,
-        'fr': `${SITE_URL}/fr/machinery/conveying-automation`,
-        'es': `${SITE_URL}/es/machinery/conveying-automation`,
-        'pt': `${SITE_URL}/pt/machinery/conveying-automation`,
-        'ko': `${SITE_URL}/ko/machinery/conveying-automation`,
-        'ja': `${SITE_URL}/ja/machinery/conveying-automation`,
-        'ar': `${SITE_URL}/ar/machinery/conveying-automation`,
-        'th': `${SITE_URL}/th/machinery/conveying-automation`,
-        'vi': `${SITE_URL}/vi/machinery/conveying-automation`,
-        'de': `${SITE_URL}/de/machinery/conveying-automation`,
-        'x-default': `${SITE_URL}/en/machinery/conveying-automation`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/machinery/conveying-automation`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+  })
 }
 
 export default async function ConveyingAutomationPage({ params }: { params: Promise<{ lang: Lang }> }) {

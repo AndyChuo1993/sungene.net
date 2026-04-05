@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
@@ -22,55 +23,31 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'SunGene packaging machinery includes VFFS, HFFS, premade pouch, vacuum, shrink wrap, and carton packing machines for powder, granule, liquid, and solid products. CE certified, factory-direct Taiwan.',
-  cn: 'SunGene包装机械包括立式充填封口机、卧式充填封口机、预制袋包装机、真空包装机、热缩包装机和装箱机，适用于粉末、颗粒、液体和固体产品。CE认证，台湾工厂直销。',
-  zh: 'SunGene包裝機械包括立式充填封口機、臥式充填封口機、預製袋包裝機、真空包裝機、熱縮包裝機和裝箱機，適用於粉末、顆粒、液體和固體產品。CE認證，台灣工廠直銷。',
-  fr: 'Machines d\'emballage SunGene : VFFS, HFFS, sachets préformés, sous vide, film rétractable et cartons pour poudres, granulés, liquides et solides. Certifiées CE, directement d\'usine, Taïwan.',
-  es: 'Maquinaria de empaque SunGene: VFFS, HFFS, bolsas preformadas, vacío, termoencogibles y cajas para polvos, granulados, líquidos y sólidos. Certificadas CE, directo de fábrica, Taiwán.',
-  pt: 'Maquinário de embalagem SunGene: VFFS, HFFS, sachês pré-formados, vácuo, encolhimento e caixas para pós, grânulos, líquidos e sólidos. Certificadas CE, direto da fábrica, Taiwan.',
-  ko: 'SunGene 포장 기계: 분말, 과립, 액체, 고체 제품용 VFFS, HFFS, 프리메이드 파우치, 진공, 수축포장, 박스 포장기. CE 인증, 대만 공장 직납.',
-  ja: 'SunGene包装機：粉末、顆粒、液体、固体製品向けVFFS、HFFS、プリメイドパウチ、真空、シュリンク、カートン包装機。CE認証、台湾工場直送。',
-  ar: 'آلات التعبئة SunGene: VFFS وHFFS وأكياس جاهزة وتفريغ ورقم حرارية وكراتين للمساحيق والحبيبات والسوائل والمواد الصلبة. معتمدة CE، مباشرة من المصنع، تايوان.',
-  th: 'เครื่องบรรจุภัณฑ์ SunGene: VFFS, HFFS, ถุงสำเร็จรูป, สุญญากาศ, ฟิล์มหด และกล่อง สำหรับผง เม็ด ของเหลว และของแข็ง รับรอง CE ตรงจากโรงงานไต้หวัน',
-  vi: 'Máy đóng gói SunGene: VFFS, HFFS, túi đúc sẵn, chân không, co nhiệt và thùng carton cho bột, hạt, lỏng và cứng. CE, trực tiếp từ nhà máy Đài Loan.',
-  de: 'SunGene Verpackungsmaschinen: VFFS, HFFS, vorgefertigte Beutel, Vakuum, Schrumpffolie und Kartonverpackung für Pulver, Granulate, Flüssigkeiten und Feststoffe. CE-zertifiziert, direkt ab Werk Taiwan.',
+  en: 'Packaging machinery: VFFS, HFFS, premade pouch, vacuum, shrink wrap, and cartoning. For powder, granule, liquid, and solid products.',
+  cn: '包装机械：VFFS、HFFS、预制袋、真空、热缩与装箱方案，适用于粉末、颗粒、液体与固体产品。',
+  zh: '包裝機械：VFFS、HFFS、預製袋、真空、熱縮與裝箱方案，適用於粉末、顆粒、液體與固體產品。',
+  fr: 'Machines d’emballage : VFFS, HFFS, sachets préformés, sous vide, rétraction et mise en carton. Pour poudres, granulés, liquides et solides.',
+  es: 'Maquinaria de empaque: VFFS, HFFS, bolsa preformada, vacío, termoencogible y encajado. Para polvo, granulado, líquido y sólido.',
+  pt: 'Máquinas de embalagem: VFFS, HFFS, pouch pré-formado, vácuo, termoencolhível e encaixotamento. Para pó, grânulos, líquidos e sólidos.',
+  ko: '포장 설비: VFFS, HFFS, 프리메이드 파우치, 진공, 수축, 박스 포장. 분말/과립/액체/고체 제품용.',
+  ja: '包装機械：VFFS、HFFS、プレメードパウチ、真空、シュリンク、カートン包装。粉末・顆粒・液体・固体向け。',
+  ar: 'آلات التعبئة والتغليف: VFFS وHFFS والأكياس الجاهزة والتفريغ الحراري والتغليف بالشرنك ووضعها في الكراتين. للمساحيق والحبيبات والسوائل والمواد الصلبة.',
+  th: 'เครื่องบรรจุภัณฑ์: VFFS, HFFS, ถุงสำเร็จรูป, สุญญากาศ, ฟิล์มหด และบรรจุกล่อง สำหรับผง เม็ด ของเหลว และของแข็ง',
+  vi: 'Máy đóng gói: VFFS, HFFS, túi thành phẩm, chân không, co nhiệt và đóng thùng. Cho bột, hạt, lỏng và rắn.',
+  de: 'Verpackungsmaschinen: VFFS, HFFS, Fertigbeutel, Vakuum, Schrumpffolie und Kartonierung. Für Pulver, Granulate, Flüssigkeiten und Feststoffe.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
+    pathname: '/machinery/packaging',
+    type: 'website',
     keywords: ['VFFS machine', 'HFFS machine', 'pouch packing machine', 'vacuum packing machine', 'shrink wrap machine', 'carton packing machine', 'packaging machine Taiwan'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machinery/packaging`,
-      languages: {
-        'en': `${SITE_URL}/en/machinery/packaging`,
-        'zh-TW': `${SITE_URL}/zh/machinery/packaging`,
-        'zh-CN': `${SITE_URL}/cn/machinery/packaging`,
-        'fr': `${SITE_URL}/fr/machinery/packaging`,
-        'es': `${SITE_URL}/es/machinery/packaging`,
-        'pt': `${SITE_URL}/pt/machinery/packaging`,
-        'ko': `${SITE_URL}/ko/machinery/packaging`,
-        'ja': `${SITE_URL}/ja/machinery/packaging`,
-        'ar': `${SITE_URL}/ar/machinery/packaging`,
-        'th': `${SITE_URL}/th/machinery/packaging`,
-        'vi': `${SITE_URL}/vi/machinery/packaging`,
-        'de': `${SITE_URL}/de/machinery/packaging`,
-        'x-default': `${SITE_URL}/en/machinery/packaging`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/machinery/packaging`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+  })
 }
 
 export default async function PackagingPage({ params }: { params: Promise<{ lang: Lang }> }) {

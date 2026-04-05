@@ -45,6 +45,20 @@ Secondary: Europe (Germany, France, Spain, Poland), Americas (USA, Brazil, Mexic
 ## Languages Supported
 English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanish, Portuguese, Korean, Japanese, Arabic, Thai, Vietnamese, German
 
+## Localized LLMs.txt
+- https://sungene.net/en/llms.txt
+- https://sungene.net/zh/llms.txt
+- https://sungene.net/cn/llms.txt
+- https://sungene.net/fr/llms.txt
+- https://sungene.net/es/llms.txt
+- https://sungene.net/pt/llms.txt
+- https://sungene.net/ko/llms.txt
+- https://sungene.net/ja/llms.txt
+- https://sungene.net/ar/llms.txt
+- https://sungene.net/th/llms.txt
+- https://sungene.net/vi/llms.txt
+- https://sungene.net/de/llms.txt
+
 ## Key Pages
 - Product selector / recommendation: https://sungene.net/en/recommend
 - Machine overview: https://sungene.net/en/machinery

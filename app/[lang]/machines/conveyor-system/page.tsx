@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -43,48 +44,19 @@ const metaDescs: Record<string, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/machines/conveyor-system',
+    type: 'website',
     keywords: [
       'conveyor system', 'belt conveyor', 'bucket elevator', 'screw conveyor', 'PLC automation',
       'production line automation', 'conveyor system manufacturer', 'robotic palletizer',
-      'check-weigher', 'metal detector conveyor', 'Taiwan conveyor manufacturer', 'CE certified conveyor',
+      'checkweigher', 'metal detector conveyor', 'Taiwan conveyor manufacturer',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machines/conveyor-system`,
-      languages: {
-        'en': `${SITE_URL}/en/machines/conveyor-system`,
-        'zh-TW': `${SITE_URL}/zh/machines/conveyor-system`,
-        'zh-CN': `${SITE_URL}/cn/machines/conveyor-system`,
-        'fr': `${SITE_URL}/fr/machines/conveyor-system`,
-        'es': `${SITE_URL}/es/machines/conveyor-system`,
-        'pt': `${SITE_URL}/pt/machines/conveyor-system`,
-        'ko': `${SITE_URL}/ko/machines/conveyor-system`,
-        'ja': `${SITE_URL}/ja/machines/conveyor-system`,
-        'ar': `${SITE_URL}/ar/machines/conveyor-system`,
-        'th': `${SITE_URL}/th/machines/conveyor-system`,
-        'vi': `${SITE_URL}/vi/machines/conveyor-system`,
-        'de': `${SITE_URL}/de/machines/conveyor-system`,
-        'x-default': `${SITE_URL}/en/machines/conveyor-system`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/machines/conveyor-system`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Static content — 12 languages ─────────────────────────────────────────

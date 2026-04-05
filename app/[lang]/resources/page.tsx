@@ -8,6 +8,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { getArticlesByCategory } from '@/lib/articleData'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
@@ -40,39 +41,15 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
+    pathname: '/resources',
+    type: 'website',
     keywords: ['packaging machine buying guide', 'how to choose packaging machine', 'VFFS HFFS comparison', 'import machinery Taiwan', 'machinery voltage requirements', 'packaging machinery guide'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/resources`,
-      languages: {
-        'en': `${SITE_URL}/en/resources`,
-        'zh-TW': `${SITE_URL}/zh/resources`,
-        'zh-CN': `${SITE_URL}/cn/resources`,
-        'fr': `${SITE_URL}/fr/resources`,
-        'es': `${SITE_URL}/es/resources`,
-        'pt': `${SITE_URL}/pt/resources`,
-        'ko': `${SITE_URL}/ko/resources`,
-        'ja': `${SITE_URL}/ja/resources`,
-        'ar': `${SITE_URL}/ar/resources`,
-        'th': `${SITE_URL}/th/resources`,
-        'vi': `${SITE_URL}/vi/resources`,
-        'de': `${SITE_URL}/de/resources`,
-        'x-default': `${SITE_URL}/en/resources`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/resources`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+  })
 }
 
 // ─── article data ───────────────────────────────────────────────────────────

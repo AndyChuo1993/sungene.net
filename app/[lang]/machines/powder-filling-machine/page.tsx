@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -27,64 +28,35 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'SunGene manufactures powder filling and packaging machines for flour, spice, coffee, detergent, chemical, and pharmaceutical powders. Auger, volumetric, and multi-head weigher configurations. CE certified, factory-direct.',
-  cn: 'SunGene生产面粉、香料、咖啡、洗涤剂、化工和药用粉末的充填包装机。螺旋式、容积式和多头秤配置。CE认证，工厂直销。',
-  zh: 'SunGene生產麵粉、香料、咖啡、洗滌劑、化工和藥用粉末的充填包裝機。螺旋式、容積式和多頭秤配置。CE認證，工廠直銷。',
-  fr: 'SunGene fabrique des machines de remplissage et d\'emballage de poudres pour farine, épices, café, détergent, poudres chimiques et pharmaceutiques. Configurations à vis, volumétriques et multi-têtes. CE certifié.',
-  es: 'SunGene fabrica máquinas llenadoras y envasadoras de polvo para harina, especias, café, detergente, polvos químicos y farmacéuticos. Configuraciones de tornillo, volumétrica y pesadora multicabezal. CE certificado.',
-  pt: 'SunGene fabrica máquinas de enchimento e embalagem de pó para farinha, especiarias, café, detergente, pós químicos e farmacêuticos. Configurações de rosca, volumétrica e pesadora multicabeçote. CE certificado.',
-  ko: 'SunGene은 밀가루, 향신료, 커피, 세제, 화학 및 제약 분말용 충전 및 포장 기계를 제조합니다. 오거, 용적식, 멀티헤드 계량기 구성. CE 인증, 공장 직납.',
-  ja: 'SunGeneは小麦粉、スパイス、コーヒー、洗剤、化学・医薬品粉末向けの充填包装機を製造。オーガー式、容積式、マルチヘッド計量機構成。CE認証、工場直送。',
-  ar: 'SunGene تصنع آلات تعبئة وتغليف المسحوق للدقيق والتوابل والقهوة والمنظفات والمساحيق الكيميائية والصيدلانية. تكوينات لولبية وحجمية ومتعددة الرؤوس. معتمدة CE.',
-  th: 'SunGene ผลิตเครื่องบรรจุและบรรจุภัณฑ์ผงสำหรับแป้ง เครื่องเทศ กาแฟ ผงซักฟอก ผงเคมีและยา การกำหนดค่าแบบสกรู ปริมาตร และเครื่องชั่งหลายหัว ได้รับการรับรอง CE',
-  vi: 'SunGene sản xuất máy chiết rót và đóng gói bột cho bột mì, gia vị, cà phê, chất tẩy rửa, bột hóa chất và dược phẩm. Cấu hình trục vít, thể tích và cân nhiều đầu. Chứng nhận CE.',
-  de: 'SunGene stellt Pulverfüll- und Verpackungsmaschinen für Mehl, Gewürze, Kaffee, Waschmittel, chemische und pharmazeutische Pulver her. Schnecken-, Volumetrische und Mehrkopfwaagenkonfigurationen. CE-zertifiziert.',
+  en: 'Powder filling and packaging machines for flour, spice, coffee, detergent, chemical, and pharma powders. Auger, volumetric, and multi-head weigher setups—selected by flowability, target accuracy, and output.',
+  cn: '粉末充填包装设备，适用于面粉、香料、咖啡、洗涤剂、化工与药用粉末。提供螺旋、容积、多头秤等方案，按流动性、精度与产速匹配。',
+  zh: '粉末充填包裝設備，適用於麵粉、香料、咖啡、洗滌劑、化工與藥用粉末。提供螺旋、容積、多頭秤等方案，依流動性、精度與產速匹配。',
+  fr: 'Machines de remplissage/emballage pour poudres (farine, épices, café, détergent, chimie, pharma). Vis, volumétrique ou peseuse multi-têtes selon la fluidité, la précision et la cadence.',
+  es: 'Máquinas de llenado y empaque de polvo (harina, especias, café, detergente, química y pharma). Tornillo, volumétrica o multicabezal según fluidez, precisión y velocidad.',
+  pt: 'Máquinas de enchimento e embalagem de pó (farinha, especiarias, café, detergente, química e pharma). Rosca, volumétrica ou multicabeçote conforme fluidez, precisão e produção.',
+  ko: '분말 충전/포장 설비(밀가루·향신료·커피·세제·화학·제약). 오거/용적/멀티헤드 계량 구성은 분말 유동성, 목표 정밀도, 생산속도 기준으로 선택합니다.',
+  ja: '粉体向け充填・包装設備（小麦粉、スパイス、コーヒー、洗剤、化学、医薬品）。オーガー／容積／マルチヘッドは粉体特性、精度、目標能力で選定します。',
+  ar: 'آلات تعبئة وتغليف للمساحيق (دقيق، توابل، قهوة، منظفات، كيميائي، دوائي). خيارات لولبية أو حجمية أو متعددة الرؤوس حسب انسيابية المسحوق والدقة والسرعة المطلوبة.',
+  th: 'เครื่องบรรจุ/แพ็กผงสำหรับแป้ง เครื่องเทศ กาแฟ ผงซักฟอก เคมี และยา เลือกระบบสกรู ปริมาตร หรือชั่งหลายหัวตามการไหลของผง ความแม่นยำ และกำลังการผลิต',
+  vi: 'Máy chiết rót/đóng gói bột cho bột mì, gia vị, cà phê, chất tẩy rửa, hóa chất và dược phẩm. Chọn trục vít, thể tích hoặc cân nhiều đầu theo độ chảy, độ chính xác và công suất.',
+  de: 'Pulverfüll- und Verpackungsmaschinen für Mehl, Gewürze, Kaffee, Waschmittel sowie Chemie/Pharma. Schnecke, volumetrisch oder Mehrkopfwaage – je nach Fließverhalten, Genauigkeit und Zielleistung.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/machines/powder-filling-machine',
+    type: 'website',
     keywords: [
       'powder filling machine', 'auger filler', 'powder packaging machine', 'flour filling machine',
       'spice packaging machine', 'coffee powder filler', 'detergent powder packaging', 'VFFS powder line',
-      'multi-head weigher', 'Taiwan powder filler', 'CE certified filling machine',
+      'multi-head weigher', 'Taiwan powder filler',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machines/powder-filling-machine`,
-      languages: {
-        'en': `${SITE_URL}/en/machines/powder-filling-machine`,
-        'zh-TW': `${SITE_URL}/zh/machines/powder-filling-machine`,
-        'zh-CN': `${SITE_URL}/cn/machines/powder-filling-machine`,
-        'fr': `${SITE_URL}/fr/machines/powder-filling-machine`,
-        'es': `${SITE_URL}/es/machines/powder-filling-machine`,
-        'pt': `${SITE_URL}/pt/machines/powder-filling-machine`,
-        'ko': `${SITE_URL}/ko/machines/powder-filling-machine`,
-        'ja': `${SITE_URL}/ja/machines/powder-filling-machine`,
-        'ar': `${SITE_URL}/ar/machines/powder-filling-machine`,
-        'th': `${SITE_URL}/th/machines/powder-filling-machine`,
-        'vi': `${SITE_URL}/vi/machines/powder-filling-machine`,
-        'de': `${SITE_URL}/de/machines/powder-filling-machine`,
-        'x-default': `${SITE_URL}/en/machines/powder-filling-machine`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/machines/powder-filling-machine`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Static content — 12 languages ─────────────────────────────────────────

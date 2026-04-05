@@ -6,9 +6,11 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
+  const l = normalizeLang(lang)
   const titles: Record<string, string> = {
     en: 'Custom Machinery & OEM Solutions | Bespoke Production Equipment | SunGene',
     cn: '定制机械与OEM解决方案 | 定制生产设备 | SunGene',
@@ -24,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Sondermaschinen & OEM-Lösungen | Maßgefertigte Produktionsanlagen | SunGene',
   }
   const descriptions: Record<string, string> = {
-    en: 'SunGene designs custom industrial machinery and OEM solutions for unique production requirements. Tailored packaging, filling, food processing, and automation systems. CE certified.',
-    cn: 'SunGene为独特生产需求设计定制工业机械和OEM解决方案。定制包装、充填、食品加工和自动化系统。CE认证。',
-    zh: 'SunGene為獨特生產需求設計客製工業機械和OEM解決方案。客製包裝、充填、食品加工和自動化系統。CE認證。',
+    en: 'Custom industrial machinery and OEM solutions for unique production requirements: packaging, filling, food processing, and automation systems.',
+    cn: '针对特殊生产需求的定制工业机械与OEM方案：包装、充填、食品加工与自动化系统。',
+    zh: '針對特殊生產需求的客製工業機械與OEM方案：包裝、充填、食品加工與自動化系統。',
     fr: 'SunGene conçoit des machines industrielles sur mesure et des solutions OEM pour des besoins de production uniques. Systèmes d\'emballage, de remplissage, de traitement alimentaire et d\'automatisation personnalisés. Certifié CE.',
     es: 'SunGene diseña maquinaria industrial personalizada y soluciones OEM para requisitos de producción únicos. Sistemas de embalaje, llenado, procesamiento de alimentos y automatización a medida. Certificado CE.',
     pt: 'SunGene projeta maquinaria industrial personalizada e soluções OEM para requisitos de produção únicos. Sistemas de embalagem, enchimento, processamento de alimentos e automação sob medida. Certificado CE.',
@@ -37,16 +39,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'SunGene thiết kế máy móc công nghiệp tùy chỉnh và giải pháp OEM cho các yêu cầu sản xuất độc đáo. Hệ thống đóng gói, chiết rót, chế biến thực phẩm và tự động hóa theo yêu cầu. Được chứng nhận CE.',
     de: 'SunGene entwickelt kundenspezifische Industriemaschinen und OEM-Lösungen für einzigartige Produktionsanforderungen. Maßgeschneiderte Verpackungs-, Abfüll-, Lebensmittelverarbeitungs- und Automatisierungssysteme. CE-zertifiziert.',
   }
-  return {
-    title: titles[lang] || titles.en,
-    description: descriptions[lang] || descriptions.en,
-    alternates: { canonical: `${SITE_URL}/${lang}/machinery/custom` },
-    openGraph: {
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
-      url: `${SITE_URL}/${lang}/machinery/custom`,
-    },
-  }
+  return buildPageMetadata({
+    lang: l,
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    pathname: '/machinery/custom',
+    type: 'website',
+  })
 }
 
 export default async function CustomMachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {

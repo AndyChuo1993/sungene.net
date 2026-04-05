@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -27,64 +28,35 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'SunGene manufactures snack and food processing lines including continuous fryers, roasting machines, seasoning systems, cooling conveyors, multi-head weighers, and integrated packaging. For chips, nuts, snacks, and pet food. CE certified.',
-  cn: 'SunGene制造休闲食品及食品加工线，包括连续油炸机、烘烤机、调味系统、冷却输送机、多头秤及一体化包装。适用于薯片、坚果、零食和宠物食品。CE认证。',
-  zh: 'SunGene製造休閒食品及食品加工線，包括連續油炸機、烘烤機、調味系統、冷卻輸送機、多頭秤及一體化包裝。適用於薯片、堅果、零食和寵物食品。CE認證。',
-  fr: 'SunGene fabrique des lignes de transformation de snacks et aliments comprenant des friteuses continues, machines de torréfaction, systèmes d\'assaisonnement, convoyeurs de refroidissement, peseuses multicêtes et emballage intégré. CE certifié.',
-  es: 'SunGene fabrica líneas de procesamiento de snacks y alimentos que incluyen freidoras continuas, máquinas de tostado, sistemas de condimentación, transportadores de enfriamiento, pesadoras multicabezal y empaque integrado. CE certificado.',
-  pt: 'SunGene fabrica linhas de processamento de snacks e alimentos incluindo fritadeiras contínuas, máquinas de torrefação, sistemas de tempero, transportadores de resfriamento, pesadoras multicabeçote e embalagem integrada. CE certificado.',
-  ko: 'SunGene은 연속 튀김기, 로스팅 머신, 시즈닝 시스템, 냉각 컨베이어, 멀티헤드 계량기 및 통합 포장을 포함한 스낵 및 식품 가공 라인을 제조합니다. CE 인증.',
-  ja: 'SunGeneは連続フライヤー、焙煎機、調味システム、冷却コンベア、マルチヘッド計量機、一体型包装を含むスナック・食品加工ラインを製造。CE認証。',
-  ar: 'SunGene تصنع خطوط معالجة الوجبات الخفيفة والأغذية بما في ذلك أجهزة القلي المستمر وآلات التحميص وأنظمة التتبيل وناقلات التبريد وموازين متعددة الرؤوس والتعبئة المتكاملة. معتمدة CE.',
-  th: 'SunGene ผลิตสายการผลิตขนมขบเคี้ยวและอาหาร รวมถึงเครื่องทอดต่อเนื่อง เครื่องอบ ระบบปรุงรส สายพานลำเลียงทำความเย็น เครื่องชั่งหลายหัว และบรรจุภัณฑ์แบบรวม ได้รับการรับรอง CE',
-  vi: 'SunGene sản xuất dây chuyền chế biến snack và thực phẩm bao gồm máy chiên liên tục, máy rang, hệ thống ướp gia vị, băng tải làm nguội, cân nhiều đầu và đóng gói tích hợp. Chứng nhận CE.',
-  de: 'SunGene stellt Snack- und Lebensmittelverarbeitungslinien her, darunter Durchlauffriteusen, Röstmaschinen, Würzsysteme, Kühlbänder, Mehrkopfwaagen und integrierte Verpackung. CE-zertifiziert.',
+  en: 'Snack and food processing lines: continuous fryers, roasters, seasoning systems, cooling conveyors, multi-head weighers, and integrated packaging. For chips, nuts, snacks, and pet food.',
+  cn: '休闲食品与食品加工线：连续油炸机、烘烤机、调味系统、冷却输送、多头秤与整合包装。适用于薯片、坚果、零食与宠物食品。',
+  zh: '休閒食品與食品加工線：連續油炸機、烘烤機、調味系統、冷卻輸送、多頭秤與整合包裝。適用於薯片、堅果、零食與寵物食品。',
+  fr: 'Lignes de transformation snacks/aliments : friteuses continues, torréfaction, assaisonnement, convoyeurs de refroidissement, peseuses multi-têtes et emballage intégré. Pour chips, noix, snacks, pet food.',
+  es: 'Líneas de procesamiento: freidoras continuas, tostado, condimentación, enfriamiento, pesadoras multicabezal y empaque integrado. Para chips, frutos secos, snacks y pet food.',
+  pt: 'Linhas de processamento: fritadeiras contínuas, torrefação, tempero, resfriamento, pesadoras multicabeçote e embalagem integrada. Para chips, nozes, snacks e pet food.',
+  ko: '스낵/식품 가공 라인: 연속 튀김기, 로스팅, 시즈닝, 냉각 컨베이어, 멀티헤드 계량, 통합 포장. 칩·견과·스낵·펫푸드에 적용.',
+  ja: 'スナック・食品加工ライン：連続フライヤー、焙煎、調味、冷却搬送、マルチヘッド計量、包装まで一体化。チップス、ナッツ、スナック、ペットフード向け。',
+  ar: 'خطوط معالجة للوجبات الخفيفة والأغذية: قلايات مستمرة، تحميص، تتبيل، سيور تبريد، موازين متعددة الرؤوس وتعبئة مدمجة. لرقائق البطاطس والمكسرات والسناكات وأغذية الحيوانات الأليفة.',
+  th: 'สายการผลิตขนมขบเคี้ยว/อาหาร: เครื่องทอดต่อเนื่อง เครื่องอบ ระบบปรุงรส ระบบทำความเย็น เครื่องชั่งหลายหัว และบรรจุภัณฑ์แบบรวม เหมาะกับมันฝรั่งทอด ถั่ว ขนม และอาหารสัตว์เลี้ยง',
+  vi: 'Dây chuyền chế biến snack/thực phẩm: máy chiên liên tục, máy rang, hệ thống ướp gia vị, băng tải làm nguội, cân nhiều đầu và đóng gói tích hợp. Cho chips, hạt, snack và thức ăn thú cưng.',
+  de: 'Snack- und Lebensmittelverarbeitungslinien: Durchlauffriteusen, Röstmaschinen, Würzsysteme, Kühlförderer, Mehrkopfwaagen und integrierte Verpackung. Für Chips, Nüsse, Snacks und Pet Food.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/machines/snack-processing-line',
+    type: 'website',
     keywords: [
       'snack processing line', 'continuous fryer', 'food processing line', 'roasting machine',
       'seasoning tumbler', 'snack production line', 'potato chip line', 'nut roasting',
-      'VFFS multi-head weigher', 'Taiwan snack machine', 'CE certified food processing',
+      'VFFS multi-head weigher', 'Taiwan snack machine',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machines/snack-processing-line`,
-      languages: {
-        'en': `${SITE_URL}/en/machines/snack-processing-line`,
-        'zh-TW': `${SITE_URL}/zh/machines/snack-processing-line`,
-        'zh-CN': `${SITE_URL}/cn/machines/snack-processing-line`,
-        'fr': `${SITE_URL}/fr/machines/snack-processing-line`,
-        'es': `${SITE_URL}/es/machines/snack-processing-line`,
-        'pt': `${SITE_URL}/pt/machines/snack-processing-line`,
-        'ko': `${SITE_URL}/ko/machines/snack-processing-line`,
-        'ja': `${SITE_URL}/ja/machines/snack-processing-line`,
-        'ar': `${SITE_URL}/ar/machines/snack-processing-line`,
-        'th': `${SITE_URL}/th/machines/snack-processing-line`,
-        'vi': `${SITE_URL}/vi/machines/snack-processing-line`,
-        'de': `${SITE_URL}/de/machines/snack-processing-line`,
-        'x-default': `${SITE_URL}/en/machines/snack-processing-line`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/machines/snack-processing-line`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Static content — 12 languages ─────────────────────────────────────────

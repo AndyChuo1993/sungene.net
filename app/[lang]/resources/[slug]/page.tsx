@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { getResourceArticle, getResourceArticleI18n, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
@@ -13,44 +14,27 @@ export async function generateStaticParams() {
   return ALL_LANGS.flatMap(lang => RESOURCE_SLUGS.map(slug => ({ lang, slug })))
 }
 
-function langTag(lang: Lang) {
-  if (lang === 'zh') return 'zh-TW'
-  if (lang === 'cn') return 'zh-CN'
-  return lang
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
   const { lang, slug } = await params
-  const l = (ALL_LANGS.includes(lang as Lang) ? lang : 'en') as Lang
+  const l = normalizeLang(lang)
   const i18n = getResourceArticleI18n(slug, l)
   if (!i18n) {
-    return {
+    return buildPageMetadata({
+      lang: l,
       title: 'Resources | SunGene',
-      alternates: { canonical: `${SITE_URL}/${l}/resources` },
-    }
+      description: 'Machinery buying guides and practical selection notes.',
+      pathname: '/resources',
+      type: 'website',
+    })
   }
 
-  const hreflang = Object.fromEntries(
-    ALL_LANGS.map(lg => [langTag(lg), `${SITE_URL}/${lg}/resources/${slug}`])
-  )
-
-  return {
+  return buildPageMetadata({
+    lang: l,
     title: i18n.metaTitle,
     description: i18n.metaDescription,
-    alternates: {
-      canonical: `${SITE_URL}/${l}/resources/${slug}`,
-      languages: { ...hreflang, 'x-default': `${SITE_URL}/en/resources/${slug}` },
-    },
-    openGraph: {
-      title: i18n.metaTitle,
-      description: i18n.metaDescription,
-      url: `${SITE_URL}/${l}/resources/${slug}`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'article',
-      locale: langTag(l),
-    },
-  }
+    pathname: `/resources/${slug}`,
+    type: 'article',
+  })
 }
 
 function renderSection(s: ResourceSection, key: number) {
@@ -207,7 +191,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: langTag(l),
+    inLanguage: l === 'zh' ? 'zh-TW' : l === 'cn' ? 'zh-CN' : l,
     mainEntity: i18n.faqs.map(f => ({
       '@type': 'Question',
       name: f.q,
@@ -218,7 +202,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    inLanguage: langTag(l),
+    inLanguage: l === 'zh' ? 'zh-TW' : l === 'cn' ? 'zh-CN' : l,
     headline: i18n.title,
     description: i18n.description,
     author: { '@type': 'Organization', name: 'SunGene Machinery', url: SITE_URL },

@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
@@ -22,9 +23,9 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'SunGene filling and sealing machinery: liquid fillers, paste fillers, powder dosing, cup sealers, bottle cappers, induction sealers and tube fillers for food, beverage, cosmetics and pharma. CE certified.',
-  cn: 'SunGene灌装封口机械：液体灌装机、膏体灌装机、粉末计量机、杯封机、旋盖机、铝箔封口机和软管灌装机，适用于食品、饮料、化妆品和制药行业。CE认证。',
-  zh: 'SunGene灌裝封口機械：液體灌裝機、膏體灌裝機、粉末計量機、杯封機、旋蓋機、鋁箔封口機和軟管灌裝機，適用於食品、飲料、化妝品和製藥行業。CE認證。',
+  en: 'Filling & sealing machinery: liquid and paste fillers, powder dosing, cup sealers, bottle cappers, induction sealers, and tube fillers for food, beverage, cosmetics, and pharma.',
+  cn: '灌装与封口设备：液体/膏体灌装、粉末计量、杯封、旋盖、铝箔感应封口与软管灌装，适用于食品、饮料、化妆品与制药。',
+  zh: '灌裝與封口設備：液體/膏體灌裝、粉末計量、杯封、旋蓋、鋁箔感應封口與軟管灌裝，適用於食品、飲料、化妝品與製藥。',
   fr: 'Machines de remplissage et scellage SunGene : doseuses pour liquides, pâtes et poudres, scelleuses de gobelets, capseuleuses, scelleuses par induction et machines pour tubes. Certifiées CE.',
   es: 'Maquinaria de llenado y sellado SunGene: dosificadoras de líquidos, pastas, polvos, selladoras de vasos, tapadores de botellas, selladoras por inducción y llenadoras de tubos. CE.',
   pt: 'Maquinário de envase e selagem SunGene: dosadoras de líquidos, pastas e pós, seladoras de copos, tampadores de garrafas, seladoras por indução e enchedoras de tubos. CE.',
@@ -38,39 +39,15 @@ const descriptions: Record<string, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: titles[l] || titles.en,
     description: descriptions[l] || descriptions.en,
+    pathname: '/machinery/filling-sealing',
+    type: 'website',
     keywords: ['liquid filling machine', 'paste filling machine', 'cup sealer', 'bottle capper', 'induction sealer', 'tube filling machine', 'filling machine Taiwan'],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machinery/filling-sealing`,
-      languages: {
-        'en': `${SITE_URL}/en/machinery/filling-sealing`,
-        'zh-TW': `${SITE_URL}/zh/machinery/filling-sealing`,
-        'zh-CN': `${SITE_URL}/cn/machinery/filling-sealing`,
-        'fr': `${SITE_URL}/fr/machinery/filling-sealing`,
-        'es': `${SITE_URL}/es/machinery/filling-sealing`,
-        'pt': `${SITE_URL}/pt/machinery/filling-sealing`,
-        'ko': `${SITE_URL}/ko/machinery/filling-sealing`,
-        'ja': `${SITE_URL}/ja/machinery/filling-sealing`,
-        'ar': `${SITE_URL}/ar/machinery/filling-sealing`,
-        'th': `${SITE_URL}/th/machinery/filling-sealing`,
-        'vi': `${SITE_URL}/vi/machinery/filling-sealing`,
-        'de': `${SITE_URL}/de/machinery/filling-sealing`,
-        'x-default': `${SITE_URL}/en/machinery/filling-sealing`,
-      }
-    },
-    openGraph: {
-      title: titles[l] || titles.en,
-      description: descriptions[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/machinery/filling-sealing`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: titles[l] || titles.en, description: descriptions[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+  })
 }
 
 export default async function FillingSeaingPage({ params }: { params: Promise<{ lang: Lang }> }) {

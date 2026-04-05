@@ -7,6 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -25,51 +26,27 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Industriemaschinenkatolog | Verpackung, Lebensmittelverarbeitung & Automatisierung | SunGene',
   }
   const descriptions = {
-    en: 'Browse our complete range of industrial machinery: packaging machines, food processing equipment, filling & sealing systems, conveyor automation, and custom-engineered solutions. CE certified, factory-direct from Taiwan.',
-    cn: '浏览我们的全系列工业机械：包装机、食品加工设备、灌装封口系统、输送自动化和定制解决方案。CE认证，台湾工厂直销。',
-    zh: '瀏覽我們的全系列工業機械：包裝機、食品加工設備、灌裝封口系統、輸送自動化和客製解決方案。CE認證，台灣工廠直銷。',
-    fr: 'Parcourez notre gamme complète de machines industrielles : machines d\'emballage, équipements agroalimentaires, systèmes de remplissage et scellage, automatisation de convoyage et solutions sur mesure. Certifié CE, direct usine depuis Taïwan.',
-    es: 'Explore nuestra gama completa de maquinaria industrial: máquinas de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, automatización de transporte y soluciones de ingeniería a medida. Certificado CE, directo de fábrica desde Taiwán.',
-    pt: 'Navegue por nossa linha completa de máquinas industriais: máquinas de embalagem, equipamentos de processamento de alimentos, sistemas de envase e selagem, automação de transporte e soluções sob medida. Certificação CE, direto da fábrica em Taiwan.',
-    ko: '포장기, 식품 가공 장비, 충전 및 밀봉 시스템, 컨베이어 자동화, 맞춤 설계 솔루션 등 전체 산업 기계를 둘러보세요. CE 인증, 대만 공장 직판.',
-    ja: '包装機、食品加工装置、充填・シール装置、コンベア自動化、カスタムエンジニアリングソリューションなど、産業機械の全ラインナップをご覧ください。CE認証済み、台湾工場直販。',
-    ar: 'تصفح مجموعتنا الكاملة من الآلات الصناعية: آلات التعبئة والتغليف، معدات تصنيع الأغذية، أنظمة التعبئة والختم، أتمتة النقل، وحلول هندسية مخصصة. حاصلة على شهادة CE، مباشرة من المصنع في تايوان.',
-    th: 'เรียกดูเครื่องจักรอุตสาหกรรมทั้งหมดของเรา: เครื่องบรรจุภัณฑ์, อุปกรณ์แปรรูปอาหาร, ระบบบรรจุและซีล, ระบบสายพานอัตโนมัติ และโซลูชันวิศวกรรมเฉพาะ ได้รับรอง CE ส่งตรงจากโรงงานในไต้หวัน',
-    vi: 'Khám phá toàn bộ dòng máy móc công nghiệp: máy đóng gói, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, tự động hóa băng tải và giải pháp kỹ thuật tùy chỉnh. Chứng nhận CE, trực tiếp từ nhà máy Đài Loan.',
-    de: 'Entdecken Sie unsere vollständige Palette an Industriemaschinen: Verpackungsmaschinen, Lebensmittelverarbeitungsanlagen, Abfüll- und Versiegelungssysteme, Förderautomatisierung und maßgeschneiderte Lösungen. CE-zertifiziert, direkt ab Werk aus Taiwan.',
+    en: 'Browse the full machinery catalog: packaging machines, food processing equipment, filling & sealing systems, conveying automation, and custom builds.',
+    cn: '浏览全系列机械目录：包装机、食品加工设备、灌装封口系统、输送自动化与定制方案。',
+    zh: '瀏覽全系列機械目錄：包裝機、食品加工設備、灌裝封口系統、輸送自動化與客製方案。',
+    fr: 'Parcourez le catalogue : machines d’emballage, équipements agroalimentaires, remplissage/scellage, convoyage/automatisation et solutions sur mesure.',
+    es: 'Explore el catálogo: empaque, procesamiento de alimentos, llenado/sellado, automatización de transporte y soluciones a medida.',
+    pt: 'Veja o catálogo: embalagem, processamento de alimentos, envase/selagem, automação de transporte e soluções sob medida.',
+    ko: '전체 카탈로그: 포장, 식품가공, 충전/밀봉, 컨베이어 자동화, 맞춤 설계.',
+    ja: '機械カタログ：包装、食品加工、充填・シール、搬送自動化、カスタム対応。',
+    ar: 'استعرض الكتالوج: آلات التعبئة والتغليف، معدات الأغذية، التعبئة/الختم، الأتمتة والحلول المخصصة.',
+    th: 'ดูแคตตาล็อก: บรรจุภัณฑ์ แปรรูปอาหาร บรรจุ/ซีล ลำเลียงอัตโนมัติ และงานสั่งทำ',
+    vi: 'Danh mục máy: đóng gói, chế biến thực phẩm, chiết rót/hàn kín, tự động hóa băng tải và giải pháp tùy chỉnh.',
+    de: 'Katalog: Verpackung, Lebensmitteltechnik, Abfüllen/Verschließen, Fördertechnik/Automatisierung und Sonderlösungen.',
   }
-  const l = (['en','zh','cn','fr','es','pt','ko','ja','ar','th','vi','de'].includes(lang)) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: (titles as Record<string,string>)[l] || titles.en,
     description: (descriptions as Record<string,string>)[l] || descriptions.en,
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machinery`,
-      languages: {
-        'en': `${SITE_URL}/en/machinery`,
-        'zh-TW': `${SITE_URL}/zh/machinery`,
-        'zh-CN': `${SITE_URL}/cn/machinery`,
-        'fr': `${SITE_URL}/fr/machinery`,
-        'es': `${SITE_URL}/es/machinery`,
-        'pt': `${SITE_URL}/pt/machinery`,
-        'ko': `${SITE_URL}/ko/machinery`,
-        'ja': `${SITE_URL}/ja/machinery`,
-        'ar': `${SITE_URL}/ar/machinery`,
-        'th': `${SITE_URL}/th/machinery`,
-        'vi': `${SITE_URL}/vi/machinery`,
-        'de': `${SITE_URL}/de/machinery`,
-        'x-default': `${SITE_URL}/en/machinery`,
-      }
-    },
-    openGraph: {
-      title: (titles as Record<string,string>)[l] || titles.en,
-      description: (descriptions as Record<string,string>)[l] || descriptions.en,
-      url: `${SITE_URL}/${l}/machinery`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: { card: 'summary_large_image', title: (titles as Record<string,string>)[l] || titles.en, description: (descriptions as Record<string,string>)[l] || descriptions.en, images: [`${SITE_URL}/og/og.png`] },
-  }
+    pathname: '/machinery',
+    type: 'website',
+  })
 }
 
 const categoryIcons = [

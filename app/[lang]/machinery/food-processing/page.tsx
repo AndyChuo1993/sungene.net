@@ -6,9 +6,11 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
+  const l = normalizeLang(lang)
   const titles: Record<string, string> = {
     en: 'Food Processing Equipment | Snack Line, Frying, Roasting, Mixing | SunGene',
     cn: '食品加工设备 | 零食生产线、油炸、烘焙、搅拌 | SunGene',
@@ -24,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Lebensmittelverarbeitungsmaschinen | Snack-Linie, Frittieren, Rösten | SunGene',
   }
   const descriptions: Record<string, string> = {
-    en: 'SunGene manufactures food processing equipment including snack production lines, frying machines, roasting ovens, mixing systems, and continuous cooking lines. CE certified, factory-direct from Taiwan.',
-    cn: 'SunGene生产食品加工设备，包括零食生产线、油炸机、烘烤炉、搅拌系统和连续蒸煮线。CE认证，台湾工厂直销。',
-    zh: 'SunGene生產食品加工設備，包括零食生產線、油炸機、烘烤爐、攪拌系統和連續蒸煮線。CE認證，台灣工廠直銷。',
+    en: 'Food processing equipment including snack lines, frying machines, roasters, mixing systems, and continuous cooking lines.',
+    cn: '食品加工设备：零食生产线、油炸机、烘烤炉、搅拌系统与连续蒸煮线。',
+    zh: '食品加工設備：零食生產線、油炸機、烘烤爐、攪拌系統與連續蒸煮線。',
     fr: 'SunGene fabrique des équipements de traitement alimentaire incluant des lignes de production de snacks, friteuses, fours de torréfaction, systèmes de mélange et lignes de cuisson continues.',
     es: 'SunGene fabrica equipos de procesamiento de alimentos incluyendo líneas de producción de snacks, máquinas de freír, hornos de tostado, sistemas de mezcla y líneas de cocción continua.',
     pt: 'SunGene fabrica equipamentos de processamento de alimentos incluindo linhas de produção de snacks, fritadeiras, fornos de torra, sistemas de mistura e linhas de cozimento contínuo.',
@@ -37,16 +39,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     vi: 'SunGene sản xuất thiết bị chế biến thực phẩm bao gồm dây chuyền sản xuất snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
     de: 'SunGene stellt Lebensmittelverarbeitungsmaschinen her, darunter Snack-Produktionslinien, Frittiermaschinen, Röstöfen, Mischanlagen und kontinuierliche Kochlinien.',
   }
-  return {
-    title: titles[lang] || titles.en,
-    description: descriptions[lang] || descriptions.en,
-    alternates: { canonical: `${SITE_URL}/${lang}/machinery/food-processing` },
-    openGraph: {
-      title: titles[lang] || titles.en,
-      description: descriptions[lang] || descriptions.en,
-      url: `${SITE_URL}/${lang}/machinery/food-processing`,
-    },
-  }
+  return buildPageMetadata({
+    lang: l,
+    title: titles[l] || titles.en,
+    description: descriptions[l] || descriptions.en,
+    pathname: '/machinery/food-processing',
+    type: 'website',
+  })
 }
 
 export default async function FoodProcessingPage({ params }: { params: Promise<{ lang: Lang }> }) {

@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -27,64 +28,35 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'SunGene manufactures pouch packing machines including VFFS, HFFS flow wrappers, pre-made pouch machines, and vacuum packers. For snacks, nuts, coffee, sauces, and consumer goods. CE certified, factory-direct.',
-  cn: 'SunGene生产袋装包装机，包括VFFS、HFFS流动包装机、预制袋机和真空包装机。适用于零食、坚果、咖啡、酱料和消费品。CE认证，工厂直销。',
-  zh: 'SunGene生產袋裝包裝機，包括VFFS、HFFS流動包裝機、預製袋機和真空包裝機。適用於零食、堅果、咖啡、醬料和消費品。CE認證，工廠直銷。',
-  fr: 'SunGene fabrique des machines d\'emballage en sachet incluant VFFS, HFFS, machines à sachet préformé et emballeuses sous vide. Pour snacks, noix, café, sauces et produits de grande consommation. CE certifié.',
-  es: 'SunGene fabrica máquinas envasadoras en bolsa incluyendo VFFS, HFFS, máquinas de bolsa preformada y envasadoras al vacío. Para snacks, frutos secos, café, salsas y bienes de consumo. CE certificado.',
-  pt: 'SunGene fabrica máquinas de embalagem em saco incluindo VFFS, HFFS, máquinas de saco pré-formado e embaladoras a vácuo. Para snacks, nozes, café, molhos e bens de consumo. CE certificado.',
-  ko: 'SunGene은 VFFS, HFFS 플로우 랩퍼, 프리메이드 파우치 기계 및 진공 포장기를 포함한 파우치 포장 기계를 제조합니다. 스낵, 견과류, 커피, 소스 및 소비재용. CE 인증, 공장 직납.',
-  ja: 'SunGeneはVFFS、HFFSフロー包装機、プレメードパウチ機、真空包装機を含むパウチ包装機を製造。スナック、ナッツ、コーヒー、ソース、消費財向け。CE認証、工場直送。',
-  ar: 'SunGene تصنع آلات تعبئة الأكياس بما في ذلك VFFS وHFFS وآلات الأكياس الجاهزة ومعدات التعبئة الفراغية. للوجبات الخفيفة والمكسرات والقهوة والصلصات والسلع الاستهلاكية. معتمدة CE.',
-  th: 'SunGene ผลิตเครื่องบรรจุถุงรวมถึง VFFS, HFFS, เครื่องบรรจุถุงสำเร็จรูป และเครื่องบรรจุสูญญากาศ สำหรับของว่าง ถั่ว กาแฟ ซอส และสินค้าอุปโภคบริโภค ได้รับการรับรอง CE',
-  vi: 'SunGene sản xuất máy đóng gói túi bao gồm VFFS, HFFS, máy đóng gói túi thành phẩm và máy đóng gói chân không. Cho đồ ăn vặt, hạt, cà phê, nước sốt và hàng tiêu dùng. Chứng nhận CE.',
-  de: 'SunGene stellt Beutelverpackungsmaschinen her, einschließlich VFFS, HFFS-Schlauchbeutelmaschinen, Fertigbeutelmaschinen und Vakuumverpackern. Für Snacks, Nüsse, Kaffee, Saucen und Konsumgüter. CE-zertifiziert.',
+  en: 'Pouch packing machines: VFFS, HFFS flow wrappers, premade pouch systems, and vacuum packing. Used for snacks, nuts, coffee, sauces, and consumer goods. Share your product, bag style, and target speed for a fit.',
+  cn: '袋装包装设备：VFFS、HFFS流动包装、预制袋系统与真空包装。适用于零食、坚果、咖啡、酱料与消费品。提供产品、袋型与目标产速，即可匹配机型。',
+  zh: '袋裝包裝設備：VFFS、HFFS流動包裝、預製袋系統與真空包裝。適用於零食、堅果、咖啡、醬料與消費品。提供產品、袋型與目標產速，即可匹配機型。',
+  fr: 'Machines d’emballage en sachet : VFFS, flow wrap HFFS, systèmes pour poches préformées et sous vide. Pour snacks, noix, café, sauces et produits de grande consommation. Donnez produit, format et cadence cible.',
+  es: 'Máquinas para empaque en bolsa: VFFS, flow pack HFFS, sistemas para bolsa preformada y envasado al vacío. Para snacks, frutos secos, café, salsas y consumo masivo. Indique producto, formato y velocidad objetivo.',
+  pt: 'Máquinas para embalagem em saco: VFFS, flow pack HFFS, sistemas para pouch pré-formado e embalagem a vácuo. Para snacks, nozes, café, molhos e bens de consumo. Informe produto, formato e velocidade-alvo.',
+  ko: '파우치 포장 설비: VFFS, HFFS 플로우랩, 프리메이드 파우치 시스템, 진공 포장. 스낵/견과/커피/소스/소비재에 사용됩니다. 제품·파우치 형식·목표 속도를 알려주면 기종을 맞춰드립니다.',
+  ja: 'パウチ包装設備：VFFS、HFFSフロー包装、プレメードパウチ、真空包装。スナック、ナッツ、コーヒー、ソース、消費財向け。製品・袋形状・目標速度を共有いただければ機種を提案します。',
+  ar: 'معدات تعبئة الأكياس: VFFS وHFFS (flow wrap) وأنظمة الأكياس الجاهزة والتعبئة الفراغية. للوجبات الخفيفة والمكسرات والقهوة والصلصات والسلع الاستهلاكية. شارك نوع المنتج وشكل الكيس والسرعة المطلوبة لاختيار الماكينة.',
+  th: 'เครื่องบรรจุถุง: VFFS, HFFS (flow wrap), ระบบถุงสำเร็จรูป และเครื่องบรรจุสูญญากาศ ใช้กับของว่าง ถั่ว กาแฟ ซอส และสินค้าอุปโภคบริโภค แจ้งสินค้า รูปแบบถุง และความเร็วเป้าหมายเพื่อเลือกเครื่องที่เหมาะสม',
+  vi: 'Máy đóng gói túi: VFFS, HFFS (flow wrap), hệ thống túi thành phẩm và đóng gói chân không. Dùng cho snack, hạt, cà phê, nước sốt và hàng tiêu dùng. Cung cấp sản phẩm, kiểu túi và tốc độ mục tiêu để chọn máy.',
+  de: 'Beutelverpackungsmaschinen: VFFS, HFFS-Flowpack, Fertigbeutel-Systeme und Vakuumverpackung. Für Snacks, Nüsse, Kaffee, Saucen und Konsumgüter. Produkt, Beuteltyp und Zielleistung reichen für die passende Auswahl.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const l = ALL_LANGS.includes(lang as Lang) ? lang : 'en'
-  return {
+  const l = normalizeLang(lang)
+  return buildPageMetadata({
+    lang: l,
     title: metaTitles[l] || metaTitles.en,
     description: metaDescs[l] || metaDescs.en,
+    pathname: '/machines/pouch-packing-machine',
+    type: 'website',
     keywords: [
       'pouch packing machine', 'VFFS machine', 'HFFS machine', 'flow wrapper', 'pre-made pouch machine',
       'vacuum packing machine', 'stand-up pouch machine', 'stick pack machine', 'sachet machine',
-      'Taiwan pouch packaging', 'CE certified packing machine',
+      'Taiwan pouch packaging', 'pouch packaging equipment',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/machines/pouch-packing-machine`,
-      languages: {
-        'en': `${SITE_URL}/en/machines/pouch-packing-machine`,
-        'zh-TW': `${SITE_URL}/zh/machines/pouch-packing-machine`,
-        'zh-CN': `${SITE_URL}/cn/machines/pouch-packing-machine`,
-        'fr': `${SITE_URL}/fr/machines/pouch-packing-machine`,
-        'es': `${SITE_URL}/es/machines/pouch-packing-machine`,
-        'pt': `${SITE_URL}/pt/machines/pouch-packing-machine`,
-        'ko': `${SITE_URL}/ko/machines/pouch-packing-machine`,
-        'ja': `${SITE_URL}/ja/machines/pouch-packing-machine`,
-        'ar': `${SITE_URL}/ar/machines/pouch-packing-machine`,
-        'th': `${SITE_URL}/th/machines/pouch-packing-machine`,
-        'vi': `${SITE_URL}/vi/machines/pouch-packing-machine`,
-        'de': `${SITE_URL}/de/machines/pouch-packing-machine`,
-        'x-default': `${SITE_URL}/en/machines/pouch-packing-machine`,
-      },
-    },
-    openGraph: {
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      url: `${SITE_URL}/${l}/machines/pouch-packing-machine`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: metaTitles[l] || metaTitles.en,
-      description: metaDescs[l] || metaDescs.en,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ─── Static content — 12 languages ─────────────────────────────────────────

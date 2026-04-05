@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container'
 import JsonLd from '@/components/JsonLd'
 import RecommendForm from '@/components/RecommendForm'
 import { WhatsAppLink, EmailLink } from '@/components/ContactTracker'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
@@ -46,56 +47,26 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const l = VALID_LANGS.includes(lang) ? lang : 'en'
+  const l = normalizeLang(lang)
   const title = metaTitles[l] ?? metaTitles.en
   const description = metaDescriptions[l] ?? metaDescriptions.en
 
-  return {
+  return buildPageMetadata({
+    lang: l,
     title,
     description,
+    pathname: '/recommend',
+    type: 'website',
     keywords: [
       'machinery recommendation',
       'packaging machine selection',
       'filling machine recommendation',
-      'free machine consultation',
-      'find the right packaging machine',
+      'machine consultation',
       'Taiwan industrial machinery',
       'VFFS machine recommendation',
       'pouch packing machine',
     ],
-    alternates: {
-      canonical: `${SITE_URL}/${l}/recommend`,
-      languages: {
-        en: `${SITE_URL}/en/recommend`,
-        'zh-TW': `${SITE_URL}/zh/recommend`,
-        'zh-CN': `${SITE_URL}/cn/recommend`,
-        fr: `${SITE_URL}/fr/recommend`,
-        es: `${SITE_URL}/es/recommend`,
-        pt: `${SITE_URL}/pt/recommend`,
-        ko: `${SITE_URL}/ko/recommend`,
-        ja: `${SITE_URL}/ja/recommend`,
-        ar: `${SITE_URL}/ar/recommend`,
-        th: `${SITE_URL}/th/recommend`,
-        vi: `${SITE_URL}/vi/recommend`,
-        de: `${SITE_URL}/de/recommend`,
-        'x-default': `${SITE_URL}/en/recommend`,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      url: `${SITE_URL}/${l}/recommend`,
-      siteName: 'SunGene Machinery',
-      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [`${SITE_URL}/og/og.png`],
-    },
-  }
+  })
 }
 
 // ── Page copy ─────────────────────────────────────────────────────────────────
