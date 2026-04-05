@@ -68,7 +68,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     en: {
       kicker: 'MACHINERY CATALOG',
       title: 'Our Industrial Machinery',
-      desc: 'Browse our complete range of industrial equipment. From packaging and food processing to custom-engineered automation systems — all manufactured in Taiwan with CE certification.',
+      desc: 'Browse machine families by application: packaging, food processing, filling/sealing, conveying/automation, and custom builds. Each category links to practical configurations and selection guides.',
       cats: [
         { title: 'Packaging Machinery', desc: 'VFFS, HFFS, pouch packaging, vacuum sealers, shrink wrappers, carton packers, and multi-head weighers for powder, granule, liquid, and solid products.', badge: 'Most Popular' },
         { title: 'Food Processing Equipment', desc: 'Industrial mixers, meat grinders, vegetable slicers, cooking kettles, blanching systems, and complete food preparation lines.', badge: '' },
@@ -76,13 +76,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Conveying & Automation', desc: 'Belt conveyors, bucket elevators, screw feeders, pick-and-place robots, palletizers, and PLC-integrated line control systems.', badge: '' },
         { title: 'Customized Machinery', desc: 'OEM machinery design, custom dimensions, special materials, modified output capacity, and application-specific engineering.', badge: 'Engineering Team' }
       ],
-      cta: 'Need help choosing? Get a free consultation.',
+      cta: 'Send your product, packaging format, and target output. We will shortlist the right machine types and options.',
       ctaBtn: 'Contact Our Engineers',
     },
     cn: {
       kicker: '机械目录',
       title: '我们的工业机械',
-      desc: '浏览我们的全系列工业设备。从包装和食品加工到定制自动化系统——均在台湾制造，CE认证。',
+      desc: '按应用场景浏览设备目录：包装、食品加工、灌装封口、输送自动化与定制方案。每个分类都对应常见配置与选型要点。',
       cats: [
         { title: '包装机械', desc: '立式/卧式充填封口机、袋装机、真空封口机、热缩包装机、装箱机和多头秤，适用于粉末、颗粒、液体和固体产品。', badge: '最受欢迎' },
         { title: '食品加工设备', desc: '工业搅拌机、绞肉机、切菜机、蒸煮锅、漂烫系统和完整食品备料产线。', badge: '' },
@@ -90,13 +90,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: '输送与自动化', desc: '皮带输送机、斗式提升机、螺旋给料机、机械手、码垛机和PLC集成控制系统。', badge: '' },
         { title: '定制机械', desc: 'OEM设计、定制尺寸、特殊材料、改装产能和应用专属工程。', badge: '工程团队' }
       ],
-      cta: '需要选型帮助？获取免费咨询。',
+      cta: '提供产品、包装形式与目标产能，我们将给出机型方向与可选配置清单。',
       ctaBtn: '联系我们的工程师',
     },
     zh: {
       kicker: '機械目錄',
       title: '我們的工業機械',
-      desc: '瀏覽我們的全系列工業設備。從包裝和食品加工到客製自動化系統——均在台灣製造，CE認證。',
+      desc: '依應用情境瀏覽設備目錄：包裝、食品加工、灌裝封口、輸送自動化與客製方案。每個分類都對應常見配置與選型重點。',
       cats: [
         { title: '包裝機械', desc: '立式/臥式充填封口機、袋裝機、真空封口機、熱縮包裝機、裝箱機和多頭秤，適用於粉末、顆粒、液體和固體產品。', badge: '最受歡迎' },
         { title: '食品加工設備', desc: '工業攪拌機、絞肉機、切菜機、蒸煮鍋、漂燙系統和完整食品備料產線。', badge: '' },
@@ -104,13 +104,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: '輸送與自動化', desc: '皮帶輸送機、斗式提升機、螺旋給料機、機械手、碼垛機和PLC整合控制系統。', badge: '' },
         { title: '客製機械', desc: 'OEM設計、客製尺寸、特殊材料、改裝產能和應用專屬工程。', badge: '工程團隊' }
       ],
-      cta: '需要選型幫助？取得免費諮詢。',
+      cta: '提供產品、包材形式與目標產能，我們會整理機型方向與可選配置清單。',
       ctaBtn: '聯繫我們的工程師',
     },
     fr: {
       kicker: 'CATALOGUE MACHINES',
       title: 'Nos machines industrielles',
-      desc: 'Parcourez notre gamme complète d\'équipements industriels. De l\'emballage et la transformation alimentaire aux systèmes d\'automatisation sur mesure — tous fabriqués à Taïwan avec certification CE.',
+      desc: 'Parcourez les familles de machines par usage : emballage, agroalimentaire, remplissage/scellage, convoyage/automatisation et sur-mesure. Chaque catégorie regroupe des configurations et des points de sélection.',
       cats: [
         { title: 'Machines d\'emballage', desc: 'Ensacheuses VFFS et HFFS, conditionneuses de sachets, scelleuses sous vide, machines de rétraction, encaisseuses et peseuses multi-têtes pour produits en poudre, granulés, liquides et solides.', badge: 'Les plus demandées' },
         { title: 'Équipements agroalimentaires', desc: 'Mélangeurs industriels, hachoirs à viande, trancheuses de légumes, marmites de cuisson, systèmes de blanchiment et lignes complètes de préparation alimentaire.', badge: '' },
@@ -118,13 +118,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Convoyage et automatisation', desc: 'Convoyeurs à bande, élévateurs à godets, alimentateurs à vis, robots pick-and-place, palettiseurs et systèmes de contrôle de ligne intégrés PLC.', badge: '' },
         { title: 'Machines sur mesure', desc: 'Conception OEM, dimensions personnalisées, matériaux spéciaux, capacité de production modifiée et ingénierie spécifique à l\'application.', badge: 'Équipe d\'ingénierie' }
       ],
-      cta: 'Besoin d\'aide pour choisir ? Consultation gratuite.',
+      cta: 'Indiquez produit, format d’emballage et cadence cible. Nous vous proposons une short-list de solutions et d’options.',
       ctaBtn: 'Contacter nos ingénieurs',
     },
     es: {
       kicker: 'CATÁLOGO DE MAQUINARIA',
       title: 'Nuestra maquinaria industrial',
-      desc: 'Explore nuestra gama completa de equipos industriales. Desde empaque y procesamiento de alimentos hasta sistemas de automatización a medida — todos fabricados en Taiwán con certificación CE.',
+      desc: 'Explore familias de máquinas por aplicación: empaque, procesamiento de alimentos, llenado/sellado, transporte/automatización y soluciones a medida. Cada categoría reúne configuraciones prácticas y criterios de selección.',
       cats: [
         { title: 'Maquinaria de empaque', desc: 'Envasadoras VFFS y HFFS, empacadoras de bolsas, selladoras al vacío, termoencogibles, encajonadoras y pesadoras multicabezal para productos en polvo, granulados, líquidos y sólidos.', badge: 'Más popular' },
         { title: 'Equipos de procesamiento de alimentos', desc: 'Mezcladoras industriales, picadoras de carne, cortadoras de verduras, marmitas de cocción, sistemas de escaldado y líneas completas de preparación de alimentos.', badge: '' },
@@ -132,13 +132,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Transporte y automatización', desc: 'Transportadores de banda, elevadores de cangilones, alimentadores de tornillo, robots pick-and-place, paletizadores y sistemas de control de línea integrados con PLC.', badge: '' },
         { title: 'Maquinaria personalizada', desc: 'Diseño OEM, dimensiones personalizadas, materiales especiales, capacidad de producción modificada e ingeniería específica para cada aplicación.', badge: 'Equipo de ingeniería' }
       ],
-      cta: '¿Necesita ayuda para elegir? Consulta gratuita.',
+      cta: 'Comparta producto, formato de empaque y velocidad objetivo. Le proponemos una lista corta de soluciones y opciones.',
       ctaBtn: 'Contactar a nuestros ingenieros',
     },
     pt: {
       kicker: 'CATÁLOGO DE MÁQUINAS',
       title: 'Nossas Máquinas Industriais',
-      desc: 'Navegue por nossa linha completa de equipamentos industriais. De embalagem e processamento de alimentos a sistemas de automação sob medida — todos fabricados em Taiwan com certificação CE.',
+      desc: 'Navegue por famílias de máquinas por aplicação: embalagem, alimentos, envase/selagem, transporte/automação e sob medida. Cada categoria reúne configurações práticas e critérios de seleção.',
       cats: [
         { title: 'Máquinas de Embalagem', desc: 'VFFS, HFFS, embalagem em sachês, seladoras a vácuo, embalagem termocontrátil, encaixotadoras e pesadoras multicabeçotes para produtos em pó, grânulos, líquidos e sólidos.', badge: 'Mais Popular' },
         { title: 'Equipamentos de Processamento de Alimentos', desc: 'Misturadores industriais, moedores de carne, fatiadores de vegetais, caldeirões de cozimento, sistemas de branqueamento e linhas completas de preparo de alimentos.', badge: '' },
@@ -146,13 +146,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Transporte e Automação', desc: 'Transportadores de correia, elevadores de caçamba, alimentadores helicoidais, robôs pick-and-place, paletizadores e sistemas de controle de linha integrados com PLC.', badge: '' },
         { title: 'Máquinas Personalizadas', desc: 'Projeto OEM, dimensões personalizadas, materiais especiais, capacidade de produção modificada e engenharia específica para aplicação.', badge: 'Equipe de Engenharia' }
       ],
-      cta: 'Precisa de ajuda para escolher? Consulta gratuita.',
+      cta: 'Informe produto, formato e produção-alvo. Enviamos uma lista curta de soluções e opções.',
       ctaBtn: 'Fale com nossos engenheiros',
     },
     ko: {
       kicker: '기계 카탈로그',
       title: '우리의 산업 기계',
-      desc: '전체 산업 장비를 둘러보세요. 포장 및 식품 가공부터 맞춤 자동화 시스템까지 — 모두 대만에서 CE 인증으로 제조됩니다.',
+      desc: '용도별 장비군을 확인하세요: 포장, 식품가공, 충전/밀봉, 컨베이어/자동화, 맞춤 제작. 각 카테고리에 실제 구성 예시와 선정 기준이 정리되어 있습니다.',
       cats: [
         { title: '포장 기계', desc: 'VFFS, HFFS, 파우치 포장, 진공 포장기, 수축 포장기, 카톤 포장기, 멀티헤드 계량기 — 분말, 과립, 액체, 고체 제품용.', badge: '인기 제품' },
         { title: '식품 가공 장비', desc: '산업용 믹서, 육류 분쇄기, 채소 슬라이서, 조리 솥, 블랜칭 시스템, 완전 식품 준비 라인.', badge: '' },
@@ -160,13 +160,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: '컨베이어 및 자동화', desc: '벨트 컨베이어, 버킷 엘리베이터, 스크류 피더, 픽앤플레이스 로봇, 팔레타이저, PLC 통합 라인 제어 시스템.', badge: '' },
         { title: '맞춤 기계', desc: 'OEM 설계, 맞춤 치수, 특수 소재, 생산 능력 변경, 용도별 엔지니어링.', badge: '엔지니어링 팀' }
       ],
-      cta: '선택에 도움이 필요하신가요? 무료 상담을 받으세요.',
+      cta: '제품, 포장 형식, 목표 생산량을 알려주시면 기종/옵션을 추려드립니다.',
       ctaBtn: '엔지니어에게 문의',
     },
     ja: {
       kicker: '機械カタログ',
       title: '当社の産業機械',
-      desc: '産業機器の全ラインナップをご覧ください。包装・食品加工からカスタム自動化システムまで — すべて台湾でCE認証取得のもと製造しています。',
+      desc: '用途別に機械カテゴリを確認できます：包装、食品加工、充填・シール、搬送・自動化、カスタム対応。各カテゴリに実用的な構成例と選定ポイントをまとめています。',
       cats: [
         { title: '包装機械', desc: 'VFFS、HFFS、パウチ包装、真空シーラー、シュリンク包装、カートンパッカー、マルチヘッド計量機 — 粉末、顆粒、液体、固体製品に対応。', badge: '人気商品' },
         { title: '食品加工機器', desc: '産業用ミキサー、ミートグラインダー、野菜スライサー、調理釜、ブランチングシステム、完全な食品調理ライン。', badge: '' },
@@ -174,13 +174,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'コンベア・自動化', desc: 'ベルトコンベア、バケットエレベーター、スクリューフィーダー、ピック&プレースロボット、パレタイザー、PLC統合ライン制御システム。', badge: '' },
         { title: 'カスタム機械', desc: 'OEM設計、カスタム寸法、特殊素材、生産能力変更、用途別エンジニアリング。', badge: 'エンジニアリングチーム' }
       ],
-      cta: '選定にお困りですか？無料相談をご利用ください。',
+      cta: '製品、包装形態、目標能力をご共有ください。機種とオプションを絞り込みます。',
       ctaBtn: 'エンジニアに相談',
     },
     ar: {
       kicker: 'كتالوج الآلات',
       title: 'آلاتنا الصناعية',
-      desc: 'تصفح مجموعتنا الكاملة من المعدات الصناعية. من التعبئة والتغليف وتصنيع الأغذية إلى أنظمة الأتمتة المخصصة — جميعها مصنعة في تايوان مع شهادة CE.',
+      desc: 'تصفح فئات الماكينات حسب الاستخدام: التعبئة والتغليف، تصنيع الأغذية، التعبئة/الختم، النقل/الأتمتة، والحلول المخصصة. كل فئة تعرض تكوينات عملية ونقاط اختيار.',
       cats: [
         { title: 'آلات التعبئة والتغليف', desc: 'آلات VFFS وHFFS، تعبئة الأكياس، آلات التغليف بالتفريغ، التغليف الحراري، تعبئة الكراتين والميزان متعدد الرؤوس للمنتجات المسحوقة والحبيبية والسائلة والصلبة.', badge: 'الأكثر طلبًا' },
         { title: 'معدات تصنيع الأغذية', desc: 'خلاطات صناعية، مفارم لحوم، قطّاعات خضروات، أوعية طهي، أنظمة سلق وخطوط تحضير أغذية متكاملة.', badge: '' },
@@ -188,13 +188,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'النقل والأتمتة', desc: 'ناقلات سير، رافعات دلو، مغذيات لولبية، روبوتات التقاط ووضع، آلات تكديس وأنظمة تحكم خطوط متكاملة مع PLC.', badge: '' },
         { title: 'آلات مخصصة', desc: 'تصميم OEM، أبعاد مخصصة، مواد خاصة، سعة إنتاج معدلة وهندسة خاصة بالتطبيق.', badge: 'فريق هندسي' }
       ],
-      cta: 'هل تحتاج مساعدة في الاختيار؟ استشارة مجانية.',
+      cta: 'شارك نوع المنتج وشكل العبوة والقدرة المطلوبة. سنرسل قائمة قصيرة بالحلول والخيارات المناسبة.',
       ctaBtn: 'تواصل مع مهندسينا',
     },
     th: {
       kicker: 'แคตตาล็อกเครื่องจักร',
       title: 'เครื่องจักรอุตสาหกรรมของเรา',
-      desc: 'เรียกดูอุปกรณ์อุตสาหกรรมทั้งหมดของเรา ตั้งแต่บรรจุภัณฑ์และแปรรูปอาหาร ไปจนถึงระบบอัตโนมัติที่ออกแบบเฉพาะ — ผลิตในไต้หวันพร้อมการรับรอง CE',
+      desc: 'ดูหมวดเครื่องจักรตามการใช้งาน: บรรจุภัณฑ์ แปรรูปอาหาร บรรจุ/ซีล ลำเลียง/อัตโนมัติ และงานสั่งทำ แต่ละหมวดมีตัวอย่างการจัดสเปกและเกณฑ์เลือกเครื่อง',
       cats: [
         { title: 'เครื่องบรรจุภัณฑ์', desc: 'VFFS, HFFS, บรรจุซองสำเร็จรูป, เครื่องซีลสุญญากาศ, เครื่องห่อหด, เครื่องบรรจุกล่อง และเครื่องชั่งหลายหัว สำหรับผลิตภัณฑ์ผง, เม็ด, ของเหลว และของแข็ง', badge: 'ยอดนิยม' },
         { title: 'อุปกรณ์แปรรูปอาหาร', desc: 'เครื่องผสมอุตสาหกรรม, เครื่องบดเนื้อ, เครื่องหั่นผัก, กระทะตุ๋น, ระบบลวก และสายการเตรียมอาหารครบวงจร', badge: '' },
@@ -202,13 +202,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'สายพานและระบบอัตโนมัติ', desc: 'สายพานลำเลียง, ลิฟต์ถัง, สกรูป้อน, หุ่นยนต์หยิบและวาง, เครื่องเรียงพาเลท และระบบควบคุมสายการผลิตแบบ PLC', badge: '' },
         { title: 'เครื่องจักรออกแบบเฉพาะ', desc: 'ออกแบบ OEM, ขนาดตามสั่ง, วัสดุพิเศษ, ปรับกำลังการผลิต และวิศวกรรมเฉพาะงาน', badge: 'ทีมวิศวกรรม' }
       ],
-      cta: 'ต้องการความช่วยเหลือในการเลือก? ปรึกษาฟรี',
+      cta: 'แจ้งสินค้า รูปแบบบรรจุภัณฑ์ และกำลังการผลิตเป้าหมาย เราจะคัดรุ่น/ออปชันที่เหมาะสมให้',
       ctaBtn: 'ติดต่อวิศวกรของเรา',
     },
     vi: {
       kicker: 'DANH MỤC MÁY MÓC',
       title: 'Máy móc công nghiệp của chúng tôi',
-      desc: 'Khám phá toàn bộ dòng thiết bị công nghiệp. Từ đóng gói và chế biến thực phẩm đến hệ thống tự động hóa tùy chỉnh — tất cả được sản xuất tại Đài Loan với chứng nhận CE.',
+      desc: 'Xem các nhóm máy theo ứng dụng: đóng gói, chế biến thực phẩm, chiết rót/hàn kín, băng tải/tự động hóa và máy tùy chỉnh. Mỗi nhóm có cấu hình thực tế và tiêu chí chọn máy.',
       cats: [
         { title: 'Máy đóng gói', desc: 'VFFS, HFFS, đóng gói túi làm sẵn, máy hút chân không, máy co màng, máy đóng thùng carton và cân đa đầu cho sản phẩm bột, hạt, lỏng và rắn.', badge: 'Phổ biến nhất' },
         { title: 'Thiết bị chế biến thực phẩm', desc: 'Máy trộn công nghiệp, máy xay thịt, máy cắt rau, nồi nấu, hệ thống chần và dây chuyền chế biến thực phẩm hoàn chỉnh.', badge: '' },
@@ -216,13 +216,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Băng tải và tự động hóa', desc: 'Băng tải, gàu tải, vít tải, robot gắp đặt, máy xếp pallet và hệ thống điều khiển dây chuyền tích hợp PLC.', badge: '' },
         { title: 'Máy móc tùy chỉnh', desc: 'Thiết kế OEM, kích thước tùy chỉnh, vật liệu đặc biệt, công suất điều chỉnh và kỹ thuật chuyên dụng.', badge: 'Đội ngũ kỹ thuật' }
       ],
-      cta: 'Cần hỗ trợ lựa chọn? Tư vấn miễn phí.',
+      cta: 'Gửi sản phẩm, kiểu bao bì và mục tiêu công suất. Chúng tôi sẽ đề xuất danh sách giải pháp và tùy chọn phù hợp.',
       ctaBtn: 'Liên hệ kỹ sư',
     },
     de: {
       kicker: 'MASCHINENKATALOG',
       title: 'Unsere Industriemaschinen',
-      desc: 'Entdecken Sie unsere gesamte Palette an Industrieanlagen. Von Verpackung und Lebensmittelverarbeitung bis hin zu maßgeschneiderten Automatisierungssystemen — alle in Taiwan mit CE-Zertifizierung gefertigt.',
+      desc: 'Überblick nach Anwendung: Verpackung, Lebensmitteltechnik, Abfüllen/Verschließen, Fördertechnik/Automatisierung und Sondermaschinen. Jede Kategorie enthält praxisnahe Konfigurationen und Auswahlkriterien.',
       cats: [
         { title: 'Verpackungsmaschinen', desc: 'VFFS, HFFS, Beutelverpackung, Vakuumversiegler, Schrumpffolienmaschinen, Kartonpacker und Mehrkopfwaagen für Pulver-, Granulat-, Flüssig- und Festprodukte.', badge: 'Beliebteste' },
         { title: 'Lebensmittelverarbeitungsanlagen', desc: 'Industriemischer, Fleischwölfe, Gemüseschneider, Kochkessel, Blanchieranlagen und komplette Zubereitungslinien.', badge: '' },
@@ -230,7 +230,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
         { title: 'Förder- und Automatisierungstechnik', desc: 'Bandförderer, Becherwerke, Schneckenförderer, Pick-and-Place-Roboter, Palettierer und PLC-integrierte Liniensteuerungen.', badge: '' },
         { title: 'Sondermaschinen', desc: 'OEM-Design, Sondermaße, Spezialmaterialien, angepasste Produktionskapazität und anwendungsspezifische Konstruktion.', badge: 'Ingenieurteam' }
       ],
-      cta: 'Brauchen Sie Hilfe bei der Auswahl? Kostenlose Beratung.',
+      cta: 'Senden Sie Produkt, Verpackungsformat und Zielleistung. Wir erstellen eine Shortlist mit passenden Lösungen und Optionen.',
       ctaBtn: 'Unsere Ingenieure kontaktieren',
     }
   }
@@ -259,19 +259,19 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
           <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl text-lg font-medium text-gray-700">
               {({
-                en: 'If you know your product and output target, we can recommend the right machine in one consultation.',
-                cn: '如果您了解您的产品和产量目标，我们可以在一次咨询中为您推荐合适的机器。',
-                zh: '如果您了解您的產品和產量目標，我們可以在一次諮詢中為您推薦合適的機器。',
-                fr: 'Si vous connaissez votre produit et votre objectif de production, nous pouvons vous recommander la bonne machine en une consultation.',
-                es: 'Si conoce su producto y objetivo de producción, podemos recomendarle la máquina correcta en una consulta.',
-                pt: 'Se você conhece seu produto e meta de produção, podemos recomendar a máquina certa em uma consulta.',
-                ko: '제품과 생산 목표를 알고 계시다면 단 한 번의 상담으로 적합한 기계를 추천해 드릴 수 있습니다.',
-                ja: '製品と生産目標がわかれば、一度のご相談で最適な機械をご提案できます。',
-                ar: 'إذا كنت تعرف منتجك وهدف الإنتاج، يمكننا توصيتك بالآلة المناسبة في استشارة واحدة.',
-                th: 'หากคุณทราบผลิตภัณฑ์และเป้าหมายการผลิต เราสามารถแนะนำเครื่องจักรที่เหมาะสมได้ในการปรึกษาเพียงครั้งเดียว',
-                vi: 'Nếu bạn biết sản phẩm và mục tiêu sản lượng, chúng tôi có thể đề xuất máy phù hợp trong một lần tư vấn.',
-                de: 'Wenn Sie Ihr Produkt und Ihr Produktionsziel kennen, können wir Ihnen die richtige Maschine in einer Beratung empfehlen.',
-              } as Record<string, string>)[lang] || 'If you know your product and output target, we can recommend the right machine in one consultation.'}
+                en: 'Share your product, packaging format, and target output. We will shortlist machine types and options that fit.',
+                cn: '提供产品、包装形式与目标产能，我们会整理机型方向与选配建议。',
+                zh: '提供產品、包材形式與目標產能，我們會整理機型方向與選配建議。',
+                fr: 'Indiquez produit, format et cadence cible. Nous proposons une short-list de solutions et d’options.',
+                es: 'Comparta producto, formato y velocidad objetivo. Proponemos una lista corta de soluciones y opciones.',
+                pt: 'Informe produto, formato e produção-alvo. Enviamos uma lista curta de soluções e opções.',
+                ko: '제품, 포장 형식, 목표 생산량을 알려주시면 기종/옵션을 추려드립니다.',
+                ja: '製品・包装形態・目標能力をご共有いただければ、機種とオプションを絞り込みます。',
+                ar: 'شارك نوع المنتج وشكل العبوة والقدرة المطلوبة. سنرسل قائمة قصيرة بالحلول والخيارات المناسبة.',
+                th: 'แจ้งสินค้า รูปแบบบรรจุภัณฑ์ และกำลังการผลิตเป้าหมาย เราจะคัดรุ่น/ออปชันที่เหมาะสมให้',
+                vi: 'Gửi sản phẩm, kiểu bao bì và mục tiêu công suất. Chúng tôi sẽ đề xuất danh sách phù hợp.',
+                de: 'Senden Sie Produkt, Verpackungsformat und Zielleistung. Wir erstellen eine Shortlist mit Optionen.',
+              } as Record<string, string>)[lang] || 'Share your product, packaging format, and target output. We will shortlist machine types and options that fit.'}
             </p>
             <div className="flex shrink-0 gap-3">
               <ButtonLink href={`/${lang}/recommend`} size="md">

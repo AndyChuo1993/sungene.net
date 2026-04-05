@@ -59,7 +59,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
   const content: Record<string, { title: string; desc: string; cats: { title: string; desc: string; href: string }[] }> = {
     en: {
       title: 'Industries & Applications',
-      desc: 'Our machinery serves diverse industries worldwide. By understanding your product type, workflow, and output expectations, we recommend the most suitable equipment for your production environment.',
+      desc: 'Use this page to map your product category to the right machine families. For a fast recommendation, share product state, package type, fill range, target speed, and basic line layout.',
       cats: [
         { title: 'Powder Products', desc: 'Spices, coffee, milk powder, flour, detergent, pharmaceutical powder — filling, dosing, and packaging machinery.', href: `/${lang}/machinery/packaging` },
         { title: 'Liquid Products', desc: 'Beverages, sauces, cooking oil, cosmetics, chemicals — filling, sealing, conveying, and labeling systems.', href: `/${lang}/machinery/filling-sealing` },
@@ -70,7 +70,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     cn: {
       title: '行业与应用',
-      desc: '我们的机械服务于全球多种行业。通过了解您的产品类型、工作流和产能期望，我们推荐最适合您生产环境的设备。',
+      desc: '这页用于把“产品类型”对应到合适的设备方向。若需快速推荐，请提供产品形态、包装/容器、灌装范围、目标产速，以及现场布局概况。',
       cats: [
         { title: '粉末产品', desc: '香料、咖啡、奶粉、面粉、洗涤剂、医药粉末——灌装、计量和包装机械。', href: `/${lang}/machinery/packaging` },
         { title: '液体产品', desc: '饮料、酱料、食用油、化妆品、化工品——灌装、封口、输送和贴标系统。', href: `/${lang}/machinery/filling-sealing` },
@@ -81,7 +81,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     zh: {
       title: '產業與應用',
-      desc: '我們的機械服務於全球多種行業。透過了解您的產品類型、工作流和產能期望，我們推薦最適合您生產環境的設備。',
+      desc: '這頁用來把「產品類型」對應到合適的設備方向。若需要快速推薦，請提供產品形態、包材/容器、灌裝範圍、目標產速，以及現場佈局概況。',
       cats: [
         { title: '粉末產品', desc: '香料、咖啡、奶粉、麵粉、洗滌劑、醫藥粉末——灌裝、計量和包裝機械。', href: `/${lang}/machinery/packaging` },
         { title: '液體產品', desc: '飲料、醬料、食用油、化妝品、化工品——灌裝、封口、輸送和貼標系統。', href: `/${lang}/machinery/filling-sealing` },
@@ -92,7 +92,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     fr: {
       title: 'Industries et applications',
-      desc: 'Nos machines servent diverses industries dans le monde entier. En comprenant votre type de produit, votre flux de travail et vos attentes de production, nous recommandons l\'équipement le plus adapté.',
+      desc: 'Cette page aide à relier votre catégorie de produit aux familles de machines. Pour une recommandation rapide, indiquez l’état du produit, le format, la plage de dosage, la cadence cible et le layout.',
       cats: [
         { title: 'Produits en poudre', desc: 'Épices, café, lait en poudre, farine, détergents, poudre pharmaceutique — machines de dosage, remplissage et conditionnement.', href: `/${lang}/machinery/packaging` },
         { title: 'Produits liquides', desc: 'Boissons, sauces, huile alimentaire, cosmétiques, produits chimiques — systèmes de remplissage, scellage, convoyage et étiquetage.', href: `/${lang}/machinery/filling-sealing` },
@@ -103,7 +103,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     es: {
       title: 'Industrias y aplicaciones',
-      desc: 'Nuestra maquinaria sirve a diversas industrias en todo el mundo. Al comprender su tipo de producto, flujo de trabajo y expectativas de producción, recomendamos el equipo más adecuado.',
+      desc: 'Esta página conecta su categoría de producto con familias de máquinas. Para una recomendación rápida, comparta estado del producto, formato, rango de llenado, velocidad objetivo y layout de línea.',
       cats: [
         { title: 'Productos en polvo', desc: 'Especias, café, leche en polvo, harina, detergentes, polvo farmacéutico — máquinas de dosificación, llenado y envasado.', href: `/${lang}/machinery/packaging` },
         { title: 'Productos líquidos', desc: 'Bebidas, salsas, aceite de cocina, cosméticos, químicos — sistemas de llenado, sellado, transporte y etiquetado.', href: `/${lang}/machinery/filling-sealing` },
@@ -114,7 +114,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     pt: {
       title: 'Indústrias e Aplicações',
-      desc: 'Nosso maquinário atende diversas indústrias em todo o mundo. Ao compreender o tipo de produto, fluxo de trabalho e expectativas de produção, recomendamos o equipamento mais adequado para seu ambiente de produção.',
+      desc: 'Esta página liga sua categoria de produto às famílias de máquinas. Para uma recomendação rápida, informe estado do produto, formato, faixa de dosagem, velocidade-alvo e layout da linha.',
       cats: [
         { title: 'Produtos em Pó', desc: 'Temperos, café, leite em pó, farinha, detergente, pó farmacêutico — máquinas de envase, dosagem e embalagem.', href: `/${lang}/machinery/packaging` },
         { title: 'Produtos Líquidos', desc: 'Bebidas, molhos, óleo de cozinha, cosméticos, produtos químicos — sistemas de envase, selagem, transporte e rotulagem.', href: `/${lang}/machinery/filling-sealing` },
@@ -125,7 +125,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     ko: {
       title: '산업 및 응용 분야',
-      desc: '당사의 기계는 전 세계 다양한 산업에 서비스를 제공합니다. 제품 유형, 작업 흐름 및 생산 기대치를 파악하여 생산 환경에 가장 적합한 장비를 추천합니다.',
+      desc: '이 페이지는 제품 카테고리별로 적합한 장비군을 빠르게 찾기 위한 안내입니다. 추천이 필요하면 제품 형태, 포장 형식, 충전 범위, 목표 속도, 라인 레이아웃을 알려주세요.',
       cats: [
         { title: '분말 제품', desc: '향신료, 커피, 분유, 밀가루, 세제, 의약 분말 — 충전, 계량 및 포장 기계.', href: `/${lang}/machinery/packaging` },
         { title: '액체 제품', desc: '음료, 소스, 식용유, 화장품, 화학제품 — 충전, 밀봉, 이송 및 라벨링 시스템.', href: `/${lang}/machinery/filling-sealing` },
@@ -136,7 +136,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     ja: {
       title: '業界・用途',
-      desc: '当社の機械は世界中の多様な業界にサービスを提供しています。お客様の製品タイプ、ワークフロー、生産目標を理解し、最適な設備をご提案します。',
+      desc: 'このページは、製品カテゴリーから設備の方向性を素早く把握するためのガイドです。推奨が必要な場合は、製品状態、包装形態、充填範囲、目標能力、ラインレイアウトをご共有ください。',
       cats: [
         { title: '粉末製品', desc: 'スパイス、コーヒー、粉ミルク、小麦粉、洗剤、医薬品粉末 — 充填、計量、包装機械。', href: `/${lang}/machinery/packaging` },
         { title: '液体製品', desc: '飲料、ソース、食用油、化粧品、化学薬品 — 充填、シーリング、搬送、ラベリングシステム。', href: `/${lang}/machinery/filling-sealing` },
@@ -147,7 +147,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     ar: {
       title: 'الصناعات والتطبيقات',
-      desc: 'تخدم ماكيناتنا صناعات متنوعة حول العالم. من خلال فهم نوع منتجك وسير العمل وتوقعات الإنتاج، نوصي بالمعدات الأنسب لبيئة الإنتاج الخاصة بك.',
+      desc: 'هذه الصفحة تربط فئة منتجك بعائلات الماكينات المناسبة. للحصول على توصية سريعة، شارك حالة المنتج ونوع العبوة ونطاق التعبئة والسرعة المطلوبة وتخطيط الخط.',
       cats: [
         { title: 'منتجات المساحيق', desc: 'التوابل، القهوة، الحليب المجفف، الدقيق، المنظفات، المساحيق الدوائية — ماكينات التعبئة والجرعات والتغليف.', href: `/${lang}/machinery/packaging` },
         { title: 'المنتجات السائلة', desc: 'المشروبات، الصلصات، زيت الطبخ، مستحضرات التجميل، المواد الكيميائية — أنظمة التعبئة والختم والنقل ووضع العلامات.', href: `/${lang}/machinery/filling-sealing` },
@@ -158,7 +158,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     th: {
       title: 'อุตสาหกรรมและการประยุกต์ใช้',
-      desc: 'เครื่องจักรของเราให้บริการอุตสาหกรรมที่หลากหลายทั่วโลก ด้วยการเข้าใจประเภทผลิตภัณฑ์ ขั้นตอนการทำงาน และความคาดหวังด้านการผลิตของคุณ เราจะแนะนำอุปกรณ์ที่เหมาะสมที่สุด',
+      desc: 'หน้านี้ช่วยจับคู่ “ประเภทสินค้า” กับกลุ่มเครื่องจักรที่เหมาะสม หากต้องการคำแนะนำเร็ว ๆ โปรดแจ้งลักษณะสินค้า รูปแบบบรรจุภัณฑ์ ช่วงการบรรจุ ความเร็วเป้าหมาย และเลย์เอาต์ไลน์',
       cats: [
         { title: 'ผลิตภัณฑ์ผง', desc: 'เครื่องเทศ, กาแฟ, นมผง, แป้ง, ผงซักฟอก, ผงยา — เครื่องบรรจุ, ตวงจ่าย และบรรจุภัณฑ์', href: `/${lang}/machinery/packaging` },
         { title: 'ผลิตภัณฑ์ของเหลว', desc: 'เครื่องดื่ม, ซอส, น้ำมันปรุงอาหาร, เครื่องสำอาง, เคมีภัณฑ์ — ระบบบรรจุ, ปิดผนึก, ลำเลียง และติดฉลาก', href: `/${lang}/machinery/filling-sealing` },
@@ -169,7 +169,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     vi: {
       title: 'Ngành Công Nghiệp & Ứng Dụng',
-      desc: 'Máy móc của chúng tôi phục vụ nhiều ngành công nghiệp trên toàn thế giới. Bằng cách hiểu loại sản phẩm, quy trình làm việc và kỳ vọng sản xuất, chúng tôi đề xuất thiết bị phù hợp nhất.',
+      desc: 'Trang này giúp ghép “nhóm sản phẩm” với các dòng máy phù hợp. Để nhận tư vấn nhanh, hãy gửi trạng thái sản phẩm, kiểu bao bì, dải chiết rót, tốc độ mục tiêu và layout dây chuyền.',
       cats: [
         { title: 'Sản phẩm Bột', desc: 'Gia vị, cà phê, sữa bột, bột mì, bột giặt, bột dược phẩm — máy chiết rót, định lượng và đóng gói.', href: `/${lang}/machinery/packaging` },
         { title: 'Sản phẩm Lỏng', desc: 'Đồ uống, nước sốt, dầu ăn, mỹ phẩm, hóa chất — hệ thống chiết rót, seal, băng tải và dán nhãn.', href: `/${lang}/machinery/filling-sealing` },
@@ -180,7 +180,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
     de: {
       title: 'Branchen & Anwendungen',
-      desc: 'Unsere Maschinen bedienen verschiedenste Branchen weltweit. Durch das Verständnis Ihres Produkttyps, Arbeitsablaufs und Ihrer Produktionserwartungen empfehlen wir die am besten geeignete Ausrüstung.',
+      desc: 'Diese Seite ordnet Produktkategorien den passenden Maschinenfamilien zu. Für eine schnelle Empfehlung: Produktzustand, Verpackungsformat, Füllbereich, Zielleistung und Layout der Linie senden.',
       cats: [
         { title: 'Pulverprodukte', desc: 'Gewürze, Kaffee, Milchpulver, Mehl, Waschmittel, Pharmapulver — Abfüll-, Dosier- und Verpackungsmaschinen.', href: `/${lang}/machinery/packaging` },
         { title: 'Flüssigprodukte', desc: 'Getränke, Soßen, Speiseöl, Kosmetik, Chemikalien — Abfüll-, Versiegelungs-, Förder- und Etikettiersysteme.', href: `/${lang}/machinery/filling-sealing` },
