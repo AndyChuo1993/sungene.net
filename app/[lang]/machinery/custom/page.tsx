@@ -4,9 +4,10 @@ import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -159,6 +160,17 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
         desc={t.p1}
         image={{ src: heroPhoto, alt: 'Custom machinery engineering in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
+      <section className="bg-white py-6">
+        <Container className="max-w-5xl">
+          <Breadcrumbs
+            lang={lang}
+            items={[
+              { label: BREADCRUMB_LABELS[lang].machinery, href: `/${lang}/machinery` },
+              { label: t.title, href: `/${lang}/machinery/custom` },
+            ]}
+          />
+        </Container>
+      </section>
       <section className="py-16 sm:py-20">
         <Container className="max-w-5xl">
           <div className="max-w-3xl">

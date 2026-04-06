@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/Button'
 import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
@@ -494,6 +495,17 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
           aspectClassName: 'aspect-[16/10]',
         }}
       />
+      <section className="bg-white py-6">
+        <Container className="max-w-6xl">
+          <Breadcrumbs
+            lang={lang}
+            items={[
+              { label: BREADCRUMB_LABELS[lang].machinery, href: `/${lang}/machinery` },
+              { label: t.heroTitle, href: `/${lang}/machines/liquid-filling-machine` },
+            ]}
+          />
+        </Container>
+      </section>
 
       {/* ── 2. Who It's For ──────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
