@@ -6,8 +6,9 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
@@ -170,6 +171,18 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          inLanguage: LANG_META[lang].htmlLang,
+          name: t.title,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: `${SITE_URL}/${lang}/machines/conveyor-system` },
+            { '@type': 'ListItem', position: 2, name: 'Conveyor Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/conveyor-system` },
+          ],
+        }}
+      />
       <PageHero
         kicker={({ en: 'CONVEYING & AUTOMATION', cn: '输送与自动化', zh: '輸送與自動化', fr: 'CONVOYAGE & AUTOMATISATION', es: 'TRANSPORTE Y AUTOMATIZACIÓN', pt: 'TRANSPORTE E AUTOMAÇÃO', ko: '컨베이어 및 자동화', ja: '搬送・自動化', ar: 'النقل والأتمتة', th: 'ลำเลียงและอัตโนมัติ', vi: 'BĂNG TẢI & TỰ ĐỘNG HÓA', de: 'FÖRDERUNG & AUTOMATISIERUNG' } as Record<string,string>)[lang] || 'CONVEYING & AUTOMATION'}
         title={t.title}

@@ -5,9 +5,10 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -154,6 +155,21 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          inLanguage: LANG_META[lang].htmlLang,
+          name: t.title,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: `${SITE_URL}/${lang}/machinery/packaging` },
+            { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: `${SITE_URL}/${lang}/machinery/food-processing` },
+            { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', item: `${SITE_URL}/${lang}/machinery/filling-sealing` },
+            { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', item: `${SITE_URL}/${lang}/machinery/conveying-automation` },
+            { '@type': 'ListItem', position: 5, name: 'Contact', item: `${SITE_URL}/${lang}/contact` },
+          ],
+        }}
+      />
       <PageHero
         kicker={({ en: 'CUSTOM ENGINEERING', cn: '定制工程', zh: '客製工程', fr: 'SUR MESURE', es: 'INGENIERÍA A MEDIDA', pt: 'ENGENHARIA SOB MEDIDA', ko: '맞춤 엔지니어링', ja: 'カスタム設計', ar: 'هندسة مخصصة', th: 'งานสั่งทำ', vi: 'TÙY CHỈNH', de: 'SONDERANFERTIGUNG' } as Record<string,string>)[lang] || 'CUSTOM ENGINEERING'}
         title={t.title}

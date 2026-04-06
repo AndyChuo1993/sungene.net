@@ -6,8 +6,9 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
@@ -168,8 +169,22 @@ export default async function FillingSeaingPage({ params }: { params: Promise<{ 
   }
   const t = content[lang] || content['en']
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Liquid Filling Machine', item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
+      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 4, name: 'Powder Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine` },
+    ],
+  }
+
   return (
     <>
+      <JsonLd data={itemListSchema} />
       <PageHero
         kicker={({ en: 'FILLING & SEALING', cn: '灌装与封口', zh: '灌裝與封口', fr: 'REMPLISSAGE & SCELLAGE', es: 'LLENADO Y SELLADO', pt: 'ENVASE E SELAGEM', ko: '충전 및 밀봉', ja: '充填・封口', ar: 'التعبئة والختم', th: 'บรรจุและปิดผนึก', vi: 'CHIẾT RÓT & SEAL', de: 'ABFÜLLUNG & VERSIEGELUNG' } as Record<string,string>)[lang] || 'FILLING & SEALING'}
         title={t.title}

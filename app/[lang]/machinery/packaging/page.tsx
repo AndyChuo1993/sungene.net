@@ -6,8 +6,9 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
@@ -168,8 +169,24 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
   }
   const t = content[lang] || content['en']
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
+      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 4, name: 'Pouch Packing Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine` },
+      { '@type': 'ListItem', position: 5, name: 'Powder Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine` },
+      { '@type': 'ListItem', position: 6, name: 'Liquid Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine` },
+    ],
+  }
+
   return (
     <>
+      <JsonLd data={itemListSchema} />
       <PageHero
         kicker={({ en: 'PACKAGING EQUIPMENT', cn: '包装设备', zh: '包裝設備', fr: 'ÉQUIPEMENT D\'EMBALLAGE', es: 'EQUIPO DE EMPAQUE', pt: 'EQUIPAMENTO DE EMBALAGEM', ko: '포장 장비', ja: '包装機器', ar: 'معدات التعبئة والتغليف', th: 'อุปกรณ์บรรจุภัณฑ์', vi: 'THIẾT BỊ ĐÓNG GÓI', de: 'VERPACKUNGSANLAGEN' } as Record<string,string>)[lang] || 'PACKAGING EQUIPMENT'}
         title={t.title}

@@ -5,9 +5,10 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -154,6 +155,18 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          inLanguage: LANG_META[lang].htmlLang,
+          name: t.title,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: `${SITE_URL}/${lang}/machines/snack-processing-line` },
+            { '@type': 'ListItem', position: 2, name: 'Snack Processing Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/snack-processing-line` },
+          ],
+        }}
+      />
       <PageHero
         kicker={({ en: 'FOOD PROCESSING', cn: '食品加工', zh: '食品加工', fr: 'AGROALIMENTAIRE', es: 'PROCESAMIENTO DE ALIMENTOS', pt: 'PROCESSAMENTO DE ALIMENTOS', ko: '식품 가공', ja: '食品加工', ar: 'معالجة الأغذية', th: 'แปรรูปอาหาร', vi: 'CHẾ BIẾN THỰC PHẨM', de: 'LEBENSMITTELVERARBEITUNG' } as Record<string,string>)[lang] || 'FOOD PROCESSING'}
         title={t.title}
