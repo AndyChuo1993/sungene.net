@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -1509,6 +1509,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    inLanguage: LANG_META[lang].htmlLang,
     name: 'Snack & Food Processing Line',
     description: 'SunGene designs and manufactures complete snack processing lines including continuous fryers, batch fryers, rotary drum roasters, seasoning tumblers, cooling conveyors, multi-head weighers, VFFS packaging, and oil filtration systems for chips, nuts, extruded snacks, and pet food.',
     url: `${SITE_URL}/${lang}/machines/snack-processing-line`,
@@ -1529,9 +1530,9 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
     '@type': 'BreadcrumbList',
     inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Snack Processing Line', item: `${SITE_URL}/${lang}/machines/snack-processing-line` },
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/snack-processing-line` },
     ],
   }
 

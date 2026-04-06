@@ -17,6 +17,21 @@ export const LANG_META: Record<Lang, { htmlLang: string; hrefLang: string; ogLoc
   de: { htmlLang: 'de', hrefLang: 'de', ogLocale: 'de_DE', dir: 'ltr' },
 }
 
+export const BREADCRUMB_LABELS: Record<Lang, { home: string; machinery: string }> = {
+  en: { home: 'Home', machinery: 'Machinery' },
+  zh: { home: '首頁', machinery: '機械目錄' },
+  cn: { home: '首页', machinery: '机械目录' },
+  fr: { home: 'Accueil', machinery: 'Catalogue' },
+  es: { home: 'Inicio', machinery: 'Maquinaria' },
+  pt: { home: 'Início', machinery: 'Máquinas' },
+  ko: { home: '홈', machinery: '기계' },
+  ja: { home: 'ホーム', machinery: '機械' },
+  ar: { home: 'الرئيسية', machinery: 'الماكينات' },
+  th: { home: 'หน้าแรก', machinery: 'เครื่องจักร' },
+  vi: { home: 'Trang chủ', machinery: 'Máy móc' },
+  de: { home: 'Startseite', machinery: 'Maschinen' },
+}
+
 export function normalizeLang(raw: string | undefined | null): Lang {
   if (!raw) return 'en'
   return (ALL_LANGS.includes(raw as Lang) ? raw : 'en') as Lang
@@ -118,4 +133,3 @@ export function buildPageMetadata(opts: {
     robots: buildRobots(),
   }
 }
-

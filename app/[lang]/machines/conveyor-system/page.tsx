@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -483,6 +483,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    inLanguage: LANG_META[lang].htmlLang,
     name: 'Conveyor & Automation Systems',
     description: 'SunGene designs and manufactures belt conveyors, bucket elevators, screw conveyors, PLC/HMI control systems, robotic palletizers, and complete production line automation for food, packaging, chemical, and industrial applications.',
     url: `${SITE_URL}/${lang}/machines/conveyor-system`,
@@ -503,9 +504,9 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     '@type': 'BreadcrumbList',
     inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Conveyor & Automation Systems', item: `${SITE_URL}/${lang}/machines/conveyor-system` },
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/conveyor-system` },
     ],
   }
 

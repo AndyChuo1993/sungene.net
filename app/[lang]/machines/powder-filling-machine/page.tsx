@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -1304,6 +1304,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    inLanguage: LANG_META[lang].htmlLang,
     name: 'Powder Filling & Packaging Machine',
     description: 'SunGene manufactures auger fillers, volumetric fillers, multi-head weigher systems, and VFFS powder filling lines for flour, spice, coffee, chemical, and industrial powders.',
     url: `${SITE_URL}/${lang}/machines/powder-filling-machine`,
@@ -1324,9 +1325,9 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     '@type': 'BreadcrumbList',
     inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Powder Filling Machine', item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
     ],
   }
 

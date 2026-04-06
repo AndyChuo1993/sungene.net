@@ -45,6 +45,8 @@ This file provides a structured overview of key pages and topics on ${SITE_URL}.
 ## Key pages
 - Recommendation / machine selector: ${SITE_URL}/en/recommend
 - Machinery catalog: ${SITE_URL}/en/machinery
+- Industries & applications: ${SITE_URL}/en/industries
+- Automation solutions: ${SITE_URL}/en/solutions
 - Buying guides & resources: ${SITE_URL}/en/resources
 - Contact / quote request: ${SITE_URL}/en/contact
 

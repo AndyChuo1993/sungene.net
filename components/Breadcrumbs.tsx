@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
+import { LANG_META } from '@/lib/seo'
 
 interface BreadcrumbItem {
   label: string
@@ -21,6 +22,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    inLanguage: LANG_META[lang].htmlLang,
     itemListElement: jsonLdItems.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,

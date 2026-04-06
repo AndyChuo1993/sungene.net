@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -449,6 +449,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    inLanguage: LANG_META[lang].htmlLang,
     name: 'Liquid Filling Machine',
     description: 'SunGene manufactures piston, gravity, overflow, peristaltic pump, and flow meter liquid filling machines for food, beverage, cosmetic, chemical, and pharmaceutical applications.',
     url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
@@ -469,9 +470,9 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     '@type': 'BreadcrumbList',
     inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
     ],
   }
 

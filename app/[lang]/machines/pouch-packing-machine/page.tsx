@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -664,6 +664,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    inLanguage: LANG_META[lang].htmlLang,
     name: 'Pouch Packing Machine',
     description: 'SunGene manufactures VFFS, HFFS, pre-made pouch, stick pack, and vacuum packing machines for snacks, food, pharmaceutical, and consumer goods flexible packaging.',
     url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
@@ -684,9 +685,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     '@type': 'BreadcrumbList',
     inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: 'Pouch Packing Machine', item: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
+      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
     ],
   }
 
