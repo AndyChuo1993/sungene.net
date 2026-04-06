@@ -9,12 +9,36 @@ function getDefaultLocaleByHost(host: string | null) {
 
 function inferMachineFromLegacyPath(path: string): string | null {
   const s = path.toLowerCase()
-  if (s.includes('powder') || s.includes('auger') || s.includes('spice') || s.includes('flour')) return 'powder-filling-machine'
-  if (s.includes('liquid') || s.includes('piston') || s.includes('pump') || s.includes('sauce')) return 'liquid-filling-machine'
-  if (s.includes('pouch') || s.includes('vffs') || s.includes('hffs') || s.includes('bag') || s.includes('sachet')) return 'pouch-packing-machine'
-  if (s.includes('snack') || s.includes('fryer') || s.includes('roaster') || s.includes('chips') || s.includes('nuts')) return 'snack-processing-line'
-  if (s.includes('conveyor') || s.includes('elevator') || s.includes('automation') || s.includes('bucket')) return 'conveyor-system'
+  if (s.includes('powder') || s.includes('auger') || s.includes('spice') || s.includes('flour') || s.includes('detergent')) return 'powder-filling-machine'
+  if (s.includes('liquid') || s.includes('piston') || s.includes('pump') || s.includes('sauce') || s.includes('bottle') || s.includes('jar')) return 'liquid-filling-machine'
+  if (
+    s.includes('pouch') ||
+    s.includes('vffs') ||
+    s.includes('hffs') ||
+    s.includes('flow-wrapper') ||
+    s.includes('flowwrapper') ||
+    s.includes('stick') ||
+    s.includes('bag') ||
+    s.includes('sachet')
+  ) {
+    return 'pouch-packing-machine'
+  }
+  if (s.includes('snack') || s.includes('fryer') || s.includes('roaster') || s.includes('chips') || s.includes('nuts') || s.includes('seasoning')) return 'snack-processing-line'
+  if (s.includes('conveyor') || s.includes('elevator') || s.includes('automation') || s.includes('bucket') || s.includes('pallet')) return 'conveyor-system'
   return null
+}
+
+function inferLegacyDestination(restPath: string): string {
+  const s = restPath.toLowerCase()
+  const m = inferMachineFromLegacyPath(s)
+  if (m) return `/machines/${m}`
+  if (s.includes('analysis') || s.includes('report') || s.includes('service')) return '/solutions'
+  if (s.includes('custom') || s.includes('oem') || s.includes('odm')) return '/machinery/custom'
+  if (s.includes('convey') || s.includes('automation') || s.includes('plc')) return '/machinery/conveying-automation'
+  if (s.includes('food') || s.includes('processing') || s.includes('fryer') || s.includes('roaster')) return '/machinery/food-processing'
+  if (s.includes('fill') || s.includes('sealing') || s.includes('cap') || s.includes('capping')) return '/machinery/filling-sealing'
+  if (s.includes('pack') || s.includes('wrap') || s.includes('shrink') || s.includes('carton')) return '/machinery/packaging'
+  return '/machinery'
 }
 
 function plain(status: number, body: string) {
@@ -50,6 +74,11 @@ export function middleware(request: NextRequest) {
   const matchLang = pathname.match(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)(?:\/|$)/)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
   const restPath = matchLang ? pathname.replace(new RegExp(`^/${currentLang}(?=/|$)`), '') || '/' : pathname
+
+  if (searchParams.has('post_type') || searchParams.has('p')) {
+    const lang = currentLang || defaultLocale
+    return NextResponse.redirect(new URL(`/${lang}/machinery`, request.url), 308)
+  }
 
   // === 4. Handle legacy / WordPress / bot paths (avoid polluting indexing signals) ===
   const legacy410Prefixes = [
@@ -88,13 +117,8 @@ export function middleware(request: NextRequest) {
   const matchedLegacy = legacyRedirectPrefixes.find((p) => restPath === p || restPath.startsWith(`${p}/`))
   if (matchedLegacy) {
     const lang = currentLang || defaultLocale
-    const inferred = inferMachineFromLegacyPath(restPath)
-    const targetPath = inferred
-      ? `/${lang}/machines/${inferred}`
-      : restPath.includes('analysis') || restPath.includes('report') || restPath.includes('service')
-        ? `/${lang}/solutions`
-        : `/${lang}/machinery`
-    return NextResponse.redirect(new URL(targetPath, request.url), 308)
+    const suffix = inferLegacyDestination(restPath)
+    return NextResponse.redirect(new URL(`/${lang}${suffix}`, request.url), 308)
   }
 
   // === 6. Normalize /zh/cn → /cn ===
