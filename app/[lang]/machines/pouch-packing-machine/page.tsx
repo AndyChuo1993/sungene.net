@@ -858,7 +858,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/topic/pouch-packing-machine`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>

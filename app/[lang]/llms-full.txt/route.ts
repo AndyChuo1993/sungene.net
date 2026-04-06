@@ -43,16 +43,32 @@ export async function GET(_req: NextRequest, context: { params: Promise<{ lang: 
   const t = tx[lang]
 
   const base = `${SITE_URL}/${lang}`
+  const clusterLabels: Record<Lang, { hub: string; pouch: string; powder: string; liquid: string; snack: string; conveyor: string }> = {
+    en: { hub: 'Hub', pouch: 'Pouch packing', powder: 'Powder filling', liquid: 'Liquid filling', snack: 'Snack processing', conveyor: 'Conveyors' },
+    zh: { hub: '索引頁', pouch: '袋裝包裝', powder: '粉末灌裝', liquid: '液體灌裝', snack: '休閒食品加工線', conveyor: '輸送系統' },
+    cn: { hub: '索引页', pouch: '袋装包装', powder: '粉末灌装', liquid: '液体灌装', snack: '休闲食品加工线', conveyor: '输送系统' },
+    fr: { hub: 'Hub', pouch: 'Ensachage (pouch)', powder: 'Remplissage poudre', liquid: 'Remplissage liquide', snack: 'Ligne snack', conveyor: 'Convoyeurs' },
+    es: { hub: 'Hub', pouch: 'Empaque en bolsa', powder: 'Llenado de polvo', liquid: 'Llenado de líquidos', snack: 'Línea de snacks', conveyor: 'Transporte' },
+    pt: { hub: 'Hub', pouch: 'Embalagem em saco', powder: 'Envase de pó', liquid: 'Envase de líquidos', snack: 'Linha de snacks', conveyor: 'Transporte' },
+    ko: { hub: '허브', pouch: '파우치 포장', powder: '분말 충전', liquid: '액체 충전', snack: '스낵 라인', conveyor: '컨베이어' },
+    ja: { hub: 'ハブ', pouch: 'パウチ包装', powder: '粉体充填', liquid: '液体充填', snack: 'スナックライン', conveyor: '搬送' },
+    ar: { hub: 'صفحة', pouch: 'تعبئة الأكياس', powder: 'تعبئة المساحيق', liquid: 'تعبئة السوائل', snack: 'خط السناكات', conveyor: 'النقل' },
+    th: { hub: 'ฮับ', pouch: 'บรรจุถุง', powder: 'บรรจุผง', liquid: 'บรรจุของเหลว', snack: 'ไลน์สแน็ค', conveyor: 'ลำเลียง' },
+    vi: { hub: 'Hub', pouch: 'Đóng gói túi', powder: 'Chiết rót bột', liquid: 'Chiết rót chất lỏng', snack: 'Dây chuyền snack', conveyor: 'Băng tải' },
+    de: { hub: 'Hub', pouch: 'Beutelverpackung', powder: 'Pulverabfüllung', liquid: 'Flüssigabfüllung', snack: 'Snack-Linie', conveyor: 'Fördertechnik' },
+  }
+  const cl = clusterLabels[lang] || clusterLabels.en
   const clusters = [
-    { label: 'Pouch packing', machine: 'pouch-packing-machine' as const },
-    { label: 'Powder filling', machine: 'powder-filling-machine' as const },
-    { label: 'Liquid filling', machine: 'liquid-filling-machine' as const },
-    { label: 'Snack processing', machine: 'snack-processing-line' as const },
-    { label: 'Conveyors', machine: 'conveyor-system' as const },
+    { label: cl.pouch, machine: 'pouch-packing-machine' as const },
+    { label: cl.powder, machine: 'powder-filling-machine' as const },
+    { label: cl.liquid, machine: 'liquid-filling-machine' as const },
+    { label: cl.snack, machine: 'snack-processing-line' as const },
+    { label: cl.conveyor, machine: 'conveyor-system' as const },
   ].map((c) => {
     const items = getResourceArticlesByMachine(c.machine, lang, 8)
+    const hub = `  - ${cl.hub}: ${base}/resources/topic/${c.machine}`
     const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
-    return `- ${c.label}\n${lines}`
+    return `- ${c.label}\n${hub}\n${lines}`
   }).join('\n')
 
   const body = `${t.title}

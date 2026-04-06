@@ -679,6 +679,23 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
+      <section className="py-8 bg-white">
+        <Container>
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+            <h2 className="text-base font-bold text-gray-950">
+              {({ en: 'Guides by machine', cn: '按机型浏览', zh: '依機型瀏覽', fr: 'Guides par machine', es: 'Guías por máquina', pt: 'Guias por máquina', ko: '기계별 가이드', ja: '機種別ガイド', ar: 'أدلة حسب الماكينة', th: 'คู่มือตามเครื่อง', vi: 'Hướng dẫn theo máy', de: 'Ratgeber nach Maschine' } as Record<string, string>)[lang] || 'Guides by machine'}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Category nav anchors */}
       <div className="sticky top-0 z-20 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
         <Container>

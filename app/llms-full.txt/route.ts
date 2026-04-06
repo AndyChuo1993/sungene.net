@@ -11,8 +11,9 @@ export async function GET() {
     { label: 'Conveyors', machine: 'conveyor-system' as const },
   ].map((c) => {
     const items = getResourceArticlesByMachine(c.machine, 'en', 8)
+    const hub = `  - Hub: ${base}/resources/topic/${c.machine}`
     const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
-    return `- ${c.label}\n${lines}`
+    return `- ${c.label}\n${hub}\n${lines}`
   }).join('\n')
 
   const body = `# SunGene Co., LTD. — Full Reference

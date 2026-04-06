@@ -308,7 +308,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
                       </li>
                     ))}
                     <li>
-                      <a href={`/${l}/resources`} className="text-accent-600 hover:underline">{i18n.readMoreLabel}</a>
+                      <a href={article.relatedMachine ? `/${l}/resources/topic/${article.relatedMachine}` : `/${l}/resources`} className="text-accent-600 hover:underline">{i18n.readMoreLabel}</a>
                     </li>
                   </ul>
                 </div>

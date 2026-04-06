@@ -62,10 +62,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     item(`${baseUrl}/llms-full.txt`, 'monthly', 0.2),
   ]
 
+  const geoLocalizedSitemap = langs.flatMap((lang) => [
+    item(`${baseUrl}/${lang}/llms.txt`, 'monthly', 0.2),
+    item(`${baseUrl}/${lang}/llms-full.txt`, 'monthly', 0.2),
+  ])
+
+  const topicMachines = [
+    'pouch-packing-machine',
+    'powder-filling-machine',
+    'liquid-filling-machine',
+    'snack-processing-line',
+    'conveyor-system',
+  ]
+  const topicSitemap = topicMachines.flatMap((m) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'monthly', 0.6))
+  )
+
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
   )
 
-  return [...homepages, ...machineSitemap, ...machinerySitemap, ...supportSitemap, ...geoSitemap, ...articleSitemap]
+  return [
+    ...homepages,
+    ...machineSitemap,
+    ...machinerySitemap,
+    ...supportSitemap,
+    ...topicSitemap,
+    ...geoSitemap,
+    ...geoLocalizedSitemap,
+    ...articleSitemap,
+  ]
 }
