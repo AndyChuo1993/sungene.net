@@ -8,9 +8,8 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import { SITE_URL } from '@/lib/siteConfig'
 import type { Lang } from '@/lib/i18n'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
-
-const MACHINES = ['pouch-packing-machine', 'powder-filling-machine', 'liquid-filling-machine', 'snack-processing-line', 'conveyor-system'] as const
-type Machine = typeof MACHINES[number]
+import { TOPIC_HUB_FAQ_TITLE, TOPIC_MACHINES, getTopicHubFaqs } from '@/lib/topicHubFaq'
+import type { TopicMachine } from '@/lib/topicHubFaq'
 
 const resourcesLabel: Record<Lang, string> = {
   en: 'Resources',
@@ -27,7 +26,7 @@ const resourcesLabel: Record<Lang, string> = {
   de: 'Ressourcen',
 }
 
-const machineLabel: Record<Lang, Record<Machine, string>> = {
+const machineLabel: Record<Lang, Record<TopicMachine, string>> = {
   en: {
     'pouch-packing-machine': 'Pouch packing',
     'powder-filling-machine': 'Powder filling',
@@ -241,14 +240,14 @@ export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   const langs: Lang[] = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
-  return langs.flatMap((lang) => MACHINES.map((machine) => ({ lang, machine })))
+  return langs.flatMap((lang) => TOPIC_MACHINES.map((machine) => ({ lang, machine })))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; machine: string }> }): Promise<Metadata> {
   const { lang, machine } = await params
   const l = normalizeLang(lang)
-  if (!MACHINES.includes(machine as Machine)) return {}
-  const m = machine as Machine
+  if (!TOPIC_MACHINES.includes(machine as TopicMachine)) return {}
+  const m = machine as TopicMachine
   const title = `${machineLabel[l][m]} ${tx[l].titleSuffix} | SunGene`
   const description = tx[l].intro
   return buildPageMetadata({
@@ -263,9 +262,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function TopicHubPage({ params }: { params: Promise<{ lang: string; machine: string }> }) {
   const { lang, machine } = await params
   const l = normalizeLang(lang)
-  if (!MACHINES.includes(machine as Machine)) notFound()
-  const m = machine as Machine
+  if (!TOPIC_MACHINES.includes(machine as TopicMachine)) notFound()
+  const m = machine as TopicMachine
   const t = tx[l]
+  const faqs = getTopicHubFaqs(l, m)
 
   const guides = getResourceArticlesByMachine(m, l, 32)
   const title = `${machineLabel[l][m]} ${t.titleSuffix}`
@@ -281,6 +281,17 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
       position: i + 1,
       name: g.title,
       item: `${SITE_URL}/${l}/resources/${g.slug}`,
+    })),
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: LANG_META[l].htmlLang,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
   }
 
@@ -330,7 +341,21 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
         </Container>
       </section>
 
-      <JsonLd data={itemListSchema} />
+      <section className="py-10 sm:py-12 bg-white border-t border-gray-200/60">
+        <Container className="max-w-4xl">
+          <h2 id="faq" className="text-xl font-bold text-gray-950">{TOPIC_HUB_FAQ_TITLE[l] || TOPIC_HUB_FAQ_TITLE.en}</h2>
+          <div className="mt-6 divide-y divide-gray-200">
+            {faqs.map((f) => (
+              <div key={f.q} className="py-5">
+                <h3 className="text-base font-semibold text-gray-950">{f.q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-700">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <JsonLd data={[itemListSchema, faqSchema]} />
     </>
   )
 }

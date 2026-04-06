@@ -1,5 +1,6 @@
 import { SITE_URL } from '@/lib/siteConfig'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
+import { getTopicHubFaqs } from '@/lib/topicHubFaq'
 
 export async function GET() {
   const base = `${SITE_URL}/en`
@@ -12,8 +13,11 @@ export async function GET() {
   ].map((c) => {
     const items = getResourceArticlesByMachine(c.machine, 'en', 8)
     const hub = `  - Hub: ${base}/resources/topic/${c.machine}`
+    const faqs = getTopicHubFaqs('en', c.machine)
+    const faqLines = faqs.map((f) => `    - ${f.q}: ${f.a}`).join('\n')
+    const faq = `  - FAQ\n${faqLines}`
     const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
-    return `- ${c.label}\n${hub}\n${lines}`
+    return `- ${c.label}\n${hub}\n${faq}\n${lines}`
   }).join('\n')
 
   const body = `# SunGene Co., LTD. — Full Reference
