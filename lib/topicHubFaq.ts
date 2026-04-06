@@ -28,7 +28,20 @@ export const TOPIC_HUB_FAQ_TITLE: Record<Lang, string> = {
 
 const faqTx: Record<
   Lang,
-  { q1: string; a1: string; q2: string; a2: string; q3: string; a3: string; q4: string; a4: string }
+  {
+    q1: string
+    a1: string
+    q2: string
+    a2: string
+    q3: string
+    a3: string
+    q4: string
+    a4: string
+    q5: string
+    a5: string
+    q6: string
+    a6: string
+  }
 > = {
   en: {
     q1: 'What do you need to recommend a configuration?',
@@ -39,6 +52,10 @@ const faqTx: Record<
     a3: 'Main factors: ',
     q4: 'Can you run a factory acceptance test (FAT) before shipment?',
     a4: 'Yes. We can run FAT with your product or a confirmed substitute and provide test video and results for handover.',
+    q5: 'What documents are included for installation and handover?',
+    a5: 'Typically: layout, utilities list, manuals, wiring/pneumatic diagrams, spare parts list, and FAT report if applicable.',
+    q6: 'How do we reduce risk before placing a PO?',
+    a6: 'Confirm product and package samples, run FAT, lock key specs (range, speed, footprint), and agree on change parts and acceptance criteria.',
   },
   zh: {
     q1: '要怎麼提供資料，才能快速確認配置並報價？',
@@ -49,6 +66,10 @@ const faqTx: Record<
     a3: '常見影響點：',
     q4: '出貨前可以做出廠測試（FAT）嗎？',
     a4: '可以。可用實際產品或確認替代品做 FAT，提供測試影片與結果作為交付資料。',
+    q5: '交付會包含哪些資料？',
+    a5: '常見交付：佈局/尺寸、用電用氣需求、操作維護手冊、電氣/氣路圖、備品備件清單；若有 FAT 也會附測試結果。',
+    q6: '下單前怎麼把風險降到最低？',
+    a6: '先確認產品與包材樣品、安排 FAT、把重量/產速/場地/接口等關鍵規格鎖定，並約定換型件與驗收標準。',
   },
   cn: {
     q1: '要怎么提供资料，才能快速确认配置并报价？',
@@ -59,6 +80,10 @@ const faqTx: Record<
     a3: '常见影响点：',
     q4: '出货前可以做出厂测试（FAT）吗？',
     a4: '可以。可用实际产品或确认替代品做 FAT，提供测试视频与结果作为交付资料。',
+    q5: '交付会包含哪些资料？',
+    a5: '常见交付：布局/尺寸、用电用气需求、操作维护手册、电气/气路图、备品备件清单；如有 FAT 也会附测试结果。',
+    q6: '下单前怎么把风险降到最低？',
+    a6: '先确认产品与包材样品、安排 FAT、把重量/产速/场地/接口等关键规格锁定，并约定换型件与验收标准。',
   },
   fr: {
     q1: 'Quelles infos faut-il pour recommander une configuration ?',
@@ -69,6 +94,10 @@ const faqTx: Record<
     a3: 'Facteurs principaux : ',
     q4: 'Pouvez-vous faire un test usine (FAT) avant expédition ?',
     a4: 'Oui. FAT avec votre produit (ou substitut validé) et remise de vidéos et résultats de test.',
+    q5: 'Quels documents sont fournis pour l’installation et la réception ?',
+    a5: 'En général : plan d’implantation, liste des utilités, manuels, schémas électrique/pneumatique, liste de pièces, et rapport FAT si applicable.',
+    q6: 'Comment réduire le risque avant commande ?',
+    a6: 'Valider produit et emballage, réaliser un FAT, figer les spécifications clés (plage, cadence, encombrement, interfaces) et définir pièces de changement et critères d’acceptation.',
   },
   es: {
     q1: '¿Qué información necesitan para recomendar una configuración?',
@@ -79,6 +108,10 @@ const faqTx: Record<
     a3: 'Factores principales: ',
     q4: '¿Se puede realizar FAT antes del envío?',
     a4: 'Sí. FAT con su producto (o sustituto validado) y entrega de video y resultados.',
+    q5: '¿Qué documentación se entrega para instalación y recepción?',
+    a5: 'Normalmente: layout, lista de utilidades, manuales, diagramas eléctricos/neumáticos, lista de repuestos y reporte FAT si aplica.',
+    q6: '¿Cómo reducimos el riesgo antes de emitir la orden de compra?',
+    a6: 'Validar muestras de producto y empaque, hacer FAT, fijar especificaciones clave (rango, velocidad, espacio, interfaces) y acordar criterios de aceptación y piezas de cambio.',
   },
   pt: {
     q1: 'Quais informações são necessárias para recomendar a configuração?',
@@ -89,6 +122,10 @@ const faqTx: Record<
     a3: 'Fatores principais: ',
     q4: 'Vocês fazem FAT antes do envio?',
     a4: 'Sim. FAT com seu produto (ou substituto validado) e entrega de vídeo e resultados.',
+    q5: 'Quais documentos acompanham a instalação e a entrega?',
+    a5: 'Normalmente: layout, lista de utilidades, manuais, diagramas elétrico/pneumático, lista de peças e relatório de FAT quando aplicável.',
+    q6: 'Como reduzir risco antes do pedido (PO)?',
+    a6: 'Validar amostras de produto/embalagem, rodar FAT, travar especificações-chave (faixa, velocidade, footprint, interfaces) e alinhar critérios de aceitação e peças de troca.',
   },
   ko: {
     q1: '구성 추천을 위해 어떤 정보가 필요하나요?',
@@ -99,6 +136,10 @@ const faqTx: Record<
     a3: '주요 요인: ',
     q4: '출하 전에 FAT를 진행할 수 있나요?',
     a4: '가능합니다. 제품(또는 합의된 대체품)으로 FAT를 진행하고 영상/결과를 제공합니다.',
+    q5: '설치/인수 시 제공되는 문서는 무엇인가요?',
+    a5: '보통 레이아웃, 유틸리티 요구사항, 매뉴얼, 전기/공압 도면, 스페어 파트 리스트, (해당 시) FAT 결과를 제공합니다.',
+    q6: '발주(PO) 전에 리스크를 줄이는 방법은?',
+    a6: '제품/포장 샘플 확인, FAT 진행, 핵심 사양(범위·속도·설치 공간·인터페이스) 확정, 교체 부품과 검수 기준 합의가 효과적입니다.',
   },
   ja: {
     q1: '構成提案に必要な情報は？',
@@ -109,6 +150,10 @@ const faqTx: Record<
     a3: '主な要因：',
     q4: '出荷前にFAT（工場試験）はできますか？',
     a4: '可能です。製品（または合意済み代替品）でFATを実施し、動画と結果を提出します。',
+    q5: '設置・引き渡し時にどんな資料が付きますか？',
+    a5: 'レイアウト、ユーティリティ要件、取扱/保守マニュアル、電気/エア図、スペアパーツ一覧、必要に応じてFAT報告を提供します。',
+    q6: '発注前にリスクを下げるには？',
+    a6: '製品・包材サンプルの確認、FAT実施、主要仕様（範囲・能力・設置スペース・インターフェース）を確定し、段取り替え部品と受入基準を合意します。',
   },
   ar: {
     q1: 'ما المعلومات المطلوبة لاقتراح التكوين؟',
@@ -119,6 +164,10 @@ const faqTx: Record<
     a3: 'العوامل الرئيسية: ',
     q4: 'هل يمكن إجراء FAT قبل الشحن؟',
     a4: 'نعم. يمكن إجراء FAT بمنتجك (أو بديل معتمد) مع تسليم فيديو ونتائج الاختبار.',
+    q5: 'ما المستندات التي تُسلَّم عند التركيب والتسليم؟',
+    a5: 'عادةً: مخطط التركيب، قائمة المتطلبات (كهرباء/هواء)، كتيبات التشغيل والصيانة، مخططات كهرباء/هواء، قائمة قطع الغيار، وتقرير FAT عند الحاجة.',
+    q6: 'كيف نقلل المخاطر قبل إصدار أمر الشراء؟',
+    a6: 'تأكيد عينات المنتج والعبوة، إجراء FAT، تثبيت المواصفات الأساسية (النطاق، السرعة، المساحة، نقاط الربط) والاتفاق على معايير القبول وقطع التغيير.',
   },
   th: {
     q1: 'ต้องใช้ข้อมูลอะไรเพื่อแนะนำสเปกได้เร็ว?',
@@ -129,6 +178,10 @@ const faqTx: Record<
     a3: 'ปัจจัยหลัก: ',
     q4: 'ทำ FAT ก่อนส่งได้ไหม?',
     a4: 'ได้ ทำ FAT ด้วยสินค้าจริง (หรือทดแทนที่ยืนยันแล้ว) และส่งวิดีโอ/ผลทดสอบให้',
+    q5: 'มีเอกสารอะไรให้ตอนติดตั้งและส่งมอบ?',
+    a5: 'โดยทั่วไป: แบบ lay-out, รายการยูทิลิตี้, คู่มือ, แบบไฟฟ้า/ลม, รายการอะไหล่ และรายงาน FAT (ถ้ามี)',
+    q6: 'ลดความเสี่ยงก่อนออก PO อย่างไร?',
+    a6: 'ยืนยันตัวอย่างสินค้า/บรรจุภัณฑ์ ทำ FAT ล็อกสเปกหลัก (ช่วง/ความเร็ว/พื้นที่/อินเทอร์เฟซ) และตกลงเกณฑ์ตรวจรับกับชิ้นส่วนเปลี่ยนฟอร์แมต',
   },
   vi: {
     q1: 'Cần thông tin gì để đề xuất cấu hình nhanh?',
@@ -139,6 +192,10 @@ const faqTx: Record<
     a3: 'Yếu tố chính: ',
     q4: 'Có thể chạy FAT trước khi giao hàng không?',
     a4: 'Có. Chạy FAT với sản phẩm (hoặc mẫu thay thế đã xác nhận) và bàn giao video/kết quả test.',
+    q5: 'Hồ sơ bàn giao gồm những gì?',
+    a5: 'Thông thường: layout, danh sách tiện ích, manual, sơ đồ điện/khí, danh sách phụ tùng và báo cáo FAT (nếu có).',
+    q6: 'Giảm rủi ro trước khi đặt PO như thế nào?',
+    a6: 'Xác nhận mẫu sản phẩm/bao bì, chạy FAT, chốt các thông số chính (dải, tốc độ, footprint, interface) và thống nhất tiêu chí nghiệm thu + bộ đổi format.',
   },
   de: {
     q1: 'Welche Informationen brauchen Sie für eine Konfigurationsempfehlung?',
@@ -149,6 +206,10 @@ const faqTx: Record<
     a3: 'Hauptfaktoren: ',
     q4: 'Ist eine Werksabnahme (FAT) vor Versand möglich?',
     a4: 'Ja. FAT mit Ihrem Produkt (oder validiertem Ersatz) inkl. Video und Testergebnissen zur Übergabe.',
+    q5: 'Welche Unterlagen erhalten Sie zur Installation und Übergabe?',
+    a5: 'Typisch: Layout, Utility-Liste, Handbücher, Elektro-/Pneumatikpläne, Ersatzteilliste und ggf. FAT-Bericht.',
+    q6: 'Wie reduzieren wir das Risiko vor der Bestellung (PO)?',
+    a6: 'Produkt-/Verpackungsmuster bestätigen, FAT durchführen, Schlüsselspezifikationen (Bereich, Leistung, Platzbedarf, Schnittstellen) festlegen und Umrüstteile sowie Abnahmekriterien vereinbaren.',
   },
 }
 
@@ -419,6 +480,115 @@ const faqMachineNotes: Record<Lang, Record<TopicMachine, { options: string; fact
   },
 }
 
+const machineQueryTerms: Record<Lang, Record<TopicMachine, string>> = {
+  en: {
+    'pouch-packing-machine': 'VFFS / HFFS, premade pouch, zipper pouch, nitrogen flush',
+    'powder-filling-machine': 'auger filler, volumetric filler, multi-head weigher, VFFS powder',
+    'liquid-filling-machine': 'piston filler, pump filler, overflow/gravity filler, flow meter',
+    'snack-processing-line': 'snack processing line, fryer, seasoning, cooling conveyor',
+    'conveyor-system': 'belt conveyor, bucket elevator, PLC integration, line automation',
+  },
+  zh: {
+    'pouch-packing-machine': 'VFFS/立式制袋充填封口、預製袋、夾鏈袋、充氮',
+    'powder-filling-machine': '螺旋計量、量杯、多頭秤、除塵、充氮',
+    'liquid-filling-machine': '活塞灌裝、泵式、流量計、防滴、CIP',
+    'snack-processing-line': '油炸線、烘烤、調味、冷卻、整線',
+    'conveyor-system': '皮帶輸送、提升機、PLC連線、自動化',
+  },
+  cn: {
+    'pouch-packing-machine': 'VFFS/立式制袋充填封口、预制袋、夹链袋、充氮',
+    'powder-filling-machine': '螺杆计量、量杯、多头秤、除尘、充氮',
+    'liquid-filling-machine': '活塞灌装、泵式、流量计、防滴、CIP',
+    'snack-processing-line': '油炸线、烘烤、调味、冷却、整线',
+    'conveyor-system': '皮带输送、提升机、PLC连线、自动化',
+  },
+  fr: {
+    'pouch-packing-machine': 'VFFS / HFFS, doypack préformé, zip, injection de gaz',
+    'powder-filling-machine': 'doseur à vis, volumétrique, peseuse multi-têtes, dépoussiérage',
+    'liquid-filling-machine': 'remplissage piston, pompe, débordement/gravité, débitmètre',
+    'snack-processing-line': 'ligne snack, friteuse, assaisonnement, refroidissement',
+    'conveyor-system': 'convoyeur à bande, élévateur, intégration PLC, automatisation',
+  },
+  es: {
+    'pouch-packing-machine': 'VFFS / HFFS, bolsa preformada, zipper, gas/nitrógeno',
+    'powder-filling-machine': 'dosificador de tornillo, volumétrico, multicabezal, extracción de polvo',
+    'liquid-filling-machine': 'llenadora de pistón, bomba, overflow/gravedad, caudalímetro',
+    'snack-processing-line': 'línea de snacks, freidora, sazonado, enfriamiento',
+    'conveyor-system': 'cinta transportadora, elevador, integración PLC, automatización',
+  },
+  pt: {
+    'pouch-packing-machine': 'VFFS / HFFS, pouch pronto, zipper, gás/nitrogênio',
+    'powder-filling-machine': 'dosador de rosca, volumétrico, multicabeçote, exaustão de pó',
+    'liquid-filling-machine': 'envase por pistão, bomba, overflow/gravidade, medidor de vazão',
+    'snack-processing-line': 'linha de snacks, fritadeira, tempero, resfriamento',
+    'conveyor-system': 'correia transportadora, elevador, integração PLC, automação',
+  },
+  ko: {
+    'pouch-packing-machine': 'VFFS, 프리메이드 파우치, 지퍼 파우치, 가스 플러시',
+    'powder-filling-machine': '오거, 용적, 멀티헤드, 분진 집진',
+    'liquid-filling-machine': '피스톤, 펌프, 오버플로우/중력, 유량계',
+    'snack-processing-line': '스낵 라인, 튀김기, 시즈닝, 냉각',
+    'conveyor-system': '벨트 컨베이어, 엘리베이터, PLC 연동, 자동화',
+  },
+  ja: {
+    'pouch-packing-machine': 'VFFS/HFFS、プレメードパウチ、チャック付き、ガス置換',
+    'powder-filling-machine': 'オーガー、容積、マルチヘッド、集塵',
+    'liquid-filling-machine': 'ピストン、ポンプ、オーバーフロー/重力、流量計',
+    'snack-processing-line': 'スナックライン、フライヤー、調味、冷却',
+    'conveyor-system': 'ベルトコンベア、エレベータ、PLC連携、自動化',
+  },
+  ar: {
+    'pouch-packing-machine': 'VFFS / HFFS، أكياس جاهزة، سحاب، غاز/نيتروجين',
+    'powder-filling-machine': 'لولبي، حجمي، متعدد الرؤوس، شفط غبار',
+    'liquid-filling-machine': 'مكبس، مضخة، فيضان/جاذبية، عداد تدفق',
+    'snack-processing-line': 'خط سناكات، قلاية، تتبيل، تبريد',
+    'conveyor-system': 'سير ناقل، رافعة، تكامل PLC، أتمتة',
+  },
+  th: {
+    'pouch-packing-machine': 'VFFS / HFFS, ถุงสำเร็จรูป, ซิป, เติมแก๊ส',
+    'powder-filling-machine': 'ออเกอร์, ปริมาตร, หลายหัว, ดูดฝุ่น',
+    'liquid-filling-machine': 'ลูกสูบ, ปั๊ม, ล้น/แรงโน้มถ่วง, มิเตอร์',
+    'snack-processing-line': 'ไลน์สแน็ค, ทอด, ปรุงรส, ทำความเย็น',
+    'conveyor-system': 'สายพานลำเลียง, ยกขึ้น, PLC, อัตโนมัติ',
+  },
+  vi: {
+    'pouch-packing-machine': 'VFFS / HFFS, túi thành phẩm, zipper, thổi khí',
+    'powder-filling-machine': 'trục vít, thể tích, cân nhiều đầu, hút bụi',
+    'liquid-filling-machine': 'piston, bơm, tràn/trọng lực, lưu lượng kế',
+    'snack-processing-line': 'dây chuyền snack, chiên, tẩm gia vị, làm nguội',
+    'conveyor-system': 'băng tải, nâng, PLC, tự động hóa',
+  },
+  de: {
+    'pouch-packing-machine': 'VFFS / HFFS, Fertigbeutel, Zipper, Gas/N2',
+    'powder-filling-machine': 'Schneckenfüller, volumetrisch, Mehrkopfwaage, Entstaubung',
+    'liquid-filling-machine': 'Kolbenfüller, Pumpe, Überlauf/Schwerkraft, Durchfluss',
+    'snack-processing-line': 'Snack-Linie, Fritteuse, Würzen, Kühlen',
+    'conveyor-system': 'Förderband, Elevator, PLC-Integration, Automatisierung',
+  },
+}
+
+const introTx: Record<Lang, (q: string, opts: string, factors: string) => string> = {
+  en: (q, opts, factors) => `Buying guides for ${q}. Covers common configurations (${opts}) and the variables that drive stability (${factors}).`,
+  zh: (q, opts, factors) => `整理常見搜尋詞（${q}）與配置選項（${opts}），並把影響穩定性的關鍵點（${factors}）講清楚，方便你在詢價前先把方向定下來。`,
+  cn: (q, opts, factors) => `整理常见搜索词（${q}）与配置选项（${opts}），并把影响稳定性的关键点（${factors}）讲清楚，方便你在询价前先把方向定下来。`,
+  fr: (q, opts, factors) => `Guides d’achat pour ${q}. Configurations courantes (${opts}) et variables clés pour la stabilité (${factors}).`,
+  es: (q, opts, factors) => `Guías de compra para ${q}. Configuraciones comunes (${opts}) y variables clave de estabilidad (${factors}).`,
+  pt: (q, opts, factors) => `Guias de compra para ${q}. Configurações comuns (${opts}) e variáveis-chave de estabilidade (${factors}).`,
+  ko: (q, opts, factors) => `${q} 관련 구매 가이드입니다. 일반 구성(${opts})과 안정성에 영향 주는 핵심 요소(${factors})를 정리했습니다.`,
+  ja: (q, opts, factors) => `${q}の購入ガイドです。一般的な構成（${opts}）と、安定性に影響しやすい要因（${factors}）を整理しています。`,
+  ar: (q, opts, factors) => `أدلة شراء لـ ${q}. إعدادات شائعة (${opts}) وعوامل الاستقرار (${factors}).`,
+  th: (q, opts, factors) => `คู่มือการเลือกซื้อสำหรับ ${q} รวมตัวเลือกที่พบบ่อย (${opts}) และปัจจัยความเสถียร (${factors})`,
+  vi: (q, opts, factors) => `Hướng dẫn mua cho ${q}. Cấu hình phổ biến (${opts}) và yếu tố ảnh hưởng ổn định (${factors}).`,
+  de: (q, opts, factors) => `Kaufratgeber für ${q}. Übliche Konfigurationen (${opts}) und Schlüsselfaktoren für Stabilität (${factors}).`,
+}
+
+export function getTopicHubIntro(lang: Lang, machine: TopicMachine): string {
+  const notes = (faqMachineNotes[lang] || faqMachineNotes.en)[machine]
+  const q = (machineQueryTerms[lang] || machineQueryTerms.en)[machine]
+  const tpl = introTx[lang] || introTx.en
+  return tpl(q, notes.options, notes.factors)
+}
+
 export function getTopicHubFaqs(lang: Lang, machine: TopicMachine): TopicHubFaq[] {
   const t = faqTx[lang] || faqTx.en
   const m = (faqMachineNotes[lang] || faqMachineNotes.en)[machine]
@@ -427,5 +597,7 @@ export function getTopicHubFaqs(lang: Lang, machine: TopicMachine): TopicHubFaq[
     { q: t.q2, a: `${t.a2}${m.options}` },
     { q: t.q3, a: `${t.a3}${m.factors}` },
     { q: t.q4, a: t.a4 },
+    { q: t.q5, a: t.a5 },
+    { q: t.q6, a: t.a6 },
   ]
 }

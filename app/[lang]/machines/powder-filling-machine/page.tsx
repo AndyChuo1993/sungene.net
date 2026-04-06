@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { MachineFAQ } from '@/components/machines/MachineFAQ'
 import JsonLd from '@/components/JsonLd'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import MachineQuickLinks from '@/components/MachineQuickLinks'
 import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
@@ -1347,6 +1348,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
               { label: t.heroTitle, href: `/${lang}/machines/powder-filling-machine` },
             ]}
           />
+          <MachineQuickLinks lang={lang} machine="powder-filling-machine" />
         </Container>
       </section>
 
@@ -1480,7 +1482,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={`/${lang}${link.href}`}
+                href={link.href === '/recommend' ? `/${lang}/recommend?machine=powder-filling-machine` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -1516,9 +1518,9 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/recommend?machine=powder-filling-machine`} size="lg">{t.ctaBtn1}</ButtonLink>
             <a
-              href={`/${lang}/contact`}
+              href={`/${lang}/contact?machine=powder-filling-machine`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

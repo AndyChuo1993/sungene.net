@@ -8,7 +8,7 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import { SITE_URL } from '@/lib/siteConfig'
 import type { Lang } from '@/lib/i18n'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
-import { TOPIC_HUB_FAQ_TITLE, TOPIC_MACHINES, getTopicHubFaqs } from '@/lib/topicHubFaq'
+import { getTopicHubIntro, TOPIC_HUB_FAQ_TITLE, TOPIC_MACHINES, getTopicHubFaqs } from '@/lib/topicHubFaq'
 import type { TopicMachine } from '@/lib/topicHubFaq'
 
 const resourcesLabel: Record<Lang, string> = {
@@ -249,7 +249,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   if (!TOPIC_MACHINES.includes(machine as TopicMachine)) return {}
   const m = machine as TopicMachine
   const title = `${machineLabel[l][m]} ${tx[l].titleSuffix} | SunGene`
-  const description = tx[l].intro
+  const description = getTopicHubIntro(l, m)
   return buildPageMetadata({
     lang: l,
     title,
@@ -266,10 +266,13 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
   const m = machine as TopicMachine
   const t = tx[l]
   const faqs = getTopicHubFaqs(l, m)
+  const intro = getTopicHubIntro(l, m)
 
   const guides = getResourceArticlesByMachine(m, l, 32)
   const title = `${machineLabel[l][m]} ${t.titleSuffix}`
   const machineHref = `/${l}/machines/${m}`
+  const recommendHref = `/${l}/recommend?machine=${encodeURIComponent(m)}`
+  const contactHref = `/${l}/contact?machine=${encodeURIComponent(m)}`
 
   const itemListSchema = {
     '@context': 'https://schema.org',
@@ -307,11 +310,11 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
             ]}
           />
           <h1 className="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">{title}</h1>
-          <p className="mt-4 text-base text-gray-700">{t.intro}</p>
+          <p className="mt-4 text-base text-gray-700">{intro}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <ButtonLink href={machineHref} variant="secondary">{t.viewMachine}</ButtonLink>
-            <ButtonLink href={`/${l}/recommend`}>{t.recommend}</ButtonLink>
-            <ButtonLink href={`/${l}/contact`} variant="secondary">{t.contact}</ButtonLink>
+            <ButtonLink href={recommendHref}>{t.recommend}</ButtonLink>
+            <ButtonLink href={contactHref} variant="secondary">{t.contact}</ButtonLink>
           </div>
         </Container>
       </section>

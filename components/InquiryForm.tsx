@@ -52,6 +52,38 @@ export default function InquiryForm({
   const [errorMessage, setErrorMessage] = useState('')
   const searchParams = useSearchParams()
   const pathname = usePathname()
+  const qpMachine = (searchParams.get('machine') ?? '').trim()
+  const qpProduct = (searchParams.get('product') ?? '').trim()
+
+  const prefillLabels: Record<Lang, { machine: string; product: string }> = {
+    en: { machine: 'Machine', product: 'Product/Application' },
+    zh: { machine: '機型', product: '產品/應用' },
+    cn: { machine: '机型', product: '产品/应用' },
+    fr: { machine: 'Machine', product: 'Produit / application' },
+    es: { machine: 'Máquina', product: 'Producto / aplicación' },
+    pt: { machine: 'Máquina', product: 'Produto / aplicação' },
+    ko: { machine: '기계', product: '제품/용도' },
+    ja: { machine: '機種', product: '製品/用途' },
+    ar: { machine: 'الماكينة', product: 'المنتج/التطبيق' },
+    th: { machine: 'เครื่อง', product: 'สินค้า/การใช้งาน' },
+    vi: { machine: 'Máy', product: 'Sản phẩm/Ứng dụng' },
+    de: { machine: 'Maschine', product: 'Produkt/Anwendung' },
+  }
+
+  function getDefaultValue(field: FormField): string | undefined {
+    if (field.defaultValue !== undefined) return field.defaultValue
+    if (!qpMachine && !qpProduct) return undefined
+    if (field.name === 'product') return qpProduct || qpMachine || undefined
+    if (field.name === 'message') {
+      const l = prefillLabels[lang] || prefillLabels.en
+      const lines: string[] = []
+      if (qpMachine) lines.push(`${l.machine}: ${qpMachine}`)
+      if (qpProduct) lines.push(`${l.product}: ${qpProduct}`)
+      lines.push('')
+      return lines.join('\n')
+    }
+    return undefined
+  }
 
   const validateEmail = (email: string) => {
     return String(email)
@@ -180,7 +212,7 @@ export default function InquiryForm({
               name={field.name}
               rows={field.rows || 4}
               required={field.required}
-              defaultValue={field.defaultValue}
+              defaultValue={getDefaultValue(field)}
               placeholder={field.placeholder}
               className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
             />
@@ -200,7 +232,7 @@ export default function InquiryForm({
               id={field.name}
               name={field.name}
               required={field.required}
-              defaultValue={field.defaultValue}
+              defaultValue={getDefaultValue(field)}
               placeholder={field.placeholder}
               autoComplete={field.autoComplete}
               className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"

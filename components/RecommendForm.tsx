@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { Lang } from '@/lib/i18n'
 import {
@@ -1257,12 +1257,27 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
   const [errorMsg, setErrorMsg] = useState('')
   const [refId, setRefId] = useState('')
 
+  const qpMachine = (searchParams.get('machine') ?? '').trim()
+  const qpProduct = (searchParams.get('product') ?? '').trim()
+
   const st = getSectionTitles(lang)
   const sm = getSuccessMsg(lang)
   const privacy = getPrivacy(lang)
   const ui = getUi(lang)
 
   const hasStarted = useRef(false)
+
+  useEffect(() => {
+    if (!qpMachine && !qpProduct) return
+    setForm((prev) => {
+      if (prev.message) return prev
+      const lines: string[] = []
+      if (qpMachine) lines.push(`Machine: ${qpMachine}`)
+      if (qpProduct) lines.push(`Product/Application: ${qpProduct}`)
+      lines.push('')
+      return { ...prev, message: lines.join('\n') }
+    })
+  }, [qpMachine, qpProduct])
 
   function set(field: keyof FormState) {
     return (value: string) => {
@@ -1305,6 +1320,8 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
       // hidden fields
       _source_url: pathname,
       _lang: lang,
+      _machine: qpMachine,
+      _product: qpProduct,
       _utm_source: searchParams.get('utm_source') ?? '',
       _utm_medium: searchParams.get('utm_medium') ?? '',
       _utm_campaign: searchParams.get('utm_campaign') ?? '',
