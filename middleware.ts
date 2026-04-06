@@ -52,7 +52,24 @@ function hasTrackingParams(searchParams: URLSearchParams) {
   for (const [k] of searchParams.entries()) {
     if (k.startsWith('utm_')) return true
   }
-  const keys = ['gclid', 'fbclid', 'msclkid', 'wbraid', 'gbraid']
+  const keys = [
+    'gclid',
+    'fbclid',
+    'msclkid',
+    'wbraid',
+    'gbraid',
+    'yclid',
+    'igshid',
+    'mkt_tok',
+    'mc_cid',
+    'mc_eid',
+    'icid',
+    'cmpid',
+    'ref',
+    'source',
+    'replytocom',
+    'amp',
+  ]
   return keys.some((k) => searchParams.has(k))
 }
 
@@ -60,6 +77,22 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
+
+  const legacyDotBlocklist = [
+    '/xmlrpc.php',
+    '/wp-login.php',
+    '/wp-cron.php',
+    '/sitemap_index.xml',
+  ]
+  if (
+    legacyDotBlocklist.includes(pathname) ||
+    pathname.startsWith('/wp-admin') ||
+    pathname.startsWith('/wp-content') ||
+    pathname.startsWith('/wp-includes') ||
+    pathname.startsWith('/wp-json')
+  ) {
+    return plain(410, 'Gone')
+  }
 
   // === 1. Static files, API, webhook — pass through immediately ===
   if (
