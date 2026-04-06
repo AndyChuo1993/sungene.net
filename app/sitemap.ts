@@ -57,16 +57,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.7))
   )
 
-  const geoSitemap = [
-    item(`${baseUrl}/llms.txt`, 'monthly', 0.2),
-    item(`${baseUrl}/llms-full.txt`, 'monthly', 0.2),
-  ]
-
-  const geoLocalizedSitemap = langs.flatMap((lang) => [
-    item(`${baseUrl}/${lang}/llms.txt`, 'monthly', 0.2),
-    item(`${baseUrl}/${lang}/llms-full.txt`, 'monthly', 0.2),
-  ])
-
   const topicMachines = [
     'pouch-packing-machine',
     'powder-filling-machine',
@@ -89,8 +79,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...machinerySitemap,
     ...supportSitemap,
     ...topicSitemap,
-    ...geoSitemap,
-    ...geoLocalizedSitemap,
     ...articleSitemap,
   ]
 }

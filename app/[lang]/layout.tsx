@@ -38,9 +38,22 @@ export default async function RootLayout({ children, params }: { children: React
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${baseUrl}/#website`,
     name: 'SunGene Co., LTD.',
     url: baseUrl,
     inLanguage: LANG_META[lang].htmlLang,
+    publisher: { '@id': `${baseUrl}/#org` },
+    siteNavigationElement: [
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machinery`, name: 'Machinery' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machines/pouch-packing-machine`, name: 'Pouch Packing Machine' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machines/powder-filling-machine`, name: 'Powder Filling Machine' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machines/liquid-filling-machine`, name: 'Liquid Filling Machine' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machines/snack-processing-line`, name: 'Snack Processing Line' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/machines/conveyor-system`, name: 'Conveyor System' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/resources`, name: 'Resources' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/recommend`, name: 'Recommendation' },
+      { '@type': 'WebPage', url: `${baseUrl}/${lang}/contact`, name: 'Contact' },
+    ],
     potentialAction: {
       '@type': 'SearchAction',
       target: `${baseUrl}/${lang}/machinery?q={search_term_string}`,
@@ -51,6 +64,7 @@ export default async function RootLayout({ children, params }: { children: React
   const org = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${baseUrl}/#org`,
     name: 'SunGene Co., LTD.',
     description: 'Leading manufacturer and exporter of packaging machinery, food processing equipment, filling & sealing systems, and automated production lines from Taiwan.',
     url: baseUrl,

@@ -80,6 +80,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}/machinery`, request.url), 308)
   }
 
+  if (
+    (restPath === '/recommend' || restPath === '/contact') &&
+    (searchParams.has('machine') || searchParams.has('product'))
+  ) {
+    const res = NextResponse.next()
+    res.headers.set('X-Robots-Tag', 'noindex, follow')
+    return res
+  }
+
   // === 4. Handle legacy / WordPress / bot paths (avoid polluting indexing signals) ===
   const legacy410Prefixes = [
     '/wp-admin',
