@@ -1321,22 +1321,10 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     },
   }
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    inLanguage: LANG_META[lang].htmlLang,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: BREADCRUMB_LABELS[lang].home, item: `${SITE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: BREADCRUMB_LABELS[lang].machinery, item: `${SITE_URL}/${lang}/machinery` },
-      { '@type': 'ListItem', position: 3, name: t.heroTitle, item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
-    ],
-  }
-
   return (
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={productSchema} />
-      <JsonLd data={breadcrumbSchema} />
 
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero
