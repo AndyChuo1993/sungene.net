@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
+import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_DEFAULT_PUBLISHED_AT, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 import { LANG_META } from '@/lib/seo'
 import { getStableLastModifiedISO } from '@/lib/buildTime'
@@ -203,6 +203,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   }
 
   const dateModified = getStableLastModifiedISO()
+  const datePublished = article.publishedAt ?? RESOURCE_DEFAULT_PUBLISHED_AT
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -214,6 +215,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     url: `${SITE_URL}/${l}/resources/${slug}`,
     image: [`${SITE_URL}/og/og.png`],
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
+    ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
   }
 

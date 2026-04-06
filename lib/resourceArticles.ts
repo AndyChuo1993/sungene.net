@@ -32,6 +32,7 @@ export type ResourceArticle = {
   slug: string
   category: ResourceCategory
   relatedMachine?: 'powder-filling-machine' | 'liquid-filling-machine' | 'pouch-packing-machine' | 'snack-processing-line' | 'conveyor-system'
+  publishedAt?: string
   i18n: Record<Lang, ResourceArticleI18n>
 }
 
@@ -53,6 +54,8 @@ const commonUi: Record<Lang, Pick<ResourceArticleI18n, 'resourcesLabel' | 'readM
   vi: { resourcesLabel: 'Tài nguyên', readMoreLabel: 'Đọc thêm' },
   de: { resourcesLabel: 'Ressourcen', readMoreLabel: 'Mehr lesen' },
 }
+
+export const RESOURCE_DEFAULT_PUBLISHED_AT = '2024-01-01'
 
 export const RESOURCE_ARTICLES: ResourceArticle[] = [
   {

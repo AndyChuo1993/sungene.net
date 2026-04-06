@@ -11,7 +11,7 @@ import CTASection from '@/components/home/CTASection'
 import FAQ from '@/components/home/FAQ'
 import TrustGallery from '@/components/home/TrustGallery'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
 type PageParams = {
   params: Promise<{ lang?: string }>
@@ -200,6 +200,7 @@ export default async function Page({ params }: PageParams) {
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    inLanguage: LANG_META[safeLang].htmlLang,
     name: s.listName,
     description: s.listDesc,
     numberOfItems: 5,
@@ -215,6 +216,7 @@ export default async function Page({ params }: PageParams) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: LANG_META[safeLang].htmlLang,
     mainEntity: s.faq.map((f) => ({
       '@type': 'Question',
       name: f.q,
