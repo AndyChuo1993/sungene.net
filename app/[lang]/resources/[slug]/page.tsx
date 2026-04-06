@@ -5,6 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import MachineQuickLinks from '@/components/MachineQuickLinks'
 import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_DEFAULT_PUBLISHED_AT, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 import { LANG_META } from '@/lib/seo'
@@ -221,10 +222,18 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
 
   const t = ui[l] ?? ui.en
 
-  const relatedItems = article.relatedMachine ? [{
-    href: `/${l}/machines/${article.relatedMachine}`,
-    label: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine],
-  }] : []
+  const relatedMachine = article.relatedMachine as MachineSlug | undefined
+
+  const relatedItems = relatedMachine ? [
+    {
+      href: `/${l}/machines/${relatedMachine}`,
+      label: (machineLabels[l] ?? machineLabels.en)[relatedMachine],
+    },
+    {
+      href: `/${l}/resources/topic/${relatedMachine}`,
+      label: `${(machineLabels[l] ?? machineLabels.en)[relatedMachine]} — ${l === 'zh' ? '採購指南' : l === 'cn' ? '采购指南' : l === 'ja' ? '購入ガイド' : l === 'ko' ? '구매 가이드' : l === 'fr' ? 'Guides d’achat' : l === 'es' ? 'Guías de compra' : l === 'pt' ? 'Guias de compra' : l === 'ar' ? 'أدلة الشراء' : l === 'th' ? 'คู่มือการเลือกซื้อ' : l === 'vi' ? 'Hướng dẫn mua' : l === 'de' ? 'Kaufratgeber' : 'Buying guides'}`,
+    },
+  ] : []
   const relatedGuides = getRelatedResourceArticles(slug, l, 6)
   const relatedGuidesTitle =
     ({
@@ -281,9 +290,10 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               <div className="rounded-xl border border-accent-200 bg-accent-50 p-6">
                 <h3 className="text-base font-bold text-brand-950">{i18n.sidebarCtaTitle}</h3>
                 <p className="mt-2 text-sm text-gray-600">{i18n.sidebarCtaBody}</p>
-                <ButtonLink href={`/${l}/recommend`} variant="primary" size="sm" className="mt-4 w-full justify-center">
+                <ButtonLink href={relatedMachine ? `/${l}/recommend?machine=${encodeURIComponent(relatedMachine)}` : `/${l}/recommend`} variant="primary" size="sm" className="mt-4 w-full justify-center">
                   {i18n.sidebarCtaBtn}
                 </ButtonLink>
+                {relatedMachine ? <MachineQuickLinks lang={l} machine={relatedMachine} /> : null}
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
@@ -319,7 +329,12 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               <div className="rounded-xl border border-gray-200 p-6">
                 <h3 className="text-base font-bold text-brand-950">{t.speakTitle}</h3>
                 <p className="mt-2 text-sm text-gray-600">{t.speakBody}</p>
-                <a href={`/${l}/contact`} className="mt-3 inline-block text-sm font-semibold text-accent-600 hover:underline">{t.speakLink}</a>
+                <a
+                  href={relatedMachine ? `/${l}/contact?machine=${encodeURIComponent(relatedMachine)}&product=${encodeURIComponent(i18n.title)}` : `/${l}/contact`}
+                  className="mt-3 inline-block text-sm font-semibold text-accent-600 hover:underline"
+                >
+                  {t.speakLink}
+                </a>
               </div>
             </aside>
           </div>
