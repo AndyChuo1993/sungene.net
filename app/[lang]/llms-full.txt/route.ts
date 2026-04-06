@@ -68,11 +68,12 @@ export async function GET(_req: NextRequest, context: { params: Promise<{ lang: 
   ].map((c) => {
     const items = getResourceArticlesByMachine(c.machine, lang, 8)
     const hub = `  - ${cl.hub}: ${base}/resources/topic/${c.machine}`
+    const hubFaq = `  - ${cl.hub} FAQ: ${base}/resources/topic/${c.machine}#faq`
     const faqs = getTopicHubFaqs(lang, c.machine)
     const faqLines = faqs.map((f) => `    - ${f.q}: ${f.a}`).join('\n')
     const faq = `  - ${cl.faq}\n${faqLines}`
     const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
-    return `- ${c.label}\n${hub}\n${faq}\n${lines}`
+    return `- ${c.label}\n${hub}\n${hubFaq}\n${faq}\n${lines}`
   }).join('\n')
 
   const body = `${t.title}

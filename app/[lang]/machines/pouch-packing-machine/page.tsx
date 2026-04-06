@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -653,6 +653,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: LANG_META[lang].htmlLang,
     mainEntity: t.faq.map((item) => ({
       '@type': 'Question',
       name: item.q,
@@ -681,6 +682,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${lang}` },
       { '@type': 'ListItem', position: 2, name: 'Machinery', item: `${SITE_URL}/${lang}/machinery` },
