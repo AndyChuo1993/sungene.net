@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { getResourceArticle, getResourceArticleI18n, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
+import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 import { LANG_META } from '@/lib/seo'
 import { getStableLastModifiedISO } from '@/lib/buildTime'
@@ -222,6 +222,22 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     href: `/${l}/machines/${article.relatedMachine}`,
     label: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine],
   }] : []
+  const relatedGuides = getRelatedResourceArticles(slug, l, 6)
+  const relatedGuidesTitle =
+    ({
+      en: 'Related guides',
+      cn: '相关指南',
+      zh: '相關指南',
+      fr: 'Guides associés',
+      es: 'Guías relacionadas',
+      pt: 'Guias relacionados',
+      ko: '관련 가이드',
+      ja: '関連ガイド',
+      ar: 'أدلة ذات صلة',
+      th: 'คู่มือที่เกี่ยวข้อง',
+      vi: 'Bài hướng dẫn liên quan',
+      de: 'Ähnliche Ratgeber',
+    } as Record<string, string>)[l] || 'Related guides'
 
   return (
     <>
@@ -279,6 +295,22 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
                   </li>
                 </ul>
               </div>
+
+              {relatedGuides.length > 0 ? (
+                <div className="rounded-xl border border-gray-200 bg-white p-6">
+                  <h3 className="text-base font-bold text-brand-950">{relatedGuidesTitle}</h3>
+                  <ul className="mt-3 space-y-2 text-sm">
+                    {relatedGuides.map((g) => (
+                      <li key={g.slug}>
+                        <a href={`/${l}/resources/${g.slug}`} className="text-accent-600 hover:underline">{g.title}</a>
+                      </li>
+                    ))}
+                    <li>
+                      <a href={`/${l}/resources`} className="text-accent-600 hover:underline">{i18n.readMoreLabel}</a>
+                    </li>
+                  </ul>
+                </div>
+              ) : null}
 
               <div className="rounded-xl border border-gray-200 p-6">
                 <h3 className="text-base font-bold text-brand-950">{t.speakTitle}</h3>

@@ -5100,3 +5100,24 @@ export function getResourceArticleI18n(slug: string, lang: Lang): ResourceArticl
   if (!a) return undefined
   return get(lang, a.i18n)
 }
+
+export function getRelatedResourceArticles(slug: string, lang: Lang, limit = 6) {
+  const current = getResourceArticle(slug)
+  if (!current?.relatedMachine) return []
+
+  const items = RESOURCE_ARTICLES
+    .filter((a) => a.slug !== slug && a.relatedMachine === current.relatedMachine)
+    .slice(0, Math.max(0, limit))
+    .map((a) => ({ slug: a.slug, title: getResourceArticleI18n(a.slug, lang)?.title ?? getResourceArticleI18n(a.slug, 'en')?.title ?? a.slug }))
+
+  return items
+}
+
+export function getResourceArticlesByMachine(machine: NonNullable<ResourceArticle['relatedMachine']>, lang: Lang, limit = 8) {
+  const items = RESOURCE_ARTICLES
+    .filter((a) => a.relatedMachine === machine)
+    .slice(0, Math.max(0, limit))
+    .map((a) => ({ slug: a.slug, title: getResourceArticleI18n(a.slug, lang)?.title ?? getResourceArticleI18n(a.slug, 'en')?.title ?? a.slug }))
+
+  return items
+}

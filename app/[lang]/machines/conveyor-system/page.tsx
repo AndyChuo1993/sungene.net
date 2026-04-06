@@ -9,6 +9,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -450,6 +451,22 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
   const { lang } = await params
   const t = content[lang] || content.en
   const heroPhoto = PHOTO.machines.conveyorSystemHero
+  const guides = getResourceArticlesByMachine('conveyor-system', lang, 6)
+  const guidesTitle =
+    ({
+      en: 'Buying guides',
+      cn: '采购指南',
+      zh: '採購指南',
+      fr: 'Guides d’achat',
+      es: 'Guías de compra',
+      pt: 'Guias de compra',
+      ko: '구매 가이드',
+      ja: '購入ガイド',
+      ar: 'أدلة الشراء',
+      th: 'คู่มือการเลือกซื้อ',
+      vi: 'Hướng dẫn mua máy',
+      de: 'Kaufratgeber',
+    } as Record<string, string>)[lang] || 'Buying guides'
 
   // JSON-LD schemas
   const faqSchema = {
@@ -648,6 +665,26 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
           </div>
         </Container>
       </section>
+
+      {guides.length > 0 ? (
+        <section className="py-12 sm:py-16 border-t border-gray-200/60 bg-white">
+          <Container className="max-w-4xl">
+            <h2 className="text-xl font-bold text-gray-950">{guidesTitle}</h2>
+            <ul className="mt-6 space-y-2 text-sm">
+              {guides.map((g) => (
+                <li key={g.slug}>
+                  <a href={`/${lang}/resources/${g.slug}`} className="text-accent-600 hover:underline">{g.title}</a>
+                </li>
+              ))}
+              <li>
+                <a href={`/${lang}/resources`} className="text-accent-600 hover:underline">
+                  {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
+                </a>
+              </li>
+            </ul>
+          </Container>
+        </section>
+      ) : null}
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
