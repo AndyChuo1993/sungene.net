@@ -8,7 +8,7 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { getArticlesByCategory } from '@/lib/articleData'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const titles: Record<string, string> = {
@@ -625,6 +625,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
+    inLanguage: LANG_META[lang].htmlLang,
     name: how.name,
     description: how.description,
     step: how.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.text })),
@@ -634,6 +635,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
     name: heroTitles[lang] || heroTitles.en,
     itemListElement: itemListItems.map((a, i) => ({
       '@type': 'ListItem',
