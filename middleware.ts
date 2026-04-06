@@ -65,6 +65,8 @@ function hasTrackingParams(searchParams: URLSearchParams) {
     'mc_eid',
     'icid',
     'cmpid',
+    'q',
+    's',
     'ref',
     'source',
     'replytocom',

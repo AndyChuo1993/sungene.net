@@ -7,8 +7,9 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import JsonLd from '@/components/JsonLd'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -260,8 +261,22 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       de: 'Katalog',
     } as Record<string, string>)[lang] || 'Machinery'
 
+  const categoryListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: t.cats.map((c: any, i: number) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.title,
+      item: `${SITE_URL}${categoryHrefs[i] || `/${lang}/machinery`}`,
+    })),
+  }
+
   return (
     <>
+      <JsonLd data={categoryListSchema} />
       <PageHero
         kicker={t.kicker}
         title={t.title}
