@@ -62,17 +62,38 @@ export function middleware(request: NextRequest) {
     '/sitemap_index.xml',
     '/feed',
     '/rss',
+    '/my-account',
+    '/login',
+    '/cart',
+    '/checkout',
   ]
   if (legacy410Prefixes.some((p) => restPath === p || restPath.startsWith(`${p}/`))) {
     return plain(410, 'Gone')
   }
 
-  const legacyRedirectPrefixes = ['/products', '/product', '/product-category', '/category', '/tag', '/blog']
+  const legacyRedirectPrefixes = [
+    '/products',
+    '/product',
+    '/product-category',
+    '/category',
+    '/tag',
+    '/blog',
+    '/services',
+    '/service',
+    '/export-market-analysis',
+    '/market-analysis',
+    '/report',
+    '/reports',
+  ]
   const matchedLegacy = legacyRedirectPrefixes.find((p) => restPath === p || restPath.startsWith(`${p}/`))
   if (matchedLegacy) {
     const lang = currentLang || defaultLocale
     const inferred = inferMachineFromLegacyPath(restPath)
-    const targetPath = inferred ? `/${lang}/machines/${inferred}` : `/${lang}/machinery`
+    const targetPath = inferred
+      ? `/${lang}/machines/${inferred}`
+      : restPath.includes('analysis') || restPath.includes('report') || restPath.includes('service')
+        ? `/${lang}/solutions`
+        : `/${lang}/machinery`
     return NextResponse.redirect(new URL(targetPath, request.url), 308)
   }
 

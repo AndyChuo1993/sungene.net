@@ -346,6 +346,12 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 
 ${t.keyPages}
 - Product selector / recommendation: ${SITE_URL}/${lang}/recommend
+- Prefilled recommendation links (by machine):
+  - Pouch packing: ${SITE_URL}/${lang}/recommend?machine=pouch-packing-machine
+  - Powder filling: ${SITE_URL}/${lang}/recommend?machine=powder-filling-machine
+  - Liquid filling: ${SITE_URL}/${lang}/recommend?machine=liquid-filling-machine
+  - Snack processing line: ${SITE_URL}/${lang}/recommend?machine=snack-processing-line
+  - Conveyor systems: ${SITE_URL}/${lang}/recommend?machine=conveyor-system
 - Machine overview: ${SITE_URL}/${lang}/machinery
 - Powder filling machines: ${SITE_URL}/${lang}/machines/powder-filling-machine
 - Liquid filling machines: ${SITE_URL}/${lang}/machines/liquid-filling-machine
@@ -354,6 +360,12 @@ ${t.keyPages}
 - Conveyor systems: ${SITE_URL}/${lang}/machines/conveyor-system
 - About us: ${SITE_URL}/${lang}/about
 - Contact / Quote: ${SITE_URL}/${lang}/contact
+- Prefilled contact links (by machine):
+  - Pouch packing: ${SITE_URL}/${lang}/contact?machine=pouch-packing-machine
+  - Powder filling: ${SITE_URL}/${lang}/contact?machine=powder-filling-machine
+  - Liquid filling: ${SITE_URL}/${lang}/contact?machine=liquid-filling-machine
+  - Snack processing line: ${SITE_URL}/${lang}/contact?machine=snack-processing-line
+  - Conveyor systems: ${SITE_URL}/${lang}/contact?machine=conveyor-system
 - Industry solutions: ${SITE_URL}/${lang}/industries
 - Production solutions: ${SITE_URL}/${lang}/solutions
 - Buying guides & resources: ${SITE_URL}/${lang}/resources

@@ -76,6 +76,12 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 
 ## Key Pages
 - Product selector / recommendation: https://sungene.net/en/recommend
+- Prefilled recommendation links (by machine):
+  - Pouch packing: https://sungene.net/en/recommend?machine=pouch-packing-machine
+  - Powder filling: https://sungene.net/en/recommend?machine=powder-filling-machine
+  - Liquid filling: https://sungene.net/en/recommend?machine=liquid-filling-machine
+  - Snack processing line: https://sungene.net/en/recommend?machine=snack-processing-line
+  - Conveyor systems: https://sungene.net/en/recommend?machine=conveyor-system
 - Machine overview: https://sungene.net/en/machinery
 - Powder filling machines: https://sungene.net/en/machines/powder-filling-machine
 - Liquid filling machines: https://sungene.net/en/machines/liquid-filling-machine
@@ -84,6 +90,12 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - Conveyor systems: https://sungene.net/en/machines/conveyor-system
 - About us: https://sungene.net/en/about
 - Contact / Quote: https://sungene.net/en/contact
+- Prefilled contact links (by machine):
+  - Pouch packing: https://sungene.net/en/contact?machine=pouch-packing-machine
+  - Powder filling: https://sungene.net/en/contact?machine=powder-filling-machine
+  - Liquid filling: https://sungene.net/en/contact?machine=liquid-filling-machine
+  - Snack processing line: https://sungene.net/en/contact?machine=snack-processing-line
+  - Conveyor systems: https://sungene.net/en/contact?machine=conveyor-system
 - Industry solutions: https://sungene.net/en/industries
 - Production solutions: https://sungene.net/en/solutions
 - Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, CE guide, voltage requirements)
