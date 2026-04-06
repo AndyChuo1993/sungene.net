@@ -84,12 +84,13 @@ export function middleware(request: NextRequest) {
     '/wp-cron.php',
     '/sitemap_index.xml',
   ]
+  const pathnameSansLang = pathname.replace(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)(?=\/)/, '')
   if (
-    legacyDotBlocklist.includes(pathname) ||
-    pathname.startsWith('/wp-admin') ||
-    pathname.startsWith('/wp-content') ||
-    pathname.startsWith('/wp-includes') ||
-    pathname.startsWith('/wp-json')
+    legacyDotBlocklist.includes(pathnameSansLang) ||
+    pathnameSansLang.startsWith('/wp-admin') ||
+    pathnameSansLang.startsWith('/wp-content') ||
+    pathnameSansLang.startsWith('/wp-includes') ||
+    pathnameSansLang.startsWith('/wp-json')
   ) {
     return plain(410, 'Gone')
   }
