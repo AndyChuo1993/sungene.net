@@ -1,6 +1,20 @@
 import { SITE_URL } from '@/lib/siteConfig'
+import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 export async function GET() {
+  const base = `${SITE_URL}/en`
+  const clusters = [
+    { label: 'Pouch packing', machine: 'pouch-packing-machine' as const },
+    { label: 'Powder filling', machine: 'powder-filling-machine' as const },
+    { label: 'Liquid filling', machine: 'liquid-filling-machine' as const },
+    { label: 'Snack processing', machine: 'snack-processing-line' as const },
+    { label: 'Conveyors', machine: 'conveyor-system' as const },
+  ].map((c) => {
+    const items = getResourceArticlesByMachine(c.machine, 'en', 8)
+    const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
+    return `- ${c.label}\n${lines}`
+  }).join('\n')
+
   const body = `# SunGene Co., LTD. — Full Reference
 
 This file provides a structured overview of key pages and topics on ${SITE_URL}.
@@ -34,6 +48,9 @@ This file provides a structured overview of key pages and topics on ${SITE_URL}.
 - Liquid filling: ${SITE_URL}/en/machines/liquid-filling-machine
 - Snack processing line: ${SITE_URL}/en/machines/snack-processing-line
 - Conveyor systems: ${SITE_URL}/en/machines/conveyor-system
+
+## Topic clusters (by machine)
+${clusters}
 `
 
   return new Response(body, {
@@ -43,4 +60,3 @@ This file provides a structured overview of key pages and topics on ${SITE_URL}.
     },
   })
 }
-

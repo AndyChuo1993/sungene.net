@@ -2,6 +2,7 @@ import type { NextRequest } from 'next/server'
 import type { Lang } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { normalizeLang } from '@/lib/seo'
+import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 
 type Tx = {
   title: string
@@ -9,6 +10,7 @@ type Tx = {
   sitemap: string
   keyPages: string
   machinePages: string
+  topicClusters: string
   recommend: string
   catalog: string
   resources: string
@@ -16,18 +18,18 @@ type Tx = {
 }
 
 const tx: Record<Lang, Tx> = {
-  en: { title: '# SunGene Co., LTD. — Full Reference', localized: '## Localized versions', sitemap: '## Sitemap', keyPages: '## Key pages', machinePages: '## Machine landing pages', recommend: 'Recommendation / machine selector', catalog: 'Machinery catalog', resources: 'Buying guides & resources', contact: 'Contact / quote request' },
-  zh: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各語系版本', sitemap: '## 網站地圖', keyPages: '## 重要頁面', machinePages: '## 主要機型頁', recommend: '機型推薦／需求表單', catalog: '機械目錄', resources: '採購指南與資源', contact: '聯絡／詢價' },
-  cn: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各语言版本', sitemap: '## 站点地图', keyPages: '## 重要页面', machinePages: '## 主要机型页', recommend: '机型推荐／需求表单', catalog: '机械目录', resources: '采购指南与资源', contact: '联系／询价' },
-  fr: { title: '# SunGene Co., LTD. — Référence complète', localized: '## Versions localisées', sitemap: '## Sitemap', keyPages: '## Pages clés', machinePages: '## Pages machines', recommend: 'Recommandation / sélecteur', catalog: 'Catalogue machines', resources: 'Guides & ressources', contact: 'Contact / demande de devis' },
-  es: { title: '# SunGene Co., LTD. — Referencia completa', localized: '## Versiones localizadas', sitemap: '## Sitemap', keyPages: '## Páginas clave', machinePages: '## Páginas de máquinas', recommend: 'Recomendación / selector', catalog: 'Catálogo de maquinaria', resources: 'Guías y recursos', contact: 'Contacto / cotización' },
-  pt: { title: '# SunGene Co., LTD. — Referência completa', localized: '## Versões localizadas', sitemap: '## Sitemap', keyPages: '## Páginas principais', machinePages: '## Páginas de máquinas', recommend: 'Recomendação / seletor', catalog: 'Catálogo de máquinas', resources: 'Guias e recursos', contact: 'Contato / orçamento' },
-  ko: { title: '# SunGene Co., LTD. — 전체 인덱스', localized: '## 언어별 버전', sitemap: '## 사이트맵', keyPages: '## 주요 페이지', machinePages: '## 주요 기계 페이지', recommend: '추천 / 선택', catalog: '기계 카탈로그', resources: '가이드 & 리소스', contact: '문의 / 견적' },
-  ja: { title: '# SunGene Co., LTD. — 全体索引', localized: '## 各言語版', sitemap: '## サイトマップ', keyPages: '## 主要ページ', machinePages: '## 主要機種ページ', recommend: '推薦／セレクター', catalog: '機械カタログ', resources: '購買ガイド', contact: '問い合わせ／見積' },
-  ar: { title: '# SunGene Co., LTD. — فهرس كامل', localized: '## الإصدارات حسب اللغة', sitemap: '## خريطة الموقع', keyPages: '## الصفحات المهمة', machinePages: '## صفحات الماكينات', recommend: 'توصية / اختيار', catalog: 'كتالوج الماكينات', resources: 'أدلة وموارد', contact: 'تواصل / عرض سعر' },
-  th: { title: '# SunGene Co., LTD. — ดัชนีแบบเต็ม', localized: '## เวอร์ชันตามภาษา', sitemap: '## แผนผังเว็บไซต์', keyPages: '## หน้าสำคัญ', machinePages: '## หน้ารุ่นเครื่องหลัก', recommend: 'แนะนำ / ตัวเลือก', catalog: 'แคตตาล็อกเครื่องจักร', resources: 'คู่มือและแหล่งข้อมูล', contact: 'ติดต่อ / ขอราคา' },
-  vi: { title: '# SunGene Co., LTD. — Danh mục đầy đủ', localized: '## Bản theo ngôn ngữ', sitemap: '## Sitemap', keyPages: '## Trang quan trọng', machinePages: '## Trang máy chính', recommend: 'Gợi ý / chọn máy', catalog: 'Danh mục máy', resources: 'Hướng dẫn & tài nguyên', contact: 'Liên hệ / báo giá' },
-  de: { title: '# SunGene Co., LTD. — Vollständige Referenz', localized: '## Lokalisierte Versionen', sitemap: '## Sitemap', keyPages: '## Wichtige Seiten', machinePages: '## Maschinen-Seiten', recommend: 'Empfehlung / Auswahl', catalog: 'Maschinenkatalog', resources: 'Ratgeber & Ressourcen', contact: 'Kontakt / Angebot' },
+  en: { title: '# SunGene Co., LTD. — Full Reference', localized: '## Localized versions', sitemap: '## Sitemap', keyPages: '## Key pages', machinePages: '## Machine landing pages', topicClusters: '## Topic clusters (by machine)', recommend: 'Recommendation / machine selector', catalog: 'Machinery catalog', resources: 'Buying guides & resources', contact: 'Contact / quote request' },
+  zh: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各語系版本', sitemap: '## 網站地圖', keyPages: '## 重要頁面', machinePages: '## 主要機型頁', topicClusters: '## 主題叢集（依機型）', recommend: '機型推薦／需求表單', catalog: '機械目錄', resources: '採購指南與資源', contact: '聯絡／詢價' },
+  cn: { title: '# SunGene Co., LTD. — 完整索引', localized: '## 各语言版本', sitemap: '## 站点地图', keyPages: '## 重要页面', machinePages: '## 主要机型页', topicClusters: '## 主题簇（按机型）', recommend: '机型推荐／需求表单', catalog: '机械目录', resources: '采购指南与资源', contact: '联系／询价' },
+  fr: { title: '# SunGene Co., LTD. — Référence complète', localized: '## Versions localisées', sitemap: '## Sitemap', keyPages: '## Pages clés', machinePages: '## Pages machines', topicClusters: '## Clusters (par machine)', recommend: 'Recommandation / sélecteur', catalog: 'Catalogue machines', resources: 'Guides & ressources', contact: 'Contact / demande de devis' },
+  es: { title: '# SunGene Co., LTD. — Referencia completa', localized: '## Versiones localizadas', sitemap: '## Sitemap', keyPages: '## Páginas clave', machinePages: '## Páginas de máquinas', topicClusters: '## Clústeres (por máquina)', recommend: 'Recomendación / selector', catalog: 'Catálogo de maquinaria', resources: 'Guías y recursos', contact: 'Contacto / cotización' },
+  pt: { title: '# SunGene Co., LTD. — Referência completa', localized: '## Versões localizadas', sitemap: '## Sitemap', keyPages: '## Páginas principais', machinePages: '## Páginas de máquinas', topicClusters: '## Clusters (por máquina)', recommend: 'Recomendação / seletor', catalog: 'Catálogo de máquinas', resources: 'Guias e recursos', contact: 'Contato / orçamento' },
+  ko: { title: '# SunGene Co., LTD. — 전체 인덱스', localized: '## 언어별 버전', sitemap: '## 사이트맵', keyPages: '## 주요 페이지', machinePages: '## 주요 기계 페이지', topicClusters: '## 주제 클러스터(기계별)', recommend: '추천 / 선택', catalog: '기계 카탈로그', resources: '가이드 & 리소스', contact: '문의 / 견적' },
+  ja: { title: '# SunGene Co., LTD. — 全体索引', localized: '## 各言語版', sitemap: '## サイトマップ', keyPages: '## 主要ページ', machinePages: '## 主要機種ページ', topicClusters: '## トピッククラスター（機種別）', recommend: '推薦／セレクター', catalog: '機械カタログ', resources: '購買ガイド', contact: '問い合わせ／見積' },
+  ar: { title: '# SunGene Co., LTD. — فهرس كامل', localized: '## الإصدارات حسب اللغة', sitemap: '## خريطة الموقع', keyPages: '## الصفحات المهمة', machinePages: '## صفحات الماكينات', topicClusters: '## مواضيع حسب الماكينة', recommend: 'توصية / اختيار', catalog: 'كتالوج الماكينات', resources: 'أدلة وموارد', contact: 'تواصل / عرض سعر' },
+  th: { title: '# SunGene Co., LTD. — ดัชนีแบบเต็ม', localized: '## เวอร์ชันตามภาษา', sitemap: '## แผนผังเว็บไซต์', keyPages: '## หน้าสำคัญ', machinePages: '## หน้ารุ่นเครื่องหลัก', topicClusters: '## กลุ่มหัวข้อ (ตามเครื่อง)', recommend: 'แนะนำ / ตัวเลือก', catalog: 'แคตตาล็อกเครื่องจักร', resources: 'คู่มือและแหล่งข้อมูล', contact: 'ติดต่อ / ขอราคา' },
+  vi: { title: '# SunGene Co., LTD. — Danh mục đầy đủ', localized: '## Bản theo ngôn ngữ', sitemap: '## Sitemap', keyPages: '## Trang quan trọng', machinePages: '## Trang máy chính', topicClusters: '## Cụm chủ đề (theo máy)', recommend: 'Gợi ý / chọn máy', catalog: 'Danh mục máy', resources: 'Hướng dẫn & tài nguyên', contact: 'Liên hệ / báo giá' },
+  de: { title: '# SunGene Co., LTD. — Vollständige Referenz', localized: '## Lokalisierte Versionen', sitemap: '## Sitemap', keyPages: '## Wichtige Seiten', machinePages: '## Maschinen-Seiten', topicClusters: '## Themencluster (je Maschine)', recommend: 'Empfehlung / Auswahl', catalog: 'Maschinenkatalog', resources: 'Ratgeber & Ressourcen', contact: 'Kontakt / Angebot' },
 }
 
 function localizedLinks() {
@@ -41,6 +43,18 @@ export async function GET(_req: NextRequest, context: { params: Promise<{ lang: 
   const t = tx[lang]
 
   const base = `${SITE_URL}/${lang}`
+  const clusters = [
+    { label: 'Pouch packing', machine: 'pouch-packing-machine' as const },
+    { label: 'Powder filling', machine: 'powder-filling-machine' as const },
+    { label: 'Liquid filling', machine: 'liquid-filling-machine' as const },
+    { label: 'Snack processing', machine: 'snack-processing-line' as const },
+    { label: 'Conveyors', machine: 'conveyor-system' as const },
+  ].map((c) => {
+    const items = getResourceArticlesByMachine(c.machine, lang, 8)
+    const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
+    return `- ${c.label}\n${lines}`
+  }).join('\n')
+
   const body = `${t.title}
 
 ${t.localized}
@@ -61,6 +75,9 @@ ${t.machinePages}
 - Liquid filling: ${base}/machines/liquid-filling-machine
 - Snack processing line: ${base}/machines/snack-processing-line
 - Conveyor systems: ${base}/machines/conveyor-system
+
+${t.topicClusters}
+${clusters}
 `
 
   return new Response(body, {
@@ -70,4 +87,3 @@ ${t.machinePages}
     },
   })
 }
-

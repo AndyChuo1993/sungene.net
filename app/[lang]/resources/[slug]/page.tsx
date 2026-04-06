@@ -9,6 +9,7 @@ import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n,
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
 import { LANG_META } from '@/lib/seo'
 import { getStableLastModifiedISO } from '@/lib/buildTime'
+import { getResourceBoostSections } from '@/lib/resourceBoost'
 
 export const dynamic = 'force-static'
 
@@ -264,6 +265,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
             <article className="prose prose-gray max-w-none prose-headings:text-brand-950 prose-a:text-accent-600">
               <p className="lead font-semibold text-brand-900">{i18n.lead}</p>
               {i18n.sections.map((s, idx) => renderSection(s, idx))}
+              {getResourceBoostSections(slug, l).map((s, idx) => renderSection(s, 10_000 + idx))}
               <h2>{t.faqTitle}</h2>
               {i18n.faqs.map((f, idx) => (
                 <div key={idx}>
