@@ -48,6 +48,14 @@ function plain(status: number, body: string) {
   })
 }
 
+function hasTrackingParams(searchParams: URLSearchParams) {
+  for (const [k] of searchParams.entries()) {
+    if (k.startsWith('utm_')) return true
+  }
+  const keys = ['gclid', 'fbclid', 'msclkid', 'wbraid', 'gbraid']
+  return keys.some((k) => searchParams.has(k))
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
@@ -74,10 +82,29 @@ export function middleware(request: NextRequest) {
   const matchLang = pathname.match(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)(?:\/|$)/)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
   const restPath = matchLang ? pathname.replace(new RegExp(`^/${currentLang}(?=/|$)`), '') || '/' : pathname
+  const shouldNoindexByParams = hasTrackingParams(searchParams)
 
   if (searchParams.has('post_type') || searchParams.has('p')) {
     const lang = currentLang || defaultLocale
     return NextResponse.redirect(new URL(`/${lang}/machinery`, request.url), 308)
+  }
+
+  if (
+    restPath === '/pouch-packing-machine' ||
+    restPath === '/powder-packaging-machine' ||
+    restPath === '/powder-filling-machine' ||
+    restPath === '/liquid-filling-machine' ||
+    restPath === '/conveyor-system'
+  ) {
+    const lang = currentLang || defaultLocale
+    const map: Record<string, string> = {
+      '/pouch-packing-machine': '/machines/pouch-packing-machine',
+      '/powder-packaging-machine': '/machines/powder-filling-machine',
+      '/powder-filling-machine': '/machines/powder-filling-machine',
+      '/liquid-filling-machine': '/machines/liquid-filling-machine',
+      '/conveyor-system': '/machines/conveyor-system',
+    }
+    return NextResponse.redirect(new URL(`/${lang}${map[restPath]}`, request.url), 308)
   }
 
   if (
@@ -161,11 +188,17 @@ export function middleware(request: NextRequest) {
     requestHeaders.set('x-lang', locale)
   }
 
-  return NextResponse.next({
+  const res = NextResponse.next({
     request: {
       headers: requestHeaders,
     },
   })
+
+  if (shouldNoindexByParams) {
+    res.headers.set('X-Robots-Tag', 'noindex, follow')
+  }
+
+  return res
 }
 
 export const config = {
