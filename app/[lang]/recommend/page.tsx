@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import JsonLd from '@/components/JsonLd'
 import RecommendForm from '@/components/RecommendForm'
 import { WhatsAppLink, EmailLink } from '@/components/ContactTracker'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
@@ -304,70 +304,115 @@ const responseTime: Record<string, string> = {
 
 // ── JSON-LD ───────────────────────────────────────────────────────────────────
 
-function buildJsonLd(lang: string) {
+const breadcrumbNames: Record<Lang, { home: string; recommend: string }> = {
+  en: { home: 'Home', recommend: 'Recommendation' },
+  cn: { home: '首页', recommend: '选型推荐' },
+  zh: { home: '首頁', recommend: '選型推薦' },
+  fr: { home: 'Accueil', recommend: 'Recommandation' },
+  es: { home: 'Inicio', recommend: 'Recomendación' },
+  pt: { home: 'Início', recommend: 'Recomendação' },
+  ko: { home: '홈', recommend: '추천' },
+  ja: { home: 'ホーム', recommend: '推薦' },
+  ar: { home: 'الرئيسية', recommend: 'توصية' },
+  th: { home: 'หน้าแรก', recommend: 'คำแนะนำ' },
+  vi: { home: 'Trang chủ', recommend: 'Tư vấn' },
+  de: { home: 'Startseite', recommend: 'Empfehlung' },
+}
+
+const faqByLang: Record<Lang, { q: string; a: string }[]> = {
+  en: [
+    { q: 'How long does it take to get a recommendation?', a: 'Typically 1–2 business days after we receive your product and packaging details.' },
+    { q: 'What information should I prepare?', a: 'Product type/state, package format, fill range, target output, and destination voltage/frequency.' },
+    { q: 'Do I need to know the exact machine model?', a: 'No. Describe your product and goals — we will match the right machine type and configuration.' },
+  ],
+  zh: [
+    { q: '多久可以拿到推薦配置？', a: '通常在收到產品與包裝需求後 1–2 個工作日內回覆。' },
+    { q: '詢問前要準備哪些資料？', a: '產品類型/狀態、包材/容器形式、灌裝範圍、目標產速，以及目的地電壓/頻率。' },
+    { q: '一定要知道機型或型號嗎？', a: '不需要。描述產品與目標即可，我們會回覆適合的機型路線與配置。' },
+  ],
+  cn: [
+    { q: '多久可以拿到推荐配置？', a: '通常在收到产品与包装需求后 1–2 个工作日内回复。' },
+    { q: '询问前要准备哪些资料？', a: '产品类型/形态、包装/容器形式、灌装范围、目标产速，以及目的地电压/频率。' },
+    { q: '一定要知道机型或型号吗？', a: '不需要。描述产品与目标即可，我们会给出合适的机型方向与配置建议。' },
+  ],
+  fr: [
+    { q: 'Quel délai pour recevoir une recommandation ?', a: 'En général 1 à 2 jours ouvrés après réception de vos informations produit/emballage.' },
+    { q: 'Quelles informations préparer ?', a: 'Type/état du produit, format d’emballage, plage de dosage, cadence cible, tension/fréquence.' },
+    { q: 'Faut-il connaître le modèle exact ?', a: 'Non. Décrivez votre produit et vos objectifs : nous recommandons le bon type de machine et la configuration.' },
+  ],
+  es: [
+    { q: '¿Cuánto tarda la recomendación?', a: 'Normalmente 1–2 días hábiles después de recibir los datos de producto y empaque.' },
+    { q: '¿Qué información debo preparar?', a: 'Tipo/estado del producto, formato, rango de llenado, velocidad objetivo y voltaje/frecuencia.' },
+    { q: '¿Necesito saber el modelo exacto?', a: 'No. Describa su producto y objetivo; recomendamos el tipo de máquina y la configuración adecuada.' },
+  ],
+  pt: [
+    { q: 'Quanto tempo leva para receber a recomendação?', a: 'Normalmente 1–2 dias úteis após recebermos os dados do produto e da embalagem.' },
+    { q: 'Que informações devo preparar?', a: 'Tipo/estado do produto, formato, faixa de enchimento, velocidade-alvo e tensão/frequência.' },
+    { q: 'Preciso saber o modelo exato da máquina?', a: 'Não. Descreva o produto e a meta; recomendamos o tipo de máquina e a configuração.' },
+  ],
+  ko: [
+    { q: '추천을 받는 데 얼마나 걸리나요?', a: '제품/포장 정보가 확인되면 보통 1–2영업일 내에 답변합니다.' },
+    { q: '어떤 정보를 준비하면 되나요?', a: '제품 종류/상태, 포장 형식, 충전 범위, 목표 속도, 목적지 전압/주파수.' },
+    { q: '정확한 모델을 알아야 하나요?', a: '아니요. 제품과 목표만 알려주시면 적합한 기종과 구성을 제안합니다.' },
+  ],
+  ja: [
+    { q: '提案までの目安は？', a: '製品・包装条件の確認後、通常 1〜2 営業日で回答します。' },
+    { q: '事前に用意する情報は？', a: '製品の状態、包装形態、充填範囲、目標能力、仕向地の電圧/周波数。' },
+    { q: '機種名や型番は必要ですか？', a: '不要です。製品と目標を共有いただければ、適切な機種と構成をご提案します。' },
+  ],
+  ar: [
+    { q: 'كم يستغرق الحصول على التوصية؟', a: 'عادةً خلال 1–2 يوم عمل بعد استلام معلومات المنتج والتعبئة.' },
+    { q: 'ما المعلومات التي يجب تجهيزها؟', a: 'نوع المنتج/حالته، شكل العبوة، نطاق التعبئة، القدرة المطلوبة، الجهد/التردد.' },
+    { q: 'هل يجب معرفة موديل الماكينة بالضبط؟', a: 'لا. شارك تفاصيل المنتج والهدف وسنقترح نوع الماكينة والتكوين المناسب.' },
+  ],
+  th: [
+    { q: 'ใช้เวลานานแค่ไหนกว่าจะได้คำแนะนำ?', a: 'โดยทั่วไป 1–2 วันทำการหลังได้รับข้อมูลสินค้าและรูปแบบบรรจุภัณฑ์' },
+    { q: 'ควรเตรียมข้อมูลอะไรบ้าง?', a: 'ชนิด/สภาพสินค้า, รูปแบบบรรจุภัณฑ์, ช่วงการบรรจุ, ความเร็วเป้าหมาย, แรงดัน/ความถี่' },
+    { q: 'ต้องรู้รุ่นเครื่องที่แน่นอนไหม?', a: 'ไม่จำเป็น บอกสินค้าและเป้าหมาย แล้วเราจะแนะนำชนิดเครื่องและสเปกที่เหมาะสม' },
+  ],
+  vi: [
+    { q: 'Mất bao lâu để nhận tư vấn?', a: 'Thường 1–2 ngày làm việc sau khi nhận đủ thông tin sản phẩm và bao bì.' },
+    { q: 'Cần chuẩn bị thông tin gì?', a: 'Loại/trạng thái sản phẩm, format bao bì, dải chiết rót, tốc độ mục tiêu, điện áp/tần số.' },
+    { q: 'Có cần biết đúng model máy không?', a: 'Không cần. Chỉ cần mô tả sản phẩm và mục tiêu, chúng tôi sẽ đề xuất loại máy và cấu hình phù hợp.' },
+  ],
+  de: [
+    { q: 'Wie lange dauert eine Empfehlung?', a: 'In der Regel 1–2 Werktage nach Eingang Ihrer Produkt- und Verpackungsdaten.' },
+    { q: 'Welche Informationen sollte ich vorbereiten?', a: 'Produkttyp/-zustand, Verpackungsformat, Füllbereich, Zielleistung, Spannung/Frequenz.' },
+    { q: 'Muss ich das genaue Maschinenmodell kennen?', a: 'Nein. Beschreiben Sie Produkt und Ziel — wir empfehlen Typ und Konfiguration.' },
+  ],
+}
+
+function buildJsonLd(lang: Lang) {
   const pageUrl = `${SITE_URL}/${lang}/recommend`
+  const faqs = faqByLang[lang] ?? faqByLang.en
+  const bc = breadcrumbNames[lang] ?? breadcrumbNames.en
 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How long does it take to get a recommendation?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Our engineers typically respond within 1–2 business days after reviewing your product and packaging requirements.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Do I need to know the exact machine model?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'No. Describe what you want to pack and your target output — we\'ll identify the right machine type and configuration.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What information should I prepare?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Product type, state (powder/liquid/solid), target packaging format, fill weight, required output speed, and your location/voltage.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Is there a cost for the recommendation?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'No. The recommendation service is free. We only ask that you provide accurate product details so we can give you the most useful advice.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can you handle custom or non-standard requirements?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. We specialize in custom machinery engineering for unusual products, special packaging formats, or specific hygiene/material requirements.',
-        },
-      },
-    ],
+    inLanguage: LANG_META[lang].htmlLang,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    inLanguage: LANG_META[lang].htmlLang,
     itemListElement: [
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Home',
+        name: bc.home,
         item: `${SITE_URL}/${lang}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Recommend',
+        name: bc.recommend,
         item: pageUrl,
       },
     ],

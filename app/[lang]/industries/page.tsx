@@ -7,8 +7,9 @@ import JsonLd from '@/components/JsonLd'
 import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
   en: 'Industries & Applications | SunGene',
@@ -204,6 +205,11 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
         desc={t.desc}
         image={{ src: heroPhoto, alt: 'Industrial applications', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
+      <section className="bg-white py-6">
+        <Container>
+          <Breadcrumbs lang={lang} items={[{ label: t.title, href: `/${lang}/industries` }]} />
+        </Container>
+      </section>
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
@@ -224,6 +230,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'ItemList',
+        inLanguage: LANG_META[lang].htmlLang,
         name: t.title,
         description: t.desc,
         itemListElement: t.cats.map((cat: any, i: number) => ({
