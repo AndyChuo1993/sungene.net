@@ -752,6 +752,54 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   const bc = breadcrumbNames[lang] || breadcrumbNames.en
   const heroPhoto = PHOTO.pages.solutions.hero
 
+  const guidesTitle =
+    ({
+      en: 'Buying guides by machine',
+      cn: '按机型浏览采购指南',
+      zh: '依機型瀏覽採購指南',
+      fr: 'Guides d’achat par machine',
+      es: 'Guías de compra por máquina',
+      pt: 'Guias de compra por máquina',
+      ko: '기계별 구매 가이드',
+      ja: '機種別 購入ガイド',
+      ar: 'أدلة الشراء حسب الماكينة',
+      th: 'คู่มือการเลือกซื้อตามเครื่อง',
+      vi: 'Hướng dẫn mua theo máy',
+      de: 'Kaufratgeber nach Maschine',
+    } as Record<string, string>)[lang] || 'Buying guides by machine'
+
+  const getRecLabel =
+    ({
+      en: 'Get a Recommendation',
+      cn: '获取推荐',
+      zh: '取得推薦',
+      fr: 'Obtenir une recommandation',
+      es: 'Obtener recomendación',
+      pt: 'Obter recomendação',
+      ko: '추천 받기',
+      ja: '推薦を受ける',
+      ar: 'احصل على توصية',
+      th: 'รับคำแนะนำ',
+      vi: 'Nhận đề xuất',
+      de: 'Empfehlung erhalten',
+    } as Record<string, string>)[lang] || 'Get a Recommendation'
+
+  const quoteLabel =
+    ({
+      en: 'Request a Quote',
+      cn: '获取报价',
+      zh: '取得報價',
+      fr: 'Demander un devis',
+      es: 'Solicitar cotización',
+      pt: 'Solicitar orçamento',
+      ko: '견적 요청',
+      ja: '見積依頼',
+      ar: 'طلب عرض سعر',
+      th: 'ขอใบเสนอราคา',
+      vi: 'Yêu cầu báo giá',
+      de: 'Angebot anfordern',
+    } as Record<string, string>)[lang] || 'Request a Quote'
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -773,6 +821,20 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     ],
   }
 
+  const topicHubSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: guidesTitle,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pouch packing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, name: 'Pouch packing buying guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Powder filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, name: 'Powder filling buying guides' } },
+      { '@type': 'ListItem', position: 3, name: 'Liquid filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, name: 'Liquid filling buying guides' } },
+      { '@type': 'ListItem', position: 4, name: 'Snack processing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, name: 'Snack processing buying guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Conveyor buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${lang}/resources/topic/conveyor-system`, name: 'Conveyor buying guides' } },
+    ],
+  }
+
   const levelColors = [
     'from-blue-600 to-blue-700',
     'from-emerald-600 to-emerald-700',
@@ -791,6 +853,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={topicHubSchema} />
 
       {/* Hero */}
       <PageHero
@@ -799,6 +862,25 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
         desc={heroDesc[lang] || heroDesc.en}
         image={{ src: heroPhoto, alt: 'Automated packaging production line in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
+
+      <section className="bg-white py-8">
+        <Container className="max-w-6xl">
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+            <h2 className="text-base font-bold text-gray-950">{guidesTitle}</h2>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</a>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <ButtonLink href={`/${lang}/recommend`} size="md">{getRecLabel}</ButtonLink>
+              <ButtonLink href={`/${lang}/contact`} variant="secondary" size="md">{quoteLabel}</ButtonLink>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* 4 Solution Levels */}
       <section className="py-16 sm:py-24">
@@ -855,7 +937,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
                     {/* CTA */}
                     <div className="pt-2">
                       <ButtonLink
-                        href={`/${lang}${level.ctaHref}`}
+                        href={`/${lang}${level.ctaHref}?product=${encodeURIComponent(txLevel?.title || level.title)}`}
                         size="sm"
                       >
                         {txLevel?.cta || level.cta}
@@ -937,7 +1019,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
             {ctaDescByLang[lang] || ctaDescByLang.en}
           </p>
           <div className="mt-8">
-            <ButtonLink href={`/${lang}/recommend`} size="lg">
+            <ButtonLink href={`/${lang}/recommend?product=${encodeURIComponent(heroTitle[lang] || heroTitle.en)}`} size="lg">
               {tx.ctaButton}
             </ButtonLink>
           </div>
