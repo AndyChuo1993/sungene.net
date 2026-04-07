@@ -180,7 +180,7 @@ const content: Record<string, PageContent> = {
     faq: [
       {
         q: 'Can I start with just a fryer and add packaging later?',
-        a: 'Yes. We design lines that can grow in stages. You can start with the core cooking equipment and add seasoning, cooling, and packaging machines as your volume grows. We ensure machine interfaces are compatible for future integration.',
+        a: 'Yes. We design lines that can grow in stages. You can start with the core cooking equipment and add seasoning, cooling, and packaging machines as your volume grows. All machine interfaces are designed to be compatible for future integration.',
       },
       {
         q: 'What is the difference between a continuous fryer and a batch fryer?',
@@ -1519,6 +1519,17 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Snack & Food Processing Machinery',
+    material: 'SUS304/316L Stainless Steel',
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Processing Types', value: 'Continuous fryer, batch fryer, rotary roaster, seasoning tumbler' },
+      { '@type': 'PropertyValue', name: 'Capacity', value: '50–500 kg/hr' },
+      { '@type': 'PropertyValue', name: 'Products', value: 'Chips, nuts, extruded snacks, puffed food, pet food' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Voltage Options', value: '220V/380V/480V, 50/60Hz, 3-phase' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+      { '@type': 'PropertyValue', name: 'Lead Time', value: '45–90 days' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',

@@ -87,7 +87,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     },
     fr: {
       title: 'Syst\u00E8mes de convoyage et automatisation',
-      p1: 'Nous fournissons des solutions compl\u00E8tes de convoyage et d\'automatisation pour connecter votre ligne de production de bout en bout. Nos syst\u00E8mes comprennent des convoyeurs \u00E0 bande, \u00E9l\u00E9vateurs \u00E0 godets, convoyeurs \u00E0 vis, bras robotiques, palettiseurs, commandes PLC, d\u00E9tecteurs de m\u00E9taux et trieuses pond\u00E9rales.',
+      p1: 'Nous fournissons des solutions compl\u00E8tes de convoyage et d\'automatisation pour connecter votre ligne de production du début à la fin. Nos syst\u00E8mes comprennent des convoyeurs \u00E0 bande, \u00E9l\u00E9vateurs \u00E0 godets, convoyeurs \u00E0 vis, bras robotiques, palettiseurs, commandes PLC, d\u00E9tecteurs de m\u00E9taux et trieuses pond\u00E9rales.',
       p2: 'Tous les syst\u00E8mes sont construits avec des composants de qualit\u00E9 industrielle, certifi\u00E9s CE et con\u00E7us pour un fonctionnement 24h/24. Nous proposons la conception de layouts personnalis\u00E9s, la programmation PLC et un support d\'installation cl\u00E9 en main.',
       subTitle: 'Types de machines disponibles',
       cons: ['Convoyeurs \u00E0 bande', '\u00C9l\u00E9vateurs \u00E0 godets', 'Convoyeurs \u00E0 vis', 'Bras robotiques', 'Palettiseurs', 'Commandes PLC', 'D\u00E9tecteurs de m\u00E9taux', 'Trieuses pond\u00E9rales'],

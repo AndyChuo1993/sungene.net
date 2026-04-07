@@ -6,7 +6,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     en: {
       kicker: 'WHY CHOOSE US',
       title: 'Your Trusted Machinery Partner from Asia',
-      desc: 'We go beyond selling machines. From sourcing the right equipment to managing export logistics, we provide end-to-end support that global buyers depend on.',
+      desc: 'We go beyond selling machines. From sourcing the right equipment to managing export logistics, we provide full support from start to finish — the kind global buyers depend on.',
       items: [
         { icon: '01', title: 'Factory-Direct Pricing', desc: 'As a manufacturer with our own production facilities, we offer competitive factory-direct pricing without middleman markups.' },
         { icon: '02', title: 'Turnkey Solutions', desc: 'From single machines to complete production lines, we design and deliver integrated solutions built for your exact needs.' },
@@ -19,7 +19,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     cn: {
       kicker: '为什么选择我们',
       title: '您值得信赖的亚洲机械合作伙伴',
-      desc: '我们不仅仅是卖机器。从设备选型到出口物流管理，我们提供全球买家信赖的端到端服务支持。',
+      desc: '我们不仅仅是卖机器。从设备选型到出口物流管理，我们提供全球买家信赖的全程服务支持。',
       items: [
         { icon: '01', title: '工厂直销价格', desc: '作为拥有自有生产设施的制造商，我们提供有竞争力的工厂直销价格，无中间商加价。' },
         { icon: '02', title: '交钥匙解决方案', desc: '从单机到整套生产线，我们设计并交付按您实际需求打造的集成解决方案。' },
@@ -32,7 +32,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     zh: {
       kicker: '為什麼選擇我們',
       title: '您值得信賴的亞洲機械合作夥伴',
-      desc: '我們不僅僅是賣機器。從設備選型到出口物流管理，我們提供全球買家信賴的端到端服務支援。',
+      desc: '我們不僅僅是賣機器。從設備選型到出口物流管理，我們提供全球買家信賴的全程服務支援。',
       items: [
         { icon: '01', title: '工廠直銷價格', desc: '作為擁有自有生產設施的製造商，我們提供有競爭力的工廠直銷價格，無中間商加價。' },
         { icon: '02', title: '交鑰匙解決方案', desc: '從單機到整套生產線，我們設計並交付針對您特定需求客製的整合解決方案。' },
@@ -45,7 +45,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     fr: {
       kicker: 'POURQUOI NOUS CHOISIR',
       title: 'Votre partenaire machines de confiance en Asie',
-      desc: 'Nous ne nous contentons pas de vendre des machines. De la sélection des équipements à la gestion logistique de l\'exportation, nous offrons un accompagnement de bout en bout sur lequel les acheteurs internationaux comptent.',
+      desc: 'Nous ne nous contentons pas de vendre des machines. De la sélection des équipements à la gestion logistique de l\'exportation, nous offrons un accompagnement complet sur lequel les acheteurs internationaux comptent.',
       items: [
         { icon: '01', title: 'Prix usine directs', desc: 'En tant que fabricant disposant de nos propres installations de production, nous proposons des prix usine compétitifs sans marge d\'intermédiaire.' },
         { icon: '02', title: 'Solutions clé en main', desc: 'Des machines individuelles aux lignes de production complètes, nous concevons et livrons des solutions intégrées conçues pour vos besoins précis.' },
@@ -97,7 +97,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     ja: {
       kicker: '選ばれる理由',
       title: 'アジアの信頼できる機械パートナー',
-      desc: '単なる機械販売にとどまりません。最適な設備の選定から輸出物流の管理まで、世界中のバイヤーが頼りにするエンドツーエンドのサポートを提供します。',
+      desc: '単なる機械販売にとどまりません。最適な設備の選定から輸出物流の管理まで、世界中のバイヤーが頼りにする全工程をカバーするサポートを提供します。',
       items: [
         { icon: '01', title: '工場直販価格', desc: '自社生産施設を持つメーカーとして、仲介マージンなしの競争力ある工場直販価格を提供します。' },
         { icon: '02', title: 'ターンキーソリューション', desc: '単体機械から完全な生産ラインまで、お客様の要件に合わせた統合ソリューションを設計・納品します。' },

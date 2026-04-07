@@ -1314,6 +1314,17 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Powder Filling & Packaging Machinery',
+    material: 'SUS304/316L Stainless Steel',
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Dosing Types', value: 'Auger, volumetric cup, multi-head weigher' },
+      { '@type': 'PropertyValue', name: 'Fill Weight Range', value: '1g–5kg' },
+      { '@type': 'PropertyValue', name: 'Output Speed', value: '10–80 bags/min' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',

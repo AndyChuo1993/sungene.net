@@ -493,6 +493,16 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Conveyor & Production Line Automation',
+    material: 'SUS304/316L Stainless Steel, Carbon Steel',
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Types', value: 'Belt conveyor, bucket elevator, screw conveyor, roller conveyor, vibratory feeder' },
+      { '@type': 'PropertyValue', name: 'Controls', value: 'PLC + HMI, servo motor, VFD' },
+      { '@type': 'PropertyValue', name: 'Integration', value: 'Metal detector, checkweigher, palletizer' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',

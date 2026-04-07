@@ -30,13 +30,15 @@ SunGene manufactures and exports industrial machinery from Taiwan. Core product 
 - Shipping: FOB Taichung or CIF to any world port
 
 ## Factory & Service Details
-- Factory location: Taichung, Taiwan
+- Factory location: Taichung, Taiwan (24.1433°N, 120.6845°E)
 - Factory floor area: 3,000+ sqm
 - Annual production capacity: 500+ units
 - Testing: every machine undergoes full factory acceptance test (FAT) with video
 - Warranty: 1-year parts warranty, lifetime technical support
 - Installation support: remote video guidance, on-site available for turnkey projects
 - Spare parts: stocked and shipped within 48 hours
+- Shipping port: Taichung Port, Taiwan
+- Estimated transit by region: Asia 7–14 days, Middle East 14–21 days, Europe 21–30 days, Americas 25–35 days
 
 ## Target Customers
 - Food manufacturers needing packaging automation

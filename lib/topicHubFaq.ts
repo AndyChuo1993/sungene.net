@@ -213,27 +213,37 @@ const faqTx: Record<
   },
 }
 
-const faqMachineNotes: Record<Lang, Record<TopicMachine, { options: string; factors: string }>> = {
+const faqMachineNotes: Record<Lang, Record<TopicMachine, { options: string; factors: string; q7?: string; a7?: string }>> = {
   en: {
     'pouch-packing-machine': {
       options: 'VFFS vs premade pouch; zipper/stand-up/pillow; gas flush; checkweigher; metal detector.',
       factors: 'product feeding stability, dust control, bag material, seal contamination, changeover frequency.',
+      q7: 'What is the difference between VFFS and HFFS?',
+      a7: 'VFFS forms bags vertically from roll film — best for powders, granules, and liquids. HFFS wraps film horizontally around solid or shaped products like bars, biscuits, and hardware.',
     },
     'powder-filling-machine': {
       options: 'auger filler, volumetric cup, or multi-head weigher; dust extraction; nitrogen flush; checkweigher.',
       factors: 'powder flowability, bridging, dosing method, dust at seal area, humidity and temperature.',
+      q7: 'When should I choose auger filling over volumetric cup filling?',
+      a7: 'Auger filling works better for fine, non-free-flowing powders (spice, flour, milk powder). Volumetric cups suit free-flowing granules with consistent density. For mixed or irregular particles, a multi-head weigher is more accurate.',
     },
     'liquid-filling-machine': {
       options: 'piston, pump, gravity/overflow, or flow meter; anti-drip nozzles; CIP options.',
       factors: 'viscosity, foaming, particulates, temperature, container stability, cleaning requirements.',
+      q7: 'Which filling method works best for thick or viscous liquids?',
+      a7: 'Piston fillers handle thick liquids (sauces, creams, pastes) well because they push product by displacement. For thinner liquids like water or juice, gravity or overflow fillers are simpler and faster.',
     },
     'snack-processing-line': {
       options: 'fryer/roaster + de-oiling + seasoning + cooling + integrated packaging modules.',
       factors: 'product moisture/oil content, target throughput, oil management, footprint, hygiene and cleaning access.',
+      q7: 'Can I start with frying only and add packaging later?',
+      a7: 'Yes. Many buyers start with core cooking equipment (fryer or roaster + de-oiler + seasoning) and add weighing, packaging, and cartoning machines in a later phase. All machine interfaces are designed to connect.',
     },
     'conveyor-system': {
       options: 'belt/roller/modular; incline/decline; side guards; washdown design; integration sensors.',
       factors: 'product shape, line speed, transfer points, incline angle, sanitation level, space constraints.',
+      q7: 'Can conveyors be food-grade stainless steel?',
+      a7: 'Yes. SUS304 stainless frames and food-grade belts are standard for washdown and food-contact applications. SUS316L is available for corrosive environments like seafood or chemical lines.',
     },
   },
   zh: {
@@ -592,7 +602,8 @@ export function getTopicHubIntro(lang: Lang, machine: TopicMachine): string {
 export function getTopicHubFaqs(lang: Lang, machine: TopicMachine): TopicHubFaq[] {
   const t = faqTx[lang] || faqTx.en
   const m = (faqMachineNotes[lang] || faqMachineNotes.en)[machine]
-  return [
+  const enM = faqMachineNotes.en[machine]
+  const faqs: TopicHubFaq[] = [
     { q: t.q1, a: t.a1 },
     { q: t.q2, a: `${t.a2}${m.options}` },
     { q: t.q3, a: `${t.a3}${m.factors}` },
@@ -600,4 +611,9 @@ export function getTopicHubFaqs(lang: Lang, machine: TopicMachine): TopicHubFaq[
     { q: t.q5, a: t.a5 },
     { q: t.q6, a: t.a6 },
   ]
+  // Add machine-specific Q7 (falls back to English if not translated)
+  const q7 = m.q7 || enM.q7
+  const a7 = m.a7 || enM.a7
+  if (q7 && a7) faqs.push({ q: q7, a: a7 })
+  return faqs
 }

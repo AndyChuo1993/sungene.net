@@ -334,8 +334,41 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       de: 'Über uns',
     } as Record<string, string>)[lang] || 'About'
 
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#org`,
+    name: 'SunGene Co., LTD.',
+    alternateName: '上瑾錸有限公司',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo/sungene.png`,
+    foundingDate: '2010',
+    description: t.intro,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '201 Guangfu Rd., Central District',
+      addressLocality: 'Taichung',
+      postalCode: '40041',
+      addressCountry: 'TW',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 24.1433, longitude: 120.6845 },
+    telephone: '+886-4-3703-2705',
+    email: 'contact@sungene.net',
+    numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 50, maxValue: 200 },
+    knowsAbout: [
+      'Packaging Machinery', 'VFFS Machines', 'HFFS Flow Wrappers',
+      'Powder Filling Machines', 'Liquid Filling Machines', 'Food Processing Equipment',
+      'Conveyor Systems', 'PLC Automation', 'CE Certification',
+    ],
+    sameAs: [
+      'https://www.linkedin.com/company/sungene-machinery',
+      'https://sungene.en.alibaba.com',
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       <PageHero
         kicker={t.kicker}
         title={t.title}

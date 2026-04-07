@@ -459,6 +459,17 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Liquid Filling Machinery',
+    material: 'SUS304/316L Stainless Steel',
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Filling Types', value: 'Piston, gravity, overflow, peristaltic pump, flow meter' },
+      { '@type': 'PropertyValue', name: 'Fill Volume Range', value: '5ml–5L' },
+      { '@type': 'PropertyValue', name: 'Output Speed', value: '500–5,000 units/hr' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',

@@ -6,18 +6,36 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/sitemap.xml'],
         disallow: [
           '/api/',
           '/_next/',
-          '/wp-admin',
-          '/wp-content',
-          '/wp-includes',
-          '/wp-json',
-          '/xmlrpc.php',
-          '/wp-login.php',
-          '/wp-cron.php',
         ],
+      },
+      {
+        userAgent: 'GPTBot',
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/api/', '/_next/'],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

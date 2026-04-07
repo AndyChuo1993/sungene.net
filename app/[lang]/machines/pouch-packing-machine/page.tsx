@@ -674,6 +674,16 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     brand: { '@type': 'Brand', name: 'SunGene' },
     manufacturer: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
     category: 'Pouch & Bag Packaging Machinery',
+    material: 'SUS304/316L Stainless Steel',
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Output Speed', value: '20–300 bags/min' },
+      { '@type': 'PropertyValue', name: 'Bag Types', value: 'Pillow, stand-up, zipper, stick pack, vacuum' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
