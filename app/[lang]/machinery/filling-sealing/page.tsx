@@ -60,7 +60,7 @@ export default async function FillingSeaingPage({ params }: { params: Promise<{ 
   const content: Record<string, any> = {
     en: {
       title: 'Filling & Sealing Systems',
-      p1: 'We design and manufacture a comprehensive range of filling and sealing machines for liquid, paste, powder, and granule products. Our systems cover volumetric fillers, piston fillers, gravity fillers, cup sealers, bottle cappers, induction sealers, and tube filling machines — serving food, beverage, cosmetic, pharmaceutical, and chemical industries.',
+      p1: 'We design and manufacture filling and sealing machines for liquid, paste, powder, and granule products. Our systems cover volumetric fillers, piston fillers, gravity fillers, cup sealers, bottle cappers, induction sealers, and tube filling machines — serving food, beverage, cosmetic, pharmaceutical, and chemical industries.',
       p2: 'All machines feature SUS304/316L stainless steel construction, CE certification, and can be configured for custom voltage, filling volume, sealing type, and automation level. Factory test videos are provided before shipment.',
       subTitle: 'Machine Types Available',
       cons: ['Liquid Fillers', 'Paste Fillers', 'Powder Dosing Machines', 'Cup Sealers', 'Bottle Cappers', 'Induction Sealers', 'Tube Filling Machines'],

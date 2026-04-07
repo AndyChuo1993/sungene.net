@@ -65,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'conveyor-system',
   ]
   const topicSitemap = topicMachines.flatMap((m) =>
-    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'monthly', 0.6))
+    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'weekly', 0.75))
   )
 
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)

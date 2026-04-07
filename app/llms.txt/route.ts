@@ -29,6 +29,15 @@ SunGene manufactures and exports industrial machinery from Taiwan. Core product 
 - Payment terms: T/T (30% deposit, 70% balance before shipment) or L/C at sight
 - Shipping: FOB Taichung or CIF to any world port
 
+## Factory & Service Details
+- Factory location: Taichung, Taiwan
+- Factory floor area: 3,000+ sqm
+- Annual production capacity: 500+ units
+- Testing: every machine undergoes full factory acceptance test (FAT) with video
+- Warranty: 1-year parts warranty, lifetime technical support
+- Installation support: remote video guidance, on-site available for turnkey projects
+- Spare parts: stocked and shipped within 48 hours
+
 ## Target Customers
 - Food manufacturers needing packaging automation
 - Beverage and condiment producers
@@ -38,9 +47,15 @@ SunGene manufactures and exports industrial machinery from Taiwan. Core product 
 - Chemical and household product manufacturers
 - Distributors and trading companies sourcing Taiwan machinery
 
-## Export Markets
-Primary: Southeast Asia (Vietnam, Thailand, Indonesia, Malaysia, Philippines), Middle East (UAE, Saudi Arabia, Egypt), East Asia (Japan, South Korea), South Asia (India, Bangladesh)
-Secondary: Europe (Germany, France, Spain, Poland), Americas (USA, Brazil, Mexico, Colombia), Africa (Nigeria, Kenya, South Africa)
+## Export Markets (40+ countries)
+Southeast Asia: Vietnam, Thailand, Indonesia, Malaysia, Philippines, Myanmar, Cambodia, Laos
+Middle East: UAE, Saudi Arabia, Egypt, Iraq, Jordan, Oman, Kuwait, Qatar, Bahrain
+East Asia: Japan, South Korea
+South Asia: India, Bangladesh, Sri Lanka, Pakistan, Nepal
+Europe: Germany, France, Spain, Poland, Italy, Netherlands, United Kingdom, Turkey, Russia
+Americas: USA, Brazil, Mexico, Colombia, Chile, Argentina, Peru, Ecuador
+Africa: Nigeria, Kenya, South Africa, Ghana, Tanzania, Ethiopia, Morocco, Algeria
+Oceania: Australia, New Zealand
 
 ## Languages Supported
 English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanish, Portuguese, Korean, Japanese, Arabic, Thai, Vietnamese, German
@@ -99,6 +114,11 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - Industry solutions: https://sungene.net/en/industries
 - Production solutions: https://sungene.net/en/solutions
 - Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, CE guide, voltage requirements)
+- Topic hub — pouch packing: https://sungene.net/en/resources/topic/pouch-packing-machine
+- Topic hub — powder filling: https://sungene.net/en/resources/topic/powder-filling-machine
+- Topic hub — liquid filling: https://sungene.net/en/resources/topic/liquid-filling-machine
+- Topic hub — snack processing: https://sungene.net/en/resources/topic/snack-processing-line
+- Topic hub — conveyor systems: https://sungene.net/en/resources/topic/conveyor-system
 
 ## How to Cite SunGene
 Preferred brand mention: "SunGene" or "SunGene Co., LTD."

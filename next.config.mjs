@@ -18,11 +18,7 @@ const nextConfig = {
       { source: '/:lang/resources/sauce-filling', destination: '/:lang/resources/sauce-filling-machine-selection', permanent: true },
       { source: '/:lang/resources/detergent-powder-packaging', destination: '/:lang/resources/detergent-powder-packaging-machine', permanent: true },
       { source: '/:lang/resources/what-to-include-in-quote-request', destination: '/:lang/resources/what-to-prepare-before-machine-quote', permanent: true },
-      // Legacy machine SEO pages → consolidated machine landing pages
-      { source: '/:lang/pouch-packing-machine', destination: '/:lang/machines/pouch-packing-machine', permanent: true },
-      { source: '/:lang/liquid-filling-machine', destination: '/:lang/machines/liquid-filling-machine', permanent: true },
-      { source: '/:lang/conveyor-system', destination: '/:lang/machines/conveyor-system', permanent: true },
-      { source: '/:lang/powder-packaging-machine', destination: '/:lang/machines/powder-filling-machine', permanent: true },
+      // Legacy machine SEO pages are handled by middleware.ts (308 redirects with lang detection)
     ]
   },
 }

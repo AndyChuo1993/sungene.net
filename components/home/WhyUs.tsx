@@ -9,7 +9,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
       desc: 'We go beyond selling machines. From sourcing the right equipment to managing export logistics, we provide end-to-end support that global buyers depend on.',
       items: [
         { icon: '01', title: 'Factory-Direct Pricing', desc: 'As a manufacturer with our own production facilities, we offer competitive factory-direct pricing without middleman markups.' },
-        { icon: '02', title: 'Turnkey Solutions', desc: 'From single machines to complete production lines, we design and deliver integrated solutions tailored to your specific requirements.' },
+        { icon: '02', title: 'Turnkey Solutions', desc: 'From single machines to complete production lines, we design and deliver integrated solutions built for your exact needs.' },
         { icon: '03', title: 'Global Export Expertise', desc: 'Experienced in exporting to 50+ countries with full documentation, voltage customization, and international shipping support.' },
         { icon: '04', title: 'After-Sales & Training', desc: 'Remote video installation guidance, operator training, spare parts supply, and 24/7 technical support for all our equipment.' },
         { icon: '05', title: 'OEM & Custom Engineering', desc: 'Our R&D team can customize dimensions, materials, output capacity, and automation levels to match your production environment.' },
@@ -22,7 +22,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
       desc: '我们不仅仅是卖机器。从设备选型到出口物流管理，我们提供全球买家信赖的端到端服务支持。',
       items: [
         { icon: '01', title: '工厂直销价格', desc: '作为拥有自有生产设施的制造商，我们提供有竞争力的工厂直销价格，无中间商加价。' },
-        { icon: '02', title: '交钥匙解决方案', desc: '从单机到整套生产线，我们设计并交付针对您特定需求定制的集成解决方案。' },
+        { icon: '02', title: '交钥匙解决方案', desc: '从单机到整套生产线，我们设计并交付按您实际需求打造的集成解决方案。' },
         { icon: '03', title: '全球出口经验', desc: '出口经验覆盖50多个国家，提供完整文件、电压定制和国际物流支持。' },
         { icon: '04', title: '售后与培训', desc: '远程视频安装指导、操作培训、备件供应及全天候技术支持。' },
         { icon: '05', title: 'OEM与定制工程', desc: '我们的研发团队可定制尺寸、材料、产能和自动化水平以匹配您的生产环境。' },
@@ -48,7 +48,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
       desc: 'Nous ne nous contentons pas de vendre des machines. De la sélection des équipements à la gestion logistique de l\'exportation, nous offrons un accompagnement de bout en bout sur lequel les acheteurs internationaux comptent.',
       items: [
         { icon: '01', title: 'Prix usine directs', desc: 'En tant que fabricant disposant de nos propres installations de production, nous proposons des prix usine compétitifs sans marge d\'intermédiaire.' },
-        { icon: '02', title: 'Solutions clé en main', desc: 'Des machines individuelles aux lignes de production complètes, nous concevons et livrons des solutions intégrées adaptées à vos besoins spécifiques.' },
+        { icon: '02', title: 'Solutions clé en main', desc: 'Des machines individuelles aux lignes de production complètes, nous concevons et livrons des solutions intégrées conçues pour vos besoins précis.' },
         { icon: '03', title: 'Expertise export mondiale', desc: 'Expérience d\'exportation vers plus de 50 pays avec documentation complète, adaptation des tensions et support logistique international.' },
         { icon: '04', title: 'Service après-vente et formation', desc: 'Assistance à l\'installation par vidéo à distance, formation des opérateurs, fourniture de pièces détachées et support technique 24h/24 et 7j/7.' },
         { icon: '05', title: 'OEM et ingénierie sur mesure', desc: 'Notre équipe R&D peut personnaliser les dimensions, les matériaux, la capacité de production et le niveau d\'automatisation selon votre environnement de production.' },

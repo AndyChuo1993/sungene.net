@@ -2804,7 +2804,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
           { type: 'ul', items: ['Product dimensions and weight', 'Line layout drawing', 'Target throughput', 'Hygiene standard', 'Power/controls preference'] },
         ],
         faqs: [
-          { q: 'How do I prevent jams?', a: 'Use correct guides, sensors, buffers, and define clear transfer points. Share your layout and product shape for optimization.' },
+          { q: 'How do I prevent jams?', a: 'Use correct guides, sensors, buffers, and define clear transfer points. Share your layout and product shape so we can adjust.' },
           { q: 'Can conveyors be stainless steel?', a: 'Yes—stainless frames are common for washdown and food-grade lines.' },
           { q: 'Do I need accumulation?', a: 'If downstream stops frequently or you need stable infeed to a filler, accumulation is usually helpful.' },
           { q: 'What information do you need to design a conveyor line?', a: 'Product size/weight, throughput, layout constraints, and the machines to connect.' },
@@ -3224,7 +3224,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         description: 'Choose a spice powder packaging solution by powder behavior, dust control, dosing accuracy, bag format, and seal reliability.',
         metaTitle: 'Spice Powder Packaging Machine Guide | SunGene',
         metaDescription: 'Select a spice powder packaging machine by dust control, dosing accuracy, bag format, seal quality, and hygiene requirements.',
-        lead: 'Bottom line: spice powders are often dusty and hygroscopic—prioritize stable feeding and dust control first, then optimize speed.',
+        lead: 'Bottom line: spice powders are often dusty and hygroscopic—prioritize stable feeding and dust control first, then adjust speed.',
         sections: [
           { type: 'h2', text: 'Start with Spice Behavior' },
           { type: 'ul', items: ['Fine dust and airborne particles', 'Moisture absorption and clumping', 'Oil content affecting flow (e.g., chili)'] },
@@ -3241,7 +3241,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         ],
         faqs: [
           { q: 'Is an auger filler recommended for spice powder?', a: 'Yes for most spices, especially when dust is fine or flow is inconsistent. It provides stable dosing and better control.' },
-          { q: 'How do we reduce dust contamination on seals?', a: 'Use de-dusting near sealing jaws, optimize filling nozzle height, and keep powder away from seal surfaces.' },
+          { q: 'How do we reduce dust contamination on seals?', a: 'Use de-dusting near sealing jaws, adjust filling nozzle height, and keep powder away from seal surfaces.' },
           { q: 'Can you package spices in zipper pouches?', a: 'Yes—either premade zipper pouches or FFS configurations depending on your pouch spec and output.' },
           { q: 'What matters most for stable production?', a: 'Seal quality, dosing stability, and dust control usually matter more than peak speed.' },
         ],
@@ -4770,7 +4770,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         description: 'Choose a detergent powder packaging solution by dust control, corrosion resistance, dosing stability, and seal reliability.',
         metaTitle: 'Detergent Powder Packaging Machine Guide | SunGene',
         metaDescription: 'Select detergent powder packaging machines by dust extraction, anti-corrosion design, dosing stability, and sealing quality.',
-        lead: 'Bottom line: detergent powder is abrasive and dusty—optimize dust extraction and seal cleanliness first to avoid leakage and downtime.',
+        lead: 'Bottom line: detergent powder is abrasive and dusty—focus on dust extraction and seal cleanliness first to avoid leakage and downtime.',
         sections: [
           { type: 'h2', text: 'Key Challenges of Detergent Powder' },
           { type: 'ul', items: ['Heavy dust and airborne particles', 'Abrasive powder wears parts', 'Seal contamination causes leakage'] },
@@ -4782,7 +4782,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         faqs: [
           { q: 'Why do seals fail with detergent powder?', a: 'Powder dust contaminates the seal area. De-dusting and stable dosing are critical to keep seals clean.' },
           { q: 'Is auger dosing required?', a: 'For higher accuracy and unstable powders, auger dosing is commonly recommended.' },
-          { q: 'How do we reduce dust?', a: 'Use enclosed feeding, dust extraction, and optimize transfer points to reduce airborne dust.' },
+          { q: 'How do we reduce dust?', a: 'Use enclosed feeding, dust extraction, and well-designed transfer points to reduce airborne dust.' },
           { q: 'What matters more than peak speed?', a: 'Seal stability, dust control, and consistent dosing usually matter more than maximum speed.' },
         ],
         sidebarCtaTitle: 'Need a detergent powder packaging recommendation?',

@@ -60,7 +60,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
   const content: Record<string, any> = {
     en: {
       title: 'Conveying & Automation Systems',
-      p1: 'We provide complete conveying and automation solutions to connect your production line from start to finish. Our systems include belt conveyors, bucket elevators, screw conveyors, robotic arms, palletizers, PLC controls, metal detectors, and check weighers — designed for seamless integration with packaging, filling, and processing equipment.',
+      p1: 'We provide complete conveying and automation solutions to connect your production line from start to finish. Our systems include belt conveyors, bucket elevators, screw conveyors, robotic arms, palletizers, PLC controls, metal detectors, and check weighers — designed to connect directly with packaging, filling, and processing equipment.',
       p2: 'All systems are built with industrial-grade components, CE certified, and engineered for 24/7 operation. We offer custom layout design, PLC programming, and turnkey installation support.',
       subTitle: 'Machine Types Available',
       cons: ['Belt Conveyors', 'Bucket Elevators', 'Screw Conveyors', 'Robotic Arms', 'Palletizers', 'PLC Controls', 'Metal Detectors', 'Check Weighers'],
@@ -69,7 +69,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     },
     cn: {
       title: '输送与自动化系统',
-      p1: '我们提供完整的输送和自动化解决方案，将您的生产线从头到尾连接起来。系统包括皮带输送机、斗式提升机、螺旋输送机、机械臂、码垛机、PLC控制系统、金属检测器和重量检测器——专为与包装、灌装和加工设备无缝集成而设计。',
+      p1: '我们提供完整的输送和自动化解决方案，将您的生产线从头到尾连接起来。系统包括皮带输送机、斗式提升机、螺旋输送机、机械臂、码垛机、PLC控制系统、金属检测器和重量检测器——可直接与包装、灌装和加工设备整合搭配。',
       p2: '所有系统采用工业级组件，CE认证，为24/7运行而设计。我们提供定制布局设计、PLC编程和交钥匙安装支持。',
       subTitle: '可用机型',
       cons: ['皮带输送机', '斗式提升机', '螺旋输送机', '机械臂', '码垛机', 'PLC控制系统', '金属检测器', '重量检测器'],
@@ -78,7 +78,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     },
     zh: {
       title: '輸送與自動化系統',
-      p1: '我們提供完整的輸送和自動化解決方案，將您的生產線從頭到尾連接起來。系統包括皮帶輸送機、斗式提升機、螺旋輸送機、機械臂、碼垛機、PLC控制系統、金屬檢測器和重量檢測器——專為與包裝、灌裝和加工設備無縫整合而設計。',
+      p1: '我們提供完整的輸送和自動化解決方案，將您的生產線從頭到尾連接起來。系統包括皮帶輸送機、斗式提升機、螺旋輸送機、機械臂、碼垛機、PLC控制系統、金屬檢測器和重量檢測器——可直接與包裝、灌裝和加工設備整合搭配。',
       p2: '所有系統採用工業級元件，CE認證，為24/7運行而設計。我們提供客製佈局設計、PLC程式設計和交鑰匙安裝支援。',
       subTitle: '可用機型',
       cons: ['皮帶輸送機', '斗式提升機', '螺旋輸送機', '機械臂', '碼垛機', 'PLC控制系統', '金屬檢測器', '重量檢測器'],
