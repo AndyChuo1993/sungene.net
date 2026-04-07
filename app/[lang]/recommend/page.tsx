@@ -418,7 +418,40 @@ function buildJsonLd(lang: Lang) {
     ],
   }
 
-  return [faqSchema, breadcrumbSchema]
+  const steps = howItWorks[lang] ?? howItWorks.en
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: howItWorksTitle[lang] ?? howItWorksTitle.en,
+    description: (metaDescriptions[lang] ?? metaDescriptions.en),
+    step: steps.map((text, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: text,
+      text,
+    })),
+  }
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: 'Machine Recommendation Service',
+    description: 'Free machinery recommendation based on product specs, packaging format, target output, and destination voltage.',
+    provider: { '@type': 'Organization', name: 'SunGene Co., LTD.', url: SITE_URL },
+    serviceType: 'Machinery Consultation',
+    areaServed: { '@type': 'Place', name: 'Worldwide' },
+    url: pageUrl,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      description: 'Free machine recommendation — no obligation',
+    },
+  }
+
+  return [faqSchema, breadcrumbSchema, howToSchema, serviceSchema]
 }
 
 // ── Sidebar blocks ────────────────────────────────────────────────────────────

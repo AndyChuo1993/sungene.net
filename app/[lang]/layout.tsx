@@ -113,11 +113,11 @@ export default async function RootLayout({ children, params }: { children: React
       '@type': 'OfferCatalog',
       name: 'Industrial Machinery Catalog',
       itemListElement: [
-        { '@type': 'OfferCatalog', name: 'Packaging Machinery' },
-        { '@type': 'OfferCatalog', name: 'Food Processing Equipment' },
-        { '@type': 'OfferCatalog', name: 'Filling & Sealing Systems' },
-        { '@type': 'OfferCatalog', name: 'Conveying & Automation' },
-        { '@type': 'OfferCatalog', name: 'Customized Machinery' },
+        { '@type': 'OfferCatalog', name: 'Packaging Machinery', url: `${baseUrl}/${lang}/machinery/packaging`, description: 'VFFS, HFFS, flow wrappers, carton packing, shrink wrapping' },
+        { '@type': 'OfferCatalog', name: 'Food Processing Equipment', url: `${baseUrl}/${lang}/machinery/food-processing`, description: 'Fryers, roasters, seasoning tumblers, mixing and blanching systems' },
+        { '@type': 'OfferCatalog', name: 'Filling & Sealing Systems', url: `${baseUrl}/${lang}/machinery/filling-sealing`, description: 'Piston, gravity, pump liquid fillers, powder auger fillers, sealers' },
+        { '@type': 'OfferCatalog', name: 'Conveying & Automation', url: `${baseUrl}/${lang}/machinery/conveying-automation`, description: 'Belt/roller conveyors, PLC+HMI controls, metal detectors, palletizers' },
+        { '@type': 'OfferCatalog', name: 'Customized Machinery', url: `${baseUrl}/${lang}/machinery/custom`, description: 'OEM/ODM, custom dimensions, materials, automation levels' },
       ]
     }
   }

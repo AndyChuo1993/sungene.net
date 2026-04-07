@@ -645,6 +645,20 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     })),
   }
 
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE_URL}/${lang}/resources`,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: heroTitles[lang] || heroTitles.en,
+    description: heroDescs[lang] || heroDescs.en,
+    url: `${SITE_URL}/${lang}/resources`,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    about: { '@type': 'Thing', name: 'Industrial Machinery Selection' },
+    numberOfItems: itemListItems.length,
+    publisher: { '@type': 'Organization', name: 'SunGene Co., LTD.', url: SITE_URL },
+  }
+
   return (
     <>
       <PageHero
@@ -764,7 +778,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
-      <JsonLd data={[howToSchema, itemListSchema]} />
+      <JsonLd data={[howToSchema, itemListSchema, collectionSchema]} />
     </>
   )
 }
