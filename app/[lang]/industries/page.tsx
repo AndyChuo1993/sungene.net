@@ -246,6 +246,46 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
     },
   ] as const
 
+  const guidesLabel =
+    ({
+      en: 'Buying guides',
+      cn: '采购指南',
+      zh: '採購指南',
+      fr: 'Guides d’achat',
+      es: 'Guías de compra',
+      pt: 'Guias de compra',
+      ko: '구매 가이드',
+      ja: '購入ガイド',
+      ar: 'أدلة الشراء',
+      th: 'คู่มือการเลือกซื้อ',
+      vi: 'Hướng dẫn mua',
+      de: 'Kaufratgeber',
+    } as Record<string, string>)[lang] || 'Buying guides'
+
+  const viewCategoryLabel =
+    ({
+      en: 'View category',
+      cn: '查看分类',
+      zh: '查看分類',
+      fr: 'Voir la catégorie',
+      es: 'Ver categoría',
+      pt: 'Ver categoria',
+      ko: '카테고리 보기',
+      ja: 'カテゴリを見る',
+      ar: 'عرض الفئة',
+      th: 'ดูหมวดหมู่',
+      vi: 'Xem danh mục',
+      de: 'Kategorie ansehen',
+    } as Record<string, string>)[lang] || 'View category'
+
+  const categoryMachines = [
+    'powder-filling-machine',
+    'liquid-filling-machine',
+    'pouch-packing-machine',
+    'snack-processing-line',
+    'conveyor-system',
+  ] as const
+
   return (
     <>
       <PageHero
@@ -263,15 +303,46 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             {t.cats.map((c, i) => (
-              <Link key={i} href={c.href} className="block transition hover:opacity-90">
-                <Card className="p-8 h-full">
+              <Card key={i} className="p-8 h-full transition hover:opacity-95">
+                <Link href={c.href} className="block">
                   <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-xl bg-gray-100">
                     <Image src={cardPhotos[i] || heroPhoto} alt={`${c.title} factory photo`} fill sizes="(min-width: 1024px) 45vw, 92vw" className="object-cover" />
                   </div>
                   <h2 className="text-lg font-semibold text-gray-950 sm:text-xl">{c.title}</h2>
                   <p className="mt-3 text-base leading-relaxed text-gray-600">{c.desc}</p>
-                </Card>
-              </Link>
+                </Link>
+
+                <div className="mt-5 flex flex-wrap gap-3 text-sm">
+                  <Link
+                    className="text-accent-600 hover:underline"
+                    href={`/${lang}/machines/${categoryMachines[i]}`}
+                  >
+                    {(exploreLinks.find((x) => x.machine === categoryMachines[i])?.label) || 'Machine'}
+                  </Link>
+                  <Link
+                    className="text-accent-600 hover:underline"
+                    href={`/${lang}/resources/topic/${categoryMachines[i]}`}
+                  >
+                    {`${(exploreLinks.find((x) => x.machine === categoryMachines[i])?.label) || 'Machine'} — ${guidesLabel}`}
+                  </Link>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <ButtonLink href={c.href} variant="secondary" size="sm">
+                    {viewCategoryLabel}
+                  </ButtonLink>
+                  <ButtonLink href={`/${lang}/recommend?machine=${encodeURIComponent(categoryMachines[i])}`} size="sm">
+                    {({ en: 'Get a Recommendation', cn: '获取推荐', zh: '取得推薦', fr: 'Obtenir une recommandation', es: 'Obtener recomendación', pt: 'Obter recomendação', ko: '추천 받기', ja: '推薦を受ける', ar: 'احصل على توصية', th: 'รับคำแนะนำ', vi: 'Nhận đề xuất', de: 'Empfehlung erhalten' } as Record<string, string>)[lang] || 'Get a Recommendation'}
+                  </ButtonLink>
+                  <ButtonLink
+                    href={`/${lang}/contact?machine=${encodeURIComponent(categoryMachines[i])}&product=${encodeURIComponent(c.title)}`}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    {({ en: 'Request a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string, string>)[lang] || 'Request a Quote'}
+                  </ButtonLink>
+                </div>
+              </Card>
             ))}
           </div>
 
