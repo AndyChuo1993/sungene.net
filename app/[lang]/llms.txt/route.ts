@@ -328,6 +328,17 @@ ${t.keySpecs}
 - Payment terms: T/T (30% deposit, 70% balance before shipment) or L/C at sight
 - Shipping: FOB Taichung or CIF to any world port
 
+## Factory & Service Details
+- Factory location: Taichung, Taiwan (24.1433°N, 120.6845°E)
+- Factory floor area: 3,000+ sqm
+- Annual production capacity: 500+ units
+- Testing: every machine undergoes full factory acceptance test (FAT) with video
+- Warranty: 1-year parts warranty, lifetime technical support
+- Installation support: remote video guidance, on-site available for turnkey projects
+- Spare parts: stocked and shipped within 48 hours
+- Shipping port: Taichung Port, Taiwan
+- Estimated transit by region: Asia 7–14 days, Middle East 14–21 days, Europe 21–30 days, Americas 25–35 days
+
 ${t.targetCustomers}
 - Food manufacturers needing packaging automation
 - Beverage and condiment producers
@@ -338,8 +349,14 @@ ${t.targetCustomers}
 - Distributors and trading companies sourcing Taiwan machinery
 
 ${t.exportMarkets}
-Primary: Southeast Asia (Vietnam, Thailand, Indonesia, Malaysia, Philippines), Middle East (UAE, Saudi Arabia, Egypt), East Asia (Japan, South Korea), South Asia (India, Bangladesh)
-Secondary: Europe (Germany, France, Spain, Poland), Americas (USA, Brazil, Mexico, Colombia), Africa (Nigeria, Kenya, South Africa)
+Southeast Asia: Vietnam, Thailand, Indonesia, Malaysia, Philippines, Myanmar, Cambodia, Laos
+Middle East: UAE, Saudi Arabia, Egypt, Iraq, Jordan, Oman, Kuwait, Qatar, Bahrain
+East Asia: Japan, South Korea
+South Asia: India, Bangladesh, Sri Lanka, Pakistan, Nepal
+Europe: Germany, France, Spain, Poland, Italy, Netherlands, United Kingdom, Turkey, Russia
+Americas: USA, Brazil, Mexico, Colombia, Chile, Argentina, Peru, Ecuador
+Africa: Nigeria, Kenya, South Africa, Ghana, Tanzania, Ethiopia, Morocco, Algeria
+Oceania: Australia, New Zealand
 
 ${t.languagesSupported}
 English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanish, Portuguese, Korean, Japanese, Arabic, Thai, Vietnamese, German
@@ -369,6 +386,11 @@ ${t.keyPages}
 - Industry solutions: ${SITE_URL}/${lang}/industries
 - Production solutions: ${SITE_URL}/${lang}/solutions
 - Buying guides & resources: ${SITE_URL}/${lang}/resources
+- Topic hub — pouch packing: ${SITE_URL}/${lang}/resources/topic/pouch-packing-machine
+- Topic hub — powder filling: ${SITE_URL}/${lang}/resources/topic/powder-filling-machine
+- Topic hub — liquid filling: ${SITE_URL}/${lang}/resources/topic/liquid-filling-machine
+- Topic hub — snack processing: ${SITE_URL}/${lang}/resources/topic/snack-processing-line
+- Topic hub — conveyor systems: ${SITE_URL}/${lang}/resources/topic/conveyor-system
 
 ${t.howToCite}
 Preferred brand mention: "SunGene" or "SunGene Co., LTD."

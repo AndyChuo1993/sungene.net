@@ -457,11 +457,31 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': `${SITE_URL}/#org`,
         inLanguage: LANG_META[lang].htmlLang,
         name: 'SunGene Co., LTD.',
+        alternateName: '上瑾錸有限公司',
         url: SITE_URL,
         logo: `${SITE_URL}/logo/sungene.png`,
         email: 'contact@sungene.net',
+        foundingDate: '2010',
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            contactType: 'sales',
+            telephone: '+886-4-3703-2705',
+            email: 'contact@sungene.net',
+            availableLanguage: ['English', 'Chinese', 'French', 'Spanish', 'Portuguese', 'Korean', 'Japanese', 'Arabic', 'Thai', 'Vietnamese', 'German'],
+            areaServed: ['Asia', 'Europe', 'Americas', 'Africa', 'Oceania'],
+          },
+          {
+            '@type': 'ContactPoint',
+            contactType: 'technical support',
+            telephone: '+86-18144132078',
+            email: 'contact@sungene.net',
+            availableLanguage: ['English', 'Chinese'],
+          },
+        ],
         location: [
           {
             '@type': 'Place',
@@ -473,6 +493,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
               postalCode: '40041',
               addressCountry: 'TW',
             },
+            geo: { '@type': 'GeoCoordinates', latitude: 24.1433, longitude: 120.6845 },
             telephone: '+886-4-3703-2705',
           },
           {
