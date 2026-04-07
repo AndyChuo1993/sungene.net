@@ -461,7 +461,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         name: 'SunGene Co., LTD.',
         url: SITE_URL,
         logo: `${SITE_URL}/logo/sungene.png`,
-        email: 'contact@sungenelite.com',
+        email: 'contact@sungene.net',
         location: [
           {
             '@type': 'Place',

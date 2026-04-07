@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   })
 }
 
-export default async function FillingSeaingPage({ params }: { params: Promise<{ lang: Lang }> }) {
+export default async function FillingSealingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
   const heroPhoto = PHOTO.machinery.subpageHeroes.fillingSealing
