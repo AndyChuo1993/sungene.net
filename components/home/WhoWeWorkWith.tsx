@@ -1,6 +1,7 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import Link from 'next/link'
 
 const customerIcons = [
   // Globe - importers
@@ -169,6 +170,14 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
               <p className="mt-3 text-sm leading-relaxed text-gray-600">{item.desc}</p>
             </Card>
           ))}
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Link href={`/${lang}/industries`} className="text-sm font-semibold text-accent-600 hover:underline">
+            {({ en: 'View industries we serve →', cn: '查看我们服务的行业 →', zh: '查看我們服務的產業 →', fr: 'Voir les industries desservies →', es: 'Ver industrias que atendemos →', pt: 'Ver setores que atendemos →', ko: '서비스 산업 보기 →', ja: '対応業界を見る →', ar: 'عرض الصناعات التي نخدمها ←', th: 'ดูอุตสาหกรรมที่เราให้บริการ →', vi: 'Xem ngành chúng tôi phục vụ →', de: 'Branchen ansehen →' } as Record<string, string>)[lang] || 'View industries we serve →'}
+          </Link>
+          <Link href={`/${lang}/recommend`} className="text-sm font-semibold text-accent-600 hover:underline">
+            {({ en: 'Get a machine recommendation →', cn: '获取机械推荐 →', zh: '取得機械推薦 →', fr: 'Obtenir une recommandation →', es: 'Obtener recomendación →', pt: 'Obter recomendação →', ko: '기계 추천 받기 →', ja: '機械の提案を受ける →', ar: 'احصل على توصية ←', th: 'รับคำแนะนำเครื่องจักร →', vi: 'Nhận đề xuất máy →', de: 'Maschinenempfehlung erhalten →' } as Record<string, string>)[lang] || 'Get a machine recommendation →'}
+          </Link>
         </div>
       </Container>
     </section>

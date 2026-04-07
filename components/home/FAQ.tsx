@@ -15,6 +15,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'Do you provide after-sales support?', a: 'Yes. We offer remote video installation guidance, operator training, 24/7 technical support, and spare parts supply with fast international shipping.' },
         { q: 'How long is the production lead time?', a: 'Standard machines: 15-30 days. Custom machines: 30-60 days. We provide factory test videos and photos before shipment for your confirmation.' },
         { q: 'Can I visit your factory?', a: 'Absolutely. We welcome factory visits to our production facilities in Taichung, Taiwan. We can arrange pickup from the airport and provide a full tour of our production lines.' },
+        { q: 'Do you run factory acceptance tests before shipping?', a: 'Yes. Every machine goes through a full FAT (factory acceptance test) with your product or an agreed substitute. We share test videos and a results report before shipment.' },
       ]
     },
     cn: {
@@ -27,6 +28,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: '提供售后支持吗？', a: '是的。我们提供远程视频安装指导、操作培训、24/7技术支持和备件快速国际物流。' },
         { q: '生产交期多长？', a: '标准机型：15-30天。定制机型：30-60天。发货前提供工厂测试视频和照片供确认。' },
         { q: '可以参观工厂吗？', a: '当然可以。欢迎来我们台中工厂参观。我们可以安排机场接送和产线全程参观。' },
+        { q: '出货前会做出厂测试吗？', a: '会。每台机器都会用您的产品或确认的替代品做完整出厂测试（FAT）。我们会在发货前分享测试视频和结果报告。' },
       ]
     },
     zh: {
@@ -39,6 +41,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: '提供售後支援嗎？', a: '是的。我們提供遠端視訊安裝指導、操作培訓、24/7技術支援和備件快速國際物流。' },
         { q: '生產交期多長？', a: '標準機型：15-30天。客製機型：30-60天。發貨前提供工廠測試影片和照片供確認。' },
         { q: '可以參觀工廠嗎？', a: '當然可以。歡迎來我們台中工廠參觀。我們可以安排機場接送和產線全程參觀。' },
+        { q: '出貨前會做出廠測試嗎？', a: '會。每台機器都會用您的產品或確認的替代品做完整出廠測試（FAT）。我們會在出貨前分享測試影片和結果報告。' },
       ]
     },
     fr: {
@@ -51,6 +54,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'Proposez-vous un service après-vente ?', a: 'Oui. Nous offrons une assistance à l\'installation par vidéo à distance, la formation des opérateurs, un support technique 24h/24 et 7j/7, et la fourniture de pièces détachées avec expédition internationale rapide.' },
         { q: 'Quel est le délai de fabrication ?', a: 'Machines standard : 15-30 jours. Machines sur mesure : 30-60 jours. Nous fournissons des vidéos et photos de tests usine avant expédition pour votre validation.' },
         { q: 'Puis-je visiter votre usine ?', a: 'Absolument. Nous accueillons les visites d\'usine dans nos installations de production à Taichung, Taïwan. Nous pouvons organiser le transfert depuis l\'aéroport et une visite complète de nos lignes de production.' },
+        { q: 'Faites-vous un test d\'acceptation en usine avant l\'expédition ?', a: 'Oui. Chaque machine passe un FAT complet avec votre produit ou un substitut convenu. Nous partageons la vidéo et le rapport avant expédition.' },
       ]
     },
     es: {
@@ -63,6 +67,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: '¿Ofrecen soporte postventa?', a: 'Sí. Ofrecemos asistencia de instalación por video remoto, capacitación de operadores, soporte técnico 24/7 y suministro de repuestos con envío internacional rápido.' },
         { q: '¿Cuál es el tiempo de fabricación?', a: 'Máquinas estándar: 15-30 días. Máquinas personalizadas: 30-60 días. Proporcionamos videos y fotos de pruebas en fábrica antes del envío para su confirmación.' },
         { q: '¿Puedo visitar su fábrica?', a: 'Por supuesto. Recibimos visitas en nuestras instalaciones de producción en Taichung, Taiwán. Podemos organizar el traslado desde el aeropuerto y un recorrido completo por nuestras líneas de producción.' },
+        { q: '¿Realizan pruebas de aceptación en fábrica antes del envío?', a: 'Sí. Cada máquina pasa un FAT completo con su producto o un sustituto acordado. Compartimos el video y el informe antes del envío.' },
       ]
     },
     pt: {
@@ -75,6 +80,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'Vocês oferecem suporte pós-venda?', a: 'Sim. Oferecemos orientação de instalação por vídeo remoto, treinamento de operadores, suporte técnico 24/7 e fornecimento de peças de reposição com envio internacional rápido.' },
         { q: 'Qual é o prazo de produção?', a: 'Máquinas padrão: 15-30 dias. Máquinas personalizadas: 30-60 dias. Fornecemos vídeos e fotos de testes de fábrica antes do envio para sua confirmação.' },
         { q: 'Posso visitar a fábrica?', a: 'Com certeza. Recebemos visitas em nossas instalações de produção em Taichung, Taiwan. Podemos organizar transporte do aeroporto e um tour completo pelas nossas linhas de produção.' },
+        { q: 'Vocês fazem teste de aceitação em fábrica antes do envio?', a: 'Sim. Cada máquina passa por um FAT completo com seu produto ou substituto acordado. Compartilhamos o vídeo e o relatório antes do envio.' },
       ]
     },
     ko: {
@@ -87,6 +93,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: '애프터서비스를 제공하나요?', a: '네. 원격 비디오 설치 안내, 운전자 교육, 24/7 기술 지원 및 빠른 국제 배송으로 예비 부품을 공급합니다.' },
         { q: '생산 리드타임은 얼마나 되나요?', a: '표준 기계: 15-30일. 맞춤 기계: 30-60일. 출하 전 공장 테스트 영상과 사진을 제공하여 확인하실 수 있습니다.' },
         { q: '공장 방문이 가능한가요?', a: '물론입니다. 대만 타이중에 위치한 생산 시설 방문을 환영합니다. 공항 픽업 및 생산 라인 전체 투어를 배정할 수 있습니다.' },
+        { q: '출하 전 공장 인수 테스트(FAT)를 진행하나요?', a: '네. 모든 장비는 고객 제품 또는 합의된 대체품으로 FAT를 거칩니다. 출하 전 테스트 영상과 결과 보고서를 공유합니다.' },
       ]
     },
     ja: {
@@ -99,6 +106,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'アフターサービスはありますか？', a: 'はい。リモートビデオによる設置ガイド、オペレーター研修、24時間年中無休の技術サポート、迅速な国際配送によるスペアパーツ供給を提供しています。' },
         { q: '生産リードタイムはどのくらいですか？', a: '標準機：15〜30日。カスタム機：30〜60日。出荷前に工場テスト動画と写真を提供し、ご確認いただけます。' },
         { q: '工場見学はできますか？', a: 'もちろんです。台湾・台中の生産施設への訪問を歓迎いたします。空港送迎と生産ラインの完全なツアーを手配できます。' },
+        { q: '出荷前に工場受入試験（FAT）を行いますか？', a: 'はい。すべての機械はお客様の製品または合意した代替品でFATを実施します。出荷前にテスト動画と結果レポートを共有します。' },
       ]
     },
     ar: {
@@ -111,6 +119,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'هل تقدمون دعم ما بعد البيع؟', a: 'نعم. نقدم إرشاد التركيب عبر الفيديو عن بُعد، وتدريب المشغلين، والدعم الفني على مدار الساعة طوال أيام الأسبوع، وتوريد قطع الغيار بشحن دولي سريع.' },
         { q: 'ما هي مدة التصنيع؟', a: 'الماكينات القياسية: 15-30 يوماً. الماكينات المخصصة: 30-60 يوماً. نقدم مقاطع فيديو وصور اختبارات المصنع قبل الشحن لتأكيدكم.' },
         { q: 'هل يمكنني زيارة مصنعكم؟', a: 'بالتأكيد. نرحب بزيارات المصنع في منشآت الإنتاج لدينا في تايتشونغ، تايوان. يمكننا ترتيب النقل من المطار وجولة كاملة في خطوط الإنتاج.' },
+        { q: 'هل تجرون اختبار قبول المصنع (FAT) قبل الشحن؟', a: 'نعم. كل آلة تخضع لاختبار FAT كامل بمنتجكم أو بديل متفق عليه. نشارك الفيديو والتقرير قبل الشحن.' },
       ]
     },
     th: {
@@ -123,6 +132,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'มีบริการหลังการขายหรือไม่?', a: 'มี เราให้บริการแนะนำการติดตั้งผ่านวิดีโอทางไกล การฝึกอบรมผู้ปฏิบัติงาน การสนับสนุนทางเทคนิคตลอด 24 ชั่วโมง และจัดส่งอะไหล่ด้วยการขนส่งระหว่างประเทศที่รวดเร็ว' },
         { q: 'ระยะเวลาในการผลิตนานเท่าไร?', a: 'เครื่องจักรมาตรฐาน: 15-30 วัน เครื่องจักรสั่งทำ: 30-60 วัน เราจัดส่งวิดีโอและรูปภาพทดสอบจากโรงงานก่อนจัดส่งเพื่อยืนยัน' },
         { q: 'สามารถเข้าเยี่ยมชมโรงงานได้หรือไม่?', a: 'ได้แน่นอน เรายินดีต้อนรับการเยี่ยมชมโรงงานผลิตของเราในไถจง ไต้หวัน เราสามารถจัดรับจากสนามบินและพาชมสายการผลิตทั้งหมด' },
+        { q: 'มีการทดสอบรับรองที่โรงงาน (FAT) ก่อนจัดส่งหรือไม่?', a: 'มี เครื่องทุกเครื่องผ่าน FAT เต็มรูปแบบด้วยผลิตภัณฑ์ของคุณหรือตัวแทนที่ตกลงกัน เราแชร์วิดีโอและรายงานก่อนจัดส่ง' },
       ]
     },
     vi: {
@@ -135,6 +145,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'Các bạn có hỗ trợ sau bán hàng không?', a: 'Có. Chúng tôi cung cấp hướng dẫn lắp đặt qua video từ xa, đào tạo vận hành, hỗ trợ kỹ thuật 24/7 và cung cấp phụ tùng thay thế với vận chuyển quốc tế nhanh chóng.' },
         { q: 'Thời gian sản xuất mất bao lâu?', a: 'Máy tiêu chuẩn: 15-30 ngày. Máy tùy chỉnh: 30-60 ngày. Chúng tôi cung cấp video và hình ảnh thử nghiệm tại nhà máy trước khi giao hàng để bạn xác nhận.' },
         { q: 'Tôi có thể tham quan nhà máy không?', a: 'Hoàn toàn có thể. Chúng tôi hoan nghênh tham quan nhà máy sản xuất tại Đài Trung, Đài Loan. Chúng tôi có thể sắp xếp đón tại sân bay và tham quan toàn bộ dây chuyền sản xuất.' },
+        { q: 'Có kiểm tra nghiệm thu tại nhà máy (FAT) trước khi giao không?', a: 'Có. Mỗi máy đều qua FAT đầy đủ bằng sản phẩm của bạn hoặc sản phẩm thay thế đã thống nhất. Chúng tôi chia sẻ video và báo cáo trước khi giao.' },
       ]
     },
     de: {
@@ -147,6 +158,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
         { q: 'Bieten Sie After-Sales-Support an?', a: 'Ja. Wir bieten Ferninstallation per Video, Bedienschulung, technischen Support rund um die Uhr und Ersatzteilversorgung mit schnellem internationalem Versand.' },
         { q: 'Wie lang ist die Produktionsvorlaufzeit?', a: 'Standardmaschinen: 15-30 Tage. Sondermaschinen: 30-60 Tage. Wir stellen Werkstestvideos und Fotos vor dem Versand zur Bestätigung bereit.' },
         { q: 'Kann ich Ihre Fabrik besuchen?', a: 'Selbstverständlich. Wir begrüßen Fabrikbesuche in unseren Produktionsanlagen in Taichung, Taiwan. Wir können den Transfer vom Flughafen und eine vollständige Tour durch unsere Produktionslinien arrangieren.' },
+        { q: 'Führen Sie vor dem Versand einen Werksabnahmetest (FAT) durch?', a: 'Ja. Jede Maschine durchläuft einen vollständigen FAT mit Ihrem Produkt oder einem vereinbarten Ersatz. Wir teilen das Testvideo und den Bericht vor dem Versand.' },
       ]
     }
   }
