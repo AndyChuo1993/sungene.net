@@ -58,6 +58,10 @@ function hasTrackingParams(searchParams: URLSearchParams) {
     'msclkid',
     'wbraid',
     'gbraid',
+    'gclsrc',
+    'gad_source',
+    '_ga',
+    '_gl',
     'yclid',
     'igshid',
     'mkt_tok',
@@ -106,6 +110,18 @@ export function middleware(request: NextRequest) {
     pathname.includes('.')
   ) {
     return NextResponse.next()
+  }
+
+  if (pathname.includes('//')) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname.replace(/\/{2,}/g, '/')
+    return NextResponse.redirect(url, 308)
+  }
+
+  if (/[A-Z]/.test(pathname)) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname.toLowerCase()
+    return NextResponse.redirect(url, 308)
   }
 
   if (pathname.length > 1 && pathname.endsWith('/')) {
