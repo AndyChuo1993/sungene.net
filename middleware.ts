@@ -108,6 +108,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname.slice(0, -1)
+    return NextResponse.redirect(url, 308)
+  }
+
   // === 2. Old WordPress query strings (/?post_type=product&p=X) → homepage ===
   const searchParams = request.nextUrl.searchParams
   if ((searchParams.has('post_type') || searchParams.has('p')) && pathname === '/') {
