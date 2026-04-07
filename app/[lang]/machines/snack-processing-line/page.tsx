@@ -1530,11 +1530,22 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
       { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
       { '@type': 'PropertyValue', name: 'Lead Time', value: '45–90 days' },
     ],
+    isRelatedTo: [
+      { '@type': 'Product', name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'Product', name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system` },
+      { '@type': 'Product', name: 'Powder Filling Machine', url: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+      url: `${SITE_URL}/${lang}/contact?machine=snack-processing-line`,
+    },
+    potentialAction: {
+      '@type': 'Action',
+      name: 'Request a Quote',
+      target: `${SITE_URL}/${lang}/contact?machine=snack-processing-line`,
     },
   }
 

@@ -96,14 +96,18 @@ export default async function RootLayout({ children, params }: { children: React
         availableLanguage: ['en', 'zh-Hant', 'fr', 'es', 'pt', 'ko', 'ja', 'de']
       }
     ],
+    alternateName: '上瑾錸有限公司',
     sameAs: [
       'https://momas.en.alibaba.com',
-      'https://www.linkedin.com/company/sungene-co-ltd'
+      'https://www.linkedin.com/company/sungene-co-ltd',
+      'https://sungene.en.alibaba.com',
     ],
     knowsAbout: [
       'Packaging Machinery', 'Food Processing Equipment', 'Filling Machines',
       'Sealing Machines', 'Conveyor Systems', 'Industrial Automation',
-      'VFFS Machines', 'HFFS Machines', 'Powder Packaging', 'Liquid Filling'
+      'VFFS Machines', 'HFFS Machines', 'Powder Packaging', 'Liquid Filling',
+      'Snack Processing Lines', 'CE Certified Machinery', 'OEM/ODM Manufacturing',
+      'Export Machinery from Taiwan'
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

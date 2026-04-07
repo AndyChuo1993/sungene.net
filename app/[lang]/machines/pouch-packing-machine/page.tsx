@@ -684,11 +684,22 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
       { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
       { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
     ],
+    isRelatedTo: [
+      { '@type': 'Product', name: 'Powder Filling Machine', url: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
+      { '@type': 'Product', name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system` },
+      { '@type': 'Product', name: 'Snack Processing Line', url: `${SITE_URL}/${lang}/machines/snack-processing-line` },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+      url: `${SITE_URL}/${lang}/contact?machine=pouch-packing-machine`,
+    },
+    potentialAction: {
+      '@type': 'Action',
+      name: 'Request a Quote',
+      target: `${SITE_URL}/${lang}/contact?machine=pouch-packing-machine`,
     },
   }
 

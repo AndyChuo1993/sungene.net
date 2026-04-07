@@ -503,11 +503,22 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
       { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
       { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
     ],
+    isRelatedTo: [
+      { '@type': 'Product', name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'Product', name: 'Snack Processing Line', url: `${SITE_URL}/${lang}/machines/snack-processing-line` },
+      { '@type': 'Product', name: 'Liquid Filling Machine', url: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+      url: `${SITE_URL}/${lang}/contact?machine=conveyor-system`,
+    },
+    potentialAction: {
+      '@type': 'Action',
+      name: 'Request a Quote',
+      target: `${SITE_URL}/${lang}/contact?machine=conveyor-system`,
     },
   }
 

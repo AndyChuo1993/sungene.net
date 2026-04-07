@@ -1325,11 +1325,22 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
       { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
       { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
     ],
+    isRelatedTo: [
+      { '@type': 'Product', name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
+      { '@type': 'Product', name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system` },
+      { '@type': 'Product', name: 'Liquid Filling Machine', url: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       seller: { '@type': 'Organization', name: 'SunGene Co., LTD', url: SITE_URL },
+      url: `${SITE_URL}/${lang}/contact?machine=powder-filling-machine`,
+    },
+    potentialAction: {
+      '@type': 'Action',
+      name: 'Request a Quote',
+      target: `${SITE_URL}/${lang}/contact?machine=powder-filling-machine`,
     },
   }
 

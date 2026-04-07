@@ -48,7 +48,7 @@ const dict: Record<string, Record<string, string>> = {
     nav_sol_single: 'Single Machine', nav_sol_semi: 'Semi-Automatic Setup', nav_sol_line: 'Production Line',
     nav_sol_custom: 'Custom Machinery',
     meta_home_title: 'SunGene | Packaging Machinery, Food Processing Equipment & Industrial Automation | Taiwan Manufacturer',
-    meta_home_desc: 'Taiwan-made packaging machinery, food processing equipment, filling & sealing systems, and automation. Export voltage/frequency options, line integration support, and after-sales service.',
+    meta_home_desc: 'Taiwan-made packaging machinery, food processing equipment, filling & sealing systems, and automation. Export voltage options, line integration, and after-sales support.',
     meta_keywords: 'packaging machinery manufacturer, food processing equipment, filling machine supplier, sealing machine, automated production line, Taiwan machinery exporter, industrial equipment, VFFS machine, powder packaging, liquid filling machine',
     form_submitting: 'Submitting...', form_success_title: 'Request Received',
     form_success_desc: 'We have received your inquiry and will respond within 24 hours.',

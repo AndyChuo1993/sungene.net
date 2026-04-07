@@ -19,11 +19,19 @@ export default function Footer({ lang }: { lang: Lang }) {
     { href: `/${lang}/solutions#custom`, label: t(lang, 'nav_sol_custom') },
   ]
 
+  const machineLinks = [
+    { href: `/${lang}/machines/pouch-packing-machine`, label: ({ en: 'Pouch Packing Machine', cn: '袋装包装机', zh: '袋裝包裝機', fr: 'Machine d\'ensachage', es: 'Empacadora de bolsas', pt: 'Máquina de sachês', ko: '파우치 포장기', ja: 'パウチ包装機', ar: 'ماكينة تعبئة الأكياس', th: 'เครื่องแพ็กถุง', vi: 'Máy đóng gói túi', de: 'Beutelverpackungsmaschine' } as Record<string, string>)[lang] || 'Pouch Packing Machine' },
+    { href: `/${lang}/machines/powder-filling-machine`, label: ({ en: 'Powder Filling Machine', cn: '粉末灌装机', zh: '粉末充填機', fr: 'Remplisseuse poudre', es: 'Llenadora de polvo', pt: 'Envasadora de pó', ko: '분말 충전기', ja: '粉体充填機', ar: 'ماكينة تعبئة المساحيق', th: 'เครื่องบรรจุผง', vi: 'Máy chiết rót bột', de: 'Pulverfüllmaschine' } as Record<string, string>)[lang] || 'Powder Filling Machine' },
+    { href: `/${lang}/machines/liquid-filling-machine`, label: ({ en: 'Liquid Filling Machine', cn: '液体灌装机', zh: '液體充填機', fr: 'Remplisseuse liquide', es: 'Llenadora de líquido', pt: 'Envasadora de líquido', ko: '액체 충전기', ja: '液体充填機', ar: 'ماكينة تعبئة السوائل', th: 'เครื่องบรรจุของเหลว', vi: 'Máy chiết rót chất lỏng', de: 'Flüssigkeitsfüllmaschine' } as Record<string, string>)[lang] || 'Liquid Filling Machine' },
+    { href: `/${lang}/machines/snack-processing-line`, label: ({ en: 'Snack Processing Line', cn: '零食加工线', zh: '零食加工線', fr: 'Ligne snack', es: 'Línea de snacks', pt: 'Linha de snacks', ko: '스낵 가공 라인', ja: 'スナック加工ライン', ar: 'خط معالجة السناكات', th: 'ไลน์แปรรูปสแน็ก', vi: 'Dây chuyền snack', de: 'Snack-Produktionslinie' } as Record<string, string>)[lang] || 'Snack Processing Line' },
+    { href: `/${lang}/machines/conveyor-system`, label: ({ en: 'Conveyor System', cn: '输送带系统', zh: '輸送帶系統', fr: 'Système de convoyage', es: 'Sistema de transporte', pt: 'Sistema de transportadores', ko: '컨베이어 시스템', ja: 'コンベアシステム', ar: 'نظام السيور الناقلة', th: 'ระบบสายพานลำเลียง', vi: 'Hệ thống băng tải', de: 'Fördersystem' } as Record<string, string>)[lang] || 'Conveyor System' },
+  ]
+
   return (
     <footer className="bg-brand-950 text-white">
       {/* Main footer */}
       <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-7">
+        <div className="grid gap-12 lg:grid-cols-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href={`/${lang}`} className="flex items-center gap-3">
@@ -55,11 +63,11 @@ export default function Footer({ lang }: { lang: Lang }) {
             </ul>
           </div>
 
-          {/* Solutions */}
+          {/* Machines */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{t(lang, 'nav_solutions')}</h4>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{({ en: 'Machines', cn: '机型', zh: '機型', fr: 'Machines', es: 'Máquinas', pt: 'Máquinas', ko: '기계', ja: '機種', ar: 'الماكينات', th: 'เครื่องจักร', vi: 'Máy', de: 'Maschinen' } as Record<string,string>)[lang] || 'Machines'}</h4>
             <ul className="space-y-3">
-              {solutionLinks.map((link) => (
+              {machineLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">{link.label}</Link>
                 </li>
