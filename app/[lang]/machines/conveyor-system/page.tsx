@@ -482,6 +482,14 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     })),
   }
 
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t.heroTitle,
+    url: `${SITE_URL}/${lang}/machines/conveyor-system`,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
+  }
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -526,6 +534,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={productSchema} />
+      <JsonLd data={speakableSchema} />
 
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero

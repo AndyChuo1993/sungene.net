@@ -287,6 +287,14 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
     })),
   }
 
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    url: `${SITE_URL}/${l}/resources/topic/${m}`,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.text-base.text-gray-700'] },
+  }
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -358,7 +366,7 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
         </Container>
       </section>
 
-      <JsonLd data={[itemListSchema, faqSchema]} />
+      <JsonLd data={[itemListSchema, faqSchema, speakableSchema]} />
     </>
   )
 }

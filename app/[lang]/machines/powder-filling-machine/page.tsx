@@ -1303,6 +1303,14 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     })),
   }
 
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t.heroTitle,
+    url: `${SITE_URL}/${lang}/machines/powder-filling-machine`,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
+  }
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -1348,6 +1356,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={productSchema} />
+      <JsonLd data={speakableSchema} />
 
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero

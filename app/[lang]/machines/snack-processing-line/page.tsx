@@ -1508,6 +1508,14 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
     })),
   }
 
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t.heroTitle,
+    url: `${SITE_URL}/${lang}/machines/snack-processing-line`,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
+  }
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -1553,6 +1561,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={productSchema} />
+      <JsonLd data={speakableSchema} />
 
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero

@@ -481,6 +481,13 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
             email: 'contact@sungene.net',
             availableLanguage: ['English', 'Chinese'],
           },
+          {
+            '@type': 'ContactPoint',
+            contactType: 'customer support',
+            url: 'https://wa.me/8618144132078',
+            name: 'WhatsApp',
+            availableLanguage: ['English', 'Chinese'],
+          },
         ],
         location: [
           {

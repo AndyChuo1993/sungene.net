@@ -8,7 +8,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
       kicker: 'FIND THE RIGHT MACHINE FOR YOUR PRODUCT',
-      h1: 'Tell Us What You Produce — We\'ll Recommend the Machine',
+      h1: 'Tell Us Your Product — We\'ll Match the Right Packaging & Processing Machine',
       sub: 'Whether it\'s powder, liquid, granule, or snack — describe your product and production goals. Our engineering team will match you with the optimal machinery solution.',
       btnQuote: 'Send Your Product → Get Recommendation',
       btnCatalog: 'Browse All Machinery',
@@ -21,7 +21,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     cn: {
       kicker: '为您的产品找到合适的机器',
-      h1: '告诉我们您生产什么——我们来推荐机器',
+      h1: '告诉我们您的产品——我们为您匹配合适的包装与加工机械',
       sub: '无论是粉末、液体、颗粒还是休闲食品——描述您的产品和生产目标，我们的工程团队将为您匹配最佳机械方案。',
       btnQuote: '发送产品信息 → 获取推荐',
       btnCatalog: '浏览所有机械',
@@ -34,7 +34,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     zh: {
       kicker: '為您的產品找到合適的機器',
-      h1: '告訴我們您生產什麼——我們來推薦機器',
+      h1: '告訴我們您的產品——我們為您匹配合適的包裝與加工機械',
       sub: '無論是粉末、液體、顆粒還是休閒食品——描述您的產品和生產目標，我們的工程團隊將為您匹配最佳機械方案。',
       btnQuote: '發送產品資訊 → 取得推薦',
       btnCatalog: '瀏覽所有機械',
@@ -47,7 +47,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     fr: {
       kicker: 'TROUVEZ LA BONNE MACHINE POUR VOTRE PRODUIT',
-      h1: 'Dites-nous ce que vous produisez — Nous vous recommanderons la machine',
+      h1: 'Décrivez votre produit — Nous vous proposerons la machine d\'emballage et de traitement adaptée',
       sub: 'Qu\'il s\'agisse de poudre, liquide, granulé ou snack — décrivez votre produit et vos objectifs de production. Notre équipe d\'ingénierie vous proposera la solution de machines optimale.',
       btnQuote: 'Envoyez votre produit → Obtenez une recommandation',
       btnCatalog: 'Parcourir toutes les machines',
@@ -60,7 +60,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     es: {
       kicker: 'ENCUENTRE LA MÁQUINA ADECUADA PARA SU PRODUCTO',
-      h1: 'Díganos qué produce — Le recomendaremos la máquina',
+      h1: 'Cuéntenos su producto — Le proponemos la máquina de empaque y proceso adecuada',
       sub: 'Ya sea polvo, líquido, granulado o snack — describa su producto y sus objetivos de producción. Nuestro equipo de ingeniería le encontrará la solución de maquinaria óptima.',
       btnQuote: 'Envíe su producto → Obtenga recomendación',
       btnCatalog: 'Ver toda la maquinaria',
@@ -73,7 +73,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     pt: {
       kicker: 'ENCONTRE A MÁQUINA CERTA PARA O SEU PRODUTO',
-      h1: 'Diga-nos o que você produz — Recomendaremos a máquina',
+      h1: 'Conte-nos seu produto — Indicamos a máquina de embalagem e processamento ideal',
       sub: 'Seja pó, líquido, grânulo ou snack — descreva seu produto e metas de produção. Nossa equipe de engenharia encontrará a solução de maquinário ideal para você.',
       btnQuote: 'Envie seu produto → Receba recomendação',
       btnCatalog: 'Ver todas as máquinas',
@@ -86,7 +86,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     ko: {
       kicker: '귀하의 제품에 맞는 기계를 찾아보세요',
-      h1: '무엇을 생산하는지 알려주세요 — 기계를 추천해 드립니다',
+      h1: '생산 제품을 알려주세요 — 포장 및 가공 기계를 추천해 드립니다',
       sub: '분말, 액체, 과립, 스낵 등 — 제품과 생산 목표를 설명해 주세요. 당사 엔지니어링 팀이 최적의 기계 솔루션을 매칭해 드립니다.',
       btnQuote: '제품 정보 보내기 → 추천 받기',
       btnCatalog: '전체 기계 보기',
@@ -99,7 +99,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     ja: {
       kicker: 'あなたの製品に最適な機械を見つけましょう',
-      h1: '何を生産しているかお知らせください — 最適な機械をご提案します',
+      h1: '製品をお知らせください — 包装・加工に合う機械をご提案します',
       sub: '粉末、液体、顆粒、スナック — 製品と生産目標をお伝えください。当社のエンジニアリングチームが最適な機械ソリューションをマッチングします。',
       btnQuote: '製品情報を送信 → 提案を受ける',
       btnCatalog: 'すべての機械を見る',
@@ -112,7 +112,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     ar: {
       kicker: 'اعثر على الماكينة المناسبة لمنتجك',
-      h1: 'أخبرنا بما تنتج — وسنوصي بالماكينة المناسبة',
+      h1: 'أخبرنا عن منتجك — وسنقترح ماكينة التعبئة والتصنيع المناسبة',
       sub: 'سواء كان مسحوقًا أو سائلًا أو حبيبات أو وجبات خفيفة — صف منتجك وأهداف الإنتاج. سيطابق فريقنا الهندسي الحل الأمثل للماكينات.',
       btnQuote: 'أرسل معلومات منتجك → احصل على توصية',
       btnCatalog: 'تصفح جميع الآلات',
@@ -125,7 +125,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     th: {
       kicker: 'ค้นหาเครื่องจักรที่เหมาะกับผลิตภัณฑ์ของคุณ',
-      h1: 'บอกเราว่าคุณผลิตอะไร — เราจะแนะนำเครื่องจักรให้',
+      h1: 'บอกเราเกี่ยวกับผลิตภัณฑ์ของคุณ — เราจะแนะนำเครื่องบรรจุและแปรรูปที่เหมาะสม',
       sub: 'ไม่ว่าจะเป็นผง ของเหลว เม็ด หรือขนม — อธิบายผลิตภัณฑ์และเป้าหมายการผลิตของคุณ ทีมวิศวกรของเราจะจับคู่โซลูชันเครื่องจักรที่เหมาะสมที่สุด',
       btnQuote: 'ส่งข้อมูลผลิตภัณฑ์ → รับคำแนะนำ',
       btnCatalog: 'ดูเครื่องจักรทั้งหมด',
@@ -138,7 +138,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     vi: {
       kicker: 'TÌM ĐÚNG MÁY CHO SẢN PHẨM CỦA BẠN',
-      h1: 'Cho chúng tôi biết bạn sản xuất gì — Chúng tôi sẽ đề xuất máy',
+      h1: 'Cho chúng tôi biết sản phẩm của bạn — Chúng tôi đề xuất máy đóng gói và chế biến phù hợp',
       sub: 'Dù là bột, chất lỏng, hạt hay đồ ăn nhẹ — mô tả sản phẩm và mục tiêu sản xuất của bạn. Đội ngũ kỹ thuật sẽ ghép nối giải pháp máy móc tối ưu cho bạn.',
       btnQuote: 'Gửi thông tin sản phẩm → Nhận đề xuất',
       btnCatalog: 'Xem tất cả máy móc',
@@ -151,7 +151,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     de: {
       kicker: 'FINDEN SIE DIE RICHTIGE MASCHINE FÜR IHR PRODUKT',
-      h1: 'Sagen Sie uns, was Sie produzieren — Wir empfehlen die Maschine',
+      h1: 'Beschreiben Sie Ihr Produkt — Wir empfehlen die passende Verpackungs- und Verarbeitungsmaschine',
       sub: 'Ob Pulver, Flüssigkeit, Granulat oder Snack — beschreiben Sie Ihr Produkt und Ihre Produktionsziele. Unser Ingenieurteam wird die optimale Maschinenlösung für Sie finden.',
       btnQuote: 'Produkt senden → Empfehlung erhalten',
       btnCatalog: 'Alle Maschinen ansehen',

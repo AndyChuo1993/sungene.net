@@ -663,6 +663,14 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     })),
   }
 
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t.heroTitle,
+    url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
+  }
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -707,6 +715,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     <>
       <JsonLd data={faqSchema} />
       <JsonLd data={productSchema} />
+      <JsonLd data={speakableSchema} />
 
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <PageHero
