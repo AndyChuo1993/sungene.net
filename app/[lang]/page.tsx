@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Lang, t } from '@/lib/i18n'
+import Link from 'next/link'
 import HeroSection from '@/components/home/HeroSection'
 import MachineByProduct from '@/components/home/MachineByProduct'
 import ServicesPreview from '@/components/home/ServicesPreview'
@@ -10,6 +11,8 @@ import Applications from '@/components/home/Applications'
 import CTASection from '@/components/home/CTASection'
 import FAQ from '@/components/home/FAQ'
 import TrustGallery from '@/components/home/TrustGallery'
+import { Container } from '@/components/ui/Container'
+import { ButtonLink } from '@/components/ui/Button'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
@@ -196,7 +199,6 @@ export default async function Page({ params }: PageParams) {
   const safeLang = normalizeLang(lang)
   const s = SCHEMA_TEXT[safeLang] ?? SCHEMA_TEXT.en
 
-  // Product schema for SEO
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -205,12 +207,26 @@ export default async function Page({ params }: PageParams) {
     description: s.listDesc,
     numberOfItems: 5,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: s.categories.packaging, url: `${SITE_URL}/${safeLang}/machinery/packaging` },
-      { '@type': 'ListItem', position: 2, name: s.categories.food, url: `${SITE_URL}/${safeLang}/machinery/food-processing` },
-      { '@type': 'ListItem', position: 3, name: s.categories.filling, url: `${SITE_URL}/${safeLang}/machinery/filling-sealing` },
-      { '@type': 'ListItem', position: 4, name: s.categories.conveying, url: `${SITE_URL}/${safeLang}/machinery/conveying-automation` },
-      { '@type': 'ListItem', position: 5, name: s.categories.custom, url: `${SITE_URL}/${safeLang}/machinery/custom` },
+      { '@type': 'ListItem', position: 1, name: s.categories.packaging, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/packaging`, url: `${SITE_URL}/${safeLang}/machinery/packaging`, name: s.categories.packaging } },
+      { '@type': 'ListItem', position: 2, name: s.categories.food, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/food-processing`, url: `${SITE_URL}/${safeLang}/machinery/food-processing`, name: s.categories.food } },
+      { '@type': 'ListItem', position: 3, name: s.categories.filling, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/filling-sealing`, url: `${SITE_URL}/${safeLang}/machinery/filling-sealing`, name: s.categories.filling } },
+      { '@type': 'ListItem', position: 4, name: s.categories.conveying, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/conveying-automation`, url: `${SITE_URL}/${safeLang}/machinery/conveying-automation`, name: s.categories.conveying } },
+      { '@type': 'ListItem', position: 5, name: s.categories.custom, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/custom`, url: `${SITE_URL}/${safeLang}/machinery/custom`, name: s.categories.custom } },
     ]
+  }
+
+  const topicHubSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[safeLang].htmlLang,
+    name: 'Buying guides by machine',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pouch packing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/pouch-packing-machine`, name: 'Pouch packing buying guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Powder filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/powder-filling-machine`, name: 'Powder filling buying guides' } },
+      { '@type': 'ListItem', position: 3, name: 'Liquid filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/liquid-filling-machine`, name: 'Liquid filling buying guides' } },
+      { '@type': 'ListItem', position: 4, name: 'Snack processing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${safeLang}/resources/topic/snack-processing-line`, name: 'Snack processing buying guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Conveyor buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${safeLang}/resources/topic/conveyor-system`, name: 'Conveyor buying guides' } },
+    ],
   }
 
   const faqSchema = {
@@ -227,10 +243,58 @@ export default async function Page({ params }: PageParams) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(topicHubSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <HeroSection lang={safeLang} />
       <MachineByProduct lang={safeLang} />
       <ServicesPreview lang={safeLang} />
+      <section className="bg-white py-8">
+        <Container className="max-w-7xl">
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+            <h2 className="text-base font-bold text-gray-950">
+              {({
+                en: 'Buying guides by machine',
+                cn: '按机型浏览采购指南',
+                zh: '依機型瀏覽採購指南',
+                fr: 'Guides d’achat par machine',
+                es: 'Guías de compra por máquina',
+                pt: 'Guias de compra por máquina',
+                ko: '기계별 구매 가이드',
+                ja: '機種別 購入ガイド',
+                ar: 'أدلة الشراء حسب الماكينة',
+                th: 'คู่มือการเลือกซื้อตามเครื่อง',
+                vi: 'Hướng dẫn mua theo máy',
+                de: 'Kaufratgeber nach Maschine',
+              } as Record<string, string>)[safeLang] || 'Buying guides by machine'}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/pouch-packing-machine`}>
+                {({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[safeLang] || 'Pouch packing'}
+              </Link>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/powder-filling-machine`}>
+                {({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[safeLang] || 'Powder filling'}
+              </Link>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/liquid-filling-machine`}>
+                {({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[safeLang] || 'Liquid filling'}
+              </Link>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/snack-processing-line`}>
+                {({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[safeLang] || 'Snack processing'}
+              </Link>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/conveyor-system`}>
+                {({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[safeLang] || 'Conveyors'}
+              </Link>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <ButtonLink href={`/${safeLang}/recommend`} size="md">
+                {({ en: 'Get a Recommendation', cn: '获取推荐', zh: '取得推薦', fr: 'Obtenir une recommandation', es: 'Obtener recomendación', pt: 'Obter recomendação', ko: '추천 받기', ja: '推薦を受ける', ar: 'احصل على توصية', th: 'รับคำแนะนำ', vi: 'Nhận đề xuất', de: 'Empfehlung erhalten' } as Record<string, string>)[safeLang] || 'Get a Recommendation'}
+              </ButtonLink>
+              <ButtonLink href={`/${safeLang}/contact`} variant="secondary" size="md">
+                {({ en: 'Request a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string, string>)[safeLang] || 'Request a Quote'}
+              </ButtonLink>
+            </div>
+          </div>
+        </Container>
+      </section>
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />
       <ProcessSection lang={safeLang} />

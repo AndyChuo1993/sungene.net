@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -391,6 +391,32 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                 </ul>
               </Card>
 
+              <Card className="p-6">
+                <h2 className="text-base font-bold text-gray-950">
+                  {({
+                    en: 'Buying guides by machine',
+                    cn: '按机型浏览采购指南',
+                    zh: '依機型瀏覽採購指南',
+                    fr: 'Guides d’achat par machine',
+                    es: 'Guías de compra por máquina',
+                    pt: 'Guias de compra por máquina',
+                    ko: '기계별 구매 가이드',
+                    ja: '機種別 購入ガイド',
+                    ar: 'أدلة الشراء حسب الماكينة',
+                    th: 'คู่มือการเลือกซื้อตามเครื่อง',
+                    vi: 'Hướng dẫn mua theo máy',
+                    de: 'Kaufratgeber nach Maschine',
+                  } as Record<string, string>)[lang] || 'Buying guides by machine'}
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</a>
+                </div>
+              </Card>
+
               {/* Response badge */}
               <div className="rounded-xl bg-accent-50 px-6 py-4 text-center">
                 <p className="text-sm font-semibold text-accent-700">{t.responseNote}</p>
@@ -431,6 +457,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        inLanguage: LANG_META[lang].htmlLang,
         name: 'SunGene Co., LTD.',
         url: SITE_URL,
         logo: `${SITE_URL}/logo/sungene.png`,

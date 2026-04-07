@@ -393,6 +393,47 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
         </Container>
       </section>
 
+      <section className="bg-white pb-14 sm:pb-18">
+        <Container>
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+            <h2 className="text-base font-bold text-gray-950">
+              {({
+                en: 'Explore by machine',
+                cn: '按机型浏览',
+                zh: '依機型瀏覽',
+                fr: 'Explorer par machine',
+                es: 'Explorar por máquina',
+                pt: 'Explorar por máquina',
+                ko: '기계별 탐색',
+                ja: '機種別に見る',
+                ar: 'استكشف حسب الماكينة',
+                th: 'สำรวจตามเครื่อง',
+                vi: 'Khám phá theo máy',
+                de: 'Nach Maschine entdecken',
+              } as Record<string, string>)[lang] || 'Explore by machine'}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</a>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <ButtonLink href={`/${lang}/machinery`} variant="secondary" size="md">
+                {({ en: 'Machinery', cn: '机械目录', zh: '機械目錄', fr: 'Catalogue', es: 'Catálogo', pt: 'Catálogo', ko: '기계', ja: '機械', ar: 'الآلات', th: 'เครื่องจักร', vi: 'Danh mục máy', de: 'Katalog' } as Record<string, string>)[lang] || 'Machinery'}
+              </ButtonLink>
+              <ButtonLink href={`/${lang}/recommend`} size="md">
+                {({ en: 'Get a Recommendation', cn: '获取推荐', zh: '取得推薦', fr: 'Obtenir une recommandation', es: 'Obtener recomendación', pt: 'Obter recomendação', ko: '추천 받기', ja: '推薦を受ける', ar: 'احصل على توصية', th: 'รับคำแนะนำ', vi: 'Nhận đề xuất', de: 'Empfehlung erhalten' } as Record<string, string>)[lang] || 'Get a Recommendation'}
+              </ButtonLink>
+              <ButtonLink href={`/${lang}/contact`} variant="secondary" size="md">
+                {({ en: 'Request a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string, string>)[lang] || 'Request a Quote'}
+              </ButtonLink>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* CTA */}
       <section className="relative bg-brand-950 bg-industrial-grid py-20 sm:py-24">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90 pointer-events-none" />
