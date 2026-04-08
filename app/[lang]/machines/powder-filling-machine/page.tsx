@@ -1343,6 +1343,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
       '@type': 'Offer',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
       url: `${SITE_URL}/${lang}/contact?machine=powder-filling-machine`,
     },

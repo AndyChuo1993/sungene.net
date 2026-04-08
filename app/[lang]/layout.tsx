@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
-import { buildLocalBusinessSchemas, buildOrganizationSchema, buildWebsiteSchema } from '@/lib/business'
+import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildWebsiteSchema } from '@/lib/business'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
@@ -31,12 +31,14 @@ export default async function RootLayout({ children, params }: { children: React
   const baseUrl = SITE_URL
   const websiteSchema = buildWebsiteSchema({ baseUrl, lang })
   const org = buildOrganizationSchema({ baseUrl, lang })
+  const brand = buildBrandSchema({ baseUrl })
   const localBusinesses = buildLocalBusinessSchemas({ baseUrl })
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brand) }} />
       {localBusinesses.map((b) => (
         <script key={String(b['@id'])} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(b) }} />
       ))}

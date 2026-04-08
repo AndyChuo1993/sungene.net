@@ -129,6 +129,33 @@ export function buildOrganizationSchema(opts: { baseUrl?: string; lang: Lang }) 
         { '@type': 'OfferCatalog', name: 'Customized Machinery', url: pageUrl(lang, '/machinery/custom'), description: 'OEM/ODM, custom dimensions, materials, automation levels' },
       ],
     },
+    brand: { '@id': `${baseUrl}/#brand` },
+    location: [
+      {
+        '@type': 'Place',
+        name: OFFICES.tw.name,
+        address: { '@type': 'PostalAddress', ...OFFICES.tw.address },
+        geo: { '@type': 'GeoCoordinates', ...OFFICES.tw.geo },
+        telephone: OFFICES.tw.telephone,
+      },
+      {
+        '@type': 'Place',
+        name: OFFICES.cn.name,
+        address: { '@type': 'PostalAddress', ...OFFICES.cn.address },
+        telephone: OFFICES.cn.telephone,
+      },
+    ],
+  }
+}
+
+export function buildBrandSchema(opts: { baseUrl?: string }) {
+  const baseUrl = opts.baseUrl ?? SITE_URL
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Brand',
+    '@id': `${baseUrl}/#brand`,
+    name: 'SunGene',
+    url: baseUrl,
   }
 }
 
@@ -145,6 +172,7 @@ export function buildLocalBusinessSchemas(opts: { baseUrl?: string }) {
       url: baseUrl,
       sameAs: [...BRAND.sameAs],
       hasMap: `https://www.google.com/maps?q=${OFFICES.tw.geo.latitude},${OFFICES.tw.geo.longitude}`,
+      parentOrganization: { '@id': `${baseUrl}/#org` },
       telephone: BRAND.telephoneTW,
       email: BRAND.email,
       address: { '@type': 'PostalAddress', ...OFFICES.tw.address },
@@ -174,6 +202,7 @@ export function buildLocalBusinessSchemas(opts: { baseUrl?: string }) {
       image: logo,
       url: baseUrl,
       hasMap: `https://www.google.com/maps?q=${encodeURIComponent(`${OFFICES.cn.address.streetAddress}, ${OFFICES.cn.address.addressLocality}`)}`,
+      parentOrganization: { '@id': `${baseUrl}/#org` },
       telephone: OFFICES.cn.telephone,
       email: BRAND.email,
       address: { '@type': 'PostalAddress', ...OFFICES.cn.address },
