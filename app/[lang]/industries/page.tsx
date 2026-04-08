@@ -377,10 +377,12 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           description: t.desc,
           isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
           publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+          mainEntity: { '@id': `${SITE_URL}/${lang}/industries#itemlist` },
         },
         {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
+          '@id': `${SITE_URL}/${lang}/industries#itemlist`,
           inLanguage: LANG_META[lang].htmlLang,
           name: t.title,
           description: t.desc,

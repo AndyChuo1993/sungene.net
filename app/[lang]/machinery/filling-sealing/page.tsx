@@ -170,6 +170,7 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
   const t = content[lang] || content['en']
 
   const pageUrl = `${SITE_URL}/${lang}/machinery/filling-sealing`
+  const itemListId = `${pageUrl}#itemlist`
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -180,11 +181,13 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+    mainEntity: { '@id': itemListId },
   }
 
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
     isPartOf: { '@id': pageUrl },

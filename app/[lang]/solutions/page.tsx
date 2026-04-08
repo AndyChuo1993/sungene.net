@@ -824,8 +824,10 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   const topicHubSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': `${SITE_URL}/${lang}/solutions#itemlist`,
     inLanguage: LANG_META[lang].htmlLang,
     name: guidesTitle,
+    isPartOf: { '@id': `${SITE_URL}/${lang}/solutions` },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Pouch packing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, name: 'Pouch packing buying guides' } },
       { '@type': 'ListItem', position: 2, name: 'Powder filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, name: 'Powder filling buying guides' } },
@@ -845,6 +847,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     description: heroDesc[lang] || heroDesc.en,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+    mainEntity: { '@id': `${SITE_URL}/${lang}/solutions#itemlist` },
   }
 
   const levelColors = [

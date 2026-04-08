@@ -246,7 +246,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; machine: string }> }): Promise<Metadata> {
   const { lang, machine } = await params
   const l = normalizeLang(lang)
-  if (!TOPIC_MACHINES.includes(machine as TopicMachine)) return {}
+  if (!TOPIC_MACHINES.includes(machine as TopicMachine)) notFound()
   const m = machine as TopicMachine
   const title = `${machineLabel[l][m]} ${tx[l].titleSuffix} | SunGene`
   const description = getTopicHubIntro(l, m)
@@ -274,6 +274,7 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
   const recommendHref = `/${l}/recommend?machine=${encodeURIComponent(m)}`
   const contactHref = `/${l}/contact?machine=${encodeURIComponent(m)}`
   const pageUrl = `${SITE_URL}/${l}/resources/topic/${m}`
+  const itemListId = `${pageUrl}#itemlist`
 
   const collectionSchema = {
     '@context': 'https://schema.org',
@@ -285,11 +286,13 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
     description: intro,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+    mainEntity: { '@id': itemListId },
   }
 
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': itemListId,
     inLanguage: LANG_META[l].htmlLang,
     name: title,
     isPartOf: { '@id': pageUrl },

@@ -635,6 +635,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': `${SITE_URL}/${lang}/resources#itemlist`,
     inLanguage: LANG_META[lang].htmlLang,
     name: heroTitles[lang] || heroTitles.en,
     isPartOf: { '@id': `${SITE_URL}/${lang}/resources` },
@@ -663,6 +664,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     about: { '@type': 'Thing', name: 'Industrial Machinery Selection' },
     numberOfItems: itemListItems.length,
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+    mainEntity: { '@id': `${SITE_URL}/${lang}/resources#itemlist` },
   }
 
   return (

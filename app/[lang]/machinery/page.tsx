@@ -262,6 +262,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     } as Record<string, string>)[lang] || 'Machinery'
 
   const pageUrl = `${SITE_URL}/${lang}/machinery`
+  const itemListId = `${pageUrl}#itemlist`
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -272,11 +273,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     description: t.desc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+    mainEntity: { '@id': itemListId },
   }
 
   const categoryListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
     isPartOf: { '@id': pageUrl },
