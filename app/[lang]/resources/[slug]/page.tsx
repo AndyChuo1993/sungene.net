@@ -205,6 +205,14 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
 
   const dateModified = getStableLastModifiedISO()
   const datePublished = article.publishedAt ?? RESOURCE_DEFAULT_PUBLISHED_AT
+  const ogImageUrl = (() => {
+    const u = new URL(`${SITE_URL}/og-image`)
+    u.searchParams.set('lang', l)
+    u.searchParams.set('title', i18n.title)
+    u.searchParams.set('desc', i18n.description)
+    u.searchParams.set('path', `/resources/${slug}`)
+    return u.toString()
+  })()
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -212,13 +220,22 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     headline: i18n.title,
     description: i18n.description,
     keywords: i18n.metaTitle,
-    author: { '@type': 'Organization', name: 'SunGene Machinery', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'SunGene Machinery', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo/sungene.png` } },
+    author: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo/sungene.png` } },
     url: `${SITE_URL}/${l}/resources/${slug}`,
-    image: [`${SITE_URL}/og/og.png`],
+    image: [ogImageUrl],
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
     isPartOf: { '@type': 'CollectionPage', '@id': `${SITE_URL}/${l}/resources`, name: 'Machinery Buying Guides' },
-    ...(article.relatedMachine ? { mentions: { '@type': 'Product', name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug], url: `${SITE_URL}/${l}/machines/${article.relatedMachine}` } } : {}),
+    ...(article.relatedMachine ? {
+      mentions: {
+        '@type': 'Product',
+        '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+        name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
+        url: `${SITE_URL}/${l}/machines/${article.relatedMachine}`,
+        brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
+        manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
+      },
+    } : {}),
     ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
   }

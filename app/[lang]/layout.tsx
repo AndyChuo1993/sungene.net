@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildRobots, LANG_META, normalizeLang } from '@/lib/seo'
+import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
 import { buildLocalBusinessSchemas, buildOrganizationSchema, buildWebsiteSchema } from '@/lib/business'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
@@ -10,17 +10,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const lang = normalizeLang(rawLang)
 
   const baseUrl = SITE_URL
+  const title = 'SunGene Machinery'
+  const description = 'Industrial machinery manufacturer & exporter from Taiwan. Packaging machinery, food processing equipment, filling & sealing systems, and automation.'
 
   return {
     metadataBase: new URL(baseUrl),
     title: { default: 'SunGene Machinery', template: '%s | SunGene Machinery' },
-    openGraph: {
-      siteName: 'SunGene Machinery',
-      locale: LANG_META[lang].ogLocale,
-      alternateLocale: Object.values(LANG_META).map(v => v.ogLocale).filter(v => v !== LANG_META[lang].ogLocale),
-      images: [{ url: `/og-image?lang=${lang}&title=SunGene%20Machinery&desc=Industrial%20Machinery%20Manufacturer%20%26%20Exporter%20from%20Taiwan.&path=%2F${lang}`, width: 1200, height: 630 }],
-    },
-    twitter: { card: 'summary_large_image', images: [`/og-image?lang=${lang}&title=SunGene%20Machinery&desc=Industrial%20Machinery%20Manufacturer%20%26%20Exporter%20from%20Taiwan.&path=%2F${lang}`] },
+    alternates: buildAlternates(lang, '/'),
+    openGraph: buildOpenGraph({ lang, title, description, pathname: '/', type: 'website' }),
+    twitter: buildTwitter({ lang, title, description, pathname: '/' }),
     icons: { icon: '/logo/sungene.png' },
     robots: buildRobots(),
   }

@@ -96,9 +96,9 @@ export function buildTwitter(opts: { lang: Lang; title: string; description: str
 function buildOgImageUrl(opts: { lang: Lang; title: string; description: string; pathname: string }) {
   const u = new URL(`${SITE_URL}/og-image`)
   u.searchParams.set('lang', opts.lang)
-  u.searchParams.set('title', opts.title)
-  u.searchParams.set('desc', opts.description)
-  u.searchParams.set('path', opts.pathname)
+  u.searchParams.set('title', (opts.title || '').slice(0, 90))
+  u.searchParams.set('desc', (opts.description || '').slice(0, 180))
+  u.searchParams.set('path', (opts.pathname || '').slice(0, 120))
   return u.toString()
 }
 

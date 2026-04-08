@@ -143,6 +143,8 @@ export function buildLocalBusinessSchemas(opts: { baseUrl?: string }) {
       name: BRAND.legalName,
       image: logo,
       url: baseUrl,
+      sameAs: [...BRAND.sameAs],
+      hasMap: `https://www.google.com/maps?q=${OFFICES.tw.geo.latitude},${OFFICES.tw.geo.longitude}`,
       telephone: BRAND.telephoneTW,
       email: BRAND.email,
       address: { '@type': 'PostalAddress', ...OFFICES.tw.address },
@@ -171,10 +173,10 @@ export function buildLocalBusinessSchemas(opts: { baseUrl?: string }) {
       name: OFFICES.cn.name,
       image: logo,
       url: baseUrl,
+      hasMap: `https://www.google.com/maps?q=${encodeURIComponent(`${OFFICES.cn.address.streetAddress}, ${OFFICES.cn.address.addressLocality}`)}`,
       telephone: OFFICES.cn.telephone,
       email: BRAND.email,
       address: { '@type': 'PostalAddress', ...OFFICES.cn.address },
     },
   ]
 }
-
