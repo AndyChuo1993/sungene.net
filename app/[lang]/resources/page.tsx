@@ -641,7 +641,12 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       '@type': 'ListItem',
       position: i + 1,
       name: a.title,
-      item: `${SITE_URL}/${lang}/resources/${a.slug}`,
+      item: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/${lang}/resources/${a.slug}`,
+        url: `${SITE_URL}/${lang}/resources/${a.slug}`,
+        name: a.title,
+      },
     })),
   }
 

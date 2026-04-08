@@ -187,12 +187,12 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: `${SITE_URL}/${lang}/machines/pouch-packing-machine` },
-      { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: `${SITE_URL}/${lang}/machines/powder-filling-machine` },
-      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: `${SITE_URL}/${lang}/machines/liquid-filling-machine` },
-      { '@type': 'ListItem', position: 4, name: 'Pouch Packing Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine` },
-      { '@type': 'ListItem', position: 5, name: 'Powder Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine` },
-      { '@type': 'ListItem', position: 6, name: 'Liquid Filling Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine` },
+      { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine`, url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, name: 'Pouch Packing Machine' } },
+      { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine`, url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, name: 'Powder Filling Machine' } },
+      { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine`, url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, name: 'Liquid Filling Machine' } },
+      { '@type': 'ListItem', position: 4, name: 'Pouch Packing Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, name: 'Pouch Packing Buying Guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Powder Filling Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, name: 'Powder Filling Buying Guides' } },
+      { '@type': 'ListItem', position: 6, name: 'Liquid Filling Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, name: 'Liquid Filling Buying Guides' } },
     ],
   }
 

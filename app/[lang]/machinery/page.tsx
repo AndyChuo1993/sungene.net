@@ -282,7 +282,13 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       '@type': 'ListItem',
       position: i + 1,
       name: c.title,
-      item: `${SITE_URL}${categoryHrefs[i] || `/${lang}/machinery`}`,
+      item: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}${categoryHrefs[i] || `/${lang}/machinery`}`,
+        url: `${SITE_URL}${categoryHrefs[i] || `/${lang}/machinery`}`,
+        name: c.title,
+        description: c.desc,
+      },
     })),
   }
 

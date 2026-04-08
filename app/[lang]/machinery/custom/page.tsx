@@ -171,11 +171,11 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: `${SITE_URL}/${lang}/machinery/packaging` },
-      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: `${SITE_URL}/${lang}/machinery/food-processing` },
-      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', item: `${SITE_URL}/${lang}/machinery/filling-sealing` },
-      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', item: `${SITE_URL}/${lang}/machinery/conveying-automation` },
-      { '@type': 'ListItem', position: 5, name: 'Contact', item: `${SITE_URL}/${lang}/contact` },
+      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/packaging`, url: `${SITE_URL}/${lang}/machinery/packaging`, name: 'Packaging Machinery' } },
+      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/food-processing`, url: `${SITE_URL}/${lang}/machinery/food-processing`, name: 'Food Processing Equipment' } },
+      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/filling-sealing`, url: `${SITE_URL}/${lang}/machinery/filling-sealing`, name: 'Filling & Sealing Systems' } },
+      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/conveying-automation`, url: `${SITE_URL}/${lang}/machinery/conveying-automation`, name: 'Conveying & Automation' } },
+      { '@type': 'ListItem', position: 5, name: 'Contact', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/contact`, url: `${SITE_URL}/${lang}/contact`, name: 'Contact' } },
     ],
   }
 

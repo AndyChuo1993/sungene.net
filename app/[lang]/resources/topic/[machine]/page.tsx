@@ -295,7 +295,12 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
       '@type': 'ListItem',
       position: i + 1,
       name: g.title,
-      item: `${SITE_URL}/${l}/resources/${g.slug}`,
+      item: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/${l}/resources/${g.slug}`,
+        url: `${SITE_URL}/${l}/resources/${g.slug}`,
+        name: g.title,
+      },
     })),
   }
 
