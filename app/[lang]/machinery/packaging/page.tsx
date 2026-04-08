@@ -169,6 +169,18 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
   }
   const t = content[lang] || content['en']
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery/packaging`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.p1,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -186,7 +198,7 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <JsonLd data={itemListSchema} />
+      <JsonLd data={[collectionSchema, itemListSchema]} />
       <PageHero
         kicker={({ en: 'PACKAGING EQUIPMENT', cn: '包装设备', zh: '包裝設備', fr: 'ÉQUIPEMENT D\'EMBALLAGE', es: 'EQUIPO DE EMPAQUE', pt: 'EQUIPAMENTO DE EMBALAGEM', ko: '포장 장비', ja: '包装機器', ar: 'معدات التعبئة والتغليف', th: 'อุปกรณ์บรรจุภัณฑ์', vi: 'THIẾT BỊ ĐÓNG GÓI', de: 'VERPACKUNGSANLAGEN' } as Record<string,string>)[lang] || 'PACKAGING EQUIPMENT'}
         title={t.title}

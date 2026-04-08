@@ -153,20 +153,32 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
   }
   const t = content[lang] || content['en']
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery/food-processing`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.p1,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: `${SITE_URL}/${lang}/machines/snack-processing-line` },
+      { '@type': 'ListItem', position: 2, name: 'Snack Processing Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/snack-processing-line` },
+    ],
+  }
+
   return (
     <>
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          inLanguage: LANG_META[lang].htmlLang,
-          name: t.title,
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: `${SITE_URL}/${lang}/machines/snack-processing-line` },
-            { '@type': 'ListItem', position: 2, name: 'Snack Processing Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/snack-processing-line` },
-          ],
-        }}
-      />
+      <JsonLd data={[collectionSchema, itemListSchema]} />
       <PageHero
         kicker={({ en: 'FOOD PROCESSING', cn: '食品加工', zh: '食品加工', fr: 'AGROALIMENTAIRE', es: 'PROCESAMIENTO DE ALIMENTOS', pt: 'PROCESSAMENTO DE ALIMENTOS', ko: '식품 가공', ja: '食品加工', ar: 'معالجة الأغذية', th: 'แปรรูปอาหาร', vi: 'CHẾ BIẾN THỰC PHẨM', de: 'LEBENSMITTELVERARBEITUNG' } as Record<string,string>)[lang] || 'FOOD PROCESSING'}
         title={t.title}

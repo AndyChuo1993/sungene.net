@@ -169,20 +169,32 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
   }
   const t = content[lang] || content['en']
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery/conveying-automation`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.p1,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: `${SITE_URL}/${lang}/machines/conveyor-system` },
+      { '@type': 'ListItem', position: 2, name: 'Conveyor Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/conveyor-system` },
+    ],
+  }
+
   return (
     <>
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          inLanguage: LANG_META[lang].htmlLang,
-          name: t.title,
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: `${SITE_URL}/${lang}/machines/conveyor-system` },
-            { '@type': 'ListItem', position: 2, name: 'Conveyor Buying Guides', item: `${SITE_URL}/${lang}/resources/topic/conveyor-system` },
-          ],
-        }}
-      />
+      <JsonLd data={[collectionSchema, itemListSchema]} />
       <PageHero
         kicker={({ en: 'CONVEYING & AUTOMATION', cn: '输送与自动化', zh: '輸送與自動化', fr: 'CONVOYAGE & AUTOMATISATION', es: 'TRANSPORTE Y AUTOMATIZACIÓN', pt: 'TRANSPORTE E AUTOMAÇÃO', ko: '컨베이어 및 자동화', ja: '搬送・自動化', ar: 'النقل والأتمتة', th: 'ลำเลียงและอัตโนมัติ', vi: 'BĂNG TẢI & TỰ ĐỘNG HÓA', de: 'FÖRDERUNG & AUTOMATISIERUNG' } as Record<string,string>)[lang] || 'CONVEYING & AUTOMATION'}
         title={t.title}

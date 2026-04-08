@@ -273,6 +273,18 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
   const machineHref = `/${l}/machines/${m}`
   const recommendHref = `/${l}/recommend?machine=${encodeURIComponent(m)}`
   const contactHref = `/${l}/contact?machine=${encodeURIComponent(m)}`
+  const pageUrl = `${SITE_URL}/${l}/resources/topic/${m}`
+
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[l].htmlLang,
+    name: title,
+    description: intro,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
 
   const itemListSchema = {
     '@context': 'https://schema.org',
@@ -290,8 +302,10 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
   const speakableSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': pageUrl,
+    inLanguage: LANG_META[l].htmlLang,
     name: title,
-    url: `${SITE_URL}/${l}/resources/topic/${m}`,
+    url: pageUrl,
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.text-base.text-gray-700'] },
   }
 
@@ -366,7 +380,7 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
         </Container>
       </section>
 
-      <JsonLd data={[itemListSchema, faqSchema, speakableSchema]} />
+      <JsonLd data={[collectionSchema, itemListSchema, faqSchema, speakableSchema]} />
     </>
   )
 }

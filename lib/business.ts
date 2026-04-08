@@ -201,11 +201,28 @@ export function buildLocalBusinessSchemas(opts: { baseUrl?: string }) {
       name: OFFICES.cn.name,
       image: logo,
       url: baseUrl,
+      sameAs: [...BRAND.sameAs],
       hasMap: `https://www.google.com/maps?q=${encodeURIComponent(`${OFFICES.cn.address.streetAddress}, ${OFFICES.cn.address.addressLocality}`)}`,
       parentOrganization: { '@id': `${baseUrl}/#org` },
       telephone: OFFICES.cn.telephone,
       email: BRAND.email,
       address: { '@type': 'PostalAddress', ...OFFICES.cn.address },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      areaServed: [
+        { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 13.0, longitude: 105.0 }, geoRadius: '5000 km', name: 'Southeast Asia' },
+        { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 50.0, longitude: 10.0 }, geoRadius: '3000 km', name: 'Europe' },
+        { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 25.0, longitude: 45.0 }, geoRadius: '3000 km', name: 'Middle East' },
+        { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 0.0, longitude: 25.0 }, geoRadius: '5000 km', name: 'Africa' },
+        { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 40.0, longitude: -100.0 }, geoRadius: '4000 km', name: 'Americas' },
+      ],
+      priceRange: '$$',
+      currenciesAccepted: 'USD, EUR, CNY',
+      paymentAccepted: 'Wire Transfer, L/C, T/T',
     },
   ]
 }

@@ -366,20 +366,32 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           </div>
         </Container>
       </section>
-      <JsonLd data={{
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        inLanguage: LANG_META[lang].htmlLang,
-        name: t.title,
-        description: t.desc,
-        itemListElement: t.cats.map((cat: any, i: number) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          name: cat.title,
-          description: cat.desc,
-          item: { '@type': 'WebPage', '@id': `${SITE_URL}${cat.href}`, url: `${SITE_URL}${cat.href}`, name: cat.title },
-        })),
-      }} />
+      <JsonLd data={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': `${SITE_URL}/${lang}/industries`,
+          url: `${SITE_URL}/${lang}/industries`,
+          inLanguage: LANG_META[lang].htmlLang,
+          name: t.title,
+          description: t.desc,
+          isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          inLanguage: LANG_META[lang].htmlLang,
+          name: t.title,
+          description: t.desc,
+          itemListElement: t.cats.map((cat: any, i: number) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: cat.title,
+            description: cat.desc,
+            item: { '@type': 'WebPage', '@id': `${SITE_URL}${cat.href}`, url: `${SITE_URL}${cat.href}`, name: cat.title },
+          })),
+        },
+      ]} />
     </>
   )
 }

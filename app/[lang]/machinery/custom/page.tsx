@@ -153,23 +153,35 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
   }
   const t = content[lang] || content['en']
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery/custom`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.p1,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: `${SITE_URL}/${lang}/machinery/packaging` },
+      { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: `${SITE_URL}/${lang}/machinery/food-processing` },
+      { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', item: `${SITE_URL}/${lang}/machinery/filling-sealing` },
+      { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', item: `${SITE_URL}/${lang}/machinery/conveying-automation` },
+      { '@type': 'ListItem', position: 5, name: 'Contact', item: `${SITE_URL}/${lang}/contact` },
+    ],
+  }
+
   return (
     <>
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          inLanguage: LANG_META[lang].htmlLang,
-          name: t.title,
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: `${SITE_URL}/${lang}/machinery/packaging` },
-            { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: `${SITE_URL}/${lang}/machinery/food-processing` },
-            { '@type': 'ListItem', position: 3, name: 'Filling & Sealing Systems', item: `${SITE_URL}/${lang}/machinery/filling-sealing` },
-            { '@type': 'ListItem', position: 4, name: 'Conveying & Automation', item: `${SITE_URL}/${lang}/machinery/conveying-automation` },
-            { '@type': 'ListItem', position: 5, name: 'Contact', item: `${SITE_URL}/${lang}/contact` },
-          ],
-        }}
-      />
+      <JsonLd data={[collectionSchema, itemListSchema]} />
       <PageHero
         kicker={({ en: 'CUSTOM ENGINEERING', cn: '定制工程', zh: '客製工程', fr: 'SUR MESURE', es: 'INGENIERÍA A MEDIDA', pt: 'ENGENHARIA SOB MEDIDA', ko: '맞춤 엔지니어링', ja: 'カスタム設計', ar: 'هندسة مخصصة', th: 'งานสั่งทำ', vi: 'TÙY CHỈNH', de: 'SONDERANFERTIGUNG' } as Record<string,string>)[lang] || 'CUSTOM ENGINEERING'}
         title={t.title}

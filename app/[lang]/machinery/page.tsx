@@ -261,6 +261,18 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
       de: 'Katalog',
     } as Record<string, string>)[lang] || 'Machinery'
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.desc,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
   const categoryListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -276,7 +288,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
 
   return (
     <>
-      <JsonLd data={categoryListSchema} />
+      <JsonLd data={[collectionSchema, categoryListSchema]} />
       <PageHero
         kicker={t.kicker}
         title={t.title}

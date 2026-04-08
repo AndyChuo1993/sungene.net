@@ -169,6 +169,18 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
   }
   const t = content[lang] || content['en']
 
+  const pageUrl = `${SITE_URL}/${lang}/machinery/filling-sealing`
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: t.title,
+    description: t.p1,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -184,7 +196,7 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
 
   return (
     <>
-      <JsonLd data={itemListSchema} />
+      <JsonLd data={[collectionSchema, itemListSchema]} />
       <PageHero
         kicker={({ en: 'FILLING & SEALING', cn: '灌装与封口', zh: '灌裝與封口', fr: 'REMPLISSAGE & SCELLAGE', es: 'LLENADO Y SELLADO', pt: 'ENVASE E SELAGEM', ko: '충전 및 밀봉', ja: '充填・封口', ar: 'التعبئة والختم', th: 'บรรจุและปิดผนึก', vi: 'CHIẾT RÓT & SEAL', de: 'ABFÜLLUNG & VERSIEGELUNG' } as Record<string,string>)[lang] || 'FILLING & SEALING'}
         title={t.title}

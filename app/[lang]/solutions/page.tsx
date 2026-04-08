@@ -835,6 +835,17 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     ],
   }
 
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE_URL}/${lang}/solutions`,
+    url: `${SITE_URL}/${lang}/solutions`,
+    inLanguage: LANG_META[lang].htmlLang,
+    name: heroTitle[lang] || heroTitle.en,
+    description: heroDesc[lang] || heroDesc.en,
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+  }
+
   const levelColors = [
     'from-blue-600 to-blue-700',
     'from-emerald-600 to-emerald-700',
@@ -851,6 +862,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
 
   return (
     <>
+      <JsonLd data={collectionSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={topicHubSchema} />
