@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => item(`${baseUrl}/${lang}`, 'weekly', 1.0))
 
-  // Priority 0.9 - Machine landing pages (highest conversion value)
+  // Priority 0.95 - Machine landing pages (highest conversion value)
   const machinePages = [
     '/machines/pouch-packing-machine',
     '/machines/powder-filling-machine',
@@ -28,10 +28,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/machines/conveyor-system',
   ]
   const machineSitemap = machinePages.flatMap(route =>
+    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.95))
+  )
+
+  // Priority 0.9 - Conversion pages
+  const conversionRoutes = [
+    '/recommend',
+    '/contact',
+  ]
+  const conversionSitemap = conversionRoutes.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
   )
 
-  // Priority 0.85 - Machinery categories + recommend
+  // Priority 0.85 - Machinery categories
   const machineryRoutes = [
     '/machinery',
     '/machinery/packaging',
@@ -39,23 +48,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/machinery/filling-sealing',
     '/machinery/conveying-automation',
     '/machinery/custom',
-    '/recommend',
   ]
   const machinerySitemap = machineryRoutes.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.85))
   )
 
-  // Priority 0.7 - Supporting pages
-  const supportRoutes = [
-    '/industries',
-    '/solutions',
-    '/about',
-    '/contact',
-    '/resources',
-  ]
-  const supportSitemap = supportRoutes.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.7))
-  )
+  // Priority 0.8 - Resources hub + topic hubs
+  const resourcesHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/resources`, 'weekly', 0.8))
 
   const topicMachines = [
     'pouch-packing-machine',
@@ -65,7 +64,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'conveyor-system',
   ]
   const topicSitemap = topicMachines.flatMap((m) =>
-    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'weekly', 0.75))
+    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'weekly', 0.8))
+  )
+
+  // Priority 0.75 - Supporting pages
+  const supportRoutes = [
+    '/industries',
+    '/solutions',
+    '/about',
+  ]
+  const supportSitemap = supportRoutes.flatMap(route =>
+    langs.map(lang => item(`${baseUrl}/${lang}${route}`, route === '/about' ? 'yearly' : 'monthly', 0.75))
   )
 
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
@@ -76,7 +85,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...homepages,
     ...machineSitemap,
+    ...conversionSitemap,
     ...machinerySitemap,
+    ...resourcesHubSitemap,
     ...supportSitemap,
     ...topicSitemap,
     ...articleSitemap,
