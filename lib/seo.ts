@@ -70,7 +70,7 @@ export function buildOpenGraph(opts: {
   type?: 'website' | 'article'
   imageUrl?: string
 }) {
-  const imageUrl = opts.imageUrl ?? `${SITE_URL}/og/og.png`
+  const imageUrl = opts.imageUrl ?? buildOgImageUrl({ lang: opts.lang, title: opts.title, description: opts.description, pathname: opts.pathname })
   return {
     title: opts.title,
     description: opts.description,
@@ -83,14 +83,23 @@ export function buildOpenGraph(opts: {
   } satisfies NonNullable<Metadata['openGraph']>
 }
 
-export function buildTwitter(opts: { title: string; description: string; imageUrl?: string }) {
-  const imageUrl = opts.imageUrl ?? `${SITE_URL}/og/og.png`
+export function buildTwitter(opts: { lang: Lang; title: string; description: string; pathname: string; imageUrl?: string }) {
+  const imageUrl = opts.imageUrl ?? buildOgImageUrl({ lang: opts.lang, title: opts.title, description: opts.description, pathname: opts.pathname })
   return {
     card: 'summary_large_image',
     title: opts.title,
     description: opts.description,
     images: [imageUrl],
   } satisfies NonNullable<Metadata['twitter']>
+}
+
+function buildOgImageUrl(opts: { lang: Lang; title: string; description: string; pathname: string }) {
+  const u = new URL(`${SITE_URL}/og-image`)
+  u.searchParams.set('lang', opts.lang)
+  u.searchParams.set('title', opts.title)
+  u.searchParams.set('desc', opts.description)
+  u.searchParams.set('path', opts.pathname)
+  return u.toString()
 }
 
 export function buildRobots() {
@@ -129,7 +138,7 @@ export function buildPageMetadata(opts: {
       type: opts.type,
       imageUrl: opts.imageUrl,
     }),
-    twitter: buildTwitter({ title: opts.title, description: opts.description, imageUrl: opts.imageUrl }),
+    twitter: buildTwitter({ lang: opts.lang, title: opts.title, description: opts.description, pathname: opts.pathname, imageUrl: opts.imageUrl }),
     robots: buildRobots(),
   }
 }

@@ -11,41 +11,43 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
+const CONTACT_META_TITLES: Record<string, string> = {
+  en: 'Get a Free Quote | Contact SunGene Machinery',
+  cn: '获取免费报价 | 联系 SunGene 机械',
+  zh: '取得免費報價 | 聯絡 SunGene 機械',
+  fr: 'Devis gratuit | Contacter SunGene Machinery',
+  es: 'Cotización gratuita | Contactar SunGene Machinery',
+  pt: 'Orçamento Grátis | Contato SunGene Machinery',
+  ko: '무료 견적 받기 | SunGene 기계 문의',
+  ja: '無料見積もり | SunGene 機械へのお問い合わせ',
+  ar: 'احصل على عرض سعر مجاني | اتصل بـ SunGene',
+  th: 'ขอใบเสนอราคาฟรี | ติดต่อ SunGene Machinery',
+  vi: 'Nhận Báo Giá Miễn Phí | Liên Hệ SunGene Machinery',
+  de: 'Kostenloses Angebot | SunGene Machinery kontaktieren',
+}
+
+const CONTACT_META_DESCRIPTIONS: Record<string, string> = {
+  en: 'Request a free quote for packaging machinery, food processing equipment, or any industrial machinery. Our engineers respond within 24 hours.',
+  cn: '请求包装机械、食品加工设备的免费报价。我们的工程师将在24小时内回复。',
+  zh: '請求包裝機械、食品加工設備的免費報價。我們的工程師將在24小時內回覆。',
+  fr: 'Demandez un devis gratuit pour machines industrielles. Nos ingénieurs répondent sous 24 heures.',
+  es: 'Solicite cotización gratis para maquinaria industrial. Nuestros ingenieros responden en 24 horas.',
+  pt: 'Solicite orçamento grátis para máquinas industriais. Nossos engenheiros respondem em 24 horas.',
+  ko: '산업 기계 무료 견적을 요청하세요. 24시간 내 응답 보장.',
+  ja: '産業機械の無料見積もりをご依頼ください。24時間以内にご返信します。',
+  ar: 'اطلب عرض سعر مجاني للآلات الصناعية. مهندسونا يردون خلال 24 ساعة.',
+  th: 'ขอใบเสนอราคาฟรีสำหรับเครื่องจักรอุตสาหกรรม วิศวกรตอบกลับภายใน 24 ชั่วโมง',
+  vi: 'Yêu cầu báo giá miễn phí cho máy móc công nghiệp. Kỹ sư phản hồi trong 24 giờ.',
+  de: 'Kostenloses Angebot für Industriemaschinen. Unsere Ingenieure antworten innerhalb von 24 Stunden.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   const l = normalizeLang(lang)
-  const titles: Record<string,string> = {
-    en: 'Get a Free Quote | Contact SunGene Machinery',
-    cn: '获取免费报价 | 联系 SunGene 机械',
-    zh: '取得免費報價 | 聯絡 SunGene 機械',
-    fr: 'Devis gratuit | Contacter SunGene Machinery',
-    es: 'Cotización gratuita | Contactar SunGene Machinery',
-    pt: 'Orçamento Grátis | Contato SunGene Machinery',
-    ko: '무료 견적 받기 | SunGene 기계 문의',
-    ja: '無料見積もり | SunGene 機械へのお問い合わせ',
-    ar: 'احصل على عرض سعر مجاني | اتصل بـ SunGene',
-    th: 'ขอใบเสนอราคาฟรี | ติดต่อ SunGene Machinery',
-    vi: 'Nhận Báo Giá Miễn Phí | Liên Hệ SunGene Machinery',
-    de: 'Kostenloses Angebot | SunGene Machinery kontaktieren',
-  }
-  const descriptions: Record<string,string> = {
-    en: 'Request a free quote for packaging machinery, food processing equipment, or any industrial machinery. Our engineers respond within 24 hours.',
-    cn: '请求包装机械、食品加工设备的免费报价。我们的工程师将在24小时内回复。',
-    zh: '請求包裝機械、食品加工設備的免費報價。我們的工程師將在24小時內回覆。',
-    fr: 'Demandez un devis gratuit pour machines industrielles. Nos ingénieurs répondent sous 24 heures.',
-    es: 'Solicite cotización gratis para maquinaria industrial. Nuestros ingenieros responden en 24 horas.',
-    pt: 'Solicite orçamento grátis para máquinas industriais. Nossos engenheiros respondem em 24 horas.',
-    ko: '산업 기계 무료 견적을 요청하세요. 24시간 내 응답 보장.',
-    ja: '産業機械の無料見積もりをご依頼ください。24時間以内にご返信します。',
-    ar: 'اطلب عرض سعر مجاني للآلات الصناعية. مهندسونا يردون خلال 24 ساعة.',
-    th: 'ขอใบเสนอราคาฟรีสำหรับเครื่องจักรอุตสาหกรรม วิศวกรตอบกลับภายใน 24 ชั่วโมง',
-    vi: 'Yêu cầu báo giá miễn phí cho máy móc công nghiệp. Kỹ sư phản hồi trong 24 giờ.',
-    de: 'Kostenloses Angebot für Industriemaschinen. Unsere Ingenieure antworten innerhalb von 24 Stunden.',
-  }
   return buildPageMetadata({
     lang: l,
-    title: titles[l] || titles.en,
-    description: descriptions[l] || descriptions.en,
+    title: CONTACT_META_TITLES[l] || CONTACT_META_TITLES.en,
+    description: CONTACT_META_DESCRIPTIONS[l] || CONTACT_META_DESCRIPTIONS.en,
     pathname: '/contact',
     type: 'website',
     keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'machinery quote request'],
@@ -456,65 +458,15 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       </section>
       <JsonLd data={{
         '@context': 'https://schema.org',
-        '@type': 'Organization',
-        '@id': `${SITE_URL}/#org`,
+        '@type': 'ContactPage',
+        '@id': `${SITE_URL}/${lang}/contact#webpage`,
+        url: `${SITE_URL}/${lang}/contact`,
+        name: CONTACT_META_TITLES[lang] || CONTACT_META_TITLES.en,
+        description: CONTACT_META_DESCRIPTIONS[lang] || CONTACT_META_DESCRIPTIONS.en,
         inLanguage: LANG_META[lang].htmlLang,
-        name: 'SunGene Co., LTD.',
-        alternateName: '上瑾錸有限公司',
-        url: SITE_URL,
-        logo: `${SITE_URL}/logo/sungene.png`,
-        email: 'contact@sungene.net',
-        foundingDate: '2010',
-        contactPoint: [
-          {
-            '@type': 'ContactPoint',
-            contactType: 'sales',
-            telephone: '+886-4-3703-2705',
-            email: 'contact@sungene.net',
-            availableLanguage: ['English', 'Chinese', 'French', 'Spanish', 'Portuguese', 'Korean', 'Japanese', 'Arabic', 'Thai', 'Vietnamese', 'German'],
-            areaServed: ['Asia', 'Europe', 'Americas', 'Africa', 'Oceania'],
-          },
-          {
-            '@type': 'ContactPoint',
-            contactType: 'technical support',
-            telephone: '+86-18144132078',
-            email: 'contact@sungene.net',
-            availableLanguage: ['English', 'Chinese'],
-          },
-          {
-            '@type': 'ContactPoint',
-            contactType: 'customer support',
-            url: 'https://wa.me/8618144132078',
-            name: 'WhatsApp',
-            availableLanguage: ['English', 'Chinese'],
-          },
-        ],
-        location: [
-          {
-            '@type': 'Place',
-            name: 'SunGene Taiwan HQ',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '201 Guangfu Rd., Central District',
-              addressLocality: 'Taichung',
-              postalCode: '40041',
-              addressCountry: 'TW',
-            },
-            geo: { '@type': 'GeoCoordinates', latitude: 24.1433, longitude: 120.6845 },
-            telephone: '+886-4-3703-2705',
-          },
-          {
-            '@type': 'Place',
-            name: 'SunGene Xiamen Office',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: 'Rm. 1001-2, Bldg. A1, Yincheng Zhigu, No. 6788-1 Binhai W. Ave., Tong\'an District',
-              addressLocality: 'Xiamen',
-              addressCountry: 'CN',
-            },
-            telephone: '+86-18144132078',
-          },
-        ],
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#org` },
+        mainEntity: { '@id': `${SITE_URL}/#org` },
       }} />
     </>
   )
