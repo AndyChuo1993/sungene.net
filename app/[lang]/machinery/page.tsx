@@ -271,6 +271,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     name: t.title,
     description: t.desc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const categoryListSchema = {
@@ -278,6 +279,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: t.cats.map((c: any, i: number) => ({
       '@type': 'ListItem',
       position: i + 1,

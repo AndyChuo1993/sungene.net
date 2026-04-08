@@ -376,6 +376,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           name: t.title,
           description: t.desc,
           isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+          publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
         },
         {
           '@context': 'https://schema.org',
@@ -383,6 +384,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           inLanguage: LANG_META[lang].htmlLang,
           name: t.title,
           description: t.desc,
+          isPartOf: { '@id': `${SITE_URL}/${lang}/industries` },
           itemListElement: t.cats.map((cat: any, i: number) => ({
             '@type': 'ListItem',
             position: i + 1,

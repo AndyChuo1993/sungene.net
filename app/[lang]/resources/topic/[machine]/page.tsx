@@ -284,6 +284,7 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
     name: title,
     description: intro,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -291,6 +292,7 @@ export default async function TopicHubPage({ params }: { params: Promise<{ lang:
     '@type': 'ItemList',
     inLanguage: LANG_META[l].htmlLang,
     name: title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: guides.map((g, i) => ({
       '@type': 'ListItem',
       position: i + 1,

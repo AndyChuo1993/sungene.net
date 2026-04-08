@@ -844,6 +844,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     name: heroTitle[lang] || heroTitle.en,
     description: heroDesc[lang] || heroDesc.en,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const levelColors = [

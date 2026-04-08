@@ -179,6 +179,7 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
     name: t.title,
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -186,6 +187,7 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Liquid Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine`, url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, name: 'Liquid Filling Machine' } },
       { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine`, url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, name: 'Powder Filling Machine' } },

@@ -637,6 +637,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: heroTitles[lang] || heroTitles.en,
+    isPartOf: { '@id': `${SITE_URL}/${lang}/resources` },
     itemListElement: itemListItems.map((a, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -661,7 +662,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     about: { '@type': 'Thing', name: 'Industrial Machinery Selection' },
     numberOfItems: itemListItems.length,
-    publisher: { '@type': 'Organization', name: 'SunGene Co., LTD.', url: SITE_URL },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   return (

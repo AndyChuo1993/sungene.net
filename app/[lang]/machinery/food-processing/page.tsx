@@ -163,6 +163,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     name: t.title,
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -170,6 +171,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/snack-processing-line`, url: `${SITE_URL}/${lang}/machines/snack-processing-line`, name: 'Snack Processing Line' } },
       { '@type': 'ListItem', position: 2, name: 'Snack Processing Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, name: 'Snack Processing Buying Guides' } },

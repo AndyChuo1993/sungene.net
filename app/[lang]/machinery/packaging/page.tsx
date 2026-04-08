@@ -179,6 +179,7 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     name: t.title,
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -186,6 +187,7 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine`, url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, name: 'Pouch Packing Machine' } },
       { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine`, url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, name: 'Powder Filling Machine' } },

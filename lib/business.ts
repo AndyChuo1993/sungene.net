@@ -74,11 +74,6 @@ export function buildWebsiteSchema(opts: { baseUrl?: string; lang: Lang }) {
       { '@type': 'WebPage', url: pageUrl(lang, '/recommend'), name: 'Recommendation' },
       { '@type': 'WebPage', url: pageUrl(lang, '/contact'), name: 'Contact' },
     ],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${baseUrl}/${lang}/machinery?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 

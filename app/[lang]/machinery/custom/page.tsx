@@ -163,6 +163,7 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     name: t.title,
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -170,6 +171,7 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/packaging`, url: `${SITE_URL}/${lang}/machinery/packaging`, name: 'Packaging Machinery' } },
       { '@type': 'ListItem', position: 2, name: 'Food Processing Equipment', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/food-processing`, url: `${SITE_URL}/${lang}/machinery/food-processing`, name: 'Food Processing Equipment' } },

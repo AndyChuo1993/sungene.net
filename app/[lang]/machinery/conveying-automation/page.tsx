@@ -179,6 +179,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     name: t.title,
     description: t.p1,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
   }
 
   const itemListSchema = {
@@ -186,6 +187,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     '@type': 'ItemList',
     inLanguage: LANG_META[lang].htmlLang,
     name: t.title,
+    isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/conveyor-system`, url: `${SITE_URL}/${lang}/machines/conveyor-system`, name: 'Conveyor System' } },
       { '@type': 'ListItem', position: 2, name: 'Conveyor Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${lang}/resources/topic/conveyor-system`, name: 'Conveyor Buying Guides' } },
