@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   if (!i18n) {
     return buildPageMetadata({
       lang: l,
-      title: 'Resources | SunGene',
+      title: 'Resources',
       description: 'Machinery buying guides and practical selection notes.',
       pathname: '/resources',
       type: 'website',

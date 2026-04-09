@@ -11,17 +11,17 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
-  en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing | SunGene',
-  cn: '灌装与封口机械 | 液体/膏体/粉末计量 | SunGene', zh: '灌裝與封口機械 | 液體/膏體/粉末計量 | SunGene',
-  fr: 'Machines de remplissage et scellage | Liquide, p\u00E2te et poudre | SunGene',
-  es: 'Maquinaria de llenado y sellado | L\u00EDquidos, pastas y polvos | SunGene',
-  pt: 'M\u00E1quinas de Envase e Selagem | L\u00EDquidos, Pastas e P\u00F3s | SunGene',
-  ko: '\uCDA9\uC804 \uBC0F \uBC00\uBD09 \uAE30\uACC4 | \uC561\uCCB4, \uD398\uC774\uC2A4\uD2B8, \uBD84\uB9D0 | SunGene',
-  ja: '\u5145\u586B\u30FB\u5C01\u53E3\u6A5F\u68B0 | \u6DB2\u4F53\u30FB\u30DA\u30FC\u30B9\u30C8\u30FB\u7C89\u672B | SunGene',
-  ar: '\u0622\u0644\u0627\u062A \u0627\u0644\u062A\u0639\u0628\u0626\u0629 \u0648\u0627\u0644\u062E\u062A\u0645 | \u0633\u0648\u0627\u0626\u0644 \u0648\u0645\u0639\u0627\u062C\u064A\u0646 \u0648\u0645\u0633\u0627\u062D\u064A\u0642 | SunGene',
-  th: '\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1A\u0E23\u0E23\u0E08\u0E38\u0E41\u0E25\u0E30\u0E1B\u0E34\u0E14\u0E1C\u0E19\u0E36\u0E01 | \u0E02\u0E2D\u0E07\u0E40\u0E2B\u0E25\u0E27, \u0E40\u0E1E\u0E2A\u0E15\u0E4C, \u0E1C\u0E07 | SunGene',
-  vi: 'M\u00E1y Chi\u1EBFt R\u00F3t & Seal | Ch\u1EA5t L\u1ECFng, Paste, B\u1ED9t | SunGene',
-  de: 'Abf\u00FCll- & Versiegelungsmaschinen | Fl\u00FCssigkeit, Paste, Pulver | SunGene',
+  en: 'Filling & Sealing Machinery | Liquid, Paste & Powder Dosing',
+  cn: '灌装与封口机械 | 液体/膏体/粉末计量', zh: '灌裝與封口機械 | 液體/膏體/粉末計量',
+  fr: 'Machines de remplissage et scellage | Liquide, p\u00E2te et poudre',
+  es: 'Maquinaria de llenado y sellado | L\u00EDquidos, pastas y polvos',
+  pt: 'M\u00E1quinas de Envase e Selagem | L\u00EDquidos, Pastas e P\u00F3s',
+  ko: '\uCDA9\uC804 \uBC0F \uBC00\uBD09 \uAE30\uACC4 | \uC561\uCCB4, \uD398\uC774\uC2A4\uD2B8, \uBD84\uB9D0',
+  ja: '\u5145\u586B\u30FB\u5C01\u53E3\u6A5F\u68B0 | \u6DB2\u4F53\u30FB\u30DA\u30FC\u30B9\u30C8\u30FB\u7C89\u672B',
+  ar: '\u0622\u0644\u0627\u062A \u0627\u0644\u062A\u0639\u0628\u0626\u0629 \u0648\u0627\u0644\u062E\u062A\u0645 | \u0633\u0648\u0627\u0626\u0644 \u0648\u0645\u0639\u0627\u062C\u064A\u0646 \u0648\u0645\u0633\u0627\u062D\u064A\u0642',
+  th: '\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1A\u0E23\u0E23\u0E08\u0E38\u0E41\u0E25\u0E30\u0E1B\u0E34\u0E14\u0E1C\u0E19\u0E36\u0E01 | \u0E02\u0E2D\u0E07\u0E40\u0E2B\u0E25\u0E27, \u0E40\u0E1E\u0E2A\u0E15\u0E4C, \u0E1C\u0E07',
+  vi: 'M\u00E1y Chi\u1EBFt R\u00F3t & Seal | Ch\u1EA5t L\u1ECFng, Paste, B\u1ED9t',
+  de: 'Abf\u00FCll- & Versiegelungsmaschinen | Fl\u00FCssigkeit, Paste, Pulver',
 }
 
 const descriptions: Record<string, string> = {
@@ -54,6 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function FillingSealingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = titles[lang] || titles.en
+  const metaDesc = descriptions[lang] || descriptions.en
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
   const heroPhoto = PHOTO.machinery.subpageHeroes.fillingSealing
 
@@ -177,8 +179,8 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.p1,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -189,7 +191,7 @@ export default async function FillingSealingPage({ params }: { params: Promise<{
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Liquid Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine`, url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, name: 'Liquid Filling Machine' } },

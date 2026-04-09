@@ -11,17 +11,17 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
-  en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC | SunGene',
-  cn: '输送与自动化系统 | 输送机、码垛机、PLC控制 | SunGene', zh: '輸送與自動化系統 | 輸送機、碼垛機、PLC控制 | SunGene',
-  fr: 'Syst\u00E8mes de convoyage et automatisation | Convoyeurs, palettiseurs, PLC | SunGene',
-  es: 'Sistemas de transporte y automatizaci\u00F3n | Transportadores, paletizadores, PLC | SunGene',
-  pt: 'Sistemas de Transporte e Automa\u00E7\u00E3o | Esteiras, Paletizadores, CLP | SunGene',
-  ko: '\uCEE8\uBCA0\uC774\uC5B4 \uBC0F \uC790\uB3D9\uD654 \uC2DC\uC2A4\uD15C | \uCEE8\uBCA0\uC774\uC5B4, \uD314\uB808\uD0C0\uC774\uC800, PLC | SunGene',
-  ja: '\u642C\u9001\u30FB\u81EA\u52D5\u5316\u30B7\u30B9\u30C6\u30E0 | \u30B3\u30F3\u30D9\u30A2\u3001\u30D1\u30EC\u30BF\u30A4\u30B6\u30FC\u3001PLC | SunGene',
-  ar: '\u0623\u0646\u0638\u0645\u0629 \u0627\u0644\u0646\u0642\u0644 \u0648\u0627\u0644\u0623\u062A\u0645\u062A\u0629 | \u0646\u0627\u0642\u0644\u0627\u062A\u060C \u0645\u0639\u062F\u0627\u062A \u062A\u062D\u0645\u064A\u0644\u060C PLC | SunGene',
-  th: '\u0E23\u0E30\u0E1A\u0E1A\u0E25\u0E33\u0E40\u0E25\u0E35\u0E22\u0E07\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E15\u0E42\u0E19\u0E21\u0E31\u0E15\u0E34 | \u0E2A\u0E32\u0E22\u0E1E\u0E32\u0E19, \u0E1E\u0E32\u0E40\u0E25\u0E17\u0E44\u0E17\u0E40\u0E0B\u0E2D\u0E23\u0E4C, PLC | SunGene',
-  vi: 'H\u1EC7 Th\u1ED1ng B\u0103ng T\u1EA3i & T\u1EF1 \u0110\u1ED9ng H\u00F3a | B\u0103ng t\u1EA3i, Palletizer, PLC | SunGene',
-  de: 'F\u00F6rder- & Automatisierungssysteme | F\u00F6rderb\u00E4nder, Palettierer, SPS | SunGene',
+  en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC',
+  cn: '输送与自动化系统 | 输送机、码垛机、PLC控制', zh: '輸送與自動化系統 | 輸送機、碼垛機、PLC控制',
+  fr: 'Syst\u00E8mes de convoyage et automatisation | Convoyeurs, palettiseurs, PLC',
+  es: 'Sistemas de transporte y automatizaci\u00F3n | Transportadores, paletizadores, PLC',
+  pt: 'Sistemas de Transporte e Automa\u00E7\u00E3o | Esteiras, Paletizadores, CLP',
+  ko: '\uCEE8\uBCA0\uC774\uC5B4 \uBC0F \uC790\uB3D9\uD654 \uC2DC\uC2A4\uD15C | \uCEE8\uBCA0\uC774\uC5B4, \uD314\uB808\uD0C0\uC774\uC800, PLC',
+  ja: '\u642C\u9001\u30FB\u81EA\u52D5\u5316\u30B7\u30B9\u30C6\u30E0 | \u30B3\u30F3\u30D9\u30A2\u3001\u30D1\u30EC\u30BF\u30A4\u30B6\u30FC\u3001PLC',
+  ar: '\u0623\u0646\u0638\u0645\u0629 \u0627\u0644\u0646\u0642\u0644 \u0648\u0627\u0644\u0623\u062A\u0645\u062A\u0629 | \u0646\u0627\u0642\u0644\u0627\u062A\u060C \u0645\u0639\u062F\u0627\u062A \u062A\u062D\u0645\u064A\u0644\u060C PLC',
+  th: '\u0E23\u0E30\u0E1A\u0E1A\u0E25\u0E33\u0E40\u0E25\u0E35\u0E22\u0E07\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E15\u0E42\u0E19\u0E21\u0E31\u0E15\u0E34 | \u0E2A\u0E32\u0E22\u0E1E\u0E32\u0E19, \u0E1E\u0E32\u0E40\u0E25\u0E17\u0E44\u0E17\u0E40\u0E0B\u0E2D\u0E23\u0E4C, PLC',
+  vi: 'H\u1EC7 Th\u1ED1ng B\u0103ng T\u1EA3i & T\u1EF1 \u0110\u1ED9ng H\u00F3a | B\u0103ng t\u1EA3i, Palletizer, PLC',
+  de: 'F\u00F6rder- & Automatisierungssysteme | F\u00F6rderb\u00E4nder, Palettierer, SPS',
 }
 
 const descriptions: Record<string, string> = {
@@ -54,6 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function ConveyingAutomationPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = titles[lang] || titles.en
+  const metaDesc = descriptions[lang] || descriptions.en
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
   const heroPhoto = PHOTO.machinery.subpageHeroes.conveyingAutomation
 
@@ -177,8 +179,8 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.p1,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -189,7 +191,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/conveyor-system`, url: `${SITE_URL}/${lang}/machines/conveyor-system`, name: 'Conveyor System' } },

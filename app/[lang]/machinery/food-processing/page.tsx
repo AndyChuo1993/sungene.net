@@ -10,41 +10,43 @@ import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
+const metaTitles: Record<string, string> = {
+  en: 'Food Processing Equipment | Snack Line, Frying, Roasting, Mixing',
+  cn: '食品加工设备 | 零食生产线、油炸、烘焙、搅拌',
+  zh: '食品加工設備 | 零食生產線、油炸、烘焙、攪拌',
+  fr: 'Équipement de traitement alimentaire | Ligne snack, Friture, Torréfaction',
+  es: 'Equipo de procesamiento de alimentos | Línea de snacks, Fritura, Tostado',
+  pt: 'Equipamento de processamento de alimentos | Linha de snacks, Fritura, Torração',
+  ko: '식품 가공 장비 | 스낵 라인, 튀김, 로스팅, 혼합',
+  ja: '食品加工設備 | スナックライン、フライ、ローストミキシング',
+  ar: 'معدات تصنيع الأغذية | خط الوجبات الخفيفة والقلي والتحميص',
+  th: 'อุปกรณ์แปรรูปอาหาร | สายผลิตขนม ทอด อบ ผสม',
+  vi: 'Thiết bị chế biến thực phẩm | Dây chuyền snack, chiên, rang, trộn',
+  de: 'Lebensmittelverarbeitungsmaschinen | Snack-Linie, Frittieren, Rösten',
+}
+
+const metaDescs: Record<string, string> = {
+  en: 'Food processing equipment including snack lines, frying machines, roasters, mixing systems, and continuous cooking lines.',
+  cn: '食品加工设备：零食生产线、油炸机、烘烤炉、搅拌系统与连续蒸煮线。',
+  zh: '食品加工設備：零食生產線、油炸機、烘烤爐、攪拌系統與連續蒸煮線。',
+  fr: 'Équipements de traitement alimentaire : lignes snack, friteuses, fours de torréfaction, systèmes de mélange et lignes de cuisson continues.',
+  es: 'Equipos de procesamiento de alimentos: líneas de snacks, freidoras, hornos de tostado, sistemas de mezcla y líneas de cocción continua.',
+  pt: 'Equipamentos de processamento de alimentos: linhas de snacks, fritadeiras, fornos de torra, sistemas de mistura e linhas de cozimento contínuo.',
+  ko: '식품 가공 장비: 스낵 라인, 튀김, 로스팅, 혼합 시스템 및 연속 조리 라인.',
+  ja: '食品加工設備：スナックライン、フライヤー、ロースト、混合、連続調理ライン。',
+  ar: 'معدات تصنيع الأغذية: خطوط السناك، آلات القلي، أفران التحميص، أنظمة الخلط وخطوط الطهي المستمر.',
+  th: 'อุปกรณ์แปรรูปอาหาร: ไลน์ขนม เครื่องทอด เตาอบ/คั่ว ระบบผสม และไลน์ปรุงต่อเนื่อง',
+  vi: 'Thiết bị chế biến thực phẩm gồm dây chuyền snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
+  de: 'Lebensmitteltechnik: Snack-Linien, Frittiermaschinen, Röstöfen, Mischsysteme und kontinuierliche Kochlinien.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   const l = normalizeLang(lang)
-  const titles: Record<string, string> = {
-    en: 'Food Processing Equipment | Snack Line, Frying, Roasting, Mixing | SunGene',
-    cn: '食品加工设备 | 零食生产线、油炸、烘焙、搅拌 | SunGene',
-    zh: '食品加工設備 | 零食生產線、油炸、烘焙、攪拌 | SunGene',
-    fr: 'Équipement de traitement alimentaire | Ligne snack, Friture, Torréfaction | SunGene',
-    es: 'Equipo de procesamiento de alimentos | Línea de snacks, Fritura, Tostado | SunGene',
-    pt: 'Equipamento de processamento de alimentos | Linha de snacks, Fritura, Torração | SunGene',
-    ko: '식품 가공 장비 | 스낵 라인, 튀김, 로스팅, 혼합 | SunGene',
-    ja: '食品加工設備 | スナックライン、フライ、ローストミキシング | SunGene',
-    ar: 'معدات تصنيع الأغذية | خط الوجبات الخفيفة والقلي والتحميص | SunGene',
-    th: 'อุปกรณ์แปรรูปอาหาร | สายผลิตขนม ทอด อบ ผสม | SunGene',
-    vi: 'Thiết bị chế biến thực phẩm | Dây chuyền snack, chiên, rang, trộn | SunGene',
-    de: 'Lebensmittelverarbeitungsmaschinen | Snack-Linie, Frittieren, Rösten | SunGene',
-  }
-  const descriptions: Record<string, string> = {
-    en: 'Food processing equipment including snack lines, frying machines, roasters, mixing systems, and continuous cooking lines.',
-    cn: '食品加工设备：零食生产线、油炸机、烘烤炉、搅拌系统与连续蒸煮线。',
-    zh: '食品加工設備：零食生產線、油炸機、烘烤爐、攪拌系統與連續蒸煮線。',
-    fr: 'SunGene fabrique des équipements de traitement alimentaire incluant des lignes de production de snacks, friteuses, fours de torréfaction, systèmes de mélange et lignes de cuisson continues.',
-    es: 'SunGene fabrica equipos de procesamiento de alimentos incluyendo líneas de producción de snacks, máquinas de freír, hornos de tostado, sistemas de mezcla y líneas de cocción continua.',
-    pt: 'SunGene fabrica equipamentos de processamento de alimentos incluindo linhas de produção de snacks, fritadeiras, fornos de torra, sistemas de mistura e linhas de cozimento contínuo.',
-    ko: 'SunGene은 스낵 생산 라인, 튀김 기계, 로스팅 오븐, 혼합 시스템 및 연속 조리 라인을 포함한 식품 가공 장비를 제조합니다.',
-    ja: 'SunGeneはスナック生産ライン、フライヤー、ロースティングオーブン、ミキシングシステム、連続調理ラインなどの食品加工設備を製造しています。',
-    ar: 'تصنع SunGene معدات تصنيع الأغذية بما في ذلك خطوط إنتاج الوجبات الخفيفة وآلات القلي وأفران التحميص وأنظمة الخلط وخطوط الطهي المستمر.',
-    th: 'SunGene ผลิตอุปกรณ์แปรรูปอาหาร รวมถึงสายการผลิตขนม เครื่องทอด เตาอบ ระบบผสม และสายการปรุงอาหารต่อเนื่อง',
-    vi: 'SunGene sản xuất thiết bị chế biến thực phẩm bao gồm dây chuyền sản xuất snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
-    de: 'SunGene stellt Lebensmittelverarbeitungsmaschinen her, darunter Snack-Produktionslinien, Frittiermaschinen, Röstöfen, Mischanlagen und kontinuierliche Kochlinien.',
-  }
   return buildPageMetadata({
     lang: l,
-    title: titles[l] || titles.en,
-    description: descriptions[l] || descriptions.en,
+    title: metaTitles[l] || metaTitles.en,
+    description: metaDescs[l] || metaDescs.en,
     pathname: '/machinery/food-processing',
     type: 'website',
   })
@@ -52,6 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function FoodProcessingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = metaTitles[lang] || metaTitles.en
+  const metaDesc = metaDescs[lang] || metaDescs.en
   const heroPhoto = PHOTO.machinery.subpageHeroes.foodProcessing
   const content: Record<string, any> = {
     en: {
@@ -161,8 +165,8 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.p1,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -173,7 +177,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/snack-processing-line`, url: `${SITE_URL}/${lang}/machines/snack-processing-line`, name: 'Snack Processing Line' } },

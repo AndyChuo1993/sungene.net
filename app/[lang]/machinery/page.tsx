@@ -11,41 +11,43 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 
+const metaTitles: Record<string, string> = {
+  en: 'Industrial Machinery Catalog | Packaging, Food Processing & Automation',
+  cn: '工业机械目录 | 包装、食品加工与自动化',
+  zh: '工業機械目錄 | 包裝、食品加工與自動化',
+  fr: 'Catalogue de machines industrielles | Emballage, Agroalimentaire & Automatisation',
+  es: 'Catálogo de maquinaria industrial | Empaque, Procesamiento de alimentos y Automatización',
+  pt: 'Catálogo de Máquinas Industriais | Embalagem, Processamento de Alimentos e Automação',
+  ko: '산업 기계 카탈로그 | 포장, 식품 가공 및 자동화',
+  ja: '産業機械カタログ | 包装、食品加工、自動化',
+  ar: 'كتالوج الآلات الصناعية | التعبئة والتغليف، تصنيع الأغذية والأتمتة',
+  th: 'แคตตาล็อกเครื่องจักรอุตสาหกรรม | บรรจุภัณฑ์, แปรรูปอาหาร และระบบอัตโนมัติ',
+  vi: 'Danh mục máy móc công nghiệp | Đóng gói, Chế biến thực phẩm & Tự động hóa',
+  de: 'Industriemaschinenkatolog | Verpackung, Lebensmittelverarbeitung & Automatisierung',
+}
+
+const metaDescs: Record<string, string> = {
+  en: 'Browse the full machinery catalog: packaging machines, food processing equipment, filling & sealing systems, conveying automation, and custom builds.',
+  cn: '浏览全系列机械目录：包装机、食品加工设备、灌装封口系统、输送自动化与定制方案。',
+  zh: '瀏覽全系列機械目錄：包裝機、食品加工設備、灌裝封口系統、輸送自動化與客製方案。',
+  fr: 'Parcourez le catalogue : machines d’emballage, équipements agroalimentaires, remplissage/scellage, convoyage/automatisation et solutions sur mesure.',
+  es: 'Explore el catálogo: empaque, procesamiento de alimentos, llenado/sellado, automatización de transporte y soluciones a medida.',
+  pt: 'Veja o catálogo: embalagem, processamento de alimentos, envase/selagem, automação de transporte e soluções sob medida.',
+  ko: '전체 카탈로그: 포장, 식품가공, 충전/밀봉, 컨베이어 자동화, 맞춤 설계.',
+  ja: '機械カタログ：包装、食品加工、充填・シール、搬送自動化、カスタム対応。',
+  ar: 'استعرض الكتالوج: آلات التعبئة والتغليف، معدات الأغذية، التعبئة/الختم، الأتمتة والحلول المخصصة.',
+  th: 'ดูแคตตาล็อก: บรรจุภัณฑ์ แปรรูปอาหาร บรรจุ/ซีล ลำเลียงอัตโนมัติ และงานสั่งทำ',
+  vi: 'Danh mục máy: đóng gói, chế biến thực phẩm, chiết rót/hàn kín, tự động hóa băng tải và giải pháp tùy chỉnh.',
+  de: 'Katalog: Verpackung, Lebensmitteltechnik, Abfüllen/Verschließen, Fördertechnik/Automatisierung und Sonderlösungen.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
-  const titles = {
-    en: 'Industrial Machinery Catalog | Packaging, Food Processing & Automation | SunGene',
-    cn: '工业机械目录 | 包装、食品加工与自动化 | SunGene',
-    zh: '工業機械目錄 | 包裝、食品加工與自動化 | SunGene',
-    fr: 'Catalogue de machines industrielles | Emballage, Agroalimentaire & Automatisation | SunGene',
-    es: 'Catálogo de maquinaria industrial | Empaque, Procesamiento de alimentos y Automatización | SunGene',
-    pt: 'Catálogo de Máquinas Industriais | Embalagem, Processamento de Alimentos e Automação | SunGene',
-    ko: '산업 기계 카탈로그 | 포장, 식품 가공 및 자동화 | SunGene',
-    ja: '産業機械カタログ | 包装、食品加工、自動化 | SunGene',
-    ar: 'كتالوج الآلات الصناعية | التعبئة والتغليف، تصنيع الأغذية والأتمتة | SunGene',
-    th: 'แคตตาล็อกเครื่องจักรอุตสาหกรรม | บรรจุภัณฑ์, แปรรูปอาหาร และระบบอัตโนมัติ | SunGene',
-    vi: 'Danh mục máy móc công nghiệp | Đóng gói, Chế biến thực phẩm & Tự động hóa | SunGene',
-    de: 'Industriemaschinenkatolog | Verpackung, Lebensmittelverarbeitung & Automatisierung | SunGene',
-  }
-  const descriptions = {
-    en: 'Browse the full machinery catalog: packaging machines, food processing equipment, filling & sealing systems, conveying automation, and custom builds.',
-    cn: '浏览全系列机械目录：包装机、食品加工设备、灌装封口系统、输送自动化与定制方案。',
-    zh: '瀏覽全系列機械目錄：包裝機、食品加工設備、灌裝封口系統、輸送自動化與客製方案。',
-    fr: 'Parcourez le catalogue : machines d’emballage, équipements agroalimentaires, remplissage/scellage, convoyage/automatisation et solutions sur mesure.',
-    es: 'Explore el catálogo: empaque, procesamiento de alimentos, llenado/sellado, automatización de transporte y soluciones a medida.',
-    pt: 'Veja o catálogo: embalagem, processamento de alimentos, envase/selagem, automação de transporte e soluções sob medida.',
-    ko: '전체 카탈로그: 포장, 식품가공, 충전/밀봉, 컨베이어 자동화, 맞춤 설계.',
-    ja: '機械カタログ：包装、食品加工、充填・シール、搬送自動化、カスタム対応。',
-    ar: 'استعرض الكتالوج: آلات التعبئة والتغليف، معدات الأغذية، التعبئة/الختم، الأتمتة والحلول المخصصة.',
-    th: 'ดูแคตตาล็อก: บรรจุภัณฑ์ แปรรูปอาหาร บรรจุ/ซีล ลำเลียงอัตโนมัติ และงานสั่งทำ',
-    vi: 'Danh mục máy: đóng gói, chế biến thực phẩm, chiết rót/hàn kín, tự động hóa băng tải và giải pháp tùy chỉnh.',
-    de: 'Katalog: Verpackung, Lebensmitteltechnik, Abfüllen/Verschließen, Fördertechnik/Automatisierung und Sonderlösungen.',
-  }
   const l = normalizeLang(lang)
   return buildPageMetadata({
     lang: l,
-    title: (titles as Record<string,string>)[l] || titles.en,
-    description: (descriptions as Record<string,string>)[l] || descriptions.en,
+    title: metaTitles[l] || metaTitles.en,
+    description: metaDescs[l] || metaDescs.en,
     pathname: '/machinery',
     type: 'website',
   })
@@ -65,6 +67,8 @@ const categoryPhotos = PHOTO.machinery.categoryPhotos
 
 export default async function MachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = metaTitles[lang] || metaTitles.en
+  const metaDesc = metaDescs[lang] || metaDescs.en
 
   const content: Record<string, any> = {
     en: {
@@ -269,8 +273,8 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.desc,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -281,7 +285,7 @@ export default async function MachineryPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: t.cats.map((c: any, i: number) => ({
       '@type': 'ListItem',

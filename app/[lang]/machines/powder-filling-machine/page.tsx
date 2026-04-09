@@ -16,18 +16,18 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Powder Filling & Packaging Machines — Auger, Volumetric, Weigher-Based | SunGene',
-  cn: '粉末充填包装机 — 螺旋、容积式、计重系统 | SunGene',
-  zh: '粉末充填包裝機 — 螺旋、容積式、計重系統 | SunGene',
-  fr: 'Machines de remplissage de poudre — Vis, Volumétrique, Peseuse | SunGene',
-  es: 'Máquinas llenadoras de polvo — Tornillo, Volumétrica, Pesadora | SunGene',
-  pt: 'Máquinas de enchimento de pó — Rosca, Volumétrica, Pesadora | SunGene',
-  ko: '분말 충전 포장 기계 — 오거, 용적식, 계량식 시스템 | SunGene',
-  ja: '粉末充填包装機 — オーガー、容積式、計量式システム | SunGene',
-  ar: 'آلات تعبئة المسحوق — لولبي، حجمي، نظام الوزن | SunGene',
-  th: 'เครื่องบรรจุผง — สกรู, ปริมาตร, ระบบชั่งน้ำหนัก | SunGene',
-  vi: 'Máy chiết rót bột — Trục vít, Thể tích, Hệ thống cân | SunGene',
-  de: 'Pulverfüll- und Verpackungsmaschinen — Schnecke, Volumetrisch, Wägesystem | SunGene',
+  en: 'Powder Filling & Packaging Machines — Auger, Volumetric, Weigher-Based',
+  cn: '粉末充填包装机 — 螺旋、容积式、计重系统',
+  zh: '粉末充填包裝機 — 螺旋、容積式、計重系統',
+  fr: 'Machines de remplissage de poudre — Vis, Volumétrique, Peseuse',
+  es: 'Máquinas llenadoras de polvo — Tornillo, Volumétrica, Pesadora',
+  pt: 'Máquinas de enchimento de pó — Rosca, Volumétrica, Pesadora',
+  ko: '분말 충전 포장 기계 — 오거, 용적식, 계량식 시스템',
+  ja: '粉末充填包装機 — オーガー、容積式、計量式システム',
+  ar: 'آلات تعبئة المسحوق — لولبي، حجمي، نظام الوزن',
+  th: 'เครื่องบรรจุผง — สกรู, ปริมาตร, ระบบชั่งน้ำหนัก',
+  vi: 'Máy chiết rót bột — Trục vít, Thể tích, Hệ thống cân',
+  de: 'Pulverfüll- und Verpackungsmaschinen — Schnecke, Volumetrisch, Wägesystem',
 }
 
 const metaDescs: Record<string, string> = {

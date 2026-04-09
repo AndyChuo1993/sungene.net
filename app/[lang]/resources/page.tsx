@@ -12,11 +12,11 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const titles: Record<string, string> = {
-  en: 'Machinery Buying Guides & Resources | SunGene', cn: '资源中心｜SunGene', zh: '資源中心｜SunGene',
-  fr: 'Guides d\'achat et ressources | SunGene', es: 'Guías de compra y recursos | SunGene',
-  pt: 'Guias de Compra e Recursos | SunGene', ko: '기계 구매 가이드 및 리소스 | SunGene', ja: '機械購入ガイド・リソース | SunGene',
-  ar: 'أدلة شراء الماكينات والموارد | SunGene', th: 'คู่มือการซื้อเครื่องจักรและแหล่งข้อมูล | SunGene', vi: 'Hướng Dẫn Mua Máy & Tài Nguyên | SunGene',
-  de: 'Maschinenkaufratgeber & Ressourcen | SunGene',
+  en: 'Machinery Buying Guides & Resources', cn: '资源中心', zh: '資源中心',
+  fr: 'Guides d\'achat et ressources', es: 'Guías de compra y recursos',
+  pt: 'Guias de Compra e Recursos', ko: '기계 구매 가이드 및 리소스', ja: '機械購入ガイド・リソース',
+  ar: 'أدلة شراء الماكينات والموارد', th: 'คู่มือการซื้อเครื่องจักรและแหล่งข้อมูล', vi: 'Hướng Dẫn Mua Máy & Tài Nguyên',
+  de: 'Maschinenkaufratgeber & Ressourcen',
 }
 
 const descriptions: Record<string, string> = {
@@ -439,6 +439,8 @@ const categoryBadgeColors: Record<string, string> = {
 export default async function ResourcesPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const heroPhoto = PHOTO.pages.resources.hero
+  const metaTitle = titles[lang] || titles.en
+  const metaDesc = descriptions[lang] || descriptions.en
 
   const cats = categories(lang)
 
@@ -637,7 +639,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     '@id': `${SITE_URL}/${lang}/resources#itemlist`,
     inLanguage: LANG_META[lang].htmlLang,
-    name: heroTitles[lang] || heroTitles.en,
+    name: metaTitle,
     isPartOf: { '@id': `${SITE_URL}/${lang}/resources` },
     itemListElement: itemListItems.map((a, i) => ({
       '@type': 'ListItem',
@@ -657,8 +659,8 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     '@type': 'CollectionPage',
     '@id': `${SITE_URL}/${lang}/resources`,
     inLanguage: LANG_META[lang].htmlLang,
-    name: heroTitles[lang] || heroTitles.en,
-    description: heroDescs[lang] || heroDescs.en,
+    name: metaTitle,
+    description: metaDesc,
     url: `${SITE_URL}/${lang}/resources`,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     about: { '@type': 'Thing', name: 'Industrial Machinery Selection' },

@@ -16,18 +16,18 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Liquid Filling Machines — Piston, Gravity, Pump & Flow Meter | SunGene',
-  cn: '液体灌装机 — 活塞式、重力式、泵式与流量计灌装 | SunGene',
-  zh: '液體灌裝機 — 活塞式、重力式、泵式與流量計灌裝 | SunGene',
-  fr: 'Machines de remplissage liquide — Piston, Gravité, Pompe & Débitmètre | SunGene',
-  es: 'Máquinas llenadoras de líquidos — Pistón, Gravedad, Bomba y Caudalímetro | SunGene',
-  pt: 'Máquinas de enchimento de líquidos — Pistão, Gravidade, Bomba e Medidor de Fluxo | SunGene',
-  ko: '액체 충전 기계 — 피스톤, 중력식, 펌프 및 유량계 방식 | SunGene',
-  ja: '液体充填機 — ピストン、重力、ポンプ・流量計システム | SunGene',
-  ar: 'آلات تعبئة السوائل — بالمكبس والجاذبية والضخ وعداد التدفق | SunGene',
-  th: 'เครื่องบรรจุของเหลว — แบบลูกสูบ แรงโน้มถ่วง ปั๊ม และมิเตอร์วัดการไหล | SunGene',
-  vi: 'Máy chiết rót chất lỏng — Piston, Trọng lực, Bơm & Đồng hồ đo lưu lượng | SunGene',
-  de: 'Flüssigkeitsfüllmaschinen — Kolben, Schwerkraft, Pumpe & Durchflussmesser | SunGene',
+  en: 'Liquid Filling Machines — Piston, Gravity, Pump & Flow Meter',
+  cn: '液体灌装机 — 活塞式、重力式、泵式与流量计灌装',
+  zh: '液體灌裝機 — 活塞式、重力式、泵式與流量計灌裝',
+  fr: 'Machines de remplissage liquide — Piston, Gravité, Pompe & Débitmètre',
+  es: 'Máquinas llenadoras de líquidos — Pistón, Gravedad, Bomba y Caudalímetro',
+  pt: 'Máquinas de enchimento de líquidos — Pistão, Gravidade, Bomba e Medidor de Fluxo',
+  ko: '액체 충전 기계 — 피스톤, 중력식, 펌프 및 유량계 방식',
+  ja: '液体充填機 — ピストン、重力、ポンプ・流量計システム',
+  ar: 'آلات تعبئة السوائل — بالمكبس والجاذبية والضخ وعداد التدفق',
+  th: 'เครื่องบรรจุของเหลว — แบบลูกสูบ แรงโน้มถ่วง ปั๊ม และมิเตอร์วัดการไหล',
+  vi: 'Máy chiết rót chất lỏng — Piston, Trọng lực, Bơm & Đồng hồ đo lưu lượng',
+  de: 'Flüssigkeitsfüllmaschinen — Kolben, Schwerkraft, Pumpe & Durchflussmesser',
 }
 
 const metaDescs: Record<string, string> = {

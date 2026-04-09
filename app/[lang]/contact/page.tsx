@@ -12,18 +12,18 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {
-  en: 'Get a Free Quote | Contact SunGene Machinery',
-  cn: '获取免费报价 | 联系 SunGene 机械',
-  zh: '取得免費報價 | 聯絡 SunGene 機械',
-  fr: 'Devis gratuit | Contacter SunGene Machinery',
-  es: 'Cotización gratuita | Contactar SunGene Machinery',
-  pt: 'Orçamento Grátis | Contato SunGene Machinery',
-  ko: '무료 견적 받기 | SunGene 기계 문의',
-  ja: '無料見積もり | SunGene 機械へのお問い合わせ',
-  ar: 'احصل على عرض سعر مجاني | اتصل بـ SunGene',
-  th: 'ขอใบเสนอราคาฟรี | ติดต่อ SunGene Machinery',
-  vi: 'Nhận Báo Giá Miễn Phí | Liên Hệ SunGene Machinery',
-  de: 'Kostenloses Angebot | SunGene Machinery kontaktieren',
+  en: 'Get a Free Quote | Contact',
+  cn: '获取免费报价 | 联系我们',
+  zh: '取得免費報價 | 聯絡我們',
+  fr: 'Devis gratuit | Contact',
+  es: 'Cotización gratuita | Contacto',
+  pt: 'Orçamento grátis | Contato',
+  ko: '무료 견적 받기 | 문의',
+  ja: '無料見積もり | お問い合わせ',
+  ar: 'احصل على عرض سعر مجاني | اتصل بنا',
+  th: 'ขอใบเสนอราคาฟรี | ติดต่อเรา',
+  vi: 'Nhận Báo Giá Miễn Phí | Liên Hệ',
+  de: 'Kostenloses Angebot | Kontakt',
 }
 
 const CONTACT_META_DESCRIPTIONS: Record<string, string> = {

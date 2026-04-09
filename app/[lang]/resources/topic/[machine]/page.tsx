@@ -248,7 +248,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const l = normalizeLang(lang)
   if (!TOPIC_MACHINES.includes(machine as TopicMachine)) notFound()
   const m = machine as TopicMachine
-  const title = `${machineLabel[l][m]} ${tx[l].titleSuffix} | SunGene`
+  const title = `${machineLabel[l][m]} ${tx[l].titleSuffix}`
   const description = getTopicHubIntro(l, m)
   return buildPageMetadata({
     lang: l,

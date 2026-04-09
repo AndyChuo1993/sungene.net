@@ -16,18 +16,18 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Snack & Food Processing Lines — Frying, Roasting, Seasoning & Packaging | SunGene',
-  cn: '休闲食品与食品加工线 — 油炸、烘烤、调味与包装 | SunGene',
-  zh: '休閒食品與食品加工線 — 油炸、烘烤、調味與包裝 | SunGene',
-  fr: 'Lignes de transformation des snacks et aliments — Friture, Torréfaction, Assaisonnement & Emballage | SunGene',
-  es: 'Líneas de procesamiento de snacks y alimentos — Fritura, Tostado, Condimentación y Empaque | SunGene',
-  pt: 'Linhas de processamento de snacks e alimentos — Fritura, Torrefação, Tempero e Embalagem | SunGene',
-  ko: '스낵 및 식품 가공 라인 — 튀김, 로스팅, 시즈닝 및 포장 | SunGene',
-  ja: 'スナック・食品加工ライン — フライ、ロースト、調味・包装 | SunGene',
-  ar: 'خطوط معالجة الوجبات الخفيفة والأغذية — القلي، التحميص، التتبيل والتعبئة | SunGene',
-  th: 'สายการผลิตขนมขบเคี้ยวและอาหาร — ทอด, อบ, ปรุงรส และบรรจุภัณฑ์ | SunGene',
-  vi: 'Dây chuyền chế biến snack và thực phẩm — Chiên, Rang, Ướp gia vị và Đóng gói | SunGene',
-  de: 'Snack- und Lebensmittelverarbeitungslinien — Frittieren, Rösten, Würzen & Verpacken | SunGene',
+  en: 'Snack & Food Processing Lines — Frying, Roasting, Seasoning & Packaging',
+  cn: '休闲食品与食品加工线 — 油炸、烘烤、调味与包装',
+  zh: '休閒食品與食品加工線 — 油炸、烘烤、調味與包裝',
+  fr: 'Lignes de transformation des snacks et aliments — Friture, Torréfaction, Assaisonnement & Emballage',
+  es: 'Líneas de procesamiento de snacks y alimentos — Fritura, Tostado, Condimentación y Empaque',
+  pt: 'Linhas de processamento de snacks e alimentos — Fritura, Torrefação, Tempero e Embalagem',
+  ko: '스낵 및 식품 가공 라인 — 튀김, 로스팅, 시즈닝 및 포장',
+  ja: 'スナック・食品加工ライン — フライ、ロースト、調味・包装',
+  ar: 'خطوط معالجة الوجبات الخفيفة والأغذية — القلي، التحميص، التتبيل والتعبئة',
+  th: 'สายการผลิตขนมขบเคี้ยวและอาหาร — ทอด, อบ, ปรุงรส และบรรจุภัณฑ์',
+  vi: 'Dây chuyền chế biến snack và thực phẩm — Chiên, Rang, Ướp gia vị và Đóng gói',
+  de: 'Snack- und Lebensmittelverarbeitungslinien — Frittieren, Rösten, Würzen & Verpacken',
 }
 
 const metaDescs: Record<string, string> = {

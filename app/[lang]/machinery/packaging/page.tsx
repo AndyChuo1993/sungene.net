@@ -11,17 +11,17 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
-  en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing | SunGene',
-  cn: '包装机械 | 立式/卧式充填封口机 | SunGene', zh: '包裝機械 | 立式/臥式充填封口機 | SunGene',
-  fr: 'Machines d\'emballage | VFFS, HFFS, sachets et cartons | SunGene',
-  es: 'Maquinaria de empaque | VFFS, HFFS, bolsas y cartones | SunGene',
-  pt: 'Máquinas de Embalagem | VFFS, HFFS, Sachês e Cartões | SunGene',
-  ko: '포장 기계 | VFFS, HFFS, 파우치 및 카톤 포장 | SunGene',
-  ja: '包装機械 | VFFS、HFFS、パウチ＆カートン包装 | SunGene',
-  ar: 'آلات التعبئة والتغليف | VFFS، HFFS، أكياس وكراتين | SunGene',
-  th: 'เครื่องบรรจุภัณฑ์ | VFFS, HFFS, ซองและกล่อง | SunGene',
-  vi: 'Máy đóng gói | VFFS, HFFS, Túi & Thùng carton | SunGene',
-  de: 'Verpackungsmaschinen | VFFS, HFFS, Beutel- & Kartonverpackung | SunGene',
+  en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing',
+  cn: '包装机械 | 立式/卧式充填封口机', zh: '包裝機械 | 立式/臥式充填封口機',
+  fr: 'Machines d\'emballage | VFFS, HFFS, sachets et cartons',
+  es: 'Maquinaria de empaque | VFFS, HFFS, bolsas y cartones',
+  pt: 'Máquinas de Embalagem | VFFS, HFFS, Sachês e Cartões',
+  ko: '포장 기계 | VFFS, HFFS, 파우치 및 카톤 포장',
+  ja: '包装機械 | VFFS、HFFS、パウチ＆カートン包装',
+  ar: 'آلات التعبئة والتغليف | VFFS، HFFS، أكياس وكراتين',
+  th: 'เครื่องบรรจุภัณฑ์ | VFFS, HFFS, ซองและกล่อง',
+  vi: 'Máy đóng gói | VFFS, HFFS, Túi & Thùng carton',
+  de: 'Verpackungsmaschinen | VFFS, HFFS, Beutel- & Kartonverpackung',
 }
 
 const descriptions: Record<string, string> = {
@@ -54,6 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function PackagingPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = titles[lang] || titles.en
+  const metaDesc = descriptions[lang] || descriptions.en
   const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
   const heroPhoto = PHOTO.machinery.subpageHeroes.packaging
 
@@ -177,8 +179,8 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.p1,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -189,7 +191,7 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine`, url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, name: 'Pouch Packing Machine' } },

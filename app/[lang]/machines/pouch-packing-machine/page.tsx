@@ -16,18 +16,18 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch & Vacuum | SunGene',
-  cn: '袋装包装机 — VFFS、HFFS、预制袋及真空包装系统 | SunGene',
-  zh: '袋裝包裝機 — VFFS、HFFS、預製袋及真空包裝系統 | SunGene',
-  fr: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé & Vide | SunGene',
-  es: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y Vacío | SunGene',
-  pt: 'Máquinas de embalagem em saco — VFFS, HFFS, Saco pré-formado e Vácuo | SunGene',
-  ko: '파우치 포장 기계 — VFFS, HFFS, 프리메이드 파우치 및 진공 포장 | SunGene',
-  ja: 'パウチ包装機 — VFFS、HFFS、プレメードパウチ・真空システム | SunGene',
-  ar: 'آلات تعبئة الأكياس — VFFS وHFFS والأكياس الجاهزة والتعبئة الفراغية | SunGene',
-  th: 'เครื่องบรรจุถุง — VFFS, HFFS, ถุงสำเร็จรูป และระบบสูญญากาศ | SunGene',
-  vi: 'Máy đóng gói túi — VFFS, HFFS, Túi thành phẩm & Chân không | SunGene',
-  de: 'Beutelverpackungsmaschinen — VFFS, HFFS, Fertigbeutel & Vakuum | SunGene',
+  en: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch & Vacuum',
+  cn: '袋装包装机 — VFFS、HFFS、预制袋及真空包装系统',
+  zh: '袋裝包裝機 — VFFS、HFFS、預製袋及真空包裝系統',
+  fr: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé & Vide',
+  es: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y Vacío',
+  pt: 'Máquinas de embalagem em saco — VFFS, HFFS, Saco pré-formado e Vácuo',
+  ko: '파우치 포장 기계 — VFFS, HFFS, 프리메이드 파우치 및 진공 포장',
+  ja: 'パウチ包装機 — VFFS、HFFS、プレメードパウチ・真空システム',
+  ar: 'آلات تعبئة الأكياس — VFFS وHFFS والأكياس الجاهزة والتعبئة الفراغية',
+  th: 'เครื่องบรรจุถุง — VFFS, HFFS, ถุงสำเร็จรูป และระบบสูญญากาศ',
+  vi: 'Máy đóng gói túi — VFFS, HFFS, Túi thành phẩm & Chân không',
+  de: 'Beutelverpackungsmaschinen — VFFS, HFFS, Fertigbeutel & Vakuum',
 }
 
 const metaDescs: Record<string, string> = {

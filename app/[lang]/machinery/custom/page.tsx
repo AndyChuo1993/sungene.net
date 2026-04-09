@@ -10,41 +10,43 @@ import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
+const metaTitles: Record<string, string> = {
+  en: 'Custom Machinery & OEM Solutions | Bespoke Production Equipment',
+  cn: '定制机械与OEM解决方案 | 定制生产设备',
+  zh: '客製機械與OEM解決方案 | 客製生產設備',
+  fr: 'Machines sur mesure & solutions OEM | Équipements de production personnalisés',
+  es: 'Maquinaria personalizada y soluciones OEM | Equipos de producción a medida',
+  pt: 'Máquinas personalizadas e soluções OEM | Equipamentos de produção sob medida',
+  ko: '맞춤형 기계 및 OEM 솔루션 | 주문 제작 생산 장비',
+  ja: 'カスタム機械とOEMソリューション | オーダーメイド生産設備',
+  ar: 'الآلات المخصصة وحلول OEM | معدات الإنتاج المصنوعة حسب الطلب',
+  th: 'เครื่องจักรสั่งทำและโซลูชัน OEM | อุปกรณ์การผลิตแบบกำหนดเอง',
+  vi: 'Máy móc tùy chỉnh và giải pháp OEM | Thiết bị sản xuất theo yêu cầu',
+  de: 'Sondermaschinen & OEM-Lösungen | Maßgefertigte Produktionsanlagen',
+}
+
+const metaDescs: Record<string, string> = {
+  en: 'Custom industrial machinery and OEM solutions for unique production requirements: packaging, filling, food processing, and automation systems.',
+  cn: '针对特殊生产需求的定制工业机械与OEM方案：包装、充填、食品加工与自动化系统。',
+  zh: '針對特殊生產需求的客製工業機械與OEM方案：包裝、充填、食品加工與自動化系統。',
+  fr: 'Machines industrielles sur mesure et solutions OEM pour des besoins uniques : emballage, remplissage, traitement alimentaire et automatisation.',
+  es: 'Maquinaria industrial personalizada y soluciones OEM: empaque, llenado, procesamiento de alimentos y automatización.',
+  pt: 'Maquinário industrial personalizado e soluções OEM: embalagem, envase, processamento de alimentos e automação.',
+  ko: '맞춤형 산업 기계 및 OEM 솔루션: 포장, 충전, 식품 가공 및 자동화 시스템.',
+  ja: 'カスタム産業機械とOEM：包装、充填、食品加工、自動化システム。',
+  ar: 'آلات صناعية مخصصة وحلول OEM: أنظمة تعبئة وتغليف وملء ومعالجة أغذية وأتمتة.',
+  th: 'เครื่องจักรสั่งทำและโซลูชัน OEM: บรรจุภัณฑ์ การเติม การแปรรูปอาหาร และระบบอัตโนมัติ',
+  vi: 'Máy móc công nghiệp tùy chỉnh và giải pháp OEM: đóng gói, chiết rót, chế biến thực phẩm và tự động hóa.',
+  de: 'Sondermaschinen und OEM-Lösungen: Verpackung, Abfüllung, Lebensmittelverarbeitung und Automatisierung.',
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   const l = normalizeLang(lang)
-  const titles: Record<string, string> = {
-    en: 'Custom Machinery & OEM Solutions | Bespoke Production Equipment | SunGene',
-    cn: '定制机械与OEM解决方案 | 定制生产设备 | SunGene',
-    zh: '客製機械與OEM解決方案 | 客製生產設備 | SunGene',
-    fr: 'Machines sur mesure & solutions OEM | Équipements de production personnalisés | SunGene',
-    es: 'Maquinaria personalizada y soluciones OEM | Equipos de producción a medida | SunGene',
-    pt: 'Máquinas personalizadas e soluções OEM | Equipamentos de produção sob medida | SunGene',
-    ko: '맞춤형 기계 및 OEM 솔루션 | 주문 제작 생산 장비 | SunGene',
-    ja: 'カスタム機械とOEMソリューション | オーダーメイド生産設備 | SunGene',
-    ar: 'الآلات المخصصة وحلول OEM | معدات الإنتاج المصنوعة حسب الطلب | SunGene',
-    th: 'เครื่องจักรสั่งทำและโซลูชัน OEM | อุปกรณ์การผลิตแบบกำหนดเอง | SunGene',
-    vi: 'Máy móc tùy chỉnh và giải pháp OEM | Thiết bị sản xuất theo yêu cầu | SunGene',
-    de: 'Sondermaschinen & OEM-Lösungen | Maßgefertigte Produktionsanlagen | SunGene',
-  }
-  const descriptions: Record<string, string> = {
-    en: 'Custom industrial machinery and OEM solutions for unique production requirements: packaging, filling, food processing, and automation systems.',
-    cn: '针对特殊生产需求的定制工业机械与OEM方案：包装、充填、食品加工与自动化系统。',
-    zh: '針對特殊生產需求的客製工業機械與OEM方案：包裝、充填、食品加工與自動化系統。',
-    fr: 'SunGene conçoit des machines industrielles sur mesure et des solutions OEM pour des besoins de production uniques. Systèmes d\'emballage, de remplissage, de traitement alimentaire et d\'automatisation personnalisés. Certifié CE.',
-    es: 'SunGene diseña maquinaria industrial personalizada y soluciones OEM para requisitos de producción únicos. Sistemas de embalaje, llenado, procesamiento de alimentos y automatización a medida. Certificado CE.',
-    pt: 'SunGene projeta maquinaria industrial personalizada e soluções OEM para requisitos de produção únicos. Sistemas de embalagem, enchimento, processamento de alimentos e automação sob medida. Certificado CE.',
-    ko: 'SunGene은 고유한 생산 요구 사항을 위한 맞춤형 산업 기계 및 OEM 솔루션을 설계합니다. 맞춤형 포장, 충전, 식품 가공 및 자동화 시스템. CE 인증.',
-    ja: 'SunGeneは独自の生産要件のためのカスタム産業機械とOEMソリューションを設計します。オーダーメイドの包装、充填、食品加工、自動化システム。CE認証。',
-    ar: 'تصمم SunGene آلات صناعية مخصصة وحلول OEM لمتطلبات الإنتاج الفريدة. أنظمة تعبئة وتغليف ومعالجة أغذية وأتمتة مصنوعة حسب الطلب. معتمدة CE.',
-    th: 'SunGene ออกแบบเครื่องจักรอุตสาหกรรมแบบกำหนดเองและโซลูชัน OEM สำหรับข้อกำหนดการผลิตที่เป็นเอกลักษณ์ ระบบบรรจุภัณฑ์ การเติม การแปรรูปอาหาร และระบบอัตโนมัติแบบกำหนดเอง ได้รับการรับรอง CE',
-    vi: 'SunGene thiết kế máy móc công nghiệp tùy chỉnh và giải pháp OEM cho các yêu cầu sản xuất độc đáo. Hệ thống đóng gói, chiết rót, chế biến thực phẩm và tự động hóa theo yêu cầu. Được chứng nhận CE.',
-    de: 'SunGene entwickelt kundenspezifische Industriemaschinen und OEM-Lösungen für einzigartige Produktionsanforderungen. Maßgeschneiderte Verpackungs-, Abfüll-, Lebensmittelverarbeitungs- und Automatisierungssysteme. CE-zertifiziert.',
-  }
   return buildPageMetadata({
     lang: l,
-    title: titles[l] || titles.en,
-    description: descriptions[l] || descriptions.en,
+    title: metaTitles[l] || metaTitles.en,
+    description: metaDescs[l] || metaDescs.en,
     pathname: '/machinery/custom',
     type: 'website',
   })
@@ -52,6 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function CustomMachineryPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = metaTitles[lang] || metaTitles.en
+  const metaDesc = metaDescs[lang] || metaDescs.en
   const heroPhoto = PHOTO.machinery.subpageHeroes.custom
   const content: Record<string, any> = {
     en: {
@@ -161,8 +165,8 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     '@id': pageUrl,
     url: pageUrl,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
-    description: t.p1,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': itemListId },
@@ -173,7 +177,7 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     '@type': 'ItemList',
     '@id': itemListId,
     inLanguage: LANG_META[lang].htmlLang,
-    name: t.title,
+    name: metaTitle,
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Packaging Machinery', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machinery/packaging`, url: `${SITE_URL}/${lang}/machinery/packaging`, name: 'Packaging Machinery' } },

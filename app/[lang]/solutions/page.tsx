@@ -12,18 +12,18 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Automation Solutions | Single Machine to Full Turnkey Line | SunGene',
-  cn: '自动化解决方案 | 从单机到全套交钥匙生产线 | SunGene',
-  zh: '自動化解決方案 | 從單機到全套交鑰匙生產線 | SunGene',
-  fr: 'Solutions d\'automatisation | Machine individuelle à ligne clé en main | SunGene',
-  es: 'Soluciones de automatización | De una máquina a línea llave en mano | SunGene',
-  pt: 'Soluções de automação | Máquina única a linha turnkey completa | SunGene',
-  ko: '자동화 솔루션 | 단일 기계에서 풀 턴키 라인까지 | SunGene',
-  ja: '自動化ソリューション | 単体機械からターンキーラインまで | SunGene',
-  ar: 'حلول الأتمتة | من آلة واحدة إلى خط إنتاج متكامل | SunGene',
-  th: 'โซลูชันระบบอัตโนมัติ | จากเครื่องเดียวถึงสายการผลิตครบวงจร | SunGene',
-  vi: 'Giải pháp tự động hóa | Từ máy đơn đến dây chuyền turnkey | SunGene',
-  de: 'Automatisierungslösungen | Von der Einzelmaschine zur Turnkey-Linie | SunGene',
+  en: 'Automation Solutions | Single Machine to Full Turnkey Line',
+  cn: '自动化解决方案 | 从单机到全套交钥匙生产线',
+  zh: '自動化解決方案 | 從單機到全套交鑰匙生產線',
+  fr: 'Solutions d\'automatisation | Machine individuelle à ligne clé en main',
+  es: 'Soluciones de automatización | De una máquina a línea llave en mano',
+  pt: 'Soluções de automação | Máquina única a linha turnkey completa',
+  ko: '자동화 솔루션 | 단일 기계에서 풀 턴키 라인까지',
+  ja: '自動化ソリューション | 単体機械からターンキーラインまで',
+  ar: 'حلول الأتمتة | من آلة واحدة إلى خط إنتاج متكامل',
+  th: 'โซลูชันระบบอัตโนมัติ | จากเครื่องเดียวถึงสายการผลิตครบวงจร',
+  vi: 'Giải pháp tự động hóa | Từ máy đơn đến dây chuyền turnkey',
+  de: 'Automatisierungslösungen | Von der Einzelmaschine zur Turnkey-Linie',
 }
 
 const metaDescs: Record<string, string> = {
@@ -751,6 +751,8 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   const faqItems = faqItemsByLang[lang] || faqItemsByLang.en
   const bc = breadcrumbNames[lang] || breadcrumbNames.en
   const heroPhoto = PHOTO.pages.solutions.hero
+  const metaTitle = metaTitles[lang] || metaTitles.en
+  const metaDesc = metaDescs[lang] || metaDescs.en
 
   const guidesTitle =
     ({
@@ -843,8 +845,8 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     '@id': `${SITE_URL}/${lang}/solutions`,
     url: `${SITE_URL}/${lang}/solutions`,
     inLanguage: LANG_META[lang].htmlLang,
-    name: heroTitle[lang] || heroTitle.en,
-    description: heroDesc[lang] || heroDesc.en,
+    name: metaTitle,
+    description: metaDesc,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': `${SITE_URL}/${lang}/solutions#itemlist` },

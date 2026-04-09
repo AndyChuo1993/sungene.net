@@ -10,18 +10,18 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Get a Machine Recommendation | Packaging & Filling Machinery | SunGene',
-  cn: '获取机械推荐 | 包装与灌装机械 | SunGene',
-  zh: '取得機械推薦 | 包裝與灌裝機械 | SunGene',
-  fr: 'Obtenir une recommandation de machine | Machines d\'emballage et de remplissage | SunGene',
-  es: 'Obtener recomendación de máquina | Maquinaria de empaque y llenado | SunGene',
-  pt: 'Obter recomendação de máquina | Máquinas de embalagem e enchimento | SunGene',
-  ko: '기계 추천 받기 | 포장 및 충전 기계 | SunGene',
-  ja: '機械の推薦を受ける | 包装・充填機械 | SunGene',
-  ar: 'احصل على توصية بالآلة | آلات التعبئة والتغليف والملء | SunGene',
-  th: 'รับคำแนะนำเครื่องจักร | เครื่องบรรจุภัณฑ์และบรรจุ | SunGene',
-  vi: 'Nhận đề xuất máy | Máy đóng gói và chiết rót | SunGene',
-  de: 'Maschinenempfehlung erhalten | Verpackungs- und Abfüllmaschinen | SunGene',
+  en: 'Get a Machine Recommendation | Packaging & Filling Machinery',
+  cn: '获取机械推荐 | 包装与灌装机械',
+  zh: '取得機械推薦 | 包裝與灌裝機械',
+  fr: 'Obtenir une recommandation de machine | Machines d\'emballage et de remplissage',
+  es: 'Obtener recomendación de máquina | Maquinaria de empaque y llenado',
+  pt: 'Obter recomendação de máquina | Máquinas de embalagem e enchimento',
+  ko: '기계 추천 받기 | 포장 및 충전 기계',
+  ja: '機械の推薦を受ける | 包装・充填機械',
+  ar: 'احصل على توصية بالآلة | آلات التعبئة والتغليف والملء',
+  th: 'รับคำแนะนำเครื่องจักร | เครื่องบรรจุภัณฑ์และบรรจุ',
+  vi: 'Nhận đề xuất máy | Máy đóng gói và chiết rót',
+  de: 'Maschinenempfehlung erhalten | Verpackungs- und Abfüllmaschinen',
 }
 
 const metaDescriptions: Record<string, string> = {

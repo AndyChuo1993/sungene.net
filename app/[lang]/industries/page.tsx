@@ -13,18 +13,18 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import { ButtonLink } from '@/components/ui/Button'
 
 const titles: Record<string, string> = {
-  en: 'Industries & Applications | SunGene',
-  cn: '行业与应用｜SunGene',
-  zh: '產業與應用｜SunGene',
-  fr: 'Industries et applications | SunGene',
-  es: 'Industrias y aplicaciones | SunGene',
-  pt: 'Indústrias e Aplicações | SunGene',
-  ko: '산업 및 응용 분야 | SunGene',
-  ja: '業界・用途 | SunGene',
-  ar: 'الصناعات والتطبيقات | SunGene',
-  th: 'อุตสาหกรรมและการประยุกต์ใช้ | SunGene',
-  vi: 'Ngành Công Nghiệp & Ứng Dụng | SunGene',
-  de: 'Branchen & Anwendungen | SunGene',
+  en: 'Industries & Applications',
+  cn: '行业与应用',
+  zh: '產業與應用',
+  fr: 'Industries et applications',
+  es: 'Industrias y aplicaciones',
+  pt: 'Indústrias e Aplicações',
+  ko: '산업 및 응용 분야',
+  ja: '業界・用途',
+  ar: 'الصناعات والتطبيقات',
+  th: 'อุตสาหกรรมและการประยุกต์ใช้',
+  vi: 'Ngành Công Nghiệp & Ứng Dụng',
+  de: 'Branchen & Anwendungen',
 }
 
 const descriptions: Record<string, string> = {
@@ -57,6 +57,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function IndustriesPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const metaTitle = titles[lang] || titles.en
+  const metaDesc = descriptions[lang] || descriptions.en
 
   const content: Record<string, { title: string; desc: string; cats: { title: string; desc: string; href: string }[] }> = {
     en: {
@@ -373,8 +375,8 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           '@id': `${SITE_URL}/${lang}/industries`,
           url: `${SITE_URL}/${lang}/industries`,
           inLanguage: LANG_META[lang].htmlLang,
-          name: t.title,
-          description: t.desc,
+          name: metaTitle,
+          description: metaDesc,
           isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
           publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
           mainEntity: { '@id': `${SITE_URL}/${lang}/industries#itemlist` },
@@ -384,8 +386,8 @@ export default async function IndustriesPage({ params }: { params: Promise<{ lan
           '@type': 'ItemList',
           '@id': `${SITE_URL}/${lang}/industries#itemlist`,
           inLanguage: LANG_META[lang].htmlLang,
-          name: t.title,
-          description: t.desc,
+          name: metaTitle,
+          description: metaDesc,
           isPartOf: { '@id': `${SITE_URL}/${lang}/industries` },
           itemListElement: t.cats.map((cat: any, i: number) => ({
             '@type': 'ListItem',

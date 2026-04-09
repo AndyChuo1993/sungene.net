@@ -16,18 +16,18 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Conveyor & Automation Systems — Belt, Bucket, Screw & Robotic | SunGene',
-  cn: '输送与自动化系统 — 皮带、斗式、螺旋与机器人 | SunGene',
-  zh: '輸送與自動化系統 — 皮帶、斗式、螺旋與機器人 | SunGene',
-  fr: 'Systèmes de convoyage et d\'automatisation — Bande, Godet, Vis & Robotique | SunGene',
-  es: 'Sistemas de transporte y automatización — Banda, Cangilones, Tornillo y Robótica | SunGene',
-  pt: 'Sistemas de Transporte e Automação — Esteira, Elevador, Rosca e Robótica | SunGene',
-  ko: '컨베이어 및 자동화 시스템 — 벨트, 버킷, 스크류 & 로봇 | SunGene',
-  ja: 'コンベア＆自動化システム — ベルト、バケット、スクリュー＆ロボット | SunGene',
-  ar: 'أنظمة النقل والأتمتة — سير ناقل، دلو، لولبي وروبوتي | SunGene',
-  th: 'ระบบลำเลียงและอัตโนมัติ — สายพาน, ถังตัก, สกรู และหุ่นยนต์ | SunGene',
-  vi: 'Hệ thống băng tải và tự động hóa — Băng tải, Gàu, Trục vít & Robot | SunGene',
-  de: 'Förder- und Automatisierungssysteme — Band, Becherwerk, Schnecke & Robotik | SunGene',
+  en: 'Conveyor & Automation Systems — Belt, Bucket, Screw & Robotic',
+  cn: '输送与自动化系统 — 皮带、斗式、螺旋与机器人',
+  zh: '輸送與自動化系統 — 皮帶、斗式、螺旋與機器人',
+  fr: 'Systèmes de convoyage et d\'automatisation — Bande, Godet, Vis & Robotique',
+  es: 'Sistemas de transporte y automatización — Banda, Cangilones, Tornillo y Robótica',
+  pt: 'Sistemas de Transporte e Automação — Esteira, Elevador, Rosca e Robótica',
+  ko: '컨베이어 및 자동화 시스템 — 벨트, 버킷, 스크류 & 로봇',
+  ja: 'コンベア＆自動化システム — ベルト、バケット、スクリュー＆ロボット',
+  ar: 'أنظمة النقل والأتمتة — سير ناقل، دلو، لولبي وروبوتي',
+  th: 'ระบบลำเลียงและอัตโนมัติ — สายพาน, ถังตัก, สกรู และหุ่นยนต์',
+  vi: 'Hệ thống băng tải và tự động hóa — Băng tải, Gàu, Trục vít & Robot',
+  de: 'Förder- und Automatisierungssysteme — Band, Becherwerk, Schnecke & Robotik',
 }
 
 const metaDescs: Record<string, string> = {
