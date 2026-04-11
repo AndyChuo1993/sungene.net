@@ -101,12 +101,14 @@ export function middleware(request: NextRequest) {
     return plain(410, 'Gone')
   }
 
-  // === 1. Static files, API, webhook — pass through immediately ===
+  // === 1. Static files, API, webhook, non-locale routes — pass through immediately ===
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/static') ||
     pathname.startsWith('/webhook') ||
+    pathname.startsWith('/management') ||
+    pathname.startsWith('/case-studies') ||
     pathname.includes('.')
   ) {
     return NextResponse.next()
