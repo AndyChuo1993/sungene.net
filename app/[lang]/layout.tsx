@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
-import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildWebsiteSchema } from '@/lib/business'
+import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildServiceSchemas, buildWebsiteSchema } from '@/lib/business'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
@@ -33,6 +33,7 @@ export default async function RootLayout({ children, params }: { children: React
   const org = buildOrganizationSchema({ baseUrl, lang })
   const brand = buildBrandSchema({ baseUrl })
   const localBusinesses = buildLocalBusinessSchemas({ baseUrl })
+  const services = buildServiceSchemas({ baseUrl, lang })
 
   return (
     <>
@@ -41,6 +42,9 @@ export default async function RootLayout({ children, params }: { children: React
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brand) }} />
       {localBusinesses.map((b) => (
         <script key={String(b['@id'])} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(b) }} />
+      ))}
+      {services.map((s) => (
+        <script key={String(s['@id'])} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <Header lang={lang} />
       <main id="page-content" className="break-words">{children}</main>

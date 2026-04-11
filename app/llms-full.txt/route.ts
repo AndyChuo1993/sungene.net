@@ -23,9 +23,44 @@ export async function GET() {
     return `- ${c.label}\n${hub}\n${hubFaq}\n${recommend}\n${contact}\n${faq}\n${lines}`
   }).join('\n')
 
+  const specsTable = `## Machine Specs — Quick Reference
+
+| Machine | Output | Fill range | Typical product | Key configs |
+|---|---|---|---|---|
+| Pouch packing (VFFS) | 30–150 bags/min | 5 g – 5 kg | Powder, granule, liquid, snacks | Multi-head weigher, auger, piston, gas flush |
+| Pouch packing (HFFS / flow wrap) | 50–300 bags/min | Solid shaped items | Biscuits, bars, produce | Long dwell seal, rotary knife |
+| Pre-made pouch machine | 20–80 bags/min | 10 g – 2 kg | Premium stand-up / zipper pouches | Rotary or linear, zipper, spout |
+| Stick pack / sachet | 50–400 sachets/min | 1 g – 50 g | Single-serve powder or liquid | Multi-lane, easy-tear |
+| Vacuum packing | Chamber / double chamber | Meat, cheese, dry goods | N2 flush optional | Single or double chamber |
+| Powder filling (auger) | 20–60 fills/min | 5 g – 5 kg | Flour, milk, protein, spices | Servo auger, dust containment |
+| Powder filling (net-weigh) | 15–40 fills/min | 100 g – 25 kg | Free-flow granules, seeds, beans | Load cell + feeder |
+| Liquid filling (piston) | 20–60 fills/min | 50 mL – 5 L | Sauce, honey, cream, oil | Positive displacement |
+| Liquid filling (flow meter) | 20–80 fills/min | 100 mL – 5 L | Thin liquids, alcohol, chemical | Electromagnetic / mass-flow |
+| Liquid filling (gravity) | 30–120 fills/min | 250 mL – 2 L | Water, juice, oil (free-flow) | Low-viscosity only |
+| Snack processing line | Batch or continuous | Chips, nuts, extruded | Fryer + de-oiler + seasoning tumbler + packer | Gas or electric heat |
+| Conveyor & automation | Belt / roller / modular | Integration with packer | Metal detector, checkweigher, labeler | PLC + HMI, food-grade |
+
+All ranges are configuration-dependent. SunGene confirms output and fill ranges based on the customer's product, packaging format, voltage, and layout.
+
+## Compliance & Construction
+- Certifications: CE (EU), SUS304 or 316L stainless standard on food-contact parts.
+- Voltage: 110V / 220V / 380V / 480V, 50 Hz or 60 Hz, 1-phase or 3-phase — configured per order.
+- Safety: emergency stops, interlocked guarding, PLC with diagnostics.
+- Testing: factory acceptance test (FAT) on every machine, video + results delivered.
+- Warranty: 1-year parts + lifetime remote technical support; spare parts shipped within 48 hours.
+
+## Commercial Terms
+- MOQ: 1 unit. Payment: T/T 30/70 or L/C at sight. Shipping: FOB Taichung or CIF any port.
+- Lead time: 30–60 days single machines, 45–90 days full lines.
+- Transit: Asia 7–14 days, Middle East 14–21 days, Europe 21–30 days, Americas 25–35 days.
+
+`
+
   const body = `# SunGene Co., LTD. — Full Reference
 
 This file provides a structured overview of key pages and topics on ${SITE_URL}.
+
+${specsTable}
 
 ## Localized versions
 - ${SITE_URL}/en/llms-full.txt
