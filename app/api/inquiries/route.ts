@@ -164,8 +164,11 @@ export async function POST(req: Request) {
       console.info('[inquiries]', { reqId, adminOk: true, ackOk: true, id })
     }
 
-    // Let persist finish in the background — don't block the response.
-    void persistPromise
+    // Await persist before returning. On Cloud Run the instance may be
+    // throttled or frozen once the response is sent, so fire-and-forget
+    // promises never complete. Supabase insert is fast (~50ms) — the extra
+    // latency is negligible and guarantees durability.
+    await persistPromise
     return Response.json({ ok: true, id, ackOk: null, ackQueued: Boolean(item.email), reqId })
   } catch (err) {
     console.error('[inquiries] email send failed:', err)
