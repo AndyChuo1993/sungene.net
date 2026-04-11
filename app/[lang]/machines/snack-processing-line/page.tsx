@@ -13,6 +13,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
+import RelatedHubs from '@/components/RelatedHubs'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -1709,6 +1710,9 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
           </Container>
         </section>
       ) : null}
+
+      {/* ── 9b. Related markets + industries ──────────────────────────────── */}
+      <RelatedHubs lang={lang} machine="snack-processing-line" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">

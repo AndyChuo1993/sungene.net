@@ -4,6 +4,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { ARTICLE_SLUGS } from '@/lib/articleData'
 import { getStableLastModified } from '@/lib/buildTime'
 import { MARKET_SLUGS } from '@/lib/markets'
+import { INDUSTRY_SLUGS } from '@/lib/industries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
@@ -86,6 +87,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/markets/${slug}`, 'monthly', 0.7))
   )
 
+  // Priority 0.7 - Industry sub-pages (15 industries × 12 langs = 180 URLs)
+  const industryDetailSitemap = INDUSTRY_SLUGS.flatMap((slug) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/industries/${slug}`, 'monthly', 0.7))
+  )
+
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
@@ -100,6 +106,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...supportSitemap,
     ...marketsHubSitemap,
     ...marketDetailSitemap,
+    ...industryDetailSitemap,
     ...topicSitemap,
     ...articleSitemap,
   ]

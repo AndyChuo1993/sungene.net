@@ -215,17 +215,32 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   })()
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': article.category === 'selection' || article.category === 'buying' ? 'TechArticle' : 'Article',
+    '@id': `${SITE_URL}/${l}/resources/${slug}#article`,
     inLanguage: LANG_META[l].htmlLang,
     headline: i18n.title,
+    alternativeHeadline: i18n.metaTitle,
     description: i18n.description,
     keywords: i18n.metaTitle,
+    articleSection: i18n.categoryLabel,
+    wordCount: i18n.sections.reduce((acc, s) => {
+      if (s.type === 'p') return acc + s.text.split(/\s+/).length
+      if (s.type === 'ul') return acc + s.items.join(' ').split(/\s+/).length
+      if (s.type === 'h2' || s.type === 'h3') return acc + s.text.split(/\s+/).length
+      return acc
+    }, 0),
     author: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo/sungene.png` } },
     url: `${SITE_URL}/${l}/resources/${slug}`,
     image: [ogImageUrl],
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
     isPartOf: { '@type': 'CollectionPage', '@id': `${SITE_URL}/${l}/resources`, name: 'Machinery Buying Guides' },
+    about: article.relatedMachine ? {
+      '@type': 'Product',
+      '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+      name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
+      url: `${SITE_URL}/${l}/machines/${article.relatedMachine}`,
+    } : undefined,
     ...(article.relatedMachine ? {
       mentions: {
         '@type': 'Product',
@@ -238,6 +253,83 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     } : {}),
     ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.lead', 'article p'],
+    },
+  }
+
+  // HowTo schema — eligible for "how-to-choose-*" selection articles and
+  // "what-to-prepare-*" buying guides, where the h2 sections naturally form
+  // a step-by-step workflow.
+  const isHowToEligible =
+    (article.category === 'selection' || slug === 'what-to-prepare-before-machine-quote') &&
+    i18n.sections.filter((s) => s.type === 'h2').length >= 3
+
+  const howToSchema = isHowToEligible
+    ? (() => {
+        const h2List = i18n.sections.filter((s): s is { type: 'h2'; text: string } => s.type === 'h2')
+        const steps = h2List.slice(0, 10).map((h, i) => {
+          // The step's description is the first paragraph after this h2
+          const idx = i18n.sections.indexOf(h)
+          const next = i18n.sections.slice(idx + 1).find((s) => s.type === 'p' || s.type === 'ul')
+          const text =
+            next && next.type === 'p'
+              ? next.text
+              : next && next.type === 'ul'
+              ? next.items.join(' ')
+              : h.text
+          return {
+            '@type': 'HowToStep',
+            position: i + 1,
+            name: h.text,
+            text: text.slice(0, 500),
+            url: `${SITE_URL}/${l}/resources/${slug}#step-${i + 1}`,
+          }
+        })
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          '@id': `${SITE_URL}/${l}/resources/${slug}#howto`,
+          inLanguage: LANG_META[l].htmlLang,
+          name: i18n.title,
+          description: i18n.description,
+          image: ogImageUrl,
+          totalTime: 'PT15M',
+          estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
+          supply: [
+            { '@type': 'HowToSupply', name: 'Product specification sheet (name, form, size, target output)' },
+            { '@type': 'HowToSupply', name: 'Factory voltage and frequency' },
+            { '@type': 'HowToSupply', name: 'Destination port / incoterm preference' },
+          ],
+          tool: [
+            { '@type': 'HowToTool', name: 'SunGene machine recommendation form' },
+          ],
+          step: steps,
+          about: article.relatedMachine
+            ? {
+                '@type': 'Product',
+                '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+                name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
+              }
+            : undefined,
+        }
+      })()
+    : null
+
+  // BreadcrumbList schema (the Breadcrumbs component already emits one inline,
+  // but adding a second explicit node here ensures the article's primary
+  // breadcrumb is visible to Google even if the component's id ever changes).
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    inLanguage: LANG_META[l].htmlLang,
+    '@id': `${SITE_URL}/${l}/resources/${slug}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${l}` },
+      { '@type': 'ListItem', position: 2, name: i18n.resourcesLabel, item: `${SITE_URL}/${l}/resources` },
+      { '@type': 'ListItem', position: 3, name: i18n.title, item: `${SITE_URL}/${l}/resources/${slug}` },
+    ],
   }
 
   const t = ui[l] ?? ui.en
@@ -275,6 +367,10 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {howToSchema ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      ) : null}
       <div className="bg-white">
         <Container className="py-12 lg:py-16">
           <Breadcrumbs lang={l} items={[

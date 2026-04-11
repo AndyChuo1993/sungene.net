@@ -118,7 +118,23 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
   - Liquid filling: https://sungene.net/en/contact?machine=liquid-filling-machine
   - Snack processing line: https://sungene.net/en/contact?machine=snack-processing-line
   - Conveyor systems: https://sungene.net/en/contact?machine=conveyor-system
-- Industry solutions: https://sungene.net/en/industries
+- Industry solutions hub: https://sungene.net/en/industries
+- Industry sub-pages (product-category specific — buyer use cases, packaging formats, recommended machines):
+  - Coffee packaging: https://sungene.net/en/industries/coffee
+  - Spice & seasoning: https://sungene.net/en/industries/spice-seasoning
+  - Snack & chips: https://sungene.net/en/industries/snack-chips
+  - Nuts & dried fruit: https://sungene.net/en/industries/nuts-dried-fruit
+  - Sauce & condiment: https://sungene.net/en/industries/sauce-condiment
+  - Edible oil: https://sungene.net/en/industries/edible-oil
+  - Honey & syrup: https://sungene.net/en/industries/honey-syrup
+  - Dairy & yogurt: https://sungene.net/en/industries/dairy-yogurt
+  - Pet food: https://sungene.net/en/industries/pet-food
+  - Protein & supplement: https://sungene.net/en/industries/protein-supplement
+  - Detergent & household: https://sungene.net/en/industries/detergent-household
+  - Cosmetic & personal care: https://sungene.net/en/industries/cosmetic-personal-care
+  - Pharmaceutical: https://sungene.net/en/industries/pharmaceutical
+  - Tea & herbal: https://sungene.net/en/industries/tea-herbal
+  - Agricultural & seed: https://sungene.net/en/industries/agricultural-seed
 - Production solutions: https://sungene.net/en/solutions
 - Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, CE guide, voltage requirements)
 - Export markets hub: https://sungene.net/en/markets
