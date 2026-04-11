@@ -12,6 +12,8 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { MARKETS, type MarketSlug, MARKET_SLUGS, getAllMarketParams } from '@/lib/markets'
 import { MACHINE_DEFS, type MachineSlug } from '@/lib/productSchema'
+import TrustBar from '@/components/TrustBar'
+import QuickQuote from '@/components/QuickQuote'
 
 // ─── Static params for all 12 langs × 18 markets = 216 pages ─────────────────
 export async function generateStaticParams() {
@@ -406,6 +408,8 @@ export default async function MarketPage({
         </Container>
       </section>
 
+      <TrustBar lang={lang} />
+
       {/* ── Facts table ─────────────────────────────────────────────────────── */}
       <section className="py-12 sm:py-16 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-5xl">
@@ -490,6 +494,8 @@ export default async function MarketPage({
           </Card>
         </Container>
       </section>
+
+      <QuickQuote lang={lang} context={market.countryName} source="market" />
 
       {/* ── CTA ─────────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">

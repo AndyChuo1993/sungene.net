@@ -14,6 +14,8 @@ import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
+import TrustBar from '@/components/TrustBar'
+import QuickQuote from '@/components/QuickQuote'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -706,6 +708,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
         </Container>
       </section>
 
+      {/* Trust bar — 40+ countries, CE, SUS304, warranty */}
+      <TrustBar lang={lang} />
+
       {/* ── 2. Who It's For ──────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
@@ -868,6 +873,9 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
 
       {/* ── 9b. Related markets + industries (internal linking boost) ──────── */}
       <RelatedHubs lang={lang} machine="pouch-packing-machine" />
+
+      {/* ── 9c. QuickQuote — inline conversion form ─────────────────────────── */}
+      <QuickQuote lang={lang} context="pouch-packing-machine" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">

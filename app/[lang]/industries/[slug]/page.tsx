@@ -12,6 +12,8 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { INDUSTRIES, type IndustrySlug, INDUSTRY_SLUGS, getAllIndustryParams } from '@/lib/industries'
 import { MACHINE_DEFS } from '@/lib/productSchema'
+import TrustBar from '@/components/TrustBar'
+import QuickQuote from '@/components/QuickQuote'
 
 export async function generateStaticParams() {
   return getAllIndustryParams()
@@ -326,6 +328,8 @@ export default async function IndustryPage({
         </Container>
       </section>
 
+      <TrustBar lang={lang} />
+
       {/* ── Product forms + formats side-by-side ──────────────────────────── */}
       <section className="py-12 sm:py-16 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
@@ -419,6 +423,8 @@ export default async function IndustryPage({
           </ul>
         </Container>
       </section>
+
+      <QuickQuote lang={lang} context={ind.name} source="industry" />
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">

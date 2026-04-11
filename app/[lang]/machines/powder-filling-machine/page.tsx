@@ -14,6 +14,8 @@ import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
+import TrustBar from '@/components/TrustBar'
+import QuickQuote from '@/components/QuickQuote'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -1346,6 +1348,8 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
         </Container>
       </section>
 
+      <TrustBar lang={lang} />
+
       {/* ── 2. Who It's For ──────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-6xl">
@@ -1508,6 +1512,8 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
 
       {/* ── 9b. Related markets + industries ──────────────────────────────── */}
       <RelatedHubs lang={lang} machine="powder-filling-machine" />
+
+      <QuickQuote lang={lang} context="powder-filling-machine" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
