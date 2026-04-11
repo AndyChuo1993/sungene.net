@@ -16,6 +16,7 @@ import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
 import QuickQuote from '@/components/QuickQuote'
+import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -675,7 +676,13 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = buildProductSchema({ lang, slug: 'pouch-packing-machine', faq: t.faq })
+  // Real customer data (only renders when admin has published rows).
+  const [testimonials, videos] = await Promise.all([
+    getTestimonialsForMachine('pouch-packing-machine'),
+    getVideosForMachine('pouch-packing-machine'),
+  ])
+
+  const productSchema = buildProductSchema({ lang, slug: 'pouch-packing-machine', faq: t.faq, testimonials, videos })
 
   return (
     <>

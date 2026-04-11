@@ -5,6 +5,7 @@ import { ARTICLE_SLUGS } from '@/lib/articleData'
 import { getStableLastModified } from '@/lib/buildTime'
 import { MARKET_SLUGS } from '@/lib/markets'
 import { INDUSTRY_SLUGS } from '@/lib/industries'
+import { getAllPublishedCaseStudies } from '@/lib/cmsContent'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
@@ -92,6 +93,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/industries/${slug}`, 'monthly', 0.7))
   )
 
+  // Priority 0.75 - Case studies hub + per-slug pages (published only)
+  const caseStudies = await getAllPublishedCaseStudies()
+  const caseStudiesHub = [item(`${baseUrl}/case-studies`, 'weekly', 0.75)]
+  const caseStudiesDetail = caseStudies.map((cs) =>
+    item(`${baseUrl}/case-studies/${cs.slug}`, 'monthly', 0.75)
+  )
+
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
@@ -107,6 +115,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...marketsHubSitemap,
     ...marketDetailSitemap,
     ...industryDetailSitemap,
+    ...caseStudiesHub,
+    ...caseStudiesDetail,
     ...topicSitemap,
     ...articleSitemap,
   ]

@@ -2,6 +2,8 @@ import type { Lang } from '@/lib/i18n'
 import { LANG_META } from '@/lib/seo'
 import { SITE_URL } from '@/lib/siteConfig'
 import { PHOTO } from '@/lib/photoLibrary'
+import type { Testimonial, Video } from '@/lib/supabase.types'
+import { buildReviewNodesForMachine, buildVideoNodes } from '@/lib/cmsContent'
 
 export type MachineSlug =
   | 'pouch-packing-machine'
@@ -152,6 +154,8 @@ export function buildProductSchema(opts: {
   lang: Lang
   slug: MachineSlug
   faq?: { q: string; a: string }[]
+  testimonials?: Testimonial[]
+  videos?: Video[]
 }) {
   const def = MACHINE_DEFS[opts.slug]
   const lang = opts.lang
@@ -258,6 +262,23 @@ export function buildProductSchema(opts: {
             })),
           },
         }
+      : {}),
+    // Real customer reviews → unlock Google star-rating SERP snippet.
+    // Only emitted when the admin has published at least 1 testimonial for
+    // this machine — we never fake.
+    ...(opts.testimonials && opts.testimonials.length > 0
+      ? (() => {
+          const nodes = buildReviewNodesForMachine(opts.testimonials!)
+          if (!nodes) return {}
+          return {
+            ...(nodes.aggregateRating ? { aggregateRating: nodes.aggregateRating } : {}),
+            review: nodes.reviews,
+          }
+        })()
+      : {}),
+    // Real FAT / factory videos → VideoObject schema, fed into Product.video
+    ...(opts.videos && opts.videos.length > 0
+      ? { video: buildVideoNodes(opts.videos) }
       : {}),
   }
 }

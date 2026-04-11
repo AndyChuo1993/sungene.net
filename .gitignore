@@ -17,3 +17,5 @@ data/product-inquiries.ndjson
 data/product-inquiries.json
 data/analytics.ndjson
 data/analytics.json
+
+.secrets/

@@ -16,6 +16,7 @@ import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
 import QuickQuote from '@/components/QuickQuote'
+import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -460,7 +461,11 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = buildProductSchema({ lang, slug: 'liquid-filling-machine', faq: t.faq })
+  const [testimonials, videos] = await Promise.all([
+    getTestimonialsForMachine('liquid-filling-machine'),
+    getVideosForMachine('liquid-filling-machine'),
+  ])
+  const productSchema = buildProductSchema({ lang, slug: 'liquid-filling-machine', faq: t.faq, testimonials, videos })
 
   return (
     <>

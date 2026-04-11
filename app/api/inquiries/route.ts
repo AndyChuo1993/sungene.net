@@ -4,6 +4,7 @@ import { rateLimit } from '@/lib/rateLimit'
 import process from 'process'
 import { promises as fs } from 'fs'
 import path from 'path'
+import { getSupabaseAdmin } from '@/lib/supabase'
 
 const allowedTypes = [
   'Contact',
@@ -130,10 +131,17 @@ export async function POST(req: Request) {
   const meta = collectMeta(req)
   const id = `REQ-${Date.now().toString(36)}`
 
+  // Always persist to Supabase (or ndjson fallback) — runs in parallel with
+  // email so neither one blocks the other. Supabase is the durable store;
+  // email is the live notification.
+  const persistPromise = persistInquiry({ id, reqId, item, rawBody: body, meta }).catch((err) => {
+    console.error('[inquiries] persist failed:', err)
+  })
+
   try {
     const { transporter, fromAddr, to, emailEnabled } = getTransporter()
     if (!emailEnabled) {
-      await persistInquiry({ id, reqId, item, rawBody: body, meta })
+      await persistPromise
       return Response.json({ ok: true, id, ackOk: null, ackQueued: false, reqId, emailEnabled: false })
     }
     const adminOk = await sendAdminEmail({ transporter, fromAddr, to, item, rawBody: body, meta, id, reqId })
@@ -156,10 +164,14 @@ export async function POST(req: Request) {
       console.info('[inquiries]', { reqId, adminOk: true, ackOk: true, id })
     }
 
+    // Let persist finish in the background — don't block the response.
+    void persistPromise
     return Response.json({ ok: true, id, ackOk: null, ackQueued: Boolean(item.email), reqId })
   } catch (err) {
     console.error('[inquiries] email send failed:', err)
     console.error('[inquiries]', { reqId, adminOk: false, ackOk: false, id })
+    // Still try to persist even if email failed.
+    await persistPromise
     return jsonFail(500, 'Email Send Failed', { reqId })
   }
 }
@@ -217,6 +229,55 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
     rawBody,
     meta,
   }
+
+  // Primary persistence: Supabase (durable across Cloud Run deploys).
+  // Falls back to ndjson only if Supabase env vars aren't set.
+  const supabaseAdmin = getSupabaseAdmin()
+  if (supabaseAdmin) {
+    try {
+      // Parse source/context from the raw body — QuickQuote sends these as
+      // explicit fields; full Contact form falls through with null.
+      const source = typeof rawBody?.source === 'string' ? rawBody.source : null
+      const context = typeof rawBody?.context === 'string' ? rawBody.context : null
+
+      // Split out the "extra" payload — everything the sanitized schema
+      // doesn't map to named columns.
+      const extraKeys = ['productName', 'quantity', 'incoterms', 'targetCountry', 'targetMarket', 'currentChannels', 'goals', 'topic', 'integrationType', 'details', 'scope', 'budget', 'timeline']
+      const extra: Record<string, unknown> = {}
+      for (const k of extraKeys) {
+        const v = (item as Record<string, unknown>)[k]
+        if (v != null && v !== '') extra[k] = v
+      }
+
+      await supabaseAdmin.from('inquiries').insert({
+        type: item.type,
+        source: source || null,
+        context: context || null,
+        name: item.name,
+        email: item.email,
+        phone: item.phone || null,
+        company: item.company || null,
+        country: item.targetCountry || null,
+        message: item.message || null,
+        target_output: typeof rawBody?.output === 'string' ? rawBody.output : null,
+        extra: Object.keys(extra).length > 0 ? extra : null,
+        page_url: meta.ref || null,
+        referer: meta.ref || null,
+        utm: meta.utm || null,
+        ip: meta.ip || null,
+        language: meta.lang || null,
+        status: 'new',
+      })
+    } catch (err) {
+      console.error('[inquiries] supabase insert failed, falling back to ndjson:', err)
+      const ndjsonPath = path.join(process.cwd(), 'data', 'inquiries.ndjson')
+      await fs.mkdir(path.dirname(ndjsonPath), { recursive: true })
+      await fs.appendFile(ndjsonPath, `${JSON.stringify(record)}\n`, 'utf8')
+    }
+    return
+  }
+
+  // Fallback: ephemeral ndjson (only if Supabase not configured)
   const ndjsonPath = path.join(process.cwd(), 'data', 'inquiries.ndjson')
   await fs.mkdir(path.dirname(ndjsonPath), { recursive: true })
   await fs.appendFile(ndjsonPath, `${JSON.stringify(record)}\n`, 'utf8')

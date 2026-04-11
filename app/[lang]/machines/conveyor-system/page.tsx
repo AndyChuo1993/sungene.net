@@ -16,6 +16,7 @@ import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
 import QuickQuote from '@/components/QuickQuote'
+import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -494,7 +495,11 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = buildProductSchema({ lang, slug: 'conveyor-system', faq: t.faq })
+  const [testimonials, videos] = await Promise.all([
+    getTestimonialsForMachine('conveyor-system'),
+    getVideosForMachine('conveyor-system'),
+  ])
+  const productSchema = buildProductSchema({ lang, slug: 'conveyor-system', faq: t.faq, testimonials, videos })
 
   return (
     <>
