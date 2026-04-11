@@ -82,6 +82,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
               <li><Link href={`/${lang}/resources`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_resources')}</Link></li>
               <li><Link href={`/${lang}/industries`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_industries')}</Link></li>
+              <li><Link href={`/${lang}/markets`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Export Markets', zh: '出口市場', cn: '出口市场', fr: 'Marchés export', es: 'Mercados de exportación', pt: 'Mercados de exportação', ko: '수출 시장', ja: '輸出市場', ar: 'أسواق التصدير', th: 'ตลาดส่งออก', vi: 'Thị trường xuất khẩu', de: 'Exportmärkte' } as Record<string,string>)[lang] || 'Export Markets'}</Link></li>
               <li><Link href={`/${lang}/contact`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_contact')}</Link></li>
             </ul>
           </div>

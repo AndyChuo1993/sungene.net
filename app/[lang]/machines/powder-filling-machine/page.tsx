@@ -12,6 +12,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
+import { buildProductSchema } from '@/lib/productSchema'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -1311,48 +1312,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine#product`,
-    inLanguage: LANG_META[lang].htmlLang,
-    name: 'Powder Filling & Packaging Machine',
-    description: 'SunGene manufactures auger fillers, volumetric fillers, multi-head weigher systems, and VFFS powder filling lines for flour, spice, coffee, chemical, and industrial powders.',
-    url: `${SITE_URL}/${lang}/machines/powder-filling-machine`,
-    image: [`${SITE_URL}${heroPhoto}`],
-    brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-    category: 'Powder Filling & Packaging Machinery',
-    material: 'SUS304/316L Stainless Steel',
-    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Dosing Types', value: 'Auger, volumetric cup, multi-head weigher' },
-      { '@type': 'PropertyValue', name: 'Fill Weight Range', value: '1g–5kg' },
-      { '@type': 'PropertyValue', name: 'Output Speed', value: '10–80 bags/min' },
-      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
-      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
-      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
-      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
-    ],
-    isRelatedTo: [
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine#product`, name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/conveyor-system#product`, name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine#product`, name: 'Liquid Filling Machine', url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-    ],
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-      url: `${SITE_URL}/${lang}/contact?machine=powder-filling-machine`,
-    },
-    potentialAction: {
-      '@type': 'Action',
-      name: 'Request a Quote',
-      target: `${SITE_URL}/${lang}/contact?machine=powder-filling-machine`,
-    },
-  }
+  const productSchema = buildProductSchema({ lang, slug: 'powder-filling-machine', faq: t.faq })
 
   return (
     <>

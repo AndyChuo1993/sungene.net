@@ -3,6 +3,7 @@ import { ALL_LANGS } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { ARTICLE_SLUGS } from '@/lib/articleData'
 import { getStableLastModified } from '@/lib/buildTime'
+import { MARKET_SLUGS } from '@/lib/markets'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
@@ -77,6 +78,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, route === '/about' ? 'yearly' : 'monthly', 0.75))
   )
 
+  // Priority 0.75 - Markets index hub
+  const marketsHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/markets`, 'monthly', 0.75))
+
+  // Priority 0.7 - Individual market landing pages (18 countries × 12 langs = 216 URLs)
+  const marketDetailSitemap = MARKET_SLUGS.flatMap((slug) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/markets/${slug}`, 'monthly', 0.7))
+  )
+
   // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
   const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
@@ -89,6 +98,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...machinerySitemap,
     ...resourcesHubSitemap,
     ...supportSitemap,
+    ...marketsHubSitemap,
+    ...marketDetailSitemap,
     ...topicSitemap,
     ...articleSitemap,
   ]

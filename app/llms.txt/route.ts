@@ -121,6 +121,26 @@ English, Traditional Chinese (zh-TW), Simplified Chinese (zh-CN), French, Spanis
 - Industry solutions: https://sungene.net/en/industries
 - Production solutions: https://sungene.net/en/solutions
 - Buying guides & resources: https://sungene.net/en/resources (VFFS vs HFFS, CE guide, voltage requirements)
+- Export markets hub: https://sungene.net/en/markets
+- Market landing pages (country-specific voltage, transit, sample prices and recommended machines):
+  - Vietnam: https://sungene.net/en/markets/vietnam
+  - Thailand: https://sungene.net/en/markets/thailand
+  - Indonesia: https://sungene.net/en/markets/indonesia
+  - Malaysia: https://sungene.net/en/markets/malaysia
+  - Philippines: https://sungene.net/en/markets/philippines
+  - India: https://sungene.net/en/markets/india
+  - Saudi Arabia: https://sungene.net/en/markets/saudi-arabia
+  - United Arab Emirates: https://sungene.net/en/markets/united-arab-emirates
+  - Egypt: https://sungene.net/en/markets/egypt
+  - Nigeria: https://sungene.net/en/markets/nigeria
+  - South Africa: https://sungene.net/en/markets/south-africa
+  - Germany: https://sungene.net/en/markets/germany
+  - France: https://sungene.net/en/markets/france
+  - United States: https://sungene.net/en/markets/united-states
+  - Mexico: https://sungene.net/en/markets/mexico
+  - Brazil: https://sungene.net/en/markets/brazil
+  - Japan: https://sungene.net/en/markets/japan
+  - South Korea: https://sungene.net/en/markets/south-korea
 - Topic hub — pouch packing: https://sungene.net/en/resources/topic/pouch-packing-machine
 - Topic hub — powder filling: https://sungene.net/en/resources/topic/powder-filling-machine
 - Topic hub — liquid filling: https://sungene.net/en/resources/topic/liquid-filling-machine

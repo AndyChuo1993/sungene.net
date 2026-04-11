@@ -12,6 +12,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
+import { buildProductSchema } from '@/lib/productSchema'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -490,47 +491,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${SITE_URL}/${lang}/machines/conveyor-system#product`,
-    inLanguage: LANG_META[lang].htmlLang,
-    name: 'Conveyor & Automation Systems',
-    description: 'SunGene designs and manufactures belt conveyors, bucket elevators, screw conveyors, PLC/HMI control systems, robotic palletizers, and complete production line automation for food, packaging, chemical, and industrial applications.',
-    url: `${SITE_URL}/${lang}/machines/conveyor-system`,
-    image: [`${SITE_URL}${heroPhoto}`],
-    brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-    category: 'Conveyor & Production Line Automation',
-    material: 'SUS304/316L Stainless Steel, Carbon Steel',
-    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Types', value: 'Belt conveyor, bucket elevator, screw conveyor, roller conveyor, vibratory feeder' },
-      { '@type': 'PropertyValue', name: 'Controls', value: 'PLC + HMI, servo motor, VFD' },
-      { '@type': 'PropertyValue', name: 'Integration', value: 'Metal detector, checkweigher, palletizer' },
-      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
-      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
-      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
-    ],
-    isRelatedTo: [
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine#product`, name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/snack-processing-line#product`, name: 'Snack Processing Line', url: `${SITE_URL}/${lang}/machines/snack-processing-line`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine#product`, name: 'Liquid Filling Machine', url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-    ],
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-      url: `${SITE_URL}/${lang}/contact?machine=conveyor-system`,
-    },
-    potentialAction: {
-      '@type': 'Action',
-      name: 'Request a Quote',
-      target: `${SITE_URL}/${lang}/contact?machine=conveyor-system`,
-    },
-  }
+  const productSchema = buildProductSchema({ lang, slug: 'conveyor-system', faq: t.faq })
 
   return (
     <>

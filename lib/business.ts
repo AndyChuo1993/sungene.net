@@ -81,6 +81,7 @@ export function buildWebsiteSchema(opts: { baseUrl?: string; lang: Lang }) {
       { '@type': 'WebPage', url: pageUrl(lang, '/machines/liquid-filling-machine'), name: 'Liquid Filling Machine' },
       { '@type': 'WebPage', url: pageUrl(lang, '/machines/snack-processing-line'), name: 'Snack Processing Line' },
       { '@type': 'WebPage', url: pageUrl(lang, '/machines/conveyor-system'), name: 'Conveyor System' },
+      { '@type': 'WebPage', url: pageUrl(lang, '/markets'), name: 'Export Markets' },
       { '@type': 'WebPage', url: pageUrl(lang, '/resources'), name: 'Resources' },
       { '@type': 'WebPage', url: pageUrl(lang, '/recommend'), name: 'Recommendation' },
       { '@type': 'WebPage', url: pageUrl(lang, '/contact'), name: 'Contact' },

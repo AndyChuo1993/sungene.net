@@ -12,6 +12,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
+import { buildProductSchema } from '@/lib/productSchema'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -456,48 +457,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine#product`,
-    inLanguage: LANG_META[lang].htmlLang,
-    name: 'Liquid Filling Machine',
-    description: 'SunGene manufactures piston, gravity, overflow, peristaltic pump, and flow meter liquid filling machines for food, beverage, cosmetic, chemical, and pharmaceutical applications.',
-    url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`,
-    image: [`${SITE_URL}${heroPhoto}`],
-    brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-    category: 'Liquid Filling Machinery',
-    material: 'SUS304/316L Stainless Steel',
-    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Filling Types', value: 'Piston, gravity, overflow, peristaltic pump, flow meter' },
-      { '@type': 'PropertyValue', name: 'Fill Volume Range', value: '5ml–5L' },
-      { '@type': 'PropertyValue', name: 'Output Speed', value: '500–5,000 units/hr' },
-      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
-      { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V/220V/380V/480V, 50/60Hz' },
-      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
-      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
-    ],
-    isRelatedTo: [
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine#product`, name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine#product`, name: 'Powder Filling Machine', url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/conveyor-system#product`, name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-    ],
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-      url: `${SITE_URL}/${lang}/contact?machine=liquid-filling-machine`,
-    },
-    potentialAction: {
-      '@type': 'Action',
-      name: 'Request a Quote',
-      target: `${SITE_URL}/${lang}/contact?machine=liquid-filling-machine`,
-    },
-  }
+  const productSchema = buildProductSchema({ lang, slug: 'liquid-filling-machine', faq: t.faq })
 
   return (
     <>

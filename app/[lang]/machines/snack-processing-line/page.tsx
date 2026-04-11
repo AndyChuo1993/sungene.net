@@ -12,6 +12,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, BREADCRUMB_LABELS } from '@/lib/seo'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
+import { buildProductSchema } from '@/lib/productSchema'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -1516,48 +1517,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero-desc'] },
   }
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${SITE_URL}/${lang}/machines/snack-processing-line#product`,
-    inLanguage: LANG_META[lang].htmlLang,
-    name: 'Snack & Food Processing Line',
-    description: 'SunGene designs and manufactures complete snack processing lines including continuous fryers, batch fryers, rotary drum roasters, seasoning tumblers, cooling conveyors, multi-head weighers, VFFS packaging, and oil filtration systems for chips, nuts, extruded snacks, and pet food.',
-    url: `${SITE_URL}/${lang}/machines/snack-processing-line`,
-    image: [`${SITE_URL}${heroPhoto}`],
-    brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-    category: 'Snack & Food Processing Machinery',
-    material: 'SUS304/316L Stainless Steel',
-    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Processing Types', value: 'Continuous fryer, batch fryer, rotary roaster, seasoning tumbler' },
-      { '@type': 'PropertyValue', name: 'Capacity', value: '50–500 kg/hr' },
-      { '@type': 'PropertyValue', name: 'Products', value: 'Chips, nuts, extruded snacks, puffed food, pet food' },
-      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
-      { '@type': 'PropertyValue', name: 'Voltage Options', value: '220V/380V/480V, 50/60Hz, 3-phase' },
-      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
-      { '@type': 'PropertyValue', name: 'Lead Time', value: '45–90 days' },
-    ],
-    isRelatedTo: [
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine#product`, name: 'Pouch Packing Machine', url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/conveyor-system#product`, name: 'Conveyor & Automation Systems', url: `${SITE_URL}/${lang}/machines/conveyor-system`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-      { '@type': 'Product', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine#product`, name: 'Powder Filling Machine', url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' }, manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL } },
-    ],
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
-      url: `${SITE_URL}/${lang}/contact?machine=snack-processing-line`,
-    },
-    potentialAction: {
-      '@type': 'Action',
-      name: 'Request a Quote',
-      target: `${SITE_URL}/${lang}/contact?machine=snack-processing-line`,
-    },
-  }
+  const productSchema = buildProductSchema({ lang, slug: 'snack-processing-line', faq: t.faq })
 
   return (
     <>
