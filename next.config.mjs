@@ -21,5 +21,17 @@ const nextConfig = {
       // Legacy machine SEO pages are handled by middleware.ts (308 redirects with lang detection)
     ]
   },
+  async rewrites() {
+    // The production nginx proxy redirects non-locale paths to /en/*. Rewrite
+    // /:lang/management/* and /:lang/case-studies/* back to the flat non-locale
+    // app routes so the admin UI and public case-studies pages are reachable
+    // from /en/management/login, /zh/case-studies, etc.
+    return [
+      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/management', destination: '/management' },
+      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/management/:path*', destination: '/management/:path*' },
+      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies', destination: '/case-studies' },
+      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies/:slug', destination: '/case-studies/:slug' },
+    ]
+  },
 }
 export default nextConfig
