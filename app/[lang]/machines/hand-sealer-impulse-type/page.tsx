@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
+import { buildWuushengProductSchema } from '@/lib/productSchema'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/01_Hand_Sealer_Impulse_Type/Hand_Sealer_Impulse_Type.jpg'
@@ -328,19 +329,18 @@ export default async function HandSealerPage({ params }: { params: Promise<{ lan
   const { lang } = await params
   const t = content[lang] || content['en']
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const productSchema = buildWuushengProductSchema({
+    lang,
+    slug: 'hand-sealer-impulse-type',
     name: metaTitles[lang] || metaTitles.en,
     description: metaDescs[lang] || metaDescs.en,
     image: PRODUCT_IMAGE,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      seller: { '@type': 'Organization', name: 'SunGene' },
-    },
-  }
+    sku: 'WS-HAND-SEALER',
+    priceLow: 35,
+    priceHigh: 180,
+    offerCount: 4,
+    category: 'Impulse Heat Sealing Machines',
+  })
 
   return (
     <>

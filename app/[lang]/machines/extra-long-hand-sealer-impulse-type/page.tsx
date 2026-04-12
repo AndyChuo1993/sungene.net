@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildWuushengProductSchema } from '@/lib/productSchema'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/02_Extra_Long_Hand_Sealer_Impulse_Type/Extra_Long_Hand_Sealer_Impulse_Type.jpg'
@@ -326,15 +327,18 @@ export default async function ExtraLongHandSealerPage({ params }: { params: Prom
   const { lang } = await params
   const t = content[lang] || content['en']
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const productSchema = buildWuushengProductSchema({
+    lang,
+    slug: 'extra-long-hand-sealer-impulse-type',
     name: metaTitles[lang] || metaTitles.en,
     description: metaDescs[lang] || metaDescs.en,
     image: PRODUCT_IMAGE,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'SunGene' } },
-  }
+    sku: 'WS-EXTRA-LONG-SEALER',
+    priceLow: 80,
+    priceHigh: 280,
+    offerCount: 3,
+    category: 'Impulse Heat Sealing Machines',
+  })
 
   return (
     <>

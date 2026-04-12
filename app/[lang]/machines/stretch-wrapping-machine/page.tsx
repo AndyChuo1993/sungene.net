@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildWuushengProductSchema } from '@/lib/productSchema'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/14_Stretch_Wrapping_Machine/01_Stretch_Wrapping_Machine/Stretch_Wrapping_Machine.jpg'
@@ -337,15 +338,16 @@ export default async function StretchWrappingPage({ params }: { params: Promise<
   const { lang } = await params
   const t = content[lang] || content['en']
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const productSchema = buildWuushengProductSchema({
+    lang,
+    slug: 'stretch-wrapping-machine',
     name: metaTitles[lang] || metaTitles.en,
     description: metaDescs[lang] || metaDescs.en,
     image: PRODUCT_IMAGE,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'SunGene' } },
-  }
+    sku: 'WS-STRETCH-WRAPPER',
+    priceLow: 1500, priceHigh: 6000, offerCount: 4,
+    category: 'Stretch Wrapping Machines',
+  })
 
   return (
     <>

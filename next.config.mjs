@@ -8,6 +8,12 @@ const nextConfig = {
         hostname: 'lf-cdn.trae.ai',
         pathname: '/obj/**',
       },
+      {
+        // Wuu Sheng (吳勝) product CDN — used by sealing/wrapping machine pages
+        protocol: 'https',
+        hostname: 'img.mweb.com.tw',
+        pathname: '/thumb/**',
+      },
     ],
   },
   async redirects() {

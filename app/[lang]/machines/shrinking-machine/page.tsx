@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildWuushengProductSchema } from '@/lib/productSchema'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/03_Shrinking_Tunnel/01_Shrinking_Machine/Shrinking_Machine.jpg'
@@ -342,15 +343,16 @@ export default async function ShrinkingMachinePage({ params }: { params: Promise
   const { lang } = await params
   const t = content[lang] || content['en']
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const productSchema = buildWuushengProductSchema({
+    lang,
+    slug: 'shrinking-machine',
     name: metaTitles[lang] || metaTitles.en,
     description: metaDescs[lang] || metaDescs.en,
     image: PRODUCT_IMAGE,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'SunGene' } },
-  }
+    sku: 'WS-SHRINK-TUNNEL',
+    priceLow: 800, priceHigh: 5000, offerCount: 4,
+    category: 'Shrink Wrapping Machines',
+  })
 
   return (
     <>

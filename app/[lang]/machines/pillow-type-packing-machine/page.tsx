@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
+import { buildWuushengProductSchema } from '@/lib/productSchema'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/11_Horizontal_Packing_Mac/01_Pillow_Type_Packing_Machine/Pillow_Type_Packing_Machine.gif'
@@ -337,15 +338,16 @@ export default async function PillowPackingPage({ params }: { params: Promise<{ 
   const { lang } = await params
   const t = content[lang] || content['en']
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const productSchema = buildWuushengProductSchema({
+    lang,
+    slug: 'pillow-type-packing-machine',
     name: metaTitles[lang] || metaTitles.en,
     description: metaDescs[lang] || metaDescs.en,
     image: PRODUCT_IMAGE,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'SunGene' } },
-  }
+    sku: 'WS-PILLOW-PACKER',
+    priceLow: 5000, priceHigh: 25000, offerCount: 4,
+    category: 'Horizontal Packing Machines',
+  })
 
   return (
     <>

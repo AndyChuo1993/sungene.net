@@ -248,21 +248,9 @@ export function buildProductSchema(opts: {
         target: contactUrl,
       },
     ],
-    ...(opts.faq && opts.faq.length > 0
-      ? {
-          // Nested FAQ for extra semantic richness — the page also has a
-          // standalone FAQPage node.
-          subjectOf: {
-            '@type': 'FAQPage',
-            inLanguage: LANG_META[lang].htmlLang,
-            mainEntity: opts.faq.map((it) => ({
-              '@type': 'Question',
-              name: it.q,
-              acceptedAnswer: { '@type': 'Answer', text: it.a },
-            })),
-          },
-        }
-      : {}),
+    // NOTE: FAQPage is emitted as a standalone top-level schema node by each
+    // machine page — adding it here as subjectOf caused duplicate FAQPage
+    // errors in Google Search Console. Do not re-add.
     // Real customer reviews → unlock Google star-rating SERP snippet.
     // Only emitted when the admin has published at least 1 testimonial for
     // this machine — we never fake.
@@ -280,5 +268,111 @@ export function buildProductSchema(opts: {
     ...(opts.videos && opts.videos.length > 0
       ? { video: buildVideoNodes(opts.videos) }
       : {}),
+  }
+}
+
+// ─── Wuu Sheng partner products schema ───────────────────────────────────────
+
+export interface WuushengProductOpts {
+  lang: string
+  slug: string
+  name: string
+  description: string
+  image: string
+  /** Additional product image URLs */
+  extraImages?: string[]
+  sku: string
+  /** Realistic low/high USD price band for AggregateOffer */
+  priceLow: number
+  priceHigh: number
+  offerCount?: number
+  category: string
+}
+
+/**
+ * Google-compliant Product schema for Wuu Sheng partner sealing/packaging
+ * products. Satisfies all required + recommended merchant-listing fields:
+ * offers.price, offers.shippingDetails, hasMerchantReturnPolicy.
+ * Does NOT include aggregateRating/review — only emitted when real data exists.
+ */
+export function buildWuushengProductSchema(opts: WuushengProductOpts) {
+  const pageUrl = `${SITE_URL}/${opts.lang}/machines/${opts.slug}`
+  const contactUrl = `${SITE_URL}/${opts.lang}/contact?machine=${opts.slug}`
+  const images = [opts.image, ...(opts.extraImages ?? [])]
+  const validUntil = `${new Date().getFullYear() + 1}-12-31`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': `${pageUrl}#product`,
+    name: opts.name,
+    description: opts.description,
+    url: pageUrl,
+    image: images,
+    sku: opts.sku,
+    mpn: opts.sku,
+    category: opts.category,
+    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Wuu Sheng Enterprise Co., Ltd.',
+      url: 'https://www.wuusheng.com.tw',
+      address: { '@type': 'PostalAddress', addressCountry: 'TW' },
+    },
+    countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
+    // AggregateOffer satisfies Google merchant listing price requirement.
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: opts.priceLow,
+      highPrice: opts.priceHigh,
+      offerCount: opts.offerCount ?? 2,
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      priceValidUntil: validUntil,
+      url: contactUrl,
+      seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
+      // Required: shippingDetails
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingDestination: { '@type': 'DefinedRegion', name: 'Worldwide' },
+        shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'USD' },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 7,
+            maxValue: 21,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 7,
+            maxValue: 30,
+            unitCode: 'DAY',
+          },
+        },
+      },
+    },
+    // Required: hasMerchantReturnPolicy
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      applicableCountry: 'TW',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+      merchantReturnLink: contactUrl,
+    },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Origin', value: 'Taiwan' },
+      { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
+      { '@type': 'PropertyValue', name: 'Lead Time', value: '7–21 days' },
+      { '@type': 'PropertyValue', name: 'Voltage', value: '110V / 220V, 50/60 Hz' },
+      { '@type': 'PropertyValue', name: 'Payment Terms', value: 'T/T or L/C at sight' },
+      { '@type': 'PropertyValue', name: 'Shipping', value: 'FOB Taiwan or CIF any port' },
+    ],
+    potentialAction: {
+      '@type': 'BuyAction',
+      name: 'Request a Quote',
+      target: contactUrl,
+    },
   }
 }
