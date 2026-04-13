@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
   }
 
   async function remove(id: string) {
-    if (!confirm('Delete this testimonial?')) return
+    if (!confirm('確定要刪除此客戶評價？')) return
     const sb = getSupabaseBrowser()
     if (!sb) return
     const { error } = await sb.from('testimonials').delete().eq('id', id)
@@ -99,9 +99,9 @@ export default function TestimonialsPage() {
       <div className="p-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-950">Testimonials</h1>
+            <h1 className="text-2xl font-bold text-gray-950">客戶評價</h1>
             <p className="mt-1 text-sm text-gray-500">
-              Published testimonials generate Review + AggregateRating schema on machine pages.
+              已發布的評價會自動在對應機器頁面加入 Review + AggregateRating 結構化資料。
             </p>
           </div>
           <button
@@ -109,15 +109,15 @@ export default function TestimonialsPage() {
             onClick={() => setEditing({ mode: 'new', published: false, rating: 5 })}
             className="rounded-lg bg-accent-600 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-500"
           >
-            + New testimonial
+            ＋ 新增評價
           </button>
         </div>
 
         {loading ? (
-          <div className="mt-10 text-center text-sm text-gray-500">Loading…</div>
+          <div className="mt-10 text-center text-sm text-gray-500">載入中…</div>
         ) : items.length === 0 ? (
           <div className="mt-10 rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center text-sm text-gray-500">
-            No testimonials yet. Click &quot;New testimonial&quot; to add the first real customer quote.
+            尚無客戶評價。點擊「新增評價」來新增第一筆真實客戶評語。
           </div>
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -131,20 +131,20 @@ export default function TestimonialsPage() {
                     </div>
                   </div>
                   <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${t.published ? 'bg-green-100 text-green-800' : 'bg-gray-200 text-gray-700'}`}>
-                    {t.published ? 'Published' : 'Draft'}
+                    {t.published ? '已發布' : '草稿'}
                   </span>
                 </div>
                 {t.rating ? <div className="mt-2 text-sm text-amber-500">{'★'.repeat(t.rating)}{'☆'.repeat(5 - t.rating)}</div> : null}
                 <p className="mt-3 line-clamp-4 text-sm text-gray-700">{t.body_en}</p>
                 <div className="mt-3 text-xs text-gray-500">
-                  {[t.machine_slug, t.industry_slug, t.market_slug].filter(Boolean).join(' · ') || 'No tags'}
+                  {[t.machine_slug, t.industry_slug, t.market_slug].filter(Boolean).join(' · ') || '無標籤'}
                 </div>
                 <div className="mt-4 flex gap-2 text-xs">
-                  <button type="button" onClick={() => setEditing({ ...t, mode: 'edit' })} className="rounded-lg bg-gray-100 px-3 py-1.5 font-semibold text-gray-700 hover:bg-gray-200">Edit</button>
+                  <button type="button" onClick={() => setEditing({ ...t, mode: 'edit' })} className="rounded-lg bg-gray-100 px-3 py-1.5 font-semibold text-gray-700 hover:bg-gray-200">編輯</button>
                   <button type="button" onClick={() => togglePublished(t)} className="rounded-lg bg-accent-100 px-3 py-1.5 font-semibold text-accent-700 hover:bg-accent-200">
-                    {t.published ? 'Unpublish' : 'Publish'}
+                    {t.published ? '取消發布' : '發布'}
                   </button>
-                  <button type="button" onClick={() => remove(t.id)} className="rounded-lg bg-red-50 px-3 py-1.5 font-semibold text-red-700 hover:bg-red-100">Delete</button>
+                  <button type="button" onClick={() => remove(t.id)} className="rounded-lg bg-red-50 px-3 py-1.5 font-semibold text-red-700 hover:bg-red-100">刪除</button>
                 </div>
               </div>
             ))}
@@ -179,23 +179,23 @@ function EditDrawer({
     <div className="fixed inset-0 z-50 flex items-stretch justify-end bg-black/30">
       <div className="h-full w-full max-w-lg overflow-y-auto bg-white shadow-2xl">
         <div className="sticky top-0 flex items-center justify-between border-b border-gray-200 bg-white p-5">
-          <h2 className="text-base font-bold text-gray-950">{state.mode === 'new' ? 'New testimonial' : 'Edit testimonial'}</h2>
+          <h2 className="text-base font-bold text-gray-950">{state.mode === 'new' ? '新增客戶評價' : '編輯客戶評價'}</h2>
           <button type="button" onClick={onClose} className="rounded-full p-2 text-gray-500 hover:bg-gray-100">✕</button>
         </div>
 
         <div className="space-y-4 p-5">
-          <Input label="Author name *" value={state.author_name} onChange={(v) => onChange({ ...state, author_name: v })} />
-          <Input label="Role / title" value={state.author_role} onChange={(v) => onChange({ ...state, author_role: v })} />
-          <Input label="Company" value={state.author_company} onChange={(v) => onChange({ ...state, author_company: v })} />
-          <Input label="Country" value={state.author_country} onChange={(v) => onChange({ ...state, author_country: v })} />
-          <Input label="Photo URL (optional)" value={state.author_photo_url} onChange={(v) => onChange({ ...state, author_photo_url: v })} />
+          <Input label="作者姓名 *" value={state.author_name} onChange={(v) => onChange({ ...state, author_name: v })} />
+          <Input label="職稱／角色" value={state.author_role} onChange={(v) => onChange({ ...state, author_role: v })} />
+          <Input label="公司名稱" value={state.author_company} onChange={(v) => onChange({ ...state, author_company: v })} />
+          <Input label="國家" value={state.author_country} onChange={(v) => onChange({ ...state, author_country: v })} />
+          <Input label="照片 URL（選填）" value={state.author_photo_url} onChange={(v) => onChange({ ...state, author_photo_url: v })} />
 
-          <Textarea label="Testimonial text (English) *" value={state.body_en} onChange={(v) => onChange({ ...state, body_en: v })} rows={5} />
-          <Textarea label="Native language version (optional)" value={state.body_native} onChange={(v) => onChange({ ...state, body_native: v })} rows={3} />
-          <Input label="Native language code (e.g. vi, ar)" value={state.body_native_lang} onChange={(v) => onChange({ ...state, body_native_lang: v })} />
+          <Textarea label="評價內容（英文）*" value={state.body_en} onChange={(v) => onChange({ ...state, body_en: v })} rows={5} />
+          <Textarea label="母語版本（選填）" value={state.body_native} onChange={(v) => onChange({ ...state, body_native: v })} rows={3} />
+          <Input label="母語語言代碼（如 vi、ar）" value={state.body_native_lang} onChange={(v) => onChange({ ...state, body_native_lang: v })} />
 
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-gray-700">Rating</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-gray-700">評分</div>
             <div className="mt-2 flex gap-2">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
@@ -210,23 +210,23 @@ function EditDrawer({
             </div>
           </div>
 
-          <Select label="Machine" options={MACHINE_OPTIONS} value={state.machine_slug} onChange={(v) => onChange({ ...state, machine_slug: v })} />
-          <Select label="Industry" options={INDUSTRY_OPTIONS} value={state.industry_slug} onChange={(v) => onChange({ ...state, industry_slug: v })} />
-          <Input label="Market slug (e.g. vietnam)" value={state.market_slug} onChange={(v) => onChange({ ...state, market_slug: v })} />
-          <Input label="Machine model" value={state.machine_model} onChange={(v) => onChange({ ...state, machine_model: v })} />
-          <Input label="Purchase year" type="number" value={state.purchase_year?.toString()} onChange={(v) => onChange({ ...state, purchase_year: v ? Number(v) : null })} />
+          <Select label="機器" options={MACHINE_OPTIONS} value={state.machine_slug} onChange={(v) => onChange({ ...state, machine_slug: v })} />
+          <Select label="產業" options={INDUSTRY_OPTIONS} value={state.industry_slug} onChange={(v) => onChange({ ...state, industry_slug: v })} />
+          <Input label="市場代碼（如 vietnam）" value={state.market_slug} onChange={(v) => onChange({ ...state, market_slug: v })} />
+          <Input label="機器型號" value={state.machine_model} onChange={(v) => onChange({ ...state, machine_model: v })} />
+          <Input label="購買年份" type="number" value={state.purchase_year?.toString()} onChange={(v) => onChange({ ...state, purchase_year: v ? Number(v) : null })} />
 
           <label className="flex items-center gap-2 pt-3">
             <input type="checkbox" checked={!!state.published} onChange={(e) => onChange({ ...state, published: e.target.checked })} className="h-4 w-4" />
-            <span className="text-sm font-semibold text-gray-800">Published (visible on public site)</span>
+            <span className="text-sm font-semibold text-gray-800">已發布（顯示於公開網站）</span>
           </label>
 
           <div className="flex gap-3 pt-4">
             <button type="button" onClick={() => onSave(state)} className="flex-1 rounded-lg bg-accent-600 px-4 py-3 text-sm font-semibold text-white hover:bg-accent-500">
-              Save
+              儲存
             </button>
             <button type="button" onClick={onClose} className="rounded-lg bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200">
-              Cancel
+              取消
             </button>
           </div>
         </div>
@@ -270,7 +270,7 @@ function Select({ label, options, value, onChange }: { label: string; options: s
         onChange={(e) => onChange(e.target.value)}
         className="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
       >
-        {options.map((o) => <option key={o} value={o}>{o || '— none —'}</option>)}
+        {options.map((o) => <option key={o} value={o}>{o || '— 無 —'}</option>)}
       </select>
     </label>
   )

@@ -5,13 +5,13 @@ import { getSupabaseBrowser } from '@/lib/supabase'
 import type { Inquiry, InquiryStatus } from '@/lib/supabase.types'
 
 const STATUS_LABELS: Record<InquiryStatus, { label: string; className: string }> = {
-  new:        { label: 'New',        className: 'bg-accent-100 text-accent-800' },
-  contacted:  { label: 'Contacted',  className: 'bg-blue-100 text-blue-800' },
-  qualified:  { label: 'Qualified',  className: 'bg-purple-100 text-purple-800' },
-  quoted:     { label: 'Quoted',     className: 'bg-amber-100 text-amber-800' },
-  won:        { label: 'Won',        className: 'bg-green-100 text-green-800' },
-  lost:       { label: 'Lost',       className: 'bg-gray-200 text-gray-700' },
-  spam:       { label: 'Spam',       className: 'bg-red-100 text-red-700' },
+  new:        { label: '新進',    className: 'bg-accent-100 text-accent-800' },
+  contacted:  { label: '已聯繫', className: 'bg-blue-100 text-blue-800' },
+  qualified:  { label: '已確認', className: 'bg-purple-100 text-purple-800' },
+  quoted:     { label: '已報價', className: 'bg-amber-100 text-amber-800' },
+  won:        { label: '已成交', className: 'bg-green-100 text-green-800' },
+  lost:       { label: '未成交', className: 'bg-gray-200 text-gray-700' },
+  spam:       { label: '垃圾',   className: 'bg-red-100 text-red-700' },
 }
 
 export default function InquiriesPage() {
@@ -70,9 +70,9 @@ export default function InquiriesPage() {
       <div className="p-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-950">Inquiries</h1>
+            <h1 className="text-2xl font-bold text-gray-950">詢價管理</h1>
             <p className="mt-1 text-sm text-gray-500">
-              {inquiries.length} inquiries {filter !== 'all' ? `(filtered: ${filter})` : ''}
+              共 {inquiries.length} 筆詢價 {filter !== 'all' ? `（篩選：${STATUS_LABELS[filter as InquiryStatus]?.label ?? filter}）` : ''}
             </p>
           </div>
           <select
@@ -80,34 +80,34 @@ export default function InquiriesPage() {
             onChange={(e) => setFilter(e.target.value as InquiryStatus | 'all')}
             className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
           >
-            <option value="all">All statuses</option>
-            <option value="new">New</option>
-            <option value="contacted">Contacted</option>
-            <option value="qualified">Qualified</option>
-            <option value="quoted">Quoted</option>
-            <option value="won">Won</option>
-            <option value="lost">Lost</option>
-            <option value="spam">Spam</option>
+            <option value="all">全部狀態</option>
+            <option value="new">新進</option>
+            <option value="contacted">已聯繫</option>
+            <option value="qualified">已確認</option>
+            <option value="quoted">已報價</option>
+            <option value="won">已成交</option>
+            <option value="lost">未成交</option>
+            <option value="spam">垃圾</option>
           </select>
         </div>
 
         {loading ? (
-          <div className="mt-10 text-center text-sm text-gray-500">Loading…</div>
+          <div className="mt-10 text-center text-sm text-gray-500">載入中…</div>
         ) : inquiries.length === 0 ? (
           <div className="mt-10 rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center">
-            <div className="text-sm text-gray-500">No inquiries yet for this filter.</div>
+            <div className="text-sm text-gray-500">此篩選條件目前沒有詢價紀錄。</div>
           </div>
         ) : (
           <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white">
             <table className="min-w-full divide-y divide-gray-200 text-sm">
               <thead className="bg-gray-50">
                 <tr>
-                  <Th>Date</Th>
-                  <Th>Name / Company</Th>
-                  <Th>Contact</Th>
-                  <Th>Source</Th>
-                  <Th>Context</Th>
-                  <Th>Status</Th>
+                  <Th>日期</Th>
+                  <Th>姓名／公司</Th>
+                  <Th>聯絡方式</Th>
+                  <Th>來源</Th>
+                  <Th>背景</Th>
+                  <Th>狀態</Th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -197,19 +197,19 @@ function InquiryDrawer({
         </div>
 
         <div className="space-y-5 p-5">
-          <Field label="Email" value={inquiry.email} link={`mailto:${inquiry.email}`} />
-          {inquiry.phone ? <Field label="Phone / WhatsApp" value={inquiry.phone} link={`https://wa.me/${inquiry.phone.replace(/[^\d]/g, '')}`} /> : null}
-          {inquiry.company ? <Field label="Company" value={inquiry.company} /> : null}
-          {inquiry.country ? <Field label="Country" value={inquiry.country} /> : null}
-          <Field label="Type" value={inquiry.type} />
-          {inquiry.source ? <Field label="Source" value={inquiry.source} /> : null}
-          {inquiry.context ? <Field label="Context" value={inquiry.context} /> : null}
-          {inquiry.target_output ? <Field label="Target output" value={inquiry.target_output} /> : null}
-          {inquiry.message ? <Field label="Message" value={inquiry.message} multiline /> : null}
-          {inquiry.page_url ? <Field label="Page URL" value={inquiry.page_url} link={inquiry.page_url} /> : null}
+          <Field label="電子郵件" value={inquiry.email} link={`mailto:${inquiry.email}`} />
+          {inquiry.phone ? <Field label="電話／WhatsApp" value={inquiry.phone} link={`https://wa.me/${inquiry.phone.replace(/[^\d]/g, '')}`} /> : null}
+          {inquiry.company ? <Field label="公司" value={inquiry.company} /> : null}
+          {inquiry.country ? <Field label="國家" value={inquiry.country} /> : null}
+          <Field label="類型" value={inquiry.type} />
+          {inquiry.source ? <Field label="來源" value={inquiry.source} /> : null}
+          {inquiry.context ? <Field label="背景描述" value={inquiry.context} /> : null}
+          {inquiry.target_output ? <Field label="目標產量" value={inquiry.target_output} /> : null}
+          {inquiry.message ? <Field label="訊息內容" value={inquiry.message} multiline /> : null}
+          {inquiry.page_url ? <Field label="來源頁面" value={inquiry.page_url} link={inquiry.page_url} /> : null}
           {inquiry.extra && Object.keys(inquiry.extra).length > 0 ? (
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Additional</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-gray-500">其他資訊</div>
               <pre className="mt-1 whitespace-pre-wrap rounded-lg bg-gray-50 p-3 text-xs text-gray-700">
                 {JSON.stringify(inquiry.extra, null, 2)}
               </pre>
@@ -217,7 +217,7 @@ function InquiryDrawer({
           ) : null}
 
           <div className="border-t border-gray-200 pt-5">
-            <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Status</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-gray-500">狀態</div>
             <div className="mt-2 flex flex-wrap gap-2">
               {(Object.keys(STATUS_LABELS) as InquiryStatus[]).map((s) => (
                 <button
@@ -237,20 +237,20 @@ function InquiryDrawer({
           </div>
 
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Internal notes</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-gray-500">內部備註</div>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={4}
               className="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30"
-              placeholder="Follow-up notes, deal size estimate, etc."
+              placeholder="後續跟進備註、預估訂單規模等..."
             />
             <button
               type="button"
               onClick={() => onSaveNotes(notes)}
               className="mt-2 rounded-lg bg-accent-600 px-4 py-2 text-xs font-semibold text-white hover:bg-accent-500"
             >
-              Save notes
+              儲存備註
             </button>
           </div>
         </div>
@@ -280,8 +280,8 @@ function Field({ label, value, link, multiline }: { label: string; value: string
   )
 }
 function fmtDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  return new Date(iso).toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' })
 }
 function fmtTime(iso: string) {
-  return new Date(iso).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+  return new Date(iso).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })
 }

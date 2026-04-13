@@ -43,7 +43,7 @@ export default function VideosPage() {
     if (!sb) return
     const videoId = extractYouTubeId(state.external_id || '')
     if (!videoId && state.platform === 'youtube') {
-      alert('Invalid YouTube URL or video ID')
+      alert('無效的 YouTube 網址或影片 ID')
       return
     }
     const payload = {
@@ -71,7 +71,7 @@ export default function VideosPage() {
   }
 
   async function remove(id: string) {
-    if (!confirm('Delete this video?')) return
+    if (!confirm('確定要刪除此影片？')) return
     const sb = getSupabaseBrowser()
     if (!sb) return
     await sb.from('videos').delete().eq('id', id)
@@ -90,9 +90,9 @@ export default function VideosPage() {
       <div className="p-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-950">Videos</h1>
+            <h1 className="text-2xl font-bold text-gray-950">影片管理</h1>
             <p className="mt-1 text-sm text-gray-500">
-              Published videos generate VideoObject schema on machine pages.
+              已發布的影片會在對應機器頁面加入 VideoObject 結構化資料。
             </p>
           </div>
           <button
@@ -100,15 +100,15 @@ export default function VideosPage() {
             onClick={() => setEditing({ mode: 'new', platform: 'youtube', published: false })}
             className="rounded-lg bg-accent-600 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-500"
           >
-            + New video
+            ＋ 新增影片
           </button>
         </div>
 
         {loading ? (
-          <div className="mt-10 text-center text-sm text-gray-500">Loading…</div>
+          <div className="mt-10 text-center text-sm text-gray-500">載入中…</div>
         ) : items.length === 0 ? (
           <div className="mt-10 rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center text-sm text-gray-500">
-            No videos yet. Upload a FAT video to YouTube and paste the URL here.
+            尚無影片。請先將工廠驗收影片上傳至 YouTube，再將網址貼到此處。
           </div>
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -118,24 +118,24 @@ export default function VideosPage() {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={v.thumbnail_url} alt={v.title} className="aspect-video w-full object-cover" />
                 ) : (
-                  <div className="flex aspect-video w-full items-center justify-center bg-gray-100 text-gray-400 text-xs">No thumbnail</div>
+                  <div className="flex aspect-video w-full items-center justify-center bg-gray-100 text-gray-400 text-xs">無縮圖</div>
                 )}
                 <div className="p-4">
                   <div className="flex items-center justify-between">
                     <h3 className="line-clamp-2 text-sm font-semibold text-gray-950">{v.title}</h3>
                     <span className={`ml-2 shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${v.published ? 'bg-green-100 text-green-800' : 'bg-gray-200 text-gray-700'}`}>
-                      {v.published ? 'Live' : 'Draft'}
+                      {v.published ? '已上線' : '草稿'}
                     </span>
                   </div>
                   <div className="mt-2 text-xs text-gray-500">
-                    {v.machine_slug || v.industry_slug || 'Untagged'} · {v.platform}:{v.external_id}
+                    {v.machine_slug || v.industry_slug || '未標記'} · {v.platform}:{v.external_id}
                   </div>
                   <div className="mt-3 flex gap-2 text-xs">
-                    <button onClick={() => setEditing({ ...v, mode: 'edit' })} className="rounded-lg bg-gray-100 px-3 py-1.5 font-semibold text-gray-700 hover:bg-gray-200">Edit</button>
+                    <button onClick={() => setEditing({ ...v, mode: 'edit' })} className="rounded-lg bg-gray-100 px-3 py-1.5 font-semibold text-gray-700 hover:bg-gray-200">編輯</button>
                     <button onClick={() => togglePublished(v)} className="rounded-lg bg-accent-100 px-3 py-1.5 font-semibold text-accent-700 hover:bg-accent-200">
-                      {v.published ? 'Unpublish' : 'Publish'}
+                      {v.published ? '取消發布' : '發布'}
                     </button>
-                    <button onClick={() => remove(v.id)} className="rounded-lg bg-red-50 px-3 py-1.5 font-semibold text-red-700 hover:bg-red-100">Delete</button>
+                    <button onClick={() => remove(v.id)} className="rounded-lg bg-red-50 px-3 py-1.5 font-semibold text-red-700 hover:bg-red-100">刪除</button>
                   </div>
                 </div>
               </div>
@@ -147,43 +147,43 @@ export default function VideosPage() {
           <div className="fixed inset-0 z-50 flex items-stretch justify-end bg-black/30">
             <div className="h-full w-full max-w-lg overflow-y-auto bg-white shadow-2xl">
               <div className="sticky top-0 flex items-center justify-between border-b border-gray-200 bg-white p-5">
-                <h2 className="text-base font-bold text-gray-950">{editing.mode === 'new' ? 'New video' : 'Edit video'}</h2>
+                <h2 className="text-base font-bold text-gray-950">{editing.mode === 'new' ? '新增影片' : '編輯影片'}</h2>
                 <button onClick={() => setEditing(null)} className="rounded-full p-2 text-gray-500 hover:bg-gray-100">✕</button>
               </div>
               <div className="space-y-4 p-5">
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Title *</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">標題 *</span>
                   <input value={editing.title || ''} onChange={(e) => setEditing({ ...editing, title: e.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
                 </label>
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">YouTube URL or Video ID *</span>
-                  <input value={editing.external_id || ''} onChange={(e) => setEditing({ ...editing, external_id: e.target.value })} placeholder="https://youtube.com/watch?v=... or 11-char ID" className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">YouTube 網址或影片 ID *</span>
+                  <input value={editing.external_id || ''} onChange={(e) => setEditing({ ...editing, external_id: e.target.value })} placeholder="https://youtube.com/watch?v=... 或 11 碼 ID" className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
                 </label>
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Description</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">說明</span>
                   <textarea value={editing.description || ''} onChange={(e) => setEditing({ ...editing, description: e.target.value })} rows={3} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
                 </label>
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Machine</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">機器</span>
                   <select value={editing.machine_slug || ''} onChange={(e) => setEditing({ ...editing, machine_slug: e.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
-                    {MACHINE_OPTIONS.map((o) => <option key={o} value={o}>{o || '— none —'}</option>)}
+                    {MACHINE_OPTIONS.map((o) => <option key={o} value={o}>{o || '— 無 —'}</option>)}
                   </select>
                 </label>
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Duration (seconds)</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">時長（秒）</span>
                   <input type="number" value={editing.duration_seconds ?? ''} onChange={(e) => setEditing({ ...editing, duration_seconds: e.target.value ? Number(e.target.value) : null })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
                 </label>
                 <label className="block">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Upload date</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-700">上傳日期</span>
                   <input type="date" value={editing.upload_date || ''} onChange={(e) => setEditing({ ...editing, upload_date: e.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
                 </label>
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={!!editing.published} onChange={(e) => setEditing({ ...editing, published: e.target.checked })} className="h-4 w-4" />
-                  <span className="text-sm font-semibold text-gray-800">Published</span>
+                  <span className="text-sm font-semibold text-gray-800">已發布</span>
                 </label>
                 <div className="flex gap-3 pt-4">
-                  <button onClick={() => save(editing)} className="flex-1 rounded-lg bg-accent-600 px-4 py-3 text-sm font-semibold text-white hover:bg-accent-500">Save</button>
-                  <button onClick={() => setEditing(null)} className="rounded-lg bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200">Cancel</button>
+                  <button onClick={() => save(editing)} className="flex-1 rounded-lg bg-accent-600 px-4 py-3 text-sm font-semibold text-white hover:bg-accent-500">儲存</button>
+                  <button onClick={() => setEditing(null)} className="rounded-lg bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200">取消</button>
                 </div>
               </div>
             </div>

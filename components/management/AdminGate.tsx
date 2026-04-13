@@ -60,7 +60,7 @@ export default function AdminGate({ children }: { children: ReactNode }) {
   if (session === 'loading') {
     return (
       <div className="flex min-h-screen items-center justify-center text-sm text-gray-500">
-        Loading…
+        載入中…
       </div>
     )
   }
@@ -74,14 +74,14 @@ export default function AdminGate({ children }: { children: ReactNode }) {
       <aside className="hidden w-60 flex-col border-r border-gray-200 bg-white md:flex">
         <div className="border-b border-gray-200 p-5">
           <div className="text-lg font-bold text-gray-950">SunGene</div>
-          <div className="text-xs text-gray-500">Admin</div>
+          <div className="text-xs text-gray-500">後台管理</div>
         </div>
         <nav className="flex-1 space-y-1 p-3">
-          <NavLink href="/management" label="Dashboard" />
-          <NavLink href="/management/inquiries" label="Inquiries" />
-          <NavLink href="/management/testimonials" label="Testimonials" />
-          <NavLink href="/management/case-studies" label="Case Studies" />
-          <NavLink href="/management/videos" label="Videos" />
+          <NavLink href="/management" label="儀表板" />
+          <NavLink href="/management/inquiries" label="詢價管理" />
+          <NavLink href="/management/testimonials" label="客戶評價" />
+          <NavLink href="/management/case-studies" label="案例研究" />
+          <NavLink href="/management/videos" label="影片管理" />
         </nav>
         <div className="border-t border-gray-200 p-4 text-xs">
           <div className="truncate text-gray-700" title={session.email}>
@@ -92,7 +92,7 @@ export default function AdminGate({ children }: { children: ReactNode }) {
             onClick={signOut}
             className="mt-2 text-gray-500 hover:text-gray-700"
           >
-            Sign out
+            登出
           </button>
         </div>
       </aside>
