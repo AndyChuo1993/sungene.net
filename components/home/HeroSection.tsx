@@ -7,9 +7,10 @@ import HeroCtaWrapper from '@/components/home/HeroCtaWrapper'
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'FIND THE RIGHT MACHINE FOR YOUR PRODUCT',
-      h1: 'Tell Us Your Product — We\'ll Match the Right Packaging & Processing Machine',
-      sub: 'Whether it\'s powder, liquid, granule, or snack — describe your product and production goals. Our engineering team will match you with the optimal machinery solution.',
+      kicker: 'INDUSTRIAL EQUIPMENT & TECH SOURCING',
+      h1: 'Industrial Equipment & Automation Sourcing across Taiwan and China',
+      sub: 'We don’t just supply machines — we help you make the right sourcing decisions before you commit capital.',
+      subSecondary: 'From packaging systems to automation components, we support sourcing conversations that need stronger fit, compatibility, and long-term reliability.',
       btnQuote: 'Send Your Product → Get Recommendation',
       btnCatalog: 'Browse All Machinery',
       stats: [
@@ -20,9 +21,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     cn: {
-      kicker: '为您的产品找到合适的机器',
-      h1: '告诉我们您的产品——我们为您匹配合适的包装与加工机械',
-      sub: '无论是粉末、液体、颗粒还是休闲食品——描述您的产品和生产目标，我们的工程团队将为您匹配最佳机械方案。',
+      kicker: '工业设备与技术采购',
+      h1: '台灣与中国工业设备与自动化采购支持',
+      sub: '我们不只是供应机器，而是在您投入资本之前，协助您做出更正确的采购判断。',
+      subSecondary: '从包装系统到自动化零组件，我们支持更重视适配性、兼容性与长期可靠性的采购沟通。',
       btnQuote: '发送产品信息 → 获取推荐',
       btnCatalog: '浏览所有机械',
       stats: [
@@ -33,9 +35,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     zh: {
-      kicker: '為您的產品找到合適的機器',
-      h1: '告訴我們您的產品——我們為您匹配合適的包裝與加工機械',
-      sub: '無論是粉末、液體、顆粒還是休閒食品——描述您的產品和生產目標，我們的工程團隊將為您匹配最佳機械方案。',
+      kicker: '工業設備與技術採購',
+      h1: '台灣與中國工業設備與自動化採購支援',
+      sub: '我們不只是供應機器，而是在您投入資本之前，協助您做出更正確的採購判斷。',
+      subSecondary: '從包裝系統到自動化零組件，我們支援更重視適配性、相容性與長期可靠性的採購溝通。',
       btnQuote: '發送產品資訊 → 取得推薦',
       btnCatalog: '瀏覽所有機械',
       stats: [
@@ -46,22 +49,24 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     fr: {
-      kicker: 'TROUVEZ LA BONNE MACHINE POUR VOTRE PRODUIT',
-      h1: 'Décrivez votre produit — Nous vous proposerons la machine d\'emballage et de traitement adaptée',
-      sub: 'Qu\'il s\'agisse de poudre, liquide, granulé ou snack — décrivez votre produit et vos objectifs de production. Notre équipe d\'ingénierie vous proposera la solution de machines optimale.',
+      kicker: 'ÉQUIPEMENTS INDUSTRIELS & SOURCING TECHNIQUE',
+      h1: "Sourcing d'équipements industriels et d'automatisation — Taïwan & Chine",
+      sub: "Nous ne livrons pas que des machines — nous vous aidons à prendre les bonnes décisions d'achat avant d'engager votre capital.",
+      subSecondary: "Des systèmes d'emballage aux composants d'automatisation, nous accompagnons les démarches de sourcing qui exigent compatibilité, intégration et fiabilité sur le long terme.",
       btnQuote: 'Envoyez votre produit → Obtenez une recommandation',
       btnCatalog: 'Parcourir toutes les machines',
       stats: [
         { value: '500+', label: 'Machines exportées' },
         { value: '50+', label: 'Pays desservis' },
-        { value: '15+', label: 'Années d\'expérience' },
+        { value: '15+', label: "Années d'expérience" },
         { value: '24/7', label: 'Support technique' },
       ]
     },
     es: {
-      kicker: 'ENCUENTRE LA MÁQUINA ADECUADA PARA SU PRODUCTO',
-      h1: 'Cuéntenos su producto — Le proponemos la máquina de empaque y proceso adecuada',
-      sub: 'Ya sea polvo, líquido, granulado o snack — describa su producto y sus objetivos de producción. Nuestro equipo de ingeniería le encontrará la solución de maquinaria óptima.',
+      kicker: 'EQUIPOS INDUSTRIALES & SOURCING TÉCNICO',
+      h1: 'Abastecimiento de equipos industriales y automatización — Taiwán & China',
+      sub: 'No solo suministramos máquinas — le ayudamos a tomar las decisiones de abastecimiento correctas antes de comprometer su capital.',
+      subSecondary: 'Desde sistemas de empaque hasta componentes de automatización, apoyamos conversaciones de sourcing que exigen compatibilidad, integración y confiabilidad a largo plazo.',
       btnQuote: 'Envíe su producto → Obtenga recomendación',
       btnCatalog: 'Ver toda la maquinaria',
       stats: [
@@ -72,9 +77,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     pt: {
-      kicker: 'ENCONTRE A MÁQUINA CERTA PARA O SEU PRODUTO',
-      h1: 'Conte-nos seu produto — Indicamos a máquina de embalagem e processamento ideal',
-      sub: 'Seja pó, líquido, grânulo ou snack — descreva seu produto e metas de produção. Nossa equipe de engenharia encontrará a solução de maquinário ideal para você.',
+      kicker: 'EQUIPAMENTOS INDUSTRIAIS & SOURCING TÉCNICO',
+      h1: 'Sourcing de equipamentos industriais e automação — Taiwan & China',
+      sub: 'Não apenas fornecemos máquinas — ajudamos você a tomar as decisões de abastecimento certas antes de comprometer capital.',
+      subSecondary: 'De sistemas de embalagem a componentes de automação, apoiamos conversas de sourcing que exigem compatibilidade, integração e confiabilidade a longo prazo.',
       btnQuote: 'Envie seu produto → Receba recomendação',
       btnCatalog: 'Ver todas as máquinas',
       stats: [
@@ -85,9 +91,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ko: {
-      kicker: '귀하의 제품에 맞는 기계를 찾아보세요',
-      h1: '생산 제품을 알려주세요 — 포장 및 가공 기계를 추천해 드립니다',
-      sub: '분말, 액체, 과립, 스낵 등 — 제품과 생산 목표를 설명해 주세요. 당사 엔지니어링 팀이 최적의 기계 솔루션을 매칭해 드립니다.',
+      kicker: '산업 장비 & 기술 소싱',
+      h1: '대만 & 중국 산업 장비 및 자동화 소싱',
+      sub: '단순히 기계를 공급하는 것이 아닙니다 — 자본을 투자하기 전에 올바른 조달 결정을 내릴 수 있도록 도와드립니다.',
+      subSecondary: '포장 시스템에서 자동화 부품까지, 적합성·호환성·장기 신뢰성을 중시하는 소싱 상담을 지원합니다.',
       btnQuote: '제품 정보 보내기 → 추천 받기',
       btnCatalog: '전체 기계 보기',
       stats: [
@@ -98,9 +105,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ja: {
-      kicker: 'あなたの製品に最適な機械を見つけましょう',
-      h1: '製品をお知らせください — 包装・加工に合う機械をご提案します',
-      sub: '粉末、液体、顆粒、スナック — 製品と生産目標をお伝えください。当社のエンジニアリングチームが最適な機械ソリューションをマッチングします。',
+      kicker: '産業機器 & 技術ソーシング',
+      h1: '台湾・中国における産業機器・自動化のソーシング',
+      sub: '機械を供給するだけでなく — 資本を投じる前に、最適な調達判断を支援します。',
+      subSecondary: '包装システムから自動化部品まで、適合性・互換性・長期的信頼性を重視するソーシング相談に対応します。',
       btnQuote: '製品情報を送信 → 提案を受ける',
       btnCatalog: 'すべての機械を見る',
       stats: [
@@ -111,9 +119,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     ar: {
-      kicker: 'اعثر على الماكينة المناسبة لمنتجك',
-      h1: 'أخبرنا عن منتجك — وسنقترح ماكينة التعبئة والتصنيع المناسبة',
-      sub: 'سواء كان مسحوقًا أو سائلًا أو حبيبات أو وجبات خفيفة — صف منتجك وأهداف الإنتاج. سيطابق فريقنا الهندسي الحل الأمثل للماكينات.',
+      kicker: 'معدات صناعية وتوريد تقني',
+      h1: 'توريد المعدات الصناعية والأتمتة — تايوان والصين',
+      sub: 'لا نوفر الآلات فحسب — نساعدك على اتخاذ قرارات التوريد الصحيحة قبل أن تلتزم برأس المال.',
+      subSecondary: 'من أنظمة التعبئة إلى مكونات الأتمتة، ندعم نقاشات التوريد التي تتطلب التوافق والتكامل والموثوقية على المدى البعيد.',
       btnQuote: 'أرسل معلومات منتجك → احصل على توصية',
       btnCatalog: 'تصفح جميع الآلات',
       stats: [
@@ -124,9 +133,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     th: {
-      kicker: 'ค้นหาเครื่องจักรที่เหมาะกับผลิตภัณฑ์ของคุณ',
-      h1: 'บอกเราเกี่ยวกับผลิตภัณฑ์ของคุณ — เราจะแนะนำเครื่องบรรจุและแปรรูปที่เหมาะสม',
-      sub: 'ไม่ว่าจะเป็นผง ของเหลว เม็ด หรือขนม — อธิบายผลิตภัณฑ์และเป้าหมายการผลิตของคุณ ทีมวิศวกรของเราจะจับคู่โซลูชันเครื่องจักรที่เหมาะสมที่สุด',
+      kicker: 'อุปกรณ์อุตสาหกรรม & การจัดหาเชิงเทคนิค',
+      h1: 'การจัดหาอุปกรณ์อุตสาหกรรมและระบบอัตโนมัติ — ไต้หวัน & จีน',
+      sub: 'เราไม่ได้แค่จัดหาเครื่องจักร — เราช่วยให้คุณตัดสินใจจัดซื้อที่ถูกต้องก่อนที่จะลงทุน',
+      subSecondary: 'ตั้งแต่ระบบบรรจุภัณฑ์ไปจนถึงชิ้นส่วนระบบอัตโนมัติ เราสนับสนุนการสนทนาด้านการจัดหาที่ต้องการความเหมาะสม ความเข้ากันได้ และความน่าเชื่อถือในระยะยาว',
       btnQuote: 'ส่งข้อมูลผลิตภัณฑ์ → รับคำแนะนำ',
       btnCatalog: 'ดูเครื่องจักรทั้งหมด',
       stats: [
@@ -137,9 +147,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     vi: {
-      kicker: 'TÌM ĐÚNG MÁY CHO SẢN PHẨM CỦA BẠN',
-      h1: 'Cho chúng tôi biết sản phẩm của bạn — Chúng tôi đề xuất máy đóng gói và chế biến phù hợp',
-      sub: 'Dù là bột, chất lỏng, hạt hay đồ ăn nhẹ — mô tả sản phẩm và mục tiêu sản xuất của bạn. Đội ngũ kỹ thuật sẽ ghép nối giải pháp máy móc tối ưu cho bạn.',
+      kicker: 'THIẾT BỊ CÔNG NGHIỆP & TÌM NGUỒN CUNG KỸ THUẬT',
+      h1: 'Tìm nguồn cung thiết bị công nghiệp và tự động hóa — Đài Loan & Trung Quốc',
+      sub: 'Chúng tôi không chỉ cung cấp máy móc — chúng tôi giúp bạn đưa ra quyết định tìm nguồn cung đúng đắn trước khi cam kết vốn.',
+      subSecondary: 'Từ hệ thống đóng gói đến linh kiện tự động hóa, chúng tôi hỗ trợ các cuộc thảo luận tìm nguồn cung đòi hỏi sự phù hợp, tương thích và độ tin cậy lâu dài.',
       btnQuote: 'Gửi thông tin sản phẩm → Nhận đề xuất',
       btnCatalog: 'Xem tất cả máy móc',
       stats: [
@@ -150,9 +161,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       ]
     },
     de: {
-      kicker: 'FINDEN SIE DIE RICHTIGE MASCHINE FÜR IHR PRODUKT',
-      h1: 'Beschreiben Sie Ihr Produkt — Wir empfehlen die passende Verpackungs- und Verarbeitungsmaschine',
-      sub: 'Ob Pulver, Flüssigkeit, Granulat oder Snack — beschreiben Sie Ihr Produkt und Ihre Produktionsziele. Unser Ingenieurteam wird die optimale Maschinenlösung für Sie finden.',
+      kicker: 'INDUSTRIEANLAGEN & TECHNISCHES SOURCING',
+      h1: 'Sourcing für Industrieanlagen und Automatisierung — Taiwan & China',
+      sub: 'Wir liefern nicht nur Maschinen — wir helfen Ihnen, die richtigen Beschaffungsentscheidungen vor der Kapitalinvestition zu treffen.',
+      subSecondary: 'Von Verpackungssystemen bis hin zu Automatisierungskomponenten unterstützen wir Sourcing-Gespräche, die Kompatibilität, Integration und langfristige Zuverlässigkeit erfordern.',
       btnQuote: 'Produkt senden → Empfehlung erhalten',
       btnCatalog: 'Alle Maschinen ansehen',
       stats: [
@@ -172,7 +184,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       <div className="absolute inset-0">
         <Image
           src={heroPhoto}
-          alt="SunGene machinery factory floor"
+          alt="SunGene supply network"
           fill
           priority
           sizes="100vw"
@@ -203,16 +215,21 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             </h1>
 
             {/* Sub */}
-            <p className="mt-6 text-lg leading-relaxed text-brand-300 max-w-xl">
+            <p className="mt-6 text-lg leading-relaxed text-brand-200 max-w-2xl">
               {t.sub}
             </p>
+            {t.subSecondary ? (
+              <p className="mt-4 text-base leading-relaxed text-brand-300 max-w-2xl">
+                {t.subSecondary}
+              </p>
+            ) : null}
 
             {/* CTAs */}
             <HeroCtaWrapper lang={lang} btnQuote={t.btnQuote} btnCatalog={t.btnCatalog} />
 
             {/* Trust badges */}
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-8">
-              {['CE Certified', 'ISO Quality', 'SUS304 Steel', 'Factory Direct'].map((badge) => (
+              {['CE Docs Support', 'ISO Quality', 'SUS304 Steel', 'Supplier Vetted'].map((badge) => (
                 <div key={badge} className="flex items-center gap-2 text-brand-300">
                   <svg className="h-4 w-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
                   <span className="text-sm font-medium">{badge}</span>
@@ -237,7 +254,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             <div className="mt-4 bg-brand-900/40 border border-white/10 rounded-xl p-4 flex items-center justify-between">
               <span className="text-xs text-brand-400 uppercase tracking-wider">Certifications</span>
               <div className="flex gap-3">
-                {['CE', 'ISO', 'SUS304'].map(c => (
+                {['CE Docs', 'ISO', 'SUS304'].map(c => (
                   <span key={c} className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded">{c}</span>
                 ))}
               </div>

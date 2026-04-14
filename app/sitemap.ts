@@ -34,6 +34,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.95))
   )
 
+  // Priority 0.8 - Wuu Sheng supplementary product pages
+  const wuushengPages = [
+    '/machines/vacuum-packing-machine',
+    '/machines/shrinking-machine',
+    '/machines/pillow-type-packing-machine',
+    '/machines/stretch-wrapping-machine',
+    '/machines/hand-sealer-impulse-type',
+    '/machines/foot-sealer-impulse-type',
+    '/machines/extra-long-hand-sealer-impulse-type',
+  ]
+  const wuushengSitemap = wuushengPages.flatMap(route =>
+    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.8))
+  )
+
   // Priority 0.9 - Conversion pages
   const conversionRoutes = [
     '/recommend',
@@ -108,6 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...homepages,
     ...machineSitemap,
+    ...wuushengSitemap,
     ...conversionSitemap,
     ...machinerySitemap,
     ...resourcesHubSitemap,

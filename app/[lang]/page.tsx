@@ -20,25 +20,240 @@ type PageParams = {
   params: Promise<{ lang?: string }>
 }
 
+const HOME_POSITIONING: Partial<Record<Lang, {
+  sourceKicker: string
+  sourceTitle: string
+  sourceIntro: string
+  sourceItems: string[]
+  beyondKicker: string
+  beyondTitle: string
+  beyondBody: string[]
+}>> = {
+  en: {
+    sourceKicker: 'What we source',
+    sourceTitle: 'A broader sourcing entry point for industrial and technical projects',
+    sourceIntro: 'We support sourcing conversations that start with machines and expand into adjacent industrial and technical requirements.',
+    sourceItems: [
+      'Packaging systems',
+      'Industrial equipment',
+      'Automation components',
+      'Selected tech-related sourcing',
+    ],
+    beyondKicker: 'Beyond machines',
+    beyondTitle: 'Position the website for more advanced sourcing conversations',
+    beyondBody: [
+      'Today, sourcing is no longer just about equipment.',
+      'It’s about integration, compatibility, and long-term reliability — especially in advanced industrial and technical environments.',
+    ],
+  },
+  zh: {
+    sourceKicker: '採購範圍',
+    sourceTitle: '為工業與技術型專案打開更寬的採購入口',
+    sourceIntro: '我們支援從機器開始、再延伸到周邊工業與技術需求的採購溝通。',
+    sourceItems: [
+      '包裝系統',
+      '工業設備',
+      '自動化零組件',
+      '特定技術相關採購',
+    ],
+    beyondKicker: '不只機器',
+    beyondTitle: '讓網站能承接更進階的採購對話',
+    beyondBody: [
+      '現在的採購，已經不只是買設備。',
+      '更關鍵的是整合性、相容性與長期可靠性，特別是在更進階的工業與技術環境中。',
+    ],
+  },
+  cn: {
+    sourceKicker: '采购范围',
+    sourceTitle: '为工业与技术型项目打开更宽的采购入口',
+    sourceIntro: '我们支持从机器开始、再延伸到周边工业与技术需求的采购沟通。',
+    sourceItems: [
+      '包装系统',
+      '工业设备',
+      '自动化零组件',
+      '特定技术相关采购',
+    ],
+    beyondKicker: '不只机器',
+    beyondTitle: '让网站可以承接更进阶的采购对话',
+    beyondBody: [
+      '今天，采购早已不只是买设备。',
+      '更关键的是整合性、兼容性与长期可靠性，特别是在更先进的工业与技术环境中。',
+    ],
+  },
+  fr: {
+    sourceKicker: 'Ce que nous sourcions',
+    sourceTitle: "Un point d'entrée sourcing plus large pour les projets industriels et techniques",
+    sourceIntro: "Nous accompagnons les démarches de sourcing qui démarrent par des machines et s'étendent aux besoins industriels et techniques adjacents.",
+    sourceItems: [
+      "Systèmes d'emballage",
+      'Équipements industriels',
+      "Composants d'automatisation",
+      'Sourcing technique sélectionné',
+    ],
+    beyondKicker: 'Au-delà des machines',
+    beyondTitle: 'Un partenaire de sourcing pour des conversations plus avancées',
+    beyondBody: [
+      "Aujourd'hui, le sourcing ne se limite plus à l'achat de matériel.",
+      "Ce qui compte, c'est l'intégration, la compatibilité et la fiabilité sur le long terme — en particulier dans les environnements industriels avancés.",
+    ],
+  },
+  es: {
+    sourceKicker: 'Lo que abastecemos',
+    sourceTitle: 'Un punto de entrada de sourcing más amplio para proyectos industriales y técnicos',
+    sourceIntro: 'Apoyamos conversaciones de sourcing que comienzan con máquinas y se expanden hacia necesidades industriales y técnicas adyacentes.',
+    sourceItems: [
+      'Sistemas de empaque',
+      'Equipos industriales',
+      'Componentes de automatización',
+      'Sourcing técnico seleccionado',
+    ],
+    beyondKicker: 'Más allá de las máquinas',
+    beyondTitle: 'Un socio de sourcing para conversaciones más avanzadas',
+    beyondBody: [
+      'Hoy en día, el abastecimiento ya no se trata solo de comprar equipos.',
+      'Se trata de integración, compatibilidad y confiabilidad a largo plazo — especialmente en entornos industriales avanzados.',
+    ],
+  },
+  pt: {
+    sourceKicker: 'O que fornecemos',
+    sourceTitle: 'Um ponto de entrada de sourcing mais amplo para projetos industriais e técnicos',
+    sourceIntro: 'Apoiamos conversas de sourcing que começam com máquinas e se expandem para necessidades industriais e técnicas adjacentes.',
+    sourceItems: [
+      'Sistemas de embalagem',
+      'Equipamentos industriais',
+      'Componentes de automação',
+      'Sourcing técnico selecionado',
+    ],
+    beyondKicker: 'Além das máquinas',
+    beyondTitle: 'Um parceiro de sourcing para conversas mais avançadas',
+    beyondBody: [
+      'Hoje, o sourcing não se resume mais à compra de equipamentos.',
+      'Trata-se de integração, compatibilidade e confiabilidade a longo prazo — especialmente em ambientes industriais avançados.',
+    ],
+  },
+  ko: {
+    sourceKicker: '조달 범위',
+    sourceTitle: '산업 및 기술 프로젝트를 위한 더 넓은 소싱 입구',
+    sourceIntro: '기계에서 시작해 인접한 산업 및 기술 요구사항으로 확장되는 소싱 대화를 지원합니다.',
+    sourceItems: [
+      '포장 시스템',
+      '산업 장비',
+      '자동화 부품',
+      '선별 기술 관련 소싱',
+    ],
+    beyondKicker: '기계 그 이상',
+    beyondTitle: '더 고도화된 소싱 대화를 위한 파트너',
+    beyondBody: [
+      '오늘날 소싱은 단순한 장비 구매가 아닙니다.',
+      '통합성, 호환성, 장기 신뢰성이 핵심입니다 — 특히 고도화된 산업 환경에서.',
+    ],
+  },
+  ja: {
+    sourceKicker: '調達範囲',
+    sourceTitle: '産業・技術プロジェクトのための幅広いソーシング入口',
+    sourceIntro: '機械から始まり、隣接する産業・技術ニーズへと広がるソーシング相談を支援します。',
+    sourceItems: [
+      '包装システム',
+      '産業機器',
+      '自動化部品',
+      '特定技術関連ソーシング',
+    ],
+    beyondKicker: '機械を超えて',
+    beyondTitle: 'より高度な調達対話のためのパートナー',
+    beyondBody: [
+      '今日の調達は、設備購入だけではありません。',
+      '統合性、互換性、長期的な信頼性が重要です — 特に高度な産業環境において。',
+    ],
+  },
+  ar: {
+    sourceKicker: 'نطاق التوريد',
+    sourceTitle: 'نقطة دخول توريد أوسع للمشاريع الصناعية والتقنية',
+    sourceIntro: 'ندعم محادثات التوريد التي تبدأ بالآلات وتمتد إلى المتطلبات الصناعية والتقنية المجاورة.',
+    sourceItems: [
+      'أنظمة التعبئة والتغليف',
+      'المعدات الصناعية',
+      'مكونات الأتمتة',
+      'توريد تقني مختار',
+    ],
+    beyondKicker: 'أبعد من الآلات',
+    beyondTitle: 'شريك توريد لمحادثات أكثر تقدماً',
+    beyondBody: [
+      'اليوم، التوريد لم يعد مجرد شراء معدات.',
+      'يتعلق الأمر بالتكامل والتوافق والموثوقية على المدى البعيد — خاصة في البيئات الصناعية المتقدمة.',
+    ],
+  },
+  th: {
+    sourceKicker: 'ขอบเขตการจัดหา',
+    sourceTitle: 'จุดเข้าการจัดหาที่กว้างขึ้นสำหรับโครงการอุตสาหกรรมและเทคนิค',
+    sourceIntro: 'เราสนับสนุนการสนทนาด้านการจัดหาที่เริ่มต้นจากเครื่องจักรและขยายไปสู่ความต้องการทางอุตสาหกรรมและเทคนิคที่เกี่ยวข้อง',
+    sourceItems: [
+      'ระบบบรรจุภัณฑ์',
+      'อุปกรณ์อุตสาหกรรม',
+      'ชิ้นส่วนระบบอัตโนมัติ',
+      'การจัดหาเชิงเทคนิคที่คัดสรร',
+    ],
+    beyondKicker: 'เกินกว่าแค่เครื่องจักร',
+    beyondTitle: 'พาร์ทเนอร์การจัดหาสำหรับการสนทนาขั้นสูง',
+    beyondBody: [
+      'ปัจจุบัน การจัดหาไม่ใช่แค่การซื้ออุปกรณ์อีกต่อไป',
+      'สิ่งสำคัญคือการบูรณาการ ความเข้ากันได้ และความน่าเชื่อถือในระยะยาว — โดยเฉพาะในสภาพแวดล้อมอุตสาหกรรมขั้นสูง',
+    ],
+  },
+  vi: {
+    sourceKicker: 'Phạm vi tìm nguồn cung',
+    sourceTitle: 'Điểm vào tìm nguồn cung rộng hơn cho các dự án công nghiệp và kỹ thuật',
+    sourceIntro: 'Chúng tôi hỗ trợ các cuộc thảo luận tìm nguồn cung bắt đầu từ máy móc và mở rộng sang các yêu cầu công nghiệp và kỹ thuật liên quan.',
+    sourceItems: [
+      'Hệ thống đóng gói',
+      'Thiết bị công nghiệp',
+      'Linh kiện tự động hóa',
+      'Tìm nguồn cung kỹ thuật được chọn lọc',
+    ],
+    beyondKicker: 'Hơn cả máy móc',
+    beyondTitle: 'Đối tác tìm nguồn cung cho các cuộc thảo luận nâng cao',
+    beyondBody: [
+      'Ngày nay, tìm nguồn cung không chỉ là mua thiết bị.',
+      'Điều quan trọng là tích hợp, tương thích và độ tin cậy lâu dài — đặc biệt trong môi trường công nghiệp tiên tiến.',
+    ],
+  },
+  de: {
+    sourceKicker: 'Was wir beschaffen',
+    sourceTitle: 'Ein breiterer Sourcing-Einstiegspunkt für industrielle und technische Projekte',
+    sourceIntro: 'Wir begleiten Sourcing-Gespräche, die bei Maschinen beginnen und sich auf angrenzende industrielle und technische Anforderungen ausweiten.',
+    sourceItems: [
+      'Verpackungssysteme',
+      'Industrieanlagen',
+      'Automatisierungskomponenten',
+      'Ausgewähltes technisches Sourcing',
+    ],
+    beyondKicker: 'Mehr als Maschinen',
+    beyondTitle: 'Ein Sourcing-Partner für fortgeschrittene Beschaffungsgespräche',
+    beyondBody: [
+      'Heute geht es beim Sourcing nicht mehr nur um den Kauf von Anlagen.',
+      'Es geht um Integration, Kompatibilität und langfristige Zuverlässigkeit — besonders in fortgeschrittenen industriellen Umgebungen.',
+    ],
+  },
+}
+
 const HOME_KEYWORDS: Record<Lang, string[]> = {
   en: [
-    'packaging machinery manufacturer', 'food processing equipment supplier', 'filling machine Taiwan',
-    'sealing machine exporter', 'VFFS packaging machine', 'powder packaging machine',
-    'liquid filling machine', 'automated production line', 'industrial machinery Taiwan',
-    'packaging equipment factory', 'food machinery supplier', 'custom machinery manufacturer',
-    'conveyor system supplier', 'granule packaging machine',
+    'industrial equipment sourcing', 'automation components sourcing', 'packaging systems supplier',
+    'technical sourcing support', 'industrial sourcing partner China', 'industrial sourcing Taiwan China',
+    'industrial equipment supplier', 'machinery sourcing partner', 'automation integration sourcing',
+    'packaging equipment sourcing', 'technical procurement partner', 'selected tech sourcing',
+    'industrial equipment Taiwan China sourcing',
   ],
-  zh: ['包裝機械製造商', '食品加工設備', '灌裝機', '封口機', '自動化生產線', '台灣機械出口'],
-  cn: ['包装机械制造商', '食品加工设备', '灌装机', '封口机', '自动化生产线', '台湾机械出口'],
-  fr: ['fabricant machines emballage', 'équipement transformation alimentaire', 'machine remplissage Taïwan', 'machine VFFS', 'ligne production automatisée', 'exportateur machines industrielles'],
-  es: ['fabricante maquinaria empaque', 'equipo procesamiento alimentos', 'máquina llenado Taiwán', 'máquina VFFS', 'línea producción automatizada', 'exportador maquinaria industrial'],
-  pt: ['fabricante máquinas embalagem', 'equipamento processamento alimentos', 'máquina envase Taiwan', 'máquina VFFS', 'linha produção automatizada', 'exportador maquinário industrial'],
-  ko: ['포장기계 제조업체', '식품가공장비', '충진기 대만', 'VFFS 포장기', '자동화 생산라인', '산업용 기계 대만'],
-  ja: ['包装機械メーカー', '食品加工機器', '充填機 台湾', 'VFFS包装機', '自動化生産ライン', '産業機械 台湾'],
+  zh: ['工業設備採購', '自動化零組件', '包裝系統', '技術採購支援', '中國採購合作夥伴', '台灣中國供應鏈'],
+  cn: ['工业设备采购', '自动化零组件', '包装系统', '技术采购支持', '中国采购合作伙伴', '台湾中国供应链'],
+  fr: ['partenaire de sourcing', 'machines d’emballage', 'équipement agroalimentaire', 'machine de remplissage Taïwan', 'machine VFFS', 'ligne automatisée', 'exportateur taïwanais'],
+  es: ['socio de abastecimiento', 'maquinaria de empaque', 'equipo de procesamiento de alimentos', 'máquina de llenado Taiwán', 'máquina VFFS', 'línea automatizada', 'exportador taiwanés'],
+  pt: ['parceiro de sourcing', 'máquinas de embalagem', 'equipamento de processamento de alimentos', 'máquina de envase Taiwan', 'máquina VFFS', 'linha automatizada', 'exportador taiwanês'],
+  ko: ['소싱 파트너', '포장기계', '식품가공장비', '충진기 대만', 'VFFS 포장기', '자동화 라인', '대만 수출'],
+  ja: ['ソーシングパートナー', '包装機械', '食品加工機器', '充填機 台湾', 'VFFS包装機', '自動化ライン', '台湾 輸出'],
   ar: ['آلات التعبئة والتغليف', 'معدات تجهيز الأغذية', 'آلة تعبئة تايوان', 'آلة VFFS', 'خط إنتاج مؤتمت', 'آلات صناعية'],
-  th: ['เครื่องจักรบรรจุภัณฑ์', 'อุปกรณ์แปรรูปอาหาร', 'เครื่องบรรจุ ไต้หวัน', 'เครื่อง VFFS', 'สายการผลิตอัตโนมัติ', 'เครื่องจักรอุตสาหกรรม'],
+  th: ['เครื่องจักรบรรจุภัณฑ์', 'อุปกรณ์แปรรูปอาหาร', 'เครื่องบรรจุ ไต้หวัน', 'เครื่อง VFFS', 'ไลน์อัตโนมัติ', 'เครื่องจักรอุตสาหกรรม'],
   vi: ['máy đóng gói', 'thiết bị chế biến thực phẩm', 'máy chiết rót Đài Loan', 'máy VFFS', 'dây chuyền tự động', 'máy công nghiệp'],
-  de: ['Verpackungsmaschinen Hersteller', 'Lebensmittelverarbeitungsanlagen', 'Abfüllmaschine Taiwan', 'VFFS Verpackungsmaschine', 'automatisierte Produktionslinie', 'Industriemaschinen Exporteur'],
+  de: ['Sourcing-Partner', 'Verpackungsmaschinen', 'Lebensmittelverarbeitungsanlagen', 'Abfüllmaschine Taiwan', 'VFFS Verpackungsmaschine', 'automatisierte Linie', 'Export aus Taiwan'],
 }
 
 const SCHEMA_TEXT: Record<Lang, {
@@ -48,16 +263,16 @@ const SCHEMA_TEXT: Record<Lang, {
   faq: { q: string; a: string }[]
 }> = {
   en: {
-    listName: 'SunGene Industrial Machinery',
-    listDesc: 'Packaging machinery, food processing equipment, filling & sealing systems, and conveying/automation.',
+    listName: 'SunGene Industrial Equipment Sourcing',
+    listDesc: 'Industrial equipment and automation sourcing support: packaging, food processing, filling & sealing, conveying, and turnkey integration.',
     categories: { packaging: 'Packaging Machinery', food: 'Food Processing Equipment', filling: 'Filling & Sealing Systems', conveying: 'Conveying & Automation', custom: 'Customized Machinery' },
     faq: [
       { q: 'What is the minimum order quantity?', a: 'MOQ is 1 unit. Machines are configured to your product, packaging format, and target output.' },
       { q: 'Can you customize machines?', a: 'Yes. Materials, dimensions, capacity, voltage/frequency, and automation modules can be configured to your requirements.' },
       { q: 'What countries do you export to?', a: 'We export to 50+ countries across Southeast Asia, Middle East, Europe, Americas, and Africa. Voltage and frequency are configured to your local standard.' },
-      { q: 'What is the production lead time?', a: 'Lead time depends on configuration. Typical ranges: 15–30 days for single machines, 45–90 days for full lines.' },
-      { q: 'Do you provide factory acceptance tests (FAT)?', a: 'Yes. Every machine goes through a full factory test before shipment. We provide test videos and results as part of the handover.' },
-      { q: 'What certifications do your machines have?', a: 'All machines are CE certified and built with food-grade SUS304/316L stainless steel on contact surfaces.' },
+      { q: 'What is the delivery lead time?', a: 'Lead time depends on configuration. Typical ranges: 15–30 days for single machines, 45–90 days for full lines.' },
+      { q: 'Do you provide FAT/SAT tests?', a: 'When applicable, we coordinate supplier FAT/SAT and function checks before shipment. Test videos and results can be provided as part of the handover.' },
+      { q: 'What certifications do your machines have?', a: 'We support CE documentation for export where applicable. Food-contact surfaces can be specified as food-grade SUS304/316L stainless steel.' },
       { q: 'What after-sales support do you offer?', a: 'Remote video installation guidance, operator training, spare parts shipped within 48 hours, and lifetime technical support by phone or video call.' },
     ],
   },
@@ -70,8 +285,8 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '可以客製化嗎？', a: '可以。材質、尺寸、產能、電壓/頻率與自動化模組皆可依需求調整。' },
       { q: '出口到哪些國家？', a: '已出口 50+ 國家，涵蓋東南亞、中東、歐洲、美洲與非洲。電壓與頻率可依目的地標準配置。' },
       { q: '交期大約多久？', a: '交期取決於配置與整線範圍。常見區間：單機 15–30 天、整線 45–90 天。' },
-      { q: '出貨前會做出廠測試嗎？', a: '會。每台機器出貨前都會做完整出廠測試（FAT），並提供測試影片與結果作為交付文件。' },
-      { q: '機器有哪些認證？', a: '所有機器均通過 CE 認證，接觸面採用食品級 SUS304/316L 不鏽鋼。' },
+      { q: '出貨前會做 FAT/SAT 測試嗎？', a: '視設備與供應商而定，我們可協調供應商端的 FAT/SAT 與功能檢測；並可提供測試影片與結果作為交付文件。' },
+      { q: '機器有哪些認證？', a: '可提供 CE 文件支援（依設備/供應商而定），接觸面可指定食品級 SUS304/316L 不鏽鋼。' },
       { q: '售後支援包含哪些？', a: '遠端視訊安裝指導、操作培訓、備件 48 小時內出貨，以及終身電話或視訊技術支援。' },
     ],
   },
@@ -84,8 +299,8 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '可以定制吗？', a: '可以。材质、尺寸、产能、电压/频率与自动化模块都可按需求调整。' },
       { q: '出口到哪些国家？', a: '已出口 50+ 国家，涵盖东南亚、中东、欧洲、美洲与非洲。电压与频率可按目的地标准配置。' },
       { q: '交期大约多久？', a: '交期取决于配置与整线范围。常见区间：单机 15–30 天、整线 45–90 天。' },
-      { q: '出货前会做出厂测试吗？', a: '会。每台机器出货前都会做完整出厂测试（FAT），并提供测试视频与结果作为交付文件。' },
-      { q: '机器有哪些认证？', a: '所有机器均通过 CE 认证，接触面采用食品级 SUS304/316L 不锈钢。' },
+      { q: '出货前会做 FAT/SAT 测试吗？', a: '视设备与供应商而定，我们可协调供应商端的 FAT/SAT 与功能检测，并提供测试视频与结果作为交付文件。' },
+      { q: '机器有哪些认证？', a: '可提供 CE 文件支持（视设备/供应商而定），接触面可指定食品级 SUS304/316L 不锈钢。' },
       { q: '售后支持包含哪些？', a: '远程视频安装指导、操作培训、备件 48 小时内发货，以及终身电话或视频技术支持。' },
     ],
   },
@@ -97,9 +312,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Quelle est la quantité minimum de commande ?', a: 'MOQ : 1 machine. Configuration selon produit, format et cadence cible.' },
       { q: 'Faites-vous du sur-mesure ?', a: 'Oui. Matériaux, dimensions, capacité, tension/fréquence et modules d’automatisation sont configurables.' },
       { q: 'Vers quels pays exportez-vous ?', a: 'Export vers 50+ pays en Asie du Sud-Est, Moyen-Orient, Europe, Amériques et Afrique. Tension et fréquence adaptées.' },
-      { q: 'Quel est le délai de production ?', a: 'Selon configuration : en général 15–30 jours (machine) et 45–90 jours (ligne complète).' },
-      { q: 'Faites-vous un test en usine avant expédition ?', a: 'Oui. Chaque machine passe un test complet (FAT) avant expédition. Vidéo et résultats fournis.' },
-      { q: 'Quelles certifications avez-vous ?', a: 'Toutes les machines sont certifiées CE avec acier inoxydable alimentaire SUS304/316L sur les surfaces de contact.' },
+      { q: 'Quel est le délai de livraison ?', a: 'Selon configuration : en général 15–30 jours (machine) et 45–90 jours (ligne complète).' },
+      { q: 'Faites-vous des tests FAT/SAT avant expédition ?', a: 'Selon l’équipement et le fournisseur, nous coordonnons des tests FAT/SAT et des contrôles fonctionnels avant expédition. Vidéo et résultats peuvent être fournis.' },
+      { q: 'Quelles certifications sont disponibles ?', a: 'Nous accompagnons la documentation CE à l’export lorsque c’est applicable. Les surfaces en contact produit peuvent être spécifiées en SUS304/316L de grade alimentaire.' },
       { q: 'Quel SAV proposez-vous ?', a: 'Assistance vidéo à distance, formation opérateur, pièces détachées expédiées sous 48h et support technique à vie.' },
     ],
   },
@@ -111,9 +326,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '¿Cuál es el pedido mínimo?', a: 'MOQ: 1 unidad. Se configura según producto, formato y velocidad objetivo.' },
       { q: '¿Pueden personalizar máquinas?', a: 'Sí. Materiales, dimensiones, capacidad, voltaje/frecuencia y módulos de automatización son configurables.' },
       { q: '¿A qué países exportan?', a: 'Exportamos a 50+ países en Asia, Medio Oriente, Europa, América y África. Voltaje y frecuencia se ajustan al estándar local.' },
-      { q: '¿Cuál es el plazo de producción?', a: 'Depende de la configuración: típico 15–30 días (máquina) y 45–90 días (línea completa).' },
-      { q: '¿Realizan pruebas en fábrica antes del envío?', a: 'Sí. Cada máquina pasa una prueba completa (FAT) antes del envío. Se proporcionan video y resultados.' },
-      { q: '¿Qué certificaciones tienen?', a: 'Todas las máquinas cuentan con certificación CE y acero inoxidable alimentario SUS304/316L en superficies de contacto.' },
+      { q: '¿Cuál es el plazo de entrega?', a: 'Depende de la configuración: típico 15–30 días (máquina) y 45–90 días (línea completa).' },
+      { q: '¿Realizan pruebas FAT/SAT antes del envío?', a: 'Según el equipo y el proveedor, coordinamos pruebas FAT/SAT y verificaciones funcionales antes del envío. Se pueden proporcionar video y resultados.' },
+      { q: '¿Qué certificaciones están disponibles?', a: 'Apoyamos la documentación CE para exportación cuando aplique. Las superficies en contacto con el producto pueden especificarse en SUS304/316L de grado alimentario.' },
       { q: '¿Qué soporte posventa ofrecen?', a: 'Asistencia remota por video, capacitación, repuestos enviados en 48 horas y soporte técnico de por vida.' },
     ],
   },
@@ -125,9 +340,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Qual é o pedido mínimo?', a: 'MOQ: 1 unidade. Configuração conforme produto, formato e velocidade-alvo.' },
       { q: 'Vocês fazem personalização?', a: 'Sim. Materiais, dimensões, capacidade, tensão/frequência e módulos de automação são configuráveis.' },
       { q: 'Para quais países vocês exportam?', a: 'Exportamos para 50+ países na Ásia, Oriente Médio, Europa, Américas e África. Tensão e frequência são ajustadas.' },
-      { q: 'Qual é o prazo de produção?', a: 'Depende da configuração: típico 15–30 dias (máquina) e 45–90 dias (linha completa).' },
-      { q: 'Vocês fazem teste de fábrica antes do envio?', a: 'Sim. Cada máquina passa por teste completo (FAT) antes do envio. Vídeo e resultados são fornecidos.' },
-      { q: 'Quais certificações vocês possuem?', a: 'Todas as máquinas possuem certificação CE com aço inoxidável alimentar SUS304/316L nas superfícies de contato.' },
+      { q: 'Qual é o prazo de entrega?', a: 'Depende da configuração: típico 15–30 dias (máquina) e 45–90 dias (linha completa).' },
+      { q: 'Vocês realizam testes FAT/SAT antes do envio?', a: 'Conforme o equipamento e o fornecedor, coordenamos testes FAT/SAT e verificações funcionais antes do envio. Vídeo e resultados podem ser fornecidos.' },
+      { q: 'Quais certificações estão disponíveis?', a: 'Apoiamos documentação CE para exportação quando aplicável. Superfícies de contato podem ser especificadas em aço inoxidável alimentar SUS304/316L.' },
       { q: 'Que suporte pós-venda vocês oferecem?', a: 'Assistência remota por vídeo, treinamento, peças enviadas em 48 horas e suporte técnico vitalício.' },
     ],
   },
@@ -140,8 +355,8 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '맞춤 제작이 가능한가요?', a: '가능합니다. 재질, 치수, 생산능력, 전압/주파수, 자동화 모듈을 요구사항에 맞춰 구성합니다.' },
       { q: '어느 나라로 수출하나요?', a: '동남아, 중동, 유럽, 미주, 아프리카 등 50개국 이상 수출합니다. 전압과 주파수는 현지 표준에 맞춰 설정합니다.' },
       { q: '납기는 얼마나 걸리나요?', a: '구성에 따라 다릅니다. 일반적으로 단일 장비 15–30일, 라인 45–90일 범위입니다.' },
-      { q: '출하 전 공장 테스트를 하나요?', a: '네. 모든 장비는 출하 전 FAT(공장 인수시험)를 거치며, 테스트 영상과 결과를 제공합니다.' },
-      { q: '어떤 인증을 보유하고 있나요?', a: '모든 장비는 CE 인증을 받았으며, 접촉면에 식품급 SUS304/316L 스테인리스강을 사용합니다.' },
+      { q: '출하 전 FAT/SAT 테스트를 하나요?', a: '장비와 공급사에 따라 FAT/SAT 및 기능 검사를 조율할 수 있으며, 테스트 영상과 결과를 제공할 수 있습니다.' },
+      { q: '어떤 인증을 지원하나요?', a: '수출을 위한 CE 문서 지원이 가능하며(해당 시), 접촉면은 식품급 SUS304/316L 스테인리스강으로 지정할 수 있습니다.' },
       { q: '애프터서비스는 어떻게 되나요?', a: '원격 영상 설치 안내, 운전자 교육, 48시간 이내 부품 발송, 평생 기술 지원을 제공합니다.' },
     ],
   },
@@ -154,8 +369,8 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'カスタマイズは可能？', a: '可能です。材質、寸法、能力、電圧/周波数、各種モジュールを要件に合わせて設定します。' },
       { q: 'どの国に輸出していますか？', a: '東南アジア、中東、欧州、米州、アフリカなど50か国以上に輸出しています。電圧・周波数は現地規格に合わせます。' },
       { q: '納期は？', a: '構成によります。目安：単体 15–30日、ライン 45–90日。' },
-      { q: '出荷前に工場テストは実施しますか？', a: 'はい。すべての機械は出荷前にFAT（工場受入試験）を行い、テスト動画と結果をお渡しします。' },
-      { q: 'どのような認証を取得していますか？', a: '全機種CE認証取得済み。接触面には食品グレードSUS304/316Lステンレス鋼を使用しています。' },
+      { q: '出荷前にFAT/SATテストは実施しますか？', a: '設備とサプライヤーにより、FAT/SATおよび機能確認を出荷前に調整できます。テスト動画と結果を提供可能です。' },
+      { q: 'どのような認証に対応していますか？', a: '該当する場合、輸出向けCE文書をサポートします。接触面は食品グレードSUS304/316Lステンレス鋼を指定可能です。' },
       { q: 'アフターサポートの内容は？', a: 'リモートビデオでの設置支援、オペレーター研修、48時間以内の部品発送、生涯技術サポートをご提供します。' },
     ],
   },
@@ -167,9 +382,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'ما هو الحد الأدنى للطلب؟', a: 'الحد الأدنى: آلة واحدة. نضبط المواصفات حسب المنتج وشكل العبوة والسرعة المطلوبة.' },
       { q: 'هل يمكن التخصيص؟', a: 'نعم. المواد والأبعاد والقدرة والجهد/التردد ووحدات الأتمتة قابلة للتخصيص.' },
       { q: 'إلى أي دول تقومون بالتصدير؟', a: 'نصدر إلى أكثر من 50 دولة في جنوب شرق آسيا والشرق الأوسط وأوروبا والأمريكتين وأفريقيا.' },
-      { q: 'كم يستغرق وقت الإنتاج؟', a: 'يعتمد على التكوين: غالبًا 15–30 يومًا للآلة و45–90 يومًا للخط الكامل.' },
-      { q: 'هل تجرون اختبار قبول في المصنع قبل الشحن؟', a: 'نعم. كل آلة تخضع لاختبار كامل (FAT) قبل الشحن مع فيديو ونتائج الاختبار.' },
-      { q: 'ما هي الشهادات المتوفرة؟', a: 'جميع الآلات حاصلة على شهادة CE مع استخدام ستانلس ستيل غذائي SUS304/316L على الأسطح الملامسة.' },
+      { q: 'كم يستغرق وقت التسليم؟', a: 'يعتمد على التكوين: غالبًا 15–30 يومًا للآلة و45–90 يومًا للخط الكامل.' },
+      { q: 'هل تجرون اختبارات FAT/SAT قبل الشحن؟', a: 'حسب المعدة والمورد، نقوم بتنسيق اختبارات FAT/SAT وفحوصات الوظائف قبل الشحن. يمكن توفير فيديو ونتائج الاختبار.' },
+      { q: 'ما هي الشهادات المتاحة؟', a: 'ندعم وثائق CE للتصدير عند توفرها. ويمكن تحديد الأسطح الملامسة للمنتج من ستانلس ستيل غذائي SUS304/316L.' },
       { q: 'ما هو دعم ما بعد البيع؟', a: 'دعم تركيب عن بُعد عبر الفيديو، تدريب المشغلين، قطع غيار خلال 48 ساعة، ودعم فني مدى الحياة.' },
     ],
   },
@@ -181,9 +396,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'สั่งขั้นต่ำกี่เครื่อง?', a: 'ขั้นต่ำ 1 เครื่อง สามารถปรับสเปกตามสินค้า รูปแบบบรรจุภัณฑ์ และความเร็วเป้าหมาย' },
       { q: 'สั่งทำ/ปรับแต่งได้ไหม?', a: 'ได้ ปรับวัสดุ ขนาด กำลังการผลิต แรงดัน/ความถี่ และโมดูลอัตโนมัติได้ตามความต้องการ' },
       { q: 'ส่งออกไปประเทศไหนบ้าง?', a: 'ส่งออกมากกว่า 50 ประเทศในเอเชียตะวันออกเฉียงใต้ ตะวันออกกลาง ยุโรป อเมริกา และแอฟริกา' },
-      { q: 'ระยะเวลาผลิตนานไหม?', a: 'ขึ้นอยู่กับสเปก โดยทั่วไปเครื่องเดี่ยว 15–30 วัน และไลน์ 45–90 วัน' },
-      { q: 'มีการทดสอบก่อนส่งมอบไหม?', a: 'มี ทุกเครื่องผ่านการทดสอบเต็มรูปแบบ (FAT) ก่อนส่ง พร้อมวิดีโอและรายงานผล' },
-      { q: 'มีใบรับรองอะไรบ้าง?', a: 'เครื่องทุกรุ่นผ่าน CE พร้อมสแตนเลสเกรดอาหาร SUS304/316L บนพื้นผิวสัมผัส' },
+      { q: 'ระยะเวลาจัดหาและส่งมอบนานไหม?', a: 'ขึ้นอยู่กับสเปก โดยทั่วไปเครื่องเดี่ยว 15–30 วัน และไลน์ 45–90 วัน' },
+      { q: 'มีการทดสอบก่อนส่งมอบไหม?', a: 'ตามอุปกรณ์และซัพพลายเออร์ เราสามารถประสานการทดสอบ FAT/SAT และการตรวจสอบการทำงานก่อนส่ง พร้อมวิดีโอและรายงานผล' },
+      { q: 'มีใบรับรองอะไรบ้าง?', a: 'เราสนับสนุนเอกสาร CE สำหรับการส่งออกเมื่อเหมาะสม และสามารถระบุพื้นผิวสัมผัสเป็นสแตนเลสเกรดอาหาร SUS304/316L ได้' },
       { q: 'บริการหลังการขายมีอะไรบ้าง?', a: 'แนะนำติดตั้งผ่านวิดีโอ ฝึกอบรมผู้ปฏิบัติงาน อะไหล่ส่งภายใน 48 ชม. และสนับสนุนเทคนิคตลอดชีพ' },
     ],
   },
@@ -195,9 +410,9 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'MOQ là bao nhiêu?', a: 'MOQ: 1 máy. Cấu hình theo sản phẩm, kiểu bao bì và công suất mục tiêu.' },
       { q: 'Có thể tùy chỉnh không?', a: 'Có. Vật liệu, kích thước, công suất, điện áp/tần số và module tự động hóa đều có thể cấu hình.' },
       { q: 'Xuất khẩu đến những nước nào?', a: 'Xuất khẩu 50+ quốc gia tại Đông Nam Á, Trung Đông, Châu Âu, Châu Mỹ và Châu Phi.' },
-      { q: 'Thời gian sản xuất?', a: 'Tùy cấu hình: thường 15–30 ngày (máy đơn) và 45–90 ngày (dây chuyền).' },
-      { q: 'Có kiểm tra tại nhà máy trước khi giao không?', a: 'Có. Mỗi máy đều qua kiểm tra đầy đủ (FAT) trước khi giao, kèm video và kết quả kiểm tra.' },
-      { q: 'Máy có chứng nhận gì?', a: 'Tất cả máy đều đạt chứng nhận CE, bề mặt tiếp xúc bằng inox thực phẩm SUS304/316L.' },
+      { q: 'Thời gian giao hàng?', a: 'Tùy cấu hình: thường 15–30 ngày (máy đơn) và 45–90 ngày (dây chuyền).' },
+      { q: 'Có test FAT/SAT trước khi giao không?', a: 'Tùy theo thiết bị và nhà cung cấp, chúng tôi có thể điều phối FAT/SAT và kiểm tra chức năng trước khi giao. Có thể cung cấp video và kết quả.' },
+      { q: 'Máy có chứng nhận gì?', a: 'Chúng tôi hỗ trợ tài liệu CE cho xuất khẩu khi phù hợp. Bề mặt tiếp xúc có thể chỉ định inox thực phẩm SUS304/316L.' },
       { q: 'Hỗ trợ sau bán hàng gồm những gì?', a: 'Hướng dẫn lắp đặt qua video, đào tạo vận hành, phụ tùng giao trong 48 giờ và hỗ trợ kỹ thuật trọn đời.' },
     ],
   },
@@ -210,8 +425,8 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Ist kundenspezifische Ausführung möglich?', a: 'Ja. Material, Abmessungen, Leistung, Spannung/Frequenz und Automationsmodule sind konfigurierbar.' },
       { q: 'In welche Länder exportieren Sie?', a: 'Export in 50+ Länder in Südostasien, Nahost, Europa, Amerika und Afrika. Spannung und Frequenz werden angepasst.' },
       { q: 'Wie lange ist die Lieferzeit?', a: 'Abhängig von der Konfiguration: typ. 15–30 Tage (Einzelmaschine) und 45–90 Tage (Linie).' },
-      { q: 'Wird vor der Lieferung ein Werkstest durchgeführt?', a: 'Ja. Jede Maschine durchläuft einen vollständigen FAT (Factory Acceptance Test) vor dem Versand, inkl. Testvideo und Ergebnissen.' },
-      { q: 'Welche Zertifizierungen haben Ihre Maschinen?', a: 'Alle Maschinen sind CE-zertifiziert mit lebensmittelechtem Edelstahl SUS304/316L an Kontaktflächen.' },
+      { q: 'Gibt es FAT/SAT-Tests vor der Lieferung?', a: 'Je nach Maschine und Lieferant koordinieren wir FAT/SAT und Funktionsprüfungen vor dem Versand. Testvideo und Ergebnisse können bereitgestellt werden.' },
+      { q: 'Welche Zertifizierungen sind verfügbar?', a: 'Wir unterstützen CE-Dokumentation für den Export, sofern zutreffend. Produktberührende Flächen können in lebensmittelechtem Edelstahl SUS304/316L spezifiziert werden.' },
       { q: 'Welchen After-Sales-Support bieten Sie?', a: 'Ferninstallation per Video, Schulung, Ersatzteile innerhalb von 48 Stunden und lebenslanger technischer Support.' },
     ],
   },
@@ -234,6 +449,7 @@ export default async function Page({ params }: PageParams) {
   const { lang } = await params
   const safeLang = normalizeLang(lang)
   const s = SCHEMA_TEXT[safeLang] ?? SCHEMA_TEXT.en
+  const positioning = HOME_POSITIONING[safeLang] ?? HOME_POSITIONING.en!
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -296,6 +512,56 @@ export default async function Page({ params }: PageParams) {
       <HeroSection lang={safeLang} />
       <MachineByProduct lang={safeLang} />
       <ServicesPreview lang={safeLang} />
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 sm:p-10">
+              <div className="flex items-center gap-3">
+                <div className="h-px w-8 bg-accent-500" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-600">
+                  {positioning.sourceKicker}
+                </span>
+              </div>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl">
+                {positioning.sourceTitle}
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-600">
+                {positioning.sourceIntro}
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {positioning.sourceItems.map((item) => (
+                <div key={item} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 h-2.5 w-2.5 rounded-full bg-accent-500" />
+                    <p className="text-base font-semibold text-gray-900">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+      <section className="bg-brand-950 py-16 text-white sm:py-20">
+        <Container className="max-w-5xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-accent-500" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
+                {positioning.beyondKicker}
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              {positioning.beyondTitle}
+            </h2>
+            <div className="mt-4 space-y-3 text-base leading-relaxed text-brand-200 sm:text-lg">
+              {positioning.beyondBody.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
       <section className="bg-white py-8">
         <Container className="max-w-7xl">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
@@ -337,7 +603,7 @@ export default async function Page({ params }: PageParams) {
                 {({ en: 'Get a Recommendation', cn: '获取推荐', zh: '取得推薦', fr: 'Obtenir une recommandation', es: 'Obtener recomendación', pt: 'Obter recomendação', ko: '추천 받기', ja: '推薦を受ける', ar: 'احصل على توصية', th: 'รับคำแนะนำ', vi: 'Nhận đề xuất', de: 'Empfehlung erhalten' } as Record<string, string>)[safeLang] || 'Get a Recommendation'}
               </ButtonLink>
               <ButtonLink href={`/${safeLang}/contact`} variant="secondary" size="md">
-                {({ en: 'Request a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 요청', ja: '見積依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string, string>)[safeLang] || 'Request a Quote'}
+                {({ en: 'Request Assessment', cn: '获取采购评估', zh: '取得採購評估', fr: 'Demander évaluation', es: 'Solicitar evaluación', pt: 'Solicitar avaliação', ko: '평가 요청', ja: '評価依頼', ar: 'طلب تقييم', th: 'ขอการประเมิน', vi: 'Yêu cầu đánh giá', de: 'Bewertung anfordern' } as Record<string, string>)[safeLang] || 'Request Assessment'}
               </ButtonLink>
             </div>
           </div>
