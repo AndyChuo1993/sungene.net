@@ -1,6 +1,5 @@
-
-import nodemailer from 'nodemailer'
 import { rateLimit } from '@/lib/rateLimit'
+import { sendMail, resolveFromAddress, resolveInquiryTo, isMailEnabled } from '@/lib/sendMail'
 import process from 'process'
 import { promises as fs } from 'fs'
 import path from 'path'
@@ -139,12 +138,14 @@ export async function POST(req: Request) {
   })
 
   try {
-    const { transporter, fromAddr, to, emailEnabled } = getTransporter()
+    const emailEnabled = isMailEnabled()
     if (!emailEnabled) {
       await persistPromise
       return Response.json({ ok: true, id, ackOk: null, ackQueued: false, reqId, emailEnabled: false })
     }
-    const adminOk = await sendAdminEmail({ transporter, fromAddr, to, item, rawBody: body, meta, id, reqId })
+    const fromAddr = resolveFromAddress()
+    const to = resolveInquiryTo()
+    const adminOk = await sendAdminEmail({ fromAddr, to, item, rawBody: body, meta, id, reqId })
 
     if (!adminOk) {
       console.error('[inquiries]', { reqId, adminOk: false, ackOk: false, id })
@@ -152,7 +153,7 @@ export async function POST(req: Request) {
     }
 
     if (item.email) {
-      void sendAckEmail({ transporter, fromAddr, item, id, reqId })
+      void sendAckEmail({ fromAddr, item, id, reqId })
         .then((ackOk) => {
           console.info('[inquiries]', { reqId, adminOk: true, ackOk, id })
         })
@@ -186,40 +187,6 @@ function collectMeta(req: Request) {
   const url = new URL(ref || 'http://localhost')
   const utm = Object.fromEntries([...url.searchParams.entries()].filter(([k]) => k.startsWith('utm_')))
   return { ref, lang, ip, utm, time: new Date().toISOString() }
-}
-
-function getTransporter() {
-  const url = process.env.SMTP_URL
-  const host = process.env.MAIL_HOST || process.env.SMTP_HOST
-  const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
-  const user = process.env.MAIL_USER || process.env.SMTP_USER
-  const rawPass = process.env.MAIL_PASS || process.env.SMTP_PASS
-  const pass = rawPass ? rawPass.replace(/\s+/g, '') : undefined
-
-  const to = process.env.INQUIRY_TO || 'contact@sungene.net'
-  let transporter: any
-  let emailEnabled = true
-
-  if (host && user && pass) {
-    transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: false, // 587 = STARTTLS
-      auth: { user, pass },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 10_000,
-    })
-  } else if (url) {
-    transporter = nodemailer.createTransport(url)
-  } else {
-    emailEnabled = false
-  }
-
-  const fromName = process.env.MAIL_FROM || 'SunGene Service Team'
-  const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
-
-  return { transporter, fromAddr, to, emailEnabled }
 }
 
 async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; rawBody: any; meta: any }) {
@@ -287,7 +254,6 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
 }
 
 async function sendAdminEmail(args: {
-  transporter: any
   fromAddr: string
   to: string
   item: Inquiry
@@ -296,7 +262,7 @@ async function sendAdminEmail(args: {
   id: string
   reqId?: string
 }): Promise<boolean> {
-  const { transporter, fromAddr, to, item, rawBody, meta, id, reqId } = args
+  const { fromAddr, to, item, rawBody, meta, id, reqId } = args
   const subject = `New Inquiry #${id} ${item.type} - ${item.name}`
   const adminText =
 `New Inquiry ID: ${id}
@@ -312,31 +278,29 @@ Language: ${meta.lang}
 UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 Time: ${meta.time}`
-  try {
-    const info = await transporter.sendMail({
-      to,
-      from: fromAddr,
-      subject,
-      text: adminText,
-      replyTo: item.email,
-      headers: { 'X-Request-ID': reqId || '' },
-    })
-    console.log('[inquiries] admin email sent:', info.messageId)
+  const result = await sendMail({
+    to,
+    from: fromAddr,
+    subject,
+    text: adminText,
+    replyTo: item.email,
+    headers: { 'X-Request-ID': reqId || '' },
+  })
+  if (result.ok) {
+    console.log('[inquiries] admin email sent:', result.messageId, 'via', result.provider)
     return true
-  } catch (err) {
-    console.error('[inquiries] admin email failed:', err)
-    return false
   }
+  console.error('[inquiries] admin email failed:', result.error, 'via', result.provider)
+  return false
 }
 
 async function sendAckEmail(args: {
-  transporter: any
   fromAddr: string
   item: Inquiry
   id: string
   reqId?: string
 }): Promise<boolean> {
-  const { transporter, fromAddr, item, id, reqId } = args
+  const { fromAddr, item, id, reqId } = args
 
   const ackSubj = `We received your inquiry (Ref: ${id}) | 已收到您的詢價（${id}）`
   const contactEmail = 'contact@sungene.net'
@@ -372,16 +336,12 @@ LINE: ${contactLine}
 此致
 SunGene 服務團隊`
 
-  try {
-    await transporter.sendMail({
-      to: item.email,
-      from: fromAddr,
-      subject: ackSubj,
-      text: ackText,
-      headers: { 'X-Request-ID': reqId || '' },
-    })
-    return true
-  } catch {
-    return false
-  }
+  const result = await sendMail({
+    to: item.email,
+    from: fromAddr,
+    subject: ackSubj,
+    text: ackText,
+    headers: { 'X-Request-ID': reqId || '' },
+  })
+  return result.ok
 }

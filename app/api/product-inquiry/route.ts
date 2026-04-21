@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
 import { rateLimit } from '@/lib/rateLimit'
+import { sendMail, resolveFromAddress, resolveInquiryTo, isMailEnabled } from '@/lib/sendMail'
 import process from 'process'
 import { promises as fs } from 'fs'
 import path from 'path'
@@ -11,40 +11,6 @@ function getText(value: FormDataEntryValue | null, max = 2000): string | undefin
   const trimmed = value.trim()
   if (!trimmed) return undefined
   return trimmed.slice(0, max)
-}
-
-function getTransporter() {
-  const url = process.env.SMTP_URL
-  const host = process.env.MAIL_HOST || process.env.SMTP_HOST
-  const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
-  const user = process.env.MAIL_USER || process.env.SMTP_USER
-  const rawPass = process.env.MAIL_PASS || process.env.SMTP_PASS
-  const pass = rawPass ? rawPass.replace(/\s+/g, '') : undefined
-
-  const to = process.env.INQUIRY_TO || 'contact@sungene.net'
-  let transporter: any
-  let emailEnabled = true
-
-  if (host && user && pass) {
-    transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: false,
-      auth: { user, pass },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 10_000,
-    })
-  } else if (url) {
-    transporter = nodemailer.createTransport(url)
-  } else {
-    emailEnabled = false
-  }
-
-  const fromName = process.env.MAIL_FROM || 'SunGene Service Team'
-  const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
-
-  return { transporter, fromAddr, to, emailEnabled }
 }
 
 function jsonFail(status: number, error: string) {
@@ -126,11 +92,12 @@ export async function POST(req: Request) {
     console.error('[product-inquiry] persist failed:', err)
   }
 
-  const { transporter, fromAddr, to, emailEnabled } = getTransporter()
-
-  if (!emailEnabled) {
+  if (!isMailEnabled()) {
     return Response.json({ ok: true, id, reqId, emailEnabled: false })
   }
+
+  const fromAddr = resolveFromAddress()
+  const to = resolveInquiryTo()
 
   // Build admin email
   const adminText =
@@ -152,33 +119,24 @@ Source:        ${sourceMachine || '-'}
 ${photoAttachment ? `[Photo attached: ${photoAttachment.filename}]` : '[No photo attached]'}
 `
 
-  const adminMailOptions: any = {
+  const adminAttachments = photoAttachment ? [photoAttachment] : undefined
+
+  // Send admin email
+  const adminResult = await sendMail({
     to,
     from: fromAddr,
     subject: `New Product Inquiry #${id} — ${name} (${productType})`,
     text: adminText,
     replyTo: email,
     headers: { 'X-Request-ID': reqId },
-  }
+    attachments: adminAttachments,
+  })
 
-  if (photoAttachment) {
-    adminMailOptions.attachments = [photoAttachment]
-  }
-
-  // Send admin email
-  let adminOk = false
-  try {
-    const info = await transporter.sendMail(adminMailOptions)
-    console.log('[product-inquiry] admin email sent:', info.messageId)
-    adminOk = true
-  } catch (err) {
-    console.error('[product-inquiry] admin email failed:', err)
+  if (!adminResult.ok) {
+    console.error('[product-inquiry] admin email failed:', adminResult.error, 'via', adminResult.provider)
     return jsonFail(500, 'Email send failed')
   }
-
-  if (!adminOk) {
-    return jsonFail(500, 'Email send failed')
-  }
+  console.log('[product-inquiry] admin email sent:', adminResult.messageId, 'via', adminResult.provider)
 
   // Send acknowledgement to customer (fire-and-forget)
   const ackText =
@@ -219,14 +177,14 @@ LINE: @sungene
 此致
 SunGene 服務團隊`
 
-  void transporter.sendMail({
+  void sendMail({
     to: email,
     from: fromAddr,
     subject: `We received your product inquiry (Ref: ${id}) | 已收到您的產品詢問`,
     text: ackText,
     headers: { 'X-Request-ID': reqId },
-  }).catch((err: unknown) => {
-    console.error('[product-inquiry] ack email failed:', err)
+  }).then((r) => {
+    if (!r.ok) console.error('[product-inquiry] ack email failed:', r.error, 'via', r.provider)
   })
 
   return Response.json({ ok: true, id, reqId })
