@@ -8,23 +8,39 @@ import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 
 export default function Header({ lang }: { lang: Lang }) {
+  const sourcingScopeLabel = ({
+    en: 'Sourcing Scope',
+    zh: '採購範圍',
+    cn: '采购范围',
+    fr: 'Périmètre sourcing',
+    es: 'Alcance de abastecimiento',
+    pt: 'Escopo de sourcing',
+    ko: '소싱 범위',
+    ja: '調達範囲',
+    ar: 'نطاق التوريد',
+    th: 'ขอบเขตการจัดหา',
+    vi: 'Phạm vi sourcing',
+    de: 'Sourcing-Bereich',
+  } as Record<string, string>)[lang] || 'Sourcing Scope'
+
   const links = [
     { href: `/${lang}`, label: t(lang, 'nav_home') },
-    { href: `/${lang}/machinery`, label: t(lang, 'nav_machinery') },
+    { href: `/${lang}/machinery`, label: sourcingScopeLabel },
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
     { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
+    { href: `/${lang}/sourcing`, label: t(lang, 'nav_sourcing') },
     { href: `/${lang}/resources`, label: t(lang, 'nav_resources') },
-    { href: `/${lang}/recommend`, label: t(lang, 'nav_recommend') },
+    { href: `/${lang}/assessment`, label: t(lang, 'nav_recommend') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
   const serviceLinks = [
-    { href: `/${lang}/machinery/packaging`, label: t(lang, 'nav_machinery_packaging') },
-    { href: `/${lang}/machinery/food-processing`, label: t(lang, 'nav_machinery_food') },
-    { href: `/${lang}/machinery/filling-sealing`, label: t(lang, 'nav_machinery_filling') },
-    { href: `/${lang}/machinery/conveying-automation`, label: t(lang, 'nav_machinery_conveying') },
-    { href: `/${lang}/machinery/custom`, label: t(lang, 'nav_machinery_custom') },
+    { href: `/${lang}/machinery/packaging`, label: ({ en: 'Packaging Sourcing', zh: '包裝採購', cn: '包装采购', fr: 'Sourcing emballage', es: 'Sourcing de empaque', pt: 'Sourcing de embalagem', ko: '포장 소싱', ja: '包装調達', ar: 'توريد التعبئة', th: 'การจัดหาบรรจุภัณฑ์', vi: 'Sourcing đóng gói', de: 'Verpackungs-Sourcing' } as Record<string, string>)[lang] || 'Packaging Sourcing' },
+    { href: `/${lang}/machinery/food-processing`, label: ({ en: 'Food Equipment Sourcing', zh: '食品設備採購', cn: '食品设备采购', fr: 'Sourcing agroalimentaire', es: 'Sourcing de equipos alimentarios', pt: 'Sourcing de alimentos', ko: '식품 설비 소싱', ja: '食品設備調達', ar: 'توريد معدات الغذاء', th: 'การจัดหาอุปกรณ์อาหาร', vi: 'Sourcing thiết bị thực phẩm', de: 'Food-Equipment-Sourcing' } as Record<string, string>)[lang] || 'Food Equipment Sourcing' },
+    { href: `/${lang}/machinery/filling-sealing`, label: ({ en: 'Filling & Sealing Scope', zh: '充填封口範圍', cn: '灌装封口范围', fr: 'Périmètre remplissage/scellage', es: 'Alcance de llenado y sellado', pt: 'Escopo de envase e selagem', ko: '충전·밀봉 범위', ja: '充填・シール範囲', ar: 'نطاق التعبئة والإغلاق', th: 'ขอบเขตการบรรจุและซีล', vi: 'Phạm vi chiết rót và hàn kín', de: 'Abfüll- und Verschließbereich' } as Record<string, string>)[lang] || 'Filling & Sealing Scope' },
+    { href: `/${lang}/machinery/conveying-automation`, label: ({ en: 'Automation & Integration', zh: '自動化與整合', cn: '自动化与整合', fr: 'Automatisation & intégration', es: 'Automatización e integración', pt: 'Automação e integração', ko: '자동화 및 통합', ja: '自動化・統合', ar: 'الأتمتة والتكامل', th: 'อัตโนมัติและบูรณาการ', vi: 'Tự động hóa và tích hợp', de: 'Automatisierung & Integration' } as Record<string, string>)[lang] || 'Automation & Integration' },
+    { href: `/${lang}/machinery/custom`, label: ({ en: 'Custom Projects', zh: '客製專案', cn: '定制项目', fr: 'Projets sur mesure', es: 'Proyectos a medida', pt: 'Projetos sob medida', ko: '맞춤 프로젝트', ja: 'カスタム案件', ar: 'مشاريع مخصصة', th: 'โครงการสั่งทำ', vi: 'Dự án tùy chỉnh', de: 'Sonderprojekte' } as Record<string, string>)[lang] || 'Custom Projects' },
   ]
 
   return (
@@ -57,10 +73,10 @@ export default function Header({ lang }: { lang: Lang }) {
       <header className="sticky top-0 z-50 w-full border-b border-brand-800/40 bg-white/95 shadow-elev-1 backdrop-blur">
         <Container className="flex h-16 items-center justify-between lg:h-20">
           <Link href={`/${lang}`} className="flex items-center gap-3">
-            <Image src="/logo/sungene.png" alt="SunGene Machinery" width={36} height={36} className="h-9 w-auto" priority />
+            <Image src="/logo/sungene.png" alt="SunGene" width={36} height={36} className="h-9 w-auto" priority />
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tight text-brand-950 leading-tight">SunGene</span>
-              <span className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 sm:block">Industrial Machinery</span>
+              <span className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 sm:block">Sourcing Partner</span>
             </div>
           </Link>
 
@@ -76,7 +92,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <ButtonLink href={`/${lang}/recommend`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
+            <ButtonLink href={`/${lang}/assessment`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
               {t(lang, 'nav_free_analysis')}
             </ButtonLink>
           </div>
@@ -86,7 +102,7 @@ export default function Header({ lang }: { lang: Lang }) {
             links={links}
             serviceLinks={serviceLinks}
             ctaLabel={t(lang, 'nav_free_analysis')}
-            machineryLabel={t(lang, 'nav_machinery')}
+            machineryLabel={sourcingScopeLabel}
           />
         </Container>
       </header>

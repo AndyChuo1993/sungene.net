@@ -6,14 +6,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { PHOTO } from '@/lib/photoLibrary'
-import { getCaseStudyBySlug, buildCaseStudySchema, getAllPublishedCaseStudies } from '@/lib/cmsContent'
-
-export const revalidate = 60
-
-export async function generateStaticParams() {
-  const all = await getAllPublishedCaseStudies()
-  return all.map((cs) => ({ slug: cs.slug }))
-}
+import { getCaseStudyBySlug, buildCaseStudySchema } from '@/lib/cmsContent'
 
 export async function generateMetadata({
   params,
@@ -23,16 +16,27 @@ export async function generateMetadata({
   const { slug } = await params
   const cs = await getCaseStudyBySlug(slug)
   if (!cs) return {}
+  const title = cs.meta_title || `${cs.title} — SunGene Case Study`
+  const description = cs.meta_description || cs.summary || undefined
+  const imageUrl = cs.hero_image_url || `${SITE_URL}/og/og.png`
+  const canonical = `${SITE_URL}/case-studies/${cs.slug}`
   return {
-    title: cs.meta_title || `${cs.title} — SunGene Case Study`,
-    description: cs.meta_description || cs.summary || undefined,
-    alternates: { canonical: `${SITE_URL}/case-studies/${cs.slug}` },
+    title,
+    description,
+    alternates: { canonical },
     openGraph: {
-      title: cs.title,
-      description: cs.summary || cs.title,
-      url: `${SITE_URL}/case-studies/${cs.slug}`,
+      title,
+      description: description || cs.title,
+      url: canonical,
       type: 'article',
-      ...(cs.hero_image_url ? { images: [{ url: cs.hero_image_url }] } : {}),
+      siteName: 'SunGene',
+      images: [{ url: imageUrl, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: description || cs.title,
+      images: [imageUrl],
     },
   }
 }
@@ -113,15 +117,15 @@ export default async function CaseStudyPage({
 
       <section className="bg-brand-950 py-16 text-white">
         <Container className="max-w-3xl text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">Want similar results for your factory?</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Want similar results for your site?</h2>
           <p className="mt-3 text-sm text-white/70">
-            Share your product and target output — our engineers in Taichung will design a configuration for your line.
+            Share your product and target output — we’ll shortlist sourcing options and propose a line configuration that fits your site.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <ButtonLink href="/en/recommend" size="lg">Get a Recommendation</ButtonLink>
-            <a href="/en/contact" className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white">
-              Request a Quote
-            </a>
+            <ButtonLink href="/en/assessment" size="lg">Get Assessment</ButtonLink>
+            <Link href="/en/contact" className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white">
+              Request Sourcing Assessment
+            </Link>
           </div>
         </Container>
       </section>

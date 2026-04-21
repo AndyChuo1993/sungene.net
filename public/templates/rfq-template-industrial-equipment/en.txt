@@ -1,0 +1,71 @@
+RFQ Template (Industrial Equipment)
+
+1) Project summary
+- Project name:
+- Target country / site:
+- Industry / product:
+- Timeline expectation:
+- Contact person:
+
+2) Product and packaging / handling
+- Product state: powder / granule / liquid / solid / mixed
+- Behavior notes: dusting, bridging, foaming, particulates, oiliness, static, fragility
+- Packaging/container format and size range (attach photos and dimensions):
+- Target fill range / weight range / volume range:
+
+3) Throughput and operations
+- Target output:
+- Run time:
+- SKU count:
+- Changeover frequency:
+- Operator count:
+
+4) Interfaces and line integration
+- Upstream equipment and interface:
+- Downstream equipment: conveyors / capping / labeling / coding / packing
+- Layout constraints: footprint, infeed/outfeed direction, space limits
+
+5) Utilities and compliance
+- Power: ___ V / ___ Hz / ___ phase
+- Compressed air: ___ bar, ___ L/min
+- Hygiene level: food / non-food / washdown / dust control
+- Compliance: CE / local standard / none / TBD
+
+6) Acceptance criteria (FAT) — required
+- Test product:
+- Test run time:
+- Output:
+- Accuracy / tolerance definition:
+- Reject categories and max rate:
+- Changeover time:
+
+7) Deliverables and documentation package
+- Manual (operation + maintenance)
+- Electrical schematic and wiring diagram
+- Pneumatic diagram (if applicable)
+- Spare parts list (part numbers + photos + recommended stock)
+- Final configuration list + parameter/settings sheet
+- FAT report/video + deviation log (with closure)
+
+8) Quote response format
+- Quote line items: base machine, options, integration items, spares, installation/training
+- Lead time by milestone (engineering, build, FAT, shipment)
+- Payment terms proposal tied to milestones and FAT acceptance
+- Warranty and after-sales support process
+
+Email-ready block:
+Subject: RFQ — [Project Name] — [Machine/Line Type]
+
+Hello,
+Please quote based on the following scope. If any item is unclear, list your assumptions explicitly.
+
+1) Product & packaging: ___
+2) Output target & run plan: ___
+3) Utilities: ___
+4) Acceptance criteria (FAT): ___
+5) Document package required: manual + diagrams + spares list + FAT report/video + deviation log
+
+Please respond in the same section order and include option breakdown and lead times.
+
+Regards,
+___

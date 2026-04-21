@@ -7,12 +7,13 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
+import SourcingRouteGuide from '@/components/machinery/SourcingRouteGuide'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const titles: Record<string, string> = {
-  en: 'Conveying & Automation Systems | Conveyors, Palletizers, PLC',
-  cn: '输送与自动化系统 | 输送机、码垛机、PLC控制', zh: '輸送與自動化系統 | 輸送機、碼垛機、PLC控制',
+  en: 'Automation & Integration | Conveying, Controls & Line Readiness',
+  cn: '自动化与整合 | 输送、控制与整线准备', zh: '自動化與整合 | 輸送、控制與整線準備',
   fr: 'Syst\u00E8mes de convoyage et automatisation | Convoyeurs, palettiseurs, PLC',
   es: 'Sistemas de transporte y automatizaci\u00F3n | Transportadores, paletizadores, PLC',
   pt: 'Sistemas de Transporte e Automa\u00E7\u00E3o | Esteiras, Paletizadores, CLP',
@@ -25,18 +26,18 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Conveying and automation systems: belt conveyors, bucket elevators, screw conveyors, vibratory feeders, robotic arms, palletizers, and PLC-controlled production lines.',
-  cn: '输送与自动化系统：皮带输送、斗式提升、螺旋输送、振动给料、机械臂、码垛与PLC控制产线。',
-  zh: '輸送與自動化系統：皮帶輸送、斗式提升、螺旋輸送、振動給料、機械臂、碼垛與PLC控制產線。',
-  fr: 'Systèmes de convoyage et automatisation SunGene : convoyeurs à bande, élévateurs à godets, convoyeurs à vis, alimentateurs vibrants, bras robotiques, palettiseurs, lignes PLC. Certifiés CE.',
-  es: 'Sistemas de transporte y automatización SunGene: cintas transportadoras, elevadores de cangilones, tornillos, alimentadores vibratorios, brazos robóticos, paletizadores, líneas PLC. CE.',
-  pt: 'Sistemas de transporte e automação SunGene: transportadores de correia, elevadores de caçamba, sem-fim, alimentadores vibratórios, braços robóticos, paletizadores, linhas PLC. CE.',
-  ko: 'SunGene 컨베이어 및 자동화 시스템: 벨트, 버킷 엘리베이터, 스크류, 진동 피더, 로봇 암, 팔레타이저, PLC 생산 라인. CE 인증, 대만.',
-  ja: 'SunGeneコンベア・自動化システム：ベルト、バケットエレベーター、スクリュー、振動フィーダー、ロボットアーム、パレタイザー、PLC制御ライン。CE認証、台湾。',
-  ar: 'أنظمة النقل والأتمتة SunGene: ناقلات سيرية، رافعات دلو، لولبية، مغذيات اهتزازية، أذرع روبوتية، مكدسات وخطوط PLC. معتمدة CE، تايوان.',
-  th: 'ระบบลำเลียงและอัตโนมัติ SunGene: สายพาน ถังตัก สกรู เครื่องป้อนสั่น แขนหุ่นยนต์ พาเลทไทเซอร์ สายการผลิต PLC รับรอง CE ไต้หวัน',
-  vi: 'Hệ thống băng tải và tự động hóa SunGene: băng đai, gàu nâng, trục vít, cấp liệu rung, cánh tay robot, palletizer, dây chuyền PLC. CE, Đài Loan.',
-  de: 'SunGene Förder- und Automatisierungssysteme: Gurtförderer, Becherwerke, Schnecken, Schwingförderer, Roboterarme, Palettierer, PLC-Linien. CE-zertifiziert, Taiwan.',
+  en: 'Automation and integration sourcing support: map material flow, define IO ownership, lock electrical standards, and align safety/FAT scope before commissioning.',
+  cn: '自动化与整合采购支持：梳理物流与节拍、明确 IO 对接责任、锁定电气标准，并在调试前对齐安全与 FAT 范围。',
+  zh: '自動化與整合採購支援：梳理物流與節拍、明確 IO 對接責任、鎖定電氣標準，並在調試前對齊安全與 FAT 範圍。',
+  fr: 'Systèmes de convoyage et automatisation : convoyeurs à bande, élévateurs à godets, convoyeurs à vis, alimentateurs vibrants, bras robotiques, palettiseurs et commandes PLC.',
+  es: 'Sistemas de transporte y automatización: cintas transportadoras, elevadores de cangilones, tornillos, alimentadores vibratorios, brazos robóticos, paletizadores y controles PLC.',
+  pt: 'Sistemas de transporte e automação: transportadores de correia, elevadores de caçamba, sem-fim, alimentadores vibratórios, braços robóticos, paletizadores e controles PLC.',
+  ko: '컨베이어 및 자동화 시스템: 벨트, 버킷 엘리베이터, 스크류, 진동 피더, 로봇 암, 팔레타이저, PLC 제어 라인 시스템.',
+  ja: 'コンベア・自動化システム：ベルト、バケットエレベーター、スクリュー、振動フィーダー、ロボットアーム、パレタイザー、PLC制御システム。',
+  ar: 'أنظمة النقل والأتمتة: ناقلات سيرية، رافعات دلو، لولبية، مغذيات اهتزازية، أذرع روبوتية، مكدسات وأنظمة تحكم PLC.',
+  th: 'ระบบลำเลียงและอัตโนมัติ: สายพาน ถังตัก สกรู เครื่องป้อนสั่น แขนหุ่นยนต์ พาเลทไทเซอร์ และระบบควบคุม PLC',
+  vi: 'Hệ thống băng tải và tự động hóa: băng đai, gàu nâng, trục vít, cấp liệu rung, cánh tay robot, palletizer và điều khiển PLC.',
+  de: 'Förder- und Automatisierungssysteme: Gurtförderer, Becherwerke, Schnecken, Schwingförderer, Roboterarme, Palettierer und SPS-Steuerung.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     pathname: '/machinery/conveying-automation',
     type: 'website',
-    keywords: ['belt conveyor Taiwan', 'bucket elevator', 'screw conveyor', 'production line automation', 'robotic palletizer', 'PLC control system', 'factory automation Taiwan'],
+    keywords: ['automation integration sourcing', 'line integration planning', 'PLC HMI standard', 'IO mapping ownership', 'safety interlocks', 'FAT checklist', 'documentation handoff'],
   })
 }
 
@@ -56,50 +57,63 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
   const { lang } = await params
   const metaTitle = titles[lang] || titles.en
   const metaDesc = descriptions[lang] || descriptions.en
-  const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
+  const btnLabels: Record<string, string> = {
+    en: 'Get Assessment',
+    cn: '获取评估建议',
+    zh: '取得評估建議',
+    fr: 'Demander évaluation',
+    es: 'Solicitar evaluación',
+    pt: 'Solicitar avaliação',
+    ko: '평가 요청',
+    ja: '評価依頼',
+    ar: 'طلب تقييم',
+    th: 'ขอการประเมิน',
+    vi: 'Yêu cầu đánh giá',
+    de: 'Bewertung anfordern',
+  }
   const heroPhoto = PHOTO.machinery.subpageHeroes.conveyingAutomation
 
   const content: Record<string, any> = {
     en: {
       title: 'Conveying & Automation Systems',
-      p1: 'We provide complete conveying and automation solutions to connect your production line from start to finish. Our systems include belt conveyors, bucket elevators, screw conveyors, robotic arms, palletizers, PLC controls, metal detectors, and check weighers — designed to connect directly with packaging, filling, and processing equipment.',
-      p2: 'All systems are built with industrial-grade components, CE certified, and engineered for 24/7 operation. We offer custom layout design, PLC programming, and turnkey installation support.',
+      p1: 'We provide technical sourcing for complete conveying and automation solutions to connect your line system. Our scope includes belt conveyors, bucket elevators, screw conveyors, robotic arms, and PLC control systems designed to integrate with packaging and processing equipment.',
+      p2: 'Every project includes technical vetting of industrial-grade components, CE compliance, and engineering evaluation of layout and workflow efficiency. We offer custom layout design and PLC programming support.',
       subTitle: 'Machine Types Available',
       cons: ['Belt Conveyors', 'Bucket Elevators', 'Screw Conveyors', 'Robotic Arms', 'Palletizers', 'PLC Controls', 'Metal Detectors', 'Check Weighers'],
-      cta: 'Describe your production line layout — we\'ll design the right conveying and automation system.',
+      cta: 'Describe your line layout — we\'ll design the right conveying and automation system.',
       machines: ['Material Conveying', 'Line Automation', 'Quality Inspection', 'End-of-Line Palletizing']
     },
     cn: {
       title: '输送与自动化系统',
-      p1: '我们提供完整的输送和自动化解决方案，将您的生产线从头到尾连接起来。系统包括皮带输送机、斗式提升机、螺旋输送机、机械臂、码垛机、PLC控制系统、金属检测器和重量检测器——可直接与包装、灌装和加工设备整合搭配。',
-      p2: '所有系统采用工业级组件，CE认证，为24/7运行而设计。我们提供定制布局设计、PLC编程和交钥匙安装支持。',
+      p1: '我们为连接线体的完整输送和自动化方案提供技术采购。范围包括皮带输送机、斗式提升机、螺旋输送机、机械臂和 PLC 控制系统，旨在与包装、灌装和加工设备无缝集成。',
+      p2: '每个项目均包含工业级组件的技术审核、CE 合规性检查以及对布局和工作流效率的工程评估。我们提供定制布局设计与 PLC 编程支持。',
       subTitle: '可用机型',
       cons: ['皮带输送机', '斗式提升机', '螺旋输送机', '机械臂', '码垛机', 'PLC控制系统', '金属检测器', '重量检测器'],
-      cta: '描述您的生产线布局——我们将设计合适的输送和自动化系统。',
-      machines: ['物料输送', '产线自动化', '质量检测', '末端码垛']
+      cta: '描述您的线体布局——我们将设计合适的输送和自动化系统。',
+      machines: ['物料输送', '线体自动化', '质量检测', '末端码垛']
     },
     zh: {
       title: '輸送與自動化系統',
-      p1: '我們提供完整的輸送和自動化解決方案，將您的生產線從頭到尾連接起來。系統包括皮帶輸送機、斗式提升機、螺旋輸送機、機械臂、碼垛機、PLC控制系統、金屬檢測器和重量檢測器——可直接與包裝、灌裝和加工設備整合搭配。',
-      p2: '所有系統採用工業級元件，CE認證，為24/7運行而設計。我們提供客製佈局設計、PLC程式設計和交鑰匙安裝支援。',
+      p1: '我們為連接線體的完整輸送和自動化方案提供技術採購。範圍包括皮帶輸送機、斗式提升機、螺旋輸送機、機械臂和 PLC 控制系統，旨在與包裝、灌裝和加工設備無縫整合。',
+      p2: '每個項目均包含工業級元件的技術審核、CE 合規性檢查以及對佈局和工作流效率的工程評估。我們提供客製佈局設計與 PLC 程式設計支援。',
       subTitle: '可用機型',
       cons: ['皮帶輸送機', '斗式提升機', '螺旋輸送機', '機械臂', '碼垛機', 'PLC控制系統', '金屬檢測器', '重量檢測器'],
-      cta: '描述您的生產線佈局——我們將設計合適的輸送和自動化系統。',
-      machines: ['物料輸送', '產線自動化', '品質檢測', '末端碼垛']
+      cta: '描述您的線體佈局——我們將設計合適的輸送和自動化系統。',
+      machines: ['物料輸送', '線體自動化', '品質檢測', '末端碼垛']
     },
     fr: {
       title: 'Syst\u00E8mes de convoyage et automatisation',
-      p1: 'Nous fournissons des solutions compl\u00E8tes de convoyage et d\'automatisation pour connecter votre ligne de production du début à la fin. Nos syst\u00E8mes comprennent des convoyeurs \u00E0 bande, \u00E9l\u00E9vateurs \u00E0 godets, convoyeurs \u00E0 vis, bras robotiques, palettiseurs, commandes PLC, d\u00E9tecteurs de m\u00E9taux et trieuses pond\u00E9rales.',
-      p2: 'Tous les syst\u00E8mes sont construits avec des composants de qualit\u00E9 industrielle, certifi\u00E9s CE et con\u00E7us pour un fonctionnement 24h/24. Nous proposons la conception de layouts personnalis\u00E9s, la programmation PLC et un support d\'installation cl\u00E9 en main.',
+      p1: 'Nous fournissons des solutions compl\u00E8tes de convoyage et d\'automatisation pour connecter votre ligne du début à la fin. Nos syst\u00E8mes comprennent des convoyeurs \u00E0 bande, \u00E9l\u00E9vateurs \u00E0 godets, convoyeurs \u00E0 vis, bras robotiques, palettiseurs, commandes PLC, d\u00E9tecteurs de m\u00E9taux et trieuses pond\u00E9rales.',
+      p2: 'Tous les syst\u00E8mes sont construits avec des composants de qualit\u00E9 industrielle et con\u00E7us pour un fonctionnement 24h/24. Documentation CE \u00E0 l\u2019export lorsque c\u2019est applicable. Nous proposons la conception de layouts personnalis\u00E9s, la programmation PLC et un support d\'installation cl\u00E9 en main.',
       subTitle: 'Types de machines disponibles',
       cons: ['Convoyeurs \u00E0 bande', '\u00C9l\u00E9vateurs \u00E0 godets', 'Convoyeurs \u00E0 vis', 'Bras robotiques', 'Palettiseurs', 'Commandes PLC', 'D\u00E9tecteurs de m\u00E9taux', 'Trieuses pond\u00E9rales'],
-      cta: 'D\u00E9crivez la configuration de votre ligne de production \u2014 nous concevrons le syst\u00E8me de convoyage et d\'automatisation adapt\u00E9.',
+      cta: 'D\u00E9crivez la configuration de votre ligne \u2014 nous concevrons le syst\u00E8me de convoyage et d\'automatisation adapt\u00E9.',
       machines: ['Convoyage de mati\u00E8res', 'Automatisation de ligne', 'Inspection qualit\u00E9', 'Palettisation fin de ligne']
     },
     es: {
       title: 'Sistemas de transporte y automatizaci\u00F3n',
       p1: 'Proporcionamos soluciones completas de transporte y automatizaci\u00F3n para conectar su l\u00EDnea de producci\u00F3n de principio a fin. Nuestros sistemas incluyen transportadores de banda, elevadores de cangilones, transportadores de tornillo, brazos rob\u00F3ticos, paletizadores, controles PLC, detectores de metales y controladoras de peso.',
-      p2: 'Todos los sistemas est\u00E1n construidos con componentes de grado industrial, certificados CE y dise\u00F1ados para operaci\u00F3n 24/7. Ofrecemos dise\u00F1o de layout personalizado, programaci\u00F3n PLC y soporte de instalaci\u00F3n llave en mano.',
+      p2: 'Todos los sistemas est\u00E1n construidos con componentes de grado industrial y dise\u00F1ados para operaci\u00F3n 24/7. Documentaci\u00F3n CE para exportaci\u00F3n cuando aplique. Ofrecemos dise\u00F1o de layout personalizado, programaci\u00F3n PLC y soporte de instalaci\u00F3n llave en mano.',
       subTitle: 'Tipos de m\u00E1quinas disponibles',
       cons: ['Transportadores de banda', 'Elevadores de cangilones', 'Transportadores de tornillo', 'Brazos rob\u00F3ticos', 'Paletizadores', 'Controles PLC', 'Detectores de metales', 'Controladoras de peso'],
       cta: 'Describa la configuraci\u00F3n de su l\u00EDnea de producci\u00F3n \u2014 dise\u00F1aremos el sistema de transporte y automatizaci\u00F3n adecuado.',
@@ -108,7 +122,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     pt: {
       title: 'Sistemas de Transporte e Automa\u00E7\u00E3o',
       p1: 'Fornecemos solu\u00E7\u00F5es completas de transporte e automa\u00E7\u00E3o para conectar sua linha de produ\u00E7\u00E3o do in\u00EDcio ao fim. Nossos sistemas incluem esteiras transportadoras, elevadores de canecas, transportadores helicoidais, bra\u00E7os rob\u00F3ticos, paletizadores, controles CLP, detectores de metais e balanças de verifica\u00E7\u00E3o.',
-      p2: 'Todos os sistemas s\u00E3o constru\u00EDdos com componentes de grau industrial, certificados CE e projetados para opera\u00E7\u00E3o 24/7. Oferecemos projeto de layout personalizado, programa\u00E7\u00E3o CLP e suporte de instala\u00E7\u00E3o turnkey.',
+      p2: 'Todos os sistemas s\u00E3o constru\u00EDdos com componentes de grau industrial e projetados para opera\u00E7\u00E3o 24/7. Documenta\u00E7\u00E3o CE para exporta\u00E7\u00E3o quando aplic\u00E1vel. Oferecemos projeto de layout personalizado, programa\u00E7\u00E3o CLP e suporte de instala\u00E7\u00E3o turnkey.',
       subTitle: 'Tipos de m\u00E1quinas dispon\u00EDveis',
       cons: ['Esteiras transportadoras', 'Elevadores de canecas', 'Transportadores helicoidais', 'Bra\u00E7os rob\u00F3ticos', 'Paletizadores', 'Controles CLP', 'Detectores de metais', 'Balan\u00E7as de verifica\u00E7\u00E3o'],
       cta: 'Descreva o layout da sua linha de produ\u00E7\u00E3o \u2014 projetaremos o sistema de transporte e automa\u00E7\u00E3o ideal.',
@@ -170,6 +184,23 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     }
   }
   const t = content[lang] || content['en']
+  const routeGuide = {
+    notFit: ({
+      en: ['Standalone equipment projects with no material flow bottleneck defined', 'Lines without layout, buffer, or operator handoff data', 'Buyers comparing only conveyor price without control and integration scope'],
+      zh: ['沒有明確物流瓶頸的單機專案', '尚未提供佈局、緩衝區與人工作業交接資訊的產線', '只比輸送設備單價、不比較控制與整合範圍的採購'],
+      cn: ['没有明确物流瓶颈的单机项目', '尚未提供布局、缓冲区与人工作业交接信息的产线', '只比输送设备单价、不比较控制与整合范围的采购'],
+    } as Record<string, string[]>)[lang] || ['Standalone equipment projects with no material flow bottleneck defined', 'Lines without layout, buffer, or operator handoff data', 'Buyers comparing only conveyor price without control and integration scope'],
+    compare: ({
+      en: ['Actual line logic: buffer points, reject handling, inspection, and operator touchpoints', 'Motor, gearbox, sensor, PLC/HMI brand and electrical standard', 'Who owns integration, IO mapping, on-site tuning, and documentation handoff'],
+      zh: ['實際線體邏輯：緩衝點、剔除機制、檢測點與人工接觸點', '馬達、減速機、感測器、PLC/HMI 品牌與電氣標準', '誰負責整合、IO 對接、現場調機與文件交付'],
+      cn: ['实际线体逻辑：缓冲点、剔除机制、检测点与人工接触点', '马达、减速机、传感器、PLC/HMI 品牌与电气标准', '谁负责整合、IO 对接、现场调机与文件交付'],
+    } as Record<string, string[]>)[lang] || ['Actual line logic: buffer points, reject handling, inspection, and operator touchpoints', 'Motor, gearbox, sensor, PLC/HMI brand and electrical standard', 'Who owns integration, IO mapping, on-site tuning, and documentation handoff'],
+    acceptance: ({
+      en: ['Confirm line speed, accumulation behavior, alarms, and safety interlocks at FAT', 'Test transition points and reject logic with actual package flow', 'Approve drawings, electrical list, spare parts, and parameter backup before shipment'],
+      zh: ['在 FAT 確認線速、緩衝行為、警報與安全互鎖', '用實際包裝物流測試轉接點與剔除邏輯', '出貨前核准圖面、電氣清單、備件與參數備份'],
+      cn: ['在 FAT 确认线速、缓冲行为、报警与安全互锁', '用实际包装物流测试转接点与剔除逻辑', '出货前核准图面、电气清单、备件与参数备份'],
+    } as Record<string, string[]>)[lang] || ['Confirm line speed, accumulation behavior, alarms, and safety interlocks at FAT', 'Test transition points and reject logic with actual package flow', 'Approve drawings, electrical list, spare parts, and parameter backup before shipment'],
+  }
 
   const pageUrl = `${SITE_URL}/${lang}/machinery/conveying-automation`
   const itemListId = `${pageUrl}#itemlist`
@@ -195,7 +226,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Conveyor System', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/conveyor-system`, url: `${SITE_URL}/${lang}/machines/conveyor-system`, name: 'Conveyor System' } },
-      { '@type': 'ListItem', position: 2, name: 'Conveyor Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${lang}/resources/topic/conveyor-system`, name: 'Conveyor Buying Guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Conveying & automation configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/conveying-automation`, url: `${SITE_URL}/${lang}/resources/route/conveying-automation`, name: 'Conveying & automation configuration guides' } },
     ],
   }
 
@@ -206,7 +237,7 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
         kicker={({ en: 'CONVEYING & AUTOMATION', cn: '输送与自动化', zh: '輸送與自動化', fr: 'CONVOYAGE & AUTOMATISATION', es: 'TRANSPORTE Y AUTOMATIZACIÓN', pt: 'TRANSPORTE E AUTOMAÇÃO', ko: '컨베이어 및 자동화', ja: '搬送・自動化', ar: 'النقل والأتمتة', th: 'ลำเลียงและอัตโนมัติ', vi: 'BĂNG TẢI & TỰ ĐỘNG HÓA', de: 'FÖRDERUNG & AUTOMATISIERUNG' } as Record<string,string>)[lang] || 'CONVEYING & AUTOMATION'}
         title={t.title}
         desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Conveying automation system in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Conveying and automation sourcing support', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
       <section className="bg-white py-6">
         <Container className="max-w-6xl">
@@ -257,6 +288,14 @@ export default async function ConveyingAutomationPage({ params }: { params: Prom
           </div>
         </Container>
       </section>
+
+      <SourcingRouteGuide
+        lang={lang}
+        fitItems={t.machines}
+        notFitItems={routeGuide.notFit}
+        compareItems={routeGuide.compare}
+        acceptanceItems={routeGuide.acceptance}
+      />
     </>
   )
 }

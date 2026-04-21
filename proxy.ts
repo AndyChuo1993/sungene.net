@@ -32,7 +32,9 @@ function inferLegacyDestination(restPath: string): string {
   const s = restPath.toLowerCase()
   const m = inferMachineFromLegacyPath(s)
   if (m) return `/machines/${m}`
-  if (s.includes('analysis') || s.includes('report') || s.includes('service')) return '/solutions'
+  if (s.startsWith('/blog') || s.startsWith('/services') || s.startsWith('/service')) return '/sourcing'
+  if (s.includes('analysis') || s.includes('report')) return '/resources'
+  if (s.includes('service')) return '/sourcing'
   if (s.includes('custom') || s.includes('oem') || s.includes('odm')) return '/machinery/custom'
   if (s.includes('convey') || s.includes('automation') || s.includes('plc')) return '/machinery/conveying-automation'
   if (s.includes('food') || s.includes('processing') || s.includes('fryer') || s.includes('roaster')) return '/machinery/food-processing'
@@ -79,10 +81,69 @@ function hasTrackingParams(searchParams: URLSearchParams) {
   return keys.some((k) => searchParams.has(k))
 }
 
-export function middleware(request: NextRequest) {
+function isAllowedNoLocalePath(pathname: string) {
+  return (
+    pathname === '/about' ||
+    pathname === '/contact' ||
+    pathname === '/assessment' ||
+    pathname === '/resources' ||
+    pathname === '/markets' ||
+    pathname === '/machinery' ||
+    pathname === '/industries' ||
+    pathname === '/solutions' ||
+    pathname === '/sourcing'
+  )
+}
+
+function should410NoLocalePath(pathname: string) {
+  return (
+    pathname.startsWith('/wp-') ||
+    pathname.startsWith('/wp-admin') ||
+    pathname.startsWith('/wp-content') ||
+    pathname.startsWith('/wp-includes') ||
+    pathname.startsWith('/wp-json') ||
+    pathname.startsWith('/product') ||
+    pathname.startsWith('/products') ||
+    pathname.startsWith('/product-category') ||
+    pathname.startsWith('/category') ||
+    pathname.startsWith('/tag') ||
+    pathname.startsWith('/blog') ||
+    pathname.startsWith('/services') ||
+    pathname.startsWith('/service') ||
+    pathname.startsWith('/export-market-analysis') ||
+    pathname.startsWith('/market-analysis') ||
+    pathname.startsWith('/report') ||
+    pathname.startsWith('/reports') ||
+    pathname.startsWith('/cart') ||
+    pathname.startsWith('/checkout') ||
+    pathname.startsWith('/my-account') ||
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/lost-password') ||
+    pathname.startsWith('/feed') ||
+    pathname.startsWith('/rss') ||
+    pathname.startsWith('/xmlrpc.php') ||
+    pathname.startsWith('/sitemap_index.xml') ||
+    pathname.startsWith('/products-2') ||
+    pathname.includes('__trashed')
+  )
+}
+
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
+
+  if (pathname.includes('[lang]')) {
+    return plain(410, 'Gone')
+  }
+
+  if (pathname.includes('__trashed')) {
+    return plain(410, 'Gone')
+  }
+
+  if (/^\/[&$]$/.test(pathname)) {
+    return plain(410, 'Gone')
+  }
 
   const legacyDotBlocklist = [
     '/xmlrpc.php',
@@ -101,7 +162,6 @@ export function middleware(request: NextRequest) {
     return plain(410, 'Gone')
   }
 
-  // === 1. Static files, API, webhook, non-locale routes — pass through immediately ===
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
@@ -109,6 +169,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/webhook') ||
     pathname.startsWith('/management') ||
     pathname.startsWith('/case-studies') ||
+    pathname === '/og-image' ||
     pathname.includes('.')
   ) {
     return NextResponse.next()
@@ -132,17 +193,88 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308)
   }
 
-  // === 2. Old WordPress query strings (/?post_type=product&p=X) → homepage ===
   const searchParams = request.nextUrl.searchParams
+  if (
+    searchParams.has('add-to-cart') ||
+    searchParams.has('add_to_cart') ||
+    searchParams.has('wc-ajax') ||
+    searchParams.has('page_id') ||
+    searchParams.has('product_id')
+  ) {
+    return plain(410, 'Gone')
+  }
+
   if ((searchParams.has('post_type') || searchParams.has('p')) && pathname === '/') {
     return NextResponse.redirect(new URL('/en', request.url), 308)
   }
 
-  // === 3. Detect current language from URL ===
   const matchLang = pathname.match(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)(?:\/|$)/)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
   const restPath = matchLang ? pathname.replace(new RegExp(`^/${currentLang}(?=/|$)`), '') || '/' : pathname
   const shouldNoindexByParams = hasTrackingParams(searchParams)
+
+  if (!matchLang) {
+    const first = pathname.match(/^\/([^/]+)(?:\/|$)/)?.[1]
+    if (first && /^[a-z]{2}$/i.test(first) && !locales.includes(first.toLowerCase())) {
+      return plain(404, 'Not Found')
+    }
+    if (pathname !== '/' && !isAllowedNoLocalePath(pathname)) {
+      return should410NoLocalePath(pathname) ? plain(410, 'Gone') : plain(404, 'Not Found')
+    }
+  }
+
+  if (restPath === '/feed' || restPath.endsWith('/feed') || restPath === '/rss' || restPath.endsWith('/rss')) {
+    return plain(410, 'Gone')
+  }
+
+  if (matchLang && restPath.startsWith('/case-studies')) {
+    return NextResponse.redirect(new URL(restPath, request.url), 308)
+  }
+
+  if (
+    restPath === '/about-us' ||
+    restPath === '/company' ||
+    restPath === '/contact-us'
+  ) {
+    const lang = currentLang || defaultLocale
+    const map: Record<string, string> = {
+      '/about-us': '/about',
+      '/company': '/about',
+      '/contact-us': '/contact',
+    }
+    return NextResponse.redirect(new URL(`/${lang}${map[restPath]}`, request.url), 308)
+  }
+
+  if (
+    restPath === '/markets/europe' ||
+    restPath === '/markets/middle-east' ||
+    restPath === '/markets/southeast-asia' ||
+    restPath === '/markets/americas' ||
+    restPath === '/markets/africa' ||
+    restPath === '/markets/east-asia' ||
+    restPath === '/markets/south-asia'
+  ) {
+    const lang = currentLang || defaultLocale
+    return NextResponse.redirect(new URL(`/${lang}/markets`, request.url), 308)
+  }
+
+  if (
+    restPath === '/buyer-database-building' ||
+    restPath === '/linkedin-prospecting' ||
+    restPath === '/cold-email-outreach' ||
+    restPath === '/overseas-buyer-lists' ||
+    restPath === '/distributor-list' ||
+    restPath === '/qualified-b2b-leads' ||
+    restPath === '/export-marketing'
+  ) {
+    const lang = currentLang || defaultLocale
+    return NextResponse.redirect(new URL(`/${lang}/sourcing`, request.url), 308)
+  }
+
+  if (restPath === '/resources/what-to-prepare-before-machine-quote') {
+    const lang = currentLang || defaultLocale
+    return NextResponse.redirect(new URL(`/${lang}/resources/what-to-prepare-before-sourcing-assessment`, request.url), 308)
+  }
 
   if (searchParams.has('post_type') || searchParams.has('p')) {
     const lang = currentLang || defaultLocale
@@ -168,7 +300,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (
-    (restPath === '/recommend' || restPath === '/contact') &&
+    (restPath === '/assessment' || restPath === '/contact') &&
     (searchParams.has('machine') || searchParams.has('product'))
   ) {
     const res = NextResponse.next()
@@ -176,7 +308,15 @@ export function middleware(request: NextRequest) {
     return res
   }
 
-  // === 4. Handle legacy / WordPress / bot paths (avoid polluting indexing signals) ===
+  if (
+    (restPath === '/resources' && (searchParams.has('tab') || searchParams.has('category'))) ||
+    (restPath === '/contact' && (searchParams.has('service') || searchParams.has('type')))
+  ) {
+    const res = NextResponse.next()
+    res.headers.set('X-Robots-Tag', 'noindex, follow')
+    return res
+  }
+
   const legacy410Prefixes = [
     '/wp-admin',
     '/wp-content',
@@ -191,6 +331,8 @@ export function middleware(request: NextRequest) {
     '/login',
     '/cart',
     '/checkout',
+    '/lost-password',
+    '/products-2',
   ]
   if (legacy410Prefixes.some((p) => restPath === p || restPath.startsWith(`${p}/`))) {
     return plain(410, 'Gone')
@@ -217,13 +359,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}${suffix}`, request.url), 308)
   }
 
-  // === 6. Normalize /zh/cn → /cn ===
   const normalizedPathname = pathname.replace(/^\/zh\/cn(?=\/|$)/, '/cn')
   if (normalizedPathname !== pathname) {
     return NextResponse.redirect(new URL(normalizedPathname, request.url), 308)
   }
 
-  // === 7. Add locale prefix if missing ===
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
@@ -232,13 +372,15 @@ export function middleware(request: NextRequest) {
     if (pathname === '/') {
       return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url), 308)
     }
-    return NextResponse.redirect(
-      new URL(`/${defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
-      308
-    )
+    if (isAllowedNoLocalePath(pathname)) {
+      return NextResponse.redirect(
+        new URL(`/${defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
+        308
+      )
+    }
+    return plain(404, 'Not Found')
   }
 
-  // === 8. Set x-lang header ===
   const locale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )

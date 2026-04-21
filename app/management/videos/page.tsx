@@ -36,7 +36,12 @@ export default function VideosPage() {
     setItems(data || [])
   }, [])
 
-  useEffect(() => { load() }, [load])
+  useEffect(() => {
+    const id = setTimeout(() => {
+      void load()
+    }, 0)
+    return () => clearTimeout(id)
+  }, [load])
 
   async function save(state: EditState) {
     const sb = getSupabaseBrowser()
@@ -108,14 +113,13 @@ export default function VideosPage() {
           <div className="mt-10 text-center text-sm text-gray-500">載入中…</div>
         ) : items.length === 0 ? (
           <div className="mt-10 rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center text-sm text-gray-500">
-            尚無影片。請先將工廠驗收影片上傳至 YouTube，再將網址貼到此處。
+            尚無影片。請先將供應商驗收影片上傳至 YouTube，再將網址貼到此處。
           </div>
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((v) => (
               <div key={v.id} className={`overflow-hidden rounded-2xl border ${v.published ? 'border-green-300 bg-green-50/30' : 'border-gray-200 bg-white'}`}>
                 {v.thumbnail_url ? (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={v.thumbnail_url} alt={v.title} className="aspect-video w-full object-cover" />
                 ) : (
                   <div className="flex aspect-video w-full items-center justify-center bg-gray-100 text-gray-400 text-xs">無縮圖</div>

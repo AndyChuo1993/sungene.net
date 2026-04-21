@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/03_Foot_Sealer_Impulse_Type/Foot_Sealer_Impulse_Type.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Foot Sealer (Impulse Type) | Hands-Free Pedal-Operated Bag Sealer',
-  cn: '脚踏式封口机 | 双手解放的脉冲封口机',
-  zh: '腳踏式封口機 | 雙手解放的脈衝封口機',
-  fr: 'Soudeuse à pédale (type impulsion) | Mains libres',
-  es: 'Selladora de pedal (tipo impulso) | Manos libres',
-  pt: 'Seladora de pedal (tipo impulso) | Mãos livres',
-  ko: '발 페달 실러 (임펄스 타입) | 핸즈프리 봉지 실러',
-  ja: 'フットシーラー（インパルス式）| ハンズフリーペダル操作',
-  ar: 'ختام القدم (نوع النبضة) | تشغيل بالقدم بدون أيدي',
-  th: 'เครื่องซีลเท้าเหยียบ (แบบอิมพัลส์) | ปลดแขนทั้งสองข้าง',
-  vi: 'Máy hàn chân (loại xung) | Vận hành rảnh tay',
-  de: 'Fußschweißgerät (Impulstyp) | Freihändig bedienbar',
+  en: 'Foot Sealing Configuration Route | Throughput & Control Planning',
+  cn: '脚踏封口配置路线 | 产能与控制规划',
+  zh: '腳踏封口配置路線 | 產能與控制規劃',
+  fr: 'Soudeuse à pédale | Sourcing technique et efficacité de scellage',
+  es: 'Selladora de pedal | Abastecimiento técnico y eficiencia de sellado',
+  pt: 'Seladora de pedal | Sourcing técnico e eficiência de selagem',
+  ko: '발 페달 실러 | 기술 소싱 및 실링 효율 솔루션',
+  ja: 'フットシーラー | 技術ソーシングとシール効率化',
+  ar: 'ختام القدم | التوريد التقني وكفاءة الختم',
+  th: 'เครื่องซีลเท้าเหยียบ | การจัดซื้อเชิงเทคนิคและประสิทธิภาพการซีล',
+  vi: 'Máy hàn chân | Đánh giá nguồn cung và hiệu quả đóng gói',
+  de: 'Fußschweißgerät | Technisches Sourcing & Versiegelungseffizienz',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Foot-operated impulse bag sealer for high-throughput packaging. Both hands free to hold and position bags. Sealing lengths 300–750mm. Suitable for food, electronics, hardware, and daily necessities.',
-  cn: '脚踏式脉冲封口机，双手可自由持袋与对位，适合高效包装场景，封口长度300-750mm，适用于食品、电子、五金及日用品。',
-  zh: '腳踏式脈衝封口機，雙手可自由持袋與對位，適合高效包裝場景，封口長度300-750mm，適用於食品、電子、五金及日用品。',
-  fr: 'Soudeuse à pédale par impulsion pour emballages à haut débit. Mains libres pour tenir et positionner les sacs. Longueurs 300–750 mm.',
-  es: 'Selladora de bolsas por impulso operada con pedal para embalaje de alto rendimiento. Manos libres para sostener y posicionar bolsas. Longitudes 300–750 mm.',
-  pt: 'Seladora de sacos por impulso operada por pedal para embalagem de alta produtividade. Mãos livres para segurar e posicionar os sacos. Comprimentos 300–750 mm.',
-  ko: '고처리량 포장을 위한 발 페달 임펄스 봉지 실러. 양손이 자유로워 봉지를 잡고 위치 조정 가능. 실링 길이 300~750mm.',
-  ja: '高スループット包装向けフットペダルインパルスシーラー。両手が自由になり袋の保持・位置合わせが容易。封口長300〜750mm。',
-  ar: 'جهاز ختم أكياس بالقدم بالنبضات للتغليف عالي الإنتاجية. كلا اليدين حرتان لحمل الأكياس وتحديد مواضعها. أطوال 300–750 مم.',
-  th: 'เครื่องซีลถุงแบบเหยียบเท้าระบบอิมพัลส์สำหรับงานบรรจุภัณฑ์ปริมาณมาก ทั้งสองมือว่างเพื่อจับและจัดตำแหน่งถุง ความยาวซีล 300-750 มม.',
-  vi: 'Máy hàn túi xung điện điều khiển bằng chân cho đóng gói hiệu suất cao. Hai tay tự do giữ và định vị túi. Chiều dài hàn 300–750mm.',
-  de: 'Fußbetätigter Impuls-Beutelschweißer für die Hochleistungsverpackung. Beide Hände frei zum Halten und Positionieren der Beutel. Schweißlängen 300–750 mm.',
+  en: 'Foot-sealer sourcing support: validate hands-free sealing throughput, film compatibility, and maintenance needs; align acceptance and spare-parts scope before release.',
+  cn: '脚踏封口采购支持：验证免手持封口产能、膜材兼容与维护需求，并在放行前对齐验收与备件范围。',
+  zh: '腳踏封口採購支援：驗證免手持封口產能、膜材相容與維護需求，並在放行前對齊驗收與備件範圍。',
+  fr: 'Sourcing professionnel pour soudeuses à pédale. Validation technique des séries WS-30/45/60/75 pour vos besoins de conditionnement intensif.',
+  es: 'Abastecimiento profesional para selladoras de pedal. Evaluación técnica de las series WS-30/45/60/75 para sus líneas de empaque de alto rendimiento.',
+  pt: 'Sourcing profissional para seladoras de pedal. Validação técnica das séries WS-30/45/60/75 para suas necessidades de embalagem de alta produtividade.',
+  ko: '발 페달식 임펄스 실러 전문 소싱. 식품 또는 산업용 포장 라인의 고효율을 보장하기 위해 WS-30/45/60/75 시리즈에 대한 기술 심사를 제공합니다.',
+  ja: 'フット式インパルスシーラーの専門ソーシング。食品・工業包装ラインの高効率化を実現するため、WS-30/45/60/75シリーズの技術審査を提供します。',
+  ar: 'توريد احترافي لأجهزة ختم الأكياس بالقدم. نحن نقدم تدقيقًا فنيًا لسلسلة WS-30/45/60/75 لضمان الكفاءة العالية لخطوط التغليف الخاصة بك.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับเครื่องซีลเท้าเหยียบ เราให้บริการตรวจสอบทางเทคนิคสำหรับซีรีส์ WS-30/45/60/75 เพื่อประสิทธิภาพสูงสุดสำหรับสายการบรรจุของคุณ',
+  vi: 'Nguồn cung chuyên nghiệp cho máy hàn túi đạp chân. Chúng tôi thẩm định kỹ thuật dòng WS-30/45/60/75 để đảm bảo hiệu suất cao cho dây chuyền đóng gói.',
+  de: 'Professionelles Sourcing für fußbetätigte Impulsschweißgeräte. Wir bieten technische Prüfung der WS-30/45/60/75-Serien für maximale Effizienz in Ihrer Produktion.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/foot-sealer-impulse-type',
     type: 'website',
-    keywords: ['foot sealer', 'pedal sealer', 'impulse foot sealer', 'hands-free bag sealer', 'Wuu Sheng', 'Taiwan foot sealer'],
+    keywords: ['foot sealing configuration', 'hands-free sealing throughput', 'film compatibility', 'acceptance checklist', 'spare parts planning', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -87,8 +88,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Food packaging lines', 'Bakery & fresh produce', 'Electronics assembly', 'Hardware distribution', 'Pharmaceuticals', 'Textile & garment', 'Retail & e-commerce', 'Industrial parts bagging'],
-    ctaTitle: 'Want to free up your operators\' hands? Ask about the foot sealer for your production floor.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Want to improve your sealing throughput? Request a professional sourcing assessment for our sealer range.',
+    ctaBtn: 'Get Sourcing Assessment',
   },
   cn: {
     kicker: '封口设备',
@@ -108,8 +109,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['食品包装线', '烘焙与生鲜', '电子装配', '五金配送', '医药', '纺织服装', '零售与电商', '工业零件装袋'],
-    ctaTitle: '想解放操作员的双手？了解脚踏封口机如何提升生产效率。',
-    ctaBtn: '获取报价',
+    ctaTitle: '想提升封口产出效率？申请专业采购评估，了解我们的封口机系列。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '封口設備',
@@ -129,8 +130,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['食品包裝線', '烘焙與生鮮', '電子裝配', '五金配送', '醫藥', '紡織服裝', '零售與電商', '工業零件裝袋'],
-    ctaTitle: '想解放操作員的雙手？了解腳踏封口機如何提升生產效率。',
-    ctaBtn: '取得報價',
+    ctaTitle: '想提升封口產出效率？申請專業採購評估，了解我們的封口機系列。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'ÉQUIPEMENT DE SCELLAGE',
@@ -150,8 +151,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Lignes emballage alimentaire', 'Boulangerie et produits frais', 'Assemblage électronique', 'Distribution quincaillerie', 'Pharmaceutique', 'Textile et habillement', 'Retail et e-commerce', 'Ensachage pièces industrielles'],
-    ctaTitle: 'Souhaitez-vous libérer les mains de vos opérateurs ? Demandez-nous notre soudeuse à pédale.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Vous souhaitez optimiser votre cadence de scellage ? Demandez une évaluation de sourcing.',
+    ctaBtn: 'Obtenir une évaluation',
   },
   es: {
     kicker: 'EQUIPO DE SELLADO',
@@ -170,9 +171,9 @@ const content: Record<string, PageContent> = {
     ],
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
-    applications: ['Líneas de empaque de alimentos', 'Panadería y productos frescos', 'Ensamblaje electrónico', 'Distribución de ferretería', 'Farmacéutico', 'Textil y confección', 'Retail y e-commerce', 'Enbolsado de piezas industriales'],
-    ctaTitle: '¿Quiere liberar las manos de sus operadores? Consulte sobre la selladora de pedal.',
-    ctaBtn: 'Solicitar cotización',
+    applications: ['Líneas de empaque de alimentos', 'Panadería y productos frescos', 'Ensamblaje electrónico', 'Distribución de ferretería', 'Farmacéutico', 'Textil y confección', 'Retail et e-commerce', 'Enbolsado de piezas industriales'],
+    ctaTitle: '¿Desea mejorar su capacidad de sellado? Solicite una evaluación de abastecimiento profesional.',
+    ctaBtn: 'Obtener evaluación',
   },
   pt: {
     kicker: 'EQUIPAMENTO DE SELAGEM',
@@ -182,7 +183,7 @@ const content: Record<string, PageContent> = {
     features: [
       'Operação por pedal — ambas as mãos livres para posicionar sacos',
       'Aquecimento por impulso transitório para selagens rápidas e limpas',
-      'Tempo e temperatura ajustáveis para diferentes espessuras de filme',
+      'Tempo e temperatura ajustáveis para differentes espessuras de filme',
       'Unidade de chão com base estável — sem necessidade de mesa',
       'Comprimentos de selagem 300, 450, 600 e 750 mm',
       'Largura de selagem 2,7 mm ou 5 mm',
@@ -192,8 +193,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Linhas de embalagem de alimentos', 'Padaria e hortifruti', 'Montagem eletrônica', 'Distribuição de ferragens', 'Farmacêutico', 'Têxtil e confecção', 'Varejo e e-commerce', 'Ensaque de peças industriais'],
-    ctaTitle: 'Quer liberar as mãos dos seus operadores? Pergunte-nos sobre a seladora de pedal.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Quer otimizar sua produção de selagem? Peça uma avaliação de sourcing profissional.',
+    ctaBtn: 'Obter avaliação',
   },
   ko: {
     kicker: '실링 장비',
@@ -213,8 +214,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['식품 포장 라인', '베이커리·신선식품', '전자부품 조립', '철물 유통', '의약품', '섬유·의류', '소매·전자상거래', '산업용 부품 백'],
-    ctaTitle: '작업자의 양손을 자유롭게 하고 싶으신가요? 발 페달 실러를 문의해 보세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '실링 처리량을 높이고 싶으신가요? 실러 제품군에 대한 전문 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 받기',
   },
   ja: {
     kicker: 'シーリング機器',
@@ -234,8 +235,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['食品包装ライン', 'ベーカリー・生鮮食品', '電子部品組立', '金物流通', '医薬品', '繊維・アパレル', '小売・EC', '工業用部品袋詰め'],
-    ctaTitle: '作業者の両手を解放したい？フットシーラーについてお問い合わせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: 'シール処理能力を向上させたいですか？シーラー製品群の専門ソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'معدات الختم',
@@ -255,8 +256,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['خطوط تغليف الأغذية', 'المخابز والمنتجات الطازجة', 'تجميع الإلكترونيات', 'توزيع الأدوات', 'الصناعات الدوائية', 'المنسوجات والملابس', 'التجزئة والتجارة الإلكترونية', 'تعبئة القطع الصناعية'],
-    ctaTitle: 'هل تريد تحرير أيدي المشغلين؟ استفسر عن ختام القدم لخط إنتاجك.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل ترغب في تحسين إنتاجية الختم؟ اطلب تقييم توريد احترافيًا لمجموعة أجهزة الختم لدينا.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'อุปกรณ์ซีล',
@@ -276,8 +277,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['สายการบรรจุอาหาร', 'เบเกอรี่และสินค้าสด', 'ประกอบชิ้นส่วนอิเล็กทรอนิกส์', 'จัดจำหน่ายเครื่องมือ', 'เภสัชกรรม', 'สิ่งทอและเสื้อผ้า', 'ค้าปลีกและอีคอมเมิร์ซ', 'บรรจุชิ้นส่วนอุตสาหกรรม'],
-    ctaTitle: 'ต้องการให้มือของผู้ปฏิบัติงานว่างมากขึ้น? สอบถามเกี่ยวกับเครื่องซีลเท้าเหยียบ',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'ต้องการเพิ่มประสิทธิภาพการซีล? ขอรับการประเมินการจัดซื้อสำหรับกลุ่มผลิตภัณฑ์เครื่องซีลของเรา',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'THIẾT BỊ DÁN KÍN',
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Dây chuyền đóng gói thực phẩm', 'Bánh mì và rau củ tươi', 'Lắp ráp điện tử', 'Phân phối phần cứng', 'Dược phẩm', 'Dệt may', 'Bán lẻ và thương mại điện tử', 'Đóng túi linh kiện công nghiệp'],
-    ctaTitle: 'Muốn giải phóng tay cho công nhân? Hỏi về máy hàn chân cho dây chuyền sản xuất.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Bạn muốn cải thiện năng suất hàn túi? Yêu cầu đánh giá nguồn cung chuyên nghiệp.',
+    ctaBtn: 'Yêu cầu đánh giá',
   },
   de: {
     kicker: 'VERSIEGELUNGSGERÄTE',
@@ -309,7 +310,7 @@ const content: Record<string, PageContent> = {
       'Fußpedalsteuerung — beide Hände frei für präzises Beutelpositionieren',
       'Transientes Impulsheizen für schnelle, saubere, energiesparende Schweißnähte',
       'Einstellbare Zeit und Temperatur für verschiedene Folienstärken',
-      'Bodenstehend mit stabilem Fuß — kein Tisch erforderlich',
+      'Bodenstehend with stabilem Fuß — kein Tisch erforderlich',
       'Schweißlängen 300, 450, 600 und 750 mm',
       'Schweißbreite 2,7 mm oder 5 mm',
       'Kompatibel mit LLDPE, PVC, OPP, PP und POF',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Lebensmittelverpackungslinien', 'Bäckerei & Frischprodukte', 'Elektronikmontage', 'Heimwerkerdistribution', 'Pharmazie', 'Textil & Bekleidung', 'Einzelhandel & E-Commerce', 'Industrieteile-Abpackung'],
-    ctaTitle: 'Möchten Sie die Hände Ihrer Bediener freihalten? Fragen Sie nach dem Fußschweißgerät für Ihre Produktion.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Möchten Sie Ihren Versiegelungsdurchsatz verbessern? Fordern Sie eine Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -423,6 +424,8 @@ export default async function FootSealerPage({ params }: { params: Promise<{ lan
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>报价对照表</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #d9d9d9; padding: 8px; }
+      th { background: #f3f3f3; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>项目</th>
+        <th>供应商A</th>
+        <th>供应商B</th>
+        <th>供应商C</th>
+        <th>备注</th>
+      </tr>
+      <tr><td>主机型号</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>产能（bpm）</td><td></td><td></td><td></td><td>需定义条件</td></tr>
+      <tr><td>精度/公差</td><td></td><td></td><td></td><td>抽样计划</td></tr>
+      <tr><td>除尘/止滴</td><td></td><td></td><td></td><td>封口稳定</td></tr>
+      <tr><td>检测模块</td><td></td><td></td><td></td><td>金检/检重/视觉</td></tr>
+      <tr><td>换型设计</td><td></td><td></td><td></td><td>时间＋零件</td></tr>
+      <tr><td>文件包</td><td></td><td></td><td></td><td>手册/图纸/备品</td></tr>
+      <tr><td>FAT 验收条件</td><td></td><td></td><td></td><td>pass/fail</td></tr>
+      <tr><td>交期</td><td></td><td></td><td></td><td>拆里程碑</td></tr>
+      <tr><td>付款条件</td><td></td><td></td><td></td><td>绑证据</td></tr>
+      <tr><td>保固/售后</td><td></td><td></td><td></td><td>回复时效</td></tr>
+    </table>
+  </body>
+</html>
+

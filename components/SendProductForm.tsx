@@ -1,7 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import { Lang } from '@/lib/i18n'
-import { trackCTAClick } from '@/lib/analytics'
+import { trackCTAClick, trackFormSubmitFail, trackFormSubmitSuccess } from '@/lib/analytics'
 
 interface SendProductFormProps {
   lang: Lang
@@ -10,8 +10,8 @@ interface SendProductFormProps {
 
 const labels: Record<string, Record<string, string>> = {
   en: {
-    sectionTitle: 'Send Your Product — Get a Machine Recommendation',
-    sectionDesc: 'Fill in your product details and we\'ll recommend the best machine for your needs within 24 hours.',
+    sectionTitle: 'Send Your Product — Get a Sourcing Assessment',
+    sectionDesc: 'Fill in your product details and we\'ll reply with the right sourcing path, configuration direction, and next steps within 24 hours.',
     name: 'Your Name',
     email: 'Email Address',
     productType: 'Your Product',
@@ -25,7 +25,7 @@ const labels: Record<string, Record<string, string>> = {
     submit: 'Send Product Details →',
     submitting: 'Sending...',
     successTitle: 'Thank you!',
-    successDesc: 'We\'ve received your product details! Our team will send you a machine recommendation within 24 hours.',
+    successDesc: 'We\'ve received your product details. Our team will reply with a sourcing assessment within 24 hours.',
     submitAnother: 'Submit another request',
     errorTitle: 'Submission Failed',
     errorDesc: 'Something went wrong. Please try again or contact us directly.',
@@ -33,8 +33,8 @@ const labels: Record<string, Record<string, string>> = {
     photoPreview: 'Photo selected',
   },
   cn: {
-    sectionTitle: '发送您的产品 — 获取机器推荐',
-    sectionDesc: '填写您的产品信息，我们将在24小时内为您推荐最合适的机器。',
+    sectionTitle: '发送您的产品 — 获取采购评估',
+    sectionDesc: '填写您的产品信息，我们将在24小时内回复合适的采购路径、配置方向与下一步建议。',
     name: '您的姓名',
     email: '电子邮箱',
     productType: '您的产品',
@@ -48,7 +48,7 @@ const labels: Record<string, Record<string, string>> = {
     submit: '发送产品信息 →',
     submitting: '发送中...',
     successTitle: '感谢您！',
-    successDesc: '我们已收到您的产品信息！我们的团队将在24小时内向您发送机器推荐。',
+    successDesc: '我们已收到您的产品信息！我们的团队将在24小时内回复采购评估。',
     submitAnother: '再次提交',
     errorTitle: '提交失败',
     errorDesc: '出现错误，请重试或直接联系我们。',
@@ -56,8 +56,8 @@ const labels: Record<string, Record<string, string>> = {
     photoPreview: '已选择照片',
   },
   zh: {
-    sectionTitle: '傳送您的產品 — 獲取機器推薦',
-    sectionDesc: '填寫您的產品資訊，我們將在24小時內為您推薦最合適的機器。',
+    sectionTitle: '傳送您的產品 — 取得採購評估',
+    sectionDesc: '填寫您的產品資訊，我們將在24小時內回覆合適的採購路徑、配置方向與下一步建議。',
     name: '您的姓名',
     email: '電子郵件',
     productType: '您的產品',
@@ -71,7 +71,7 @@ const labels: Record<string, Record<string, string>> = {
     submit: '傳送產品資訊 →',
     submitting: '傳送中...',
     successTitle: '感謝您！',
-    successDesc: '我們已收到您的產品資訊！我們的團隊將在24小時內向您傳送機器推薦。',
+    successDesc: '我們已收到您的產品資訊！團隊將在24小時內回覆採購評估。',
     submitAnother: '再次提交',
     errorTitle: '提交失敗',
     errorDesc: '發生錯誤，請重試或直接聯繫我們。',
@@ -129,6 +129,7 @@ export default function SendProductForm({ lang, sourceMachine }: SendProductForm
       }
 
       trackCTAClick('send_product_form_submit', sourceMachine)
+      trackFormSubmitSuccess({ form_type: 'product_inquiry', lang, ref_id: String(json?.id || '') })
       setStatus('success')
       form.reset()
       setPhotoPreview(null)
@@ -136,6 +137,7 @@ export default function SendProductForm({ lang, sourceMachine }: SendProductForm
     } catch (err: any) {
       console.error('[SendProductForm]', err)
       setErrorMsg(err.message || 'Unknown error')
+      trackFormSubmitFail({ form_type: 'product_inquiry', lang, error_type: 'server' })
       setStatus('error')
     }
   }

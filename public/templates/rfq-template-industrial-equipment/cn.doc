@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>RFQ 询价模板（工业设备）</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+      pre { background: #111; color: #eee; padding: 12px; white-space: pre-wrap; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>RFQ 询价模板（工业设备）</h1>
+    <p class="muted">按空格填写即可。不确定就写 TBD，并附照片/视频（比猜测更快）。</p>
+
+    <h2>1）项目摘要</h2>
+    <table>
+      <tr><th>字段</th><th>填写</th></tr>
+      <tr><td>项目名称</td><td>___</td></tr>
+      <tr><td>目的地国家/现场</td><td>___</td></tr>
+      <tr><td>行业/产品</td><td>___</td></tr>
+      <tr><td>时间计划</td><td>___</td></tr>
+      <tr><td>联系人</td><td>___</td></tr>
+    </table>
+
+    <h2>2）产品与包装/搬运</h2>
+    <ul>
+      <li>产品状态：粉末/颗粒/液体/固体/混料</li>
+      <li>行为描述：扬尘、架桥、起泡、含颗粒、含油、静电、易碎</li>
+      <li>包装/容器形式与尺寸范围（附照片与尺寸）</li>
+      <li>灌装范围/重量范围/容量范围</li>
+    </ul>
+
+    <h2>3）产能与运行方式</h2>
+    <table>
+      <tr><th>字段</th><th>填写</th></tr>
+      <tr><td>目标产能</td><td>___ 件/分 或 ___ 件/小时</td></tr>
+      <tr><td>运行时间</td><td>___ 小时/天，___ 天/周</td></tr>
+      <tr><td>SKU 数量</td><td>___</td></tr>
+      <tr><td>换型频率</td><td>___ 次/天/周</td></tr>
+      <tr><td>操作人数</td><td>___</td></tr>
+    </table>
+
+    <h2>4）接口与整线整合</h2>
+    <ul>
+      <li>上游设备（如有）与接口高度</li>
+      <li>下游设备（如有）：输送、旋盖/贴标/喷码、装箱等</li>
+      <li>布局限制：占地上限、进出料方向、现场通道与空间</li>
+    </ul>
+
+    <h2>5）公用工程与合规</h2>
+    <table>
+      <tr><th>项目</th><th>填写</th></tr>
+      <tr><td>电力</td><td>___ V / ___ Hz / ___ 相</td></tr>
+      <tr><td>压缩空气</td><td>___ bar，___ L/min（如已知）</td></tr>
+      <tr><td>卫生等级</td><td>食品/非食品/冲洗/防尘</td></tr>
+      <tr><td>合规需求</td><td>CE / 当地标准 / 无 / TBD</td></tr>
+    </table>
+
+    <h2>6）FAT 验收条件（必填）</h2>
+    <table>
+      <tr><th>项目</th><th>目标</th></tr>
+      <tr><td>测试产品</td><td>实际产品或核准替代品</td></tr>
+      <tr><td>测试时间</td><td>连续运行 ___ 分钟</td></tr>
+      <tr><td>产能</td><td>持续 ___ 件/分</td></tr>
+      <tr><td>精度/公差</td><td>___ 定义（例：98% 落在 ±X）</td></tr>
+      <tr><td>不良率</td><td>___ 上限（需标注原因）</td></tr>
+      <tr><td>换型</td><td>单一操作员 ___ 分钟内完成</td></tr>
+    </table>
+
+    <h2>7）交付物与文件包</h2>
+    <ul>
+      <li>操作/保养手册</li>
+      <li>电控图与配线图</li>
+      <li>气路图（如有）</li>
+      <li>备品清单（料号＋照片＋建议库存）</li>
+      <li>最终配置清单＋参数/设置表</li>
+      <li>FAT 报告/视频＋偏差清单（含结案）</li>
+    </ul>
+
+    <h2>8）供应商回复格式（强制可比较）</h2>
+    <ul>
+      <li>报价拆项：主机、选配、整合项、备品、安装/培训（如含）</li>
+      <li>交期拆里程碑（工程、制作、FAT、出货）</li>
+      <li>付款条件（建议绑定里程碑与 FAT 验收）</li>
+      <li>保固与售后流程</li>
+    </ul>
+
+    <h2>Email 可直接复制的 RFQ 段落</h2>
+    <pre>主题：RFQ — [项目名称] — [机型/线体]
+
+您好，
+请按下列范围报价。如有任何不清楚之处，请明确列出你的假设。
+
+1）产品与包装：___
+2）产能与运行：___
+3）公用工程：___
+4）FAT 验收条件：___
+5）文件包：手册＋图纸＋备品清单＋FAT 报告/视频＋偏差清单
+
+请按同一章节顺序回复，并提供选配拆项与交期。
+
+谢谢
+___</pre>
+  </body>
+</html>
+

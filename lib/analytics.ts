@@ -16,8 +16,58 @@ function gtag(event: string, params: Record<string, string | number>) {
   }
 }
 
+function shouldSendInternalAnalytics() {
+  return typeof window !== 'undefined' && process.env.NEXT_PUBLIC_INTERNAL_ANALYTICS === '1'
+}
+
+function sanitizeInternalParams(params?: Record<string, string | number>) {
+  if (!params) return undefined
+  const blocked = /email|phone|message|name|company/i
+  const safe: Record<string, string | number> = {}
+  for (const [k, v] of Object.entries(params)) {
+    if (blocked.test(k)) continue
+    if (typeof v === 'number') {
+      if (Number.isFinite(v)) safe[k] = v
+      continue
+    }
+    const s = String(v)
+    safe[k] = s.length > 200 ? s.slice(0, 200) : s
+  }
+  return safe
+}
+
+function sendInternalAnalytics(payload: { eventName: string; params?: Record<string, string | number> }) {
+  if (!shouldSendInternalAnalytics()) return
+  try {
+    const body = {
+      eventName: payload.eventName,
+      params: sanitizeInternalParams(payload.params),
+      url: window.location.href,
+      referrer: document.referrer || undefined,
+      clientTime: new Date().toISOString(),
+    }
+
+    const data = JSON.stringify(body)
+    if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
+      const blob = new Blob([data], { type: 'application/json' })
+      navigator.sendBeacon('/api/analytics', blob)
+      return
+    }
+
+    fetch('/api/analytics', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: data,
+      keepalive: true,
+    }).catch(() => {})
+  } catch {
+    return
+  }
+}
+
 export function trackEvent(eventName: string, params?: Record<string, string | number>) {
   gtag(eventName, { ...getUtmParams(), ...(params || {}) })
+  sendInternalAnalytics({ eventName, params })
 }
 
 // ─── Page view (supplement Next.js auto pageview) ────────────────────────────
@@ -28,6 +78,7 @@ export function trackPageView(params: {
   product_cluster?: string
 }) {
   gtag('page_view', { ...getUtmParams(), ...params })
+  sendInternalAnalytics({ eventName: 'page_view', params })
 }
 
 // ─── Machine page CTA click ───────────────────────────────────────────────────

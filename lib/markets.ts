@@ -52,7 +52,7 @@ export type Market = {
   keyIndustries: string[]
   /** HS code import reference (for customs) */
   hsReference: string
-  /** Sample quote in USD for typical single machine (band) */
+  /** Sample price band in USD for a typical single machine */
   samplePriceUsd: string
 }
 

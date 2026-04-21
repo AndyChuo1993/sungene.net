@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/03_Shrinking_Tunnel/01_Shrinking_Machine/Shrinking_Machine.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Shrink Wrapping Machine | Heat Shrink Tunnel for POF, PVC, OPP Films',
-  cn: '收缩包装机 | 热收缩隧道炉 POF/PVC/OPP薄膜',
-  zh: '收縮包裝機 | 熱收縮隧道爐 POF/PVC/OPP薄膜',
-  fr: 'Machine de rétraction | Tunnel de rétraction pour POF, PVC, OPP',
-  es: 'Máquina de retracción | Túnel de retracción para POF, PVC, OPP',
-  pt: 'Máquina de retração | Túnel de retração para POF, PVC, OPP',
-  ko: '수축 포장기 | POF, PVC, OPP 필름 열수축 터널',
-  ja: 'シュリンク包装機 | POF・PVC・OPP対応熱収縮トンネル',
-  ar: 'آلة التغليف الحراري | نفق الانكماش لأغشية POF وPVC وOPP',
-  th: 'เครื่องห่อหดฟิล์มความร้อน | อุโมงค์ฟิล์มหด POF/PVC/OPP',
-  vi: 'Máy co màng nhiệt | Đường hầm co nhiệt cho màng POF, PVC, OPP',
-  de: 'Schrumpfverpackungsmaschine | Schrumpftunnel für POF, PVC, OPP',
+  en: 'Shrink Wrapping Configuration Route | Tunnel Setup & Acceptance Planning',
+  cn: '收缩包装配置路线 | 热缩隧道与验收规划',
+  zh: '收縮包裝配置路線 | 熱縮隧道與驗收規劃',
+  fr: 'Machine de rétraction | Sourcing technique et intégration de tunnel',
+  es: 'Máquina de retracción | Abastecimiento técnico e integración de túnel',
+  pt: 'Máquina de retração | Sourcing técnico e integração de túnel',
+  ko: '수축 포장기 | 기술 소싱 및 터널 통합 솔루션',
+  ja: 'シュリンク包装機 | 技術ソーシングとトンネル統合',
+  ar: 'آلة التغليف الحراري | التوريد التقني وتكامل النفق',
+  th: 'เครื่องห่อหดฟิล์ม | การจัดซื้อเชิงเทคนิคและการรวมอุโมงค์',
+  vi: 'Máy co màng nhiệt | Đánh giá nguồn cung và tích hợp đường hầm',
+  de: 'Schrumpfverpackungsmaschine | Technisches Sourcing & Tunnelintegration',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Heat shrink tunnel machines for food, electronics, hardware, and consumer goods. Conveyor-based shrink tunnels in RST, CST, EST, and PST series. Tunnel widths 350–600mm, speeds up to 18 m/min.',
-  cn: '食品、电子、五金及消费品热收缩隧道炉，含RST/CST/EST/PST系列，通道宽度350-600mm，速度最高18m/min。',
-  zh: '食品、電子、五金及消費品熱收縮隧道爐，含RST/CST/EST/PST系列，通道寬度350-600mm，速度最高18m/min。',
-  fr: 'Tunnels de rétraction pour alimentaire, électronique, quincaillerie et biens de consommation. Séries RST, CST, EST et PST. Largeurs 350–600 mm, vitesses jusqu\'à 18 m/min.',
-  es: 'Túneles de retracción para alimentos, electrónica, ferretería y bienes de consumo. Series RST, CST, EST y PST. Anchos 350–600 mm, velocidades hasta 18 m/min.',
-  pt: 'Túneis de retração para alimentos, eletrônicos, ferragens e bens de consumo. Séries RST, CST, EST e PST. Larguras 350–600 mm, velocidades até 18 m/min.',
-  ko: '식품, 전자제품, 철물, 소비재용 열수축 터널. RST, CST, EST, PST 시리즈. 터널 폭 350-600mm, 최대 속도 18m/min.',
-  ja: '食品・電子部品・金物・消費財向け熱収縮トンネル。RST/CST/EST/PSTシリーズ。トンネル幅350〜600mm、速度最大18m/min。',
-  ar: 'أنفاق انكماش حراري للأغذية والإلكترونيات والأدوات والسلع الاستهلاكية. سلاسل RST وCST وEST وPST. عروض 350–600 مم، سرعات تصل إلى 18 م/دقيقة.',
-  th: 'อุโมงค์หดฟิล์มความร้อนสำหรับอาหาร อิเล็กทรอนิกส์ เครื่องมือ และสินค้าอุปโภคบริโภค ซีรีส์ RST, CST, EST, PST ความกว้างช่องทาง 350-600 มม. ความเร็วสูงสุด 18 ม./นาที',
-  vi: 'Đường hầm co nhiệt cho thực phẩm, điện tử, phần cứng và hàng tiêu dùng. Dòng RST, CST, EST và PST. Chiều rộng hầm 350–600mm, tốc độ đến 18 m/phút.',
-  de: 'Wärmeschrumpftunnel für Lebensmittel, Elektronik, Heimwerkerbedarf und Konsumgüter. RST-, CST-, EST- und PST-Serien. Tunnelbreiten 350–600 mm, Geschwindigkeiten bis 18 m/min.',
+  en: 'Shrink wrapping sourcing support: define tunnel configuration, validate film and heat profile, and align acceptance/FAT criteria before shipment.',
+  cn: '收缩包装采购支持：定义隧道配置、验证膜材与热曲线，并在出货前对齐验收与 FAT 标准。',
+  zh: '收縮包裝採購支援：定義隧道配置、驗證膜材與熱曲線，並在出貨前對齊驗收與 FAT 標準。',
+  fr: 'Sourcing professionnel pour tunnels de rétraction. Évaluation technique des séries RST/CST/EST/PST pour vos lignes de conditionnement.',
+  es: 'Abastecimiento profesional para túneles de retracción térmica. Evaluación técnica de las series RST/CST/EST/PST para sus líneas de empaque.',
+  pt: 'Sourcing profissional para túneis de retração térmica. Avaliação técnica das séries RST/CST/EST/PST para suas linhas de embalagem.',
+  ko: '열수축 터널 전문 소싱. 식품, 전자제품 또는 소비재 포장 라인의 최적 수축 성능을 보장하기 위해 RST/CST/EST/PST 시리즈에 대한 기술 평가를 제공합니다.',
+  ja: '熱収縮トンネルの専門ソーシング。食品、電子機器、消費財包装ラインで最適な収縮性能を確保するため、RST/CST/EST/PSTシリーズの技術評価を提供します。',
+  ar: 'توريد احترافي لأنفاق الانكماش الحراري. نحن نقدم تقييمًا فنيًا لسلاسل RST وCST وEST وPST لضمان أفضل أداء لخطوط التغليف الخاصة بك.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับอุโมงค์หดความร้อน เราให้บริการประเมินทางเทคนิคสำหรับซีรีส์ RST/CST/EST/PST เพื่อประสิทธิภาพสูงสุดสำหรับสายการบรรจุของคุณ',
+  vi: 'Nguồn cung chuyên nghiệp cho đường hầm co nhiệt. Chúng tôi thẩm định kỹ thuật dòng RST/CST/EST/PST để đảm bảo hiệu quả co màng tối ưu cho dây chuyền đóng gói.',
+  de: 'Professionelles Sourcing für Schrumpftunnel. Wir bieten technische Bewertung der RST/CST/EST/PST-Serien für optimale Schrumpfleistung in Ihren Verpackungslinien.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/shrinking-machine',
     type: 'website',
-    keywords: ['shrink wrapping machine', 'heat shrink tunnel', 'shrink tunnel', 'POF shrink machine', 'PVC shrink machine', 'Wuu Sheng', 'Taiwan shrink machine'],
+    keywords: ['shrink wrapping configuration', 'tunnel heat profile', 'film compatibility', 'acceptance criteria', 'FAT checklist', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -72,7 +73,7 @@ const content: Record<string, PageContent> = {
   en: {
     kicker: 'SHRINK PACKAGING',
     heroTitle: 'Shrink Wrapping Machine (Heat Shrink Tunnel)',
-    heroSubtitle: 'Conveyor-based heat shrink tunnel machines for wrapping and sealing products in shrink film. Suitable for food, stationery, electronics, hardware, and daily necessities. Four series — RST, CST, EST, PST — cover small to high-volume production lines.',
+    heroSubtitle: 'Conveyor-based heat shrink tunnel machines for wrapping and sealing products in shrink film. Suitable for food, stationery, electronics, hardware, and daily necessities. Four series — RST, CST, EST, PST — cover small to high-throughput packaging lines.',
     featuresTitle: 'Key Features',
     features: [
       'Conveyor-based design for continuous, inline shrink wrapping',
@@ -87,13 +88,13 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Bottled beverages', 'Food & snack products', 'Cosmetics & personal care', 'Electronics packaging', 'Hardware & tools', 'Stationery & gifts', 'Industrial components', 'Multi-pack bundling'],
-    ctaTitle: 'Need a shrink tunnel for your packaging line? Tell us your product dimensions and output target.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Need a shrink tunnel for your packaging line? Request a professional sourcing assessment for technical vetting and integration support.',
+    ctaBtn: 'Get Sourcing Assessment',
   },
   cn: {
     kicker: '收缩包装',
     heroTitle: '收缩包装机（热收缩隧道炉）',
-    heroSubtitle: '传送带式热收缩隧道炉，适用于食品、文具、电子、五金及日用品的收缩膜包装封口。RST、CST、EST、PST四个系列覆盖小型到大批量生产线。',
+    heroSubtitle: '传送带式热收缩隧道炉，适用于食品、文具、电子、五金及日用品的收缩膜包装封口。RST、CST、EST、PST四个系列覆盖小型到大批量包装线体。',
     featuresTitle: '主要特点',
     features: [
       '传送带连续在线收缩包装',
@@ -108,13 +109,13 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['瓶装饮料', '食品与零食', '化妆品与个护', '电子产品包装', '五金工具', '文具与礼品', '工业零部件', '多件组合包装'],
-    ctaTitle: '需要为包装线配备收缩隧道炉？告诉我们您的产品尺寸和产量目标。',
-    ctaBtn: '获取报价',
+    ctaTitle: '需要为包装线配备收缩隧道炉？申请专业采购评估，获取技术审核与整合支持。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '收縮包裝',
     heroTitle: '收縮包裝機（熱收縮隧道爐）',
-    heroSubtitle: '輸送帶式熱收縮隧道爐，適用於食品、文具、電子、五金及日用品的收縮膜包裝封口。RST、CST、EST、PST四個系列覆蓋小型到大批量生產線。',
+    heroSubtitle: '輸送帶式熱收縮隧道爐，適用於食品、文具、電子、五金及日用品的收縮膜包裝封口。RST、CST、EST、PST四個系列覆蓋小型到大批量包裝線體。',
     featuresTitle: '主要特點',
     features: [
       '輸送帶連續在線收縮包裝',
@@ -129,8 +130,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['瓶裝飲料', '食品與零食', '化妝品與個護', '電子產品包裝', '五金工具', '文具與禮品', '工業零部件', '多件組合包裝'],
-    ctaTitle: '需要為包裝線配備收縮隧道爐？告訴我們您的產品尺寸和產量目標。',
-    ctaBtn: '取得報價',
+    ctaTitle: '需要為包裝線配備收縮隧道爐？申請專業採購評估，獲取技術審核與整合支持。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'EMBALLAGE RÉTRACTABLE',
@@ -150,8 +151,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Boissons en bouteille', 'Produits alimentaires et snacks', 'Cosmétiques et soins', 'Emballage électronique', 'Quincaillerie et outils', 'Papeterie et cadeaux', 'Composants industriels', 'Regroupement multi-packs'],
-    ctaTitle: 'Besoin d\'un tunnel de rétraction pour votre ligne ? Indiquez-nous vos dimensions produit et cadence cible.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Besoin d\'un tunnel de rétraction pour votre ligne ? Demandez une évaluation de sourcing professionnelle.',
+    ctaBtn: 'Obtenir une évaluation',
   },
   es: {
     kicker: 'EMBALAJE RETRÁCTIL',
@@ -171,8 +172,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Bebidas embotelladas', 'Alimentos y snacks', 'Cosméticos y cuidado personal', 'Embalaje de electrónica', 'Ferretería y herramientas', 'Papelería y regalos', 'Componentes industriales', 'Agrupación de multipacks'],
-    ctaTitle: '¿Necesita un túnel de retracción para su línea? Indíquenos las dimensiones del producto y la capacidad objetivo.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Busca un túnel de retracción para su línea? Solicite una evaluación de abastecimiento profesional.',
+    ctaBtn: 'Obtener evaluación',
   },
   pt: {
     kicker: 'EMBALAGEM RETRÁTIL',
@@ -192,8 +193,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Bebidas engarrafadas', 'Alimentos e snacks', 'Cosméticos e cuidados pessoais', 'Embalagem eletrônica', 'Ferragens e ferramentas', 'Papelaria e presentes', 'Componentes industriais', 'Agrupamento de multipacks'],
-    ctaTitle: 'Precisa de um túnel de retração para sua linha? Informe-nos as dimensões do produto e a capacidade desejada.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Planejando um túnel de retração para sua linha? Peça uma avaliação de sourcing profissional.',
+    ctaBtn: 'Solicitar avaliação',
   },
   ko: {
     kicker: '수축 포장',
@@ -213,8 +214,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['병음료 포장', '식품·스낵', '화장품·개인용품', '전자제품 포장', '철물·공구', '문구·선물용품', '산업 부품', '멀티팩 번들링'],
-    ctaTitle: '포장 라인에 수축 터널이 필요하신가요? 제품 크기와 목표 생산량을 알려주세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '포장 라인에 수축 터널이 필요하신가요? 기술 심사 및 통합 지원을 위한 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 신청',
   },
   ja: {
     kicker: 'シュリンク包装',
@@ -234,8 +235,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['瓶入り飲料', '食品・スナック', '化粧品・パーソナルケア', '電子製品包装', '金物・工具', '文具・ギフト', '工業部品', 'マルチパックバンドル'],
-    ctaTitle: '包装ラインにシュリンクトンネルが必要ですか？製品サイズと目標能力をお知らせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '熱収縮トンネル의 導入を ご検討中ですか？技術審査と統合サポートのためのソーシング評価を ご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'التغليف الحراري',
@@ -255,13 +256,13 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['المشروبات المعبأة', 'الأغذية والوجبات الخفيفة', 'مستحضرات التجميل', 'تغليف الإلكترونيات', 'الأدوات والعدد', 'القرطاسية والهدايا', 'المكونات الصناعية', 'تجميع العبوات المتعددة'],
-    ctaTitle: 'هل تحتاج نفقًا حراريًا لخط تغليفك؟ أخبرنا بأبعاد منتجك وهدف الإنتاج.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تخطط لخط انكماش حراري؟ اطلب تقييم توريد احترافيًا للتدقيق الفني ودعم التكامل.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'บรรจุภัณฑ์ฟิล์มหด',
     heroTitle: 'เครื่องห่อหดฟิล์มความร้อน (อุโมงค์หด)',
-    heroSubtitle: 'เครื่องอุโมงค์หดระบบสายพานสำหรับห่อและซีลสินค้าด้วยฟิล์มหด เหมาะสำหรับอาหาร เครื่องเขียน อิเล็กทรอนิกส์ เครื่องมือ และของใช้ในชีวิตประจำวัน 4 ซีรีส์ RST, CST, EST, PST รองรับตั้งแต่สายการผลิตขนาดเล็กถึงขนาดใหญ่',
+    heroSubtitle: 'เครื่องอุโมงค์หดระบบสายพานสำหรับห่อและซีลสินค้าด้วยฟิล์มหด เหมาะสำหรับอาหาร เครื่องเขียน อิเล็กทรอนิกส์ เครื่องมือ และของใช้ในชีวิตประจำวัน 4 ซีรีส์ RST, CST, EST, PST รองรับตั้งแต่ไลน์ขนาดเล็กถึงขนาดใหญ่',
     featuresTitle: 'คุณสมบัติหลัก',
     features: [
       'ระบบสายพานสำหรับงานห่อหดต่อเนื่อง',
@@ -276,8 +277,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['เครื่องดื่มบรรจุขวด', 'อาหารและขนมขบเคี้ยว', 'เครื่องสำอางและของใช้ส่วนตัว', 'บรรจุภัณฑ์อิเล็กทรอนิกส์', 'เครื่องมือและอุปกรณ์', 'เครื่องเขียนและของขวัญ', 'ชิ้นส่วนอุตสาหกรรม', 'การรวมแพ็กหลายชิ้น'],
-    ctaTitle: 'ต้องการอุโมงค์หดสำหรับสายการบรรจุ? บอกเราเรื่องขนาดสินค้าและกำลังการผลิตที่ต้องการ',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'กำลังวางแผนสายการบรรจุฟิล์มหด? ขอรับการประเมินการจัดซื้อเพื่อการตรวจสอบทางเทคนิค',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'BAO BÌ CO NHIỆT',
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Đồ uống đóng chai', 'Thực phẩm và snack', 'Mỹ phẩm và chăm sóc cá nhân', 'Đóng gói điện tử', 'Phần cứng và công cụ', 'Văn phòng phẩm và quà tặng', 'Linh kiện công nghiệp', 'Đóng gói multi-pack'],
-    ctaTitle: 'Cần đường hầm co nhiệt cho dây chuyền? Cho chúng tôi biết kích thước sản phẩm và năng suất mục tiêu.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Đang lên kế hoạch cho dây chuyền co màng nhiệt? Yêu cầu đánh giá nguồn cung chuyên nghiệp.',
+    ctaBtn: 'Yêu cầu đánh giá',
   },
   de: {
     kicker: 'SCHRUMPFVERPACKUNG',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Abgefüllte Getränke', 'Lebensmittel und Snacks', 'Kosmetik und Körperpflege', 'Elektronikverpackung', 'Heimwerkerbedarf und Werkzeuge', 'Schreibwaren und Geschenke', 'Industriekomponenten', 'Multipacks bündeln'],
-    ctaTitle: 'Benötigen Sie einen Schrumpftunnel für Ihre Verpackungslinie? Teilen Sie uns Produktmaße und Zieldurchsatz mit.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Planen Sie eine Wärmeschrumpf-Linie? Fordern Sie eine professionelle Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -426,6 +427,8 @@ export default async function ShrinkingMachinePage({ params }: { params: Promise
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

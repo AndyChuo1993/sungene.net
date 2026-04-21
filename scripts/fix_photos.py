@@ -38,13 +38,13 @@ REPLACEMENTS = [
 
     # Machinery sub-page hero
     ("z7pvrAfpi6I",  "machinery-sub/packaging.jpg",
-     "Industrial polyethylene film machine — replaces textile factory"),
+     "Industrial polyethylene film machine — replaces textile facility"),
 
     # About page gallery
     ("4IGJmUT1aXY",  "about/gallery-02-assembly.jpg",
      "Workers walking in industrial plant with machines — replaces B&W car"),
     ("eKVZJaEXmQ8",  "about/gallery-03-factoryline.jpg",
-     "Factory workshop interior with machines — replaces building exterior/field"),
+     "Industrial workshop interior with machines — replaces building exterior/field"),
 ]
 
 

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>交付文件包模板</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>交付文件包模板</h1>
+    <p class="muted">没有文件的设备等于把未来停机风险一并买回去。请用下列清单要求供应商交付，并做版本控制。</p>
+
+    <h2>交付文件包清单</h2>
+    <table>
+      <tr><th>分类</th><th>内容</th></tr>
+      <tr><td>手册</td><td>操作、保养、故障排除、安全</td></tr>
+      <tr><td>电控</td><td>电控图、配线图、I/O 表、PLC/伺服型号清单</td></tr>
+      <tr><td>气路</td><td>气路图、阀件清单、气源需求（如有）</td></tr>
+      <tr><td>机械</td><td>布局图、耗材/易损件对应、润滑点</td></tr>
+      <tr><td>配置</td><td>最终选配清单、工位对应、换型零件清单</td></tr>
+      <tr><td>设置</td><td>参数/设置表、备份、配方（如有）</td></tr>
+      <tr><td>备品</td><td>备品清单（料号＋照片＋建议库存）</td></tr>
+      <tr><td>验收证据</td><td>FAT 报告、抽样结果、偏差清单、视频</td></tr>
+    </table>
+
+    <h2>文件命名与版本控制</h2>
+    <ul>
+      <li>按设备＋日期建立单一文件夹结构</li>
+      <li>每份图纸要有版本号与发布日期</li>
+      <li>提供变更记录：改了什么、为什么</li>
+      <li>提供可编辑原档＋PDF</li>
+    </ul>
+
+    <h2>设置表（字段）</h2>
+    <table>
+      <tr><th>模块</th><th>字段</th></tr>
+      <tr><td>基本</td><td>型号、序号、出厂日期</td></tr>
+      <tr><td>公用工程</td><td>电压/频率、气源需求</td></tr>
+      <tr><td>生产</td><td>目标速度、重量/容量范围、关键报警</td></tr>
+      <tr><td>关键参数</td><td>伺服值、封口温度/时间、计量校准</td></tr>
+      <tr><td>换型</td><td>零件清单与调整点</td></tr>
+    </table>
+  </body>
+</html>
+

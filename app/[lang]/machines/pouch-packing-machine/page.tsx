@@ -15,15 +15,16 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
-import QuickQuote from '@/components/QuickQuote'
+import QuickAssessment from '@/components/QuickAssessment'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch & Vacuum',
-  cn: '袋装包装机 — VFFS、HFFS、预制袋及真空包装系统',
-  zh: '袋裝包裝機 — VFFS、HFFS、預製袋及真空包裝系統',
+  en: 'Pouch Packaging Configuration Route — VFFS, HFFS, Pre-made Pouch & Vacuum',
+  cn: '袋包装配置路线 — VFFS、HFFS、预制袋与真空系统',
+  zh: '袋包裝配置路線 — VFFS、HFFS、預製袋與真空系統',
   fr: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé & Vide',
   es: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y Vacío',
   pt: 'Máquinas de embalagem em saco — VFFS, HFFS, Saco pré-formado e Vácuo',
@@ -36,9 +37,9 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Pouch packing machines: VFFS, HFFS flow wrappers, premade pouch systems, and vacuum packing. Used for snacks, nuts, coffee, sauces, and consumer goods. Share your product, bag style, and target speed for a fit.',
-  cn: '袋装包装设备：VFFS、HFFS流动包装、预制袋系统与真空包装。适用于零食、坚果、咖啡、酱料与消费品。提供产品、袋型与目标产速，即可匹配机型。',
-  zh: '袋裝包裝設備：VFFS、HFFS流動包裝、預製袋系統與真空包裝。適用於零食、堅果、咖啡、醬料與消費品。提供產品、袋型與目標產速，即可匹配機型。',
+  en: 'Pouch packaging sourcing support: map the right configuration (VFFS/HFFS/pre-made/vacuum), define seal/weight acceptance criteria, and compare suppliers with a clear FAT scope.',
+  cn: '袋包装采购支持：规划 VFFS/HFFS/预制袋/真空等配置路线，定义封口/重量验收标准，并用清晰的 FAT 范围对比供应商。',
+  zh: '袋包裝採購支援：規劃 VFFS/HFFS/預製袋/真空等配置路線，定義封口/重量驗收標準，並用清晰的 FAT 範圍比對供應商。',
   fr: 'Machines d’emballage en sachet : VFFS, flow wrap HFFS, systèmes pour poches préformées et sous vide. Pour snacks, noix, café, sauces et produits de grande consommation. Donnez produit, format et cadence cible.',
   es: 'Máquinas para empaque en bolsa: VFFS, flow pack HFFS, sistemas para bolsa preformada y envasado al vacío. Para snacks, frutos secos, café, salsas y consumo masivo. Indique producto, formato y velocidad objetivo.',
   pt: 'Máquinas para embalagem em saco: VFFS, flow pack HFFS, sistemas para pouch pré-formado e embalagem a vácuo. Para snacks, nozes, café, molhos e bens de consumo. Informe produto, formato e velocidade-alvo.',
@@ -60,9 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/machines/pouch-packing-machine',
     type: 'website',
     keywords: [
-      'pouch packing machine', 'VFFS machine', 'HFFS machine', 'flow wrapper', 'pre-made pouch machine',
-      'vacuum packing machine', 'stand-up pouch machine', 'stick pack machine', 'sachet machine',
-      'Taiwan pouch packaging', 'pouch packaging equipment',
+      'pouch packaging configuration', 'VFFS configuration', 'HFFS configuration', 'pre-made pouch configuration',
+      'vacuum packaging configuration', 'pouch packaging acceptance criteria', 'supplier vetting', 'FAT checklist',
+      'packaging film compatibility', 'changeover planning',
     ],
   })
 }
@@ -112,7 +113,7 @@ const content: Record<string, PageContent> = {
   en: {
     kicker: 'POUCH & BAG PACKAGING',
     heroTitle: 'Pouch Packing Machines — VFFS, HFFS, Pre-made Pouch, and Vacuum Systems',
-    heroSubtitle: 'SunGene manufactures pouch packing machines for pillow bags, stand-up pouches, zipper pouches, vacuum bags, flow wrap, and stick packs. Machine selection depends on your product, bag format, required speed, and sealing method.',
+    heroSubtitle: 'SunGene supports pouch packaging configuration planning for pillow bags, stand-up pouches, zipper pouches, vacuum bags, flow wrap, and stick packs. Route selection depends on your product, bag format, required speed, and sealing method.',
 
     whoTitle: 'Who It\'s For',
     whoItems: [
@@ -129,7 +130,7 @@ const content: Record<string, PageContent> = {
       { label: 'Liquid & paste', items: ['Sauce pouches', 'Ketchup sachets', 'Cosmetic cream', 'Yogurt'] },
       { label: 'Special formats', items: ['Retort pouches (sterile)', 'Vacuum bags (meat, cheese)', 'Nitrogen-flushed (coffee)'] },
     ],
-    productsNote: 'Bag material selection (PE, PET, aluminum foil, multilayer) affects sealing method and machine type. We advise on film selection as part of the recommendation.',
+    productsNote: 'Bag material selection (PE, PET, aluminum foil, multilayer) affects sealing method and configuration route. We advise on film selection as part of the assessment.',
 
     packagingTitle: 'Packaging & Output Options',
     packagingItems: [
@@ -147,7 +148,7 @@ const content: Record<string, PageContent> = {
       { name: 'Stick Pack / Sachet Machine', desc: 'High-speed multi-lane sachet filling for single-serve powder or liquid. 50–400 sachets/min.' },
       { name: 'Vacuum Packing Machine', desc: 'Single or double chamber. Removes air for shelf life extension. For meat, cheese, coffee, dry goods.' },
       { name: 'Nitrogen Flushing', desc: 'Integrated gas flush module for oxidation-sensitive products. Available on VFFS, pre-made pouch, and chamber vacuum machines.' },
-      { name: 'Materials & Compliance', desc: 'CE certified; SUS304/316L stainless steel; voltage/frequency configurable; film width and length servo-adjustable.' },
+      { name: 'Materials & Compliance', desc: 'CE documentation support where applicable; SUS304/316L stainless steel; voltage/frequency configurable; film width and length servo-adjustable.' },
     ],
 
     decisionsTitle: 'Key Decision Factors',
@@ -161,7 +162,7 @@ const content: Record<string, PageContent> = {
     ],
 
     integrationTitle: 'Process Integration',
-    integrationDesc: 'This machine integrates into your broader production workflow at the packing stage. A typical integrated pouch line may include:',
+    integrationDesc: 'This machine integrates into your broader workflow at the packing stage. A typical integrated pouch line may include:',
     integrationSteps: [
       'Raw material / product infeed',
       'Weigher / filler',
@@ -199,7 +200,7 @@ const content: Record<string, PageContent> = {
         a: 'PE, CPP, OPP, PET/PE laminates, aluminum foil laminates, and specialty multilayer films. We advise on film selection based on your product\'s moisture sensitivity, oxygen barrier needs, and shelf life target.',
       },
       {
-        q: 'What information should I provide to get a recommendation?',
+        q: 'What information should I provide to get an assessment?',
         a: 'Product name and form (solid/powder/liquid), target bag format and size, required output speed, country/voltage, and whether you need nitrogen flush or vacuum. Use our recommend form for fastest response.',
       },
     ],
@@ -209,12 +210,12 @@ const content: Record<string, PageContent> = {
       { label: 'How to Choose a Pouch Packing Machine', href: '/resources/how-to-choose-pouch-packing-machine' },
       { label: 'VFFS vs HFFS — Which is Right for You?', href: '/resources/vffs-vs-hffs' },
       { label: 'Pre-made Pouch Machine vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
-      { label: 'Get a Machine Recommendation', href: '/recommend' },
+      { label: 'Get a Sourcing Assessment', href: '/assessment' },
     ],
 
-    ctaTitle: 'Tell us your product and packaging format — we\'ll match the right machine.',
-    ctaSubtitle: 'VFFS, pre-made pouch, stick pack, or vacuum — our engineers recommend based on your product, output target, and bag specification.',
-    ctaBtn1: 'Get a Machine Recommendation',
+    ctaTitle: 'Tell us your product and packaging format — we\'ll map the right sourcing path.',
+    ctaSubtitle: 'VFFS, pre-made pouch, stick pack, or vacuum — our team guides configuration based on your product, output target, and bag specification.',
+    ctaBtn1: 'Get a Sourcing Assessment',
     ctaBtn2: 'Talk to Engineering',
   },
 
@@ -238,7 +239,7 @@ const content: Record<string, PageContent> = {
       { label: '液体与膏体', items: ['酱料袋', '番茄酱小袋', '护肤霜', '酸奶'] },
       { label: '特殊格式', items: ['蒸煮袋（无菌）', '真空袋（肉类、奶酪）', '充氮包装（咖啡）'] },
     ],
-    productsNote: '包装材料选择（PE、PET、铝箔、多层复合膜）影响封口方式和机器类型。我们将作为推荐方案的一部分提供薄膜选型建议。',
+    productsNote: '包装材料选择（PE、PET、铝箔、多层复合膜）影响封口方式和配置路线。我们将作为评估的一部分提供薄膜选型建议。',
 
     packagingTitle: '包装与产量选项',
     packagingItems: [
@@ -272,7 +273,7 @@ const content: Record<string, PageContent> = {
     integrationTitle: '工艺整合',
     integrationDesc: '该设备在包装环节整合到您更广泛的生产流程中。典型的袋装整合产线可能包括：',
     integrationSteps: ['原料/产品进料', '计量秤/充填机', '薄膜进给/袋子进给', '成型-充填-封口', '充气（可选）', '封口/切断', '检测（重量/视觉）', '打码', '输送出料', '装箱'],
-    integrationFooter: '我们围绕您的产品和工厂设计完整袋装产线。单机或配备计量秤、金属探测器、贴标机和装箱机的完整产线。',
+    integrationFooter: '我们围绕您的产品与现场条件设计完整袋装产线。单机或配备计量秤、金属探测器、贴标机和装箱机的完整产线。',
 
     faqTitle: '常见问题',
     faq: [
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
         a: 'PE、CPP、OPP、PET/PE复合膜、铝箔复合膜及专业多层薄膜。我们根据您产品的防潮要求、阻氧需求和货架期目标提供薄膜选型建议。',
       },
       {
-        q: '获取推荐方案需要提供哪些信息？',
-        a: '产品名称和形态（固体/粉末/液体）、目标袋型和尺寸、所需产量速度、国家/电压，以及是否需要充氮或真空。使用我们的推荐表单可获得最快响应。',
+        q: '获取评估方案需要提供哪些信息？',
+        a: '产品名称和形态（固体/粉末/液体）、目标袋型和尺寸、所需产量速度、国家/电压，以及是否需要充氮或真空。使用我们的评估表单可获得最快响应。',
       },
     ],
 
@@ -307,12 +308,12 @@ const content: Record<string, PageContent> = {
       { label: '如何选择袋装包装机', href: '/resources/how-to-choose-pouch-packing-machine' },
       { label: 'VFFS与HFFS包装机对比', href: '/resources/vffs-vs-hffs' },
       { label: '预制袋机与VFFS对比', href: '/resources/premade-pouch-machine-vs-vffs' },
-      { label: '获取机器推荐', href: '/recommend' },
+      { label: '获取评估', href: '/assessment' },
     ],
 
     ctaTitle: '告诉我们您的产品和包装格式——我们将为您匹配合适的机器。',
-    ctaSubtitle: 'VFFS、预制袋机、条形袋机或真空包装——我们的工程师根据您的产品、产量目标和袋型规格进行推荐。',
-    ctaBtn1: '获取机器推荐',
+    ctaSubtitle: 'VFFS、预制袋机、条形袋机或真空包装——我们的工程师根据您的产品、产量目标和袋型规格提供评估与配置建议。',
+    ctaBtn1: '获取评估',
     ctaBtn2: '联系工程团队',
   },
 
@@ -336,7 +337,7 @@ const content: Record<string, PageContent> = {
       { label: '液體與膏體', items: ['醬料袋', '番茄醬小袋', '護膚霜', '優格'] },
       { label: '特殊格式', items: ['蒸煮袋（無菌）', '真空袋（肉類、奶酪）', '充氮包裝（咖啡）'] },
     ],
-    productsNote: '包裝材料選擇（PE、PET、鋁箔、多層複合膜）影響封口方式和機器類型。我們將作為推薦方案的一部分提供薄膜選型建議。',
+    productsNote: '包裝材料選擇（PE、PET、鋁箔、多層複合膜）影響封口方式和配置路線。我們將作為評估的一部分提供薄膜選型建議。',
 
     packagingTitle: '包裝與產量選項',
     packagingItems: [
@@ -354,7 +355,7 @@ const content: Record<string, PageContent> = {
       { name: '條形袋/小袋機', desc: '高速多排小袋充填，適用於單份粉末或液體。50–400袋/分鐘。' },
       { name: '真空包裝機', desc: '單室或雙室。抽真空延長貨架期。適用於肉類、奶酪、咖啡、乾貨。' },
       { name: '充氮沖洗', desc: '整合充氣模組，適用於對氧化敏感的產品。可配置於VFFS、預製袋機和真空室機上。' },
-      { name: '材質與認證', desc: 'CE認證；SUS304/316L不鏽鋼；電壓/頻率可客製；薄膜寬度和長度伺服可調。' },
+      { name: '材質與認證', desc: '可提供 CE 文件支援（適用時）；SUS304/316L不鏽鋼；電壓/頻率可客製；薄膜寬度和長度伺服可調。' },
     ],
 
     decisionsTitle: '關鍵決策因素',
@@ -370,7 +371,7 @@ const content: Record<string, PageContent> = {
     integrationTitle: '工藝整合',
     integrationDesc: '該設備在包裝環節整合到您更廣泛的生產流程中。典型的袋裝整合產線可能包括：',
     integrationSteps: ['原料/產品進料', '計量秤/充填機', '薄膜進給/袋子進給', '成型-充填-封口', '充氣（可選）', '封口/切斷', '檢測（重量/視覺）', '打碼', '輸送出料', '裝箱'],
-    integrationFooter: '我們圍繞您的產品和工廠設計完整袋裝產線。單機或配備計量秤、金屬探測器、貼標機和裝箱機的完整產線。',
+    integrationFooter: '我們圍繞您的產品與現場條件設計完整袋裝產線。單機或配備計量秤、金屬探測器、貼標機和裝箱機的完整產線。',
 
     faqTitle: '常見問題',
     faq: [
@@ -395,8 +396,8 @@ const content: Record<string, PageContent> = {
         a: 'PE、CPP、OPP、PET/PE複合膜、鋁箔複合膜及專業多層薄膜。我們根據您產品的防潮要求、阻氧需求和貨架期目標提供薄膜選型建議。',
       },
       {
-        q: '取得推薦方案需要提供哪些資訊？',
-        a: '產品名稱和形態（固體/粉末/液體）、目標袋型和尺寸、所需產量速度、國家/電壓，以及是否需要充氮或真空。使用我們的推薦表單可獲得最快回應。',
+        q: '取得評估方案需要提供哪些資訊？',
+        a: '產品名稱和形態（固體/粉末/液體）、目標袋型和尺寸、所需產量速度、國家/電壓，以及是否需要充氮或真空。使用我們的評估表單可獲得最快回應。',
       },
     ],
 
@@ -405,19 +406,19 @@ const content: Record<string, PageContent> = {
       { label: '如何選擇袋裝包裝機', href: '/resources/how-to-choose-pouch-packing-machine' },
       { label: 'VFFS與HFFS包裝機比較', href: '/resources/vffs-vs-hffs' },
       { label: '預製袋機與VFFS比較', href: '/resources/premade-pouch-machine-vs-vffs' },
-      { label: '取得機器推薦', href: '/recommend' },
+      { label: '取得評估', href: '/assessment' },
     ],
 
     ctaTitle: '告訴我們您的產品和包裝格式——我們將為您匹配合適的機器。',
-    ctaSubtitle: 'VFFS、預製袋機、條形袋機或真空包裝——我們的工程師根據您的產品、產量目標和袋型規格進行推薦。',
-    ctaBtn1: '取得機器推薦',
+    ctaSubtitle: 'VFFS、預製袋機、條形袋機或真空包裝——我們的工程師根據您的產品、產量目標和袋型規格提供評估與配置建議。',
+    ctaBtn1: '取得評估',
     ctaBtn2: '聯絡工程團隊',
   },
 
   fr: {
     kicker: 'EMBALLAGE EN SACHET ET FLEXIBLE',
     heroTitle: 'Machines d\'emballage en sachet — VFFS, HFFS, Sachet préformé et systèmes sous vide',
-    heroSubtitle: 'SunGene fabrique des machines d\'emballage en sachet pour les sachets plats, les pochettes debout, les pochettes avec fermeture à glissière, les sachets sous vide, l\'emballage flux et les sticks. Le choix de la machine dépend de votre produit, du format du sachet, de la vitesse requise et du mode de scellage.',
+    heroSubtitle: 'SunGene accompagne le sourcing technique de machines d\'emballage en sachet pour les sachets plats, les pochettes debout, les pochettes avec fermeture à glissière, les sachets sous vide, l\'emballage flux et les sticks. Le choix de la machine dépend de votre produit, du format du sachet, de la vitesse requise et du mode de scellage.',
 
     whoTitle: 'Pour qui ?',
     whoItems: [
@@ -514,19 +515,19 @@ const content: Record<string, PageContent> = {
       { label: 'Comment choisir une machine d\'emballage en sachet', href: '/resources/how-to-choose-pouch-packing-machine' },
       { label: 'VFFS vs HFFS — Quel est le bon choix ?', href: '/resources/vffs-vs-hffs' },
       { label: 'Machine à sachet préformé vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
-      { label: 'Obtenir une recommandation de machine', href: '/recommend' },
+      { label: 'Obtenir une évaluation', href: '/assessment' },
     ],
 
     ctaTitle: 'Dites-nous votre produit et votre format d\'emballage — nous trouverons la bonne machine.',
     ctaSubtitle: 'VFFS, sachet préformé, stick pack ou vide — nos ingénieurs recommandent en fonction de votre produit, objectif de production et spécification de sachet.',
-    ctaBtn1: 'Obtenir une recommandation de machine',
+    ctaBtn1: 'Obtenir une évaluation',
     ctaBtn2: 'Parler à l\'ingénierie',
   },
 
   es: {
     kicker: 'ENVASADO EN BOLSA Y FLEXIBLE',
     heroTitle: 'Máquinas envasadoras en bolsa — VFFS, HFFS, Bolsa preformada y sistemas de vacío',
-    heroSubtitle: 'SunGene fabrica máquinas envasadoras en bolsa para bolsas planas, bolsas de pie, bolsas con cremallera, bolsas de vacío, flow wrap y sticks. La selección de la máquina depende de su producto, formato de bolsa, velocidad requerida y método de sellado.',
+    heroSubtitle: 'SunGene apoya el sourcing técnico de máquinas envasadoras en bolsa para bolsas planas, bolsas de pie, bolsas con cremallera, bolsas de vacío, flow wrap y sticks. La selección de la máquina depende de su producto, formato de bolsa, velocidad requerida y método de sellado.',
 
     whoTitle: '¿Para quién es?',
     whoItems: [
@@ -543,7 +544,7 @@ const content: Record<string, PageContent> = {
       { label: 'Líquidos y pastas', items: ['Bolsas de salsa', 'Sobres de ketchup', 'Crema cosmética', 'Yogur'] },
       { label: 'Formatos especiales', items: ['Bolsas retort (estériles)', 'Bolsas de vacío (carne, queso)', 'Flush de nitrógeno (café)'] },
     ],
-    productsNote: 'La selección del material de embalaje (PE, PET, papel de aluminio, multicapa) afecta al método de sellado y tipo de máquina. Asesoramos sobre la selección del film como parte de la recomendación.',
+    productsNote: 'La selección del material de embalaje (PE, PET, papel de aluminio, multicapa) afecta al método de sellado y la ruta de configuración. Asesoramos sobre la selección del film como parte de la evaluación.',
 
     packagingTitle: 'Opciones de envasado y producción',
     packagingItems: [
@@ -613,8 +614,8 @@ const content: Record<string, PageContent> = {
         a: 'PE, CPP, OPP, laminados PET/PE, laminados de papel de aluminio y films multicapa especiales. Asesoramos sobre la selección del film según la sensibilidad a la humedad, necesidades de barrera al oxígeno y objetivo de vida útil de su producto.',
       },
       {
-        q: '¿Qué información debo proporcionar para obtener una recomendación?',
-        a: 'Nombre y forma del producto (sólido/polvo/líquido), formato y tamaño de bolsa objetivo, velocidad de producción requerida, país/tensión, y si necesita flush de nitrógeno o vacío. Use nuestro formulario de recomendación para una respuesta más rápida.',
+        q: '¿Qué información debo proporcionar para obtener una evaluación?',
+        a: 'Nombre y forma del producto (sólido/polvo/líquido), formato y tamaño de bolsa objetivo, velocidad de producción requerida, país/tensión, y si necesita flush de nitrógeno o vacío. Use nuestro formulario de evaluación para una respuesta más rápida.',
       },
     ],
 
@@ -623,12 +624,12 @@ const content: Record<string, PageContent> = {
       { label: 'Cómo elegir una máquina envasadora en bolsa', href: '/resources/how-to-choose-pouch-packing-machine' },
       { label: 'VFFS vs HFFS — ¿Cuál es la correcta para ti?', href: '/resources/vffs-vs-hffs' },
       { label: 'Máquina de bolsa preformada vs VFFS', href: '/resources/premade-pouch-machine-vs-vffs' },
-      { label: 'Obtener una recomendación de máquina', href: '/recommend' },
+      { label: 'Obtener evaluación', href: '/assessment' },
     ],
 
     ctaTitle: 'Cuéntenos su producto y formato de envasado — encontraremos la máquina adecuada.',
     ctaSubtitle: 'VFFS, bolsa preformada, stick pack o vacío — nuestros ingenieros recomiendan según su producto, objetivo de producción y especificación de bolsa.',
-    ctaBtn1: 'Obtener una recomendación de máquina',
+    ctaBtn1: 'Obtener evaluación',
     ctaBtn2: 'Hablar con ingeniería',
   },
 }
@@ -697,7 +698,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
         desc={t.heroSubtitle}
         image={{
           src: heroPhoto,
-          alt: 'Pouch packing machine producing flexible packaging in factory',
+          alt: 'Pouch packing equipment sourcing support',
           priority: true,
           aspectClassName: 'aspect-[16/10]',
         }}
@@ -830,6 +831,8 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
         </Container>
       </section>
 
+      <MachineDecisionGuide lang={lang} fitScenarios={t.whoItems.map((item) => item.title)} />
+
       {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-3xl">
@@ -848,7 +851,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={link.href === '/recommend' ? `/${lang}/recommend?machine=pouch-packing-machine` : `/${lang}${link.href}`}
+                href={link.href === '/assessment' ? `/${lang}/assessment` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -869,7 +872,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources/topic/pouch-packing-machine`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/route/pouch-packaging`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>
@@ -881,8 +884,7 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
       {/* ── 9b. Related markets + industries (internal linking boost) ──────── */}
       <RelatedHubs lang={lang} machine="pouch-packing-machine" />
 
-      {/* ── 9c. QuickQuote — inline conversion form ─────────────────────────── */}
-      <QuickQuote lang={lang} context="pouch-packing-machine" source="machine" />
+      <QuickAssessment lang={lang} context="pouch-packing-machine" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
@@ -890,9 +892,16 @@ export default async function PouchPackingMachinePage({ params }: { params: Prom
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend?machine=pouch-packing-machine`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/assessment`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink
+              href={`/${lang}/quote/pouch-packing-machine`}
+              variant="secondary"
+              size="lg"
+            >
+              {({ en: 'Get quote', cn: '获取报价', zh: '取得報價', fr: 'Devis', es: 'Cotizar', pt: 'Cotação', ko: '견적', ja: '見積', ar: 'عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Báo giá', de: 'Angebot' } as Record<string, string>)[lang] || 'Get quote'}
+            </ButtonLink>
             <a
-              href={`/${lang}/contact?machine=pouch-packing-machine`}
+              href={`/${lang}/contact`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

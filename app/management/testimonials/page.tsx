@@ -39,7 +39,10 @@ export default function TestimonialsPage() {
   }, [])
 
   useEffect(() => {
-    load()
+    const id = setTimeout(() => {
+      void load()
+    }, 0)
+    return () => clearTimeout(id)
   }, [load])
 
   async function save(state: EditState) {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
-import { Lang } from '@/lib/i18n'
+import type { Lang } from '@/lib/i18n'
 import {
   trackRecommendStart,
   trackRecommendSubmit,
@@ -10,7 +10,7 @@ import {
   trackFormSubmitFail,
 } from '@/lib/analytics'
 
-interface RecommendFormProps {
+interface AssessmentFormProps {
   lang: Lang
 }
 
@@ -26,62 +26,62 @@ const sectionTitles: Record<string, { s1: string; s2: string; submit: string }> 
   en: {
     s1: 'Your Product Requirements',
     s2: 'Your Contact & Project Details',
-    submit: 'Get My Machine Recommendation',
+    submit: 'Get My Assessment',
   },
   cn: {
     s1: '您的产品要求',
     s2: '您的联系方式与项目详情',
-    submit: '获取我的机械推荐',
+    submit: '获取我的评估',
   },
   zh: {
     s1: '您的產品要求',
     s2: '您的聯絡方式與專案詳情',
-    submit: '取得我的機械推薦',
+    submit: '取得我的評估',
   },
   fr: {
     s1: 'Vos exigences produit',
     s2: 'Vos coordonnées et détails du projet',
-    submit: 'Obtenir ma recommandation de machine',
+    submit: 'Obtenir mon évaluation',
   },
   es: {
     s1: 'Requisitos de su producto',
     s2: 'Sus datos de contacto y proyecto',
-    submit: 'Obtener mi recomendación de máquina',
+    submit: 'Obtener mi evaluación',
   },
   pt: {
     s1: 'Requisitos do seu produto',
     s2: 'Seus dados de contato e detalhes do projeto',
-    submit: 'Receber recomendação de máquina',
+    submit: 'Receber avaliação',
   },
   ko: {
     s1: '제품 요구사항',
     s2: '연락처 및 프로젝트 세부 정보',
-    submit: '기계 추천 받기',
+    submit: '평가 받기',
   },
   ja: {
     s1: '製品要件',
     s2: 'お客様情報とプロジェクト詳細',
-    submit: '機械の推薦を受ける',
+    submit: 'ソーシング評価を受ける',
   },
   ar: {
     s1: 'متطلبات منتجك',
     s2: 'بيانات الاتصال وتفاصيل المشروع',
-    submit: 'احصل على توصيتي للآلة',
+    submit: 'احصل على تقييم',
   },
   th: {
     s1: 'ข้อกำหนดผลิตภัณฑ์ของคุณ',
     s2: 'ข้อมูลติดต่อและรายละเอียดโครงการ',
-    submit: 'รับคำแนะนำเครื่องจักร',
+    submit: 'รับการประเมิน',
   },
   vi: {
     s1: 'Yêu cầu sản phẩm của bạn',
     s2: 'Thông tin liên hệ và chi tiết dự án',
-    submit: 'Nhận đề xuất máy',
+    submit: 'Nhận đánh giá',
   },
   de: {
     s1: 'Ihre Produktanforderungen',
     s2: 'Ihre Kontaktdaten und Projektdetails',
-    submit: 'Maschinenempfehlung erhalten',
+    submit: 'Bewertung erhalten',
   },
 }
 
@@ -93,73 +93,73 @@ const successMessages: Record<string, { title: string; body: string; also: strin
   en: {
     title: 'Request received',
     body: 'Our engineers will review your requirements and reply within 1–2 business days.',
-    also: 'To help us give a precise recommendation, please also share: product photos, existing packaging samples, or spec sheets.',
+    also: 'To help us provide a precise assessment, please also share: product photos, existing packaging samples, or spec sheets.',
     anotherBtn: 'Submit another request',
   },
   cn: {
     title: '请求已收到',
     body: '我们的工程师将审核您的需求，并在1-2个工作日内回复。',
-    also: '为了给您更精准的推荐，请同时提供：产品照片、现有包装样品或规格说明书。',
+    also: '为了给您更精准的评估，请同时提供：产品照片、现有包装样品或规格说明书。',
     anotherBtn: '提交新的请求',
   },
   zh: {
     title: '請求已收到',
     body: '我們的工程師將審核您的需求，並在1-2個工作日內回覆。',
-    also: '為了提供更精準的推薦，請同時提供：產品照片、現有包裝樣品或規格說明書。',
+    also: '為了提供更精準的評估，請同時提供：產品照片、現有包裝樣品或規格說明書。',
     anotherBtn: '提交新的請求',
   },
   fr: {
     title: 'Demande reçue',
     body: 'Nos ingénieurs examineront vos exigences et répondront dans 1 à 2 jours ouvrés.',
-    also: 'Pour nous aider à formuler une recommandation précise, partagez également : photos produit, échantillons d\'emballage existants ou fiches techniques.',
+    also: "Pour nous aider à formuler une évaluation précise, partagez également : photos produit, échantillons d'emballage existants ou fiches techniques.",
     anotherBtn: 'Soumettre une autre demande',
   },
   es: {
     title: 'Solicitud recibida',
     body: 'Nuestros ingenieros revisarán sus requisitos y responderán en 1-2 días hábiles.',
-    also: 'Para ayudarnos a dar una recomendación precisa, comparta también: fotos del producto, muestras de embalaje existentes o fichas técnicas.',
+    also: 'Para ayudarnos a dar una evaluación precisa, comparta también: fotos del producto, muestras de embalaje existentes o fichas técnicas.',
     anotherBtn: 'Enviar otra solicitud',
   },
   pt: {
     title: 'Pedido recebido',
     body: 'Nossos engenheiros analisarão seus requisitos e responderão em 1 a 2 dias úteis.',
-    also: 'Para uma recomendação mais precisa, compartilhe também: fotos do produto, amostras de embalagem existentes ou fichas técnicas.',
+    also: 'Para uma avaliação mais precisa, compartilhe também: fotos do produto, amostras de embalagem existentes ou fichas técnicas.',
     anotherBtn: 'Enviar outra solicitação',
   },
   ko: {
     title: '요청이 접수되었습니다',
     body: '엔지니어가 요구사항을 검토하고 1-2 영업일 내에 답변 드립니다.',
-    also: '정확한 추천을 위해 제품 사진, 기존 포장 샘플 또는 사양서도 함께 보내주세요.',
+    also: '정확한 평가를 위해 제품 사진, 기존 포장 샘플 또는 사양서도 함께 보내주세요.',
     anotherBtn: '새 요청 제출',
   },
   ja: {
     title: 'リクエストを受け付けました',
     body: 'エンジニアがご要件を確認し、1〜2営業日以内にご返信します。',
-    also: '正確な推薦のために、製品写真、既存パッケージサンプル、またはスペックシートもお送りください。',
+    also: '正確な評価のために、製品写真、既存パッケージサンプル、またはスペックシートもお送りください。',
     anotherBtn: '別のリクエストを送信',
   },
   ar: {
     title: 'تم استلام طلبك',
     body: 'سيراجع مهندسونا متطلباتك ويردون خلال 1-2 يوم عمل.',
-    also: 'لمساعدتنا في تقديم توصية دقيقة، شارك أيضاً: صور المنتج، عينات التغليف الحالية، أو الكتالوجات التقنية.',
+    also: 'لمساعدتنا في تقديم تقييم دقيق، شارك أيضاً: صور المنتج، عينات التغليف الحالية، أو الكتالوجات التقنية.',
     anotherBtn: 'إرسال طلب آخر',
   },
   th: {
     title: 'ได้รับคำขอแล้ว',
     body: 'วิศวกรจะตรวจสอบข้อกำหนดและตอบกลับภายใน 1-2 วันทำการ',
-    also: 'เพื่อให้ได้คำแนะนำที่แม่นยำ กรุณาแนบรูปผลิตภัณฑ์ ตัวอย่างบรรจุภัณฑ์ หรือสเปคชีต',
+    also: 'เพื่อให้ได้การประเมินที่แม่นยำ กรุณาแนบรูปผลิตภัณฑ์ ตัวอย่างบรรจุภัณฑ์ หรือสเปคชีต',
     anotherBtn: 'ส่งคำขอใหม่',
   },
   vi: {
     title: 'Đã nhận yêu cầu',
     body: 'Kỹ sư sẽ xem xét yêu cầu và phản hồi trong 1-2 ngày làm việc.',
-    also: 'Để nhận đề xuất chính xác hơn, vui lòng cung cấp thêm: ảnh sản phẩm, mẫu bao bì hiện tại hoặc tài liệu kỹ thuật.',
+    also: 'Để nhận đánh giá chính xác hơn, vui lòng cung cấp thêm: ảnh sản phẩm, mẫu bao bì hiện tại hoặc tài liệu kỹ thuật.',
     anotherBtn: 'Gửi yêu cầu mới',
   },
   de: {
     title: 'Anfrage eingegangen',
     body: 'Unsere Ingenieure werden Ihre Anforderungen prüfen und innerhalb von 1–2 Werktagen antworten.',
-    also: 'Für eine präzisere Empfehlung senden Sie gerne: Produktfotos, vorhandene Verpackungsmuster oder Datenblätter.',
+    also: 'Für eine präzisere Bewertung senden Sie gerne: Produktfotos, vorhandene Verpackungsmuster oder Datenblätter.',
     anotherBtn: 'Weitere Anfrage senden',
   },
 }
@@ -1249,7 +1249,7 @@ const initialState: FormState = {
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
-export default function RecommendForm({ lang }: RecommendFormProps) {
+export default function AssessmentForm({ lang }: AssessmentFormProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [form, setForm] = useState<FormState>(initialState)
@@ -1381,16 +1381,14 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
         </div>
         <p className="text-xl font-semibold text-green-800">
           {sm.title}
-          {refId && (
-            <span className="ml-2 font-mono text-base text-green-600">— {(refPrefix[lang] ?? 'Ref')}: {refId}</span>
-          )}
+          {refId && <span className="ml-2 font-mono text-base text-green-600">— {(refPrefix[lang] ?? 'Ref')}: {refId}</span>}
         </p>
         <p className="mt-3 text-gray-700">{sm.body}</p>
         <p className="mt-4 rounded-lg bg-white px-6 py-4 text-left text-sm text-gray-600 shadow-sm ring-1 ring-green-100">
           {sm.also}
         </p>
         <a
-          href="mailto:contact@sungene.net?subject=Additional%20Files%20for%20My%20Recommendation%20Request"
+          href="mailto:contact@sungene.net?subject=Additional%20Files%20for%20My%20Assessment%20Request"
           className="mt-5 inline-flex items-center gap-2 rounded-md bg-accent-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-accent-700"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -1599,12 +1597,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
             label={ui.materialReq}
             value={form.materialReq}
             onChange={set('materialReq')}
-            options={mapOptions(lang, [
-              'Standard (SUS304)',
-              'Food-grade (SUS316L)',
-              'Pharmaceutical grade',
-              'Not sure',
-            ])}
+            options={mapOptions(lang, ['Standard (SUS304)', 'Food-grade (SUS316L)', 'Pharmaceutical grade', 'Not sure'])}
           />
 
           <SelectField
@@ -1613,14 +1606,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
             value={form.budget}
             onChange={set('budget')}
             placeholder={ui.selectPlaceholder}
-            options={mapOptions(lang, [
-              '< $5,000',
-              '$5,000–$15,000',
-              '$15,000–$50,000',
-              '$50,000–$150,000',
-              '> $150,000',
-              'Prefer not to say',
-            ])}
+            options={mapOptions(lang, ['< $5,000', '$5,000–$15,000', '$15,000–$50,000', '$50,000–$150,000', '> $150,000', 'Prefer not to say'])}
           />
 
           <SelectField
@@ -1629,13 +1615,7 @@ export default function RecommendForm({ lang }: RecommendFormProps) {
             value={form.timeline}
             onChange={set('timeline')}
             placeholder={ui.selectPlaceholder}
-            options={mapOptions(lang, [
-              'Urgent (< 1 month)',
-              '1–3 months',
-              '3–6 months',
-              '> 6 months',
-              'Planning stage',
-            ])}
+            options={mapOptions(lang, ['Urgent (< 1 month)', '1–3 months', '3–6 months', '> 6 months', 'Planning stage'])}
           />
 
           <TextareaField

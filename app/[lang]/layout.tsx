@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StickyContactFAB from '@/components/StickyContactFAB'
+import PageViewTracker from '@/components/PageViewTracker'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
 import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildServiceSchemas, buildWebsiteSchema } from '@/lib/business'
@@ -11,12 +12,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const lang = normalizeLang(rawLang)
 
   const baseUrl = SITE_URL
-  const title = 'SunGene Machinery'
-  const description = 'Industrial machinery manufacturer & exporter from Taiwan. Packaging machinery, food processing equipment, filling & sealing systems, and automation.'
+  const title = 'SunGene | Industrial Equipment & Automation Sourcing Partner'
+  const description = 'Industrial equipment and automation sourcing support for packaging systems, supplier evaluation, configuration planning, components, and selected technical projects across Taiwan and China.'
 
   return {
     metadataBase: new URL(baseUrl),
-    title: { default: 'SunGene Machinery', template: '%s | SunGene Machinery' },
+    title: { default: title, template: '%s | SunGene' },
     alternates: buildAlternates(lang, '/'),
     openGraph: buildOpenGraph({ lang, title, description, pathname: '/', type: 'website' }),
     twitter: buildTwitter({ lang, title, description, pathname: '/' }),
@@ -47,6 +48,7 @@ export default async function RootLayout({ children, params }: { children: React
       {services.map((s) => (
         <script key={String(s['@id'])} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
+      <PageViewTracker lang={lang} />
       <Header lang={lang} />
       <main id="page-content" className="break-words">{children}</main>
       <Footer lang={lang} />

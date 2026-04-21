@@ -18,17 +18,17 @@ export async function generateMetadata({
   const l = normalizeLang(lang)
   return buildPageMetadata({
     lang: l,
-    title: 'Export Markets — SunGene Taiwan Machinery Worldwide',
+    title: 'Export Markets — SunGene Industrial Sourcing Worldwide',
     description:
-      'SunGene exports packaging machinery, food processing equipment and filling lines from Taiwan to 40+ countries. Browse country-specific machine recommendations, voltage, shipping transit and quote references.',
+      'SunGene provides technical sourcing for packaging machinery, food processing equipment and automation lines to 40+ countries. Browse market-specific evaluations, voltage, and procurement references.',
     pathname: '/markets',
     type: 'website',
     keywords: [
-      'Taiwan machinery exporter',
-      'packaging machine by country',
-      'global machinery supplier',
-      'CIF machinery shipping',
-      'CE certified machine export Taiwan',
+      'industrial sourcing partner',
+      'machinery procurement global',
+      'Taiwan technical sourcing',
+      'equipment supplier vetting',
+      'industrial automation export',
     ],
   })
 }
@@ -49,18 +49,18 @@ const title: Record<Lang, string> = {
 }
 
 const desc: Record<Lang, string> = {
-  en: 'Voltage, transit time, sample price and recommended machines for each country SunGene exports to — from Vietnam and Saudi Arabia to Germany and the United States.',
-  zh: '每個出口國家的電壓、航程、報價範例與推薦機型——從越南、沙烏地阿拉伯到德國與美國。',
-  cn: '每个出口国家的电压、航程、报价范例与推荐机型——从越南、沙特阿拉伯到德国与美国。',
-  fr: 'Tension, délai, prix indicatif et machines recommandées pour chaque pays d\'export de SunGene — du Vietnam et de l\'Arabie saoudite à l\'Allemagne et aux États-Unis.',
-  es: 'Tensión, tránsito, precio de referencia y máquinas recomendadas para cada país al que SunGene exporta — desde Vietnam y Arabia Saudita hasta Alemania y Estados Unidos.',
-  pt: 'Tensão, trânsito, preço de referência e máquinas recomendadas para cada país destino da SunGene — do Vietnã e Arábia Saudita à Alemanha e aos Estados Unidos.',
-  ko: 'SunGene이 수출하는 각 국가의 전압, 운송 시간, 참고 가격 및 추천 기계 — 베트남과 사우디아라비아에서 독일과 미국까지.',
-  ja: 'SunGeneが輸出する各国の電圧、輸送日数、参考価格、推奨機種 — ベトナムやサウジアラビアからドイツ、米国まで。',
-  ar: 'الجهد ومدة الشحن والسعر المرجعي والآلات الموصى بها لكل دولة تُصدِّر إليها SunGene — من فيتنام والمملكة العربية السعودية إلى ألمانيا والولايات المتحدة.',
-  th: 'แรงดันไฟฟ้า ระยะเวลาขนส่ง ราคาอ้างอิง และเครื่องที่แนะนำสำหรับแต่ละประเทศที่ SunGene ส่งออก — ตั้งแต่เวียดนาม ซาอุดีอาระเบีย ถึงเยอรมนีและสหรัฐอเมริกา',
-  vi: 'Điện áp, thời gian vận chuyển, giá tham khảo và máy đề xuất cho từng quốc gia SunGene xuất khẩu — từ Việt Nam, Ả Rập Xê Út đến Đức và Mỹ.',
-  de: 'Spannung, Transitzeit, Richtpreis und empfohlene Maschinen für jedes Land, in das SunGene exportiert — von Vietnam und Saudi-Arabien bis Deutschland und die USA.',
+  en: 'Voltage, transit time, and assessment references for each country SunGene serves — from Vietnam and Saudi Arabia to Germany and the United States.',
+  zh: '每個出口國家的電壓、航程與採購評估範例——從越南、沙烏地阿拉伯到德國與美國。',
+  cn: '每个出口国家的电压、航程与采购评估范例——从越南、沙特阿拉伯到德国与美国。',
+  fr: 'Tension, délai et références d\'évaluation pour chaque pays desservi par SunGene — du Vietnam à l\'Allemagne.',
+  es: 'Tensión, tránsito y referencias de evaluación para cada país que SunGene atiende — desde Vietnam hasta Estados Unidos.',
+  pt: 'Tensão, trânsito e referências de avaliação para cada país que a SunGene atende — do Vietnã aos Estados Unidos.',
+  ko: 'SunGene이 서비스하는 각 국가의 전압, 운송 시간 및 평가 참고 사항 — 베트남에서 미국까지.',
+  ja: 'SunGeneが対応する各国の電圧、輸送日数、評価事例 — ベトナムから米国まで。',
+  ar: 'الجهد ومدة الشحن ومراجع التقييم لكل دولة تخدمها SunGene — من فيتنام إلى الولايات المتحدة.',
+  th: 'แรงดันไฟฟ้า ระยะเวลาขนส่ง และข้อมูลอ้างอิงการประเมินสำหรับแต่ละประเทศที่ SunGene ให้บริการ',
+  vi: 'Điện áp, thời gian vận chuyển và tham khảo đánh giá cho từng quốc gia SunGene phục vụ.',
+  de: 'Spannung, Transitzeit und Bewertungsreferenzen für jedes Land, das SunGene bedient.',
 }
 
 export default async function MarketsIndexPage({

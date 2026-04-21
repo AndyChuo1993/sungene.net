@@ -15,15 +15,16 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
-import QuickQuote from '@/components/QuickQuote'
+import QuickAssessment from '@/components/QuickAssessment'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Conveyor & Automation Systems — Belt, Bucket, Screw & Robotic',
-  cn: '输送与自动化系统 — 皮带、斗式、螺旋与机器人',
-  zh: '輸送與自動化系統 — 皮帶、斗式、螺旋與機器人',
+  en: 'Automation & Conveying Configuration Route — Flow, PLC & Integration',
+  cn: '输送与自动化配置路线 — 物流、PLC 与整合',
+  zh: '輸送與自動化配置路線 — 物流、PLC 與整合',
   fr: 'Systèmes de convoyage et d\'automatisation — Bande, Godet, Vis & Robotique',
   es: 'Sistemas de transporte y automatización — Banda, Cangilones, Tornillo y Robótica',
   pt: 'Sistemas de Transporte e Automação — Esteira, Elevador, Rosca e Robótica',
@@ -36,18 +37,18 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'SunGene designs and manufactures conveyor systems and production line automation for food, packaging, chemical, and industrial applications. Belt conveyors, bucket elevators, screw conveyors, PLC-controlled lines. CE certified.',
-  cn: 'SunGene设计制造适用于食品、包装、化工和工业领域的输送系统及生产线自动化。皮带输送机、斗式提升机、螺旋输送机、PLC控制产线。CE认证。',
-  zh: 'SunGene設計製造適用於食品、包裝、化工和工業領域的輸送系統及生產線自動化。皮帶輸送機、斗式提升機、螺旋輸送機、PLC控制產線。CE認證。',
-  fr: 'SunGene conçoit et fabrique des systèmes de convoyage et d\'automatisation de lignes de production pour les secteurs alimentaire, emballage, chimique et industriel. Convoyeurs à bande, élévateurs à godets, convoyeurs à vis, lignes PLC. CE certifié.',
-  es: 'SunGene diseña y fabrica sistemas de transporte y automatización de líneas de producción para aplicaciones alimentarias, de embalaje, química e industrial. Transportadores de banda, elevadores de cangilones, transportadores de tornillo, líneas PLC. CE certificado.',
-  pt: 'SunGene projeta e fabrica sistemas de transporte e automação de linhas de produção para aplicações alimentares, de embalagem, química e industrial. Esteiras transportadoras, elevadores de caçamba, transportadores de rosca, linhas PLC. CE certificado.',
-  ko: 'SunGene은 식품, 포장, 화학 및 산업 분야를 위한 컨베이어 시스템 및 생산 라인 자동화를 설계 및 제조합니다. 벨트 컨베이어, 버킷 엘리베이터, 스크류 컨베이어, PLC 제어 라인. CE 인증.',
-  ja: 'SunGeneは食品、包装、化学、産業用途向けのコンベアシステムと生産ライン自動化を設計・製造。ベルトコンベア、バケットエレベーター、スクリューコンベア、PLC制御ライン。CE認証。',
-  ar: 'SunGene تصمم وتصنع أنظمة النقل وأتمتة خطوط الإنتاج للتطبيقات الغذائية والتعبئة والكيميائية والصناعية. ناقلات حزام، مصاعد دلو، ناقلات لولبية، خطوط PLC. معتمدة CE.',
-  th: 'SunGene ออกแบบและผลิตระบบสายพานลำเลียงและระบบอัตโนมัติสายการผลิตสำหรับอุตสาหกรรมอาหาร บรรจุภัณฑ์ เคมี และอุตสาหกรรม ได้รับการรับรอง CE',
-  vi: 'SunGene thiết kế và sản xuất hệ thống băng tải và tự động hóa dây chuyền sản xuất cho các ứng dụng thực phẩm, đóng gói, hóa chất và công nghiệp. Chứng nhận CE.',
-  de: 'SunGene entwirft und fertigt Fördersysteme und Produktionslinen-Automatisierung für Lebensmittel-, Verpackungs-, Chemie- und Industrieanwendungen. Bandförderer, Becherwerke, Schneckenförderer, SPS-gesteuerte Linien. CE-zertifiziert.',
+  en: 'Technical sourcing and line integration support for conveyor and automation systems. We help verify suppliers, specs, and PLC interfaces for belt conveyors, bucket elevators, and screw conveyors. CE-oriented documentation support.',
+  cn: '输送与自动化系统技术采购与产线整合服务。我们协助审核供应商、规格与PLC接口，覆盖皮带输送机、斗式提升机与螺旋输送机，并提供符合CE导向的文件支持。',
+  zh: '輸送與自動化系統技術採購與產線整合服務。我們協助審核供應商、規格與PLC介面，涵蓋皮帶輸送機、斗式提升機與螺旋輸送機，並提供符合CE導向的文件支援。',
+  fr: 'Sourcing technique et intégration de lignes pour systèmes de convoyage et d’automatisation. Validation fournisseurs, spécifications et interfaces PLC pour convoyeurs à bande, élévateurs à godets et convoyeurs à vis.',
+  es: 'Abastecimiento técnico e integración de líneas para sistemas de transporte y automatización. Validamos proveedores, especificaciones e interfaces PLC para bandas, elevadores de cangilones y transportadores de tornillo.',
+  pt: 'Sourcing técnico e integração de linhas para sistemas de transporte e automação. Validamos fornecedores, especificações e interfaces PLC para esteiras, elevadores de caçamba e roscas transportadoras.',
+  ko: '컨베이어 및 자동화 시스템을 위한 기술 소싱·라인 통합 지원. 벨트 컨베이어, 버킷 엘리베이터, 스크류 컨베이어의 공급업체·사양·PLC 인터페이스를 검증합니다.',
+  ja: 'コンベア＆自動化システムの技術ソーシングとライン統合支援。ベルトコンベア、バケットエレベーター、スクリューコンベアのサプライヤー審査・仕様確認・PLCインターフェース検証に対応します。',
+  ar: 'توريد تقني ودعم تكامل الخطوط لأنظمة النقل والأتمتة. نتحقق من الموردين والمواصفات وواجهات PLC للسيور الناقلة والمصاعد الدلوية والناقلات اللولبية.',
+  th: 'การจัดซื้อเชิงเทคนิคและการบูรณาการไลน์สำหรับระบบลำเลียงและอัตโนมัติ เราช่วยตรวจสอบซัพพลายเออร์ สเปก และอินเทอร์เฟซ PLC สำหรับสายพานลำเลียง ลิฟต์ถังตัก และสกรูลำเลียง',
+  vi: 'Nguồn cung kỹ thuật và hỗ trợ tích hợp dây chuyền cho hệ thống băng tải và tự động hóa. Chúng tôi thẩm định nhà cung cấp, thông số và giao diện PLC cho băng tải, gàu tải và băng tải trục vít.',
+  de: 'Technisches Sourcing und Linienintegration für Förder- und Automatisierungssysteme. Wir prüfen Lieferanten, Spezifikationen und SPS-Schnittstellen für Bandförderer, Becherwerke und Schneckenförderer.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -60,9 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/machines/conveyor-system',
     type: 'website',
     keywords: [
-      'conveyor system', 'belt conveyor', 'bucket elevator', 'screw conveyor', 'PLC automation',
-      'production line automation', 'conveyor system manufacturer', 'robotic palletizer',
-      'checkweigher', 'metal detector conveyor', 'Taiwan conveyor manufacturer',
+      'conveying integration planning', 'PLC HMI standard', 'IO mapping ownership', 'safety interlocks',
+      'material flow mapping', 'checkweigher integration', 'metal detector integration', 'parameter backup',
+      'FAT checklist', 'documentation handoff',
     ],
   })
 }
@@ -111,8 +112,8 @@ interface PageContent {
 const content: Record<string, PageContent> = {
   en: {
     kicker: 'CONVEYOR & LINE AUTOMATION',
-    heroTitle: 'Conveyor & Automation Systems — Production Line Integration for Food, Packaging & Industrial',
-    heroSubtitle: 'SunGene designs conveyor systems and automated production lines that connect your machines into a smooth, controlled workflow. From single belt conveyors to complete PLC/HMI-controlled production lines.',
+    heroTitle: 'Conveyor & Automation Systems — Line Integration for Food, Packaging & Industrial',
+    heroSubtitle: 'SunGene designs and sources conveyor systems and automated line systems that connect your machines into a smooth, controlled workflow. From single belt conveyors to complete PLC/HMI-controlled line integration.',
 
     whoTitle: "Who It's For",
     whoItems: [
@@ -134,24 +135,24 @@ const content: Record<string, PageContent> = {
 
     packagingTitle: 'System Output & Scale Options',
     packagingItems: [
-      { label: 'Scale', value: 'Single conveyors to complete multi-machine production lines' },
+      { label: 'Scale', value: 'Single conveyors to complete multi-machine line systems' },
       { label: 'Speed range', value: 'Configurable from 5 to 200+ m/min depending on product and machine' },
       { label: 'Control level', value: 'Manual / semi-auto (operator-controlled) to fully automated PLC/HMI-controlled' },
       { label: 'Integration', value: 'Standalone add-on, partial line upgrade, or complete new line design' },
     ],
-    packagingNote: 'Output capacity and automation level are fully configurable — we design around your production target and budget.',
+    packagingNote: 'Output capacity and automation level are fully configurable — we design around your throughput target and budget.',
 
     configurationsTitle: 'Available Configurations',
     configurations: [
       { name: 'Flat Belt Conveyor', desc: 'Standard workhorse for product transfer between machines. Food-grade belts available. Adjustable speed with VFD.' },
-      { name: 'Incline / Decline Conveyor', desc: 'For elevation changes in the production line. Cleated belts prevent product sliding.' },
+      { name: 'Incline / Decline Conveyor', desc: 'For elevation changes in the line layout. Cleated belts prevent product sliding.' },
       { name: 'Cooling Conveyor (Mesh Belt)', desc: 'For post-frying or post-baking product cooling. Stainless mesh, adjustable speed.' },
       { name: 'Bucket Elevator', desc: 'Vertical material lifting for powder, granules, or bulk material. Food-grade and industrial versions.' },
       { name: 'Screw / Auger Conveyor', desc: 'Enclosed horizontal or inclined transfer for powder and granule. Dust-controlled.' },
       { name: 'Check-Weigher + Reject System', desc: 'Inline weight inspection with automatic reject for under/over-weight packages.' },
       { name: 'Metal Detector', desc: 'Inline detection with conveyor-mounted sensor and reject mechanism.' },
       { name: 'PLC / HMI Control Panel', desc: 'Custom control panels for single machine or full line. Touch-screen HMI, alarm logging, recipe management.' },
-      { name: 'Robotic Palletizer', desc: 'End-of-line robotic or mechanical palletizer for case stacking. CE certified, configurable patterns.' },
+      { name: 'Robotic Palletizer', desc: 'End-of-line robotic or mechanical palletizer for case stacking. CE documentation support where applicable, configurable patterns.' },
     ],
 
     decisionsTitle: 'Key Decision Factors',
@@ -192,7 +193,7 @@ const content: Record<string, PageContent> = {
         a: 'A PLC (Programmable Logic Controller) automates machine start/stop, speed control, alarm handling, and sequence control. An HMI (Human Machine Interface) is the touch-screen operator panel. For lines with 3+ machines, a PLC/HMI system significantly reduces operator errors and improves throughput consistency.',
       },
       {
-        q: 'What is the lead time for a full production line?',
+        q: 'What is the timeline for a full line integration project?',
         a: 'For simple conveyor additions: 3–6 weeks. For full PLC-controlled lines: 8–16 weeks depending on complexity. Custom robotic systems may require 16–24 weeks. We provide a detailed schedule after reviewing your requirements.',
       },
       {
@@ -201,11 +202,11 @@ const content: Record<string, PageContent> = {
       },
       {
         q: 'What certifications do your conveyor systems carry?',
-        a: 'CE marking is standard. Electrical components comply with IEC standards. Food-contact materials meet EU/FDA requirements on request. We provide full documentation including material certificates, wiring diagrams, and test reports.',
+        a: 'CE-oriented documentation support is available where applicable, depending on machine scope and destination-market requirements. Electrical components comply with IEC standards. Food-contact materials can meet EU/FDA requirements on request. We provide documentation including material certificates, wiring diagrams, and test reports.',
       },
       {
-        q: 'How do I start planning a production line upgrade?',
-        a: 'Share your current machine list (or planned machines), your production target (bags/min or kg/hr), your facility floor plan or dimensions, and your product type. Our engineers will propose a layout and scope.',
+        q: 'How do I start planning a line upgrade?',
+        a: 'Share your current machine list (or planned machines), your throughput target (bags/min or kg/hr), your facility floor plan or dimensions, and your product type. Our engineers will propose a layout and scope.',
       },
     ],
 
@@ -214,19 +215,19 @@ const content: Record<string, PageContent> = {
       { label: 'How to Choose a Conveyor System', href: '/resources/how-to-choose-conveyor-system' },
       { label: 'Semi-Auto vs Full-Auto Packaging Line', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Conveying & Automation Overview', href: '/machinery/conveying-automation' },
-      { label: 'Get a Machine Recommendation', href: '/recommend' },
+      { label: 'Get a Sourcing Assessment', href: '/assessment' },
     ],
 
-    ctaTitle: "Tell us your production target and machine list — we'll design the automation.",
-    ctaSubtitle: 'From single belt conveyors to complete PLC-controlled packaging lines — our engineers design around your product, machines, and facility.',
-    ctaBtn1: 'Get a Line Design Recommendation',
+    ctaTitle: "Tell us your throughput target and line context — we'll provide a sourcing assessment.",
+    ctaSubtitle: 'From single belt conveyors to complete PLC-controlled packaging lines — our engineers design and source around your product, machines, and facility.',
+    ctaBtn1: 'Request Sourcing Assessment',
     ctaBtn2: 'Talk to Engineering',
   },
 
   cn: {
     kicker: '输送与产线自动化',
-    heroTitle: '输送与自动化系统 — 食品、包装及工业生产线整合',
-    heroSubtitle: 'SunGene设计输送系统和自动化生产线，将您的机器整合为顺畅、可控的工作流程。从单条皮带输送机到完整的PLC/HMI控制生产线。',
+    heroTitle: '输送与自动化系统 — 食品、包装及工业产线整合',
+    heroSubtitle: 'SunGene 提供输送系统与自动化线体系统的技术采购与设计，将您的机器整合为顺畅、可控的工作流程。从单条皮带输送机到完整的 PLC/HMI 控制线体。',
 
     whoTitle: '适用客户',
     whoItems: [
@@ -236,7 +237,7 @@ const content: Record<string, PageContent> = {
       { title: '新建厂房用户', desc: '从原料投入到成品输出的完整物料流设计——我们负责整体布局和控制系统设计。' },
     ],
 
-    productsTitle: '我们设计与制造的系统',
+    productsTitle: '我们规划与整合的系统',
     productGroups: [
       { label: '皮带输送机', items: ['平皮带', '模块式皮带', '挡条皮带', '倾斜/下坡输送', '冷却输送机'] },
       { label: '垂直输送', items: ['斗式提升机', 'Z形提升机', '螺旋输送机', '气力输送'] },
@@ -248,17 +249,17 @@ const content: Record<string, PageContent> = {
 
     packagingTitle: '系统产量与规模选项',
     packagingItems: [
-      { label: '规模', value: '单条输送机到完整多机生产线' },
+      { label: '规模', value: '单条输送机到完整多机线体系统' },
       { label: '速度范围', value: '根据产品和机器，可配置5至200+米/分钟' },
       { label: '控制级别', value: '手动/半自动（操作员控制）到全自动PLC/HMI控制' },
-      { label: '整合方式', value: '独立附加、部分产线升级或全新产线设计' },
+      { label: '整合方式', value: '独立附加、部分线体升级或全新线体规划' },
     ],
-    packagingNote: '产能和自动化程度完全可配置——我们围绕您的生产目标和预算进行设计。',
+    packagingNote: '产能和自动化程度完全可配置——我们围绕您的产能目标和预算进行设计。',
 
     configurationsTitle: '可用配置',
     configurations: [
       { name: '平皮带输送机', desc: '机器间产品传送的标准设备。可提供食品级皮带。配备变频器可调速。' },
-      { name: '倾斜/下坡输送机', desc: '用于生产线中的高度变化。挡条皮带防止产品滑动。' },
+      { name: '倾斜/下坡输送机', desc: '用于线体中的高度变化。挡条皮带防止产品滑动。' },
       { name: '冷却输送机（网带）', desc: '用于油炸或烘烤后的产品冷却。不锈钢网带，可调速。' },
       { name: '斗式提升机', desc: '粉末、颗粒或散装物料的垂直提升。食品级和工业版本均可供应。' },
       { name: '螺旋/绞龙输送机', desc: '用于粉末和颗粒的封闭式水平或倾斜输送。防尘设计。' },
@@ -271,7 +272,7 @@ const content: Record<string, PageContent> = {
     decisionsTitle: '关键决策因素',
     decisions: [
       { factor: '产品类型', guide: '食品接触 → 食品级皮带和SUS304机架。化工 → 耐化学品材料。粉末 → 封闭/防尘设计。' },
-      { factor: '产线速度', guide: '输送机速度应与产线最慢机器的产量匹配，避免产生瓶颈。' },
+      { factor: '线体速度', guide: '输送机速度应与线体最慢机器的产量匹配，避免产生瓶颈。' },
       { factor: '厂房布局', guide: '输送机长度、转弯、坡度和占地面积需与您的厂房相匹配。' },
       { factor: '自动化程度', guide: '您希望减少多少操作人员？这决定了控制系统的范围。' },
       { factor: '整合方式', guide: '新机器还是改造现有设备？我们设计连接件和过渡段以匹配您现有设备。' },
@@ -306,8 +307,8 @@ const content: Record<string, PageContent> = {
         a: 'PLC（可编程逻辑控制器）负责机器启停、速度控制、报警处理和顺序控制的自动化。HMI（人机界面）是触摸屏操作面板。对于3台及以上机器的产线，PLC/HMI系统能显著减少操作失误并提高产量一致性。',
       },
       {
-        q: '完整生产线的交货周期是多少？',
-        a: '简单输送机添加：3–6周。完整PLC控制产线：8–16周，取决于复杂程度。定制机器人系统可能需要16–24周。我们在审查您的需求后提供详细进度计划。',
+        q: '完整产线整合的交货周期是多少？',
+        a: '简单输送机添加：3–6周。完整 PLC 控制线体：8–16周，取决于复杂程度。定制机器人系统可能需要16–24周。我们在审查您的需求后提供详细进度计划。',
       },
       {
         q: '你们提供安装和调试支持吗？',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
         a: 'CE认证为标配。电气元件符合IEC标准。食品接触材料可按要求符合欧盟/FDA要求。我们提供完整文件，包括材质证书、接线图和测试报告。',
       },
       {
-        q: '如何开始规划生产线升级？',
-        a: '请分享您现有机器清单（或计划购买的机器）、生产目标（袋/分钟或千克/小时）、厂房平面图或尺寸，以及产品类型。我们的工程师将提出布局和方案建议。',
+        q: '如何开始规划线体升级？',
+        a: '分享您现有机器清单（或计划机器）、产能目标（袋/分钟或公斤/小时）、厂房平面图或尺寸，以及产品类型。我们的工程师将提出布局和范围建议。',
       },
     ],
 
@@ -328,19 +329,19 @@ const content: Record<string, PageContent> = {
       { label: '如何选择输送系统', href: '/resources/how-to-choose-conveyor-system' },
       { label: '半自动与全自动包装线对比', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '输送与自动化概览', href: '/machinery/conveying-automation' },
-      { label: '获取机器推荐', href: '/recommend' },
+      { label: '获取采购评估', href: '/assessment' },
     ],
 
-    ctaTitle: '告诉我们您的生产目标和机器清单——我们来设计自动化方案。',
-    ctaSubtitle: '从单条皮带输送机到完整PLC控制包装线——我们的工程师围绕您的产品、机器和厂房进行设计。',
-    ctaBtn1: '获取产线设计建议',
-    ctaBtn2: '联系工程团队',
+    ctaTitle: '告诉我们您的产能目标和机器清单——我们提供技术采购评估方案。',
+    ctaSubtitle: '从单条皮带输送机到完整PLC控制包装线——我们的工程师围绕您的产品、机器和厂房进行采购评估与设计。',
+    ctaBtn1: '获取采购评估建议',
+    ctaBtn2: '咨询工程团队',
   },
 
   zh: {
     kicker: '輸送與產線自動化',
-    heroTitle: '輸送與自動化系統 — 食品、包裝及工業生產線整合',
-    heroSubtitle: 'SunGene設計輸送系統和自動化生產線，將您的機器整合為順暢、可控的工作流程。從單條皮帶輸送機到完整的PLC/HMI控制生產線。',
+    heroTitle: '輸送與自動化系統 — 食品、包裝及工業產線整合',
+    heroSubtitle: 'SunGene 提供輸送系統與自動化線體系統的技術採購與設計，將您的機器整合為順暢、可控的工作流程。從單條皮帶輸送機到完整的 PLC/HMI 控制線體。',
 
     whoTitle: '適用客戶',
     whoItems: [
@@ -350,7 +351,7 @@ const content: Record<string, PageContent> = {
       { title: '新建廠房用戶', desc: '從原料投入到成品輸出的完整物料流設計——我們負責整體佈局和控制系統設計。' },
     ],
 
-    productsTitle: '我們設計與製造的系統',
+    productsTitle: '我們規劃與整合的系統',
     productGroups: [
       { label: '皮帶輸送機', items: ['平皮帶', '模組式皮帶', '擋條皮帶', '傾斜/下坡輸送', '冷卻輸送機'] },
       { label: '垂直輸送', items: ['斗式提升機', 'Z形提升機', '螺旋輸送機', '氣力輸送'] },
@@ -362,34 +363,34 @@ const content: Record<string, PageContent> = {
 
     packagingTitle: '系統產量與規模選項',
     packagingItems: [
-      { label: '規模', value: '單條輸送機到完整多機生產線' },
+      { label: '規模', value: '單條輸送機到完整多機線體系統' },
       { label: '速度範圍', value: '根據產品和機器，可配置5至200+公尺/分鐘' },
       { label: '控制級別', value: '手動/半自動（操作員控制）到全自動PLC/HMI控制' },
-      { label: '整合方式', value: '獨立附加、部分產線升級或全新產線設計' },
+      { label: '整合方式', value: '獨立附加、部分線體升級或全新線體規劃' },
     ],
-    packagingNote: '產能和自動化程度完全可配置——我們圍繞您的生產目標和預算進行設計。',
+    packagingNote: '產能和自動化程度完全可配置——我們圍繞您的產能目標和預算進行設計。',
 
     configurationsTitle: '可用配置',
     configurations: [
       { name: '平皮帶輸送機', desc: '機器間產品傳送的標準設備。可提供食品級皮帶。配備變頻器可調速。' },
-      { name: '傾斜/下坡輸送機', desc: '用於生產線中的高度變化。擋條皮帶防止產品滑動。' },
+      { name: '傾斜/下坡輸送機', desc: '用於線體中的高度變化。擋條皮帶防止產品滑動。' },
       { name: '冷卻輸送機（網帶）', desc: '用於油炸或烘烤後的產品冷卻。不鏽鋼網帶，可調速。' },
       { name: '斗式提升機', desc: '粉末、顆粒或散裝物料的垂直提升。食品級和工業版本均可供應。' },
       { name: '螺旋/絞龍輸送機', desc: '用於粉末和顆粒的封閉式水平或傾斜輸送。防塵設計。' },
       { name: '檢重秤+剔除系統', desc: '在線重量檢測，自動剔除重量不足/超重包裝。' },
       { name: '金屬探測器', desc: '在線檢測，帶輸送機安裝感測器和剔除機構。' },
       { name: 'PLC/HMI控制櫃', desc: '適用於單機或全線的客製控制櫃。觸控螢幕HMI、報警記錄、配方管理。' },
-      { name: '機器人碼垛機', desc: '線尾機器人或機械式碼垛機，用於箱體堆疊。CE認證，可配置碼垛圖案。' },
+      { name: '機器人碼垛機', desc: '線尾機器人或機械式碼垛機，用於箱體堆疊。可提供 CE 文件支援（適用時），可配置碼垛圖案。' },
     ],
 
     decisionsTitle: '關鍵決策因素',
     decisions: [
       { factor: '產品類型', guide: '食品接觸 → 食品級皮帶和SUS304機架。化工 → 耐化學品材料。粉末 → 封閉/防塵設計。' },
-      { factor: '產線速度', guide: '輸送機速度應與產線最慢機器的產量匹配，避免產生瓶頸。' },
+      { factor: '線體速度', guide: '輸送機速度應與線體最慢機器的產量匹配，避免產生瓶頸。' },
       { factor: '廠房佈局', guide: '輸送機長度、轉彎、坡度和佔地面積需與您的廠房相匹配。' },
       { factor: '自動化程度', guide: '您希望減少多少操作人員？這決定了控制系統的範圍。' },
       { factor: '整合方式', guide: '新機器還是改造現有設備？我們設計連接件和過渡段以匹配您現有設備。' },
-      { factor: '法規要求', guide: '出口需CE認證。食品/製藥應用需要衛生設計（IP69K）。' },
+      { factor: '法規要求', guide: '依目的市場可能需要 CE 相關文件/符合性要求。食品/製藥應用可能需要衛生設計（如 IP69K）。' },
     ],
 
     integrationTitle: '工藝整合',
@@ -420,8 +421,8 @@ const content: Record<string, PageContent> = {
         a: 'PLC（可程式邏輯控制器）負責機器啟停、速度控制、報警處理和順序控制的自動化。HMI（人機介面）是觸控螢幕操作面板。對於3台及以上機器的產線，PLC/HMI系統能顯著減少操作失誤並提高產量一致性。',
       },
       {
-        q: '完整生產線的交貨週期是多少？',
-        a: '簡單輸送機添加：3–6週。完整PLC控制產線：8–16週，取決於複雜程度。客製機器人系統可能需要16–24週。我們在審查您的需求後提供詳細進度計劃。',
+        q: '完整產線整合的交貨週期是多少？',
+        a: '簡單輸送機添加：3–6週。完整 PLC 控制線體：8–16週，取決於複雜程度。客製機器人系統可能需要16–24週。我們在審查您的需求後提供詳細進度計劃。',
       },
       {
         q: '你們提供安裝和調試支援嗎？',
@@ -429,11 +430,11 @@ const content: Record<string, PageContent> = {
       },
       {
         q: '你們的輸送系統具有哪些認證？',
-        a: 'CE認證為標配。電氣元件符合IEC標準。食品接觸材料可按要求符合歐盟/FDA要求。我們提供完整文件，包括材質證書、接線圖和測試報告。',
+        a: '可依設備範圍與目的市場需求提供 CE 文件支援（適用時）。電氣元件符合 IEC 標準。食品接觸材料可按要求符合歐盟/FDA 要求。我們提供文件，包括材質證書、接線圖和測試報告。',
       },
       {
-        q: '如何開始規劃生產線升級？',
-        a: '請分享您現有機器清單（或計劃購買的機器）、生產目標（袋/分鐘或公斤/小時）、廠房平面圖或尺寸，以及產品類型。我們的工程師將提出佈局和方案建議。',
+        q: '如何開始規劃線體升級？',
+        a: '請分享您現有機器清單（或計劃購買的機器）、產能目標（袋/分鐘或公斤/小時）、廠房平面圖或尺寸，以及產品類型。我們的工程師將提出佈局和方案建議。',
       },
     ],
 
@@ -442,13 +443,13 @@ const content: Record<string, PageContent> = {
       { label: '如何選擇輸送系統', href: '/resources/how-to-choose-conveyor-system' },
       { label: '半自動與全自動包裝線比較', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '輸送與自動化概覽', href: '/machinery/conveying-automation' },
-      { label: '取得機器推薦', href: '/recommend' },
+      { label: '取得採購評估', href: '/assessment' },
     ],
 
-    ctaTitle: '告訴我們您的生產目標和機器清單——我們來設計自動化方案。',
-    ctaSubtitle: '從單條皮帶輸送機到完整PLC控制包裝線——我們的工程師圍繞您的產品、機器和廠房進行設計。',
-    ctaBtn1: '取得產線設計建議',
-    ctaBtn2: '聯絡工程團隊',
+    ctaTitle: '告訴我們您的產能目標和機器清單——我們提供技術採購評估方案。',
+    ctaSubtitle: '從單條皮帶輸送機到完整PLC控制包裝線——我們的工程師圍繞您的產品、機器和廠房進行採購評估與設計。',
+    ctaBtn1: '取得採購評估建議',
+    ctaBtn2: '諮詢工程團隊',
   },
 }
 
@@ -461,19 +462,19 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
   const guides = getResourceArticlesByMachine('conveyor-system', lang, 6)
   const guidesTitle =
     ({
-      en: 'Buying guides',
-      cn: '采购指南',
-      zh: '採購指南',
-      fr: 'Guides d’achat',
-      es: 'Guías de compra',
-      pt: 'Guias de compra',
-      ko: '구매 가이드',
-      ja: '購入ガイド',
-      ar: 'أدلة الشراء',
-      th: 'คู่มือการเลือกซื้อ',
-      vi: 'Hướng dẫn mua máy',
-      de: 'Kaufratgeber',
-    } as Record<string, string>)[lang] || 'Buying guides'
+      en: 'Configuration guides',
+      cn: '配置指南',
+      zh: '配置指南',
+      fr: 'Guides de configuration',
+      es: 'Guías de configuración',
+      pt: 'Guias de configuração',
+      ko: '구성 가이드',
+      ja: '構成ガイド',
+      ar: 'أدلة التهيئة',
+      th: 'คู่มือการกำหนดค่า',
+      vi: 'Hướng dẫn cấu hình',
+      de: 'Konfigurationsleitfäden',
+    } as Record<string, string>)[lang] || 'Configuration guides'
 
   // JSON-LD schemas
   const faqSchema = {
@@ -514,7 +515,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
         desc={t.heroSubtitle}
         image={{
           src: heroPhoto,
-          alt: 'Conveyor and automation system in industrial production facility',
+          alt: 'Conveyor and automation system in industrial facility',
           priority: true,
           aspectClassName: 'aspect-[16/10]',
         }}
@@ -646,6 +647,8 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
         </Container>
       </section>
 
+      <MachineDecisionGuide lang={lang} fitScenarios={t.whoItems.map((item) => item.title)} />
+
       {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-3xl">
@@ -664,7 +667,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={link.href === '/recommend' ? `/${lang}/recommend?machine=conveyor-system` : `/${lang}${link.href}`}
+                href={link.href === '/assessment' ? `/${lang}/assessment` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -685,7 +688,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources/topic/conveyor-system`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/route/conveying-automation`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>
@@ -697,7 +700,7 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
       {/* ── 9b. Related markets + industries ──────────────────────────────── */}
       <RelatedHubs lang={lang} machine="conveyor-system" />
 
-      <QuickQuote lang={lang} context="conveyor-system" source="machine" />
+      <QuickAssessment lang={lang} context="conveyor-system" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
@@ -705,9 +708,16 @@ export default async function ConveyorSystemPage({ params }: { params: Promise<{
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend?machine=conveyor-system`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/assessment`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink
+              href={`/${lang}/quote/conveyor-system`}
+              variant="secondary"
+              size="lg"
+            >
+              {({ en: 'Get quote', cn: '获取报价', zh: '取得報價', fr: 'Devis', es: 'Cotizar', pt: 'Cotação', ko: '견적', ja: '見積', ar: 'عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Báo giá', de: 'Angebot' } as Record<string, string>)[lang] || 'Get quote'}
+            </ButtonLink>
             <a
-              href={`/${lang}/contact?machine=conveyor-system`}
+              href={`/${lang}/contact`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

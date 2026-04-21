@@ -44,7 +44,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
     name: 'Pouch Packing Machine',
     category: 'Pouch & Bag Packaging Machinery',
     description:
-      'SunGene VFFS, HFFS, pre-made pouch, stick pack and vacuum packing machines for snacks, food, powder, liquid, pharmaceutical and consumer goods flexible packaging. CE certified, SUS304/316L stainless steel, configured per product.',
+      'SunGene VFFS, HFFS, pre-made pouch, stick pack and vacuum packing machines for snacks, food, powder, liquid, pharmaceutical and consumer goods flexible packaging. CE documentation support where applicable, SUS304/316L stainless steel, configured per product.',
     heroPhoto: PHOTO.machines.pouchPackingHero,
     extraPhotos: [
       PHOTO.home.trustGallery[0],
@@ -64,7 +64,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
     name: 'Powder Filling Machine',
     category: 'Powder & Granule Filling Machinery',
     description:
-      'SunGene auger fillers, cup fillers and net-weigh powder packing machines for flour, milk, spices, protein, coffee, detergent and agricultural powders. Dust containment, servo auger, CE certified.',
+      'SunGene auger fillers, cup fillers and net-weigh powder packing machines for flour, milk, spices, protein, coffee, detergent and agricultural powders. Dust containment, servo auger, CE documentation support where applicable.',
     heroPhoto: PHOTO.machines.powderFillingHero,
     extraPhotos: [
       PHOTO.home.trustGallery[0],
@@ -84,7 +84,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
     name: 'Liquid Filling Machine',
     category: 'Liquid Filling & Sealing Machinery',
     description:
-      'SunGene piston, gravity, flow-meter and pump-type liquid filling machines for sauce, oil, water, juice, chemical, cosmetic and beverage products. Configurable viscosity handling, CIP-ready, CE certified.',
+      'SunGene piston, gravity, flow-meter and pump-type liquid filling machines for sauce, oil, water, juice, chemical, cosmetic and beverage products. Configurable viscosity handling, CIP-ready, CE documentation support where applicable.',
     heroPhoto: PHOTO.machines.liquidFillingHero,
     extraPhotos: [
       PHOTO.details.items[2],
@@ -104,7 +104,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
     name: 'Snack Processing Line',
     category: 'Food Processing Machinery',
     description:
-      'SunGene continuous fryers, de-oilers, seasoning tumblers, roasters and complete snack production lines for chips, nuts, extruded snacks and pellet snacks. Gas or electric, throughput configurable, CE certified.',
+      'SunGene continuous fryers, de-oilers, seasoning tumblers, roasters and complete snack line solutions for chips, nuts, extruded snacks and pellet snacks. Gas or electric, throughput configurable, CE documentation support.',
     heroPhoto: PHOTO.machines.snackProcessingHero,
     extraPhotos: [
       PHOTO.home.trustGallery[0],
@@ -124,7 +124,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
     name: 'Conveyor & Automation System',
     category: 'Conveying & Automation Systems',
     description:
-      'SunGene food-grade belt conveyors, modular belts, roller conveyors, vibratory feeders, metal detectors, checkweighers and PLC+HMI controlled automation systems for packaging and food lines. CE certified, SUS304/316L.',
+      'SunGene food-grade belt conveyors, modular belts, roller conveyors, vibratory feeders, metal detectors, checkweighers and PLC+HMI controlled automation systems for packaging and food lines. CE documentation support where applicable, SUS304/316L.',
     heroPhoto: PHOTO.machines.conveyorSystemHero,
     extraPhotos: [
       PHOTO.home.trustGallery[0],
@@ -144,7 +144,7 @@ export const MACHINE_DEFS: Record<MachineSlug, MachineDef> = {
 /**
  * Build a Google-compliant Product schema with AggregateOffer (so Merchant
  * listing requirements — name, image, offers.price — are all satisfied) and
- * full manufacturer / brand / audience / country fields.
+ * full sourcing / brand / audience / country fields.
  *
  * Validated against:
  * https://developers.google.com/search/docs/appearance/structured-data/product
@@ -160,8 +160,8 @@ export function buildProductSchema(opts: {
   const def = MACHINE_DEFS[opts.slug]
   const lang = opts.lang
   const pageUrl = `${SITE_URL}/${lang}/machines/${def.slug}`
-  const contactUrl = `${SITE_URL}/${lang}/contact?machine=${def.slug}`
-  const recommendUrl = `${SITE_URL}/${lang}/recommend?machine=${def.slug}`
+  const contactUrl = `${SITE_URL}/${lang}/contact`
+  const recommendUrl = `${SITE_URL}/${lang}/assessment`
 
   const images = [def.heroPhoto, ...def.extraPhotos].map((p) => `${SITE_URL}${p}`)
 
@@ -182,26 +182,25 @@ export function buildProductSchema(opts: {
     mpn: def.mpn,
     productID: def.mpn,
     brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-    manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
     category: def.category,
     material: 'SUS304 / 316L food-grade stainless steel',
     countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
     audience: {
       '@type': 'BusinessAudience',
-      name: 'Food, beverage, pharmaceutical, chemical and consumer-goods manufacturers, packers and exporters',
+      name: 'Food, beverage, pharmaceutical, chemical and consumer-goods procurement teams, plant managers and technical buyers',
     },
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'Output Speed', value: def.outputSpeed },
       { '@type': 'PropertyValue', name: 'Formats', value: def.formats },
-      { '@type': 'PropertyValue', name: 'Certification', value: 'CE' },
+      { '@type': 'PropertyValue', name: 'Certification', value: 'CE (where applicable)' },
       { '@type': 'PropertyValue', name: 'Contact Surface', value: 'SUS304 / 316L Stainless Steel' },
       { '@type': 'PropertyValue', name: 'Voltage Options', value: '110V / 220V / 380V / 480V, 50/60 Hz, 1-phase or 3-phase' },
       { '@type': 'PropertyValue', name: 'MOQ', value: '1 unit' },
-      { '@type': 'PropertyValue', name: 'Lead Time', value: '30–60 days' },
+      { '@type': 'PropertyValue', name: 'Typical Delivery Lead Time', value: '30–60 days' },
       { '@type': 'PropertyValue', name: 'Payment Terms', value: 'T/T 30/70 or L/C at sight' },
       { '@type': 'PropertyValue', name: 'Shipping', value: 'FOB Taichung or CIF any world port' },
-      { '@type': 'PropertyValue', name: 'Warranty', value: '1-year parts + lifetime technical support' },
-      { '@type': 'PropertyValue', name: 'Customization', value: 'OEM / ODM — voltage, capacity, HMI language, materials' },
+      { '@type': 'PropertyValue', name: 'Warranty', value: '1-year parts + long-term technical support' },
+      { '@type': 'PropertyValue', name: 'Customization', value: 'Configurable specs — voltage, throughput target, HMI language, materials' },
     ],
     isRelatedTo: relatedSlugs.map((s) => ({
       '@type': 'Product',
@@ -209,11 +208,10 @@ export function buildProductSchema(opts: {
       name: MACHINE_DEFS[s].name,
       url: `${SITE_URL}/${lang}/machines/${s}`,
       brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
-      manufacturer: { '@type': 'Organization', '@id': `${SITE_URL}/#org`, name: 'SunGene Co., LTD.', url: SITE_URL },
     })),
     // AggregateOffer satisfies Google's "merchant listing" requirement of
     // having a concrete price without committing to a single SKU price for a
-    // quote-driven B2B product. lowPrice/highPrice are realistic market bands.
+    // assessment-driven B2B product. lowPrice/highPrice are realistic market bands.
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
@@ -239,12 +237,12 @@ export function buildProductSchema(opts: {
     potentialAction: [
       {
         '@type': 'ViewAction',
-        name: 'Get a Recommendation',
+        name: 'Get Sourcing Advice',
         target: recommendUrl,
       },
       {
         '@type': 'BuyAction',
-        name: 'Request a Quote',
+        name: 'Request Sourcing Assessment',
         target: contactUrl,
       },
     ],
@@ -264,14 +262,14 @@ export function buildProductSchema(opts: {
           }
         })()
       : {}),
-    // Real FAT / factory videos → VideoObject schema, fed into Product.video
+    // Real FAT / supplier videos → VideoObject schema, fed into Product.video
     ...(opts.videos && opts.videos.length > 0
       ? { video: buildVideoNodes(opts.videos) }
       : {}),
   }
 }
 
-// ─── Wuu Sheng partner products schema ───────────────────────────────────────
+// ─── Partner products schema ────────────────────────────────────────────────
 
 export interface WuushengProductOpts {
   lang: string
@@ -290,14 +288,14 @@ export interface WuushengProductOpts {
 }
 
 /**
- * Google-compliant Product schema for Wuu Sheng partner sealing/packaging
+ * Google-compliant Product schema for partner-sourced sealing/packaging
  * products. Satisfies all required + recommended merchant-listing fields:
  * offers.price, offers.shippingDetails, hasMerchantReturnPolicy.
  * Does NOT include aggregateRating/review — only emitted when real data exists.
  */
 export function buildWuushengProductSchema(opts: WuushengProductOpts) {
   const pageUrl = `${SITE_URL}/${opts.lang}/machines/${opts.slug}`
-  const contactUrl = `${SITE_URL}/${opts.lang}/contact?machine=${opts.slug}`
+  const contactUrl = `${SITE_URL}/${opts.lang}/contact`
   const images = [opts.image, ...(opts.extraImages ?? [])]
   const validUntil = `${new Date().getFullYear() + 1}-12-31`
 
@@ -312,13 +310,7 @@ export function buildWuushengProductSchema(opts: WuushengProductOpts) {
     sku: opts.sku,
     mpn: opts.sku,
     category: opts.category,
-    brand: { '@type': 'Brand', name: 'Wuu Sheng' },
-    manufacturer: {
-      '@type': 'Organization',
-      name: 'Wuu Sheng Enterprise Co., Ltd.',
-      url: 'https://www.wuusheng.com.tw',
-      address: { '@type': 'PostalAddress', addressCountry: 'TW' },
-    },
+    brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
     countryOfOrigin: { '@type': 'Country', name: 'Taiwan' },
     // AggregateOffer satisfies Google merchant listing price requirement.
     offers: {
@@ -371,7 +363,7 @@ export function buildWuushengProductSchema(opts: WuushengProductOpts) {
     ],
     potentialAction: {
       '@type': 'BuyAction',
-      name: 'Request a Quote',
+      name: 'Request Assessment',
       target: contactUrl,
     },
   }

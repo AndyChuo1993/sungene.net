@@ -7,13 +7,14 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
+import SourcingRouteGuide from '@/components/machinery/SourcingRouteGuide'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 import Image from 'next/image'
 
 const titles: Record<string, string> = {
-  en: 'Packaging Machinery | VFFS, HFFS, Pouch & Carton Packing',
-  cn: '包装机械 | 立式/卧式充填封口机', zh: '包裝機械 | 立式/臥式充填封口機',
+  en: 'Packaging Systems Sourcing | VFFS, HFFS, Pouch & Carton',
+  cn: '包装系统采购 | VFFS/HFFS/制袋与装箱', zh: '包裝系統採購 | VFFS/HFFS/製袋與裝箱',
   fr: 'Machines d\'emballage | VFFS, HFFS, sachets et cartons',
   es: 'Maquinaria de empaque | VFFS, HFFS, bolsas y cartones',
   pt: 'Máquinas de Embalagem | VFFS, HFFS, Sachês e Cartões',
@@ -26,9 +27,9 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Packaging machinery: VFFS, HFFS, premade pouch, vacuum, shrink wrap, and cartoning. For powder, granule, liquid, and solid products.',
-  cn: '包装机械：VFFS、HFFS、预制袋、真空、热缩与装箱方案，适用于粉末、颗粒、液体与固体产品。',
-  zh: '包裝機械：VFFS、HFFS、預製袋、真空、熱縮與裝箱方案，適用於粉末、顆粒、液體與固體產品。',
+  en: 'Packaging systems sourcing: configuration planning, supplier vetting, VFFS/HFFS and pouch routes, sealing quality checkpoints, and export-ready documentation.',
+  cn: '包装系统采购：配置规划、供应商审查、VFFS/HFFS 与袋包装路线、封口验收要点与出口文件支持。',
+  zh: '包裝系統採購：配置規劃、供應商審查、VFFS/HFFS 與袋包裝路線、封口驗收要點與出口文件支援。',
   fr: 'Machines d’emballage : VFFS, HFFS, sachets préformés, sous vide, rétraction et mise en carton. Pour poudres, granulés, liquides et solides.',
   es: 'Maquinaria de empaque: VFFS, HFFS, bolsa preformada, vacío, termoencogible y encajado. Para polvo, granulado, líquido y sólido.',
   pt: 'Máquinas de embalagem: VFFS, HFFS, pouch pré-formado, vácuo, termoencolhível e encaixotamento. Para pó, grânulos, líquidos e sólidos.',
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     pathname: '/machinery/packaging',
     type: 'website',
-    keywords: ['VFFS machine', 'HFFS machine', 'pouch packing machine', 'vacuum packing machine', 'shrink wrap machine', 'carton packing machine', 'packaging machine Taiwan'],
+    keywords: ['packaging systems sourcing', 'VFFS', 'HFFS', 'pouch packaging configuration', 'supplier vetting', 'acceptance criteria', 'export documentation'],
   })
 }
 
@@ -57,77 +58,90 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
   const { lang } = await params
   const metaTitle = titles[lang] || titles.en
   const metaDesc = descriptions[lang] || descriptions.en
-  const btnLabels: Record<string, string> = { en: 'Get a Quote', cn: '获取报价', zh: '取得報價', fr: 'Demander un devis', es: 'Solicitar cotización', pt: 'Solicitar orçamento', ko: '견적 받기', ja: '見積もりを依頼', ar: 'طلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Nhận báo giá', de: 'Angebot anfordern' }
+  const btnLabels: Record<string, string> = {
+    en: 'Get Assessment',
+    cn: '获取评估',
+    zh: '取得評估',
+    fr: 'Demander évaluation',
+    es: 'Solicitar evaluación',
+    pt: 'Solicitar avaliação',
+    ko: '평가 요청',
+    ja: '評価依頼',
+    ar: 'طلب تقييم',
+    th: 'ขอการประเมิน',
+    vi: 'Yêu cầu đánh giá',
+    de: 'Bewertung anfordern',
+  }
   const heroPhoto = PHOTO.machinery.subpageHeroes.packaging
 
   const content: Record<string, { title: string; p1: string; p2: string; subTitle: string; cons: string[]; cta: string; machines: string[] }> = {
     en: {
       title: 'Packaging Machinery',
-      p1: 'We manufacture a complete range of packaging machines for powder, granule, liquid, solid, and mixed products. Our VFFS, HFFS, premade pouch, vacuum, shrink wrap, and carton packing machines serve food, pharmaceutical, chemical, and consumer goods industries worldwide.',
-      p2: 'All machines are built with SUS304/316L stainless steel, CE certified, and available with custom voltage, output speed, and automation levels. We provide factory test videos before shipment.',
+      p1: 'We provide a complete range of packaging machines for powder, granule, liquid, solid, and mixed products. Our technical sourcing scope covers VFFS, HFFS, premade pouch, vacuum, shrink wrap, and carton packing systems for global industries.',
+      p2: 'Every sourcing project includes technical vetting of SUS304/316L materials, CE compliance, and engineering evaluation of output speed and automation levels. We provide verification videos before shipment.',
       subTitle: 'Machine Types Available',
       cons: ['Vertical Form-Fill-Seal (VFFS)', 'Horizontal Form-Fill-Seal (HFFS)', 'Premade Pouch Packing', 'Multi-Head Weighers', 'Carton/Case Packing', 'Labeling & Date Coding'],
-      cta: 'Tell us your product and packaging format — we\'ll recommend the right machine.',
+      cta: 'Tell us your product and packaging format — we\'ll provide an assessment and propose the right configuration.',
       machines: ['Powder Packaging', 'Granule Packaging', 'Liquid Packaging', 'Solid/Piece Packaging']
     },
     cn: {
       title: '包装机械',
-      p1: '我们生产全系列包装机，适用于粉末、颗粒、液体、固体和混合产品。我们的立式充填封口机、卧式充填封口机、预制袋包装机、真空包装机、热缩包装机和装箱机服务于全球食品、制药、化工和消费品行业。',
-      p2: '所有机器均采用SUS304/316L不锈钢制造，CE认证，可定制电压、产速和自动化水平。发货前提供工厂测试视频。',
+      p1: '我们提供全系列包装机采购支持，适用于粉末、颗粒、液体、固体和混合产品。我们的技术采购范围涵盖立式充填封口机、卧式充填封口机、预制袋包装机、真空包装机、热缩包装机和装箱系统。',
+      p2: '每个采购项目均包含 SUS304/316L 材料的技术审核、CE 合规性检查以及对产速和自动化水平的工程评估。发货前提供验证视频。',
       subTitle: '可用机型',
       cons: ['立式充填封口机 (VFFS)', '卧式充填封口机 (HFFS)', '预制袋包装机', '多头秤', '装箱/纸箱包装', '贴标与打码'],
-      cta: '告诉我们您的产品和包装形式——我们将推荐合适的机器。',
+      cta: '告诉我们您的产品和包装形式——我们将提供评估并给出合适的配置建议。',
       machines: ['粉末包装', '颗粒包装', '液体包装', '固体/单件包装']
     },
     zh: {
       title: '包裝機械',
-      p1: '我們生產全系列包裝機，適用於粉末、顆粒、液體、固體和混合產品。我們的立式充填封口機、臥式充填封口機、預製袋包裝機、真空包裝機、熱縮包裝機和裝箱機服務於全球食品、製藥、化工和消費品行業。',
-      p2: '所有機器均採用SUS304/316L不鏽鋼製造，CE認證，可客製電壓、產速和自動化水平。發貨前提供工廠測試影片。',
+      p1: '我們提供全系列包裝機採購支援，適用於粉末、顆粒、液體、固體和混合產品。我們的技術採購範圍涵蓋立式充填封口機、臥式充填封口機、預製袋包裝機、真空包裝機、熱縮包裝機和裝箱系統。',
+      p2: '每個採購項目均包含 SUS304/316L 材料的技術審核、CE 合規性檢查以及對產速和自動化水平的工程評估。出貨前提供驗證影片。',
       subTitle: '可用機型',
       cons: ['立式充填封口機 (VFFS)', '臥式充填封口機 (HFFS)', '預製袋包裝機', '多頭秤', '裝箱/紙箱包裝', '貼標與打碼'],
-      cta: '告訴我們您的產品和包裝形式——我們將推薦合適的機器。',
+      cta: '告訴我們您的產品和包裝形式——我們將提供評估並給出合適的配置建議。',
       machines: ['粉末包裝', '顆粒包裝', '液體包裝', '固體/單件包裝']
     },
     fr: {
       title: 'Machines d\'emballage',
-      p1: 'Nous fabriquons une gamme complète de machines de conditionnement pour produits en poudre, granulés, liquides, solides et mixtes. Nos machines VFFS, HFFS, sachets préformés, sous vide, rétractables et d\'encaissage servent les industries alimentaire, pharmaceutique, chimique et de biens de consommation dans le monde entier.',
-      p2: 'Toutes les machines sont construites en acier inoxydable SUS304/316L, certifiées CE, avec tension, vitesse et niveau d\'automatisation personnalisables. Nous fournissons des vidéos de test usine avant expédition.',
+      p1: 'Nous accompagnons le sourcing de machines d’emballage pour produits en poudre, granulés, liquides, solides et mixtes. Notre périmètre couvre VFFS, HFFS, sachets préformés, sous vide, rétractables et encaissage, pour des industries partout dans le monde.',
+      p2: 'Chaque projet inclut la vérification technique des matériaux SUS304/316L, la conformité CE et l’évaluation de la cadence et de l’automatisation. Nous fournissons des vidéos de vérification avant expédition.',
       subTitle: 'Types de machines disponibles',
       cons: ['Ensacheuse verticale (VFFS)', 'Ensacheuse horizontale (HFFS)', 'Conditionnement en sachets préformés', 'Peseuses multi-têtes', 'Encaissage/mise en carton', 'Étiquetage et datage'],
-      cta: 'Décrivez-nous votre produit et format d\'emballage — nous vous recommanderons la machine adaptée.',
+      cta: 'Décrivez-nous votre produit et format d\'emballage — nous fournirons une évaluation et proposerons la configuration adaptée.',
       machines: ['Conditionnement poudre', 'Conditionnement granulés', 'Conditionnement liquide', 'Conditionnement solide']
     },
     es: {
       title: 'Maquinaria de empaque',
-      p1: 'Fabricamos una gama completa de máquinas de empaque para productos en polvo, granulados, líquidos, sólidos y mixtos. Nuestras máquinas VFFS, HFFS, bolsas premade, vacío, termoencogibles y encajadoras sirven a las industrias alimentaria, farmacéutica, química y de bienes de consumo en todo el mundo.',
-      p2: 'Todas las máquinas están construidas con acero inoxidable SUS304/316L, certificadas CE, con voltaje, velocidad y nivel de automatización personalizables. Proporcionamos videos de prueba de fábrica antes del envío.',
+      p1: 'Acompañamos el sourcing de maquinaria de empaque para productos en polvo, granulados, líquidos, sólidos y mixtos. Cubrimos VFFS, HFFS, bolsas premade, vacío, termoencogibles y encajadoras para industrias globales.',
+      p2: 'Cada proyecto incluye verificación técnica de materiales SUS304/316L, cumplimiento CE y evaluación de velocidad y automatización. Proporcionamos videos de verificación antes del envío.',
       subTitle: 'Tipos de máquinas disponibles',
       cons: ['Empacadora vertical (VFFS)', 'Empacadora horizontal (HFFS)', 'Empaque en bolsas premade', 'Pesadoras multicabezal', 'Encajado/embalaje en cartón', 'Etiquetado y codificación'],
-      cta: 'Cuéntenos sobre su producto y formato de empaque — le recomendaremos la máquina adecuada.',
+      cta: 'Cuéntenos sobre su producto y formato de empaque — le daremos una evaluación y propondremos la configuración adecuada.',
       machines: ['Empaque de polvo', 'Empaque de granulados', 'Empaque de líquidos', 'Empaque de sólidos']
     },
     pt: {
       title: 'Máquinas de Embalagem',
-      p1: 'Fabricamos uma linha completa de máquinas de embalagem para produtos em pó, grânulos, líquidos, sólidos e mistos. Nossas máquinas VFFS, HFFS, sachês pré-formados, vácuo, termocontráteis e encaixotadoras atendem as indústrias alimentícia, farmacêutica, química e de bens de consumo em todo o mundo.',
-      p2: 'Todas as máquinas são construídas em aço inoxidável SUS304/316L, com certificação CE, e disponíveis com voltagem, velocidade e níveis de automação personalizados. Fornecemos vídeos de teste de fábrica antes do envio.',
+      p1: 'Apoiamos o sourcing de máquinas de embalagem para produtos em pó, grânulos, líquidos, sólidos e mistos. Cobrimos VFFS, HFFS, sachês pré-formados, vácuo, termocontráteis e encaixotadoras para indústrias globais.',
+      p2: 'Cada projeto inclui verificação técnica de materiais SUS304/316L, conformidade CE e avaliação de velocidade e automação. Fornecemos vídeos de verificação antes do envio.',
       subTitle: 'Tipos de máquinas disponíveis',
       cons: ['Empacotadora Vertical (VFFS)', 'Empacotadora Horizontal (HFFS)', 'Embalagem em sachês pré-formados', 'Pesadoras multicabeçotes', 'Encaixotamento/embalagem em cartão', 'Rotulagem e codificação'],
-      cta: 'Conte-nos sobre seu produto e formato de embalagem — recomendaremos a máquina ideal.',
+      cta: 'Conte-nos sobre seu produto e formato de embalagem — forneceremos uma avaliação e proporemos a configuração ideal.',
       machines: ['Embalagem de pó', 'Embalagem de grânulos', 'Embalagem de líquidos', 'Embalagem de sólidos']
     },
     ko: {
       title: '포장 기계',
-      p1: '분말, 과립, 액체, 고체 및 혼합 제품을 위한 포장 기계 전 제품군을 제조합니다. VFFS, HFFS, 프리메이드 파우치, 진공, 수축 포장, 카톤 포장기가 전 세계 식품, 제약, 화학 및 소비재 산업에 서비스를 제공합니다.',
-      p2: '모든 기계는 SUS304/316L 스테인리스 스틸로 제작되며 CE 인증을 받았고, 맞춤 전압, 생산 속도 및 자동화 수준을 제공합니다. 출하 전 공장 테스트 영상을 제공합니다.',
+      p1: '분말, 과립, 액체, 고체 및 혼합 제품을 위한 포장 설비 소싱을 지원합니다. VFFS, HFFS, 프리메이드 파우치, 진공, 수축 포장, 카톤 포장 시스템을 전 세계 산업에 제공합니다.',
+      p2: '각 프로젝트에는 SUS304/316L 재질 검증, CE 문서 확인, 속도/자동화 수준 평가가 포함됩니다. 출하 전 검증 영상을 제공합니다.',
       subTitle: '사용 가능한 기계 유형',
       cons: ['수직 성형 충전 밀봉기 (VFFS)', '수평 성형 충전 밀봉기 (HFFS)', '프리메이드 파우치 포장', '멀티헤드 계량기', '카톤/케이스 포장', '라벨링 및 날짜 인쇄'],
-      cta: '제품과 포장 형태를 알려주세요 — 적합한 기계를 추천해 드립니다.',
+      cta: '제품과 포장 형태를 알려주세요 — 평가 후 적합한 구성으로 안내해 드립니다.',
       machines: ['분말 포장', '과립 포장', '액체 포장', '고체/단품 포장']
     },
     ja: {
       title: '包装機械',
-      p1: '粉末、顆粒、液体、固体、混合製品向けの包装機を幅広く製造しています。VFFS、HFFS、既製パウチ、真空、シュリンクラップ、カートン包装機が世界中の食品、医薬品、化学、消費財業界にサービスを提供しています。',
-      p2: 'すべての機械はSUS304/316Lステンレス鋼で製造され、CE認証済み。カスタム電圧、出力速度、自動化レベルに対応しています。出荷前に工場テスト動画を提供します。',
+      p1: '粉末、顆粒、液体、固体、混合製品向けの包装機械ソーシングを支援します。VFFS、HFFS、既製パウチ、真空、シュリンク、カートン包装などに対応します。',
+      p2: '各プロジェクトにはSUS304/316Lの材質確認、CE書類の確認、能力と自動化レベルの評価が含まれます。出荷前に検証動画を提供します。',
       subTitle: '対応機種',
       cons: ['縦型製袋充填シール機（VFFS）', '横型製袋充填シール機（HFFS）', '既製パウチ包装', 'マルチヘッド計量機', 'カートン/ケース包装', 'ラベリング＆日付印字'],
       cta: '製品と包装形態をお知らせください — 最適な機械をご提案します。',
@@ -135,17 +149,17 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     },
     ar: {
       title: 'آلات التعبئة والتغليف',
-      p1: 'نصنع مجموعة كاملة من آلات التعبئة والتغليف للمنتجات المسحوقة والحبيبية والسائلة والصلبة والمختلطة. آلات VFFS وHFFS والأكياس الجاهزة والتغليف بالتفريغ والتغليف الحراري وتعبئة الكراتين تخدم صناعات الأغذية والأدوية والكيماويات والسلع الاستهلاكية حول العالم.',
-      p2: 'جميع الآلات مصنوعة من الفولاذ المقاوم للصدأ SUS304/316L، حاصلة على شهادة CE، ومتوفرة بجهد كهربائي وسرعة إنتاج ومستويات أتمتة مخصصة. نقدم فيديوهات اختبار المصنع قبل الشحن.',
+      p1: 'ندعم توريد آلات التعبئة والتغليف للمنتجات المسحوقة والحبيبية والسائلة والصلبة والمختلطة. يشمل نطاقنا VFFS وHFFS والأكياس الجاهزة والتفريغ والشرنك وتعبئة الكراتين لصناعات عالمية.',
+      p2: 'يشمل كل مشروع التحقق من مواد SUS304/316L ودعم وثائق CE وتقييم السرعة ومستوى الأتمتة. نقدم فيديوهات تحقق قبل الشحن.',
       subTitle: 'أنواع الآلات المتوفرة',
       cons: ['آلة التشكيل والتعبئة والختم العمودية (VFFS)', 'آلة التشكيل والتعبئة والختم الأفقية (HFFS)', 'تعبئة الأكياس الجاهزة', 'ميزان متعدد الرؤوس', 'تعبئة الكراتين/الصناديق', 'الملصقات والترميز'],
-      cta: 'أخبرنا عن منتجك وشكل التعبئة — سنوصي بالآلة المناسبة.',
+      cta: 'أخبرنا عن منتجك وشكل التعبئة — سنقدم تقييماً ونقترح التهيئة المناسبة.',
       machines: ['تعبئة المساحيق', 'تعبئة الحبيبات', 'تعبئة السوائل', 'تعبئة المنتجات الصلبة']
     },
     th: {
       title: 'เครื่องบรรจุภัณฑ์',
-      p1: 'เราผลิตเครื่องบรรจุภัณฑ์ครบวงจรสำหรับผลิตภัณฑ์ผง เม็ด ของเหลว ของแข็ง และผสม เครื่อง VFFS, HFFS, ซองสำเร็จรูป, สุญญากาศ, ห่อหด และบรรจุกล่องของเราให้บริการอุตสาหกรรมอาหาร ยา เคมี และสินค้าอุปโภคบริโภคทั่วโลก',
-      p2: 'เครื่องทุกเครื่องผลิตจากสแตนเลส SUS304/316L ได้รับรอง CE และสามารถกำหนดแรงดันไฟฟ้า ความเร็วผลิต และระดับอัตโนมัติได้ เราจัดส่งวิดีโอทดสอบจากโรงงานก่อนจัดส่ง',
+      p1: 'เราสนับสนุนการจัดซื้อเครื่องบรรจุภัณฑ์สำหรับผลิตภัณฑ์ผง เม็ด ของเหลว ของแข็ง และผสม ครอบคลุม VFFS, HFFS, ซองสำเร็จรูป, สุญญากาศ, ห่อหด และบรรจุกล่องสำหรับอุตสาหกรรมทั่วโลก',
+      p2: 'ทุกโปรเจกต์มีการตรวจสอบวัสดุ SUS304/316L การสนับสนุนเอกสาร CE และการประเมินความเร็ว/ระดับอัตโนมัติ เราจัดส่งวิดีโอยืนยันก่อนจัดส่ง',
       subTitle: 'ประเภทเครื่องที่มี',
       cons: ['เครื่องบรรจุแนวตั้ง (VFFS)', 'เครื่องบรรจุแนวนอน (HFFS)', 'บรรจุซองสำเร็จรูป', 'เครื่องชั่งหลายหัว', 'บรรจุกล่อง/ลัง', 'ติดฉลากและพิมพ์วันที่'],
       cta: 'บอกเราเกี่ยวกับผลิตภัณฑ์และรูปแบบบรรจุภัณฑ์ของคุณ — เราจะแนะนำเครื่องที่เหมาะสม',
@@ -153,8 +167,8 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     },
     vi: {
       title: 'Máy đóng gói',
-      p1: 'Chúng tôi sản xuất đầy đủ các loại máy đóng gói cho sản phẩm bột, hạt, lỏng, rắn và hỗn hợp. Máy VFFS, HFFS, túi làm sẵn, hút chân không, co màng và đóng thùng carton phục vụ ngành thực phẩm, dược phẩm, hóa chất và hàng tiêu dùng trên toàn thế giới.',
-      p2: 'Tất cả máy được chế tạo bằng thép không gỉ SUS304/316L, đạt chứng nhận CE, có thể tùy chỉnh điện áp, tốc độ sản xuất và mức tự động hóa. Chúng tôi cung cấp video kiểm tra tại nhà máy trước khi giao hàng.',
+      p1: 'Chúng tôi hỗ trợ sourcing máy đóng gói cho sản phẩm bột, hạt, lỏng, rắn và hỗn hợp. Phạm vi gồm VFFS, HFFS, túi làm sẵn, hút chân không, co màng và đóng thùng carton cho các ngành toàn cầu.',
+      p2: 'Mỗi dự án gồm xác minh vật liệu SUS304/316L, hỗ trợ tài liệu CE và đánh giá tốc độ/mức tự động hóa. Chúng tôi cung cấp video kiểm chứng trước khi giao hàng.',
       subTitle: 'Các loại máy có sẵn',
       cons: ['Máy đóng gói dọc (VFFS)', 'Máy đóng gói ngang (HFFS)', 'Đóng gói túi làm sẵn', 'Cân đa đầu', 'Đóng thùng/carton', 'Dán nhãn và in date'],
       cta: 'Cho chúng tôi biết sản phẩm và định dạng đóng gói — chúng tôi sẽ đề xuất máy phù hợp.',
@@ -162,8 +176,8 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     },
     de: {
       title: 'Verpackungsmaschinen',
-      p1: 'Wir fertigen eine vollständige Palette von Verpackungsmaschinen für Pulver-, Granulat-, Flüssig-, Fest- und Mischprodukte. Unsere VFFS-, HFFS-, Fertigbeutel-, Vakuum-, Schrumpffolien- und Kartonverpackungsmaschinen bedienen die Lebensmittel-, Pharma-, Chemie- und Konsumgüterindustrie weltweit.',
-      p2: 'Alle Maschinen sind aus Edelstahl SUS304/316L gefertigt, CE-zertifiziert und mit kundenspezifischer Spannung, Ausbringung und Automatisierungsgrad erhältlich. Wir liefern Werkstestvideos vor dem Versand.',
+      p1: 'Wir unterstützen das Sourcing von Verpackungsmaschinen für Pulver-, Granulat-, Flüssig-, Fest- und Mischprodukte. Abgedeckt sind VFFS, HFFS, Fertigbeutel, Vakuum, Schrumpffolie und Kartonverpackung für globale Branchen.',
+      p2: 'Jedes Projekt umfasst die Prüfung von SUS304/316L, CE-Unterstützung und die Bewertung von Leistung und Automatisierungsgrad. Wir liefern Verifikationsvideos vor dem Versand.',
       subTitle: 'Verfügbare Maschinentypen',
       cons: ['Vertikale Schlauchbeutelmaschine (VFFS)', 'Horizontale Schlauchbeutelmaschine (HFFS)', 'Fertigbeutelverpackung', 'Mehrkopfwaagen', 'Karton-/Kistenverpackung', 'Etikettierung und Datumskodierung'],
       cta: 'Teilen Sie uns Ihr Produkt und Verpackungsformat mit — wir empfehlen die passende Maschine.',
@@ -171,6 +185,23 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
     }
   }
   const t = content[lang] || content['en']
+  const packagingRoute = {
+    notFit: ({
+      en: ['Only manual sealing with no automation plan', 'Projects without fixed bag format, film, or target output', 'Lines where upstream/downstream scope is still undefined'],
+      zh: ['只有人工封口需求且沒有自動化規劃', '尚未確定袋型、膜材或目標產能的專案', '前後段整合範圍仍未定義的產線'],
+      cn: ['只有人工封口需求且没有自动化规划', '尚未确定袋型、膜材或目标产能的项目', '前后段整合范围仍未定义的产线'],
+    } as Record<string, string[]>)[lang] || ['Only manual sealing with no automation plan', 'Projects without fixed bag format, film, or target output', 'Lines where upstream/downstream scope is still undefined'],
+    compare: ({
+      en: ['Film compatibility, sealing quality, and real speed on your product', 'Included scope: feeding, weighing, coding, nitrogen flush, inspection, and change parts', 'Supplier proof: running videos, export references, FAT scope, and spare-parts readiness'],
+      zh: ['膜材相容性、封口品質，以及在你產品上的真實速度', '報價是否包含上料、計量、打碼、充氮、檢測與換型件', '供應商是否能提供運轉影片、出口案例、FAT 範圍與備件準備'],
+      cn: ['膜材兼容性、封口质量，以及在你产品上的真实速度', '报价是否包含上料、计量、打码、充氮、检测与换型件', '供应商是否能提供运行视频、出口案例、FAT 范围与备件准备'],
+    } as Record<string, string[]>)[lang] || ['Film compatibility, sealing quality, and real speed on your product', 'Included scope: feeding, weighing, coding, nitrogen flush, inspection, and change parts', 'Supplier proof: running videos, export references, FAT scope, and spare-parts readiness'],
+    acceptance: ({
+      en: ['Approve pass/fail samples using your actual product and film', 'Lock weight tolerance, seal integrity, and changeover time before PO release', 'Require FAT records, manuals, electrical list, and critical spare parts before shipment'],
+      zh: ['用你的實際產品與膜材確認 FAT 合格樣', '下單前鎖定重量公差、封口完整性與換線時間', '出貨前確認 FAT 紀錄、說明書、電氣清單與關鍵備件'],
+      cn: ['用你的实际产品与膜材确认 FAT 合格样', '下单前锁定重量公差、封口完整性与换线时间', '出货前确认 FAT 记录、说明书、电气清单与关键备件'],
+    } as Record<string, string[]>)[lang] || ['Approve pass/fail samples using your actual product and film', 'Lock weight tolerance, seal integrity, and changeover time before PO release', 'Require FAT records, manuals, electrical list, and critical spare parts before shipment'],
+  }
 
   const pageUrl = `${SITE_URL}/${lang}/machinery/packaging`
   const itemListId = `${pageUrl}#itemlist`
@@ -198,9 +229,9 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
       { '@type': 'ListItem', position: 1, name: 'Pouch Packing Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/pouch-packing-machine`, url: `${SITE_URL}/${lang}/machines/pouch-packing-machine`, name: 'Pouch Packing Machine' } },
       { '@type': 'ListItem', position: 2, name: 'Powder Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/powder-filling-machine`, url: `${SITE_URL}/${lang}/machines/powder-filling-machine`, name: 'Powder Filling Machine' } },
       { '@type': 'ListItem', position: 3, name: 'Liquid Filling Machine', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/liquid-filling-machine`, url: `${SITE_URL}/${lang}/machines/liquid-filling-machine`, name: 'Liquid Filling Machine' } },
-      { '@type': 'ListItem', position: 4, name: 'Pouch Packing Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, name: 'Pouch Packing Buying Guides' } },
-      { '@type': 'ListItem', position: 5, name: 'Powder Filling Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, name: 'Powder Filling Buying Guides' } },
-      { '@type': 'ListItem', position: 6, name: 'Liquid Filling Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, name: 'Liquid Filling Buying Guides' } },
+      { '@type': 'ListItem', position: 4, name: 'Pouch packaging configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/pouch-packaging`, url: `${SITE_URL}/${lang}/resources/route/pouch-packaging`, name: 'Pouch packaging configuration guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Powder dosing configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/powder-dosing`, url: `${SITE_URL}/${lang}/resources/route/powder-dosing`, name: 'Powder dosing configuration guides' } },
+      { '@type': 'ListItem', position: 6, name: 'Liquid filling configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/liquid-filling`, url: `${SITE_URL}/${lang}/resources/route/liquid-filling`, name: 'Liquid filling configuration guides' } },
     ],
   }
 
@@ -211,7 +242,7 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
         kicker={({ en: 'PACKAGING EQUIPMENT', cn: '包装设备', zh: '包裝設備', fr: 'ÉQUIPEMENT D\'EMBALLAGE', es: 'EQUIPO DE EMPAQUE', pt: 'EQUIPAMENTO DE EMBALAGEM', ko: '포장 장비', ja: '包装機器', ar: 'معدات التعبئة والتغليف', th: 'อุปกรณ์บรรจุภัณฑ์', vi: 'THIẾT BỊ ĐÓNG GÓI', de: 'VERPACKUNGSANLAGEN' } as Record<string,string>)[lang] || 'PACKAGING EQUIPMENT'}
         title={t.title}
         desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Packaging machinery in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Packaging equipment sourcing support', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
       <section className="bg-white py-6">
         <Container className="max-w-6xl">
@@ -262,6 +293,14 @@ export default async function PackagingPage({ params }: { params: Promise<{ lang
           </div>
         </Container>
       </section>
+
+      <SourcingRouteGuide
+        lang={lang}
+        fitItems={t.machines}
+        notFitItems={packagingRoute.notFit}
+        compareItems={packagingRoute.compare}
+        acceptanceItems={packagingRoute.acceptance}
+      />
 
       {/* Sealing & Wrapping Equipment */}
       <section className="bg-gray-50 py-16 sm:py-20">

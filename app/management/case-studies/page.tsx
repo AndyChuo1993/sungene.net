@@ -35,7 +35,12 @@ export default function CaseStudiesPage() {
     setItems(data || [])
   }, [])
 
-  useEffect(() => { load() }, [load])
+  useEffect(() => {
+    const id = setTimeout(() => {
+      void load()
+    }, 0)
+    return () => clearTimeout(id)
+  }, [load])
 
   async function save(state: EditState) {
     const sb = getSupabaseBrowser()

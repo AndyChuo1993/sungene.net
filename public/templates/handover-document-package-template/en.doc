@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Handover Document Package Template</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>Handover Document Package Template</h1>
+    <p class="muted">A machine without documents is a future downtime project. Require the package below and enforce revision control.</p>
+
+    <h2>Document package checklist</h2>
+    <table>
+      <tr><th>Category</th><th>What to include</th></tr>
+      <tr><td>Manuals</td><td>Operation, maintenance, troubleshooting, safety</td></tr>
+      <tr><td>Electrical</td><td>Schematic, wiring diagram, I/O list, PLC/servo model list</td></tr>
+      <tr><td>Pneumatics</td><td>Pneumatic diagram, valve list, air requirements (if applicable)</td></tr>
+      <tr><td>Mechanical</td><td>Layout drawing, wear parts mapping, lubrication points</td></tr>
+      <tr><td>Configuration</td><td>Final options list, station mapping, changeover parts list</td></tr>
+      <tr><td>Settings</td><td>Parameter sheet, backups, recipes (if applicable)</td></tr>
+      <tr><td>Spares</td><td>Spare parts list with part numbers + photos + recommended stock</td></tr>
+      <tr><td>Acceptance evidence</td><td>FAT report, sampling results, deviation log, videos</td></tr>
+    </table>
+
+    <h2>File naming and revision control</h2>
+    <ul>
+      <li>Use a single folder structure by machine + date</li>
+      <li>Every diagram must have revision number and release date</li>
+      <li>Keep a change log: what changed and why</li>
+      <li>Provide editable originals + PDFs</li>
+    </ul>
+
+    <h2>Settings sheet (fields)</h2>
+    <table>
+      <tr><th>Section</th><th>Fields</th></tr>
+      <tr><td>Basics</td><td>Model, serial number, build date</td></tr>
+      <tr><td>Utilities</td><td>Voltage/Hz, air requirements</td></tr>
+      <tr><td>Production</td><td>Target speed, fill range, key alarms</td></tr>
+      <tr><td>Critical parameters</td><td>Servo values, seal temp/time, dosing calibration</td></tr>
+      <tr><td>Changeover</td><td>Parts list and adjustment points</td></tr>
+    </table>
+  </body>
+</html>
+

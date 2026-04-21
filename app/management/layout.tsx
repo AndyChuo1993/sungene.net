@@ -14,10 +14,8 @@ export const metadata: Metadata = {
  */
 export default function ManagementLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 font-sans text-gray-900 antialiased">
-        {children}
-      </body>
-    </html>
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-900 antialiased">
+      {children}
+    </div>
   )
 }

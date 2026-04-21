@@ -5,7 +5,7 @@
 -- ============================================================================
 
 -- ─── 1. inquiries ───────────────────────────────────────────────────────────
--- Stores every form submission from the site (QuickQuote / full Contact /
+-- Stores every form submission from the site (QuickAssessment / full Contact /
 -- Recommend form). Replaces the ephemeral data/inquiries.ndjson.
 create table if not exists public.inquiries (
   id uuid primary key default gen_random_uuid(),
@@ -13,7 +13,7 @@ create table if not exists public.inquiries (
   updated_at timestamptz not null default now(),
 
   -- what kind of form was it
-  type text not null,                   -- 'Contact' / 'Product Recommendation' / 'Quick Quote' / 'Lead Magnet' etc.
+  type text not null,                   -- 'Contact' / 'Product Recommendation' / 'Quick Assessment' / 'Lead Magnet' etc.
   source text,                          -- 'machine' / 'market' / 'industry' / 'resource' / 'homepage'
   context text,                         -- machine slug, country name, industry slug, etc.
 
@@ -26,7 +26,7 @@ create table if not exists public.inquiries (
 
   -- payload
   message text,
-  target_output text,                   -- from QuickQuote
+  target_output text,                   -- from QuickAssessment
   extra jsonb,                          -- full raw form body for long-form inquiries
 
   -- meta

@@ -7,7 +7,7 @@
  *
  * Tiers:
  *   Tier 1 (18 URLs) — English + Traditional Chinese + Simplified Chinese × (homepage + 5 machine pages)
- *   Tier 2 (+30 URLs) — adds /machinery, /recommend, /contact, /resources, /industries in EN/ZH/CN
+ *   Tier 2 (+30 URLs) — adds /machinery, /assessment, /contact, /resources, /industries in EN/ZH/CN
  *   Tier 3 (all 72 machine-page URLs) — 12 languages × 6 pages
  *
  * Usage:
@@ -40,7 +40,7 @@ const MACHINE_PATHS = [
   '/machines/snack-processing-line',
   '/machines/conveyor-system',
 ]
-const HUB_PATHS = ['/machinery', '/recommend', '/contact', '/resources', '/industries']
+const HUB_PATHS = ['/machinery', '/assessment', '/contact', '/resources', '/industries']
 const ALL_PATHS = [...MACHINE_PATHS, ...HUB_PATHS, '/solutions', '/about']
 
 let urls = []

@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { t, Lang } from '@/lib/i18n'
+import { trackFormSubmitFail, trackFormSubmitSuccess } from '@/lib/analytics'
 
 
 export type FormField = {
@@ -34,6 +35,8 @@ interface InquiryFormProps {
   successDesc?: string
   errorTitle?: string
   errorDesc?: string
+  source?: string
+  context?: string
 }
 
 export default function InquiryForm({
@@ -44,7 +47,9 @@ export default function InquiryForm({
   successTitle,
   successDesc,
   errorTitle,
-  errorDesc
+  errorDesc,
+  source,
+  context,
 }: InquiryFormProps) {
   const isChinese = lang !== 'en'
   const [loading, setLoading] = useState(false)
@@ -109,6 +114,7 @@ export default function InquiryForm({
     // Validate email if present
     if (data.email && !validateEmail(data.email)) {
         setStatus('email_error')
+        trackFormSubmitFail({ form_type: 'inquiry', lang, error_type: 'validation' })
         setLoading(false)
         return
     }
@@ -130,6 +136,8 @@ export default function InquiryForm({
         productName: data.product,
         targetMarket: data.market,
         message: data.message,
+        source: source || 'inquiry_form',
+        context: context || pathname || '',
         website: (formData.get('website') as string) || '',
         pageSource: pathname,
         lang: lang,
@@ -163,6 +171,7 @@ export default function InquiryForm({
         throw new Error(msg)
       }
 
+      trackFormSubmitSuccess({ form_type: 'inquiry', lang, ref_id: String(json?.id || '') })
       setStatus('success')
       // Reset form
       form.reset()
@@ -170,6 +179,7 @@ export default function InquiryForm({
       console.error(err)
       setErrorMessage(err.message || 'Unknown error')
       setStatus('error')
+      trackFormSubmitFail({ form_type: 'inquiry', lang, error_type: 'server' })
     } finally {
       setLoading(false)
     }

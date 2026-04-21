@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FAT 验收清单模板</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+      pre { background: #111; color: #eee; padding: 12px; white-space: pre-wrap; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>FAT 验收清单模板</h1>
+    <p class="muted">把测试条件、抽样、偏差与文件包写清楚，出货前先拿到可验证的证据。</p>
+
+    <h2>1）测试条件</h2>
+    <table>
+      <tr><th>项目</th><th>填写</th></tr>
+      <tr><td>测试产品</td><td>实际产品 / 核准替代品 / TBD</td></tr>
+      <tr><td>包材/容器规格</td><td>___</td></tr>
+      <tr><td>目标重量＋范围</td><td>___</td></tr>
+      <tr><td>目标产能</td><td>___ 件/分</td></tr>
+      <tr><td>测试时间</td><td>连续运行 ___ 分钟</td></tr>
+      <tr><td>公用工程</td><td>电压/频率/气源条件</td></tr>
+      <tr><td>操作人员</td><td>FAT 由谁操作</td></tr>
+    </table>
+
+    <h2>2）运行计划</h2>
+    <ul>
+      <li>暖机，让供料与封口进入稳定状态。</li>
+      <li>低/中/高速度点（如适用）。</li>
+      <li>目标速度长时间运行，观察漂移与停机风险。</li>
+      <li>换型测试（单一操作员）。</li>
+    </ul>
+
+    <table>
+      <tr><th>步骤</th><th>速度</th><th>时间</th><th>记录</th></tr>
+      <tr><td>暖机</td><td>___</td><td>___ 分</td><td>视频＋参数</td></tr>
+      <tr><td>低速</td><td>___</td><td>___ 分</td><td>抽样＋缺陷</td></tr>
+      <tr><td>目标速度</td><td>___</td><td>___ 分</td><td>抽样计划＋漂移</td></tr>
+      <tr><td>峰值（可选）</td><td>___</td><td>___ 分</td><td>稳定性上限</td></tr>
+      <tr><td>换型</td><td>N/A</td><td>___ 分</td><td>时间＋步骤＋工具</td></tr>
+    </table>
+
+    <h2>3）抽样计划</h2>
+    <ul>
+      <li>抽样频率：每 ___ 件抽一次，共 ___ 笔</li>
+      <li>公差定义：___（例：98% 落在 ±X）</li>
+      <li>不良分类：重量、封口、污染、外观、检测/剔除</li>
+    </ul>
+
+    <h2>4）功能清单</h2>
+    <ul>
+      <li>安全护罩与连锁正常</li>
+      <li>开停机与急停测试</li>
+      <li>传感器与报警（卡料、缺料、门开）测试</li>
+      <li>剔除系统测试（如含）</li>
+      <li>喷码/贴标整合测试（如含）</li>
+    </ul>
+
+    <h2>5）偏差清单（必填）</h2>
+    <table>
+      <tr><th>#</th><th>问题</th><th>严重度</th><th>改善措施</th><th>复测结果</th><th>负责人</th><th>日期</th></tr>
+      <tr><td>1</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+      <tr><td>2</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+    </table>
+
+    <h2>6）交付文件包（没有就不要出货）</h2>
+    <ul>
+      <li>手册（操作＋保养）</li>
+      <li>电控图＋配线图</li>
+      <li>气路图（如有）</li>
+      <li>备品清单（料号＋照片＋建议库存）</li>
+      <li>参数/设置表与备份</li>
+      <li>最终配置清单（含选配）</li>
+      <li>FAT 报告＋抽样结果＋偏差结案＋视频</li>
+    </ul>
+
+    <h2>7）验收声明</h2>
+    <pre>本次 FAT 按上述条件验收通过，且所有重大偏差已结案，买方同意出货。未结案之小偏差：___。
+买方代表：___  日期：___
+供应商代表：___  日期：___</pre>
+  </body>
+</html>
+

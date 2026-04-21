@@ -6,94 +6,94 @@ import { PHOTO } from '@/lib/photoLibrary'
 
 const content: Record<string, any> = {
   en: {
-    title: '🔥 Find the Right Machine for Your Product',
-    subtitle: 'Tell us what you produce — we\'ll point you to the right machine',
-    bottomCta: 'Not sure? → Send us your product',
+    title: 'Start from Product Fit, Not a Catalog',
+    subtitle: 'Tell us your product and packaging goal — we\'ll map the right sourcing path and configuration direction',
+    bottomCta: 'Not sure where to start? → Send us your product',
     cards: [
       {
-        slug: 'powder-packaging-machine',
+        href: '/machines/powder-filling-machine',
         label: 'Powder / Flour',
         desc: 'Coffee, spices, flour, protein, chemicals',
         badge: 'Auger · VFFS',
       },
       {
-        slug: 'liquid-filling-machine',
+        href: '/machines/liquid-filling-machine',
         label: 'Liquid / Paste',
         desc: 'Sauces, beverages, oils, cosmetics',
         badge: 'Piston · Gravity · Pump',
       },
       {
-        slug: 'pouch-packing-machine',
+        href: '/machines/pouch-packing-machine',
         label: 'Pouch / Bag',
         desc: 'Snacks, nuts, dried fruits, pet food',
         badge: 'Stand-up · Pillow · Zipper',
       },
       {
-        slug: 'conveyor-system',
-        label: 'Production Line',
-        desc: 'Full automated fill → seal → pack lines',
+        href: '/machines/conveyor-system',
+        label: 'Line Integration',
+        desc: 'Conveyors, checkweighers, detectors, and line coordination',
         badge: 'Belt · Roller · Turnkey',
       },
     ],
   },
   cn: {
-    title: '🔥 找到适合您产品的机器',
-    subtitle: '告诉我们您的产品——我们将为您指引合适的机器',
-    bottomCta: '不确定？→ 发送您的产品信息',
+    title: '先从产品适配开始，不从型录开始',
+    subtitle: '告诉我们您的产品与包装目标——我们将为您规划合适的采购路径与配置方向',
+    bottomCta: '不确定从哪里开始？→ 发送您的产品信息',
     cards: [
       {
-        slug: 'powder-packaging-machine',
+        href: '/machines/powder-filling-machine',
         label: '粉末 / 面粉',
         desc: '咖啡、香料、面粉、蛋白粉、化工品',
         badge: '螺旋充填 · VFFS',
       },
       {
-        slug: 'liquid-filling-machine',
+        href: '/machines/liquid-filling-machine',
         label: '液体 / 膏体',
         desc: '酱料、饮料、油脂、化妆品',
         badge: '活塞式 · 重力式 · 泵式',
       },
       {
-        slug: 'pouch-packing-machine',
+        href: '/machines/pouch-packing-machine',
         label: '软包 / 袋装',
         desc: '零食、坚果、干果、宠物食品',
         badge: '自立袋 · 枕型袋 · 拉链袋',
       },
       {
-        slug: 'conveyor-system',
-        label: '生产线',
-        desc: '全自动灌装→封口→包装产线',
+        href: '/machines/conveyor-system',
+        label: '产线整合',
+        desc: '输送、检测与整线协同',
         badge: '皮带 · 滚筒 · 交钥匙',
       },
     ],
   },
   zh: {
-    title: '🔥 找到適合您產品的機器',
-    subtitle: '告訴我們您的產品——我們將為您指引合適的機器',
-    bottomCta: '不確定？→ 傳送您的產品資訊',
+    title: '先從產品適配開始，不從型錄開始',
+    subtitle: '告訴我們您的產品與包裝目標——我們將為您規劃合適的採購路徑與配置方向',
+    bottomCta: '不確定從哪裡開始？→ 傳送您的產品資訊',
     cards: [
       {
-        slug: 'powder-packaging-machine',
+        href: '/machines/powder-filling-machine',
         label: '粉末 / 麵粉',
         desc: '咖啡、香料、麵粉、蛋白粉、化工品',
         badge: '螺旋充填 · VFFS',
       },
       {
-        slug: 'liquid-filling-machine',
+        href: '/machines/liquid-filling-machine',
         label: '液體 / 膏體',
         desc: '醬料、飲料、油脂、化妝品',
         badge: '活塞式 · 重力式 · 泵式',
       },
       {
-        slug: 'pouch-packing-machine',
+        href: '/machines/pouch-packing-machine',
         label: '軟包 / 袋裝',
         desc: '零食、堅果、乾果、寵物食品',
         badge: '自立袋 · 枕型袋 · 拉鏈袋',
       },
       {
-        slug: 'conveyor-system',
-        label: '生產線',
-        desc: '全自動灌裝→封口→包裝產線',
+        href: '/machines/conveyor-system',
+        label: '產線整合',
+        desc: '輸送、檢測與整線協同',
         badge: '皮帶 · 滾筒 · 交鑰匙',
       },
     ],
@@ -139,7 +139,7 @@ function PouchIcon() {
 function ConveyorIcon() {
   return (
     <svg viewBox="0 0 48 48" className="h-10 w-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Factory/conveyor icon */}
+      {/* Conveyor icon */}
       <rect x="4" y="28" width="40" height="10" rx="4" fill="currentColor" opacity="0.4" stroke="currentColor" strokeWidth="2"/>
       <circle cx="10" cy="33" r="5" fill="currentColor" opacity="0.6" stroke="currentColor" strokeWidth="1.5"/>
       <circle cx="38" cy="33" r="5" fill="currentColor" opacity="0.6" stroke="currentColor" strokeWidth="1.5"/>
@@ -178,13 +178,13 @@ export default function MachineByProduct({ lang }: { lang: Lang }) {
           {t.cards.map((card: any, i: number) => (
             <Link
               key={i}
-              href={`/${lang}/${card.slug}`}
+              href={`/${lang}${card.href}`}
               className="group block rounded-2xl bg-brand-900 border border-brand-800 p-6 transition duration-200 hover:border-accent-500 hover:shadow-[0_0_0_1px_theme(colors.accent.500)] hover:-translate-y-0.5"
             >
               <div className="relative aspect-[3/2] overflow-hidden rounded-xl bg-brand-800">
                 <Image
                   src={cardPhotos[i]}
-                  alt={`${card.label} machinery in factory`}
+                  alt={`${card.label} sourcing scenario`}
                   fill
                   sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 92vw"
                   className="object-cover opacity-90 transition duration-300 group-hover:opacity-100"
@@ -225,7 +225,7 @@ export default function MachineByProduct({ lang }: { lang: Lang }) {
         {/* Bottom CTA */}
         <div className="mt-10 text-center">
           <Link
-            href={`/${lang}/recommend`}
+            href={`/${lang}/assessment`}
             className="inline-block rounded-2xl bg-accent-600 px-8 py-4 text-base font-semibold text-white transition hover:bg-accent-500"
           >
             {t.bottomCta}

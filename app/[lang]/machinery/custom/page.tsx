@@ -6,38 +6,39 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
+import SourcingRouteGuide from '@/components/machinery/SourcingRouteGuide'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const metaTitles: Record<string, string> = {
-  en: 'Custom Machinery & OEM Solutions | Bespoke Production Equipment',
-  cn: '定制机械与OEM解决方案 | 定制生产设备',
-  zh: '客製機械與OEM解決方案 | 客製生產設備',
-  fr: 'Machines sur mesure & solutions OEM | Équipements de production personnalisés',
-  es: 'Maquinaria personalizada y soluciones OEM | Equipos de producción a medida',
-  pt: 'Máquinas personalizadas e soluções OEM | Equipamentos de produção sob medida',
-  ko: '맞춤형 기계 및 OEM 솔루션 | 주문 제작 생산 장비',
-  ja: 'カスタム機械とOEMソリューション | オーダーメイド生産設備',
-  ar: 'الآلات المخصصة وحلول OEM | معدات الإنتاج المصنوعة حسب الطلب',
-  th: 'เครื่องจักรสั่งทำและโซลูชัน OEM | อุปกรณ์การผลิตแบบกำหนดเอง',
-  vi: 'Máy móc tùy chỉnh và giải pháp OEM | Thiết bị sản xuất theo yêu cầu',
-  de: 'Sondermaschinen & OEM-Lösungen | Maßgefertigte Produktionsanlagen',
+  en: 'Custom Machinery & Spec Customization | Bespoke Equipment Integration',
+  cn: '定制机械与规格定制支持 | 定制技术采购',
+  zh: '客製機械與規格客製支援 | 客製技術採購',
+  fr: 'Machines sur mesure & personnalisation | Intégration d’équipements',
+  es: 'Maquinaria personalizada y especificaciones a medida | Integración de equipos',
+  pt: 'Máquinas personalizadas e especificações sob medida | Integração de equipamentos',
+  ko: '맞춤형 기계 및 사양 맞춤 | 장비 통합 지원',
+  ja: 'カスタム機械と仕様カスタマイズ | 設備統合サポート',
+  ar: 'الآلات المخصصة وتخصيص المواصفات | دعم تكامل المعدات',
+  th: 'เครื่องจักรสั่งทำและปรับสเปก | สนับสนุนการบูรณาการอุปกรณ์',
+  vi: 'Máy móc tùy chỉnh & tùy chỉnh thông số | Hỗ trợ tích hợp thiết bị',
+  de: 'Sondermaschinen & Spezifikationen nach Maß | Geräteintegration',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Custom industrial machinery and OEM solutions for unique production requirements: packaging, filling, food processing, and automation systems.',
-  cn: '针对特殊生产需求的定制工业机械与OEM方案：包装、充填、食品加工与自动化系统。',
-  zh: '針對特殊生產需求的客製工業機械與OEM方案：包裝、充填、食品加工與自動化系統。',
-  fr: 'Machines industrielles sur mesure et solutions OEM pour des besoins uniques : emballage, remplissage, traitement alimentaire et automatisation.',
-  es: 'Maquinaria industrial personalizada y soluciones OEM: empaque, llenado, procesamiento de alimentos y automatización.',
-  pt: 'Maquinário industrial personalizado e soluções OEM: embalagem, envase, processamento de alimentos e automação.',
-  ko: '맞춤형 산업 기계 및 OEM 솔루션: 포장, 충전, 식품 가공 및 자동화 시스템.',
-  ja: 'カスタム産業機械とOEM：包装、充填、食品加工、自動化システム。',
-  ar: 'آلات صناعية مخصصة وحلول OEM: أنظمة تعبئة وتغليف وملء ومعالجة أغذية وأتمتة.',
-  th: 'เครื่องจักรสั่งทำและโซลูชัน OEM: บรรจุภัณฑ์ การเติม การแปรรูปอาหาร และระบบอัตโนมัติ',
-  vi: 'Máy móc công nghiệp tùy chỉnh và giải pháp OEM: đóng gói, chiết rót, chế biến thực phẩm và tự động hóa.',
-  de: 'Sondermaschinen und OEM-Lösungen: Verpackung, Abfüllung, Lebensmittelverarbeitung und Automatisierung.',
+  en: 'Custom industrial machinery support for unique technical requirements: packaging, filling, food processing, and automation systems with spec customization and supplier coordination.',
+  cn: '针对特殊技术需求的定制工业设备支持：包装、充填、食品加工与自动化系统，提供规格定制与供应商协调。',
+  zh: '針對特殊技術需求的客製工業設備支援：包裝、充填、食品加工與自動化系統，提供規格客製與供應商協調。',
+  fr: 'Support d’équipements industriels sur mesure : emballage, remplissage, transformation alimentaire et automatisation, avec personnalisation des spécifications.',
+  es: 'Soporte de maquinaria industrial a medida: empaque, llenado, procesamiento de alimentos y automatización, con personalización de especificaciones.',
+  pt: 'Suporte de maquinário industrial sob medida: embalagem, envase, processamento de alimentos e automação, com personalização de especificações.',
+  ko: '특수 기술 요구를 위한 맞춤형 장비 지원: 포장, 충전, 식품 가공 및 자동화 시스템(사양 맞춤 및 공급업체 조율 포함).',
+  ja: '特殊要件向けのカスタム設備サポート：包装、充填、食品加工、自動化システム（仕様カスタマイズとサプライヤー調整）。',
+  ar: 'دعم معدات صناعية مخصصة: أنظمة تعبئة وتغليف وملء ومعالجة أغذية وأتمتة، مع تخصيص المواصفات وتنسيق الموردين.',
+  th: 'สนับสนุนอุปกรณ์อุตสาหกรรมแบบกำหนดเอง: ระบบบรรจุ การเติม การแปรรูปอาหาร และอัตโนมัติ พร้อมการปรับสเปกและการประสานงานซัพพลายเออร์',
+  vi: 'Hỗ trợ thiết bị công nghiệp theo yêu cầu: đóng gói, chiết rót, chế biến thực phẩm và tự động hóa, kèm tùy chỉnh thông số và điều phối nhà cung cấp.',
+  de: 'Support für Sondermaschinen: Verpackung, Abfüllung, Lebensmittelverarbeitung und Automatisierung mit Spezifikationsanpassung und Lieferantenkoordination.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -156,6 +157,23 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
     }
   }
   const t = content[lang] || content['en']
+  const routeGuide = {
+    notFit: ({
+      en: ['Projects that only need a standard machine but have not reviewed existing options', 'Requests without drawings, process targets, or acceptance criteria', 'Custom requests where budget, lead time, and ownership are still open-ended'],
+      zh: ['其實標準機就能滿足、但尚未先比較現成方案的專案', '沒有圖面、製程目標或驗收標準的客製需求', '預算、交期與責任分工都尚未定義的客製專案'],
+      cn: ['其实标准机就能满足、但尚未先比较现成方案的项目', '没有图面、制程目标或验收标准的定制需求', '预算、交期与责任分工都尚未定义的定制项目'],
+    } as Record<string, string[]>)[lang] || ['Projects that only need a standard machine but have not reviewed existing options', 'Requests without drawings, process targets, or acceptance criteria', 'Custom requests where budget, lead time, and ownership are still open-ended'],
+    compare: ({
+      en: ['What is custom vs standard, and how much engineering change is really required', 'Responsibility split for design review, trial samples, utilities, and site conditions', 'Milestones: drawing approval, fabrication lead time, FAT content, and change-order control'],
+      zh: ['哪些是標準件、哪些是真正需要客製的工程變更', '設計審查、打樣、公用工程與現場條件由誰負責', '圖面確認、製造交期、FAT 內容與變更管理里程碑'],
+      cn: ['哪些是标准件、哪些是真正需要定制的工程变更', '设计审查、打样、公用工程与现场条件由谁负责', '图面确认、制造交期、FAT 内容与变更管理里程碑'],
+    } as Record<string, string[]>)[lang] || ['What is custom vs standard, and how much engineering change is really required', 'Responsibility split for design review, trial samples, utilities, and site conditions', 'Milestones: drawing approval, fabrication lead time, FAT content, and change-order control'],
+    acceptance: ({
+      en: ['Do not release fabrication until drawings and acceptance criteria are approved', 'Use staged FAT with key functions, safety logic, and performance checks', 'Lock document package, spare parts, and post-installation support before shipment'],
+      zh: ['圖面與驗收標準未核准前，不要放行製造', '用分階段 FAT 驗證關鍵功能、安全邏輯與性能', '出貨前鎖定文件包、備件與安裝後支援內容'],
+      cn: ['图面与验收标准未核准前，不要放行制造', '用分阶段 FAT 验证关键功能、安全逻辑与性能', '出货前锁定文件包、备件与安装后支持内容'],
+    } as Record<string, string[]>)[lang] || ['Do not release fabrication until drawings and acceptance criteria are approved', 'Use staged FAT with key functions, safety logic, and performance checks', 'Lock document package, spare parts, and post-installation support before shipment'],
+  }
 
   const pageUrl = `${SITE_URL}/${lang}/machinery/custom`
   const itemListId = `${pageUrl}#itemlist`
@@ -195,7 +213,7 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
         kicker={({ en: 'CUSTOM ENGINEERING', cn: '定制工程', zh: '客製工程', fr: 'SUR MESURE', es: 'INGENIERÍA A MEDIDA', pt: 'ENGENHARIA SOB MEDIDA', ko: '맞춤 엔지니어링', ja: 'カスタム設計', ar: 'هندسة مخصصة', th: 'งานสั่งทำ', vi: 'TÙY CHỈNH', de: 'SONDERANFERTIGUNG' } as Record<string,string>)[lang] || 'CUSTOM ENGINEERING'}
         title={t.title}
         desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Custom machinery engineering in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Custom engineering and sourcing support', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
       <section className="bg-white py-6">
         <Container className="max-w-5xl">
@@ -233,13 +251,34 @@ export default async function CustomMachineryPage({ params }: { params: Promise<
               <h2 className="text-xl font-semibold">{t.cta}</h2>
               <div className="mt-8">
                 <ButtonLink href={`/${lang}/contact`} size="lg">
-                  {lang === 'en' ? 'Send an Inquiry' : (lang === 'cn' ? '提交询价' : '提交詢價')}
+                  {({
+                    en: 'Request Assessment',
+                    cn: '获取采购评估',
+                    zh: '取得採購評估',
+                    fr: 'Demander évaluation',
+                    es: 'Solicitar evaluación',
+                    pt: 'Solicitar avaliação',
+                    ko: '평가 요청',
+                    ja: '評価依頼',
+                    ar: 'طلب تقييم',
+                    th: 'ขอการประเมิน',
+                    vi: 'Yêu cầu đánh giá',
+                    de: 'Bewertung anfordern',
+                  } as Record<string, string>)[lang] || 'Request Assessment'}
                 </ButtonLink>
               </div>
             </div>
           </div>
         </Container>
       </section>
+
+      <SourcingRouteGuide
+        lang={lang}
+        fitItems={t.cons}
+        notFitItems={routeGuide.notFit}
+        compareItems={routeGuide.compare}
+        acceptanceItems={routeGuide.acceptance}
+      />
     </>
   )
 }

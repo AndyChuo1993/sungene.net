@@ -265,7 +265,7 @@ const SCHEMA_TEXT: Record<Lang, {
   en: {
     listName: 'SunGene Industrial Equipment Sourcing',
     listDesc: 'Industrial equipment and automation sourcing support: packaging, food processing, filling & sealing, conveying, and turnkey integration.',
-    categories: { packaging: 'Packaging Machinery', food: 'Food Processing Equipment', filling: 'Filling & Sealing Systems', conveying: 'Conveying & Automation', custom: 'Customized Machinery' },
+    categories: { packaging: 'Packaging Systems Sourcing', food: 'Food Equipment Sourcing', filling: 'Filling & Sealing Projects', conveying: 'Conveying & Automation Integration', custom: 'Custom Project Coordination' },
     faq: [
       { q: 'What is the minimum order quantity?', a: 'MOQ is 1 unit. Machines are configured to your product, packaging format, and target output.' },
       { q: 'Can you customize machines?', a: 'Yes. Materials, dimensions, capacity, voltage/frequency, and automation modules can be configured to your requirements.' },
@@ -273,13 +273,13 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'What is the delivery lead time?', a: 'Lead time depends on configuration. Typical ranges: 15–30 days for single machines, 45–90 days for full lines.' },
       { q: 'Do you provide FAT/SAT tests?', a: 'When applicable, we coordinate supplier FAT/SAT and function checks before shipment. Test videos and results can be provided as part of the handover.' },
       { q: 'What certifications do your machines have?', a: 'We support CE documentation for export where applicable. Food-contact surfaces can be specified as food-grade SUS304/316L stainless steel.' },
-      { q: 'What after-sales support do you offer?', a: 'Remote video installation guidance, operator training, spare parts shipped within 48 hours, and lifetime technical support by phone or video call.' },
+      { q: 'What after-sales support do you offer?', a: 'Remote video installation guidance, operator training, spare parts typically shipped within 48 hours (subject to stock and destination), and long-term technical support by phone or video call.' },
     ],
   },
   zh: {
-    listName: 'SunGene 工業機械',
-    listDesc: '包裝機械、食品加工設備、灌裝封口系統與輸送/自動化整線。',
-    categories: { packaging: '包裝機械', food: '食品加工設備', filling: '灌裝與封口系統', conveying: '輸送與自動化', custom: '客製機械' },
+    listName: 'SunGene 工業採購範圍',
+    listDesc: '包裝系統、食品設備、灌裝封口專案與輸送/自動化整合。',
+    categories: { packaging: '包裝系統採購', food: '食品設備採購', filling: '灌裝與封口專案', conveying: '輸送與自動化整合', custom: '客製專案協調' },
     faq: [
       { q: '最小訂購量是多少？', a: '最小訂購量為 1 台。可依產品、包材形式與目標產速進行配置。' },
       { q: '可以客製化嗎？', a: '可以。材質、尺寸、產能、電壓/頻率與自動化模組皆可依需求調整。' },
@@ -287,7 +287,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '交期大約多久？', a: '交期取決於配置與整線範圍。常見區間：單機 15–30 天、整線 45–90 天。' },
       { q: '出貨前會做 FAT/SAT 測試嗎？', a: '視設備與供應商而定，我們可協調供應商端的 FAT/SAT 與功能檢測；並可提供測試影片與結果作為交付文件。' },
       { q: '機器有哪些認證？', a: '可提供 CE 文件支援（依設備/供應商而定），接觸面可指定食品級 SUS304/316L 不鏽鋼。' },
-      { q: '售後支援包含哪些？', a: '遠端視訊安裝指導、操作培訓、備件 48 小時內出貨，以及終身電話或視訊技術支援。' },
+      { q: '售後支援包含哪些？', a: '遠端視訊安裝指導、操作培訓、備件通常於 48 小時內出貨（視庫存與目的地而定），以及長期電話或視訊技術支援。' },
     ],
   },
   cn: {
@@ -301,7 +301,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '交期大约多久？', a: '交期取决于配置与整线范围。常见区间：单机 15–30 天、整线 45–90 天。' },
       { q: '出货前会做 FAT/SAT 测试吗？', a: '视设备与供应商而定，我们可协调供应商端的 FAT/SAT 与功能检测，并提供测试视频与结果作为交付文件。' },
       { q: '机器有哪些认证？', a: '可提供 CE 文件支持（视设备/供应商而定），接触面可指定食品级 SUS304/316L 不锈钢。' },
-      { q: '售后支持包含哪些？', a: '远程视频安装指导、操作培训、备件 48 小时内发货，以及终身电话或视频技术支持。' },
+      { q: '售后支持包含哪些？', a: '远程视频安装指导、操作培训、备件通常在 48 小时内发货（视库存与目的地而定），以及长期电话或视频技术支持。' },
     ],
   },
   fr: {
@@ -315,7 +315,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Quel est le délai de livraison ?', a: 'Selon configuration : en général 15–30 jours (machine) et 45–90 jours (ligne complète).' },
       { q: 'Faites-vous des tests FAT/SAT avant expédition ?', a: 'Selon l’équipement et le fournisseur, nous coordonnons des tests FAT/SAT et des contrôles fonctionnels avant expédition. Vidéo et résultats peuvent être fournis.' },
       { q: 'Quelles certifications sont disponibles ?', a: 'Nous accompagnons la documentation CE à l’export lorsque c’est applicable. Les surfaces en contact produit peuvent être spécifiées en SUS304/316L de grade alimentaire.' },
-      { q: 'Quel SAV proposez-vous ?', a: 'Assistance vidéo à distance, formation opérateur, pièces détachées expédiées sous 48h et support technique à vie.' },
+      { q: 'Quel SAV proposez-vous ?', a: 'Assistance vidéo à distance, formation opérateur, pièces détachées généralement expédiées sous 48h (selon stock et destination) et support technique long terme.' },
     ],
   },
   es: {
@@ -329,7 +329,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '¿Cuál es el plazo de entrega?', a: 'Depende de la configuración: típico 15–30 días (máquina) y 45–90 días (línea completa).' },
       { q: '¿Realizan pruebas FAT/SAT antes del envío?', a: 'Según el equipo y el proveedor, coordinamos pruebas FAT/SAT y verificaciones funcionales antes del envío. Se pueden proporcionar video y resultados.' },
       { q: '¿Qué certificaciones están disponibles?', a: 'Apoyamos la documentación CE para exportación cuando aplique. Las superficies en contacto con el producto pueden especificarse en SUS304/316L de grado alimentario.' },
-      { q: '¿Qué soporte posventa ofrecen?', a: 'Asistencia remota por video, capacitación, repuestos enviados en 48 horas y soporte técnico de por vida.' },
+      { q: '¿Qué soporte posventa ofrecen?', a: 'Asistencia remota por video, capacitación, repuestos normalmente enviados en 48 horas (según stock y destino) y soporte técnico a largo plazo.' },
     ],
   },
   pt: {
@@ -343,7 +343,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Qual é o prazo de entrega?', a: 'Depende da configuração: típico 15–30 dias (máquina) e 45–90 dias (linha completa).' },
       { q: 'Vocês realizam testes FAT/SAT antes do envio?', a: 'Conforme o equipamento e o fornecedor, coordenamos testes FAT/SAT e verificações funcionais antes do envio. Vídeo e resultados podem ser fornecidos.' },
       { q: 'Quais certificações estão disponíveis?', a: 'Apoiamos documentação CE para exportação quando aplicável. Superfícies de contato podem ser especificadas em aço inoxidável alimentar SUS304/316L.' },
-      { q: 'Que suporte pós-venda vocês oferecem?', a: 'Assistência remota por vídeo, treinamento, peças enviadas em 48 horas e suporte técnico vitalício.' },
+      { q: 'Que suporte pós-venda vocês oferecem?', a: 'Assistência remota por vídeo, treinamento, peças normalmente enviadas em 48 horas (conforme estoque e destino) e suporte técnico de longo prazo.' },
     ],
   },
   ko: {
@@ -357,7 +357,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '납기는 얼마나 걸리나요?', a: '구성에 따라 다릅니다. 일반적으로 단일 장비 15–30일, 라인 45–90일 범위입니다.' },
       { q: '출하 전 FAT/SAT 테스트를 하나요?', a: '장비와 공급사에 따라 FAT/SAT 및 기능 검사를 조율할 수 있으며, 테스트 영상과 결과를 제공할 수 있습니다.' },
       { q: '어떤 인증을 지원하나요?', a: '수출을 위한 CE 문서 지원이 가능하며(해당 시), 접촉면은 식품급 SUS304/316L 스테인리스강으로 지정할 수 있습니다.' },
-      { q: '애프터서비스는 어떻게 되나요?', a: '원격 영상 설치 안내, 운전자 교육, 48시간 이내 부품 발송, 평생 기술 지원을 제공합니다.' },
+      { q: '애프터서비스는 어떻게 되나요?', a: '원격 영상 설치 안내, 운전자 교육, 예비 부품은 보통 48시간 내 발송(재고 및 목적지에 따라), 장기 기술 지원을 제공합니다.' },
     ],
   },
   ja: {
@@ -371,7 +371,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '納期は？', a: '構成によります。目安：単体 15–30日、ライン 45–90日。' },
       { q: '出荷前にFAT/SATテストは実施しますか？', a: '設備とサプライヤーにより、FAT/SATおよび機能確認を出荷前に調整できます。テスト動画と結果を提供可能です。' },
       { q: 'どのような認証に対応していますか？', a: '該当する場合、輸出向けCE文書をサポートします。接触面は食品グレードSUS304/316Lステンレス鋼を指定可能です。' },
-      { q: 'アフターサポートの内容は？', a: 'リモートビデオでの設置支援、オペレーター研修、48時間以内の部品発送、生涯技術サポートをご提供します。' },
+      { q: 'アフターサポートの内容は？', a: 'リモートビデオでの設置支援、オペレーター研修、部品は通常48時間以内に発送（在庫・仕向地により）、長期技術サポートをご提供します。' },
     ],
   },
   ar: {
@@ -385,7 +385,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'كم يستغرق وقت التسليم؟', a: 'يعتمد على التكوين: غالبًا 15–30 يومًا للآلة و45–90 يومًا للخط الكامل.' },
       { q: 'هل تجرون اختبارات FAT/SAT قبل الشحن؟', a: 'حسب المعدة والمورد، نقوم بتنسيق اختبارات FAT/SAT وفحوصات الوظائف قبل الشحن. يمكن توفير فيديو ونتائج الاختبار.' },
       { q: 'ما هي الشهادات المتاحة؟', a: 'ندعم وثائق CE للتصدير عند توفرها. ويمكن تحديد الأسطح الملامسة للمنتج من ستانلس ستيل غذائي SUS304/316L.' },
-      { q: 'ما هو دعم ما بعد البيع؟', a: 'دعم تركيب عن بُعد عبر الفيديو، تدريب المشغلين، قطع غيار خلال 48 ساعة، ودعم فني مدى الحياة.' },
+      { q: 'ما هو دعم ما بعد البيع؟', a: 'دعم تركيب عن بُعد عبر الفيديو، تدريب المشغلين، قطع غيار تُشحن عادة خلال 48 ساعة (حسب المخزون والوجهة)، ودعم فني طويل الأجل.' },
     ],
   },
   th: {
@@ -399,7 +399,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'ระยะเวลาจัดหาและส่งมอบนานไหม?', a: 'ขึ้นอยู่กับสเปก โดยทั่วไปเครื่องเดี่ยว 15–30 วัน และไลน์ 45–90 วัน' },
       { q: 'มีการทดสอบก่อนส่งมอบไหม?', a: 'ตามอุปกรณ์และซัพพลายเออร์ เราสามารถประสานการทดสอบ FAT/SAT และการตรวจสอบการทำงานก่อนส่ง พร้อมวิดีโอและรายงานผล' },
       { q: 'มีใบรับรองอะไรบ้าง?', a: 'เราสนับสนุนเอกสาร CE สำหรับการส่งออกเมื่อเหมาะสม และสามารถระบุพื้นผิวสัมผัสเป็นสแตนเลสเกรดอาหาร SUS304/316L ได้' },
-      { q: 'บริการหลังการขายมีอะไรบ้าง?', a: 'แนะนำติดตั้งผ่านวิดีโอ ฝึกอบรมผู้ปฏิบัติงาน อะไหล่ส่งภายใน 48 ชม. และสนับสนุนเทคนิคตลอดชีพ' },
+      { q: 'บริการหลังการขายมีอะไรบ้าง?', a: 'แนะนำติดตั้งผ่านวิดีโอ ฝึกอบรมผู้ปฏิบัติงาน อะไหล่โดยทั่วไปส่งภายใน 48 ชม. (ขึ้นอยู่กับสต็อกและปลายทาง) และสนับสนุนเทคนิคระยะยาว' },
     ],
   },
   vi: {
@@ -413,7 +413,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Thời gian giao hàng?', a: 'Tùy cấu hình: thường 15–30 ngày (máy đơn) và 45–90 ngày (dây chuyền).' },
       { q: 'Có test FAT/SAT trước khi giao không?', a: 'Tùy theo thiết bị và nhà cung cấp, chúng tôi có thể điều phối FAT/SAT và kiểm tra chức năng trước khi giao. Có thể cung cấp video và kết quả.' },
       { q: 'Máy có chứng nhận gì?', a: 'Chúng tôi hỗ trợ tài liệu CE cho xuất khẩu khi phù hợp. Bề mặt tiếp xúc có thể chỉ định inox thực phẩm SUS304/316L.' },
-      { q: 'Hỗ trợ sau bán hàng gồm những gì?', a: 'Hướng dẫn lắp đặt qua video, đào tạo vận hành, phụ tùng giao trong 48 giờ và hỗ trợ kỹ thuật trọn đời.' },
+      { q: 'Hỗ trợ sau bán hàng gồm những gì?', a: 'Hướng dẫn lắp đặt qua video, đào tạo vận hành, phụ tùng thường giao trong 48 giờ (tùy tồn kho và điểm đến) và hỗ trợ kỹ thuật dài hạn.' },
     ],
   },
   de: {
@@ -427,7 +427,7 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: 'Wie lange ist die Lieferzeit?', a: 'Abhängig von der Konfiguration: typ. 15–30 Tage (Einzelmaschine) und 45–90 Tage (Linie).' },
       { q: 'Gibt es FAT/SAT-Tests vor der Lieferung?', a: 'Je nach Maschine und Lieferant koordinieren wir FAT/SAT und Funktionsprüfungen vor dem Versand. Testvideo und Ergebnisse können bereitgestellt werden.' },
       { q: 'Welche Zertifizierungen sind verfügbar?', a: 'Wir unterstützen CE-Dokumentation für den Export, sofern zutreffend. Produktberührende Flächen können in lebensmittelechtem Edelstahl SUS304/316L spezifiziert werden.' },
-      { q: 'Welchen After-Sales-Support bieten Sie?', a: 'Ferninstallation per Video, Schulung, Ersatzteile innerhalb von 48 Stunden und lebenslanger technischer Support.' },
+      { q: 'Welchen After-Sales-Support bieten Sie?', a: 'Ferninstallation per Video, Schulung, Ersatzteile werden in der Regel innerhalb von 48 Stunden versandt (abhängig von Lagerbestand und Ziel) und langfristiger technischer Support.' },
     ],
   },
 }
@@ -471,13 +471,13 @@ export default async function Page({ params }: PageParams) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     inLanguage: LANG_META[safeLang].htmlLang,
-    name: 'Buying guides by machine',
+    name: 'Configuration guides by route',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pouch packing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/pouch-packing-machine`, name: 'Pouch packing buying guides' } },
-      { '@type': 'ListItem', position: 2, name: 'Powder filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/powder-filling-machine`, name: 'Powder filling buying guides' } },
-      { '@type': 'ListItem', position: 3, name: 'Liquid filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${safeLang}/resources/topic/liquid-filling-machine`, name: 'Liquid filling buying guides' } },
-      { '@type': 'ListItem', position: 4, name: 'Snack processing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${safeLang}/resources/topic/snack-processing-line`, name: 'Snack processing buying guides' } },
-      { '@type': 'ListItem', position: 5, name: 'Conveyor buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${safeLang}/resources/topic/conveyor-system`, name: 'Conveyor buying guides' } },
+      { '@type': 'ListItem', position: 1, name: 'Pouch packaging configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/pouch-packaging`, url: `${SITE_URL}/${safeLang}/resources/route/pouch-packaging`, name: 'Pouch packaging configuration guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Powder dosing configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/powder-dosing`, url: `${SITE_URL}/${safeLang}/resources/route/powder-dosing`, name: 'Powder dosing configuration guides' } },
+      { '@type': 'ListItem', position: 3, name: 'Liquid filling configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/liquid-filling`, url: `${SITE_URL}/${safeLang}/resources/route/liquid-filling`, name: 'Liquid filling configuration guides' } },
+      { '@type': 'ListItem', position: 4, name: 'Food processing line configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/food-processing-line`, url: `${SITE_URL}/${safeLang}/resources/route/food-processing-line`, name: 'Food processing line configuration guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Conveying & automation configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/conveying-automation`, url: `${SITE_URL}/${safeLang}/resources/route/conveying-automation`, name: 'Conveying & automation configuration guides' } },
     ],
   }
 
@@ -567,40 +567,40 @@ export default async function Page({ params }: PageParams) {
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-base font-bold text-gray-950">
               {({
-                en: 'Buying guides by machine',
-                cn: '按机型浏览采购指南',
-                zh: '依機型瀏覽採購指南',
-                fr: 'Guides d’achat par machine',
-                es: 'Guías de compra por máquina',
-                pt: 'Guias de compra por máquina',
-                ko: '기계별 구매 가이드',
-                ja: '機種別 購入ガイド',
-                ar: 'أدلة الشراء حسب الماكينة',
-                th: 'คู่มือการเลือกซื้อตามเครื่อง',
-                vi: 'Hướng dẫn mua theo máy',
-                de: 'Kaufratgeber nach Maschine',
-              } as Record<string, string>)[safeLang] || 'Buying guides by machine'}
+                en: 'Configuration guides by route',
+                cn: '按配置路线浏览指南',
+                zh: '依配置路線瀏覽指南',
+                fr: 'Guides par parcours de configuration',
+                es: 'Guías por ruta de configuración',
+                pt: 'Guias por rota de configuração',
+                ko: '구성 경로별 가이드',
+                ja: '構成ルート別 ガイド',
+                ar: 'أدلة حسب مسار التهيئة',
+                th: 'คู่มือตามเส้นทางการกำหนดค่า',
+                vi: 'Hướng dẫn theo lộ trình cấu hình',
+                de: 'Leitfäden nach Konfigurationspfad',
+              } as Record<string, string>)[safeLang] || 'Configuration guides by route'}
             </h2>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
-              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/pouch-packing-machine`}>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/route/pouch-packaging`}>
                 {({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[safeLang] || 'Pouch packing'}
               </Link>
-              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/powder-filling-machine`}>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/route/powder-dosing`}>
                 {({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[safeLang] || 'Powder filling'}
               </Link>
-              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/liquid-filling-machine`}>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/route/liquid-filling`}>
                 {({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[safeLang] || 'Liquid filling'}
               </Link>
-              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/snack-processing-line`}>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/route/food-processing-line`}>
                 {({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[safeLang] || 'Snack processing'}
               </Link>
-              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/topic/conveyor-system`}>
+              <Link className="text-accent-600 hover:underline" href={`/${safeLang}/resources/route/conveying-automation`}>
                 {({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[safeLang] || 'Conveyors'}
               </Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={`/${safeLang}/recommend`} size="md">
-                {({ en: 'Get a Recommendation', cn: '获取推荐', zh: '取得推薦', fr: 'Obtenir une recommandation', es: 'Obtener recomendación', pt: 'Obter recomendação', ko: '추천 받기', ja: '推薦を受ける', ar: 'احصل على توصية', th: 'รับคำแนะนำ', vi: 'Nhận đề xuất', de: 'Empfehlung erhalten' } as Record<string, string>)[safeLang] || 'Get a Recommendation'}
+              <ButtonLink href={`/${safeLang}/assessment`} size="md">
+                {({ en: 'Get Assessment', cn: '获取评估', zh: '取得評估', fr: 'Obtenir une évaluation', es: 'Obtener evaluación', pt: 'Obter avaliação', ko: '평가 받기', ja: '評価を受ける', ar: 'احصل على تقييم', th: 'รับการประเมิน', vi: 'Nhận đánh giá', de: 'Bewertung erhalten' } as Record<string, string>)[safeLang] || 'Get Assessment'}
               </ButtonLink>
               <ButtonLink href={`/${safeLang}/contact`} variant="secondary" size="md">
                 {({ en: 'Request Assessment', cn: '获取采购评估', zh: '取得採購評估', fr: 'Demander évaluation', es: 'Solicitar evaluación', pt: 'Solicitar avaliação', ko: '평가 요청', ja: '評価依頼', ar: 'طلب تقييم', th: 'ขอการประเมิน', vi: 'Yêu cầu đánh giá', de: 'Bewertung anfordern' } as Record<string, string>)[safeLang] || 'Request Assessment'}

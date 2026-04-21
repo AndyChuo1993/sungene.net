@@ -15,6 +15,8 @@
  */
 import { useEffect, useState } from 'react'
 import type { Lang } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/siteConfig'
+import { trackEvent } from '@/lib/analytics'
 
 const PHONE_TW = '+886437032705'
 const WHATSAPP_NUMBER = '8618144132078' // +86 18144132078, digits only for wa.me
@@ -35,84 +37,84 @@ const labels: Record<
     email: 'Email us',
     phone: 'Call Taiwan office',
     contactUs: 'Contact',
-    whatsappMsg: "Hi SunGene, I'm interested in your machinery. I'm browsing: ",
+    whatsappMsg: "Hi SunGene, I'm interested in a sourcing assessment for your equipment. I'm browsing: ",
   },
   zh: {
     whatsapp: 'WhatsApp 聯絡',
     email: '電郵聯絡',
     phone: '台灣辦公室',
     contactUs: '聯絡我們',
-    whatsappMsg: '您好 SunGene，我對貴公司機械有興趣。目前瀏覽頁面：',
+    whatsappMsg: '您好 SunGene，我對貴司設備有興趣，希望能獲取採購評估與建議。目前瀏覽頁面：',
   },
   cn: {
     whatsapp: 'WhatsApp 联系',
     email: '邮件联系',
     phone: '台湾办公室',
     contactUs: '联系我们',
-    whatsappMsg: '您好 SunGene，我对贵公司机械有兴趣。目前浏览页面：',
+    whatsappMsg: '您好 SunGene，我对贵司设备有兴趣，希望能获取采购评估与建议。目前浏览页面：',
   },
   fr: {
     whatsapp: 'Chatter sur WhatsApp',
     email: 'Nous envoyer un e-mail',
     phone: 'Bureau Taïwan',
     contactUs: 'Contact',
-    whatsappMsg: "Bonjour SunGene, je suis intéressé(e) par vos machines. Page consultée : ",
+    whatsappMsg: "Bonjour SunGene, je souhaite une évaluation de sourcing pour vos équipements. Page consultée : ",
   },
   es: {
     whatsapp: 'Chatear en WhatsApp',
     email: 'Enviar correo',
     phone: 'Oficina Taiwán',
     contactUs: 'Contacto',
-    whatsappMsg: 'Hola SunGene, me interesan sus máquinas. Estoy viendo: ',
+    whatsappMsg: 'Hola SunGene, me interesa una evaluación de abastecimiento para sus equipos. Estoy viendo: ',
   },
   pt: {
     whatsapp: 'Falar no WhatsApp',
     email: 'Enviar e-mail',
     phone: 'Escritório Taiwan',
     contactUs: 'Contato',
-    whatsappMsg: 'Olá SunGene, tenho interesse nas suas máquinas. Estou vendo: ',
+    whatsappMsg: 'Olá SunGene, tenho interesse em uma avaliação de sourcing para seus equipamentos. Estou vendo: ',
   },
   ko: {
     whatsapp: 'WhatsApp 문의',
     email: '이메일 문의',
     phone: '대만 사무소',
     contactUs: '문의하기',
-    whatsappMsg: '안녕하세요 SunGene, 귀사의 기계에 관심이 있습니다. 현재 보는 페이지: ',
+    whatsappMsg: '안녕하세요 SunGene, 귀사 장비에 대한 소싱 평가를 받고 싶습니다. 현재 보는 페이지: ',
   },
   ja: {
     whatsapp: 'WhatsAppで連絡',
     email: 'メールで連絡',
     phone: '台湾オフィス',
     contactUs: 'お問い合わせ',
-    whatsappMsg: 'SunGene 様、貴社の機械に興味があります。閲覧中のページ：',
+    whatsappMsg: 'SunGene 様、貴社設備のソーシング評価に興味があります。閲覧中のページ：',
   },
   ar: {
     whatsapp: 'الدردشة عبر WhatsApp',
     email: 'راسلنا بالبريد',
     phone: 'مكتب تايوان',
     contactUs: 'تواصل معنا',
-    whatsappMsg: 'مرحبًا SunGene، أنا مهتم بآلاتكم. الصفحة التي أتصفحها: ',
+    whatsappMsg: 'مرحبًا SunGene، أنا مهتم بتقييم توريد لمعداتكم. الصفحة التي أتصفحها: ',
   },
   th: {
     whatsapp: 'แชทผ่าน WhatsApp',
     email: 'ส่งอีเมล',
     phone: 'สำนักงานไต้หวัน',
     contactUs: 'ติดต่อเรา',
-    whatsappMsg: 'สวัสดี SunGene ผมสนใจเครื่องจักรของคุณ กำลังดูหน้า: ',
+    whatsappMsg: 'สวัสดี SunGene ผมสนใจรับการประเมินการจัดหาสำหรับอุปกรณ์ของคุณ กำลังดูหน้า: ',
   },
   vi: {
     whatsapp: 'Chat WhatsApp',
     email: 'Gửi email',
     phone: 'Văn phòng Đài Loan',
     contactUs: 'Liên hệ',
-    whatsappMsg: 'Xin chào SunGene, tôi quan tâm đến máy móc của quý công ty. Đang xem trang: ',
+    whatsappMsg: 'Xin chào SunGene, tôi muốn nhận đánh giá nguồn cung cho thiết bị của quý công ty. Đang xem trang: ',
   },
   de: {
     whatsapp: 'WhatsApp-Chat',
     email: 'E-Mail senden',
     phone: 'Büro Taiwan',
     contactUs: 'Kontakt',
-    whatsappMsg: 'Hallo SunGene, ich interessiere mich für Ihre Maschinen. Aktuelle Seite: ',
+    whatsappMsg: 'Hallo SunGene, ich interessiere mich für eine Sourcing-Bewertung Ihrer Anlagen. Aktuelle Seite: ',
   },
 }
 
@@ -122,25 +124,20 @@ export default function StickyContactFAB({ lang }: { lang: Lang }) {
   const t = labels[lang] || labels.en
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return
+    const id = window.setTimeout(() => {
       setCurrentUrl(window.location.href)
-    }
+    }, 0)
+    return () => window.clearTimeout(id)
   }, [])
 
-  const waMsg = encodeURIComponent(`${t.whatsappMsg}${currentUrl || 'https://sungene.net'}`)
+  const waMsg = encodeURIComponent(`${t.whatsappMsg}${currentUrl || SITE_URL}`)
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`
-  const mailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent('Machinery inquiry — SunGene')}&body=${encodeURIComponent(`Hi SunGene,\n\nI'm interested in your machinery and would like a quote.\n\nCurrent page: ${currentUrl}\n\nBest regards,`)}`
+  const mailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent('Sourcing assessment inquiry — SunGene')}&body=${encodeURIComponent(`Hi SunGene,\n\nI'm interested in your equipment and would like a technical sourcing assessment.\n\nCurrent page: ${currentUrl}\n\nBest regards,`)}`
   const telUrl = `tel:${PHONE_TW}`
 
   const trackClick = (channel: 'whatsapp' | 'email' | 'phone') => {
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ;(window as any).gtag?.('event', 'contact_fab_click', { channel })
-      } catch {
-        /* ignore */
-      }
-    }
+    trackEvent('contact_fab_click', { channel, lang })
   }
 
   return (

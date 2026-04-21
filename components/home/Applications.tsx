@@ -6,8 +6,8 @@ export default function Applications({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
       kicker: 'INDUSTRIES WE SERVE',
-      title: 'Machinery for Every Production Need',
-      desc: 'Our equipment serves a wide range of industries. Whatever you produce or pack, we have the right machine for your application.',
+      title: 'Machinery for Every Packaging & Processing Need',
+      desc: 'Our equipment serves a wide range of industries. Whatever you pack or process, we can recommend a setup that fits your application.',
       categories: [
         { name: 'Powder & Flour Products', examples: 'Spices, Coffee, Milk Powder, Detergent, Pharmaceutical Powder', icon: '🏭' },
         { name: 'Granule & Snack Products', examples: 'Nuts, Seeds, Candy, Pet Food, Frozen Food, Rice', icon: '🔧' },
@@ -20,8 +20,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     cn: {
       kicker: '服务行业',
-      title: '满足各种生产需求的机械',
-      desc: '我们的设备服务于广泛的行业。无论您生产或包装什么产品，我们都有适合您应用的机器。',
+      title: '满足各种包装与加工需求的机械',
+      desc: '我们的设备服务于广泛的行业。无论您需要包装或加工什么产品，我们都能推荐适合您应用的方案。',
       categories: [
         { name: '粉末与面粉产品', examples: '香料、咖啡、奶粉、洗涤剂、医药粉末', icon: '🏭' },
         { name: '颗粒与休闲食品', examples: '坚果、种子、糖果、宠物食品、冷冻食品、大米', icon: '🔧' },
@@ -34,8 +34,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     zh: {
       kicker: '服務行業',
-      title: '滿足各種生產需求的機械',
-      desc: '我們的設備服務於廣泛的行業。無論您生產或包裝什麼產品，我們都有適合您應用的機器。',
+      title: '滿足各種包裝與加工需求的機械',
+      desc: '我們的設備服務於廣泛的行業。無論您需要包裝或加工什麼產品，我們都能推薦適合您應用的方案。',
       categories: [
         { name: '粉末與麵粉產品', examples: '香料、咖啡、奶粉、洗滌劑、醫藥粉末', icon: '🏭' },
         { name: '顆粒與休閒食品', examples: '堅果、種子、糖果、寵物食品、冷凍食品、大米', icon: '🔧' },
@@ -48,8 +48,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     fr: {
       kicker: 'INDUSTRIES DESSERVIES',
-      title: 'Des machines pour chaque besoin de production',
-      desc: 'Nos équipements sont utilisés dans un large éventail d\'industries. Quel que soit votre produit à fabriquer ou emballer, nous avons la machine adaptée à votre application.',
+      title: 'Des machines pour chaque besoin d’emballage et de transformation',
+      desc: 'Nos équipements sont utilisés dans un large éventail d\'industries. Quel que soit votre produit à transformer ou emballer, nous pouvons recommander une configuration adaptée à votre application.',
       categories: [
         { name: 'Produits en poudre et farine', examples: 'Épices, café, lait en poudre, détergents, poudres pharmaceutiques', icon: '🏭' },
         { name: 'Granulés et snacks', examples: 'Fruits à coque, graines, confiseries, aliments pour animaux, surgelés, riz', icon: '🔧' },
@@ -62,8 +62,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     es: {
       kicker: 'INDUSTRIAS QUE SERVIMOS',
-      title: 'Maquinaria para cada necesidad de producción',
-      desc: 'Nuestros equipos sirven a una amplia gama de industrias. Sea lo que sea lo que produzca o empaque, tenemos la máquina adecuada para su aplicación.',
+      title: 'Maquinaria para cada necesidad de empaque y procesamiento',
+      desc: 'Nuestros equipos sirven a una amplia gama de industrias. Sea lo que sea lo que procese o empaque, podemos recomendar una configuración adecuada para su aplicación.',
       categories: [
         { name: 'Productos en polvo y harina', examples: 'Especias, café, leche en polvo, detergentes, polvos farmacéuticos', icon: '🏭' },
         { name: 'Granulados y snacks', examples: 'Frutos secos, semillas, dulces, alimento para mascotas, congelados, arroz', icon: '🔧' },
@@ -76,8 +76,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     pt: {
       kicker: 'INDÚSTRIAS QUE ATENDEMOS',
-      title: 'Maquinário para Cada Necessidade de Produção',
-      desc: 'Nossos equipamentos atendem a uma ampla gama de indústrias. Seja o que for que você produza ou embale, temos a máquina certa para a sua aplicação.',
+      title: 'Maquinário para Cada Necessidade de Embalagem e Processamento',
+      desc: 'Nossos equipamentos atendem a uma ampla gama de indústrias. Seja o que for que você processe ou embale, podemos recomendar a configuração certa para a sua aplicação.',
       categories: [
         { name: 'Produtos em Pó e Farinha', examples: 'Temperos, café, leite em pó, detergente, pó farmacêutico', icon: '🏭' },
         { name: 'Grânulos e Snacks', examples: 'Nozes, sementes, doces, ração animal, alimentos congelados, arroz', icon: '🔧' },
@@ -90,8 +90,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     ko: {
       kicker: '서비스 산업',
-      title: '모든 생산 요구에 맞는 기계',
-      desc: '당사의 장비는 다양한 산업에 서비스를 제공합니다. 무엇을 생산하거나 포장하든, 귀사의 용도에 적합한 기계를 보유하고 있습니다.',
+      title: '모든 포장/가공 니즈에 맞는 기계',
+      desc: '당사의 장비는 다양한 산업에 서비스를 제공합니다. 무엇을 포장하거나 가공하든, 귀사의 용도에 맞는 구성을 추천할 수 있습니다.',
       categories: [
         { name: '분말 및 밀가루 제품', examples: '향신료, 커피, 분유, 세제, 의약 분말', icon: '🏭' },
         { name: '과립 및 스낵 제품', examples: '견과류, 씨앗, 사탕, 반려동물 사료, 냉동식품, 쌀', icon: '🔧' },
@@ -104,8 +104,8 @@ export default function Applications({ lang }: { lang: Lang }) {
     },
     ja: {
       kicker: '対応業界',
-      title: 'あらゆる生産ニーズに対応する機械',
-      desc: '当社の設備は幅広い業界にサービスを提供しています。何を生産・包装されても、お客様の用途に最適な機械をご用意しています。',
+      title: 'あらゆる包装・加工ニーズに対応する機械',
+      desc: '当社の設備は幅広い業界にサービスを提供しています。何を加工・包装されても、お客様の用途に合う構成をご提案できます。',
       categories: [
         { name: '粉末・小麦粉製品', examples: 'スパイス、コーヒー、粉ミルク、洗剤、医薬品粉末', icon: '🏭' },
         { name: '顆粒・スナック製品', examples: 'ナッツ、種子、キャンディ、ペットフード、冷凍食品、米', icon: '🔧' },

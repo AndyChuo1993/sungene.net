@@ -50,7 +50,7 @@ const faqTx: Record<
     a2: 'Typical options: ',
     q3: 'What usually affects stability and output?',
     a3: 'Main factors: ',
-    q4: 'Can you run a factory acceptance test (FAT) before shipment?',
+    q4: 'Can you run a FAT acceptance test before shipment?',
     a4: 'Yes. We can run FAT with your product or a confirmed substitute and provide test video and results for handover.',
     q5: 'What documents are included for installation and handover?',
     a5: 'Typically: layout, utilities list, manuals, wiring/pneumatic diagrams, spare parts list, and FAT report if applicable.',
@@ -58,7 +58,7 @@ const faqTx: Record<
     a6: 'Confirm product and package samples, run FAT, lock key specs (range, speed, footprint), and agree on change parts and acceptance criteria.',
   },
   zh: {
-    q1: '要怎麼提供資料，才能快速確認配置並報價？',
+    q1: '要怎麼提供資料，才能快速確認配置並取得採購評估？',
     a1: '產品、包材/容器形式、灌裝範圍、目標產速，以及目的地電壓/頻率。若方便，提供現有包裝照片或樣品更快。',
     q2: '這個類別常見的形式與選配有哪些？',
     a2: '常見配置：',
@@ -72,7 +72,7 @@ const faqTx: Record<
     a6: '先確認產品與包材樣品、安排 FAT、把重量/產速/場地/接口等關鍵規格鎖定，並約定換型件與驗收標準。',
   },
   cn: {
-    q1: '要怎么提供资料，才能快速确认配置并报价？',
+    q1: '要怎么提供资料，才能快速确认配置并获取采购评估？',
     a1: '产品、包装/容器形式、灌装范围、目标产速，以及目的地电压/频率。若方便，提供现有包装照片或样品更快。',
     q2: '这个类别常见的形式与选配有哪些？',
     a2: '常见配置：',
@@ -579,8 +579,8 @@ const machineQueryTerms: Record<Lang, Record<TopicMachine, string>> = {
 
 const introTx: Record<Lang, (q: string, opts: string, factors: string) => string> = {
   en: (q, opts, factors) => `Buying guides for ${q}. Covers common configurations (${opts}) and the variables that drive stability (${factors}).`,
-  zh: (q, opts, factors) => `整理常見搜尋詞（${q}）與配置選項（${opts}），並把影響穩定性的關鍵點（${factors}）講清楚，方便你在詢價前先把方向定下來。`,
-  cn: (q, opts, factors) => `整理常见搜索词（${q}）与配置选项（${opts}），并把影响稳定性的关键点（${factors}）讲清楚，方便你在询价前先把方向定下来。`,
+  zh: (q, opts, factors) => `整理常見搜尋詞（${q}）與配置選項（${opts}），並把影響穩定性的關鍵點（${factors}）講清楚，方便你在申請採購評估前先把方向定下來。`,
+  cn: (q, opts, factors) => `整理常见搜索词（${q}）与配置选项（${opts}），并把影响稳定性的关键点（${factors}）讲清楚，方便你在申请采购评估前先把方向定下来。`,
   fr: (q, opts, factors) => `Guides d’achat pour ${q}. Configurations courantes (${opts}) et variables clés pour la stabilité (${factors}).`,
   es: (q, opts, factors) => `Guías de compra para ${q}. Configuraciones comunes (${opts}) y variables clave de estabilidad (${factors}).`,
   pt: (q, opts, factors) => `Guias de compra para ${q}. Configurações comuns (${opts}) e variáveis-chave de estabilidade (${factors}).`,

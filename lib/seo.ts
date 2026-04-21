@@ -18,18 +18,18 @@ export const LANG_META: Record<Lang, { htmlLang: string; hrefLang: string; ogLoc
 }
 
 export const BREADCRUMB_LABELS: Record<Lang, { home: string; machinery: string }> = {
-  en: { home: 'Home', machinery: 'Machinery' },
-  zh: { home: '首頁', machinery: '機械目錄' },
-  cn: { home: '首页', machinery: '机械目录' },
-  fr: { home: 'Accueil', machinery: 'Catalogue' },
-  es: { home: 'Inicio', machinery: 'Maquinaria' },
-  pt: { home: 'Início', machinery: 'Máquinas' },
-  ko: { home: '홈', machinery: '기계' },
-  ja: { home: 'ホーム', machinery: '機械' },
-  ar: { home: 'الرئيسية', machinery: 'الماكينات' },
-  th: { home: 'หน้าแรก', machinery: 'เครื่องจักร' },
-  vi: { home: 'Trang chủ', machinery: 'Máy móc' },
-  de: { home: 'Startseite', machinery: 'Maschinen' },
+  en: { home: 'Home', machinery: 'Sourcing Scope' },
+  zh: { home: '首頁', machinery: '採購範圍' },
+  cn: { home: '首页', machinery: '采购范围' },
+  fr: { home: 'Accueil', machinery: 'Périmètre sourcing' },
+  es: { home: 'Inicio', machinery: 'Alcance de abastecimiento' },
+  pt: { home: 'Início', machinery: 'Escopo de sourcing' },
+  ko: { home: '홈', machinery: '소싱 범위' },
+  ja: { home: 'ホーム', machinery: '調達範囲' },
+  ar: { home: 'الرئيسية', machinery: 'نطاق التوريد' },
+  th: { home: 'หน้าแรก', machinery: 'ขอบเขตการจัดหา' },
+  vi: { home: 'Trang chủ', machinery: 'Phạm vi sourcing' },
+  de: { home: 'Startseite', machinery: 'Sourcing-Bereich' },
 }
 
 export function normalizeLang(raw: string | undefined | null): Lang {
@@ -75,7 +75,7 @@ export function buildOpenGraph(opts: {
     title: opts.title,
     description: opts.description,
     url: pageUrl(opts.lang, opts.pathname),
-    siteName: 'SunGene Machinery',
+    siteName: 'SunGene',
     images: [{ url: imageUrl, width: 1200, height: 630 }],
     type: opts.type ?? 'website',
     locale: LANG_META[opts.lang].ogLocale,

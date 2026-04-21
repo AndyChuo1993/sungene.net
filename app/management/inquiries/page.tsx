@@ -8,7 +8,7 @@ const STATUS_LABELS: Record<InquiryStatus, { label: string; className: string }>
   new:        { label: '新進',    className: 'bg-accent-100 text-accent-800' },
   contacted:  { label: '已聯繫', className: 'bg-blue-100 text-blue-800' },
   qualified:  { label: '已確認', className: 'bg-purple-100 text-purple-800' },
-  quoted:     { label: '已報價', className: 'bg-amber-100 text-amber-800' },
+  quoted:     { label: '已評估', className: 'bg-amber-100 text-amber-800' },
   won:        { label: '已成交', className: 'bg-green-100 text-green-800' },
   lost:       { label: '未成交', className: 'bg-gray-200 text-gray-700' },
   spam:       { label: '垃圾',   className: 'bg-red-100 text-red-700' },
@@ -36,7 +36,10 @@ export default function InquiriesPage() {
   }, [filter])
 
   useEffect(() => {
-    load()
+    const id = setTimeout(() => {
+      void load()
+    }, 0)
+    return () => clearTimeout(id)
   }, [load])
 
   async function updateStatus(id: string, status: InquiryStatus) {
@@ -84,7 +87,7 @@ export default function InquiriesPage() {
             <option value="new">新進</option>
             <option value="contacted">已聯繫</option>
             <option value="qualified">已確認</option>
-            <option value="quoted">已報價</option>
+            <option value="quoted">已評估</option>
             <option value="won">已成交</option>
             <option value="lost">未成交</option>
             <option value="spam">垃圾</option>

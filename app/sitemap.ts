@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { ALL_LANGS } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
-import { ARTICLE_SLUGS } from '@/lib/articleData'
+import { RESOURCE_SLUGS } from '@/lib/resourceArticles'
 import { getStableLastModified } from '@/lib/buildTime'
 import { MARKET_SLUGS } from '@/lib/markets'
 import { INDUSTRY_SLUGS } from '@/lib/industries'
@@ -12,17 +12,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const langs = ALL_LANGS
   const lastModified = getStableLastModified()
 
-  const item = (url: string, changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'], priority: number) => ({
+  const item = (
+    url: string,
+    changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+    priority: number,
+    customLastModified?: string | Date
+  ) => ({
     url,
     changeFrequency,
     priority,
-    ...(lastModified ? { lastModified } : {}),
+    ...(customLastModified
+      ? { lastModified: customLastModified }
+      : lastModified
+        ? { lastModified }
+        : {}),
   })
 
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => item(`${baseUrl}/${lang}`, 'weekly', 1.0))
 
-  // Priority 0.95 - Machine landing pages (highest conversion value)
+  // Priority 0.95 - Configuration landing pages (highest conversion value)
   const machinePages = [
     '/machines/pouch-packing-machine',
     '/machines/powder-filling-machine',
@@ -50,10 +59,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Priority 0.9 - Conversion pages
   const conversionRoutes = [
-    '/recommend',
+    '/assessment',
     '/contact',
   ]
   const conversionSitemap = conversionRoutes.flatMap(route =>
+    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
+  )
+
+  // Priority 0.9 - Quote landing pages
+  const quoteRoutes = [
+    '/quote',
+    '/quote/pouch-packing-machine',
+    '/quote/powder-filling-machine',
+    '/quote/liquid-filling-machine',
+    '/quote/snack-processing-line',
+    '/quote/conveyor-system',
+  ]
+  const quoteSitemap = quoteRoutes.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
   )
 
@@ -70,24 +92,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.85))
   )
 
-  // Priority 0.8 - Resources hub + topic hubs
+  // Priority 0.8 - Resources hub + configuration topic hubs
   const resourcesHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/resources`, 'weekly', 0.8))
 
-  const topicMachines = [
-    'pouch-packing-machine',
-    'powder-filling-machine',
-    'liquid-filling-machine',
-    'snack-processing-line',
-    'conveyor-system',
+  const routeHubs = [
+    'pouch-packaging',
+    'powder-dosing',
+    'liquid-filling',
+    'food-processing-line',
+    'conveying-automation',
   ]
-  const topicSitemap = topicMachines.flatMap((m) =>
-    langs.map((lang) => item(`${baseUrl}/${lang}/resources/topic/${m}`, 'weekly', 0.8))
+  const routeHubSitemap = routeHubs.flatMap((s) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/resources/route/${s}`, 'weekly', 0.8))
   )
 
   // Priority 0.75 - Supporting pages
   const supportRoutes = [
     '/industries',
     '/solutions',
+    '/sourcing',
     '/about',
   ]
   const supportSitemap = supportRoutes.flatMap(route =>
@@ -111,12 +134,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const caseStudies = await getAllPublishedCaseStudies()
   const caseStudiesHub = [item(`${baseUrl}/case-studies`, 'weekly', 0.75)]
   const caseStudiesDetail = caseStudies.map((cs) =>
-    item(`${baseUrl}/case-studies/${cs.slug}`, 'monthly', 0.75)
+    item(
+      `${baseUrl}/case-studies/${cs.slug}`,
+      'monthly',
+      0.75,
+      cs.updated_at || cs.published_at || cs.created_at || undefined
+    )
   )
 
-  // Priority 0.65 - Resource articles (canonical slugs only — old slugs 301 redirect)
-  const articleSitemap = ARTICLE_SLUGS.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.65))
+  // Priority 0.65 - Resource articles
+  const resourceArticlesSitemap = RESOURCE_SLUGS.flatMap((slug) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
 
   return [
@@ -124,6 +152,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...machineSitemap,
     ...wuushengSitemap,
     ...conversionSitemap,
+    ...quoteSitemap,
     ...machinerySitemap,
     ...resourcesHubSitemap,
     ...supportSitemap,
@@ -132,7 +161,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...industryDetailSitemap,
     ...caseStudiesHub,
     ...caseStudiesDetail,
-    ...topicSitemap,
-    ...articleSitemap,
+    ...routeHubSitemap,
+    ...resourceArticlesSitemap,
   ]
 }

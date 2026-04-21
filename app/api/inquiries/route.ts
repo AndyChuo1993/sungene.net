@@ -205,7 +205,7 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
   const supabaseAdmin = getSupabaseAdmin()
   if (supabaseAdmin) {
     try {
-      // Parse source/context from the raw body — QuickQuote sends these as
+      // Parse source/context from the raw body — QuickAssessment sends these as
       // explicit fields; full Contact form falls through with null.
       const source = typeof rawBody?.source === 'string' ? rawBody.source : null
       const context = typeof rawBody?.context === 'string' ? rawBody.context : null

@@ -13,9 +13,9 @@ type Pack = {
 
 const pack: Record<Lang, Pack> = {
   en: {
-    headingInputs: 'Inputs we need for an accurate quotation',
+    headingInputs: 'Inputs we need for an accurate sourcing assessment',
     headingPitfalls: 'Common failure points (what usually goes wrong)',
-    headingFAT: 'Factory acceptance test (FAT) checklist',
+    headingFAT: 'FAT acceptance test checklist',
     inputs: [
       'Product state and behavior (powder flowability, viscosity, particulates, temperature)',
       'Package format and size range (bag/bottle/jar; material and seal type)',
@@ -40,7 +40,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   zh: {
-    headingInputs: '快速、準確報價需要的資料',
+    headingInputs: '快速、準確採購評估需要的資料',
     headingPitfalls: '常見失敗點（通常卡在哪裡）',
     headingFAT: '出廠測試（FAT）檢查項目',
     inputs: [
@@ -67,7 +67,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   cn: {
-    headingInputs: '快速、准确报价需要的资料',
+    headingInputs: '快速、准确采购评估需要的资料',
     headingPitfalls: '常见失败点（通常卡在哪里）',
     headingFAT: '出厂测试（FAT）检查项',
     inputs: [
@@ -94,7 +94,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   fr: {
-    headingInputs: 'Données nécessaires pour un devis précis',
+    headingInputs: 'Données nécessaires pour une évaluation précise',
     headingPitfalls: 'Points de défaillance fréquents',
     headingFAT: 'Check-list de test usine (FAT)',
     inputs: [
@@ -121,7 +121,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   es: {
-    headingInputs: 'Datos necesarios para cotizar con precisión',
+    headingInputs: 'Datos necesarios para una evaluación precisa',
     headingPitfalls: 'Fallos típicos (lo que suele fallar)',
     headingFAT: 'Checklist de prueba en fábrica (FAT)',
     inputs: [
@@ -148,7 +148,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   pt: {
-    headingInputs: 'Dados necessários para um orçamento preciso',
+    headingInputs: 'Dados necessários para uma avaliação precisa',
     headingPitfalls: 'Falhas comuns (onde costuma dar errado)',
     headingFAT: 'Checklist de teste em fábrica (FAT)',
     inputs: [
@@ -175,7 +175,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   ko: {
-    headingInputs: '정확한 견적을 위한 필수 정보',
+    headingInputs: '정확한 소싱 평가를 위한 필수 정보',
     headingPitfalls: '자주 발생하는 문제(주로 어디서 막히는지)',
     headingFAT: '출하 전 공장 시험(FAT) 체크리스트',
     inputs: [
@@ -202,7 +202,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   ja: {
-    headingInputs: '正確な見積に必要な情報',
+    headingInputs: '正確な調達評価に必要な情報',
     headingPitfalls: 'よくある失敗点（詰まりやすいところ）',
     headingFAT: '出荷前工場試験（FAT）チェック項目',
     inputs: [
@@ -229,7 +229,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   ar: {
-    headingInputs: 'معلومات نحتاجها لعرض سعر دقيق',
+    headingInputs: 'معلومات نحتاجها لتقييم توريد دقيق',
     headingPitfalls: 'أخطاء شائعة (أين تحدث المشكلة عادة)',
     headingFAT: 'قائمة فحص اختبار المصنع (FAT)',
     inputs: [
@@ -256,7 +256,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   th: {
-    headingInputs: 'ข้อมูลที่ต้องใช้เพื่อเสนอราคาให้แม่นยำ',
+    headingInputs: 'ข้อมูลที่ต้องใช้เพื่อประเมินให้แม่นยำ',
     headingPitfalls: 'จุดที่มักพลาด (ปัญหาที่เจอบ่อย)',
     headingFAT: 'เช็กลิสต์ทดสอบโรงงาน (FAT)',
     inputs: [
@@ -283,7 +283,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   vi: {
-    headingInputs: 'Thông tin cần để báo giá chính xác',
+    headingInputs: 'Thông tin cần để đánh giá chính xác',
     headingPitfalls: 'Lỗi thường gặp (hay vướng ở đâu)',
     headingFAT: 'Checklist chạy thử tại nhà máy (FAT)',
     inputs: [
@@ -310,7 +310,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   de: {
-    headingInputs: 'Daten für ein präzises Angebot',
+    headingInputs: 'Daten für eine präzise Bewertung',
     headingPitfalls: 'Typische Fehlerquellen',
     headingFAT: 'Checkliste Werksabnahme (FAT)',
     inputs: [
@@ -358,4 +358,3 @@ export function getResourceBoostSections(slug: string, lang: Lang): ResourceSect
 
   return s
 }
-

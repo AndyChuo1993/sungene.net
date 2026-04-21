@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FAT Acceptance Checklist Template</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+      h1, h2, h3 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+      pre { background: #111; color: #eee; padding: 12px; white-space: pre-wrap; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>FAT Acceptance Checklist Template</h1>
+    <p class="muted">Use this to define test conditions, sampling, deviations, and the document package before shipment.</p>
+
+    <h2>1) Define test conditions</h2>
+    <table>
+      <tr><th>Item</th><th>Fill in</th></tr>
+      <tr><td>Test product</td><td>Real product / approved substitute / TBD</td></tr>
+      <tr><td>Packaging/container spec</td><td>___</td></tr>
+      <tr><td>Fill target + range</td><td>___</td></tr>
+      <tr><td>Target output</td><td>___ units/min</td></tr>
+      <tr><td>Test duration</td><td>___ minutes continuous</td></tr>
+      <tr><td>Utilities</td><td>Voltage/Hz/air conditions</td></tr>
+      <tr><td>Operators</td><td>Who operates during FAT</td></tr>
+    </table>
+
+    <h2>2) Run plan</h2>
+    <ul>
+      <li>Warm-up run to stabilize feeding and sealing.</li>
+      <li>Low / medium / high speed points (if applicable).</li>
+      <li>Long-run test at target speed to validate drift and downtime.</li>
+      <li>Changeover test with one real operator.</li>
+    </ul>
+
+    <table>
+      <tr><th>Step</th><th>Speed</th><th>Duration</th><th>What to record</th></tr>
+      <tr><td>Warm-up</td><td>___</td><td>___ min</td><td>Video + parameters</td></tr>
+      <tr><td>Low speed</td><td>___</td><td>___ min</td><td>Samples + defects</td></tr>
+      <tr><td>Target speed</td><td>___</td><td>___ min</td><td>Sampling plan + drift</td></tr>
+      <tr><td>Peak (optional)</td><td>___</td><td>___ min</td><td>Stability limits</td></tr>
+      <tr><td>Changeover</td><td>N/A</td><td>___ min</td><td>Time + steps + tools</td></tr>
+    </table>
+
+    <h2>3) Sampling plan</h2>
+    <ul>
+      <li>Sampling frequency: every ___ units, total ___ samples</li>
+      <li>Tolerance definition: ___ (e.g., 98% within ±X)</li>
+      <li>Reject categories: weight, seal, contamination, appearance, metal detection</li>
+    </ul>
+
+    <h2>4) Functional checklist</h2>
+    <ul>
+      <li>Safety guards installed and interlocks working</li>
+      <li>Start/stop and emergency stop verification</li>
+      <li>Sensors and alarms tested (jam, low product, door open)</li>
+      <li>Reject system tested (if included)</li>
+      <li>Coding/labeling integration tested (if included)</li>
+    </ul>
+
+    <h2>5) Deviation log (required)</h2>
+    <table>
+      <tr><th>#</th><th>Issue</th><th>Severity</th><th>Action</th><th>Retest result</th><th>Owner</th><th>Date</th></tr>
+      <tr><td>1</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+      <tr><td>2</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+    </table>
+
+    <h2>6) Handover document package (do not ship without it)</h2>
+    <ul>
+      <li>Manual (operation + maintenance)</li>
+      <li>Electrical schematic + wiring diagram</li>
+      <li>Pneumatic diagram (if applicable)</li>
+      <li>Spare parts list (part numbers + photos + recommended stock)</li>
+      <li>Settings / parameter sheet and backup</li>
+      <li>Final configuration list (options installed)</li>
+      <li>FAT report + sampling results + deviation log (closed) + videos</li>
+    </ul>
+
+    <h2>7) Acceptance statement</h2>
+    <pre>We accept shipment after FAT passes under the above conditions and all major deviations are closed. Remaining minor deviations: ___.
+Buyer representative: ___  Date: ___
+Supplier representative: ___  Date: ___</pre>
+  </body>
+</html>
+

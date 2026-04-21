@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FAT 驗收清單範本</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+      pre { background: #111; color: #eee; padding: 12px; white-space: pre-wrap; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>FAT 驗收清單範本</h1>
+    <p class="muted">把測試條件、抽樣、偏差與文件包寫清楚，出貨前先拿到可驗證的證據。</p>
+
+    <h2>1）測試條件</h2>
+    <table>
+      <tr><th>項目</th><th>填寫</th></tr>
+      <tr><td>測試產品</td><td>實際產品 / 核准替代品 / TBD</td></tr>
+      <tr><td>包材/容器規格</td><td>___</td></tr>
+      <tr><td>目標重量＋範圍</td><td>___</td></tr>
+      <tr><td>目標產能</td><td>___ 件/分</td></tr>
+      <tr><td>測試時間</td><td>連續運轉 ___ 分鐘</td></tr>
+      <tr><td>公用工程</td><td>電壓/頻率/氣源條件</td></tr>
+      <tr><td>操作人員</td><td>FAT 由誰操作</td></tr>
+    </table>
+
+    <h2>2）運轉計畫</h2>
+    <ul>
+      <li>暖機，讓供料與封口進入穩定狀態。</li>
+      <li>低/中/高速度點（若適用）。</li>
+      <li>目標速度長時間運轉，觀察漂移與停機風險。</li>
+      <li>換型測試（單一操作員）。</li>
+    </ul>
+
+    <table>
+      <tr><th>步驟</th><th>速度</th><th>時間</th><th>要記錄什麼</th></tr>
+      <tr><td>暖機</td><td>___</td><td>___ 分</td><td>影片＋參數</td></tr>
+      <tr><td>低速</td><td>___</td><td>___ 分</td><td>抽樣＋缺陷</td></tr>
+      <tr><td>目標速度</td><td>___</td><td>___ 分</td><td>抽樣計畫＋漂移</td></tr>
+      <tr><td>峰值（選擇）</td><td>___</td><td>___ 分</td><td>穩定性上限</td></tr>
+      <tr><td>換型</td><td>N/A</td><td>___ 分</td><td>時間＋步驟＋工具</td></tr>
+    </table>
+
+    <h2>3）抽樣計畫</h2>
+    <ul>
+      <li>抽樣頻率：每 ___ 件抽一次，共 ___ 筆</li>
+      <li>公差定義：___（例：98% 落在 ±X）</li>
+      <li>不良分類：重量、封口、污染、外觀、檢測/剔除</li>
+    </ul>
+
+    <h2>4）功能清單</h2>
+    <ul>
+      <li>安全護罩與連鎖正常</li>
+      <li>開停機與急停測試</li>
+      <li>感測器與警報（卡料、缺料、門開）測試</li>
+      <li>剔除系統測試（若含）</li>
+      <li>噴碼/貼標整合測試（若含）</li>
+    </ul>
+
+    <h2>5）偏差清單（必填）</h2>
+    <table>
+      <tr><th>#</th><th>問題</th><th>嚴重度</th><th>改善措施</th><th>複測結果</th><th>負責人</th><th>日期</th></tr>
+      <tr><td>1</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+      <tr><td>2</td><td>___</td><td>Minor/Major</td><td>___</td><td>Pass/Fail</td><td>___</td><td>___</td></tr>
+    </table>
+
+    <h2>6）交付文件包（沒有就不要出貨）</h2>
+    <ul>
+      <li>手冊（操作＋保養）</li>
+      <li>電控圖＋配線圖</li>
+      <li>氣路圖（若有）</li>
+      <li>備品清單（料號＋照片＋建議庫存）</li>
+      <li>參數/設定表與備份</li>
+      <li>最終配置清單（含選配）</li>
+      <li>FAT 報告＋抽樣結果＋偏差結案＋影片</li>
+    </ul>
+
+    <h2>7）驗收聲明</h2>
+    <pre>本次 FAT 依上述條件驗收通過，且所有重大偏差已結案，買方同意出貨。未結案之小偏差：___。
+買方代表：___  日期：___
+供應商代表：___  日期：___</pre>
+  </body>
+</html>
+

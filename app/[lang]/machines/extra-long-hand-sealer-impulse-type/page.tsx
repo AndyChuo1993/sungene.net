@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/02_Extra_Long_Hand_Sealer_Impulse_Type/Extra_Long_Hand_Sealer_Impulse_Type.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Extra Long Hand Sealer (Impulse Type) | 450–750mm Sealing Length',
-  cn: '特长手压式封口机 | 450-750mm封口长度',
-  zh: '特長手壓式封口機 | 450-750mm封口長度',
-  fr: 'Soudeuse à main extra-longue (impulsion) | 450–750 mm',
-  es: 'Selladora de mano extra larga (impulso) | 450–750 mm',
-  pt: 'Seladora manual extra longa (impulso) | 450–750 mm',
-  ko: '특장형 수동 임펄스 실러 | 450–750mm',
-  ja: '特長ハンドシーラー（インパルス式）| 450〜750mm',
-  ar: 'جهاز الختم اليدوي فائق الطول (نوع النبضة) | 450–750 مم',
-  th: 'เครื่องซีลมือยาวพิเศษ (แบบอิมพัลส์) | 450–750 มม.',
-  vi: 'Máy hàn tay siêu dài (loại xung) | 450–750mm',
-  de: 'Extra langes Handschweißgerät (Impulstyp) | 450–750 mm',
+  en: 'Extra-Long Sealing Configuration Route | Wide-Bag Control Planning',
+  cn: '超长封口配置路线 | 大袋封口控制规划',
+  zh: '超長封口配置路線 | 大袋封口控制規劃',
+  fr: 'Soudeuse à main extra longue | Sourcing pour sacs grand format',
+  es: 'Selladora de mano extra larga | Abastecimiento para bolsas grandes',
+  pt: 'Seladora manual extra longa | Sourcing para sacos de grande porte',
+  ko: '엑스트라 롱 수동 실러 | 대형 봉투 실링 기술 소싱',
+  ja: '超長尺ハンドシーラー | 大型袋シーリングの技術ソーシング',
+  ar: 'جهاز ختم يدوي طويل جدًا | التوريد التقني لختم الأكياس الكبيرة',
+  th: 'เครื่องซีลมือแบบยาวพิเศษ | การจัดซื้อเชิงเทคนิคสำหรับการซีลถุงขนาดใหญ่',
+  vi: 'Máy hàn tay cực dài | Đánh giá nguồn cung cho hàn túi khổ lớn',
+  de: 'Extra langes Handschweißgerät | Sourcing für große Beutelversiegelung',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Extra long impulse hand sealer for wide bags and oversized packaging. Sealing lengths 450mm, 600mm, and 750mm. Optional cutting knife. Compatible with LLDPE, PVC, OPP, PP, and POF films.',
-  cn: '特长脉冲手压封口机，适用于宽袋及大尺寸包装，封口长度450mm、600mm和750mm，可选配切刀，兼容LLDPE、PVC、OPP、PP及POF薄膜。',
-  zh: '特長脈衝手壓封口機，適用於寬袋及大尺寸包裝，封口長度450mm、600mm和750mm，可選配切刀，相容LLDPE、PVC、OPP、PP及POF薄膜。',
-  fr: 'Soudeuse à main à impulsion extra-longue pour grands sacs et emballages surdimensionnés. Longueurs 450, 600 et 750 mm. Couteau coupeur en option.',
-  es: 'Selladora de mano por impulso extra larga para bolsas anchas y embalajes grandes. Longitudes de sellado 450, 600 y 750 mm. Cuchilla cortadora opcional.',
-  pt: 'Seladora manual por impulso extra longa para sacos largos e embalagens grandes. Comprimentos 450, 600 e 750 mm. Faca de corte opcional.',
-  ko: '넓은 봉지 및 대형 포장용 특장형 임펄스 수동 실러. 실링 길이 450mm, 600mm, 750mm. 커팅 나이프 옵션.',
-  ja: '大型袋・大寸法包装向け特長インパルスハンドシーラー。封口長450・600・750mm。カッター付きオプションあり。',
-  ar: 'جهاز ختم يدوي بالنبضات فائق الطول للأكياس الواسعة والتغليف كبير الحجم. أطوال الختم 450 و600 و750 مم. خيار سكين القطع متاح.',
-  th: 'เครื่องซีลมือแบบอิมพัลส์ยาวพิเศษสำหรับถุงขนาดกว้างและบรรจุภัณฑ์ขนาดใหญ่ ความยาวซีล 450, 600, 750 มม. มีใบมีดตัดเป็นออพชัน',
-  vi: 'Máy hàn tay xung điện siêu dài cho túi rộng và bao bì cỡ lớn. Chiều dài hàn 450, 600 và 750mm. Tùy chọn dao cắt.',
-  de: 'Extra langes Impuls-Handschweißgerät für breite Beutel und übergroße Verpackungen. Schweißlängen 450, 600 und 750 mm. Optionales Schneidemesser.',
+  en: 'Extra-long sealing sourcing support: verify heat consistency across wide widths, confirm film compatibility, and align acceptance/spare-part scope before approval.',
+  cn: '超长封口采购支持：验证宽幅加热一致性、确认膜材兼容，并在核准前对齐验收与备件范围。',
+  zh: '超長封口採購支援：驗證寬幅加熱一致性、確認膜材相容，並在核准前對齊驗收與備件範圍。',
+  fr: 'Sourcing professionnel pour soudeuses à main extra longues. Validation technique des longueurs 450–750 mm pour emballages industriels grand format.',
+  es: 'Abastecimiento profesional para selladoras de mano extra largas. Evaluación técnica para longitudes de 450–750 mm y empaques industriales sobredimensionados.',
+  pt: 'Sourcing profissional para seladoras manuais extra longas. Validação técnica para comprimentos de 450–750 mm e embalagens industriais de grande porte.',
+  ko: '엑스트라 롱 임펄스 수동 실러 전문 소싱. 넓은 봉투 및 대형 산업용 포장의 일관된 실링을 보장하기 위해 450~750mm 실링 길이에 대한 기술 심사를 제공합니다.',
+  ja: '超長尺インパルスハンドシーラーの専門ソーシング。幅広袋や大型工業用包装の安定したシールを実現するため、450〜750mmの封口長に関する技術審査を提供します。',
+  ar: 'توريد احترافي لأجهزة ختم الأكياس اليدوية الطويلة جدًا. نحن نقدم تدقيقًا فنيًا لأطوال الختم من 450 إلى 750 مم لضمان ختم ثابت للأكياس العريضة.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับเครื่องซีลมือแบบยาวพิเศษ เราให้บริการตรวจสอบทางเทคนิคสำหรับความยาวซีล 450-750 มม. เพื่อความสม่ำเสมอในการซีลถุงขนาดใหญ่พิเศษ',
+  vi: 'Nguồn cung chuyên nghiệp cho máy hàn tay xung điện cực dài. Thẩm định kỹ thuật cho chiều dài hàn 450–750mm để đảm bảo đường hàn ổn định cho túi khổ lớn.',
+  de: 'Professionelles Sourcing für extra lange Impuls-Handschweißgeräte. Technische Prüfung der 450–750 mm Schweißlängen für breite Beutel und Industrieverpackungen.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/extra-long-hand-sealer-impulse-type',
     type: 'website',
-    keywords: ['extra long hand sealer', 'long impulse sealer', 'wide bag sealer', 'large bag sealer', 'Wuu Sheng sealer', 'Taiwan impulse sealer'],
+    keywords: ['extra-long sealing configuration', 'wide-bag sealing consistency', 'film compatibility', 'acceptance checklist', 'spare parts planning', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -86,8 +87,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Wide bag sealing', 'Textile & fabric packaging', 'Industrial parts bags', 'Large food portions', 'Oversized retail packaging', 'Agricultural supplies', 'Construction materials', 'Export packaging'],
-    ctaTitle: 'Need an extra long sealer for wide-format bags? Contact us for pricing and lead time.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Dealing with oversized bags? Request a professional sourcing assessment for our extra long sealer range.',
+    ctaBtn: 'Get Sourcing Assessment',
   },
   cn: {
     kicker: '封口设备',
@@ -106,8 +107,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['宽袋封口', '纺织品包装', '工业零件袋', '大份量食品', '大型零售包装', '农业用品', '建材包装', '出口包装'],
-    ctaTitle: '需要为大宽袋配备特长封口机？联系我们获取报价与交期。',
-    ctaBtn: '获取报价',
+    ctaTitle: '处理超大尺寸包装袋？申请专业采购评估，了解我们的特长封口机系列。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '封口設備',
@@ -126,8 +127,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['寬袋封口', '紡織品包裝', '工業零件袋', '大份量食品', '大型零售包裝', '農業用品', '建材包裝', '出口包裝'],
-    ctaTitle: '需要為大寬袋配備特長封口機？聯繫我們獲取報價與交期。',
-    ctaBtn: '取得報價',
+    ctaTitle: '處理超大尺寸包裝袋？申請專業採購評估，了解我們的特長封口機系列。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'ÉQUIPEMENT DE SCELLAGE',
@@ -146,8 +147,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Scellage de grands sacs', 'Emballage textile', 'Sachets de pièces industrielles', 'Grandes portions alimentaires', 'Emballages retail grand format', 'Fournitures agricoles', 'Matériaux de construction', 'Emballage export'],
-    ctaTitle: 'Besoin d\'une soudeuse extra-longue pour grands sacs ? Contactez-nous pour un devis.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Vous traitez des sacs hors normes ? Demandez une évaluation de sourcing pour notre gamme extra longue.',
+    ctaBtn: 'Obtenir une évaluation',
   },
   es: {
     kicker: 'EQUIPO DE SELLADO',
@@ -166,8 +167,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Sellado de bolsas anchas', 'Embalaje textil', 'Bolsas de piezas industriales', 'Porciones grandes de alimentos', 'Embalaje retail gran formato', 'Suministros agrícolas', 'Materiales de construcción', 'Embalaje de exportación'],
-    ctaTitle: '¿Necesita una selladora extra larga para bolsas anchas? Contáctenos para precios y plazo de entrega.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Maneja bolsas de gran tamaño? Solicite una evaluación de abastecimiento para nuestra gama extra larga.',
+    ctaBtn: 'Obtener evaluación',
   },
   pt: {
     kicker: 'EQUIPAMENTO DE SELAGEM',
@@ -186,8 +187,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Selagem de sacos largos', 'Embalagem têxtil', 'Sacos para peças industriais', 'Grandes porções de alimentos', 'Embalagem retail grande formato', 'Insumos agrícolas', 'Materiais de construção', 'Embalagem de exportação'],
-    ctaTitle: 'Precisa de uma seladora extra longa para sacos largos? Entre em contato para preços e prazo.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Trabalha com sacos de grandes dimensões? Peça uma avaliação de sourcing para nossa linha extra longa.',
+    ctaBtn: 'Obter avaliação',
   },
   ko: {
     kicker: '실링 장비',
@@ -206,8 +207,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['대형 봉지 실링', '섬유·직물 포장', '공업용 부품 백', '대용량 식품', '대형 소매 포장', '농자재', '건축자재 포장', '수출 포장'],
-    ctaTitle: '넓은 봉지용 특장형 실러가 필요하신가요? 가격 및 납기 문의 주세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '대형 봉투를 처리하시나요? 엑스트라 롱 실러 제품군에 대한 전문 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 받기',
   },
   ja: {
     kicker: 'シーリング機器',
@@ -226,8 +227,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['大型袋の封口', '繊維・布地の包装', '工業部品袋', '大容量食品', '大型小売包装', '農業資材', '建材包装', '輸出向け包装'],
-    ctaTitle: '大型袋向け特長シーラーをお探しですか？価格・納期はお気軽にお問い合わせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '大型袋の封口でお困りですか？超長尺シーラーシリーズの専門ソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'معدات الختم',
@@ -246,8 +247,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['ختم الأكياس الواسعة', 'تغليف المنسوجات', 'أكياس القطع الصناعية', 'كميات غذائية كبيرة', 'تغليف تجزئة كبير الحجم', 'مستلزمات زراعية', 'مواد البناء', 'تغليف التصدير'],
-    ctaTitle: 'هل تحتاج جهاز ختم فائق الطول للأكياس الواسعة؟ تواصل معنا للحصول على الأسعار.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تتعامل مع أكياس ذات أحجام ضخمة؟ اطلب تقييم توريد لمجموعتنا الطويلة جدًا.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'อุปกรณ์ซีล',
@@ -266,8 +267,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['ซีลถุงขนาดกว้าง', 'บรรจุภัณฑ์สิ่งทอ', 'ถุงชิ้นส่วนอุตสาหกรรม', 'อาหารปริมาณมาก', 'บรรจุภัณฑ์ค้าปลีกขนาดใหญ่', 'วัสดุการเกษตร', 'วัสดุก่อสร้าง', 'บรรจุภัณฑ์ส่งออก'],
-    ctaTitle: 'ต้องการเครื่องซีลยาวพิเศษสำหรับถุงขนาดกว้าง? ติดต่อเราเพื่อขอราคา',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'จัดการกับถุงขนาดใหญ่พิเศษอยู่ใช่ไหม? ขอรับการประเมินการจัดซื้อสำหรับกลุ่มเครื่องซีลยาวพิเศษของเรา',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'THIẾT BỊ DÁN KÍN',
@@ -286,8 +287,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Hàn túi rộng', 'Đóng gói dệt may', 'Túi linh kiện công nghiệp', 'Thực phẩm số lượng lớn', 'Bao bì bán lẻ khổ lớn', 'Vật tư nông nghiệp', 'Vật liệu xây dựng', 'Bao bì xuất khẩu'],
-    ctaTitle: 'Cần máy hàn siêu dài cho túi rộng? Liên hệ chúng tôi để báo giá.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Đang xử lý các loại túi quá khổ? Nhận đánh giá nguồn cung cho dòng máy hàn cực dài của chúng tôi.',
+    ctaBtn: 'Nhận đánh giá nguồn cung',
   },
   de: {
     kicker: 'VERSIEGELUNGSGERÄTE',
@@ -306,8 +307,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Versiegeln breiter Beutel', 'Textilverpackung', 'Industrieteile-Säcke', 'Große Lebensmittelportionen', 'Großformat-Retailverpackung', 'Agrarversorgung', 'Baumaterialien', 'Exportverpackung'],
-    ctaTitle: 'Benötigen Sie ein extra langes Schweißgerät für breite Beutel? Kontaktieren Sie uns für ein Angebot.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Haben Sie es mit übergroßen Beuteln zu tun? Fordern Sie eine Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -412,6 +413,8 @@ export default async function ExtraLongHandSealerPage({ params }: { params: Prom
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

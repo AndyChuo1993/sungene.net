@@ -15,37 +15,38 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
-import QuickQuote from '@/components/QuickQuote'
+import QuickAssessment from '@/components/QuickAssessment'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Snack & Food Processing Lines — Frying, Roasting, Seasoning & Packaging',
-  cn: '休闲食品与食品加工线 — 油炸、烘烤、调味与包装',
-  zh: '休閒食品與食品加工線 — 油炸、烘烤、調味與包裝',
+  en: 'Food Processing Line Configuration Route — Frying, Roasting, Seasoning & Packaging',
+  cn: '食品加工整线配置路线 — 油炸、烘烤、调味与包装',
+  zh: '食品加工整線配置路線 — 油炸、烘烤、調味與包裝',
   fr: 'Lignes de transformation des snacks et aliments — Friture, Torréfaction, Assaisonnement & Emballage',
   es: 'Líneas de procesamiento de snacks y alimentos — Fritura, Tostado, Condimentación y Empaque',
   pt: 'Linhas de processamento de snacks e alimentos — Fritura, Torrefação, Tempero e Embalagem',
   ko: '스낵 및 식품 가공 라인 — 튀김, 로스팅, 시즈닝 및 포장',
   ja: 'スナック・食品加工ライン — フライ、ロースト、調味・包装',
   ar: 'خطوط معالجة الوجبات الخفيفة والأغذية — القلي، التحميص، التتبيل والتعبئة',
-  th: 'สายการผลิตขนมขบเคี้ยวและอาหาร — ทอด, อบ, ปรุงรส และบรรจุภัณฑ์',
+  th: 'ไลน์แปรรูปขนมขบเคี้ยวและอาหาร — ทอด, อบ, ปรุงรส และบรรจุภัณฑ์',
   vi: 'Dây chuyền chế biến snack và thực phẩm — Chiên, Rang, Ướp gia vị và Đóng gói',
   de: 'Snack- und Lebensmittelverarbeitungslinien — Frittieren, Rösten, Würzen & Verpacken',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Snack and food processing lines: continuous fryers, roasters, seasoning systems, cooling conveyors, multi-head weighers, and integrated packaging. For chips, nuts, snacks, and pet food.',
-  cn: '休闲食品与食品加工线：连续油炸机、烘烤机、调味系统、冷却输送、多头秤与整合包装。适用于薯片、坚果、零食与宠物食品。',
-  zh: '休閒食品與食品加工線：連續油炸機、烘烤機、調味系統、冷卻輸送、多頭秤與整合包裝。適用於薯片、堅果、零食與寵物食品。',
+  en: 'Food processing line sourcing support: define process flow and hygiene/utility requirements, align layout and integration scope, and lock FAT acceptance criteria before approval.',
+  cn: '食品加工整线采购支持：定义制程与卫生/公用工程需求，对齐布局与整合范围，并在核准前锁定 FAT 验收标准。',
+  zh: '食品加工整線採購支援：定義製程與衛生/公用工程需求，對齊佈局與整合範圍，並在核准前鎖定 FAT 驗收標準。',
   fr: 'Lignes de transformation snacks/aliments : friteuses continues, torréfaction, assaisonnement, convoyeurs de refroidissement, peseuses multi-têtes et emballage intégré. Pour chips, noix, snacks, pet food.',
   es: 'Líneas de procesamiento: freidoras continuas, tostado, condimentación, enfriamiento, pesadoras multicabezal y empaque integrado. Para chips, frutos secos, snacks y pet food.',
   pt: 'Linhas de processamento: fritadeiras contínuas, torrefação, tempero, resfriamento, pesadoras multicabeçote e embalagem integrada. Para chips, nozes, snacks e pet food.',
   ko: '스낵/식품 가공 라인: 연속 튀김기, 로스팅, 시즈닝, 냉각 컨베이어, 멀티헤드 계량, 통합 포장. 칩·견과·스낵·펫푸드에 적용.',
   ja: 'スナック・食品加工ライン：連続フライヤー、焙煎、調味、冷却搬送、マルチヘッド計量、包装まで一体化。チップス、ナッツ、スナック、ペットフード向け。',
   ar: 'خطوط معالجة للوجبات الخفيفة والأغذية: قلايات مستمرة، تحميص، تتبيل، سيور تبريد، موازين متعددة الرؤوس وتعبئة مدمجة. لرقائق البطاطس والمكسرات والسناكات وأغذية الحيوانات الأليفة.',
-  th: 'สายการผลิตขนมขบเคี้ยว/อาหาร: เครื่องทอดต่อเนื่อง เครื่องอบ ระบบปรุงรส ระบบทำความเย็น เครื่องชั่งหลายหัว และบรรจุภัณฑ์แบบรวม เหมาะกับมันฝรั่งทอด ถั่ว ขนม และอาหารสัตว์เลี้ยง',
+  th: 'ไลน์แปรรูปขนมขบเคี้ยว/อาหาร: เครื่องทอดต่อเนื่อง เครื่องอบ ระบบปรุงรส ระบบทำความเย็น เครื่องชั่งหลายหัว และบรรจุภัณฑ์แบบรวม เหมาะกับมันฝรั่งทอด ถั่ว ขนม และอาหารสัตว์เลี้ยง',
   vi: 'Dây chuyền chế biến snack/thực phẩm: máy chiên liên tục, máy rang, hệ thống ướp gia vị, băng tải làm nguội, cân nhiều đầu và đóng gói tích hợp. Cho chips, hạt, snack và thức ăn thú cưng.',
   de: 'Snack- und Lebensmittelverarbeitungslinien: Durchlauffriteusen, Röstmaschinen, Würzsysteme, Kühlförderer, Mehrkopfwaagen und integrierte Verpackung. Für Chips, Nüsse, Snacks und Pet Food.',
 }
@@ -60,9 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/machines/snack-processing-line',
     type: 'website',
     keywords: [
-      'snack processing line', 'continuous fryer', 'food processing line', 'roasting machine',
-      'seasoning tumbler', 'snack production line', 'potato chip line', 'nut roasting',
-      'VFFS multi-head weigher', 'Taiwan snack machine',
+      'food processing line configuration', 'process flow planning', 'hygiene utility requirements', 'line integration scope',
+      'FAT acceptance criteria', 'supplier vetting', 'commissioning readiness', 'spare parts planning',
+      'snack processing configuration', 'seasoning system integration',
     ],
   })
 }
@@ -112,14 +113,14 @@ const content: Record<string, PageContent> = {
   en: {
     kicker: 'SNACK & FOOD PROCESSING',
     heroTitle: 'Snack & Food Processing Lines — From Raw Material to Finished Package',
-    heroSubtitle: 'SunGene designs and manufactures complete snack processing lines covering frying, roasting, seasoning, cooling, weighing, and packaging. We configure the line to your product type, output target, and facility layout.',
+    heroSubtitle: 'SunGene supports complete snack processing line planning—covering frying, roasting, seasoning, cooling, weighing, and packaging. We configure the route to your product type, output target, and facility layout.',
 
     whoTitle: "Who It's For",
     whoItems: [
-      { title: 'Snack Manufacturers', desc: 'Potato chips, extruded snacks, puffed corn, crackers, fried dough — continuous or batch processing lines.' },
+      { title: 'Snack Producers', desc: 'Potato chips, extruded snacks, puffed corn, crackers, fried dough — continuous or batch processing lines.' },
       { title: 'Nut Roasters & Processors', desc: 'Peanuts, almonds, cashews, sunflower seeds — roasting drum or oven lines with seasoning and packaging.' },
       { title: 'Pet Food Producers', desc: 'Dry kibble, baked treats, and freeze-dried snacks — food-grade processing with hygienic design.' },
-      { title: 'Emerging Snack Brands', desc: 'Scaling up from batch to continuous processing — we design lines that grow with your production volume.' },
+      { title: 'Emerging Snack Brands', desc: 'Scaling up from batch to continuous processing — we design lines that grow with your throughput target.' },
     ],
 
     productsTitle: 'Products We Process',
@@ -135,7 +136,7 @@ const content: Record<string, PageContent> = {
     packagingItems: [
       { label: 'Processing capacity', value: 'From 100 kg/hr pilot lines to 2,000 kg/hr commercial lines' },
       { label: 'Packaging output', value: '20–120 bags/min depending on bag format and weigher configuration' },
-      { label: 'Line length', value: 'Configurable — we design to fit your factory floor plan' },
+      { label: 'Line length', value: 'Configurable — we design to fit your site layout' },
       { label: 'Automation', value: 'Semi-automatic (operator-monitored) to fully continuous PLC-controlled' },
     ],
     packagingNote: 'Line capacity and automation level are fully configurable — we design around your target output, product, and available investment.',
@@ -143,7 +144,7 @@ const content: Record<string, PageContent> = {
     configurationsTitle: 'Available Configurations',
     configurations: [
       { name: 'Continuous Fryer', desc: 'Oil temperature controlled by PLC. Adjustable belt speed for cook time control. Single or double-belt. Oil filtration system available. 100–2,000 kg/hr.' },
-      { name: 'Batch Fryer', desc: 'Smaller capacity, lower investment. Manual or semi-auto. For pilot production or specialty products.' },
+      { name: 'Batch Fryer', desc: 'Smaller capacity, lower investment. Manual or semi-auto. For pilot runs or specialty products.' },
       { name: 'Roasting Oven / Rotary Drum Roaster', desc: 'For nuts, seeds, and dry roasted products. Gas or electric heat. Continuous or batch.' },
       { name: 'Seasoning Tumbler / Drum', desc: 'Applies flavoring powder or oil coating to finished snack. Stainless drum with spray system. Adjustable rotation speed.' },
       { name: 'Cooling Conveyor (Mesh Belt)', desc: 'After frying or baking — ambient or forced-air cooling to reduce product temperature before packaging.' },
@@ -204,8 +205,8 @@ const content: Record<string, PageContent> = {
         a: 'Partially. The fryer and cooling conveyor can handle both, but the seasoning system (drum size, spray rate) and packaging (weigher size, bag format) may need adjustment. We design for a primary product and specify what adaptations are needed for secondary products.',
       },
       {
-        q: 'What information do I need to provide to get a quote for a snack line?',
-        a: 'Product type (potato chip, nut, extruded snack, etc.), target output (kg/hr), packaging format and output speed, available floor space dimensions, country/voltage, and whether you need a complete line or specific equipment. Use our recommendation form for the fastest response.',
+        q: 'What information do I need to provide to get a sourcing assessment for a snack line?',
+        a: 'Product type (potato chip, nut, extruded snack, etc.), target output (kg/hr), packaging format and output speed, available floor space dimensions, country/voltage, and whether you need a complete line or specific equipment. Use our assessment request form for the fastest response.',
       },
     ],
 
@@ -214,11 +215,11 @@ const content: Record<string, PageContent> = {
       { label: 'Snack Packing Machine Guide', href: '/resources/snack-packing' },
       { label: 'Semi-Auto vs Full-Auto Packaging Line', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Food Processing Equipment Overview', href: '/machinery/food-processing' },
-      { label: 'Get a Machine Recommendation', href: '/recommend' },
+      { label: 'Get a Sourcing Assessment', href: '/assessment' },
     ],
 
     ctaTitle: 'Describe your snack product and target output — we\'ll configure the right processing line.',
-    ctaSubtitle: 'From batch fryers to complete 2,000 kg/hr continuous snack lines — we configure around your product, space, and production goals.',
+    ctaSubtitle: 'From batch fryers to complete 2,000 kg/hr continuous snack lines — we configure around your product, space, and throughput goals.',
     ctaBtn1: 'Get a Processing Line Recommendation',
     ctaBtn2: 'Talk to Engineering',
   },
@@ -226,14 +227,14 @@ const content: Record<string, PageContent> = {
   cn: {
     kicker: '休闲食品与食品加工',
     heroTitle: '休闲食品与食品加工线 — 从原材料到成品包装',
-    heroSubtitle: 'SunGene设计制造完整的休闲食品加工线，涵盖油炸、烘烤、调味、冷却、计量和包装全流程。我们根据您的产品类型、产量目标和厂房布局定制产线。',
+    heroSubtitle: 'SunGene 提供休闲食品加工线的选型、供货协调与整线整合支持，涵盖油炸、烘烤、调味、冷却、计量和包装全流程。我们根据您的产品类型、目标处理量与现场条件配置线体。',
 
     whoTitle: '适用客户',
     whoItems: [
-      { title: '休闲食品制造商', desc: '薯片、膨化食品、爆米花、饼干、油条——连续式或批次加工线。' },
-      { title: '坚果烘烤与加工商', desc: '花生、杏仁、腰果、葵花籽——烘烤滚筒或烤箱产线，配调味与包装。' },
+      { title: '休闲食品企业', desc: '薯片、膨化食品、爆米花、饼干、油条——连续式或批次加工线。' },
+      { title: '坚果烘烤与加工商', desc: '花生、杏仁、腰果、葵花籽——烘烤滚筒或烤箱线体，配调味与包装。' },
       { title: '宠物食品生产商', desc: '干粮、烘焙零食和冻干食品——食品级加工，卫生设计。' },
-      { title: '新兴零食品牌', desc: '从批次生产扩展至连续加工——我们设计可随产量增长而扩展的产线。' },
+      { title: '新兴零食品牌', desc: '从批次到连续加工——我们提供可随处理量目标扩展的线体配置方案。' },
     ],
 
     productsTitle: '我们加工的产品',
@@ -245,25 +246,25 @@ const content: Record<string, PageContent> = {
     ],
     productsNote: '加工方式（油炸、烘烤还是烘焙）取决于您的产品及最终口感要求。我们根据您的目标产品特性进行推荐。',
 
-    packagingTitle: '加工产量与规模选项',
+    packagingTitle: '处理量与规模选项',
     packagingItems: [
-      { label: '加工产能', value: '从100千克/小时试产线到2,000千克/小时商业线' },
+      { label: '处理量范围', value: '从100千克/小时试产到2,000千克/小时商业线体' },
       { label: '包装产量', value: '20–120袋/分钟，取决于袋型和计量秤配置' },
-      { label: '产线长度', value: '可配置——我们根据您的厂房平面图进行设计' },
+      { label: '线体长度', value: '可配置——我们根据您的场地平面图进行规划' },
       { label: '自动化程度', value: '半自动（操作员监控）到全连续PLC控制' },
     ],
-    packagingNote: '产线产能和自动化程度完全可配置——我们围绕您的目标产量、产品和可用投资进行设计。',
+    packagingNote: '线体处理量和自动化程度完全可配置——我们围绕您的处理量目标、产品和可用投资进行规划与整合。',
 
     configurationsTitle: '可用配置',
     configurations: [
       { name: '连续油炸机', desc: 'PLC控制油温。可调节皮带速度以控制烹饪时间。单层或双层皮带。可配油过滤系统。100–2,000千克/小时。' },
-      { name: '批次油炸机', desc: '产能较小，投资较低。手动或半自动。适用于试产或特色产品。' },
+      { name: '批次油炸机', desc: '处理量较小，投资较低。手动或半自动。适用于试产或特色产品。' },
       { name: '烤箱/旋转滚筒烘烤机', desc: '适用于坚果、种子和干烤产品。燃气或电加热。连续式或批次式。' },
       { name: '调味滚筒/转鼓', desc: '将调味粉或油脂涂层施加到成品零食上。不锈钢滚筒配喷涂系统。可调转速。' },
       { name: '冷却输送机（网带）', desc: '油炸或烘焙后——常温或强制风冷，降低产品包装前的温度。' },
       { name: '多头秤+VFFS', desc: '高速组合计量秤+立式成型-充填-封口机，用于枕型袋包装。40–120袋/分钟。' },
       { name: '油脂过滤与回收系统', desc: '延长食用油使用寿命，保持产品质量。连续过滤并带温度监控。' },
-      { name: '完整整合产线', desc: '从原料投入，经油炸/烘烤/调味/冷却/计量/包装的全线——PLC/HMI控制。' },
+      { name: '完整整合线体', desc: '从原料投入，经油炸/烘烤/调味/冷却/计量/包装的全线体——PLC/HMI控制。' },
     ],
 
     decisionsTitle: '关键决策因素',
@@ -293,13 +294,13 @@ const content: Record<string, PageContent> = {
       '日期打码机',
       '装箱机',
     ],
-    integrationFooter: '并非所有步骤都适用于每种产品。我们根据您的具体产品和加工需求配置产线。',
+    integrationFooter: '并非所有步骤都适用于每种产品。我们根据您的具体产品和加工需求配置线体方案。',
 
     faqTitle: '常见问题',
     faq: [
       {
         q: '我可以先只购买油炸机，之后再添加包装设备吗？',
-        a: '可以。我们设计可分阶段扩展的产线。您可以先从核心烹饪设备入手，随着产量增长再添加调味机、冷却机和包装机。我们确保机器接口兼容未来整合。',
+        a: '可以。我们提供可分阶段扩展的线体方案。您可以先从核心烹饪设备入手，随着处理量目标增长再添加调味机、冷却机和包装机。我们确保接口与控制逻辑便于后续整合。',
       },
       {
         q: '连续油炸机与批次油炸机有什么区别？',
@@ -314,12 +315,12 @@ const content: Record<string, PageContent> = {
         a: '对于产量超过200千克/小时的连续油炸线，我们推荐配备精密过滤器（20–50微米）和颗粒清除输送机的连续过滤装置。这可将食用油使用寿命延长30–50%，并保持产品色泽一致性。',
       },
       {
-        q: '同一条产线可以同时处理薯片和膨化零食吗？',
+        q: '同一条线体可以同时处理薯片和膨化零食吗？',
         a: '部分可以。油炸机和冷却输送机可以处理这两种产品，但调味系统（滚筒尺寸、喷涂速率）和包装（计量秤尺寸、袋型）可能需要调整。我们针对主产品进行设计，并说明处理辅助产品所需的改动。',
       },
       {
-        q: '获取零食产线报价需要提供哪些信息？',
-        a: '产品类型（薯片、坚果、膨化零食等）、目标产量（千克/小时）、包装格式和产量速度、可用厂房尺寸、国家/电压，以及是否需要完整产线或特定设备。使用我们的推荐表单可获得最快响应。',
+        q: '获取零食线体整合评估与建议需要提供哪些信息？',
+        a: '产品类型（薯片、坚果、膨化零食等）、目标处理量（千克/小时）、包装格式和目标速度、可用场地尺寸、国家/电压，以及是否需要完整线体或特定设备。使用我们的评估申请表单可获得最快响应。',
       },
     ],
 
@@ -328,26 +329,26 @@ const content: Record<string, PageContent> = {
       { label: '零食包装机指南', href: '/resources/snack-packing' },
       { label: '半自动与全自动包装线对比', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '食品加工设备概览', href: '/machinery/food-processing' },
-      { label: '获取机器推荐', href: '/recommend' },
+      { label: '获取评估', href: '/assessment' },
     ],
 
-    ctaTitle: '告诉我们您的零食产品和目标产量——我们来配置合适的加工线。',
-    ctaSubtitle: '从批次油炸机到完整2,000千克/小时连续零食生产线——我们根据您的产品、场地和生产目标进行配置。',
-    ctaBtn1: '获取加工线推荐',
+    ctaTitle: '告诉我们您的零食产品和目标处理量——我们来配置合适的加工线。',
+    ctaSubtitle: '从批次油炸机到完整2,000千克/小时连续零食加工线——我们根据您的产品、场地和处理量目标进行配置。',
+    ctaBtn1: '获取加工线评估',
     ctaBtn2: '联系工程团队',
   },
 
   zh: {
     kicker: '休閒食品與食品加工',
     heroTitle: '休閒食品與食品加工線 — 從原材料到成品包裝',
-    heroSubtitle: 'SunGene設計製造完整的休閒食品加工線，涵蓋油炸、烘烤、調味、冷卻、計量和包裝全流程。我們根據您的產品類型、產量目標和廠房佈局客製產線。',
+    heroSubtitle: 'SunGene 提供休閒食品加工線的選型、供貨協調與整線整合支援，涵蓋油炸、烘烤、調味、冷卻、計量和包裝全流程。我們根據您的產品類型、目標處理量與現場條件配置線體。',
 
     whoTitle: '適用客戶',
     whoItems: [
-      { title: '休閒食品製造商', desc: '薯片、膨化食品、爆米花、餅乾、油條——連續式或批次加工線。' },
-      { title: '堅果烘烤與加工商', desc: '花生、杏仁、腰果、葵花籽——烘烤滾筒或烤箱產線，配調味與包裝。' },
-      { title: '寵物食品生產商', desc: '乾糧、烘焙零食和凍乾食品——食品級加工，衛生設計。' },
-      { title: '新興零食品牌', desc: '從批次生產擴展至連續加工——我們設計可隨產量增長而擴展的產線。' },
+      { title: '休閒食品企業', desc: '薯片、膨化食品、爆米花、餅乾、油條——連續式或批次加工線。' },
+      { title: '堅果烘烤與加工商', desc: '花生、杏仁、腰果、葵花籽——烘烤滾筒或烤箱線體，配調味與包裝。' },
+      { title: '寵物食品企業', desc: '乾糧、烘焙零食和凍乾食品——食品級加工，衛生設計。' },
+      { title: '新興零食品牌', desc: '從批次到連續加工——我們提供可隨處理量目標擴展的線體配置方案。' },
     ],
 
     productsTitle: '我們加工的產品',
@@ -359,25 +360,25 @@ const content: Record<string, PageContent> = {
     ],
     productsNote: '加工方式（油炸、烘烤還是烘焙）取決於您的產品及最終口感要求。我們根據您的目標產品特性進行推薦。',
 
-    packagingTitle: '加工產量與規模選項',
+    packagingTitle: '處理量與規模選項',
     packagingItems: [
-      { label: '加工產能', value: '從100公斤/小時試產線到2,000公斤/小時商業線' },
+      { label: '處理量範圍', value: '從100公斤/小時試產到2,000公斤/小時商業線體' },
       { label: '包裝產量', value: '20–120袋/分鐘，取決於袋型和計量秤配置' },
-      { label: '產線長度', value: '可配置——我們根據您的廠房平面圖進行設計' },
+      { label: '線體長度', value: '可配置——我們根據您的場地平面圖進行規劃' },
       { label: '自動化程度', value: '半自動（操作員監控）到全連續PLC控制' },
     ],
-    packagingNote: '產線產能和自動化程度完全可配置——我們圍繞您的目標產量、產品和可用投資進行設計。',
+    packagingNote: '線體處理量和自動化程度完全可配置——我們圍繞您的處理量目標、產品和可用投資進行規劃與整合。',
 
     configurationsTitle: '可用配置',
     configurations: [
       { name: '連續油炸機', desc: 'PLC控制油溫。可調節皮帶速度以控制烹飪時間。單層或雙層皮帶。可配油過濾系統。100–2,000公斤/小時。' },
-      { name: '批次油炸機', desc: '產能較小，投資較低。手動或半自動。適用於試產或特色產品。' },
+      { name: '批次油炸機', desc: '處理量較小，投資較低。手動或半自動。適用於試產或特色產品。' },
       { name: '烤箱/旋轉滾筒烘烤機', desc: '適用於堅果、種子和乾烤產品。燃氣或電加熱。連續式或批次式。' },
       { name: '調味滾筒/轉鼓', desc: '將調味粉或油脂塗層施加到成品零食上。不鏽鋼滾筒配噴塗系統。可調轉速。' },
       { name: '冷卻輸送機（網帶）', desc: '油炸或烘焙後——常溫或強制風冷，降低產品包裝前的溫度。' },
       { name: '多頭秤+VFFS', desc: '高速組合計量秤+立式成型-充填-封口機，用於枕型袋包裝。40–120袋/分鐘。' },
       { name: '油脂過濾與回收系統', desc: '延長食用油使用壽命，保持產品品質。連續過濾並帶溫度監控。' },
-      { name: '完整整合產線', desc: '從原料投入，經油炸/烘烤/調味/冷卻/計量/包裝的全線——PLC/HMI控制。' },
+      { name: '完整整合線體', desc: '從原料投入，經油炸/烘烤/調味/冷卻/計量/包裝的全線體——PLC/HMI控制。' },
     ],
 
     decisionsTitle: '關鍵決策因素',
@@ -407,13 +408,13 @@ const content: Record<string, PageContent> = {
       '日期打碼機',
       '裝箱機',
     ],
-    integrationFooter: '並非所有步驟都適用於每種產品。我們根據您的具體產品和加工需求配置產線。',
+    integrationFooter: '並非所有步驟都適用於每種產品。我們根據您的具體產品和加工需求配置線體方案。',
 
     faqTitle: '常見問題',
     faq: [
       {
         q: '我可以先只購買油炸機，之後再添加包裝設備嗎？',
-        a: '可以。我們設計可分階段擴展的產線。您可以先從核心烹飪設備入手，隨著產量增長再添加調味機、冷卻機和包裝機。我們確保機器接口相容未來整合。',
+        a: '可以。我們提供可分階段擴展的線體方案。您可以先從核心烹飪設備入手，隨著處理量目標增長再添加調味機、冷卻機和包裝機。我們確保介面與控制邏輯便於後續整合。',
       },
       {
         q: '連續油炸機與批次油炸機有什麼區別？',
@@ -428,12 +429,12 @@ const content: Record<string, PageContent> = {
         a: '對於產量超過200公斤/小時的連續油炸線，我們推薦配備精密過濾器（20–50微米）和顆粒清除輸送機的連續過濾裝置。這可將食用油使用壽命延長30–50%，並保持產品色澤一致性。',
       },
       {
-        q: '同一條產線可以同時處理薯片和膨化零食嗎？',
+        q: '同一條線體可以同時處理薯片和膨化零食嗎？',
         a: '部分可以。油炸機和冷卻輸送機可以處理這兩種產品，但調味系統（滾筒尺寸、噴塗速率）和包裝（計量秤尺寸、袋型）可能需要調整。我們針對主產品進行設計，並說明處理輔助產品所需的改動。',
       },
       {
-        q: '取得零食產線報價需要提供哪些資訊？',
-        a: '產品類型（薯片、堅果、膨化零食等）、目標產量（公斤/小時）、包裝格式和產量速度、可用廠房尺寸、國家/電壓，以及是否需要完整產線或特定設備。使用我們的推薦表單可獲得最快回應。',
+        q: '取得零食線體整合評估與建議需要提供哪些資訊？',
+        a: '產品類型（薯片、堅果、膨化零食等）、目標處理量（公斤/小時）、包裝格式和目標速度、可用場地尺寸、國家/電壓，以及是否需要完整線體或特定設備。使用我們的評估申請表單可獲得最快回應。',
       },
     ],
 
@@ -442,26 +443,26 @@ const content: Record<string, PageContent> = {
       { label: '零食包裝機指南', href: '/resources/snack-packing' },
       { label: '半自動與全自動包裝線比較', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '食品加工設備概覽', href: '/machinery/food-processing' },
-      { label: '取得機器推薦', href: '/recommend' },
+      { label: '取得評估', href: '/assessment' },
     ],
 
-    ctaTitle: '告訴我們您的零食產品和目標產量——我們來配置合適的加工線。',
-    ctaSubtitle: '從批次油炸機到完整2,000公斤/小時連續零食生產線——我們根據您的產品、場地和生產目標進行配置。',
-    ctaBtn1: '取得加工線推薦',
+    ctaTitle: '告訴我們您的零食產品和目標處理量——我們來配置合適的加工線。',
+    ctaSubtitle: '從批次油炸機到完整2,000公斤/小時連續零食加工線——我們根據您的產品、場地和處理量目標進行配置。',
+    ctaBtn1: '取得加工線評估',
     ctaBtn2: '聯絡工程團隊',
   },
 
   fr: {
     kicker: 'TRANSFORMATION DES SNACKS ET ALIMENTS',
     heroTitle: 'Lignes de transformation des snacks et aliments — De la matière première à l\'emballage final',
-    heroSubtitle: 'SunGene conçoit et fabrique des lignes de transformation complètes pour snacks couvrant la friture, la torréfaction, l\'assaisonnement, le refroidissement, le pesage et l\'emballage. Nous configurons la ligne selon votre type de produit, votre capacité cible et votre aménagement d\'usine.',
+    heroSubtitle: 'SunGene conçoit, source et coordonne des lignes de transformation complètes pour snacks couvrant la friture, la torréfaction, l\'assaisonnement, le refroidissement, le pesage et l\'emballage. Nous configurons la ligne selon votre type de produit, votre débit cible et vos contraintes de site.',
 
     whoTitle: 'À qui s\'adresse cette solution',
     whoItems: [
-      { title: 'Fabricants de snacks', desc: 'Chips de pommes de terre, snacks extrudés, maïs soufflé, crackers, beignets — lignes de traitement continues ou par lots.' },
+      { title: 'Producteurs de snacks', desc: 'Chips de pommes de terre, snacks extrudés, maïs soufflé, crackers, beignets — lignes de traitement continues ou par lots.' },
       { title: 'Torréfacteurs et transformateurs de fruits à coque', desc: 'Cacahuètes, amandes, noix de cajou, graines de tournesol — lignes de torréfaction à tambour ou au four avec assaisonnement et emballage.' },
       { title: 'Producteurs d\'aliments pour animaux', desc: 'Croquettes sèches, friandises cuites et snacks lyophilisés — transformation aux normes alimentaires avec conception hygiénique.' },
-      { title: 'Marques de snacks émergentes', desc: 'Passage de la production par lots à la production continue — nous concevons des lignes qui évoluent avec votre volume de production.' },
+      { title: 'Marques de snacks émergentes', desc: 'Passage du lot au continu — nous concevons des lignes qui évoluent avec votre débit cible.' },
     ],
 
     productsTitle: 'Produits que nous transformons',
@@ -473,19 +474,19 @@ const content: Record<string, PageContent> = {
     ],
     productsNote: 'La méthode de transformation (friture, torréfaction ou cuisson) dépend de votre produit et de la texture finale souhaitée. Nous recommandons en fonction des caractéristiques de votre produit cible.',
 
-    packagingTitle: 'Capacité de production et options d\'échelle',
+    packagingTitle: 'Capacité / Débit et options d\'échelle',
     packagingItems: [
       { label: 'Capacité de traitement', value: 'De 100 kg/h pour les lignes pilotes à 2 000 kg/h pour les lignes commerciales' },
       { label: 'Cadence d\'emballage', value: '20–120 sachets/min selon le format de sachet et la configuration de la peseuse' },
       { label: 'Longueur de ligne', value: 'Configurable — nous concevons selon votre plan d\'usine' },
       { label: 'Automatisation', value: 'Semi-automatique (supervisé par opérateur) à entièrement continu piloté par PLC' },
     ],
-    packagingNote: 'La capacité de ligne et le niveau d\'automatisation sont entièrement configurables — nous concevons en fonction de votre production cible, de votre produit et de votre investissement disponible.',
+    packagingNote: 'La capacité de ligne et le niveau d\'automatisation sont entièrement configurables — nous concevons en fonction de votre débit cible, de votre produit et de votre investissement disponible.',
 
     configurationsTitle: 'Configurations disponibles',
     configurations: [
       { name: 'Friteuse continue', desc: 'Température d\'huile régulée par PLC. Vitesse de tapis réglable pour contrôler le temps de cuisson. Tapis simple ou double. Système de filtration d\'huile disponible. 100–2 000 kg/h.' },
-      { name: 'Friteuse discontinue', desc: 'Capacité plus faible, investissement réduit. Manuelle ou semi-automatique. Pour la production pilote ou les produits spéciaux.' },
+      { name: 'Friteuse discontinue', desc: 'Capacité plus faible, investissement réduit. Manuelle ou semi-automatique. Pour des essais pilotes ou des produits spéciaux.' },
       { name: 'Four de torréfaction / Torréfacteur à tambour rotatif', desc: 'Pour les fruits à coque, les graines et les produits torréfiés à sec. Chauffage au gaz ou électrique. Continu ou par lots.' },
       { name: 'Tambour d\'assaisonnement', desc: 'Applique une poudre aromatisante ou un enrobage d\'huile sur le snack fini. Tambour inox avec système de pulvérisation. Vitesse de rotation réglable.' },
       { name: 'Convoyeur de refroidissement (bande à mailles)', desc: 'Après friture ou cuisson — refroidissement à l\'air ambiant ou forcé pour abaisser la température du produit avant emballage.' },
@@ -497,7 +498,7 @@ const content: Record<string, PageContent> = {
     decisionsTitle: 'Facteurs de décision clés',
     decisions: [
       { factor: 'Type de produit', guide: 'Pomme de terre/légume → friteuse. Fruits à coque/graines → tambour de torréfaction. Extrudé → four de cuisson + assaisonnement.' },
-      { factor: 'Volume de production', guide: '< 200 kg/h → équipement discontinu. 200–500 kg/h → ligne continue de petite taille. > 500 kg/h → ligne continue industrielle.' },
+      { factor: 'Débit cible', guide: '< 200 kg/h → équipement discontinu. 200–500 kg/h → ligne continue de petite taille. > 500 kg/h → ligne continue industrielle.' },
       { factor: 'Méthode de cuisson', guide: 'Friture profonde → friteuse. Torréfaction sèche → tambour ou four. Friture à l\'air/cuisson → four à convection.' },
       { factor: 'Gestion de l\'huile', guide: 'Friture à grand volume → système de filtration d\'huile continu indispensable pour maintenir la qualité et réduire les coûts.' },
       { factor: 'Format d\'emballage', guide: 'Sachets coussin → VFFS + peseuse multitêtes. Pochettes debout → machine à pochettes préformées. Vrac → sac à ouverture.' },
@@ -546,8 +547,8 @@ const content: Record<string, PageContent> = {
         a: 'En partie. La friteuse et le convoyeur de refroidissement peuvent traiter les deux, mais le système d\'assaisonnement (taille du tambour, débit de pulvérisation) et l\'emballage (taille de la peseuse, format de sachet) peuvent nécessiter des ajustements. Nous concevons pour un produit principal et précisons les adaptations nécessaires pour les produits secondaires.',
       },
       {
-        q: 'Quelles informations dois-je fournir pour obtenir un devis pour une ligne de snacks ?',
-        a: 'Type de produit (chips, fruits à coque, snack extrudé, etc.), production cible (kg/h), format d\'emballage et vitesse de production, dimensions de l\'espace disponible, pays/tension, et si vous avez besoin d\'une ligne complète ou d\'équipements spécifiques. Utilisez notre formulaire de recommandation pour une réponse rapide.',
+        q: 'Quelles informations dois-je fournir pour obtenir une évaluation de sourcing pour une ligne de snacks ?',
+        a: 'Type de produit (chips, fruits à coque, snack extrudé, etc.), débit cible (kg/h), format d\'emballage et cadence, dimensions de l\'espace disponible, pays/tension, et si vous avez besoin d\'une ligne complète ou d\'équipements spécifiques. Utilisez notre formulaire de demande d\'évaluation pour une réponse rapide.',
       },
     ],
 
@@ -556,11 +557,11 @@ const content: Record<string, PageContent> = {
       { label: 'Guide machines d\'emballage pour snacks', href: '/resources/snack-packing' },
       { label: 'Ligne semi-auto vs ligne entièrement automatisée', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Aperçu des équipements de transformation alimentaire', href: '/machinery/food-processing' },
-      { label: 'Obtenir une recommandation de machine', href: '/recommend' },
+      { label: 'Obtenir une évaluation', href: '/assessment' },
     ],
 
-    ctaTitle: 'Décrivez votre produit snack et votre production cible — nous configurerons la ligne de transformation adaptée.',
-    ctaSubtitle: 'Des friteuses discontinues aux lignes de snacks continues complètes à 2 000 kg/h — nous configurons selon votre produit, votre espace et vos objectifs de production.',
+    ctaTitle: 'Décrivez votre produit snack et votre débit cible — nous configurerons la ligne de transformation adaptée.',
+    ctaSubtitle: 'Des friteuses discontinues aux lignes de snacks continues complètes à 2 000 kg/h — nous configurons selon votre produit, votre espace et vos objectifs de débit.',
     ctaBtn1: 'Obtenir une recommandation de ligne',
     ctaBtn2: 'Contacter l\'ingénierie',
   },
@@ -660,8 +661,8 @@ const content: Record<string, PageContent> = {
         a: 'Parcialmente. La freidora y el transportador de enfriamiento pueden manejar ambos, pero el sistema de condimentación (tamaño del tambor, velocidad de aspersión) y el empaque (tamaño de la pesadora, formato de bolsa) pueden necesitar ajustes. Diseñamos para un producto principal y especificamos las adaptaciones necesarias para productos secundarios.',
       },
       {
-        q: '¿Qué información necesito proporcionar para obtener un presupuesto para una línea de snacks?',
-        a: 'Tipo de producto (papa frita, fruto seco, snack extrudido, etc.), producción objetivo (kg/h), formato de empaque y velocidad de producción, dimensiones del espacio disponible, país/voltaje, y si necesita una línea completa o equipos específicos. Use nuestro formulario de recomendación para la respuesta más rápida.',
+        q: '¿Qué información necesito proporcionar para obtener una evaluación de abastecimiento para una línea de snacks?',
+        a: 'Tipo de producto (papa frita, fruto seco, snack extrudido, etc.), producción objetivo (kg/h), formato de empaque y velocidad de producción, dimensiones del espacio disponible, país/voltaje, y si necesita una línea completa o equipos específicos. Use nuestro formulario de solicitud de evaluación para la respuesta más rápida.',
       },
     ],
 
@@ -670,12 +671,12 @@ const content: Record<string, PageContent> = {
       { label: 'Guía de máquinas envasadoras de snacks', href: '/resources/snack-packing' },
       { label: 'Línea semiautomática vs totalmente automática', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Descripción general de equipos de procesamiento de alimentos', href: '/machinery/food-processing' },
-      { label: 'Obtener una recomendación de máquina', href: '/recommend' },
+      { label: 'Obtener evaluación', href: '/assessment' },
     ],
 
     ctaTitle: 'Describa su producto snack y producción objetivo — configuraremos la línea de procesamiento adecuada.',
     ctaSubtitle: 'Desde freidoras por lotes hasta líneas continuas completas de 2.000 kg/h — configuramos según su producto, espacio y objetivos de producción.',
-    ctaBtn1: 'Obtener una recomendación de línea',
+    ctaBtn1: 'Obtener evaluación de línea',
     ctaBtn2: 'Hablar con ingeniería',
   },
 
@@ -774,8 +775,8 @@ const content: Record<string, PageContent> = {
         a: 'Parcialmente. A fritadeira e o transportador de resfriamento podem lidar com ambos, mas o sistema de tempero (tamanho do tambor, taxa de aspersão) e a embalagem (tamanho da pesadora, formato do saco) podem precisar de ajustes. Projetamos para um produto principal e especificamos as adaptações necessárias para produtos secundários.',
       },
       {
-        q: 'Quais informações preciso fornecer para obter um orçamento para uma linha de snacks?',
-        a: 'Tipo de produto (batata frita, castanha, snack extrudado, etc.), produção-alvo (kg/h), formato de embalagem e velocidade de produção, dimensões do espaço disponível, país/tensão, e se precisa de uma linha completa ou equipamentos específicos. Use nosso formulário de recomendação para a resposta mais rápida.',
+        q: 'Quais informações preciso fornecer para obter uma avaliação de sourcing para uma linha de snacks?',
+        a: 'Tipo de produto (batata frita, castanha, snack extrudado, etc.), produção-alvo (kg/h), formato de embalagem e velocidade de produção, dimensões do espaço disponível, país/tensão, e se precisa de uma linha completa ou equipamentos específicos. Use nosso formulário de solicitação de avaliação para a resposta mais rápida.',
       },
     ],
 
@@ -784,12 +785,12 @@ const content: Record<string, PageContent> = {
       { label: 'Guia de máquinas de embalagem de snacks', href: '/resources/snack-packing' },
       { label: 'Linha semiautomática vs totalmente automática', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Visão geral de equipamentos de processamento de alimentos', href: '/machinery/food-processing' },
-      { label: 'Obter uma recomendação de máquina', href: '/recommend' },
+      { label: 'Obter avaliação', href: '/assessment' },
     ],
 
     ctaTitle: 'Descreva seu produto snack e produção-alvo — configuraremos a linha de processamento certa.',
     ctaSubtitle: 'De fritadeiras em lotes a linhas contínuas completas de 2.000 kg/h — configuramos de acordo com seu produto, espaço e metas de produção.',
-    ctaBtn1: 'Obter uma recomendação de linha',
+    ctaBtn1: 'Obter avaliação de linha',
     ctaBtn2: 'Falar com engenharia',
   },
 
@@ -888,8 +889,8 @@ const content: Record<string, PageContent> = {
         a: '부분적으로 가능합니다. 튀김기와 냉각 컨베이어는 두 가지 모두 처리할 수 있지만, 시즈닝 시스템(드럼 크기, 분사 속도)과 포장(계량기 크기, 봉지 형식)은 조정이 필요할 수 있습니다. 기본 제품에 맞게 설계하고 보조 제품에 필요한 조정 사항을 명시합니다.',
       },
       {
-        q: '스낵 라인 견적을 받으려면 어떤 정보를 제공해야 하나요?',
-        a: '제품 유형(감자칩, 견과류, 압출 스낵 등), 목표 생산량(kg/hr), 포장 형식 및 생산 속도, 사용 가능한 공장 면적, 국가/전압, 완전한 라인 또는 특정 장비 필요 여부. 가장 빠른 응답을 위해 저희 추천 양식을 사용하세요.',
+        q: '스낵 라인 소싱 평가를 받으려면 어떤 정보를 제공해야 하나요?',
+        a: '제품 유형(감자칩, 견과류, 압출 스낵 등), 목표 생산량(kg/hr), 포장 형식 및 생산 속도, 사용 가능한 공장 면적, 국가/전압, 완전한 라인 또는 특정 장비 필요 여부. 가장 빠른 응답을 위해 소싱 평가 요청 양식을 사용하세요.',
       },
     ],
 
@@ -898,12 +899,12 @@ const content: Record<string, PageContent> = {
       { label: '스낵 포장기 가이드', href: '/resources/snack-packing' },
       { label: '반자동 vs 완전자동 포장라인 비교', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '식품 가공 장비 개요', href: '/machinery/food-processing' },
-      { label: '기계 추천 받기', href: '/recommend' },
+      { label: '평가 받기', href: '/assessment' },
     ],
 
     ctaTitle: '스낵 제품과 목표 생산량을 알려주세요 — 적합한 가공 라인을 구성해 드립니다.',
     ctaSubtitle: '배치 튀김기부터 2,000 kg/hr 완전 연속 스낵 라인까지 — 귀사의 제품, 공간 및 생산 목표에 맞춰 구성합니다.',
-    ctaBtn1: '가공 라인 추천 받기',
+    ctaBtn1: '가공 라인 평가 받기',
     ctaBtn2: '엔지니어링 팀 문의',
   },
 
@@ -1002,8 +1003,8 @@ const content: Record<string, PageContent> = {
         a: '部分的に可能です。フライヤーと冷却コンベアは両方に対応できますが、調味システム（ドラムサイズ、噴霧速度）と包装（計量機サイズ、バッグ形式）は調整が必要な場合があります。主製品に合わせて設計し、副製品に必要な調整を明示します。',
       },
       {
-        q: 'スナックラインの見積もりを取得するにはどのような情報が必要ですか？',
-        a: '製品タイプ（ポテトチップス、ナッツ、押出スナックなど）、目標生産量（kg/hr）、包装形式と生産速度、利用可能な床面積の寸法、国/電圧、完全なラインか特定の設備が必要かどうか。最も早い回答のためにレコメンデーションフォームをご利用ください。',
+        q: 'スナックラインのソーシング評価を取得するにはどのような情報が必要ですか？',
+        a: '製品タイプ（ポテトチップス、ナッツ、押出スナックなど）、目標生産量（kg/hr）、包装形式と生産速度、利用可能な床面積の寸法、国/電圧、完全なラインか特定の設備が必要かどうか。最速の回答を得るには、当社のソーシング評価依頼フォームをご利用ください。',
       },
     ],
 
@@ -1012,7 +1013,7 @@ const content: Record<string, PageContent> = {
       { label: 'スナック包装機ガイド', href: '/resources/snack-packing' },
       { label: '半自動vs全自動包装ラインの比較', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: '食品加工機器概要', href: '/machinery/food-processing' },
-      { label: '機械レコメンデーションを取得', href: '/recommend' },
+      { label: '機械レコメンデーションを取得', href: '/assessment' },
     ],
 
     ctaTitle: 'スナック製品と目標生産量をお知らせください — 適切な加工ラインを構成します。',
@@ -1116,8 +1117,8 @@ const content: Record<string, PageContent> = {
         a: 'جزئيًا. يمكن للقلاية وناقل التبريد التعامل مع كليهما، لكن نظام التتبيل (حجم الطبل، معدل الرش) والتعبئة (حجم الميزان، صيغة الكيس) قد يحتاجان إلى تعديل. نصمم لمنتج رئيسي ونحدد التكيفات المطلوبة للمنتجات الثانوية.',
       },
       {
-        q: 'ما المعلومات التي أحتاج تقديمها للحصول على عرض سعر لخط وجبات خفيفة؟',
-        a: 'نوع المنتج (رقائق البطاطس، المكسرات، الوجبات الخفيفة المبثوقة، إلخ)، هدف الإنتاج (كغ/ساعة)، صيغة التعبئة وسرعة الإنتاج، أبعاد المساحة المتاحة، البلد/الجهد الكهربائي، وما إذا كنت تحتاج خطًا كاملاً أو معدات محددة. استخدم نموذج التوصية للحصول على أسرع استجابة.',
+        q: 'ما المعلومات التي أحتاج تقديمها للحصول على تقييم توريد لخط وجبات خفيفة؟',
+        a: 'نوع المنتج (رقائق البطاطس، المكسرات، الوجبات الخفيفة المبثوقة، إلخ)، هدف الإنتاج (كغ/ساعة)، صيغة التعبئة وسرعة الإنتاج، أبعاد المساحة المتاحة، البلد/الجهد الكهربائي، وما إذا كنت تحتاج خطًا كاملاً أو معدات محددة. استخدم نموذج طلب التقييم للحصول على أسرع استجابة.',
       },
     ],
 
@@ -1126,7 +1127,7 @@ const content: Record<string, PageContent> = {
       { label: 'دليل آلات تعبئة الوجبات الخفيفة', href: '/resources/snack-packing' },
       { label: 'خط شبه أوتوماتيكي مقابل أوتوماتيكي بالكامل', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'نظرة عامة على معدات تجهيز الأغذية', href: '/machinery/food-processing' },
-      { label: 'الحصول على توصية آلة', href: '/recommend' },
+      { label: 'الحصول على توصية آلة', href: '/assessment' },
     ],
 
     ctaTitle: 'صف منتجك من الوجبات الخفيفة وهدف الإنتاج — سنكوّن خط المعالجة المناسب.',
@@ -1137,21 +1138,21 @@ const content: Record<string, PageContent> = {
 
   th: {
     kicker: 'การแปรรูปขนมขบเคี้ยวและอาหาร',
-    heroTitle: 'สายการผลิตขนมขบเคี้ยวและอาหาร — จากวัตถุดิบสู่บรรจุภัณฑ์สำเร็จรูป',
-    heroSubtitle: 'SunGene ออกแบบและผลิตสายการผลิตขนมขบเคี้ยวครบวงจรครอบคลุมการทอด อบ ปรุงรส ทำความเย็น ชั่งน้ำหนัก และบรรจุภัณฑ์ เราปรับแต่งสายการผลิตตามประเภทผลิตภัณฑ์ เป้าหมายกำลังผลิต และผังโรงงานของคุณ',
+    heroTitle: 'ไลน์แปรรูปขนมขบเคี้ยวและอาหาร — จากวัตถุดิบสู่บรรจุภัณฑ์สำเร็จรูป',
+    heroSubtitle: 'SunGene สนับสนุนการจัดหาและการบูรณาการไลน์แปรรูปขนมขบเคี้ยวแบบครบวงจร ครอบคลุมการทอด อบ ปรุงรส ทำความเย็น ชั่งน้ำหนัก และบรรจุภัณฑ์ เราปรับแต่งระบบตามประเภทผลิตภัณฑ์ เป้าหมาย throughput และผังหน้างานของคุณ',
 
     whoTitle: 'กลุ่มลูกค้าเป้าหมาย',
     whoItems: [
-      { title: 'ผู้ผลิตขนมขบเคี้ยว', desc: 'มันฝรั่งทอด ขนมขบเคี้ยวอัดรีด ข้าวโพดคั่ว แครกเกอร์ แป้งทอด — สายการผลิตแบบต่อเนื่องหรือแบบชุด' },
-      { title: 'ผู้คั่วและแปรรูปถั่ว', desc: 'ถั่วลิสง อัลมอนด์ เม็ดมะม่วงหิมพานต์ เมล็ดทานตะวัน — สายการผลิตคั่วด้วยดรัมหรือเตาอบพร้อมปรุงรสและบรรจุภัณฑ์' },
+      { title: 'ธุรกิจขนมขบเคี้ยว', desc: 'มันฝรั่งทอด ขนมขบเคี้ยวอัดรีด ข้าวโพดคั่ว แครกเกอร์ แป้งทอด — ไลน์แปรรูปแบบต่อเนื่องหรือแบบชุด' },
+      { title: 'ผู้คั่วและแปรรูปถั่ว', desc: 'ถั่วลิสง อัลมอนด์ เม็ดมะม่วงหิมพานต์ เมล็ดทานตะวัน — ไลน์คั่วด้วยดรัมหรือเตาอบพร้อมปรุงรสและบรรจุภัณฑ์' },
       { title: 'ผู้ผลิตอาหารสัตว์เลี้ยง', desc: 'อาหารเม็ดแห้ง ขนมอบ และขนมขบเคี้ยวแบบฟรีซดราย — การแปรรูประดับอาหารพร้อมการออกแบบที่ถูกสุขอนามัย' },
-      { title: 'แบรนด์ขนมขบเคี้ยวที่กำลังเติบโต', desc: 'ขยายจากการผลิตแบบชุดสู่การแปรรูปต่อเนื่อง — เราออกแบบสายการผลิตที่เติบโตตามปริมาณการผลิตของคุณ' },
+      { title: 'แบรนด์ขนมขบเคี้ยวที่กำลังเติบโต', desc: 'ขยายจากการผลิตแบบชุดสู่การแปรรูปต่อเนื่อง — เราวางแผนไลน์ที่เติบโตตามปริมาณการผลิตของคุณ' },
     ],
 
     productsTitle: 'ผลิตภัณฑ์ที่เราแปรรูป',
     productGroups: [
       { label: 'ขนมขบเคี้ยวทอด', items: ['มันฝรั่งทอด', 'กล้วยทอด', 'แท่งแป้งทอด', 'ขนมขบเคี้ยวอัดรีด', 'หนังหมูทอด'] },
-      { label: 'ผลิตภัณฑ์คั่ว', items: ['ถั่วลิสง', 'อัลมอนด์', 'เม็ดมะม่วงหิมพานต์', 'เมล็ดพืช', 'เมล็ดกาแฟ (สายการผลิตคั่ว)'] },
+      { label: 'ผลิตภัณฑ์คั่ว', items: ['ถั่วลิสง', 'อัลมอนด์', 'เม็ดมะม่วงหิมพานต์', 'เมล็ดพืช', 'เมล็ดกาแฟ (ไลน์คั่ว)'] },
       { label: 'เคลือบและปรุงรส', items: ['ชีสพัฟ', 'แครกเกอร์ปรุงรส', 'ถั่วเคลือบ', 'ชิปรสชาติ'] },
       { label: 'การแปรรูปอาหารอื่นๆ', items: ['ข้าวเกรียบกุ้ง', 'เต้าหู้ปลา', 'ชิปผัก', 'อาหารเม็ดสัตว์เลี้ยง'] },
     ],
@@ -1159,12 +1160,12 @@ const content: Record<string, PageContent> = {
 
     packagingTitle: 'กำลังผลิตและตัวเลือกขนาด',
     packagingItems: [
-      { label: 'กำลังการแปรรูป', value: 'ตั้งแต่สายการผลิตนำร่อง 100 กก./ชม. ถึงสายการผลิตเชิงพาณิชย์ 2,000 กก./ชม.' },
+      { label: 'กำลังการแปรรูป', value: 'ตั้งแต่ไลน์นำร่อง 100 กก./ชม. ถึงไลน์เชิงพาณิชย์ 2,000 กก./ชม.' },
       { label: 'กำลังผลิตบรรจุภัณฑ์', value: '20–120 ถุง/นาที ขึ้นอยู่กับรูปแบบถุงและการตั้งค่าเครื่องชั่ง' },
-      { label: 'ความยาวสายการผลิต', value: 'ปรับแต่งได้ — เราออกแบบให้เหมาะกับผังโรงงานของคุณ' },
+      { label: 'ความยาวไลน์', value: 'ปรับแต่งได้ — เราปรับให้เหมาะกับผังหน้างานของคุณ' },
       { label: 'ระบบอัตโนมัติ', value: 'กึ่งอัตโนมัติ (ผู้ควบคุมดูแล) ถึงแบบต่อเนื่องควบคุมด้วย PLC อย่างเต็มรูปแบบ' },
     ],
-    packagingNote: 'กำลังการผลิตและระดับอัตโนมัติของสายการผลิตปรับแต่งได้อย่างสมบูรณ์ — เราออกแบบตามกำลังผลิตเป้าหมาย ผลิตภัณฑ์ และการลงทุนที่มีอยู่',
+    packagingNote: 'กำลังการผลิตและระดับอัตโนมัติของไลน์ปรับแต่งได้อย่างสมบูรณ์ — เราปรับตาม throughput เป้าหมาย ผลิตภัณฑ์ และการลงทุนที่มีอยู่',
 
     configurationsTitle: 'การกำหนดค่าที่มีให้',
     configurations: [
@@ -1175,13 +1176,13 @@ const content: Record<string, PageContent> = {
       { name: 'สายพานลำเลียงทำความเย็น (สายพานตะแกรง)', desc: 'หลังการทอดหรืออบ — ทำความเย็นด้วยอากาศโดยรอบหรืออากาศบังคับเพื่อลดอุณหภูมิผลิตภัณฑ์ก่อนบรรจุภัณฑ์' },
       { name: 'เครื่องชั่งหลายหัว + VFFS', desc: 'เครื่องชั่งผสมความเร็วสูง + เครื่องขึ้นรูป-บรรจุ-ปิดผนึกแนวตั้งสำหรับบรรจุถุงแบบหมอน 40–120 ถุง/นาที' },
       { name: 'ระบบกรองและกู้คืนน้ำมัน', desc: 'ยืดอายุน้ำมันทอดและรักษาคุณภาพผลิตภัณฑ์ การกรองต่อเนื่องพร้อมตรวจสอบอุณหภูมิ' },
-      { name: 'สายการผลิตแบบบูรณาการครบวงจร', desc: 'สายการผลิตครบวงจรตั้งแต่วัตถุดิบผ่านการทอด/คั่ว/ปรุงรส/ทำความเย็น/ชั่งน้ำหนัก/บรรจุภัณฑ์ — ควบคุมด้วย PLC/HMI' },
+      { name: 'ไลน์แบบบูรณาการครบวงจร', desc: 'ไลน์ครบวงจรตั้งแต่วัตถุดิบผ่านการทอด/คั่ว/ปรุงรส/ทำความเย็น/ชั่งน้ำหนัก/บรรจุภัณฑ์ — ควบคุมด้วย PLC/HMI' },
     ],
 
     decisionsTitle: 'ปัจจัยการตัดสินใจหลัก',
     decisions: [
       { factor: 'ประเภทผลิตภัณฑ์', guide: 'มันฝรั่ง/ผัก → เครื่องทอด ถั่ว/เมล็ดพืช → ดรัมคั่ว อัดรีด → เตาอบ + ปรุงรส' },
-      { factor: 'ขนาดกำลังผลิต', guide: '< 200 กก./ชม. → อุปกรณ์แบบชุด 200–500 กก./ชม. → สายการผลิตต่อเนื่องขนาดเล็ก > 500 กก./ชม. → สายการผลิตต่อเนื่องระดับอุตสาหกรรม' },
+      { factor: 'ขนาดกำลังผลิต', guide: '< 200 กก./ชม. → อุปกรณ์แบบชุด 200–500 กก./ชม. → ไลน์ต่อเนื่องขนาดเล็ก > 500 กก./ชม. → ไลน์ต่อเนื่องระดับอุตสาหกรรม' },
       { factor: 'วิธีการทำอาหาร', guide: 'ทอดน้ำมันลึก → เครื่องทอด คั่วแห้ง → ดรัมหรือเตาอบ แอร์ฟราย/อบ → เตาอบแบบพาความร้อน' },
       { factor: 'การจัดการน้ำมัน', guide: 'ทอดปริมาณสูง → ระบบกรองน้ำมันต่อเนื่องจำเป็นเพื่อรักษาคุณภาพและลดต้นทุน' },
       { factor: 'รูปแบบบรรจุภัณฑ์', guide: 'ถุงแบบหมอน → VFFS + เครื่องชั่งหลายหัว ถุงตั้ง → เครื่องถุงสำเร็จรูป บัลค์ → ถุงปากเปิด' },
@@ -1189,7 +1190,7 @@ const content: Record<string, PageContent> = {
     ],
 
     integrationTitle: 'การบูรณาการกระบวนการ',
-    integrationDesc: 'สายการผลิตขนมขบเคี้ยวครบวงจรทั่วไป (ตัวอย่าง: ขนมขบเคี้ยวทอด):',
+    integrationDesc: 'ตัวอย่างไลน์แปรรูปขนมขบเคี้ยวแบบครบวงจร (เช่น: ขนมขบเคี้ยวทอด):',
     integrationSteps: [
       'ป้อนวัตถุดิบ',
       'ล้าง / ลวก',
@@ -1205,13 +1206,13 @@ const content: Record<string, PageContent> = {
       'เครื่องพิมพ์วันที่',
       'เครื่องบรรจุกล่อง',
     ],
-    integrationFooter: 'ไม่จำเป็นต้องทำทุกขั้นตอนสำหรับทุกผลิตภัณฑ์ เราปรับแต่งสายการผลิตตามผลิตภัณฑ์และข้อกำหนดการแปรรูปเฉพาะของคุณ',
+    integrationFooter: 'ไม่จำเป็นต้องทำทุกขั้นตอนสำหรับทุกผลิตภัณฑ์ เราปรับไลน์ตามผลิตภัณฑ์และข้อกำหนดการแปรรูปเฉพาะของคุณ',
 
     faqTitle: 'คำถามที่พบบ่อย',
     faq: [
       {
         q: 'ฉันสามารถเริ่มต้นด้วยเครื่องทอดอย่างเดียวแล้วเพิ่มบรรจุภัณฑ์ภายหลังได้ไหม?',
-        a: 'ได้ เราออกแบบสายการผลิตที่สามารถเติบโตได้เป็นระยะ คุณสามารถเริ่มต้นด้วยอุปกรณ์ทำอาหารหลักและเพิ่มเครื่องปรุงรส ทำความเย็น และบรรจุภัณฑ์เมื่อปริมาณการผลิตเพิ่มขึ้น เรารับประกันความเข้ากันได้ของอินเทอร์เฟซสำหรับการบูรณาการในอนาคต',
+        a: 'ได้ เราวางแผนไลน์ที่สามารถเติบโตได้เป็นระยะ คุณสามารถเริ่มต้นด้วยอุปกรณ์ทำอาหารหลักและเพิ่มเครื่องปรุงรส ทำความเย็น และบรรจุภัณฑ์เมื่อปริมาณการผลิตเพิ่มขึ้น เรารับประกันความเข้ากันได้ของอินเทอร์เฟซสำหรับการบูรณาการในอนาคต',
       },
       {
         q: 'ความแตกต่างระหว่างเครื่องทอดต่อเนื่องและเครื่องทอดแบบชุดคืออะไร?',
@@ -1226,26 +1227,26 @@ const content: Record<string, PageContent> = {
         a: 'สำหรับสายการทอดต่อเนื่องที่ผลิตมากกว่า 200 กก./ชม. เราแนะนำหน่วยกรองต่อเนื่องพร้อมฟิลเตอร์ละเอียด (20–50 ไมครอน) และสายพานกำจัดอนุภาค ซึ่งจะยืดอายุน้ำมัน 30–50% และรักษาความสม่ำเสมอของสีผลิตภัณฑ์',
       },
       {
-        q: 'สายการผลิตเดียวกันสามารถจัดการทั้งมันฝรั่งทอดและขนมขบเคี้ยวอัดรีดได้ไหม?',
+        q: 'ไลน์เดียวกันสามารถจัดการทั้งมันฝรั่งทอดและขนมขบเคี้ยวอัดรีดได้ไหม?',
         a: 'ได้บางส่วน เครื่องทอดและสายพานทำความเย็นสามารถรองรับได้ทั้งสอง แต่ระบบปรุงรส (ขนาดดรัม อัตราการฉีดพ่น) และบรรจุภัณฑ์ (ขนาดเครื่องชั่ง รูปแบบถุง) อาจต้องปรับ เราออกแบบสำหรับผลิตภัณฑ์หลักและระบุการปรับตัวที่จำเป็นสำหรับผลิตภัณฑ์รอง',
       },
       {
-        q: 'ฉันต้องให้ข้อมูลอะไรเพื่อรับใบเสนอราคาสายการผลิตขนมขบเคี้ยว?',
-        a: 'ประเภทผลิตภัณฑ์ (มันฝรั่งทอด ถั่ว ขนมขบเคี้ยวอัดรีด ฯลฯ) กำลังผลิตเป้าหมาย (กก./ชม.) รูปแบบบรรจุภัณฑ์และความเร็วผลิต ขนาดพื้นที่โรงงานที่มีอยู่ ประเทศ/แรงดันไฟฟ้า และต้องการสายการผลิตครบชุดหรืออุปกรณ์เฉพาะ ใช้แบบฟอร์มแนะนำของเราเพื่อรับการตอบสนองที่เร็วที่สุด',
+        q: 'ฉันต้องให้ข้อมูลอะไรเพื่อรับการประเมินการจัดหาและการบูรณาการไลน์แปรรูปขนมขบเคี้ยว?',
+        a: 'ประเภทผลิตภัณฑ์ (มันฝรั่งทอด ถั่ว ขนมขบเคี้ยวอัดรีด ฯลฯ) throughput เป้าหมาย (กก./ชม.) รูปแบบบรรจุภัณฑ์และความเร็วผลิต ขนาดพื้นที่หน้างานที่มีอยู่ ประเทศ/แรงดันไฟฟ้า และต้องการไลน์ครบชุดหรืออุปกรณ์เฉพาะ ใช้แบบฟอร์มขอรับการประเมินของเราเพื่อรับการตอบสนองที่เร็วที่สุด',
       },
     ],
 
     relatedTitle: 'แอปพลิเคชันและทรัพยากรที่เกี่ยวข้อง',
     relatedLinks: [
       { label: 'คู่มือเครื่องบรรจุของว่าง', href: '/resources/snack-packing' },
-      { label: 'สายการผลิตกึ่งอัตโนมัติ vs อัตโนมัติเต็มรูปแบบ', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
+      { label: 'ไลน์กึ่งอัตโนมัติ vs อัตโนมัติเต็มรูปแบบ', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'ภาพรวมอุปกรณ์แปรรูปอาหาร', href: '/machinery/food-processing' },
-      { label: 'รับคำแนะนำเครื่องจักร', href: '/recommend' },
+      { label: 'รับคำแนะนำเครื่องจักร', href: '/assessment' },
     ],
 
-    ctaTitle: 'บอกเราเกี่ยวกับผลิตภัณฑ์ขนมขบเคี้ยวและกำลังผลิตเป้าหมายของคุณ — เราจะกำหนดสายการผลิตที่เหมาะสม',
-    ctaSubtitle: 'ตั้งแต่เครื่องทอดแบบชุดไปจนถึงสายการผลิตขนมขบเคี้ยวต่อเนื่องครบวงจร 2,000 กก./ชม. — เราปรับแต่งตามผลิตภัณฑ์ พื้นที่ และเป้าหมายการผลิตของคุณ',
-    ctaBtn1: 'รับคำแนะนำสายการผลิต',
+    ctaTitle: 'บอกเราเกี่ยวกับผลิตภัณฑ์ขนมขบเคี้ยวและ throughput เป้าหมายของคุณ — เราจะกำหนดไลน์ที่เหมาะสม',
+    ctaSubtitle: 'ตั้งแต่เครื่องทอดแบบชุดไปจนถึงไลน์แปรรูปขนมขบเคี้ยวต่อเนื่องครบวงจร 2,000 กก./ชม. — เราปรับตามผลิตภัณฑ์ พื้นที่ และเป้าหมาย throughput ของคุณ',
+    ctaBtn1: 'รับคำแนะนำไลน์',
     ctaBtn2: 'พูดคุยกับทีมวิศวกรรม',
   },
 
@@ -1344,8 +1345,8 @@ const content: Record<string, PageContent> = {
         a: 'Một phần. Máy chiên và băng tải làm nguội có thể xử lý cả hai, nhưng hệ thống ướp gia vị (kích thước trống, tốc độ phun) và đóng gói (kích thước cân, định dạng túi) có thể cần điều chỉnh. Chúng tôi thiết kế cho sản phẩm chính và chỉ định những điều chỉnh cần thiết cho sản phẩm phụ.',
       },
       {
-        q: 'Tôi cần cung cấp thông tin gì để nhận báo giá cho dây chuyền đồ ăn vặt?',
-        a: 'Loại sản phẩm (khoai tây chiên, hạt khô, đồ ăn vặt ép đùn, v.v.), sản lượng mục tiêu (kg/giờ), định dạng bao bì và tốc độ sản xuất, kích thước mặt bằng nhà máy, quốc gia/điện áp và liệu bạn cần dây chuyền hoàn chỉnh hay thiết bị cụ thể. Sử dụng biểu mẫu khuyến nghị của chúng tôi để nhận phản hồi nhanh nhất.',
+        q: 'Tôi cần cung cấp thông tin gì để nhận đánh giá nguồn cung cho dây chuyền đồ ăn vặt?',
+        a: 'Loại sản phẩm (khoai tây chiên, hạt khô, đồ ăn vặt ép đùn, v.v.), sản lượng mục tiêu (kg/giờ), định dạng bao bì và tốc độ sản xuất, kích thước mặt bằng nhà máy, quốc gia/điện áp và liệu bạn cần dây chuyền hoàn chỉnh hay thiết bị cụ thể. Sử dụng biểu mẫu yêu cầu đánh giá của chúng tôi để nhận phản hồi nhanh nhất.',
       },
     ],
 
@@ -1354,12 +1355,12 @@ const content: Record<string, PageContent> = {
       { label: 'Hướng dẫn máy đóng gói đồ ăn vặt', href: '/resources/snack-packing' },
       { label: 'Dây chuyền bán tự động vs tự động hoàn toàn', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Tổng quan thiết bị chế biến thực phẩm', href: '/machinery/food-processing' },
-      { label: 'Nhận tư vấn máy móc', href: '/recommend' },
+      { label: 'Nhận tư vấn máy móc', href: '/assessment' },
     ],
 
     ctaTitle: 'Mô tả sản phẩm đồ ăn vặt và sản lượng mục tiêu của bạn — chúng tôi sẽ cấu hình dây chuyền chế biến phù hợp.',
     ctaSubtitle: 'Từ máy chiên theo mẻ đến dây chuyền đồ ăn vặt liên tục hoàn chỉnh 2.000 kg/giờ — chúng tôi cấu hình theo sản phẩm, không gian và mục tiêu sản xuất của bạn.',
-    ctaBtn1: 'Nhận tư vấn dây chuyền sản xuất',
+    ctaBtn1: 'Nhận tư vấn tích hợp dây chuyền',
     ctaBtn2: 'Liên hệ bộ phận kỹ thuật',
   },
 
@@ -1458,8 +1459,8 @@ const content: Record<string, PageContent> = {
         a: 'Teilweise. Die Fritteuse und das Kühlband können beide verarbeiten, aber das Würzsystem (Trommelgröße, Sprührate) und die Verpackung (Waagengröße, Beutelformat) müssen möglicherweise angepasst werden. Wir entwickeln für ein Hauptprodukt und spezifizieren die notwendigen Anpassungen für Nebenprodukte.',
       },
       {
-        q: 'Welche Informationen benötige ich, um ein Angebot für eine Snack-Linie zu erhalten?',
-        a: 'Produkttyp (Kartoffelchips, Nüsse, extrudierter Snack usw.), Produktionsziel (kg/h), Verpackungsformat und Produktionsgeschwindigkeit, verfügbare Bodenfläche, Land/Spannung und ob Sie eine komplette Linie oder spezifische Ausrüstung benötigen. Nutzen Sie unser Empfehlungsformular für die schnellste Rückmeldung.',
+        q: 'Welche Informationen benötige ich, um eine Sourcing-Bewertung für eine Snack-Linie zu erhalten?',
+        a: 'Produkttyp (Kartoffelchips, Nüsse, extrudierter Snack usw.), Produktionsziel (kg/h), Verpackungsformat und Produktionsgeschwindigkeit, verfügbare Bodenfläche, Land/Spannung und ob Sie eine komplette Linie oder spezifische Ausrüstung benötigen. Nutzen Sie unser Formular zur Bewertungsanfrage für die schnellste Rückmeldung.',
       },
     ],
 
@@ -1468,7 +1469,7 @@ const content: Record<string, PageContent> = {
       { label: 'Ratgeber: Snack-Verpackungsmaschinen', href: '/resources/snack-packing' },
       { label: 'Halbautomatische vs. vollautomatische Verpackungslinie', href: '/resources/semi-auto-vs-full-auto-packaging-line' },
       { label: 'Übersicht Lebensmittelverarbeitungsanlagen', href: '/machinery/food-processing' },
-      { label: 'Maschinenempfehlung erhalten', href: '/recommend' },
+      { label: 'Bewertung erhalten', href: '/assessment' },
     ],
 
     ctaTitle: 'Beschreiben Sie Ihr Snack-Produkt und Ihr Produktionsziel — wir konfigurieren die passende Verarbeitungslinie.',
@@ -1672,6 +1673,8 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
         </Container>
       </section>
 
+      <MachineDecisionGuide lang={lang} fitScenarios={t.whoItems.map((item) => item.title)} />
+
       {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-3xl">
@@ -1690,7 +1693,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={link.href === '/recommend' ? `/${lang}/recommend?machine=snack-processing-line` : `/${lang}${link.href}`}
+                href={link.href === '/assessment' ? `/${lang}/assessment` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -1711,7 +1714,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources/topic/snack-processing-line`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/route/food-processing-line`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>
@@ -1723,7 +1726,7 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
       {/* ── 9b. Related markets + industries ──────────────────────────────── */}
       <RelatedHubs lang={lang} machine="snack-processing-line" />
 
-      <QuickQuote lang={lang} context="snack-processing-line" source="machine" />
+      <QuickAssessment lang={lang} context="snack-processing-line" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
@@ -1731,9 +1734,16 @@ export default async function SnackProcessingLinePage({ params }: { params: Prom
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend?machine=snack-processing-line`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/assessment`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink
+              href={`/${lang}/quote/snack-processing-line`}
+              variant="secondary"
+              size="lg"
+            >
+              {({ en: 'Get quote', cn: '获取报价', zh: '取得報價', fr: 'Devis', es: 'Cotizar', pt: 'Cotação', ko: '견적', ja: '見積', ar: 'عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Báo giá', de: 'Angebot' } as Record<string, string>)[lang] || 'Get quote'}
+            </ButtonLink>
             <a
-              href={`/${lang}/contact?machine=snack-processing-line`}
+              href={`/${lang}/contact`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

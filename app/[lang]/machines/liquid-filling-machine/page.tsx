@@ -15,15 +15,16 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
-import QuickQuote from '@/components/QuickQuote'
+import QuickAssessment from '@/components/QuickAssessment'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Liquid Filling Machines — Piston, Gravity, Pump & Flow Meter',
-  cn: '液体灌装机 — 活塞式、重力式、泵式与流量计灌装',
-  zh: '液體灌裝機 — 活塞式、重力式、泵式與流量計灌裝',
+  en: 'Liquid Filling Configuration Route — Piston, Gravity, Pump & Flow Meter',
+  cn: '液体灌装配置路线 — 活塞、重力、泵与流量计',
+  zh: '液體灌裝配置路線 — 活塞、重力、泵與流量計',
   fr: 'Machines de remplissage liquide — Piston, Gravité, Pompe & Débitmètre',
   es: 'Máquinas llenadoras de líquidos — Pistón, Gravedad, Bomba y Caudalímetro',
   pt: 'Máquinas de enchimento de líquidos — Pistão, Gravidade, Bomba e Medidor de Fluxo',
@@ -36,9 +37,9 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Liquid filling machines for water, juice, sauce, oil, cosmetics, cleaning agents, and pharma liquids. Piston, gravity/overflow, pump, and flow-meter options—chosen by viscosity, particulates, and hygiene needs.',
-  cn: '液体灌装设备，适用于水、果汁、酱料、食用油、化妆品、清洁剂与药品液体。提供活塞/重力(溢流)/泵式/流量计等方案，按粘度、颗粒与卫生要求选型。',
-  zh: '液體灌裝設備，適用於水、果汁、醬料、食用油、化妝品、清潔劑與藥品液體。提供活塞/重力(溢流)/泵式/流量計等方案，依黏度、顆粒與衛生要求選型。',
+  en: 'Liquid filling sourcing support: select the right filling method, define dripping/foaming/accuracy checkpoints, plan washdown/CIP needs, and align FAT scope before approval.',
+  cn: '液体灌装采购支持：选择合适灌装方式，定义滴漏/起泡/精度要点，规划清洗与卫生要求，并在核准前对齐 FAT 范围。',
+  zh: '液體灌裝採購支援：選擇合適灌裝方式，定義滴漏/起泡/精度要點，規劃清洗與衛生要求，並在核准前對齊 FAT 範圍。',
   fr: 'Machines de remplissage pour eau, jus, sauces, huiles, cosmétiques, détergents et liquides pharma. Options piston, gravité/débordement, pompe et débitmètre selon viscosité, particules et hygiène.',
   es: 'Máquinas de llenado para agua, jugo, salsas, aceite, cosméticos, limpieza y pharma. Pistón, gravedad/desbordamiento, bomba y caudalímetro según viscosidad, partículas e higiene.',
   pt: 'Máquinas de envase para água, suco, molhos, óleo, cosméticos, limpeza e pharma. Pistão, gravidade/transbordo, bomba e medidor de vazão conforme viscosidade, particulados e higiene.',
@@ -60,9 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/machines/liquid-filling-machine',
     type: 'website',
     keywords: [
-      'liquid filling machine', 'piston filler', 'gravity filler', 'overflow filler', 'pump filler',
-      'flow meter filler', 'sauce filling machine', 'oil filling machine', 'cosmetic filling machine',
-      'pharmaceutical liquid filler', 'Taiwan liquid filling',
+      'liquid filling configuration', 'filling method selection', 'dripping foaming control', 'accuracy acceptance criteria',
+      'washdown CIP planning', 'supplier vetting', 'FAT checklist', 'export documentation',
+      'sauce filling configuration', 'oil filling configuration',
     ],
   })
 }
@@ -148,7 +149,7 @@ const content: Record<string, PageContent> = {
       { name: 'Flow Meter / Mass Flow Filler', desc: 'Highly accurate volumetric filling for valuable liquids. Used in oil, spirits, and pharmaceutical applications.' },
       { name: 'Rotary Filling Machine', desc: 'High-speed multi-head system for bottles. 50–300 bottles/min. Integrated with capper and labeler.' },
       { name: 'Pouch / Sachet Liquid Filler', desc: 'For sauce sachets, ketchup, or liquid pouches. Piston or peristaltic pump.' },
-      { name: 'Materials & Compliance', desc: 'CE certified; SUS304/316L contact parts meet food or pharmaceutical standards; voltage/frequency configurable.' },
+      { name: 'Materials & Compliance', desc: 'CE documentation support where applicable; SUS304/316L contact parts meet food or pharmaceutical standards; voltage/frequency configurable.' },
     ],
 
     decisionsTitle: 'Key Decision Factors',
@@ -162,7 +163,7 @@ const content: Record<string, PageContent> = {
     ],
 
     integrationTitle: 'Process Integration',
-    integrationDesc: 'This machine integrates into your broader production workflow at the filling stage. A typical integrated liquid line may include:',
+    integrationDesc: 'This machine integrates into your broader workflow at the filling stage. A typical integrated liquid line may include:',
     integrationSteps: [
       'Liquid tank / hopper',
       'Pump or gravity feed',
@@ -200,8 +201,8 @@ const content: Record<string, PageContent> = {
         a: 'Yes. We supply complete fill-cap-label lines, including screw cappers, ROPP cappers, snap cappers, pressure-sensitive labelers, and sleeve labelers. These can be supplied as standalone machines or fully integrated lines.',
       },
       {
-        q: 'What information do I need to provide to get a quote?',
-        a: 'Liquid name and approximate viscosity (e.g. "similar to water" or "similar to honey"), fill volume, container type and size, required output speed, country/voltage, and whether you need a standalone filler or full line.',
+        q: 'What information do I need to provide to get a sourcing assessment?',
+        a: 'Liquid name and approximate viscosity (e.g. "similar to water" or "similar to honey"), fill volume, container type and size, required output speed, country/voltage, and whether you need a standalone filler or full line. Use our assessment request form for the fastest response.',
       },
     ],
 
@@ -210,12 +211,12 @@ const content: Record<string, PageContent> = {
       { label: 'How to Choose a Liquid Filling Machine', href: '/resources/how-to-choose-liquid-filling-machine' },
       { label: 'Piston vs Pump Filler — Comparison', href: '/resources/piston-vs-pump-filler' },
       { label: 'Sauce Filling Machine Selection Guide', href: '/resources/sauce-filling-machine-selection' },
-      { label: 'Get a Machine Recommendation', href: '/recommend' },
+      { label: 'Get a Sourcing Assessment', href: '/assessment' },
     ],
 
-    ctaTitle: 'Describe your liquid and container — we\'ll recommend the right filling system.',
-    ctaSubtitle: 'Piston, gravity, overflow, pump, or flow meter — our engineers select the filling method based on your product, accuracy requirement, and output target.',
-    ctaBtn1: 'Get a Machine Recommendation',
+    ctaTitle: 'Describe your liquid and container — we\'ll define the right sourcing path.',
+    ctaSubtitle: 'Piston, gravity, overflow, pump, or flow meter — our team guides the filling approach based on your product, accuracy requirement, and output target.',
+    ctaBtn1: 'Get a Sourcing Assessment',
     ctaBtn2: 'Talk to Engineering',
   },
 
@@ -299,8 +300,8 @@ const content: Record<string, PageContent> = {
         a: '可以。我们提供完整的灌装-封盖-贴标产线，包括旋盖机、ROPP封盖机、压盖机、压敏贴标机和套标机。可作为独立机器或完全集成产线供应。',
       },
       {
-        q: '获取报价需要提供哪些信息？',
-        a: '液体名称和大致粘度（如"类似水"或"类似蜂蜜"）、灌装量、容器类型和尺寸、所需产量速度、国家/电压，以及是否需要单机灌装机或完整产线。',
+        q: '获取采购评估与建议需要提供哪些信息？',
+        a: '液体名称和大致粘度（如"类似水"或"类似蜂蜜"）、灌装量、容器类型和尺寸、所需产量速度、国家/电压，以及是否需要单机灌装机或完整产线。使用我们的评估申请表单可获得最快响应。',
       },
     ],
 
@@ -309,12 +310,12 @@ const content: Record<string, PageContent> = {
       { label: '如何选择液体灌装机', href: '/resources/how-to-choose-liquid-filling-machine' },
       { label: '活塞式与泵式灌装机对比', href: '/resources/piston-vs-pump-filler' },
       { label: '酱料灌装机选型指南', href: '/resources/sauce-filling-machine-selection' },
-      { label: '获取机器推荐', href: '/recommend' },
+      { label: '获取评估', href: '/assessment' },
     ],
 
-    ctaTitle: '描述您的液体和容器——我们将推荐合适的灌装系统。',
+    ctaTitle: '描述您的液体和容器——我们将提供评估并给出合适的灌装配置建议。',
     ctaSubtitle: '活塞式、重力式、溢流式、泵式或流量计——我们的工程师根据您的产品、精度要求和产量目标选择灌装方式。',
-    ctaBtn1: '获取机器推荐',
+    ctaBtn1: '获取评估',
     ctaBtn2: '联系工程团队',
   },
 
@@ -357,7 +358,7 @@ const content: Record<string, PageContent> = {
       { name: '流量計/質量流量灌裝機', desc: '高精度體積灌裝，適用於高價值液體。用於油品、烈酒和製藥應用。' },
       { name: '旋轉式灌裝機', desc: '高速多頭瓶裝系統。50–300瓶/分鐘。與封蓋機和貼標機整合。' },
       { name: '軟袋/小袋液體灌裝機', desc: '適用於醬料袋、番茄醬或液體軟袋。活塞泵或蠕動泵。' },
-      { name: '材質與認證', desc: 'CE認證；SUS304/316L接觸部件符合食品或製藥標準；電壓/頻率可客製。' },
+      { name: '材質與認證', desc: '可提供 CE 文件支援（適用時）；SUS304/316L接觸部件符合食品或製藥標準；電壓/頻率可客製。' },
     ],
 
     decisionsTitle: '關鍵決策因素',
@@ -398,7 +399,7 @@ const content: Record<string, PageContent> = {
         a: '可以。我們提供完整的灌裝-封蓋-貼標產線，包括旋蓋機、ROPP封蓋機、壓蓋機、壓敏貼標機和套標機。可作為獨立機器或完全整合產線供應。',
       },
       {
-        q: '取得報價需要提供哪些資訊？',
+        q: '取得採購評估需要提供哪些資訊？',
         a: '液體名稱和大致黏度（如「類似水」或「類似蜂蜜」）、灌裝量、容器類型和尺寸、所需產量速度、國家/電壓，以及是否需要單機灌裝機或完整產線。',
       },
     ],
@@ -408,12 +409,12 @@ const content: Record<string, PageContent> = {
       { label: '如何選擇液體灌裝機', href: '/resources/how-to-choose-liquid-filling-machine' },
       { label: '活塞式與泵式灌裝機比較', href: '/resources/piston-vs-pump-filler' },
       { label: '醬料灌裝機選型指南', href: '/resources/sauce-filling-machine-selection' },
-      { label: '取得機器推薦', href: '/recommend' },
+      { label: '取得評估', href: '/assessment' },
     ],
 
-    ctaTitle: '描述您的液體和容器——我們將推薦合適的灌裝系統。',
+    ctaTitle: '描述您的液體和容器——我們將提供評估並給出合適的灌裝配置建議。',
     ctaSubtitle: '活塞式、重力式、溢流式、泵式或流量計——我們的工程師根據您的產品、精度要求和產量目標選擇灌裝方式。',
-    ctaBtn1: '取得機器推薦',
+    ctaBtn1: '取得評估',
     ctaBtn2: '聯絡工程團隊',
   },
 }
@@ -480,7 +481,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
         desc={t.heroSubtitle}
         image={{
           src: heroPhoto,
-          alt: 'Liquid filling machine filling bottles on production line',
+          alt: 'Liquid filling machine filling bottles on an automated filling line',
           priority: true,
           aspectClassName: 'aspect-[16/10]',
         }}
@@ -612,6 +613,8 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
         </Container>
       </section>
 
+      <MachineDecisionGuide lang={lang} fitScenarios={t.whoItems.map((item) => item.title)} />
+
       {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-3xl">
@@ -630,7 +633,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={link.href === '/recommend' ? `/${lang}/recommend?machine=liquid-filling-machine` : `/${lang}${link.href}`}
+                href={link.href === '/assessment' ? `/${lang}/assessment` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -651,7 +654,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources/topic/liquid-filling-machine`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/route/liquid-filling`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>
@@ -663,7 +666,7 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
       {/* ── 9b. Related markets + industries ──────────────────────────────── */}
       <RelatedHubs lang={lang} machine="liquid-filling-machine" />
 
-      <QuickQuote lang={lang} context="liquid-filling-machine" source="machine" />
+      <QuickAssessment lang={lang} context="liquid-filling-machine" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
@@ -671,9 +674,16 @@ export default async function LiquidFillingMachinePage({ params }: { params: Pro
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend?machine=liquid-filling-machine`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/assessment`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink
+              href={`/${lang}/quote/liquid-filling-machine`}
+              variant="secondary"
+              size="lg"
+            >
+              {({ en: 'Get quote', cn: '获取报价', zh: '取得報價', fr: 'Devis', es: 'Cotizar', pt: 'Cotação', ko: '견적', ja: '見積', ar: 'عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Báo giá', de: 'Angebot' } as Record<string, string>)[lang] || 'Get quote'}
+            </ButtonLink>
             <a
-              href={`/${lang}/contact?machine=liquid-filling-machine`}
+              href={`/${lang}/contact`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

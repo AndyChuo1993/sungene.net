@@ -4,9 +4,9 @@ import { headers } from 'next/headers'
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'SunGene | Industrial Machinery Manufacturer & Exporter from Taiwan',
-  description: 'SunGene manufactures and exports packaging machinery, food processing equipment, filling & sealing systems, and automated production lines. CE certified, export to 50+ countries. Factory-direct pricing from Taiwan.',
-  keywords: ['packaging machinery manufacturer', 'food processing equipment', 'filling machine supplier', 'industrial machinery Taiwan', 'packaging machine exporter'],
+  title: 'SunGene | Industrial Equipment & Automation Sourcing Partner',
+  description: 'SunGene supports sourcing for packaging systems, industrial equipment, automation components, and selected technical projects across Taiwan and China. Built for fit, compatibility, and long-term reliability.',
+  keywords: ['industrial equipment sourcing', 'automation components sourcing', 'packaging systems supplier', 'industrial sourcing partner', 'technical sourcing China'],
 }
 
 export default async function RootLayout({
@@ -36,7 +36,7 @@ export default async function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
+              gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { send_page_view: false });
             `}</Script>
           </>
         )}

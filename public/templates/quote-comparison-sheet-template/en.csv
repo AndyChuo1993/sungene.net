@@ -1,0 +1,12 @@
+Line item,Supplier A,Supplier B,Supplier C,Notes
+Base machine model,,,, 
+Capacity (bpm),,,,Define conditions
+Accuracy / tolerance,,,,Sampling plan
+Dust/drip control,,,,Seal stability
+Inspection modules,,,,MD/CW/Vision
+Changeover design,,,,Time + parts
+Documentation package,,,,Manual/diagrams/spares
+FAT acceptance criteria,,,,Pass/fail
+Lead time,,,,By milestone
+Payment terms,,,,Tie to evidence
+Warranty + after-sales,,,,Response time

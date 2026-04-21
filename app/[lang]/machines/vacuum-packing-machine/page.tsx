@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/12_Vacuum_Packing_Machine/01_Vacuum_Packing_Machine/Vacuum_Packing_Machine.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Vacuum Packing Machine | Chamber Vacuum Sealer for Food & Electronics',
-  cn: '真空包装机 | 食品与电子用腔室真空封口机',
-  zh: '真空包裝機 | 食品與電子用腔室真空封口機',
-  fr: 'Machine à emballer sous vide | Scellant à chambre pour aliments et électronique',
-  es: 'Máquina de envasado al vacío | Selladora de cámara para alimentos y electrónica',
-  pt: 'Máquina de embalagem a vácuo | Seladora de câmara para alimentos e eletrônica',
-  ko: '진공 포장기 | 식품·전자부품용 챔버 진공 실러',
-  ja: '真空包装機 | 食品・電子部品用チャンバー式真空シーラー',
-  ar: 'آلة التغليف بالتفريغ | ختام تفريغ الغرفة للأغذية والإلكترونيات',
-  th: 'เครื่องแพ็กสุญญากาศ | เครื่องซีลสุญญากาศแบบแชมเบอร์สำหรับอาหารและอิเล็กทรอนิกส์',
-  vi: 'Máy đóng gói chân không | Máy hàn buồng chân không cho thực phẩm & điện tử',
-  de: 'Vakuumverpackungsmaschine | Kammer-Vakuumschweißgerät für Lebensmittel und Elektronik',
+  en: 'Vacuum Packaging Configuration Route | Preservation & Acceptance Planning',
+  cn: '真空包装配置路线 | 保鲜与验收规划',
+  zh: '真空包裝配置路線 | 保鮮與驗收規劃',
+  fr: 'Machine à emballer sous vide | Sourcing technique et solutions de conservation',
+  es: 'Máquina de envasado al vacío | Abastecimiento técnico y soluciones de preservación',
+  pt: 'Máquina de embalagem a vácuo | Sourcing técnico e soluções de preservação',
+  ko: '진공 포장기 | 기술 소싱 및 보존 솔루션',
+  ja: '真空包装機 | 技術ソーシングと保存ソリューション',
+  ar: 'آلة التغليف بالتفريغ | التوريد التقني وحلول الحفظ',
+  th: 'เครื่องแพ็กสุญญากาศ | การจัดซื้อเชิงเทคนิคและโซลูชันการถนอมอาหาร',
+  vi: 'Máy đóng gói chân không | Đánh giá nguồn cung và giải pháp bảo quản',
+  de: 'Vakuumverpackungsmaschine | Technisches Sourcing & Konservierungslösungen',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Chamber vacuum packing machines for extending food shelf life and protecting electronics from corrosion and moisture. Models WS-350, WS-420, WS-720. Sealing bars from 310mm to 720mm.',
-  cn: '腔室真空包装机，延长食品货架期、保护电子元件免受腐蚀与潮湿。WS-350/WS-420/WS-720型号，封口棒310-720mm。',
-  zh: '腔室真空包裝機，延長食品貨架期、保護電子元件免受腐蝕與潮濕。WS-350/WS-420/WS-720型號，封口棒310-720mm。',
-  fr: 'Machines à emballer sous vide à chambre pour prolonger la durée de conservation des aliments et protéger l\'électronique contre la corrosion et l\'humidité. Modèles WS-350, WS-420, WS-720.',
-  es: 'Envasadoras al vacío de cámara para prolongar la vida útil de los alimentos y proteger la electrónica de la corrosión y la humedad. Modelos WS-350, WS-420, WS-720.',
-  pt: 'Máquinas de embalagem a vácuo de câmara para estender a vida útil dos alimentos e proteger eletrônicos da corrosão e umidade. Modelos WS-350, WS-420, WS-720.',
-  ko: '식품 유통기한 연장 및 전자부품의 부식·습기 방지를 위한 챔버 진공 포장기. WS-350, WS-420, WS-720 모델. 실링 바 310~720mm.',
-  ja: '食品の保存期間延長と電子部品の腐食・湿気防止に対応したチャンバー式真空包装機。WS-350・WS-420・WS-720。シールバー310〜720mm。',
-  ar: 'آلات تغليف بالتفريغ بغرفة لإطالة مدة صلاحية الأغذية وحماية الإلكترونيات من التآكل والرطوبة. موديلات WS-350 وWS-420 وWS-720.',
-  th: 'เครื่องแพ็กสุญญากาศแบบแชมเบอร์สำหรับยืดอายุอาหารและป้องกันชิ้นส่วนอิเล็กทรอนิกส์จากการกัดกร่อนและความชื้น รุ่น WS-350, WS-420, WS-720',
-  vi: 'Máy đóng gói chân không buồng kín để kéo dài hạn dùng thực phẩm và bảo vệ điện tử khỏi ăn mòn và ẩm. Mẫu WS-350, WS-420, WS-720. Thanh hàn 310–720mm.',
-  de: 'Kammer-Vakuumverpackungsmaschinen zur Verlängerung der Lebensmittelhaltbarkeit und zum Schutz von Elektronik vor Korrosion und Feuchtigkeit. Modelle WS-350, WS-420, WS-720.',
+  en: 'Vacuum packaging sourcing support: define chamber/line configuration, verify seal and evacuation acceptance criteria, and align FAT/documents before approval.',
+  cn: '真空包装采购支持：规划腔室/产线配置，确认封口与抽真空验收标准，并在核准前对齐 FAT 与文件范围。',
+  zh: '真空包裝採購支援：規劃腔室/產線配置，確認封口與抽真空驗收標準，並在核准前對齊 FAT 與文件範圍。',
+  fr: 'Sourcing professionnel pour machines à emballer sous vide à chambre. Validation technique des modèles WS-350/420/720 pour la conservation et la protection.',
+  es: 'Abastecimiento profesional para envasadoras al vacío de cámara. Validación de ingeniería para modelos WS-350/420/720 para extensión de vida útil y protección.',
+  pt: 'Sourcing profissional para máquinas de embalagem a vácuo de câmara. Validação técnica para modelos WS-350/420/720 para extensão de vida útil e proteção.',
+  ko: '챔버형 진공 포장기 전문 소싱. 식품 유통기한 연장 및 전자제품 습기 보호를 위해 WS-350/420/720 모델에 대한 엔지니어링 검증을 제공합니다.',
+  ja: 'チャンバー式真空包装機の専門ソーシング。食品の保存期間延長や電子機器の防湿のため、WS-350/420/720モデルの技術検証を提供します。',
+  ar: 'توريد احترافي لآلات التغليف بالتفريغ. نحن نقدم تحققًا هندسيًا لطرازات WS-350/420/720 لضمان إطالة مدة الصلاحية وحماية الإلكترونيات.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับเครื่องแพ็กสุญญากาศแบบแชมเบอร์ เราให้บริการตรวจสอบทางวิศวกรรมสำหรับรุ่น WS-350/420/720 เพื่อการถนอมอาหารและป้องกันความชื้น',
+  vi: 'Nguồn cung chuyên nghiệp cho máy đóng gói chân không buồng kín. Chúng tôi xác minh kỹ thuật cho dòng WS-350/420/720 để bảo quản thực phẩm và bảo vệ điện tử.',
+  de: 'Professionelles Sourcing für Kammer-Vakuumverpackungsmaschinen. Wir bieten technische Prüfung der Modelle WS-350/420/720 für Haltbarkeit und Schutz.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/vacuum-packing-machine',
     type: 'website',
-    keywords: ['vacuum packing machine', 'chamber vacuum sealer', 'food vacuum machine', 'vacuum packaging', 'Wuu Sheng vacuum', 'Taiwan vacuum packer'],
+    keywords: ['vacuum packaging configuration', 'chamber selection', 'seal and evacuation criteria', 'FAT checklist', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -87,8 +88,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Fresh meat & seafood', 'Cheese & dairy products', 'Processed food', 'Nuts & dried goods', 'Medical & pharmaceutical', 'Electronic components', 'Precision instruments', 'Industrial parts storage'],
-    ctaTitle: 'Looking for a vacuum packing machine? Tell us your product type and required chamber size.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Need technical advice on vacuum preservation or industrial parts protection? Request a professional sourcing assessment.',
+    ctaBtn: 'Get Sourcing Assessment',
   },
   cn: {
     kicker: '真空包装',
@@ -108,8 +109,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['新鲜肉类与海鲜', '奶酪与乳制品', '加工食品', '坚果与干货', '医疗与制药', '电子元器件', '精密仪器', '工业零件存储'],
-    ctaTitle: '需要真空包装机？告诉我们您的产品类型和所需腔体尺寸。',
-    ctaBtn: '获取报价',
+    ctaTitle: '需要真空保鲜或工业零件保护的技术建议？申请专业采购评估。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '真空包裝',
@@ -129,8 +130,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['新鮮肉類與海鮮', '乳酪與乳製品', '加工食品', '堅果與乾貨', '醫療與製藥', '電子元器件', '精密儀器', '工業零件存儲'],
-    ctaTitle: '需要真空包裝機？告訴我們您的產品類型和所需腔體尺寸。',
-    ctaBtn: '取得報價',
+    ctaTitle: '需要真空保鮮或工業零件保護的技术建議？申請專業採購評估。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'EMBALLAGE SOUS VIDE',
@@ -150,8 +151,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Viandes fraîches et fruits de mer', 'Fromages et produits laitiers', 'Aliments transformés', 'Noix et produits secs', 'Médical et pharmaceutique', 'Composants électroniques', 'Instruments de précision', 'Stockage pièces industrielles'],
-    ctaTitle: 'Vous cherchez une machine à emballer sous vide ? Indiquez-nous votre produit et la taille de chambre souhaitée.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Besoin d\'un conseil technique sur la mise sous vide ? Demandez une évaluation de sourcing.',
+    ctaBtn: 'Obtenir une évaluation',
   },
   es: {
     kicker: 'ENVASADO AL VACÍO',
@@ -171,8 +172,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Carne fresca y mariscos', 'Quesos y lácteos', 'Alimentos procesados', 'Frutos secos y deshidratados', 'Médico y farmacéutico', 'Componentes electrónicos', 'Instrumentos de precisión', 'Almacenamiento de piezas industriales'],
-    ctaTitle: '¿Busca una envasadora al vacío? Cuéntenos el tipo de producto y el tamaño de cámara requerido.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Necesita asesoramiento técnico sobre preservación al vacío? Solicite una evaluación.',
+    ctaBtn: 'Obtener evaluación',
   },
   pt: {
     kicker: 'EMBALAGEM A VÁCUO',
@@ -192,8 +193,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Carnes frescas e frutos do mar', 'Queijos e laticínios', 'Alimentos processados', 'Nozes e secos', 'Médico e farmacêutico', 'Componentes eletrônicos', 'Instrumentos de precisão', 'Armazenamento de peças industriais'],
-    ctaTitle: 'Procura uma máquina de embalagem a vácuo? Informe-nos o tipo de produto e o tamanho de câmara desejado.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Precisa de consultoria técnica sobre preservação a vácuo? Peça uma avaliação.',
+    ctaBtn: 'Obter avaliação',
   },
   ko: {
     kicker: '진공 포장',
@@ -213,8 +214,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['신선 육류·해산물', '치즈·유제품', '가공식품', '견과류·건조식품', '의료·제약', '전자 부품', '정밀 기기', '산업 부품 보관'],
-    ctaTitle: '진공 포장기가 필요하신가요? 제품 유형과 필요한 챔버 크기를 알려주세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '진공 보존이나 산업 부품 보호에 대한 기술적 조언이 필요하십니까? 전문 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 받기',
   },
   ja: {
     kicker: '真空包装',
@@ -234,8 +235,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['生鮮肉・水産物', 'チーズ・乳製品', '加工食品', 'ナッツ・乾物', '医療・医薬品', '電子部品', '精密機器', '工業部品保管'],
-    ctaTitle: '真空包装機をお探しですか？製品タイプと必要なチャンバーサイズをお知らせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '真空保存や工業部品保護の技術相談が必要ですか？専門ソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'التعبئة بالتفريغ',
@@ -255,8 +256,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['اللحوم الطازجة والمأكولات البحرية', 'الجبن ومنتجات الألبان', 'الأغذية المصنعة', 'المكسرات والمجففات', 'الطبي والدوائي', 'المكونات الإلكترونية', 'الأجهزة الدقيقة', 'تخزين القطع الصناعية'],
-    ctaTitle: 'تبحث عن آلة تغليف بالتفريغ؟ أخبرنا بنوع منتجك وحجم الغرفة المطلوب.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تحتاج إلى نصيحة تقنية بشأن الحفظ بالتفريغ؟ اطلب تقييم توريد احترافي.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'บรรจุภัณฑ์สุญญากาศ',
@@ -276,8 +277,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['เนื้อสดและอาหารทะเล', 'ชีสและผลิตภัณฑ์นม', 'อาหารแปรรูป', 'ถั่วและของแห้ง', 'การแพทย์และเภสัชกรรม', 'ชิ้นส่วนอิเล็กทรอนิกส์', 'เครื่องมือวัดละเอียด', 'เก็บชิ้นส่วนอุตสาหกรรม'],
-    ctaTitle: 'ต้องการเครื่องแพ็กสุญญากาศ? บอกเราประเภทสินค้าและขนาดห้องที่ต้องการ',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'ต้องการคำแนะนำด้านเทคนิคเกี่ยวกับการถนอมอาหารด้วยสุญญากาศ? ขอรับการประเมินการจัดซื้อ',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'ĐÓNG GÓI CHÂN KHÔNG',
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Thịt tươi và hải sản', 'Phô mai và sữa', 'Thực phẩm chế biến', 'Hạt và đồ khô', 'Y tế và dược phẩm', 'Linh kiện điện tử', 'Dụng cụ chính xác', 'Lưu trữ chi tiết công nghiệp'],
-    ctaTitle: 'Cần máy đóng gói chân không? Cho chúng tôi biết loại sản phẩm và kích thước buồng cần thiết.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Cần tư vấn kỹ thuật về bảo quản chân không? Nhận đánh giá nguồn cung chuyên nghiệp.',
+    ctaBtn: 'Nhận đánh giá nguồn cung',
   },
   de: {
     kicker: 'VAKUUMVERPACKUNG',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Frischfleisch & Meeresfrüchte', 'Käse & Milchprodukte', 'Verarbeitete Lebensmittel', 'Nüsse & Trockenware', 'Medizin & Pharmazie', 'Elektronikkomponenten', 'Präzisionsinstrumente', 'Lagerung von Industrieteilen'],
-    ctaTitle: 'Suchen Sie eine Vakuumverpackungsmaschine? Teilen Sie uns Produkttyp und gewünschte Kammergröße mit.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Benötigen Sie technische Beratung zur Vakuumkonservierung? Fordern Sie eine Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -422,6 +423,8 @@ export default async function VacuumPackingPage({ params }: { params: Promise<{ 
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

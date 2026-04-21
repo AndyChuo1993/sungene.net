@@ -1,11 +1,3 @@
-/**
- * Trust bar — 5 stat strip shown on machine / market / industry landing
- * pages right after the hero. Provides at-a-glance credibility signals
- * before the visitor scrolls into the sales content.
- *
- * All numbers are conservative and factual — no inflation, so this
- * doubles as a machine-readable fact block that AI engines can quote.
- */
 import type { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
@@ -54,18 +46,18 @@ const STATS: Stat[] = [
   {
     value: 'CE',
     label: {
-      en: 'Certified',
-      zh: '認證',
-      cn: '认证',
-      fr: 'Certifiée',
-      es: 'Certificado',
-      pt: 'Certificado',
-      ko: '인증',
-      ja: '認証取得',
-      ar: 'معتمدة',
-      th: 'รับรอง',
-      vi: 'Chứng nhận',
-      de: 'Zertifiziert',
+      en: 'CE support',
+      zh: 'CE 文件支援',
+      cn: 'CE 文件支持',
+      fr: 'Support CE',
+      es: 'Soporte CE',
+      pt: 'Suporte CE',
+      ko: 'CE 문서 지원',
+      ja: 'CE文書サポート',
+      ar: 'دعم وثائق CE',
+      th: 'เอกสาร CE',
+      vi: 'Hỗ trợ CE',
+      de: 'CE-Unterstützung',
     },
   },
   {
@@ -86,20 +78,20 @@ const STATS: Stat[] = [
     },
   },
   {
-    value: '1yr + lifetime',
+    value: '1yr + long-term',
     label: {
       en: 'Parts warranty + tech support',
-      zh: '零件保固 + 終身技術支援',
-      cn: '零件保固 + 终身技术支持',
-      fr: 'Garantie pièces + support à vie',
-      es: 'Garantía + soporte de por vida',
-      pt: 'Garantia + suporte vitalício',
-      ko: '부품 보증 + 평생 지원',
-      ja: '部品保証 + 生涯サポート',
-      ar: 'ضمان + دعم مدى الحياة',
-      th: 'อะไหล่ + บริการตลอดชีพ',
-      vi: 'Bảo hành + hỗ trợ trọn đời',
-      de: 'Garantie + lebenslanger Support',
+      zh: '零件保固 + 長期技術支援',
+      cn: '零件保固 + 长期技术支持',
+      fr: 'Garantie pièces + support long terme',
+      es: 'Garantía + soporte a largo plazo',
+      pt: 'Garantia + suporte de longo prazo',
+      ko: '부품 보증 + 장기 지원',
+      ja: '部品保証 + 長期サポート',
+      ar: 'ضمان + دعم طويل الأجل',
+      th: 'อะไหล่ + บริการระยะยาว',
+      vi: 'Bảo hành + hỗ trợ dài hạn',
+      de: 'Garantie + langfristiger Support',
     },
   },
 ]

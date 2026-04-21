@@ -20,17 +20,14 @@ type Session = {
 export default function AdminGate({ children }: { children: ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
-  const [session, setSession] = useState<Session | 'loading'>('loading')
+  const [session, setSession] = useState<Session | 'loading'>(() => (cmsEnabled() ? 'loading' : null))
 
   useEffect(() => {
-    if (!cmsEnabled()) {
-      setSession(null)
-      return
-    }
+    if (!cmsEnabled()) return
     const supabase = getSupabaseBrowser()
     if (!supabase) {
-      setSession(null)
-      return
+      const id = setTimeout(() => setSession(null), 0)
+      return () => clearTimeout(id)
     }
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) {

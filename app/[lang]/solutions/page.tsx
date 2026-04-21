@@ -12,33 +12,33 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Automation Solutions | Single Machine to Full Turnkey Line',
-  cn: '自动化解决方案 | 从单机到全套交钥匙生产线',
-  zh: '自動化解決方案 | 從單機到全套交鑰匙生產線',
-  fr: 'Solutions d\'automatisation | Machine individuelle à ligne clé en main',
-  es: 'Soluciones de automatización | De una máquina a línea llave en mano',
-  pt: 'Soluções de automação | Máquina única a linha turnkey completa',
-  ko: '자동화 솔루션 | 단일 기계에서 풀 턴키 라인까지',
-  ja: '自動化ソリューション | 単体機械からターンキーラインまで',
-  ar: 'حلول الأتمتة | من آلة واحدة إلى خط إنتاج متكامل',
-  th: 'โซลูชันระบบอัตโนมัติ | จากเครื่องเดียวถึงสายการผลิตครบวงจร',
-  vi: 'Giải pháp tự động hóa | Từ máy đơn đến dây chuyền turnkey',
-  de: 'Automatisierungslösungen | Von der Einzelmaschine zur Turnkey-Linie',
+  en: 'Sourcing Solutions | From Single Machines to Integrated Lines',
+  cn: '采购解决方案 | 从单机到整线集成',
+  zh: '採購解決方案 | 從單機到整線整合',
+  fr: 'Solutions de sourcing | De la machine seule à la ligne intégrée',
+  es: 'Soluciones de abastecimiento | De una sola máquina a líneas integradas',
+  pt: 'Soluções de sourcing | Da máquina única a linhas integradas',
+  ko: '소싱 솔루션 | 단일 기계에서 통합 라인까지',
+  ja: 'ソーシング・ソリューション | 単体機械から統合ラインまで',
+  ar: 'حلول التوريد | من آلة واحدة إلى خطوط متكاملة',
+  th: 'โซลูชันการจัดหา | จากเครื่องเดียวถึงการบูรณาการไลน์ครบวงจร',
+  vi: 'Giải pháp tìm nguồn cung ứng | Từ máy đơn đến dây chuyền tích hợp',
+  de: 'Sourcing-Lösungen | Von der Einzelmaschine zur integrierten Linie',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Automation scope from a single machine to a full turnkey line. We match by product behavior, throughput target, hygiene needs, footprint, and local utilities.',
-  cn: '自动化范围从单机到整线交钥匙。我们按产品特性、目标产能、卫生要求、场地布局与现场电力/公用工程匹配方案。',
-  zh: '自動化範圍從單機到整線交鑰匙。我們依產品特性、目標產能、衛生要求、場地佈局與現場電力/公用工程匹配方案。',
-  fr: 'Automatisation d’une machine à une ligne clé en main. Dimensionnement selon produit, cadence, hygiène, implantation et utilités disponibles.',
-  es: 'Automatización desde una máquina hasta una línea turnkey. Dimensionamos según producto, capacidad objetivo, higiene, layout e infraestructura (utilidades).',
-  pt: 'Automação de uma máquina até uma linha turnkey. Dimensionamos conforme produto, meta de produção, higiene, layout e utilidades disponíveis.',
-  ko: '단일 장비부터 턴키 라인까지 자동화 범위를 설계합니다. 제품 특성, 목표 생산량, 위생 요구, 설치 공간, 전기/유틸리티 조건을 기준으로 구성합니다.',
-  ja: '単体機械からターンキーラインまで、製品特性・目標能力・衛生要件・レイアウト・ユーティリティ条件で最適な範囲を設計します。',
-  ar: 'نطاق الأتمتة من آلة واحدة إلى خط turnkey كامل. نحدد الحل حسب خصائص المنتج والقدرة المطلوبة ومتطلبات النظافة والمساحة واليوتيليتي.',
-  th: 'กำหนดขอบเขตระบบอัตโนมัติตั้งแต่เครื่องเดียวถึงไลน์ turnkey โดยพิจารณาจากลักษณะสินค้า กำลังการผลิต สุขอนามัย เลย์เอาต์ และยูทิลิตี้หน้างาน',
-  vi: 'Xác định phạm vi tự động hóa từ máy đơn đến dây chuyền turnkey theo đặc tính sản phẩm, công suất mục tiêu, vệ sinh, layout và điều kiện tiện ích.',
-  de: 'Automatisierung von Einzelmaschine bis Turnkey-Linie. Auslegung nach Produkteigenschaften, Zielleistung, Hygiene, Layout und verfügbaren Utilities.',
+  en: 'Strategic sourcing for industrial automation. We match equipment by product behavior, throughput targets, and technical compatibility across Taiwan and China.',
+  cn: '工业自动化的战略采购。我们根据产品特性、产能目标以及台湾与中国的技术兼容性来匹配设备。',
+  zh: '工業自動化的戰略採購。我們根據產品特性、產能目標以及台灣與中國的技術相容性來匹配設備。',
+  fr: 'Sourcing stratégique pour l’automatisation industrielle. Sélection d’équipements selon le produit, les cadences et la compatibilité technique.',
+  es: 'Abastecimiento estratégico para automatización industrial. Seleccionamos equipos según producto, capacidad y compatibilidad técnica.',
+  pt: 'Sourcing estratégico para automação industrial. Selecionamos equipamentos conforme o produto, metas de produção e compatibilidade técnica.',
+  ko: '산업 자동화를 위한 전략적 소싱. 제품 특성, 생산 목표 및 대만/중국의 기술적 호환성을 기준으로 장비를 매칭합니다.',
+  ja: '産業オートメーションのための戦略的ソーシング。製品特性、目標能力、技術的な互換性を基準に最適な設備をマッチングします。',
+  ar: 'توريد استراتيجي للأتمتة الصناعية. نختار المعدات حسب خصائص المنتج والقدرة المطلوبة والتوافق التقني.',
+  th: 'การจัดหาเชิงกลยุทธ์สำหรับระบบอัตโนมัติในอุตสาหกรรม เราจับคู่เครื่องจักรตามลักษณะสินค้า กำลังการผลิต และความเข้ากันได้ทางเทคนิค',
+  vi: 'Tìm nguồn cung ứng chiến lược cho tự động hóa công nghiệp. Chúng tôi kết nối thiết bị theo đặc tính sản phẩm, công suất và độ tương thích kỹ thuật.',
+  de: 'Strategisches Sourcing für die Industrieautomation. Wir wählen Anlagen nach Produkteigenschaften, Zielleistung und technischer Kompatibilität aus.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/solutions',
     type: 'website',
     keywords: [
-      'turnkey production line', 'automation solutions', 'single machine', 'semi-automatic packaging',
-      'fully automatic line', 'custom machinery', 'packaging line integration', 'Taiwan machinery manufacturer',
+      'turnkey line integration', 'automation solutions', 'single machine', 'semi-automatic packaging',
+      'fully automatic line', 'custom machinery', 'packaging line integration', 'Taiwan sourcing partner',
     ],
   })
 }
@@ -60,48 +60,48 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 // ─── Hero copy ────────────────────────────────────────────────────────────────
 
 const heroKicker: Record<string, string> = {
-  en: 'AUTOMATION SOLUTIONS',
-  cn: '自动化解决方案',
-  zh: '自動化解決方案',
-  fr: 'SOLUTIONS D\'AUTOMATISATION',
-  es: 'SOLUCIONES DE AUTOMATIZACIÓN',
-  pt: 'SOLUÇÕES DE AUTOMAÇÃO',
-  ko: '자동화 솔루션',
-  ja: '自動化ソリューション',
-  ar: 'حلول الأتمتة',
+  en: 'SOURCING SOLUTIONS',
+  cn: '采购解决方案',
+  zh: '採購解決方案',
+  fr: 'SOLUTIONS DE SOURCING',
+  es: 'SOLUCIONES DE ABASTECIMIENTO',
+  pt: 'SOLUÇÕES DE SOURCING',
+  ko: '소싱 솔루션',
+  ja: 'ソーシング・ソリューション',
+  ar: 'حلول التوريد',
   th: 'โซลูชันระบบอัตโนมัติ',
-  vi: 'GIẢI PHÁP TỰ ĐỘNG HÓA',
-  de: 'AUTOMATISIERUNGSLÖSUNGEN',
+  vi: 'GIẢI PHÁP TÌM NGUỒN CUNG ỨNG',
+  de: 'SOURCING-LÖSUNGEN',
 }
 
 const heroTitle: Record<string, string> = {
-  en: 'From Single Machine to Full Turnkey Line',
-  cn: '从单机到全套交钥匙生产线',
-  zh: '從單機到全套交鑰匙生產線',
-  fr: 'De la machine individuelle à la ligne clé en main',
-  es: 'De una sola máquina a una línea completa llave en mano',
-  pt: 'Da máquina individual à linha turnkey completa',
-  ko: '단일 기계에서 풀 턴키 라인까지',
-  ja: '単体機械から完全ターンキーラインまで',
-  ar: 'من آلة واحدة إلى خط إنتاج متكامل',
-  th: 'จากเครื่องเดียวถึงสายการผลิตครบวงจร',
-  vi: 'Từ Máy Đơn đến Dây Chuyền Turnkey Hoàn Chỉnh',
-  de: 'Von der Einzelmaschine zur vollständigen Turnkey-Linie',
+  en: 'Sourcing Strategy & Line Integration',
+  cn: '采购策略与整线集成',
+  zh: '採購策略與整線整合',
+  fr: 'Stratégie de sourcing et intégration de ligne',
+  es: 'Estrategia de abastecimiento e integración de líneas',
+  pt: 'Estrategia de sourcing e integração de linha',
+  ko: '소싱 전략 및 라인 통합',
+  ja: 'ソーシング戦略とライン統合',
+  ar: 'استراتيجية التوريد وتكامل الخطوط',
+  th: 'กลยุทธ์การจัดหาและการรวมไลน์ผลิต',
+  vi: 'Chiến lược tìm nguồn cung ứng & Tích hợp dây chuyền',
+  de: 'Sourcing-Strategie und Linienintegration',
 }
 
 const heroDesc: Record<string, string> = {
-  en: 'We scope automation by throughput, labor, hygiene, changeover needs, and footprint. Choose a level and we will map it to machines, utilities, and lead time.',
-  cn: '我们按产能、用工、卫生要求、换型频率与场地空间来划分自动化层级，并给出对应设备组合、公用工程与交期。',
-  zh: '我們依產能、用工、衛生要求、換型頻率與場地空間來規劃自動化層級，並給出對應設備組合、公用工程與交期。',
-  fr: 'Nous dimensionnons selon cadence, main-d’œuvre, hygiène, changements de format et implantation. Choisissez un niveau, nous le traduisons en machines, utilités et délai.',
-  es: 'Definimos el nivel por capacidad, mano de obra, higiene, cambios de formato y espacio. Elija un nivel y lo convertimos en equipos, utilidades y plazo.',
-  pt: 'Definimos o nível por capacidade, mão de obra, higiene, trocas de formato e espaço. Escolha um nível e mapeamos para máquinas, utilidades e prazo.',
-  ko: '생산량, 인력, 위생, 포맷 전환, 설치 공간 기준으로 자동화 레벨을 정합니다. 레벨을 선택하면 장비 구성, 유틸리티, 납기를 정리해 드립니다.',
-  ja: '能力、人員、衛生、段取り替え頻度、設置スペースでレベルを決めます。選んだレベルを設備構成、ユーティリティ、納期に落とし込みます。',
-  ar: 'نحدد المستوى حسب القدرة المطلوبة والعمالة والنظافة وتغيير المقاسات والمساحة. اختر مستوى وسنحوّله إلى معدات ويوتيليتي ومدة تسليم.',
-  th: 'กำหนดระดับตามกำลังการผลิต แรงงาน สุขอนามัย ความถี่เปลี่ยนฟอร์แมต และพื้นที่ติดตั้ง เลือกระดับแล้วเราจะสรุปเครื่อง ยูทิลิตี้ และระยะเวลาส่งมอบ',
-  vi: 'Xác định cấp độ theo công suất, nhân lực, vệ sinh, tần suất đổi format và diện tích. Chọn một cấp độ, chúng tôi sẽ quy đổi ra máy, tiện ích và lead time.',
-  de: 'Wir legen das Level nach Leistung, Personal, Hygiene, Formatwechsel und Stellfläche fest. Wählen Sie ein Level, wir leiten Maschinen, Utilities und Lieferzeit ab.',
+  en: 'We don’t just supply equipment — we design the sourcing strategy that ensures your machines, components, and logic work as one unified system. We help you vet suppliers and verify technical compatibility before you commit capital.',
+  cn: '我们不仅提供设备，更为您规划采购策略，确保机械、零组件与控制逻辑能作为一个统一的系统高效运作。在您投入资本前，我们协助审核供应商并验证技术兼容性。',
+  zh: '我們不僅提供設備，更為您規劃採購策略，確保機械、零組件與控制邏輯能作為一個統一的系統高效運作。在您投入資本前，我們協助審核供應商並驗證技術相容性。',
+  fr: 'Nous ne fournissons pas seulement des équipements, nous concevons la stratégie de sourcing qui garantit que vos machines, composants et automatismes fonctionnent comme un système unifié.',
+  es: 'No solo suministramos equipos: diseñamos la estrategia de abastecimiento que garantiza que sus máquinas, componentes y lógica funcionen como un sistema unificado.',
+  pt: 'Não apenas fornecemos equipamentos — projetamos a estratégia de sourcing que garante que suas máquinas, componentes e lógica funcionem como um sistema unificado.',
+  ko: '우리는 단순한 장비 공급을 넘어, 기계, 부품 및 로직이 하나의 통합된 시스템으로 작동하도록 소싱 전략을 설계합니다. 자본을 투자하기 전에 공급업체를 심사하고 기술적 호환성을 검증하도록 돕습니다.',
+  ja: '単なる設備供給にとどまらず、機械、コンポーネント、ロジックが一つの統合システムとして機能するようソーシング戦略を設計します。投資前にサプライヤーを審査し、技術的な互換性を検証します。',
+  ar: 'نحن لا نورد المعدات فحسب، بل نصمم استراتيجية التوريد التي تضمن عمل الماكينات والمكونات والمنطق كنظام واحد موحد.',
+  th: 'เราไม่ได้แค่จัดหาอุปกรณ์ แต่เราออกแบบกลยุทธ์การจัดหาเพื่อให้มั่นใจว่าเครื่องจักร ส่วนประกอบ และระบบควบคุมทำงานร่วมกันเป็นหนึ่งเดียว เราช่วยตรวจสอบซัพพลายเออร์และความเข้ากันได้ทางเทคนิคก่อนคุณตัดสินใจลงทุน',
+  vi: 'Chúng tôi không chỉ cung cấp thiết bị — chúng tôi thiết kế chiến lược tìm nguồn cung ứng để đảm bảo máy móc, linh kiện và logic vận hành như một hệ thống thống nhất.',
+  de: 'Wir liefern nicht nur Anlagen – wir entwerfen die Sourcing-Strategie, die sicherstellt, dass Ihre Maschinen, Komponenten und Logik als ein einheitliches System funktionieren.',
 }
 
 // ─── Solution levels ──────────────────────────────────────────────────────────
@@ -119,7 +119,7 @@ interface SolutionLevel {
   ctaHref: string
 }
 
-const levelCtaHref: Array<SolutionLevel['ctaHref']> = ['/contact', '/recommend', '/recommend', '/contact']
+const levelCtaHref: Array<SolutionLevel['ctaHref']> = ['/contact', '/assessment', '/assessment', '/contact']
 
 const levelBadges: Record<Lang, string[]> = {
   en: ['Level 1', 'Level 2', 'Level 3', 'Level 4'],
@@ -141,92 +141,92 @@ type LevelDetail = Pick<SolutionLevel, 'whoFor' | 'typicalConfig' | 'typicalInve
 const levelDetails: Record<Lang, LevelDetail[]> = {
   en: [
     {
-      whoFor: 'Startups, small factories, or teams removing one clear bottleneck.',
-      typicalConfig: 'One filling, sealing, or processing machine — standalone with manual feeding, or a basic feeder.',
+      whoFor: 'Startups or small teams needing specific technical components or single-function machinery.',
+      typicalConfig: 'One specific machine (filling, processing, or packing) or high-spec industrial components sourced to your requirement.',
       typicalInvestment: '$3,000 – $30,000 USD',
-      whenToUpgrade: 'When the next step becomes the new bottleneck, or when labor reduction becomes the priority.',
-      examples: ['Auger filler for spice powder', 'Piston filler for sauces', 'VFFS machine for snacks', 'Continuous fryer for snack line'],
+      whenToUpgrade: 'When you need to connect multiple steps or reduce manual handling between machines.',
+      examples: ['Auger filler for spice powder', 'Industrial sensors & PLC modules', 'VFFS machine for snacks', 'Continuous fryer'],
     },
     {
-      whoFor: 'Growing operations that want stable throughput with flexible changeovers.',
-      typicalConfig: '2–4 machines linked by conveyors, with operators at feeding, inspection, or packing-out.',
+      whoFor: 'Growing operations moving from manual steps to semi-automated, integrated workstations.',
+      typicalConfig: '2–4 machines linked by conveyors and sensors. We ensure logic compatibility between different equipment.',
       typicalInvestment: '$15,000 – $80,000 USD',
-      whenToUpgrade: 'When labor cost is significant, or when output/quality consistency needs more automation.',
-      examples: ['VFFS + multi-head weigher + metal detector', 'Liquid filler + capper + labeler', 'Frying line + seasoning + cooling conveyor'],
+      whenToUpgrade: 'When labor costs become the primary bottleneck or when high consistency across large volumes is required.',
+      examples: ['VFFS + Multi-head weigher integration', 'Liquid filler + Capper + Labeler setup', 'Frying line + Seasoning + Cooling'],
     },
     {
-      whoFor: 'Established producers targeting high volume, export consistency, or strict hygiene standards.',
-      typicalConfig: 'End-to-end line from feeding to finished output — PLC/HMI controlled, minimal manual steps.',
+      whoFor: 'Established producers targeting high volume, export consistency, and minimal human intervention.',
+      typicalConfig: 'Full end-to-end lines from feeding to palletizing. Vetted suppliers and integrated PLC/HMI controls.',
       typicalInvestment: '$80,000 – $300,000 USD',
-      whenToUpgrade: 'When volume justifies the investment, or compliance/traceability requirements increase.',
-      examples: ['VFFS powder line: silo → auger → VFFS → checkweigher → case packer', 'Bottle line: fill → cap → label', 'Complete snack frying + packing line'],
+      whenToUpgrade: 'When volume justifies the investment or when strict compliance/traceability requires a unified digital layer.',
+      examples: ['Full VFFS powder line with case packing', 'Automatic bottling line (Fill-Cap-Label-Pack)', 'Complete snack processing line'],
     },
     {
-      whoFor: 'New facility builds, unique products, OEM partners, or buyers who want one point of responsibility.',
-      typicalConfig: 'Full engineering project: process design → machine selection → custom fabrication → FAT → installation → commissioning → training.',
+      whoFor: 'New facility builds, complex technical projects, or project owners needing a single point of technical responsibility.',
+      typicalConfig: 'Full engineering scope: technical auditing → process design → machine selection → system integration → FAT → Handover.',
       typicalInvestment: 'From $150,000 USD — project-based',
-      whenToUpgrade: 'When standard machines cannot meet your product, hygiene, throughput, or compliance requirements.',
-      examples: ['Pharma powder sachet filling line', 'Multi-format flexible packaging line', 'Full snack processing + packaging facility'],
+      whenToUpgrade: 'When standard machinery cannot meet your product behavior, hygiene standards, or throughput requirements.',
+      examples: ['Pharma-grade powder sachet line', 'Multi-format flexible packaging facility', 'Integrated food processing facility'],
     },
   ],
   cn: [
     {
-      whoFor: '初创/小型工厂，或需要先解决一个明确瓶颈的团队。',
-      typicalConfig: '单台灌装、封口或加工设备；可独立运行，人工上料，或搭配基础上料机。',
+      whoFor: '初创或小型团队，需要特定技术组件或单一功能机械。',
+      typicalConfig: '根据您的要求采购的特定设备（灌装、加工或包装）或高规格工业零组件。',
       typicalInvestment: '$3,000 – $30,000 USD',
-      whenToUpgrade: '当后段工序成为新瓶颈，或希望进一步减少用工时。',
-      examples: ['香料粉螺杆计量/充填', '酱料活塞灌装', '零食用 VFFS 包装机', '零食线连续油炸机'],
+      whenToUpgrade: '当您需要连接多个工序或减少机器之间的人工搬运时。',
+      examples: ['香料粉螺杆充填机', '工业传感器与 PLC 模块', '零食 VFFS 包装机', '连续式油炸机'],
     },
     {
-      whoFor: '想要更稳定的产速，同时保留换型灵活度的成长型工厂。',
-      typicalConfig: '2–4 台设备由输送连接；人员负责上料、检验或装箱等环节。',
+      whoFor: '处于成长阶段，正从人工操作转向半自动、集成化工作站的企业。',
+      typicalConfig: '由输送带和传感器连接的 2-4 台设备。我们确保不同设备间的控制逻辑兼容性。',
       typicalInvestment: '$15,000 – $80,000 USD',
-      whenToUpgrade: '当人工成本明显、产量目标提升，或一致性/品质要求更高时。',
-      examples: ['VFFS + 多头秤 + 金检', '液体灌装 + 旋盖 + 贴标', '油炸线 + 调味 + 冷却输送'],
+      whenToUpgrade: '当人工成本成为主要瓶颈，或在大批量生产中需要高度一致性时。',
+      examples: ['VFFS + 多头秤集成', '液体灌装 + 旋盖 + 贴标配置', '油炸线 + 调味 + 冷却'],
     },
     {
-      whoFor: '追求较高产能、出口一致性，或对卫生有严格要求的生产商。',
-      typicalConfig: '从上料到成品输出的完整产线；PLC/HMI 控制，尽量减少人工步骤。',
+      whoFor: '追求高产能、出口一致性并希望将人工干预降至最低的成熟企业。',
+      typicalConfig: '从上料到码垛的全流程线体整合。采用经过审核的供应商并集成统一的 PLC/HMI 控制。',
       typicalInvestment: '$80,000 – $300,000 USD',
-      whenToUpgrade: '当产能足以支撑投资，或法规/追溯/出口要求提升时。',
-      examples: ['粉末 VFFS 线：料仓 → 螺杆 → VFFS → 检重 → 装箱', '瓶装线：灌装 → 旋盖 → 贴标', '完整零食油炸 + 包装线'],
+      whenToUpgrade: '当产能足以支撑投资，或严格的合规性/追溯要求需要统一的数字化层级时。',
+      examples: ['带装箱功能的粉末 VFFS 全线', '全自动瓶装线 (灌-旋-贴-装)', '完整零食加工线体'],
     },
     {
-      whoFor: '新建厂、特殊产品、OEM 合作，或希望由单一窗口负责整案的买家。',
-      typicalConfig: '整案工程：工艺设计 → 设备选型 → 定制制造 → FAT 测试 → 安装 → 调试 → 培训。',
+      whoFor: '新建场地、复杂技术项目或需要单一技术责任窗口的项目方。',
+      typicalConfig: '全方位工程范围：技术审计 → 工艺设计 → 设备选型 → 系统集成 → FAT 测试 → 交付。',
       typicalInvestment: '从 $150,000 USD 起（按项目核算）',
-      whenToUpgrade: '当标准设备无法满足产品特性、卫生、产能或合规要求时。',
-      examples: ['药用粉末小袋充填线', '多规格柔性包装线', '完整零食加工 + 包装工厂'],
+      whenToUpgrade: '当标准设备无法满足您的产品特性、卫生标准或产能要求时。',
+      examples: ['医药级粉末小袋包装线', '多规格柔性包装设施', '集成化食品加工设施'],
     },
   ],
   zh: [
     {
-      whoFor: '初創/小型工廠，或需要先解決一個明確瓶頸的團隊。',
-      typicalConfig: '單台灌裝、封口或加工設備；可獨立運行，人工上料，或搭配基礎上料機。',
+      whoFor: '初創或小型團隊，需要特定技術組件或單一功能機械。',
+      typicalConfig: '根據您的要求採購的特定設備（灌裝、加工或包裝）或高規格工業零組件。',
       typicalInvestment: '$3,000 – $30,000 USD',
-      whenToUpgrade: '當後段工序成為新瓶頸，或希望進一步降低用工時。',
-      examples: ['香料粉螺桿計量/充填', '醬料活塞灌裝', '零食用 VFFS 包裝機', '零食線連續油炸機'],
+      whenToUpgrade: '當您需要連接多個工序或減少機器之間的人工搬運時。',
+      examples: ['香料粉螺桿充填機', '工業感測器與 PLC 模組', '零食 VFFS 包裝機', '連續式油炸機'],
     },
     {
-      whoFor: '想要更穩定的產速，同時保留換型彈性的成長型工廠。',
-      typicalConfig: '2–4 台設備由輸送連接；人員負責上料、檢驗或裝箱等環節。',
+      whoFor: '處於成長階段，正從人工操作轉向半自動、整合化工作站的企業。',
+      typicalConfig: '由輸送帶和感測器連接的 2-4 台設備。我們確保不同設備間的控制邏輯相容性。',
       typicalInvestment: '$15,000 – $80,000 USD',
-      whenToUpgrade: '當人力成本明顯、產量目標提升，或一致性/品質要求更高時。',
-      examples: ['VFFS + 多頭秤 + 金檢', '液體灌裝 + 旋蓋 + 貼標', '油炸線 + 調味 + 冷卻輸送'],
+      whenToUpgrade: '當人工成本成為主要瓶頸，或在大批量生產中需要高度一致性時。',
+      examples: ['VFFS + 多頭秤整合', '液體灌裝 + 旋蓋 + 貼標配置', '油炸線 + 調味 + 冷卻'],
     },
     {
-      whoFor: '追求較高產能、出口一致性，或對衛生有嚴格要求的生產商。',
-      typicalConfig: '從上料到成品輸出的完整產線；PLC/HMI 控制，盡量減少人工步驟。',
+      whoFor: '追求高產能、出口一致性並希望將人工干預降至最低的成熟企業。',
+      typicalConfig: '從上料到碼垛的全流程線體整合。採用經過審核的供應商並整合統一的 PLC/HMI 控制。',
       typicalInvestment: '$80,000 – $300,000 USD',
-      whenToUpgrade: '當產能足以支撐投資，或法規/追溯/出口要求提升時。',
-      examples: ['粉末 VFFS 線：料倉 → 螺桿 → VFFS → 檢重 → 裝箱', '瓶裝線：灌裝 → 旋蓋 → 貼標', '完整零食油炸 + 包裝線'],
+      whenToUpgrade: '當產能足以支撐投資，或嚴格的合規性/追溯要求需要統一的數位化層級時。',
+      examples: ['帶裝箱功能的粉末 VFFS 全線', '全自動瓶裝線 (灌-旋-貼-裝)', '完整零食加工線體'],
     },
     {
-      whoFor: '新建廠、特殊產品、OEM 合作，或希望由單一窗口負責整案的買家。',
-      typicalConfig: '整案工程：製程設計 → 設備選型 → 客製製造 → FAT 測試 → 安裝 → 調試 → 培訓。',
+      whoFor: '新建場地、複雜技術專案或需要單一技術責任窗口的專案方。',
+      typicalConfig: '全方位工程範圍：技術審核 → 製程設計 → 設備選型 → 系統整合 → FAT 測試 → 交付。',
       typicalInvestment: '從 $150,000 USD 起（按專案核算）',
-      whenToUpgrade: '當標準設備無法滿足產品特性、衛生、產能或合規要求時。',
-      examples: ['藥用粉末小袋充填線', '多規格柔性包裝線', '完整零食加工 + 包裝工廠'],
+      whenToUpgrade: '當標準設備無法滿足您的產品特性、衛生標準或產能要求時。',
+      examples: ['醫藥級粉末小袋包裝線', '多規格柔性包裝設施', '整合化食品加工設施'],
     },
   ],
   fr: [
@@ -252,7 +252,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['Ligne poudre VFFS : silo → vis → VFFS → contrôle de poids → mise en carton', 'Ligne bouteilles : remplissage → bouchage → étiquetage', 'Ligne snack complète : friture + emballage'],
     },
     {
-      whoFor: 'Nouveaux sites, produits atypiques, OEM, ou besoin d’un interlocuteur unique responsable.',
+      whoFor: 'Nouveaux sites, produits atypiques, ou besoin d’un interlocuteur unique responsable.',
       typicalConfig: 'Projet d’ingénierie complet : process → sélection → fabrication → FAT → installation → mise en service → formation.',
       typicalInvestment: 'À partir de $150,000 USD — selon projet',
       whenToUpgrade: 'Quand les solutions standards ne répondent pas au produit, hygiène, débit ou conformité.',
@@ -282,7 +282,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['Línea VFFS polvo: silo → tornillo → VFFS → control de peso → encajado', 'Línea botellas: llenar → tapar → etiquetar', 'Línea snack completa: freír + empacar'],
     },
     {
-      whoFor: 'Nuevas plantas, productos especiales, OEM o compradores que quieren un responsable único.',
+      whoFor: 'Nuevas plantas, productos especiales o compradores que quieren un responsable único.',
       typicalConfig: 'Proyecto integral: diseño de proceso → selección de equipos → fabricación → FAT → instalación → puesta en marcha → capacitación.',
       typicalInvestment: 'Desde $150,000 USD — según proyecto',
       whenToUpgrade: 'Cuando equipos estándar no cubren producto, higiene, capacidad o requisitos normativos.',
@@ -305,14 +305,14 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['VFFS + multicabeçote + detector de metais', 'Envase líquido + tampadora + rotuladora', 'Fritura + tempero + esteira de resfriamento'],
     },
     {
-      whoFor: 'Produtores estabelecidos buscando alto volume, consistência para exportação ou higiene rigorosa.',
+      whoFor: 'Produtores estabelecidos buscando alto volume, consistencia para exportação ou higiene rigorosa.',
       typicalConfig: 'Linha completa da alimentação à saída do produto — PLC/HMI, com poucas etapas manuais.',
       typicalInvestment: '$80,000 – $300,000 USD',
       whenToUpgrade: 'Quando o volume justifica o investimento ou aumentam exigências de conformidade/rastreabilidade.',
       examples: ['Linha VFFS pó: silo → rosca → VFFS → checkweigher → encaixotador', 'Linha de garrafas: envasar → tampar → rotular', 'Linha completa de snacks: fritar + embalar'],
     },
     {
-      whoFor: 'Novas plantas, produtos especiais, OEM ou compradores que querem um único responsável pelo projeto.',
+      whoFor: 'Novas plantas, produtos especiais ou compradores que querem um único responsável pelo projeto.',
       typicalConfig: 'Projeto completo: processo → seleção → fabricação → FAT → instalação → comissionamento → treinamento.',
       typicalInvestment: 'A partir de $150,000 USD — por projeto',
       whenToUpgrade: 'Quando soluções padrão não atendem produto, higiene, capacidade ou conformidade.',
@@ -342,7 +342,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['분말 VFFS 라인: 사일로 → 오거 → VFFS → 체크웨이어 → 케이스 패킹', '병 라인: 충전 → 캡핑 → 라벨', '스낵 튀김 + 포장 완전 라인'],
     },
     {
-      whoFor: '신규 공장, 표준 장비로 어려운 제품, OEM 파트너, 단일 책임 창구가 필요한 프로젝트.',
+      whoFor: '신규 공장, 표준 장비로 어려운 제품, 단일 책임 창구가 필요한 프로젝트.',
       typicalConfig: '전체 엔지니어링: 공정 설계 → 장비 선정 → 맞춤 제작 → FAT → 설치 → 시운전 → 교육.',
       typicalInvestment: '$150,000 USD부터 (프로젝트 기준)',
       whenToUpgrade: '표준 장비로 제품 특성/위생/능력/규정 요구를 만족시키기 어려울 때.',
@@ -351,10 +351,10 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
   ],
   ja: [
     {
-      whoFor: 'スタートアップ/小規模工場、または明確なボトルネックを先に解消したい場合。',
+      whoFor: 'スタートアップ/小規模工場, または明確なボトルネックを先に解消したい場合。',
       typicalConfig: '充填・シール・加工機の単体。手投入の単独運転、または簡易フィーダーと組み合わせ。',
       typicalInvestment: '$3,000 – $30,000 USD',
-      whenToUpgrade: '次工程が新たなボトルネックになる、または省人化が優先になったとき。',
+      whenToUpgrade: '次工程が新たなボトルネックになる、または省人化が優先になったとき.',
       examples: ['スパイス粉のオーガー充填', 'ソース用ピストン充填', 'スナック向けVFFS', 'スナックライン用連続フライヤー'],
     },
     {
@@ -372,7 +372,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['粉体VFFSライン：サイロ→オーガー→VFFS→重量検査→箱詰め', 'ボトルライン：充填→キャップ→ラベル', 'スナック加工＋包装の一貫ライン'],
     },
     {
-      whoFor: '新工場、標準機では難しい製品、OEM、単一窓口で責任を持たせたい案件。',
+      whoFor: '新工場、標準機では難しい製品、単一窓口で責任を持たせたい案件。',
       typicalConfig: 'フルエンジニアリング：工程設計→選定→カスタム製作→FAT→据付→立上げ→教育。',
       typicalInvestment: '$150,000 USD〜（プロジェクトベース）',
       whenToUpgrade: '標準機で製品特性/衛生/能力/法規要件を満たせない場合。',
@@ -402,7 +402,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['خط مسحوق VFFS: صومعة → لولب → VFFS → فحص وزن → تعبئة كراتين', 'خط عبوات: تعبئة → تغطية → ملصقات', 'خط سناك كامل: قلي + تعبئة'],
     },
     {
-      whoFor: 'إنشاء مصنع جديد، منتجات خاصة، OEM، أو مشروع يحتاج جهة واحدة مسؤولة.',
+      whoFor: 'إنشاء موقع جديد، منتجات خاصة، أو مشروع يحتاج جهة واحدة مسؤولة.',
       typicalConfig: 'مشروع هندسي كامل: تصميم العملية → اختيار المعدات → تصنيع مخصص → FAT → تركيب → تشغيل تجريبي → تدريب.',
       typicalInvestment: 'من $150,000 USD — حسب المشروع',
       whenToUpgrade: 'عندما لا تفي الحلول القياسية بمتطلبات المنتج أو النظافة أو القدرة أو الالتزام.',
@@ -432,7 +432,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['ไลน์ผง VFFS: ไซโล → ออเกอร์ → VFFS → เช็คเวย์เออร์ → บรรจุกล่อง', 'ไลน์ขวด: บรรจุ → ปิดฝา → ติดฉลาก', 'ไลน์สแน็คครบ: ทอด + บรรจุ'],
     },
     {
-      whoFor: 'สร้างโรงงานใหม่ สินค้าเฉพาะ OEM หรืออยากให้มีผู้รับผิดชอบโครงการรายเดียว',
+      whoFor: 'สร้างหน้างานใหม่ สินค้าเฉพาะ หรืออยากให้มีผู้รับผิดชอบโครงการรายเดียว',
       typicalConfig: 'โครงการวิศวกรรมครบ: ออกแบบกระบวนการ → เลือกเครื่อง → ผลิตสั่งทำ → FAT → ติดตั้ง → คอมมิชชั่น → เทรนนิ่ง',
       typicalInvestment: 'เริ่มจาก $150,000 USD — ตามโครงการ',
       whenToUpgrade: 'เมื่อเครื่องมาตรฐานไม่ตอบโจทย์สินค้า สุขอนามัย กำลังการผลิต หรือข้อกำหนดกฎหมาย',
@@ -462,7 +462,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['Line bột VFFS: silo → trục vít → VFFS → checkweigher → đóng thùng', 'Line chai: chiết → đóng nắp → dán nhãn', 'Line snack hoàn chỉnh: chiên + đóng gói'],
     },
     {
-      whoFor: 'Xây nhà máy mới, sản phẩm đặc thù, OEM hoặc muốn một đầu mối chịu trách nhiệm toàn bộ.',
+      whoFor: 'Xây nhà máy mới, sản phẩm đặc thù hoặc muốn một đầu mối chịu trách nhiệm toàn bộ.',
       typicalConfig: 'Dự án kỹ thuật trọn gói: thiết kế quy trình → chọn máy → chế tạo theo yêu cầu → FAT → lắp đặt → chạy thử → đào tạo.',
       typicalInvestment: 'Từ $150,000 USD — theo dự án',
       whenToUpgrade: 'Khi máy tiêu chuẩn không đáp ứng đặc tính sản phẩm, vệ sinh, công suất hoặc yêu cầu tuân thủ.',
@@ -492,7 +492,7 @@ const levelDetails: Record<Lang, LevelDetail[]> = {
       examples: ['VFFS-Pulverlinie: Silo → Schnecke → VFFS → Kontrollwaage → Kartonierer', 'Flaschenlinie: Füllen → Verschließen → Etikettieren', 'Snack-Linie komplett: Frittieren + Verpacken'],
     },
     {
-      whoFor: 'Neubau, Sonderprodukte, OEM oder Projekte mit einem verantwortlichen Ansprechpartner.',
+      whoFor: 'Neubau, Sonderprodukte oder Projekte mit einem verantwortlichen Ansprechpartner.',
       typicalConfig: 'Komplettes Engineering: Prozessdesign → Auswahl → Sonderbau → FAT → Installation → Inbetriebnahme → Schulung.',
       typicalInvestment: 'Ab $150,000 USD — projektbasiert',
       whenToUpgrade: 'Wenn Standardlösungen Produkt, Hygiene, Leistung oder Compliance nicht erfüllen.',
@@ -517,81 +517,81 @@ const levelTranslations: Record<string, {
   levels: { title: string; tagline: string; cta: string }[]
 }> = {
   en: {
-    sectionTitle: 'Choose Your Automation Level',
-    whoForLabel: 'Best for',
-    configLabel: 'Typical configuration',
-    investmentLabel: 'Typical investment',
-    upgradeLabel: 'When to upgrade',
-    examplesLabel: 'Example applications',
-    compTitle: 'Which level is right for you?',
-    compHeaders: ['', 'Single Machine', 'Semi-Auto', 'Full Auto', 'Turnkey'],
+    sectionTitle: 'Strategic Sourcing Levels',
+    whoForLabel: 'Strategic fit',
+    configLabel: 'Typical scope',
+    investmentLabel: 'Investment range',
+    upgradeLabel: 'Scale path',
+    examplesLabel: 'Technical examples',
+    compTitle: 'Which Sourcing Strategy is Right for You?',
+    compHeaders: ['', 'Component/Machine', 'Workstation', 'End-to-End', 'Turnkey'],
     compRows: [
-      { label: 'Operators needed', cells: ['1–2', '1–3', '1–2', '1 (supervisor)'] },
+      { label: 'Technical vetting', cells: ['Basic', 'High', 'Advanced', 'Strategic'] },
       { label: 'Output range', cells: ['Low–Medium', 'Medium', 'Medium–High', 'High–Very High'] },
-      { label: 'Format flexibility', cells: ['High', 'High', 'Medium', 'By design'] },
+      { label: 'System logic', cells: ['Standalone', 'Integrated', 'Centralized', 'Unified'] },
       { label: 'Initial investment', cells: ['$', '$$', '$$$', '$$$$'] },
-      { label: 'Lead time', cells: ['30–45 days', '45–75 days', '60–120 days', '90–180 days'] },
-      { label: 'Best for', cells: ['Single bottleneck', 'Growing operation', 'Scale & consistency', 'New build / OEM'] },
+      { label: 'Typical timeline', cells: ['30–45 days', '45–75 days', '60–120 days', '90–180 days'] },
+      { label: 'Best for', cells: ['Single task', 'Growing flow', 'High volume', 'New build/turnkey'] },
     ],
-    ctaSection: "Not sure which level fits your operation?",
-    ctaButton: 'Get a Free Recommendation',
+    ctaSection: "Need a technical sourcing evaluation?",
+    ctaButton: 'Get a Sourcing Recommendation',
     levels: [
-      { title: 'Single Machine', tagline: 'One specific task. One machine. Immediate impact.', cta: 'Get a Single Machine Quote' },
-      { title: 'Semi-Automatic Setup', tagline: 'Core automation, flexible operator involvement.', cta: 'Design a Semi-Auto Setup' },
-      { title: 'Fully Automatic Line', tagline: 'High throughput. Minimal labor. Consistent quality.', cta: 'Request a Line Design' },
-      { title: 'Turnkey / Custom Engineering', tagline: 'Your product. Your process. Built from scratch.', cta: 'Discuss Your Project' },
+      { title: 'Component & Machine Sourcing', tagline: 'One specific technical task. Immediate impact.', cta: 'Get Machine Sourcing Advice' },
+      { title: 'Integrated Workstations', tagline: 'Linking core steps. Multi-vendor compatibility.', cta: 'Design an Integrated Workstation' },
+      { title: 'End-to-End Line Integration', tagline: 'High throughput. Unified control logic.', cta: 'Request a Line Sourcing Plan' },
+      { title: 'Strategic Turnkey Projects', tagline: 'Full site scope. Single technical accountability.', cta: 'Discuss Your Strategic Project' },
     ],
   },
   cn: {
-    sectionTitle: '选择您的自动化层级',
-    whoForLabel: '适用于',
-    configLabel: '典型配置',
-    investmentLabel: '典型投资',
-    upgradeLabel: '何时升级',
-    examplesLabel: '应用示例',
-    compTitle: '哪个层级适合您？',
-    compHeaders: ['', '单机', '半自动', '全自动', '交钥匙'],
+    sectionTitle: '战略采购层级',
+    whoForLabel: '战略适配',
+    configLabel: '典型范围',
+    investmentLabel: '投资范围',
+    upgradeLabel: '升级路径',
+    examplesLabel: '技术示例',
+    compTitle: '哪种采购策略适合您？',
+    compHeaders: ['', '零部件/单机', '集成工作站', '端到端产线', '交钥匙项目'],
     compRows: [
-      { label: '所需操作人员', cells: ['1–2人', '1–3人', '1–2人', '1人（监督）'] },
+      { label: '技术审核', cells: ['基础', '高级', '深度', '战略级'] },
       { label: '产量范围', cells: ['低–中', '中', '中–高', '高–极高'] },
-      { label: '格式灵活性', cells: ['高', '高', '中', '按设计'] },
+      { label: '系统逻辑', cells: ['独立运行', '集成控制', '集中管理', '统一平台'] },
       { label: '初始投资', cells: ['$', '$$', '$$$', '$$$$'] },
       { label: '交货期', cells: ['30–45天', '45–75天', '60–120天', '90–180天'] },
-      { label: '最适合', cells: ['解决单一瓶颈', '成长型企业', '规模化与一致性', '新建厂/OEM'] },
+      { label: '最适合', cells: ['单一任务', '流程优化', '高产能需求', '新建场地/交钥匙'] },
     ],
-    ctaSection: '不确定哪个层级适合您的工厂？',
-    ctaButton: '获取免费推荐',
+    ctaSection: '需要专业的技术采购评估？',
+    ctaButton: '获取采购评估',
     levels: [
-      { title: '单机', tagline: '一项任务。一台设备。立竿见影。', cta: '获取单机报价' },
-      { title: '半自动配置', tagline: '核心自动化，灵活的操作员参与。', cta: '设计半自动方案' },
-      { title: '全自动生产线', tagline: '高产量。最少人工。稳定品质。', cta: '申请产线设计' },
-      { title: '交钥匙/定制工程', tagline: '您的产品。您的工艺。从头定制。', cta: '讨论您的项目' },
+      { title: '零部件与单机采购', tagline: '解决单一技术任务。立竿见影。', cta: '获取单机采购建议' },
+      { title: '集成工作站', tagline: '连接核心工序。多供应商兼容。', cta: '设计集成工作站' },
+      { title: '端到端线体整合', tagline: '高产出。统一控制逻辑。', cta: '申请整线采购计划' },
+      { title: '战略级交钥匙项目', tagline: '全厂建设范围。单一技术责任窗口。', cta: '讨论您的战略项目' },
     ],
   },
   zh: {
-    sectionTitle: '選擇您的自動化層級',
-    whoForLabel: '適用於',
-    configLabel: '典型配置',
-    investmentLabel: '典型投資',
-    upgradeLabel: '何時升級',
-    examplesLabel: '應用範例',
-    compTitle: '哪個層級適合您？',
-    compHeaders: ['', '單機', '半自動', '全自動', '交鑰匙'],
+    sectionTitle: '戰略採購層級',
+    whoForLabel: '戰略適配',
+    configLabel: '典型範圍',
+    investmentLabel: '投資範圍',
+    upgradeLabel: '升級路徑',
+    examplesLabel: '技術範例',
+    compTitle: '哪種採購策略適合您？',
+    compHeaders: ['', '零組件/單機', '整合工作站', '端到端產線', '交鑰匙專案'],
     compRows: [
-      { label: '所需操作人員', cells: ['1–2人', '1–3人', '1–2人', '1人（監督）'] },
+      { label: '技術審核', cells: ['基礎', '高級', '深度', '戰略級'] },
       { label: '產量範圍', cells: ['低–中', '中', '中–高', '高–極高'] },
-      { label: '格式靈活性', cells: ['高', '高', '中', '按設計'] },
+      { label: '系統邏輯', cells: ['獨立運作', '整合控制', '集中管理', '統一平台'] },
       { label: '初始投資', cells: ['$', '$$', '$$$', '$$$$'] },
       { label: '交貨期', cells: ['30–45天', '45–75天', '60–120天', '90–180天'] },
-      { label: '最適合', cells: ['解決單一瓶頸', '成長型企業', '規模化與一致性', '新建廠/OEM'] },
+      { label: '最適合', cells: ['單一任務', '流程優化', '高產能需求', '新建場地/交鑰匙'] },
     ],
-    ctaSection: '不確定哪個層級適合您的工廠？',
-    ctaButton: '取得免費推薦',
+    ctaSection: '需要專業的技術採購評估？',
+    ctaButton: '取得採購評估',
     levels: [
-      { title: '單機', tagline: '一項任務。一台設備。立竿見影。', cta: '取得單機報價' },
-      { title: '半自動配置', tagline: '核心自動化，靈活的操作員參與。', cta: '設計半自動方案' },
-      { title: '全自動生產線', tagline: '高產量。最少人工。穩定品質。', cta: '申請產線設計' },
-      { title: '交鑰匙/客製工程', tagline: '您的產品。您的工藝。從頭客製。', cta: '討論您的專案' },
+      { title: '零組件與單機採購', tagline: '解決單一技術任務。立竿見影。', cta: '取得單機採購建議' },
+      { title: '整合工作站', tagline: '連接核心工序。多供應商相容。', cta: '設計整合工作站' },
+      { title: '端到端線體整合', tagline: '高產出。統一控制邏輯。', cta: '申請整線採購計畫' },
+      { title: '戰略級交鑰匙專案', tagline: '全廠建設範圍。單一技術責任窗口。', cta: '討論您的戰略專案' },
     ],
   },
 }
@@ -637,94 +637,40 @@ const faqTitle: Record<Lang, string> = {
   de: 'Häufige Fragen',
 }
 
-const faqItemsByLang: Record<Lang, FaqItem[]> = {
+const faqItemsByLang: Partial<Record<Lang, FaqItem[]>> = {
   en: [
-    { q: 'What is a turnkey packaging line?', a: 'A complete, integrated production system built to your specification — from feeding to filling, sealing, inspection, packing-out, and palletizing. We cover design, manufacturing, factory testing, and handover.' },
-    { q: 'How do I choose between a single machine and a full line?', a: 'Choose a single machine for one bottleneck. Choose semi-auto/full line when throughput and consistency matter and you want to reduce manual steps. Choose turnkey when building a new facility or changing process scope.' },
-    { q: 'Can SunGene integrate machines from other brands?', a: 'Yes. We can integrate with existing equipment where feasible and design controls (PLC/HMI) for mixed-brand lines based on interface conditions.' },
-    { q: 'What is the typical lead time for a fully automatic line?', a: 'Typically 60–120 days depending on scope and customization. Single machines may ship in 30–45 days when configuration is straightforward.' },
+    { q: 'What is strategic industrial sourcing?', a: 'It is the process of vetting suppliers, verifying engineering standards, and ensuring technical compatibility across different machines and components before procurement. We act as your technical eyes on the ground.' },
+    { q: 'How do you ensure technical compatibility?', a: 'We review electrical diagrams, PLC protocols, and physical footprints of all sourced items. We coordinate between different vendors to ensure they work as a unified line system.' },
+    { q: 'Can you source machines from specific regions?', a: 'Yes. We specialize in sourcing high-performance equipment and components from both Taiwan and China, matching the right supplier to your budget and quality requirements.' },
+    { q: 'What is your vetting process for suppliers?', a: 'We perform on-site audits, check component origins (e.g., Siemens PLC, SMC pneumatics), and verify past export performance and after-sales support capabilities.' },
   ],
   cn: [
-    { q: '什么是交钥匙包装生产线？', a: '按您的规格设计并集成的一整套系统：从上料、计量/灌装、封口、检验、装箱到码垛。我们负责方案、制造、出厂测试与交付。' },
-    { q: '如何在单机与整线之间选择？', a: '若只需要解决一个瓶颈，先选单机。若要稳定产速并减少人工环节，选半自动/全自动产线。若是新建厂或制程范围变更，建议交钥匙项目。' },
-    { q: '可以整合其他品牌设备吗？', a: '可以。在接口条件可行的前提下，我们可与现有设备整合，并按控制需求设计 PLC/HMI 方案。' },
-    { q: '全自动产线的典型交期？', a: '通常 60–120 天，取决于范围与客制程度。配置较简单的单机常见为 30–45 天。' },
+    { q: '什么是战略性工业采购？', a: '这是在采购前审核供应商、验证工程标准并确保不同机器与组件之间技术兼容性的过程。我们作为您在当地的技术窗口，为您把关。' },
+    { q: '你们如何确保技术兼容性？', a: '我们审查所有采购项目的电路图、PLC 协议和物理布局。我们协调不同供应商，确保它们能作为一个统一的线体系统运行。' },
+    { q: '你们可以从特定地区采购吗？', a: '可以。我们专精于从台湾和中国采购高性能设备与零部件，根据您的预算和质量要求匹配最合适的供应商。' },
+    { q: '你们对供应商的审核流程是怎样的？', a: '我们进行现场审计，检查核心部件来源（如西门子 PLC、SMC 气动元件），并验证其过往出口表现和售后支持能力。' },
   ],
   zh: [
-    { q: '什麼是交鑰匙包裝生產線？', a: '依您的規格設計並整合的一整套系統：從上料、計量/灌裝、封口、檢驗、裝箱到碼垛。我們負責方案、製造、出廠測試與交付。' },
-    { q: '如何在單機與整線之間選擇？', a: '若只需要解決一個瓶頸，先選單機。若要穩定產速並減少人工環節，選半自動/全自動產線。若是新建廠或製程範圍變更，建議交鑰匙專案。' },
-    { q: '可以整合其他品牌設備嗎？', a: '可以。在介面條件可行的前提下，我們可與既有設備整合，並依控制需求設計 PLC/HMI 方案。' },
-    { q: '全自動產線的典型交期？', a: '通常 60–120 天，取決於範圍與客製程度。配置較簡單的單機常見為 30–45 天。' },
-  ],
-  fr: [
-    { q: 'Qu’est-ce qu’une ligne d’emballage turnkey ?', a: 'Un système complet et intégré selon votre cahier des charges : alimentation, dosage/remplissage, scellage, contrôle, mise en carton et palettisation. Conception, fabrication, tests usine et remise inclus.' },
-    { q: 'Comment choisir entre une machine et une ligne complète ?', a: 'Une machine si vous avez un seul goulot. Semi-auto/ligne si le débit et la constance comptent et que vous voulez réduire le manuel. Turnkey pour une nouvelle usine ou un changement de périmètre process.' },
-    { q: 'Pouvez-vous intégrer des machines d’autres marques ?', a: 'Oui. Si les interfaces le permettent, nous intégrons votre existant et définissons le contrôle PLC/HMI pour des lignes multi-marques.' },
-    { q: 'Quel est le délai typique pour une ligne full auto ?', a: 'En général 60–120 jours selon le périmètre et la personnalisation. Une machine seule peut être expédiée en 30–45 jours si la configuration est simple.' },
-  ],
-  es: [
-    { q: '¿Qué es una línea turnkey de empaque?', a: 'Un sistema completo e integrado según su especificación: alimentación, dosificación/llenado, sellado, inspección, encajado y paletizado. Incluye diseño, fabricación, pruebas en fábrica y entrega.' },
-    { q: '¿Cómo elijo entre una máquina y una línea completa?', a: 'Una máquina si hay un solo cuello de botella. Semi-auto/línea si necesita rendimiento y consistencia y desea reducir pasos manuales. Turnkey si construye una planta nueva o cambia el alcance del proceso.' },
-    { q: '¿Pueden integrar máquinas de otras marcas?', a: 'Sí. Si las interfaces son compatibles, integramos equipos existentes y definimos PLC/HMI para líneas multi-marca.' },
-    { q: '¿Plazo típico para una línea full auto?', a: 'Normalmente 60–120 días según alcance y personalización. Una máquina sola puede salir en 30–45 días si la configuración es simple.' },
-  ],
-  pt: [
-    { q: 'O que é uma linha turnkey de embalagem?', a: 'Um sistema completo e integrado conforme sua especificação: alimentação, dosagem/envase, selagem, inspeção, encaixotamento e paletização. Inclui projeto, fabricação, testes em fábrica e entrega.' },
-    { q: 'Como escolher entre uma máquina e uma linha completa?', a: 'Uma máquina para um gargalo específico. Semi-auto/linha quando vazão e consistência importam e você quer reduzir etapas manuais. Turnkey para planta nova ou mudança de escopo de processo.' },
-    { q: 'A SunGene integra máquinas de outras marcas?', a: 'Sim. Quando as interfaces permitem, integramos o existente e definimos PLC/HMI para linhas multi-marca.' },
-    { q: 'Prazo típico para uma linha full auto?', a: 'Em geral 60–120 dias dependendo do escopo e da personalização. Máquina única pode ser enviada em 30–45 dias quando a configuração é simples.' },
-  ],
-  ko: [
-    { q: '턴키 포장 라인이란 무엇인가요?', a: '요구사항에 맞춰 설계/통합되는 전체 시스템입니다. 투입, 계량/충전, 밀봉, 검사, 박스 포장, 팔레타이징까지 포함하며 설계·제작·출하 시험·인계를 지원합니다.' },
-    { q: '단일 장비와 전체 라인은 어떻게 선택하나요?', a: '한 가지 병목이면 단일 장비가 적합합니다. 처리량/일관성이 중요하고 수작업을 줄이고 싶다면 반자동/전체 라인을 권장합니다. 신규 공장이나 공정 범위 변경이면 턴키가 적합합니다.' },
-    { q: '타사 장비와도 통합할 수 있나요?', a: '가능합니다. 인터페이스 조건이 맞으면 기존 장비와 통합하고, 멀티 브랜드 라인에 맞춰 PLC/HMI 제어를 설계합니다.' },
-    { q: '전자동 라인의 일반 납기는?', a: '범위와 커스터마이징에 따라 보통 60–120일입니다. 단일 장비는 구성 단순 시 30–45일 출하가 가능합니다.' },
-  ],
-  ja: [
-    { q: 'ターンキー包装ラインとは？', a: '要件に合わせて設計・統合する一式システムです。供給、計量/充填、シール、検査、箱詰め、パレタイズまで含み、設計・製作・工場試験・引渡しを対応します。' },
-    { q: '単体機械とラインはどう選ぶ？', a: 'ボトルネックが1点なら単体機械。スループットと安定性が重要で手作業を減らしたいなら半自動/ライン。新工場や工程範囲変更ならターンキーが適します。' },
-    { q: '他社機との統合は可能？', a: '可能です。インターフェース条件が合えば既存設備と統合し、マルチブランドに対応したPLC/HMI制御を設計します。' },
-    { q: '全自動ラインの一般的な納期は？', a: '範囲とカスタム度合いにより通常60〜120日です。単体機械は構成がシンプルなら30〜45日で出荷可能です。' },
-  ],
-  ar: [
-    { q: 'ما هو خط تعبئة وتغليف turnkey؟', a: 'نظام متكامل حسب مواصفاتك من التغذية إلى التعبئة/الختم والفحص والتعبئة في كراتين والباليتة. يشمل التصميم والتصنيع والاختبار في المصنع والتسليم.' },
-    { q: 'كيف أختار بين آلة واحدة وخط كامل؟', a: 'اختر آلة واحدة إذا كان لديك عنق زجاجة محدد. اختر شبه آلي/خط كامل إذا كان الثبات والإنتاجية مهمين وتريد تقليل العمل اليدوي. اختر turnkey لمصنع جديد أو تغيير نطاق العملية.' },
-    { q: 'هل يمكن دمج معدات من علامات أخرى؟', a: 'نعم. إذا كانت الواجهات مناسبة، ندمج المعدات الموجودة ونصمم PLC/HMI لخطوط متعددة العلامات.' },
-    { q: 'ما مدة التسليم المعتادة لخط full auto؟', a: 'عادة 60–120 يومًا حسب النطاق والتخصيص. الآلة الواحدة قد تُشحن خلال 30–45 يومًا إذا كانت الإعدادات بسيطة.' },
-  ],
-  th: [
-    { q: 'ไลน์บรรจุภัณฑ์แบบ turnkey คืออะไร?', a: 'ระบบที่ออกแบบและรวมเครื่องตามสเปกของคุณ ตั้งแต่ป้อนวัตถุดิบ บรรจุ/ซีล ตรวจสอบ จัดแพ็ก และพาเลทไทซิ่ง รวมงานออกแบบ ผลิต ทดสอบโรงงาน และส่งมอบ' },
-    { q: 'ควรเลือกเครื่องเดียวหรือทั้งไลน์?', a: 'ถ้ามีคอขวดจุดเดียว เริ่มจากเครื่องเดียว ถ้าต้องการ throughput และความสม่ำเสมอ พร้อมลดงานมือ เลือกกึ่งอัตโนมัติ/ทั้งไลน์ ถ้าสร้างโรงงานใหม่หรือเปลี่ยนกระบวนการ แนะนำ turnkey' },
-    { q: 'รวมเครื่องยี่ห้ออื่นได้ไหม?', a: 'ได้ หากอินเทอร์เฟซเข้ากัน เราสามารถผสานกับเครื่องเดิม และออกแบบ PLC/HMI สำหรับไลน์หลายยี่ห้อ' },
-    { q: 'ระยะเวลาส่งมอบไลน์ full auto โดยทั่วไป?', a: 'ปกติ 60–120 วันตามขอบเขตและระดับการสั่งทำ เครื่องเดี่ยวอาจส่งได้ใน 30–45 วันเมื่อสเปกไม่ซับซ้อน' },
-  ],
-  vi: [
-    { q: 'Dây chuyền turnkey đóng gói là gì?', a: 'Hệ thống tích hợp theo spec của bạn: cấp liệu, định lượng/chiết rót, hàn kín, kiểm tra, đóng thùng và palletizing. Bao gồm thiết kế, chế tạo, test tại nhà máy và bàn giao.' },
-    { q: 'Chọn máy đơn hay cả dây chuyền?', a: 'Máy đơn khi chỉ có một nút thắt. Bán tự động/line khi cần thông lượng ổn định và giảm thao tác thủ công. Turnkey khi xây nhà máy mới hoặc thay đổi phạm vi quy trình.' },
-    { q: 'Có thể tích hợp máy của hãng khác không?', a: 'Có. Nếu điều kiện giao tiếp phù hợp, chúng tôi tích hợp thiết bị hiện có và thiết kế PLC/HMI cho line đa thương hiệu.' },
-    { q: 'Lead time cho line full auto thường là bao lâu?', a: 'Thường 60–120 ngày tùy phạm vi và mức tùy chỉnh. Máy đơn có thể 30–45 ngày khi cấu hình đơn giản.' },
-  ],
-  de: [
-    { q: 'Was ist eine Turnkey-Verpackungslinie?', a: 'Ein vollständig integriertes System nach Ihrer Spezifikation: Zuführung, Dosieren/Abfüllen, Verschließen, Kontrolle, Kartonieren und Palettieren. Inklusive Design, Fertigung, Werkstest und Übergabe.' },
-    { q: 'Wie wähle ich zwischen Einzelmaschine und kompletter Linie?', a: 'Einzelmaschine bei einem klaren Engpass. Semi-Auto/Linie, wenn Durchsatz und Konstanz wichtig sind und manuelle Schritte reduziert werden sollen. Turnkey bei Neubau oder Prozess-Umfangsänderung.' },
-    { q: 'Kann SunGene Maschinen anderer Marken integrieren?', a: 'Ja. Wenn Schnittstellen passen, integrieren wir Bestand und definieren PLC/HMI-Steuerung für Multi-Brand-Linien.' },
-    { q: 'Typische Lieferzeit für eine Full-Auto-Linie?', a: 'In der Regel 60–120 Tage je nach Umfang und Anpassung. Einzelmaschinen können bei einfacher Konfiguration in 30–45 Tagen versendet werden.' },
+    { q: '什麼是戰略性工業採購？', a: '這是在採購前審核供應商、驗證工程標準並確保不同機器與組件之間技術相容性的過程。我們作為您在當地的技術窗口，為您把關。' },
+    { q: '你們如何確保技術相容性？', a: '我們審查所有採購項目的電路圖、PLC 協定和物理佈局。我們協調不同供應商，確保它們能作為一個統一的線體系統運作。' },
+    { q: '你們可以從特定地區採購嗎？', a: '可以。我們專精於從台灣和中國採購高性能設備與零組件，根據您的預算和品質要求匹配最適合的供應商。' },
+    { q: '你們對供應商的審核流程是怎樣的？', a: '我們進行現場審計，檢查核心部件來源（如西門子 PLC、SMC 氣動元件），並驗證其過往出口表現和售後支援能力。' },
   ],
 }
 
 const ctaDescByLang: Record<Lang, string> = {
-  en: 'Send your product, packaging format, output target, and destination voltage/frequency. We will recommend a practical automation scope.',
-  cn: '请提供产品、包装形式、目标产能，以及目的地电压/频率，我们将给出可落地的自动化配置建议。',
-  zh: '請提供產品、包材形式、目標產能，以及目的地電壓/頻率，我們會給出可落地的自動化配置建議。',
-  fr: 'Indiquez produit, format, cadence cible et tension/fréquence du pays. Nous recommandons un périmètre d’automatisation réaliste.',
-  es: 'Comparta producto, formato, capacidad objetivo y voltaje/frecuencia del destino. Recomendamos un alcance de automatización práctico.',
-  pt: 'Informe produto, formato, meta de produção e tensão/frequência do destino. Recomendamos um escopo de automação prático.',
+  en: 'Send your product specs, output targets, and technical constraints. We will provide a professional sourcing assessment.',
+  cn: '请提供产品规格、产量目标与技术约束条件。我们将提供专业的采购建议。',
+  zh: '請提供產品規格、產量目標與技術約束條件。我們將提供專業的採購建議。',
+  fr: 'Indiquez produit, format, cadence cible et tension/fréquence du pays. Nous proposons un périmètre d’automatisation réaliste.',
+  es: 'Comparta producto, formato, capacidad objetivo y voltaje/frecuencia del destino. Proponemos un alcance de automatización práctico.',
+  pt: 'Informe produto, formato, meta de produção e tensão/frequência do destino. Propomos um escopo de automação prático.',
   ko: '제품, 포장 형식, 목표 생산량, 목적지 전압/주파수를 보내주시면 현실적인 자동화 범위를 제안합니다.',
   ja: '製品、包装形態、目標能力、仕向地の電圧/周波数をご共有ください。現実的な自動化範囲をご提案します。',
   ar: 'أرسل نوع المنتج وشكل العبوة والقدرة المطلوبة ومعيار الجهد/التردد. سنقترح نطاق أتمتة عمليًا.',
   th: 'ส่งรายละเอียดสินค้า รูปแบบบรรจุภัณฑ์ กำลังการผลิตเป้าหมาย และแรงดัน/ความถี่ปลายทาง เราจะเสนอขอบเขตอัตโนมัติที่ใช้งานได้จริง',
   vi: 'Gửi sản phẩm, kiểu bao bì, công suất mục tiêu và điện áp/tần số tại điểm đến. Chúng tôi sẽ đề xuất phạm vi tự động hóa thực tế.',
-  de: 'Senden Sie Produkt, Format, Zielleistung und Spannung/Frequenz am Einsatzort. Wir empfehlen einen praxisnahen Automationsumfang.',
+  de: 'Senden Sie Produkt, Format, Zielleistung und Spannung/Frequenz am Einsatzort. Wir schlagen einen praxisnahen Automationsumfang vor.',
 }
 
 const breadcrumbNames: Record<Lang, { home: string; solutions: string }> = {
@@ -748,7 +694,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
   const { lang } = await params
   const tx = getLevelTx(lang)
   const levels = getLevels(lang)
-  const faqItems = faqItemsByLang[lang] || faqItemsByLang.en
+  const faqItems = faqItemsByLang[lang] || faqItemsByLang.en || []
   const bc = breadcrumbNames[lang] || breadcrumbNames.en
   const heroPhoto = PHOTO.pages.solutions.hero
   const metaTitle = metaTitles[lang] || metaTitles.en
@@ -756,51 +702,51 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
 
   const guidesTitle =
     ({
-      en: 'Buying guides by machine',
-      cn: '按机型浏览采购指南',
-      zh: '依機型瀏覽採購指南',
-      fr: 'Guides d’achat par machine',
-      es: 'Guías de compra por máquina',
-      pt: 'Guias de compra por máquina',
-      ko: '기계별 구매 가이드',
-      ja: '機種別 購入ガイド',
-      ar: 'أدلة الشراء حسب الماكينة',
-      th: 'คู่มือการเลือกซื้อตามเครื่อง',
-      vi: 'Hướng dẫn mua theo máy',
-      de: 'Kaufratgeber nach Maschine',
-    } as Record<string, string>)[lang] || 'Buying guides by machine'
+      en: 'Configuration guides by route',
+      cn: '按配置路线浏览指南',
+      zh: '依配置路線瀏覽指南',
+      fr: 'Guides par parcours de configuration',
+      es: 'Guías por ruta de configuración',
+      pt: 'Guias por rota de configuração',
+      ko: '구성 경로별 가이드',
+      ja: '構成ルート別 ガイド',
+      ar: 'أدلة حسب مسار التهيئة',
+      th: 'คู่มือตามเส้นทางการกำหนดค่า',
+      vi: 'Hướng dẫn theo lộ trình cấu hình',
+      de: 'Leitfäden nach Konfigurationspfad',
+    } as Record<string, string>)[lang] || 'Configuration guides by route'
 
   const getRecLabel =
     ({
-      en: 'Get a Recommendation',
-      cn: '获取推荐',
-      zh: '取得推薦',
-      fr: 'Obtenir une recommandation',
-      es: 'Obtener recomendación',
-      pt: 'Obter recomendação',
-      ko: '추천 받기',
-      ja: '推薦を受ける',
-      ar: 'احصل على توصية',
-      th: 'รับคำแนะนำ',
-      vi: 'Nhận đề xuất',
-      de: 'Empfehlung erhalten',
-    } as Record<string, string>)[lang] || 'Get a Recommendation'
+      en: 'Get Assessment',
+      cn: '获取评估',
+      zh: '取得評估',
+      fr: 'Obtenir une évaluation',
+      es: 'Obtener evaluación',
+      pt: 'Obter avaliação',
+      ko: '평가 받기',
+      ja: '評価を受ける',
+      ar: 'احصل على تقييم',
+      th: 'รับการประเมิน',
+      vi: 'Nhận đánh giá',
+      de: 'Bewertung erhalten',
+    } as Record<string, string>)[lang] || 'Get Assessment'
 
   const quoteLabel =
     ({
-      en: 'Request a Quote',
-      cn: '获取报价',
-      zh: '取得報價',
-      fr: 'Demander un devis',
-      es: 'Solicitar cotización',
-      pt: 'Solicitar orçamento',
-      ko: '견적 요청',
-      ja: '見積依頼',
-      ar: 'طلب عرض سعر',
-      th: 'ขอใบเสนอราคา',
-      vi: 'Yêu cầu báo giá',
-      de: 'Angebot anfordern',
-    } as Record<string, string>)[lang] || 'Request a Quote'
+      en: 'Request Assessment',
+      cn: '获取采购评估',
+      zh: '取得採購評估',
+      fr: 'Demander évaluation',
+      es: 'Solicitar evaluación',
+      pt: 'Solicitar avaliação',
+      ko: '평가 요청',
+      ja: '評価依頼',
+      ar: 'طلب تقييم',
+      th: 'ขอการประเมิน',
+      vi: 'Yêu cầu đánh giá',
+      de: 'Bewertung anfordern',
+    } as Record<string, string>)[lang] || 'Request Assessment'
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -831,11 +777,11 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
     name: guidesTitle,
     isPartOf: { '@id': `${SITE_URL}/${lang}/solutions` },
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pouch packing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, url: `${SITE_URL}/${lang}/resources/topic/pouch-packing-machine`, name: 'Pouch packing buying guides' } },
-      { '@type': 'ListItem', position: 2, name: 'Powder filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/powder-filling-machine`, name: 'Powder filling buying guides' } },
-      { '@type': 'ListItem', position: 3, name: 'Liquid filling buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, url: `${SITE_URL}/${lang}/resources/topic/liquid-filling-machine`, name: 'Liquid filling buying guides' } },
-      { '@type': 'ListItem', position: 4, name: 'Snack processing buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, name: 'Snack processing buying guides' } },
-      { '@type': 'ListItem', position: 5, name: 'Conveyor buying guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/conveyor-system`, url: `${SITE_URL}/${lang}/resources/topic/conveyor-system`, name: 'Conveyor buying guides' } },
+      { '@type': 'ListItem', position: 1, name: 'Pouch packaging configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/pouch-packaging`, url: `${SITE_URL}/${lang}/resources/route/pouch-packaging`, name: 'Pouch packaging configuration guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Powder dosing configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/powder-dosing`, url: `${SITE_URL}/${lang}/resources/route/powder-dosing`, name: 'Powder dosing configuration guides' } },
+      { '@type': 'ListItem', position: 3, name: 'Liquid filling configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/liquid-filling`, url: `${SITE_URL}/${lang}/resources/route/liquid-filling`, name: 'Liquid filling configuration guides' } },
+      { '@type': 'ListItem', position: 4, name: 'Food processing line configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/food-processing-line`, url: `${SITE_URL}/${lang}/resources/route/food-processing-line`, name: 'Food processing line configuration guides' } },
+      { '@type': 'ListItem', position: 5, name: 'Conveying & automation configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/conveying-automation`, url: `${SITE_URL}/${lang}/resources/route/conveying-automation`, name: 'Conveying & automation configuration guides' } },
     ],
   }
 
@@ -878,7 +824,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
         kicker={heroKicker[lang] || heroKicker.en}
         title={heroTitle[lang] || heroTitle.en}
         desc={heroDesc[lang] || heroDesc.en}
-        image={{ src: heroPhoto, alt: 'Automated packaging production line in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Automated packaging line integration', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
 
       <section className="bg-white py-8">
@@ -886,14 +832,14 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-base font-bold text-gray-950">{guidesTitle}</h2>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/pouch-packaging`}>{({ en: 'Pouch packaging', cn: '袋包装', zh: '袋包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치', ja: 'パウチ', ar: 'أكياس', th: 'ถุง', vi: 'Túi', de: 'Beutel' } as Record<string, string>)[lang] || 'Pouch packaging'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/powder-dosing`}>{({ en: 'Powder dosing', cn: '粉体计量', zh: '粉體計量', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder dosing'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/liquid-filling`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/food-processing-line`}>{({ en: 'Food processing line', cn: '食品加工线', zh: '食品加工線', fr: 'Process', es: 'Proceso', pt: 'Processo', ko: '식품 라인', ja: '加工ライン', ar: 'معالجة', th: 'กระบวนการ', vi: 'Chế biến', de: 'Prozess' } as Record<string, string>)[lang] || 'Food processing line'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/conveying-automation`}>{({ en: 'Conveying & automation', cn: '输送与自动化', zh: '輸送與自動化', fr: 'Convoyage', es: 'Transporte', pt: 'Transporte', ko: '이송/자동화', ja: '搬送/自動化', ar: 'نقل/أتمتة', th: 'ลำเลียง/อัตโนมัติ', vi: 'Băng tải/TĐH', de: 'Fördertechnik/Automation' } as Record<string, string>)[lang] || 'Conveying & automation'}</a>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={`/${lang}/recommend`} size="md">{getRecLabel}</ButtonLink>
+              <ButtonLink href={`/${lang}/assessment`} size="md">{getRecLabel}</ButtonLink>
               <ButtonLink href={`/${lang}/contact`} variant="secondary" size="md">{quoteLabel}</ButtonLink>
             </div>
           </div>
@@ -1037,7 +983,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ lang
             {ctaDescByLang[lang] || ctaDescByLang.en}
           </p>
           <div className="mt-8">
-            <ButtonLink href={`/${lang}/recommend?product=${encodeURIComponent(heroTitle[lang] || heroTitle.en)}`} size="lg">
+            <ButtonLink href={`/${lang}/assessment?product=${encodeURIComponent(heroTitle[lang] || heroTitle.en)}`} size="lg">
               {tx.ctaButton}
             </ButtonLink>
           </div>

@@ -15,15 +15,16 @@ import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
 import { buildProductSchema } from '@/lib/productSchema'
 import RelatedHubs from '@/components/RelatedHubs'
 import TrustBar from '@/components/TrustBar'
-import QuickQuote from '@/components/QuickQuote'
+import QuickAssessment from '@/components/QuickAssessment'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import { getTestimonialsForMachine, getVideosForMachine } from '@/lib/cmsContent'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Powder Filling & Packaging Machines — Auger, Volumetric, Weigher-Based',
-  cn: '粉末充填包装机 — 螺旋、容积式、计重系统',
-  zh: '粉末充填包裝機 — 螺旋、容積式、計重系統',
+  en: 'Powder Dosing Configuration Route — Auger, Volumetric, Weigher-Based',
+  cn: '粉体计量配置路线 — 螺旋、容积式、计重系统',
+  zh: '粉體計量配置路線 — 螺旋、容積式、計重系統',
   fr: 'Machines de remplissage de poudre — Vis, Volumétrique, Peseuse',
   es: 'Máquinas llenadoras de polvo — Tornillo, Volumétrica, Pesadora',
   pt: 'Máquinas de enchimento de pó — Rosca, Volumétrica, Pesadora',
@@ -36,9 +37,9 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Powder filling and packaging machines for flour, spice, coffee, detergent, chemical, and pharma powders. Auger, volumetric, and multi-head weigher setups—selected by flowability, target accuracy, and output.',
-  cn: '粉末充填包装设备，适用于面粉、香料、咖啡、洗涤剂、化工与药用粉末。提供螺旋、容积、多头秤等方案，按流动性、精度与产速匹配。',
-  zh: '粉末充填包裝設備，適用於麵粉、香料、咖啡、洗滌劑、化工與藥用粉末。提供螺旋、容積、多頭秤等方案，依流動性、精度與產速匹配。',
+  en: 'Powder dosing sourcing support: select auger/volumetric/weighing routes, define accuracy and dust-control checkpoints, and align change parts and FAT scope before approval.',
+  cn: '粉体计量采购支持：选择螺旋/容积/计重配置路线，定义精度与控尘要点，并在核准前对齐换型件与 FAT 范围。',
+  zh: '粉體計量採購支援：選擇螺旋/容積/計重配置路線，定義精度與控塵要點，並在核准前對齊換型件與 FAT 範圍。',
   fr: 'Machines de remplissage/emballage pour poudres (farine, épices, café, détergent, chimie, pharma). Vis, volumétrique ou peseuse multi-têtes selon la fluidité, la précision et la cadence.',
   es: 'Máquinas de llenado y empaque de polvo (harina, especias, café, detergente, química y pharma). Tornillo, volumétrica o multicabezal según fluidez, precisión y velocidad.',
   pt: 'Máquinas de enchimento e embalagem de pó (farinha, especiarias, café, detergente, química e pharma). Rosca, volumétrica ou multicabeçote conforme fluidez, precisão e produção.',
@@ -60,9 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pathname: '/machines/powder-filling-machine',
     type: 'website',
     keywords: [
-      'powder filling machine', 'auger filler', 'powder packaging machine', 'flour filling machine',
-      'spice packaging machine', 'coffee powder filler', 'detergent powder packaging', 'VFFS powder line',
-      'multi-head weigher', 'Taiwan powder filler',
+      'powder dosing configuration', 'auger dosing selection', 'accuracy acceptance criteria', 'dust control planning',
+      'change parts planning', 'supplier vetting', 'FAT checklist', 'VFFS powder configuration',
+      'coffee powder dosing', 'spice powder dosing',
     ],
   })
 }
@@ -112,11 +113,11 @@ const content: Record<string, PageContent> = {
   en: {
     kicker: 'POWDER FILLING & PACKAGING',
     heroTitle: 'Powder Filling & Packaging Machines — Auger, Volumetric, and Weigher-Based Systems',
-    heroSubtitle: 'SunGene manufactures powder filling and packaging machines for flour, spice, coffee, detergent, chemical powder, and industrial powders. Configuration depends on your product\'s flowability, fill weight, and target output.',
+    heroSubtitle: 'SunGene supports powder dosing configuration planning for flour, spice, coffee, detergent, chemical, and industrial powders. We evaluate routes based on flowability, fill weight, and target output.',
 
     whoTitle: 'Who It\'s For',
     whoItems: [
-      { title: 'Food Manufacturers', desc: 'Flour mills, spice producers, coffee roasters, and protein powder brands needing accurate, hygienic filling at scale.' },
+      { title: 'Food Producers', desc: 'Flour mills, spice producers, coffee roasters, and protein powder brands needing accurate, hygienic filling at scale.' },
       { title: 'Chemical & Industrial', desc: 'Detergent powder, cement additives, and agricultural chemicals — with dust-proof and enclosed designs for safety.' },
       { title: 'Pharmaceutical & Nutraceutical', desc: 'Applications where GMP compliance and SUS316L stainless steel contact parts are required.' },
       { title: 'Contract Packers', desc: 'Handling multiple SKUs and fill weights — machines with quick format changeover and servo-driven accuracy.' },
@@ -145,7 +146,7 @@ const content: Record<string, PageContent> = {
       { name: 'Multi-Head Weigher', desc: 'For granules and powders that need high speed and accurate weight. Best above 20 bags/min.' },
       { name: 'Combination System (Auger + VFFS)', desc: 'Complete vertical form-fill-seal line for sachets to 1kg bags.' },
       { name: 'Big Bag / Bulk Filler', desc: 'For 5–50kg industrial packaging. Gravity-based or screw-conveyed feeding.' },
-      { name: 'Material & Compliance', desc: 'SUS304 standard; SUS316L available for food-grade and pharmaceutical applications. CE certified; voltage and frequency customized for your country.' },
+      { name: 'Material & Compliance', desc: 'SUS304 standard; SUS316L available for food-grade and pharmaceutical applications. CE documentation support where applicable; voltage and frequency configured for your destination.' },
     ],
 
     decisionsTitle: 'Key Decision Factors',
@@ -159,7 +160,7 @@ const content: Record<string, PageContent> = {
     ],
 
     integrationTitle: 'Process Integration',
-    integrationDesc: 'This machine integrates into your broader production workflow at the filling stage. A typical integrated powder line may include:',
+    integrationDesc: 'This machine integrates into your broader workflow at the filling stage. A typical integrated powder line may include:',
     integrationSteps: [
       'Raw material silos',
       'Pneumatic conveying',
@@ -197,8 +198,8 @@ const content: Record<string, PageContent> = {
         a: 'Yes. Integrated nitrogen flushing is available for applications where oxidation must be minimized — common in coffee, protein powder, and certain spice products.',
       },
       {
-        q: 'What information do I need to provide to get a quote?',
-        a: 'Product name and type, approximate bulk density, target fill weight, bag format and size, required output speed, country/voltage, and whether you need a standalone machine or full line. Use our recommendation form for the fastest response.',
+        q: 'What information do I need to provide to get a sourcing assessment?',
+        a: 'Product name and type, approximate bulk density, target fill weight, bag format and size, required output speed, country/voltage, and whether you need a standalone machine or full line. Use our assessment request form for the fastest response.',
       },
     ],
 
@@ -207,23 +208,23 @@ const content: Record<string, PageContent> = {
       { label: 'How to Choose a Powder Filling Machine', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'Auger vs Volumetric Filler — Comparison', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Spice Powder Packaging Guide', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Get a Machine Recommendation', href: '/recommend' },
+      { label: 'Get a Sourcing Assessment', href: '/assessment' },
     ],
 
     ctaTitle: 'Ready to find the right powder filling configuration?',
-    ctaSubtitle: 'Share your product details and our engineers will recommend the right filler type, output range, and line configuration for your application.',
-    ctaBtn1: 'Get a Machine Recommendation',
+    ctaSubtitle: 'Share your product details and our team will provide an assessment for the right filler type, output range, and line configuration.',
+    ctaBtn1: 'Request Sourcing Assessment',
     ctaBtn2: 'Talk to Engineering',
   },
 
   cn: {
     kicker: '粉末充填与包装',
     heroTitle: '粉末充填包装机 — 螺旋式、容积式与计重系统',
-    heroSubtitle: 'SunGene生产适用于面粉、香料、咖啡、洗涤剂、化工粉末和工业粉末的充填包装机。配置取决于您产品的流动性、充填重量和目标产量。',
+    heroSubtitle: 'SunGene 为面粉、香料、咖啡、洗涤剂、化工粉末和工业粉末提供专业的充填包装机技术采购。我们根据您产品的流动性、充填重量和目标产量评估最佳配置。',
 
     whoTitle: '适用客户',
     whoItems: [
-      { title: '食品制造商', desc: '面粉厂、香料生产商、咖啡烘焙商和蛋白粉品牌，需要大规模精准、卫生的充填。' },
+      { title: '食品企业', desc: '面粉厂、香料企业、咖啡烘焙商和蛋白粉品牌，需要大规模精准、卫生的充填。' },
       { title: '化工与工业', desc: '洗涤剂、水泥添加剂和农用化学品——防尘全封闭设计，保障安全。' },
       { title: '制药与营养保健', desc: '需要符合GMP标准并采用SUS316L不锈钢接触部件的应用场景。' },
       { title: '代工包装商', desc: '处理多SKU和多充填重量——机器支持快速换型和伺服驱动精度控制。' },
@@ -235,7 +236,7 @@ const content: Record<string, PageContent> = {
       { label: '非自由流动/粘性粉末', items: ['淀粉', '可可粉', '细化工粉末（需要振动或特殊计量）'] },
       { label: '工业粉末', items: ['洗涤剂', '水泥添加剂', '农药粉末'] },
     ],
-    productsNote: '我们在推荐充填机类型前，会审查您产品的堆积密度、粒径和含水量。',
+    productsNote: '我们在评估充填机类型前，会审查您产品的堆积密度、粒径和含水量。',
 
     packagingTitle: '包装与产量选项',
     packagingItems: [
@@ -250,7 +251,7 @@ const content: Record<string, PageContent> = {
       { name: '螺旋充填机', desc: '适用于自由流动到轻微粘性粉末。高精度（±0.5–1%）。可与VFFS或预制袋机配合使用。' },
       { name: '容积杯充填机', desc: '成本较低，适合均匀流动的粉末。精度低于螺旋式——适用于公差要求不严格的场合。' },
       { name: '多头秤', desc: '适用于需要高速和精确重量的颗粒和粉末。最适合每分钟20袋以上的场景。' },
-      { name: '组合系统（螺旋+VFFS）', desc: '完整的立式成型-充填-封口生产线，适用于小袋到1公斤袋。' },
+      { name: '组合系统（螺旋+VFFS）', desc: '完整的立式成型-充填-封口线体整合，适用于小袋到1公斤袋。' },
       { name: '吨袋/散装充填机', desc: '适用于5–50公斤工业包装。重力式或螺旋输送进料。' },
       { name: '材质与认证', desc: '标准为SUS304；食品级和制药应用可选SUS316L。CE认证；电压和频率可根据您所在国家定制。' },
     ],
@@ -293,8 +294,8 @@ const content: Record<string, PageContent> = {
         a: '支持。集成充氮冲洗可用于需要最大限度减少氧化的场合——常见于咖啡、蛋白粉和某些香料产品。',
       },
       {
-        q: '获取报价需要提供哪些信息？',
-        a: '产品名称和类型、大约堆积密度、目标充填重量、袋型和尺寸、所需产量速度、国家/电压，以及是否需要单机或完整产线。使用我们的推荐表单可获得最快响应。',
+        q: '获取采购评估与建议需要提供哪些信息？',
+        a: '产品名称和类型、大约堆积密度、目标充填重量、袋型和尺寸、所需产量速度、国家/电压，以及是否需要单机或完整产线。使用我们的评估申请表单可获得最快响应。',
       },
     ],
 
@@ -303,23 +304,23 @@ const content: Record<string, PageContent> = {
       { label: '如何选择粉末充填机', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: '螺旋充填机与容积式充填机对比', href: '/resources/auger-vs-volumetric-filler' },
       { label: '香料粉末包装指南', href: '/resources/spice-powder-packaging-machine' },
-      { label: '获取机器推荐', href: '/recommend' },
+      { label: '获取评估', href: '/assessment' },
     ],
 
     ctaTitle: '准备好找到合适的粉末充填配置了吗？',
-    ctaSubtitle: '分享您的产品详情，我们的工程师将为您的应用推荐合适的充填机类型、产量范围和产线配置。',
-    ctaBtn1: '获取机器推荐',
-    ctaBtn2: '联系工程团队',
+    ctaSubtitle: '分享您的产品详情，我们的工程师将为您的应用提供技术采购评估，涵盖充填机类型、产量范围和产线配置。',
+    ctaBtn1: '获取采购评估建议',
+    ctaBtn2: '咨询工程团队',
   },
 
   zh: {
     kicker: '粉末充填與包裝',
     heroTitle: '粉末充填包裝機 — 螺旋式、容積式與計重系統',
-    heroSubtitle: 'SunGene生產適用於麵粉、香料、咖啡、洗滌劑、化工粉末和工業粉末的充填包裝機。配置取決於您產品的流動性、充填重量和目標產量。',
+    heroSubtitle: 'SunGene 為麵粉、香料、咖啡、洗滌劑、化工粉末和工業粉末提供專業的充填包裝機技術採購。我們根據您產品的流動性、充填重量和目標產量評估最佳配置。',
 
     whoTitle: '適用客戶',
     whoItems: [
-      { title: '食品製造商', desc: '麵粉廠、香料生產商、咖啡烘焙商和蛋白粉品牌，需要大規模精準、衛生的充填。' },
+      { title: '食品企業', desc: '麵粉廠、香料企業、咖啡烘焙商和蛋白粉品牌，需要大規模精準、衛生的充填。' },
       { title: '化工與工業', desc: '洗滌劑、水泥添加劑和農用化學品——防塵全封閉設計，保障安全。' },
       { title: '製藥與營養保健', desc: '需要符合GMP標準並採用SUS316L不鏽鋼接觸部件的應用場景。' },
       { title: '代工包裝商', desc: '處理多SKU和多充填重量——機器支援快速換型和伺服驅動精度控制。' },
@@ -331,7 +332,7 @@ const content: Record<string, PageContent> = {
       { label: '非自由流動/黏性粉末', items: ['澱粉', '可可粉', '細化工粉末（需要振動或特殊計量）'] },
       { label: '工業粉末', items: ['洗滌劑', '水泥添加劑', '農藥粉末'] },
     ],
-    productsNote: '我們在推薦充填機類型前，會審查您產品的堆積密度、粒徑和含水量。',
+    productsNote: '我們在評估充填機類型前，會審查您產品的堆積密度、粒徑和含水量。',
 
     packagingTitle: '包裝與產量選項',
     packagingItems: [
@@ -346,9 +347,9 @@ const content: Record<string, PageContent> = {
       { name: '螺旋充填機', desc: '適用於自由流動到輕微黏性粉末。高精度（±0.5–1%）。可與VFFS或預製袋機配合使用。' },
       { name: '容積杯充填機', desc: '成本較低，適合均勻流動的粉末。精度低於螺旋式——適用於公差要求不嚴格的場合。' },
       { name: '多頭秤', desc: '適用於需要高速和精確重量的顆粒和粉末。最適合每分鐘20袋以上的場景。' },
-      { name: '組合系統（螺旋+VFFS）', desc: '完整的立式成型-充填-封口生產線，適用於小袋到1公斤袋。' },
+      { name: '組合系統（螺旋+VFFS）', desc: '完整的立式成型-充填-封口線體整合，適用於小袋到1公斤袋。' },
       { name: '噸袋/散裝充填機', desc: '適用於5–50公斤工業包裝。重力式或螺旋輸送進料。' },
-      { name: '材質與認證', desc: '標準為SUS304；食品級和製藥應用可選SUS316L。CE認證；電壓和頻率可根據您所在國家客製。' },
+      { name: '材質與認證', desc: '標準為SUS304；食品級和製藥應用可選SUS316L。可提供 CE 文件支援（適用時）；電壓和頻率可根據您所在國家客製。' },
     ],
 
     decisionsTitle: '關鍵決策因素',
@@ -389,8 +390,8 @@ const content: Record<string, PageContent> = {
         a: '支援。整合充氮沖洗可用於需要最大限度減少氧化的場合——常見於咖啡、蛋白粉和某些香料產品。',
       },
       {
-        q: '取得報價需要提供哪些資訊？',
-        a: '產品名稱和類型、大約堆積密度、目標充填重量、袋型和尺寸、所需產量速度、國家/電壓，以及是否需要單機或完整產線。使用我們的推薦表單可獲得最快回應。',
+        q: '取得採購評估與建議需要提供哪些資訊？',
+        a: '產品名稱和類型、大約堆積密度、目標充填重量、袋型和尺寸、所需產量速度、國家/電壓，以及是否需要單機或完整產線。使用我們的評估申請表單可獲得最快回應。',
       },
     ],
 
@@ -399,23 +400,23 @@ const content: Record<string, PageContent> = {
       { label: '如何選擇粉末充填機', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: '螺旋充填機與容積式充填機比較', href: '/resources/auger-vs-volumetric-filler' },
       { label: '香料粉末包裝指南', href: '/resources/spice-powder-packaging-machine' },
-      { label: '取得機器推薦', href: '/recommend' },
+      { label: '取得評估', href: '/assessment' },
     ],
 
     ctaTitle: '準備好找到合適的粉末充填配置了嗎？',
-    ctaSubtitle: '分享您的產品詳情，我們的工程師將為您的應用推薦合適的充填機類型、產量範圍和產線配置。',
-    ctaBtn1: '取得機器推薦',
-    ctaBtn2: '聯絡工程團隊',
+    ctaSubtitle: '分享您的產品詳情，我們的工程師將為您的應用提供技術採購評估，涵蓋充填機類型、產量範圍和產線配置。',
+    ctaBtn1: '取得採購評估建議',
+    ctaBtn2: '諮詢工程團隊',
   },
 
   fr: {
     kicker: 'REMPLISSAGE & EMBALLAGE DE POUDRE',
     heroTitle: 'Machines de remplissage et d\'emballage de poudre — Systèmes à vis, volumétriques et peseuses',
-    heroSubtitle: 'SunGene fabrique des machines de remplissage et d\'emballage de poudres pour la farine, les épices, le café, le détergent, les poudres chimiques et industrielles. La configuration dépend de la fluidité de votre produit, du poids de remplissage et de la cadence cible.',
+    heroSubtitle: 'SunGene accompagne le sourcing de machines de remplissage et d\'emballage de poudres pour la farine, les épices, le café, le détergent, les poudres chimiques et industrielles. La configuration dépend de la fluidité de votre produit, du poids de remplissage et de la cadence cible.',
 
     whoTitle: 'Pour qui ?',
     whoItems: [
-      { title: 'Fabricants alimentaires', desc: 'Meuneries, producteurs d\'épices, torréfacteurs et marques de protéines en poudre nécessitant un remplissage précis et hygiénique à grande échelle.' },
+      { title: 'Entreprises agroalimentaires', desc: 'Meuneries, acteurs des épices, torréfacteurs et marques de protéines en poudre nécessitant un remplissage précis et hygiénique à grande échelle.' },
       { title: 'Chimie & Industrie', desc: 'Poudre de détergent, additifs pour ciment et produits agrochimiques — avec des conceptions anti-poussière et fermées pour la sécurité.' },
       { title: 'Pharmaceutique & Nutraceutique', desc: 'Applications nécessitant la conformité GMP et des pièces de contact en acier inoxydable SUS316L.' },
       { title: 'Contractants d\'emballage', desc: 'Gestion de plusieurs SKU et poids de remplissage — machines avec changement de format rapide et précision par servomoteur.' },
@@ -485,7 +486,7 @@ const content: Record<string, PageContent> = {
         a: 'Oui. Le rinçage à l\'azote intégré est disponible pour les applications où l\'oxydation doit être minimisée — courant pour le café, la protéine en poudre et certains produits épicés.',
       },
       {
-        q: 'Quelles informations dois-je fournir pour obtenir un devis ?',
+        q: 'Quelles informations dois-je fournir pour obtenir une évaluation ?',
         a: 'Nom et type de produit, densité apparente approximative, poids de remplissage cible, format et taille du sachet, vitesse de cadence requise, pays/tension, et si vous avez besoin d\'une machine seule ou d\'une ligne complète. Utilisez notre formulaire de recommandation pour la réponse la plus rapide.',
       },
     ],
@@ -495,19 +496,19 @@ const content: Record<string, PageContent> = {
       { label: 'Comment choisir une machine de remplissage de poudre', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'Comparaison : vis sans fin vs doseur volumétrique', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Guide emballage poudre épices', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Obtenir une recommandation de machine', href: '/recommend' },
+      { label: 'Obtenir une évaluation', href: '/assessment' },
     ],
 
     ctaTitle: 'Prêt à trouver la bonne configuration de remplissage de poudre ?',
     ctaSubtitle: 'Partagez les détails de votre produit et nos ingénieurs recommanderont le bon type de remplisseur, la plage de débit et la configuration de ligne pour votre application.',
-    ctaBtn1: 'Obtenir une recommandation de machine',
+    ctaBtn1: 'Obtenir une évaluation',
     ctaBtn2: 'Parler à un ingénieur',
   },
 
   es: {
     kicker: 'LLENADO & ENVASADO DE POLVO',
     heroTitle: 'Máquinas llenadoras y envasadoras de polvo — Sistemas de tornillo, volumétrico y pesadora',
-    heroSubtitle: 'SunGene fabrica máquinas llenadoras y envasadoras de polvo para harina, especias, café, detergente, polvo químico y polvos industriales. La configuración depende de la fluidez del producto, el peso de llenado y la producción objetivo.',
+    heroSubtitle: 'SunGene apoya el sourcing técnico de máquinas de llenado y empaque de polvo para harina, especias, café, detergente, polvo químico y polvos industriales. La configuración depende de la fluidez del producto, el peso de llenado y la producción objetivo.',
 
     whoTitle: '¿Para quién es?',
     whoItems: [
@@ -582,7 +583,7 @@ const content: Record<string, PageContent> = {
       },
       {
         q: '¿Qué información necesito proporcionar para obtener un presupuesto?',
-        a: 'Nombre y tipo de producto, densidad aparente aproximada, peso de llenado objetivo, formato y tamaño de bolsa, velocidad de producción requerida, país/voltaje, y si necesita una máquina independiente o línea completa. Utilice nuestro formulario de recomendación para obtener la respuesta más rápida.',
+        a: 'Nombre y tipo de producto, densidad aparente aproximada, peso de llenado objetivo, formato y tamaño de bolsa, velocidad de producción requerida, país/voltaje, y si necesita una máquina independiente o línea completa. Utilice nuestro formulario de evaluación para obtener la respuesta más rápida.',
       },
     ],
 
@@ -591,19 +592,19 @@ const content: Record<string, PageContent> = {
       { label: 'Cómo elegir una máquina llenadora de polvo', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'Comparación: tornillo sin fin vs dosificador volumétrico', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Guía de envasado de polvo de especias', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Obtener una recomendación de máquina', href: '/recommend' },
+      { label: 'Obtener evaluación', href: '/assessment' },
     ],
 
     ctaTitle: '¿Listo para encontrar la configuración de llenado de polvo correcta?',
     ctaSubtitle: 'Comparta los detalles de su producto y nuestros ingenieros recomendarán el tipo de llenadora, rango de salida y configuración de línea correctos para su aplicación.',
-    ctaBtn1: 'Obtener una recomendación de máquina',
+    ctaBtn1: 'Obtener evaluación',
     ctaBtn2: 'Hablar con ingeniería',
   },
 
   pt: {
     kicker: 'ENCHIMENTO & EMBALAGEM DE PÓ',
     heroTitle: 'Máquinas de enchimento e embalagem de pó — Sistemas de rosca, volumétrico e pesadora',
-    heroSubtitle: 'SunGene fabrica máquinas de enchimento e embalagem de pó para farinha, especiarias, café, detergente, pó químico e pós industriais. A configuração depende da fluidez do seu produto, peso de enchimento e produção alvo.',
+    heroSubtitle: 'A SunGene apoia o sourcing técnico de máquinas de enchimento e embalagem de pó para farinha, especiarias, café, detergente, pó químico e pós industriais. A configuração depende da fluidez do seu produto, peso de enchimento e produção alvo.',
 
     whoTitle: 'Para quem é?',
     whoItems: [
@@ -677,8 +678,8 @@ const content: Record<string, PageContent> = {
         a: 'Sim. A insuflação de azoto integrada está disponível para aplicações onde a oxidação deve ser minimizada — comum em café, proteína em pó e certos produtos de especiarias.',
       },
       {
-        q: 'Que informações preciso de fornecer para obter um orçamento?',
-        a: 'Nome e tipo de produto, densidade aparente aproximada, peso de enchimento alvo, formato e tamanho do saco, velocidade de produção necessária, país/tensão, e se necessita de uma máquina autónoma ou linha completa. Utilize o nosso formulário de recomendação para a resposta mais rápida.',
+        q: 'Que informações preciso de fornecer para obter uma avaliação de sourcing?',
+        a: 'Nome e tipo de produto, densidade aparente aproximada, peso de enchimento alvo, formato e tamanho do saco, velocidade de produção necessária, país/tensão, e se necessita de uma máquina autónoma ou linha completa. Utilize o nosso formulário de avaliação para a resposta mais rápida.',
       },
     ],
 
@@ -687,19 +688,19 @@ const content: Record<string, PageContent> = {
       { label: 'Como escolher uma máquina de enchimento de pó', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'Comparação: rosca sem fim vs dosador volumétrico', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Guia de embalagem de pó de especiarias', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Obter uma recomendação de máquina', href: '/recommend' },
+      { label: 'Obter avaliação', href: '/assessment' },
     ],
 
     ctaTitle: 'Pronto para encontrar a configuração de enchimento de pó certa?',
     ctaSubtitle: 'Partilhe os detalhes do seu produto e os nossos engenheiros recomendarão o tipo de enchedor, gama de saída e configuração de linha corretos para a sua aplicação.',
-    ctaBtn1: 'Obter uma recomendação de máquina',
+    ctaBtn1: 'Obter avaliação',
     ctaBtn2: 'Falar com a engenharia',
   },
 
   ko: {
     kicker: '분말 충전 및 포장',
     heroTitle: '분말 충전 포장 기계 — 오거, 용적식, 계량식 시스템',
-    heroSubtitle: 'SunGene은 밀가루, 향신료, 커피, 세제, 화학 분말 및 산업용 분말을 위한 충전 포장 기계를 제조합니다. 구성은 제품의 유동성, 충전 중량 및 목표 생산량에 따라 결정됩니다.',
+    heroSubtitle: 'SunGene은 밀가루, 향신료, 커피, 세제, 화학 분말 및 산업용 분말을 위한 분말 충전 및 포장 설비의 기술 소싱을 제공합니다. 구성은 제품의 유동성, 충전 중량 및 목표 생산량에 따라 결정됩니다.',
 
     whoTitle: '적용 대상',
     whoItems: [
@@ -715,7 +716,7 @@ const content: Record<string, PageContent> = {
       { label: '비자유 유동 / 점착성', items: ['전분', '코코아', '미세 화학 분말 (교반 또는 특수 계량 필요)'] },
       { label: '산업용 분말', items: ['세제', '시멘트 첨가제', '농약 분말'] },
     ],
-    productsNote: '충전기 유형을 추천하기 전에 제품의 벌크 밀도, 입자 크기 및 수분 함량을 검토합니다.',
+    productsNote: '충전기 유형을 평가하기 전에 제품의 벌크 밀도, 입자 크기 및 수분 함량을 검토합니다.',
 
     packagingTitle: '포장 및 생산량 옵션',
     packagingItems: [
@@ -773,8 +774,8 @@ const content: Record<string, PageContent> = {
         a: '네. 통합 질소 퍼징은 산화를 최소화해야 하는 응용에 사용 가능합니다 — 커피, 단백질 파우더 및 특정 향신료 제품에서 일반적입니다.',
       },
       {
-        q: '견적을 받으려면 어떤 정보를 제공해야 하나요?',
-        a: '제품 이름 및 유형, 대략적인 벌크 밀도, 목표 충전 중량, 백 포맷 및 크기, 필요한 생산 속도, 국가/전압, 독립형 기계 또는 완전 라인 필요 여부. 가장 빠른 응답을 위해 추천 양식을 사용하세요.',
+        q: '소싱 평가를 받으려면 어떤 정보를 제공해야 하나요?',
+        a: '제품 이름 및 유형, 대략적인 벌크 밀도, 목표 충전 중량, 백 포맷 및 크기, 필요한 생산 속도, 국가/전압, 독립형 기계 또는 완전 라인 필요 여부. 가장 빠른 응답을 위해 평가 양식을 사용하세요.',
       },
     ],
 
@@ -783,19 +784,19 @@ const content: Record<string, PageContent> = {
       { label: '분말 충전기 선택 가이드', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: '오거 vs 용적식 충전기 비교', href: '/resources/auger-vs-volumetric-filler' },
       { label: '향신료 분말 포장 가이드', href: '/resources/spice-powder-packaging-machine' },
-      { label: '기계 추천 받기', href: '/recommend' },
+      { label: '평가 받기', href: '/assessment' },
     ],
 
     ctaTitle: '적합한 분말 충전 구성을 찾을 준비가 되셨나요?',
-    ctaSubtitle: '제품 세부 정보를 공유하시면 당사 엔지니어가 귀하의 응용 프로그램에 맞는 올바른 충전기 유형, 출력 범위 및 라인 구성을 추천해 드립니다.',
-    ctaBtn1: '기계 추천 받기',
+    ctaSubtitle: '제품 세부 정보를 공유하시면 당사 엔지니어가 귀하의 응용 프로그램에 맞는 올바른 충전기 유형, 출력 범위 및 라인 구성을 평가하고 제안해 드립니다.',
+    ctaBtn1: '평가 받기',
     ctaBtn2: '엔지니어링 팀 문의',
   },
 
   ja: {
     kicker: '粉末充填・包装',
     heroTitle: '粉末充填包装機 — オーガー、容積式、計量式システム',
-    heroSubtitle: 'SunGeneは小麦粉、スパイス、コーヒー、洗剤、化学粉末、産業用粉末向けの充填包装機を製造しています。構成はお客様の製品の流動性、充填重量、目標生産量によって決定されます。',
+    heroSubtitle: 'SunGeneは小麦粉、スパイス、コーヒー、洗剤、化学粉末、産業用粉末向けの粉体充填・包装設備の技術ソーシングを提供します。構成はお客様の製品の流動性、充填重量、目標生産量によって決定されます。',
 
     whoTitle: '対象ユーザー',
     whoItems: [
@@ -828,7 +829,7 @@ const content: Record<string, PageContent> = {
       { name: 'マルチヘッド計量機', desc: '高速と正確な重量が必要な顆粒および粉末用。20袋/分以上で最適。' },
       { name: '組合せシステム（オーガー + VFFS）', desc: '小袋から1kg袋までの完全な縦型製袋充填シール（VFFS）ライン。' },
       { name: 'フレコン / バルクフィラー', desc: '5–50kgの産業用包装。重力式またはスクリューコンベヤ供給。' },
-      { name: '材質・コンプライアンス', desc: 'SUS304標準；食品グレードおよび製薬用途にはSUS316Lが利用可能。CE認証；電圧・周波数はお客様の国に合わせてカスタマイズ。' },
+      { name: '材質・コンプライアンス', desc: 'SUS304標準；食品グレードおよび製薬用途にはSUS316Lが利用可能。輸出向けCE関連書類のサポート（該当する場合）；電圧・周波数はお客様の国に合わせて設定。' },
     ],
 
     decisionsTitle: '主要な決定要因',
@@ -862,14 +863,14 @@ const content: Record<string, PageContent> = {
       },
       {
         q: '機械にはどのような認証がありますか？',
-        a: 'EUおよびCEマーキングを認定する市場への輸出のためのCE認証。食品接触部品はSUS304標準；SUS316Lはご要望に応じて対応可能。通関のための試験報告書と材料証明書を提供できます。',
+        a: '輸出向けに、目的地の要件に応じてCE関連書類をサポートします（該当する場合）。食品接触部品はSUS304標準；SUS316Lはご要望に応じて対応可能。通関のための試験報告書と材料証明書を提供できます。',
       },
       {
         q: '粉末包装の窒素フラッシュに対応していますか？',
         a: 'はい。酸化を最小限に抑える必要があるアプリケーション向けに統合窒素フラッシュが利用可能です — コーヒー、プロテインパウダー、特定のスパイス製品でよく使用されます。',
       },
       {
-        q: '見積もりを取得するために必要な情報は何ですか？',
+        q: '調達評価を取得するために必要な情報は何ですか？',
         a: '製品名と種類、おおよその嵩密度、目標充填重量、袋フォーマットとサイズ、必要な生産速度、国/電圧、および単体機械か完全ラインが必要かどうか。最も迅速な回答のために推奨フォームをご利用ください。',
       },
     ],
@@ -879,19 +880,19 @@ const content: Record<string, PageContent> = {
       { label: '粉末充填機の選び方', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'オーガーフィラーと容積式フィラーの比較', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'スパイス粉末包装ガイド', href: '/resources/spice-powder-packaging-machine' },
-      { label: '機械レコメンデーションを取得', href: '/recommend' },
+      { label: '機械レコメンデーションを取得', href: '/assessment' },
     ],
 
     ctaTitle: '適切な粉末充填構成を見つける準備はできていますか？',
     ctaSubtitle: '製品の詳細を共有していただければ、当社のエンジニアがお客様のアプリケーションに適した充填機タイプ、出力範囲、ラインConfiguration をご提案します。',
-    ctaBtn1: '機械レコメンデーションを取得',
+    ctaBtn1: 'ソーシング評価を受ける',
     ctaBtn2: 'エンジニアリングに相談',
   },
 
   ar: {
     kicker: 'تعبئة وتغليف المسحوق',
     heroTitle: 'آلات تعبئة وتغليف المسحوق — أنظمة لولبية وحجمية وميزان',
-    heroSubtitle: 'تصنع SunGene آلات تعبئة وتغليف المسحوق للدقيق والتوابل والقهوة والمنظفات والمساحيق الكيميائية والصناعية. يعتمد التكوين على قابلية تدفق منتجك ووزن التعبئة والإنتاج المستهدف.',
+    heroSubtitle: 'توفر SunGene دعماً لتوريد أنظمة تعبئة وتغليف المسحوق للدقيق والتوابل والقهوة والمنظفات والمساحيق الكيميائية والصناعية. يعتمد التكوين على قابلية تدفق منتجك ووزن التعبئة والإنتاج المستهدف.',
 
     whoTitle: 'لمن هذا المنتج؟',
     whoItems: [
@@ -965,7 +966,7 @@ const content: Record<string, PageContent> = {
         a: 'نعم. تدفق النيتروجين المتكامل متاح للتطبيقات التي يجب تقليل الأكسدة فيها — شائع في القهوة وبروتين المسحوق وبعض منتجات التوابل.',
       },
       {
-        q: 'ما المعلومات التي أحتاج إلى تقديمها للحصول على عرض سعر؟',
+        q: 'ما المعلومات التي أحتاج إلى تقديمها للحصول على تقييم التوريد؟',
         a: 'اسم المنتج ونوعه، الكثافة الظاهرية التقريبية، وزن التعبئة المستهدف، تنسيق الكيس وحجمه، سرعة الإنتاج المطلوبة، البلد/الجهد، وما إذا كنت تحتاج إلى آلة مستقلة أو خط كامل. استخدم نموذج التوصية للحصول على أسرع رد.',
       },
     ],
@@ -975,19 +976,19 @@ const content: Record<string, PageContent> = {
       { label: 'كيفية اختيار آلة تعبئة المسحوق', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'مقارنة: الملء اللولبي مقابل الحجمي', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'دليل تعبئة مسحوق التوابل', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'الحصول على توصية آلة', href: '/recommend' },
+      { label: 'الحصول على توصية آلة', href: '/assessment' },
     ],
 
     ctaTitle: 'هل أنت مستعد للعثور على تكوين تعبئة المسحوق المناسب؟',
     ctaSubtitle: 'شارك تفاصيل منتجك وسيوصي مهندسونا بنوع آلة التعبئة المناسبة ونطاق الإنتاج وتكوين الخط لتطبيقك.',
-    ctaBtn1: 'الحصول على توصية آلة',
+    ctaBtn1: 'الحصول على تقييم',
     ctaBtn2: 'التحدث مع فريق الهندسة',
   },
 
   th: {
     kicker: 'การบรรจุและบรรจุภัณฑ์ผง',
     heroTitle: 'เครื่องบรรจุและบรรจุภัณฑ์ผง — ระบบออเกอร์ เชิงปริมาตร และเครื่องชั่ง',
-    heroSubtitle: 'SunGene ผลิตเครื่องบรรจุและบรรจุภัณฑ์ผงสำหรับแป้ง เครื่องเทศ กาแฟ ผงซักฟอก ผงเคมี และผงอุตสาหกรรม การตั้งค่าขึ้นอยู่กับความสามารถในการไหลของผลิตภัณฑ์ น้ำหนักบรรจุ และปริมาณการผลิตเป้าหมาย',
+    heroSubtitle: 'SunGene สนับสนุนการจัดซื้อเครื่องบรรจุและบรรจุภัณฑ์ผงสำหรับแป้ง เครื่องเทศ กาแฟ ผงซักฟอก ผงเคมี และผงอุตสาหกรรม การตั้งค่าขึ้นอยู่กับความสามารถในการไหลของผลิตภัณฑ์ น้ำหนักบรรจุ และปริมาณการผลิตเป้าหมาย',
 
     whoTitle: 'เหมาะสำหรับใคร',
     whoItems: [
@@ -1030,11 +1031,11 @@ const content: Record<string, PageContent> = {
       { factor: 'ข้อกำหนดความแม่นยำ', guide: '±0.5% → เครื่องบรรจุออเกอร์พร้อมเซอร์โว ±2% ยอมรับได้ → เชิงปริมาตร' },
       { factor: 'ความเร็วในการผลิต', guide: '< 30 ถุง/นาที → ออเกอร์เดี่ยว 30–80 → เครื่องชั่งหลายหัว > 80 → ระบบความเร็วสูง' },
       { factor: 'ระดับสุขอนามัย', guide: 'มาตรฐาน → SUS304 อาหาร/ยา → SUS316L + การออกแบบทำความสะอาดในที่' },
-      { factor: 'การรวมสายการผลิต', guide: 'เครื่องเดี่ยวหรือสายการผลิตครบวงจรพร้อมสายพาน เครื่องตรวจหาโลหะ เครื่องตรวจสอบน้ำหนัก และเครื่องบรรจุลัง' },
+      { factor: 'การบูรณาการไลน์', guide: 'เครื่องเดี่ยวหรือไลน์ครบวงจรพร้อมสายพาน เครื่องตรวจหาโลหะ เครื่องตรวจสอบน้ำหนัก และเครื่องบรรจุลัง' },
     ],
 
     integrationTitle: 'การรวมกระบวนการ',
-    integrationDesc: 'เครื่องนี้รวมเข้ากับขั้นตอนการผลิตโดยรวมของคุณในขั้นตอนการบรรจุ สายการผลิตผงแบบบูรณาการทั่วไปอาจประกอบด้วย:',
+    integrationDesc: 'เครื่องนี้รวมเข้ากับเวิร์กโฟลว์โดยรวมของคุณในขั้นตอนการบรรจุ ตัวอย่างไลน์ผงแบบบูรณาการอาจประกอบด้วย:',
     integrationSteps: ['ไซโลวัตถุดิบ', 'การลำเลียงด้วยลม', 'เครื่องแยกก้อน', 'เครื่องบรรจุออเกอร์', 'VFFS หรือถุงสำเร็จรูป', 'เครื่องตรวจสอบน้ำหนัก', 'เครื่องตรวจหาโลหะ', 'เครื่องติดฉลาก', 'เครื่องบรรจุลัง', 'เครื่องจัดเรียงพาเลท'],
     integrationFooter: 'เราออกแบบระดับการรวมตามพื้นที่ว่าง ผู้ปฏิบัติงาน และงบประมาณของคุณ',
 
@@ -1061,8 +1062,8 @@ const content: Record<string, PageContent> = {
         a: 'ได้ การล้างไนโตรเจนแบบรวมพร้อมใช้งานสำหรับการใช้งานที่ต้องลดการเกิดออกซิเดชันให้น้อยที่สุด — พบบ่อยในกาแฟ โปรตีนผง และผลิตภัณฑ์เครื่องเทศบางชนิด',
       },
       {
-        q: 'ฉันต้องให้ข้อมูลอะไรบ้างเพื่อรับใบเสนอราคา?',
-        a: 'ชื่อและประเภทผลิตภัณฑ์ ความหนาแน่นของกองโดยประมาณ น้ำหนักบรรจุเป้าหมาย รูปแบบและขนาดถุง ความเร็วในการผลิตที่ต้องการ ประเทศ/แรงดัน และต้องการเครื่องเดี่ยวหรือสายการผลิตครบวงจร ใช้แบบฟอร์มแนะนำของเราเพื่อรับการตอบสนองที่รวดเร็วที่สุด',
+        q: 'ฉันต้องให้ข้อมูลอะไรบ้างเพื่อรับการประเมินการจัดซื้อ?',
+        a: 'ชื่อและประเภทผลิตภัณฑ์ ความหนาแน่นของกองโดยประมาณ น้ำหนักบรรจุเป้าหมาย รูปแบบและขนาดถุง ความเร็วที่ต้องการ ประเทศ/แรงดัน และต้องการเครื่องเดี่ยวหรือไลน์ครบวงจร ใช้แบบฟอร์มแนะนำของเราเพื่อรับการตอบสนองที่รวดเร็วที่สุด',
       },
     ],
 
@@ -1071,19 +1072,19 @@ const content: Record<string, PageContent> = {
       { label: 'วิธีเลือกเครื่องบรรจุผง', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'เปรียบเทียบ: ออเกอร์ vs เครื่องบรรจุเชิงปริมาตร', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'คู่มือการบรรจุผงเครื่องเทศ', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'รับคำแนะนำเครื่องจักร', href: '/recommend' },
+      { label: 'รับคำแนะนำเครื่องจักร', href: '/assessment' },
     ],
 
     ctaTitle: 'พร้อมหาการตั้งค่าการบรรจุผงที่เหมาะสมแล้วหรือยัง?',
-    ctaSubtitle: 'แชร์รายละเอียดผลิตภัณฑ์ของคุณ และวิศวกรของเราจะแนะนำประเภทเครื่องบรรจุ ช่วงกำลังการผลิต และการตั้งค่าสายการผลิตที่เหมาะสมสำหรับการใช้งานของคุณ',
-    ctaBtn1: 'รับคำแนะนำเครื่องจักร',
+    ctaSubtitle: 'แชร์รายละเอียดผลิตภัณฑ์ของคุณ และวิศวกรของเราจะแนะนำประเภทเครื่องบรรจุ ช่วง throughput และการตั้งค่าไลน์ที่เหมาะสมสำหรับการใช้งานของคุณ',
+    ctaBtn1: 'รับการประเมิน',
     ctaBtn2: 'ปรึกษาทีมวิศวกรรม',
   },
 
   vi: {
     kicker: 'CHIẾT RÓT & ĐÓNG GÓI BỘT',
     heroTitle: 'Máy chiết rót và đóng gói bột — Hệ thống vít tải, thể tích và cân',
-    heroSubtitle: 'SunGene sản xuất máy chiết rót và đóng gói bột cho bột mì, gia vị, cà phê, chất tẩy rửa, bột hóa chất và bột công nghiệp. Cấu hình phụ thuộc vào khả năng chảy của sản phẩm, trọng lượng chiết rót và sản lượng mục tiêu.',
+    heroSubtitle: 'SunGene hỗ trợ sourcing kỹ thuật máy chiết rót và đóng gói bột cho bột mì, gia vị, cà phê, chất tẩy rửa, bột hóa chất và bột công nghiệp. Cấu hình phụ thuộc vào khả năng chảy của sản phẩm, trọng lượng chiết rót và sản lượng mục tiêu.',
 
     whoTitle: 'Dành cho ai',
     whoItems: [
@@ -1157,7 +1158,7 @@ const content: Record<string, PageContent> = {
         a: 'Có. Xả nitơ tích hợp có sẵn cho các ứng dụng cần giảm thiểu quá trình oxy hóa — phổ biến trong cà phê, bột protein và một số sản phẩm gia vị.',
       },
       {
-        q: 'Tôi cần cung cấp thông tin gì để nhận báo giá?',
+        q: 'Tôi cần cung cấp thông tin gì để nhận đánh giá nguồn cung?',
         a: 'Tên và loại sản phẩm, mật độ khối gần đúng, trọng lượng chiết rót mục tiêu, định dạng và kích thước túi, tốc độ sản xuất yêu cầu, quốc gia/điện áp, và việc bạn cần máy độc lập hay dây chuyền hoàn chỉnh. Sử dụng biểu mẫu đề xuất của chúng tôi để được phản hồi nhanh nhất.',
       },
     ],
@@ -1167,19 +1168,19 @@ const content: Record<string, PageContent> = {
       { label: 'Cách chọn máy chiết rót bột', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'So sánh: vít tải vs bộ định lượng thể tích', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Hướng dẫn đóng gói bột gia vị', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Nhận tư vấn máy móc', href: '/recommend' },
+      { label: 'Nhận tư vấn máy móc', href: '/assessment' },
     ],
 
     ctaTitle: 'Sẵn sàng tìm cấu hình chiết rót bột phù hợp?',
     ctaSubtitle: 'Chia sẻ thông tin chi tiết về sản phẩm của bạn và các kỹ sư của chúng tôi sẽ đề xuất loại máy chiết rót, phạm vi sản lượng và cấu hình dây chuyền phù hợp cho ứng dụng của bạn.',
-    ctaBtn1: 'Nhận tư vấn máy móc',
+    ctaBtn1: 'Nhận đánh giá',
     ctaBtn2: 'Liên hệ bộ phận kỹ thuật',
   },
 
   de: {
     kicker: 'PULVERFÜLLUNG & VERPACKUNG',
     heroTitle: 'Pulverfüll- und Verpackungsmaschinen — Schnecken-, Volumetrische und Wägesysteme',
-    heroSubtitle: 'SunGene stellt Pulverfüll- und Verpackungsmaschinen für Mehl, Gewürze, Kaffee, Waschmittel, chemische Pulver und Industriepulver her. Die Konfiguration hängt von der Fließfähigkeit Ihres Produkts, dem Füllgewicht und der Zielleistung ab.',
+    heroSubtitle: 'SunGene unterstützt das technische Sourcing von Pulverfüll- und Verpackungsmaschinen für Mehl, Gewürze, Kaffee, Waschmittel, chemische Pulver und Industriepulver. Die Konfiguration hängt von der Fließfähigkeit Ihres Produkts, dem Füllgewicht und der Zielleistung ab.',
 
     whoTitle: 'Für wen geeignet',
     whoItems: [
@@ -1253,8 +1254,8 @@ const content: Record<string, PageContent> = {
         a: 'Ja. Integrierte Stickstoffspülung ist für Anwendungen verfügbar, bei denen Oxidation minimiert werden muss — häufig bei Kaffee, Proteinpulver und bestimmten Gewürzprodukten.',
       },
       {
-        q: 'Welche Informationen muss ich für ein Angebot bereitstellen?',
-        a: 'Produktname und -typ, ungefähre Schüttdichte, Zielfüllgewicht, Beutelformat und -größe, erforderliche Ausgangsgeschwindigkeit, Land/Spannung und ob Sie eine Einzelmaschine oder eine komplette Linie benötigen. Nutzen Sie unser Empfehlungsformular für die schnellste Antwort.',
+        q: 'Welche Informationen muss ich für eine Bewertung bereitstellen?',
+        a: 'Produktname und -typ, ungefähre Schüttdichte, Zielfüllgewicht, Beutelformat und -größe, erforderliche Ausgangsgeschwindigkeit, Land/Spannung und ob Sie eine Einzelmaschine oder eine komplette Linie benötigen. Nutzen Sie unser Bewertungsformular für die schnellste Antwort.',
       },
     ],
 
@@ -1263,12 +1264,12 @@ const content: Record<string, PageContent> = {
       { label: 'Ratgeber: Die richtige Pulverfüllmaschine wählen', href: '/resources/how-to-choose-powder-filling-machine' },
       { label: 'Vergleich: Schneckenfüller vs. volumetrischer Füller', href: '/resources/auger-vs-volumetric-filler' },
       { label: 'Gewürzpulver-Verpackungsführer', href: '/resources/spice-powder-packaging-machine' },
-      { label: 'Maschinenempfehlung erhalten', href: '/recommend' },
+      { label: 'Bewertung erhalten', href: '/assessment' },
     ],
 
     ctaTitle: 'Bereit, die richtige Pulverfüllkonfiguration zu finden?',
     ctaSubtitle: 'Teilen Sie uns Ihre Produktdetails mit und unsere Ingenieure empfehlen den richtigen Füllertyp, Leistungsbereich und die Linienkonfiguration für Ihre Anwendung.',
-    ctaBtn1: 'Maschinenempfehlung erhalten',
+    ctaBtn1: 'Bewertung erhalten',
     ctaBtn2: 'Mit dem Ingenieurteam sprechen',
   },
 }
@@ -1335,7 +1336,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
         desc={t.heroSubtitle}
         image={{
           src: heroPhoto,
-          alt: 'Powder filling and packaging machine in factory',
+          alt: 'Powder filling and packaging equipment sourcing support',
           priority: true,
           aspectClassName: 'aspect-[16/10]',
         }}
@@ -1467,6 +1468,8 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
         </Container>
       </section>
 
+      <MachineDecisionGuide lang={lang} fitScenarios={t.whoItems.map((item) => item.title)} />
+
       {/* ── 8. FAQ ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-200/60">
         <Container className="max-w-3xl">
@@ -1485,7 +1488,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
             {t.relatedLinks.map((link, i) => (
               <a
                 key={i}
-                href={link.href === '/recommend' ? `/${lang}/recommend?machine=powder-filling-machine` : `/${lang}${link.href}`}
+                href={link.href === '/assessment' ? `/${lang}/assessment` : `/${lang}${link.href}`}
                 className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-brand-400 hover:text-brand-700"
               >
                 {link.label}
@@ -1506,7 +1509,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
                 </li>
               ))}
               <li>
-                <a href={`/${lang}/resources/topic/powder-filling-machine`} className="text-accent-600 hover:underline">
+                <a href={`/${lang}/resources/route/powder-dosing`} className="text-accent-600 hover:underline">
                   {lang === 'zh' ? '更多文章' : lang === 'cn' ? '更多文章' : lang === 'ja' ? '記事一覧' : lang === 'ko' ? '더 보기' : lang === 'fr' ? 'Voir tout' : lang === 'es' ? 'Ver todo' : lang === 'pt' ? 'Ver tudo' : lang === 'ar' ? 'عرض الكل' : lang === 'th' ? 'ดูทั้งหมด' : lang === 'vi' ? 'Xem tất cả' : lang === 'de' ? 'Alle anzeigen' : 'View all'}
                 </a>
               </li>
@@ -1518,7 +1521,7 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
       {/* ── 9b. Related markets + industries ──────────────────────────────── */}
       <RelatedHubs lang={lang} machine="powder-filling-machine" />
 
-      <QuickQuote lang={lang} context="powder-filling-machine" source="machine" />
+      <QuickAssessment lang={lang} context="powder-filling-machine" source="machine" />
 
       {/* ── 10. CTA ──────────────────────────────────────────────────────────── */}
       <section className="bg-brand-950 py-16 sm:py-20 text-white">
@@ -1526,9 +1529,16 @@ export default async function PowderFillingMachinePage({ params }: { params: Pro
           <h2 className="text-2xl font-bold md:text-3xl">{t.ctaTitle}</h2>
           <p className="mt-4 text-base text-white/70">{t.ctaSubtitle}</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <ButtonLink href={`/${lang}/recommend?machine=powder-filling-machine`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink href={`/${lang}/assessment`} size="lg">{t.ctaBtn1}</ButtonLink>
+            <ButtonLink
+              href={`/${lang}/quote/powder-filling-machine`}
+              variant="secondary"
+              size="lg"
+            >
+              {({ en: 'Get quote', cn: '获取报价', zh: '取得報價', fr: 'Devis', es: 'Cotizar', pt: 'Cotação', ko: '견적', ja: '見積', ar: 'عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Báo giá', de: 'Angebot' } as Record<string, string>)[lang] || 'Get quote'}
+            </ButtonLink>
             <a
-              href={`/${lang}/contact?machine=powder-filling-machine`}
+              href={`/${lang}/contact`}
               className="text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
             >
               {t.ctaBtn2}

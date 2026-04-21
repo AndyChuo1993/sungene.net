@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>RFQ Template (Industrial Equipment)</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+      h1, h2 { margin: 0.6em 0 0.3em; }
+      table { border-collapse: collapse; width: 100%; margin: 0.6em 0; }
+      th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+      th { background: #f6f6f6; text-align: left; }
+      .muted { color: #666; }
+      pre { background: #111; color: #eee; padding: 12px; white-space: pre-wrap; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>RFQ Template (Industrial Equipment)</h1>
+    <p class="muted">Copy and fill in the blanks. If you don’t know an item, write “TBD” and attach photos/videos.</p>
+
+    <h2>1) Project summary</h2>
+    <table>
+      <tr><th>Field</th><th>Fill in</th></tr>
+      <tr><td>Project name</td><td>___</td></tr>
+      <tr><td>Target country / site</td><td>___</td></tr>
+      <tr><td>Industry / product</td><td>___</td></tr>
+      <tr><td>Timeline expectation</td><td>___</td></tr>
+      <tr><td>Contact person</td><td>___</td></tr>
+    </table>
+
+    <h2>2) Product and packaging / handling</h2>
+    <ul>
+      <li>Product state: powder / granule / liquid / solid / mixed</li>
+      <li>Behavior notes: dusting, bridging, foaming, particulates, oiliness, static, fragility</li>
+      <li>Packaging/container format and size range (attach photos and dimensions)</li>
+      <li>Target fill range / weight range / volume range</li>
+    </ul>
+
+    <h2>3) Throughput and operations</h2>
+    <table>
+      <tr><th>Field</th><th>Fill in</th></tr>
+      <tr><td>Target output</td><td>___ units/min or ___ units/hour</td></tr>
+      <tr><td>Run time</td><td>___ hours/day, ___ days/week</td></tr>
+      <tr><td>SKU count</td><td>___</td></tr>
+      <tr><td>Changeover frequency</td><td>___ per day/week</td></tr>
+      <tr><td>Operator count</td><td>___</td></tr>
+    </table>
+
+    <h2>4) Interfaces and line integration</h2>
+    <ul>
+      <li>Upstream equipment (if any) and interface height</li>
+      <li>Downstream equipment (if any): conveyors, capping/labeling/coding, packing</li>
+      <li>Layout constraints: footprint limit, infeed/outfeed direction, available space</li>
+    </ul>
+
+    <h2>5) Utilities and compliance</h2>
+    <table>
+      <tr><th>Utility</th><th>Fill in</th></tr>
+      <tr><td>Power</td><td>___ V / ___ Hz / ___ phase</td></tr>
+      <tr><td>Compressed air</td><td>___ bar, ___ L/min</td></tr>
+      <tr><td>Hygiene level</td><td>Food / non-food / washdown / dust control</td></tr>
+      <tr><td>Compliance requirement</td><td>CE / local standard / none / TBD</td></tr>
+    </table>
+
+    <h2>6) Acceptance criteria (FAT) — required</h2>
+    <table>
+      <tr><th>Item</th><th>Target</th></tr>
+      <tr><td>Test product</td><td>Real product or approved substitute</td></tr>
+      <tr><td>Test run time</td><td>___ minutes continuous</td></tr>
+      <tr><td>Output</td><td>___ units/min sustained</td></tr>
+      <tr><td>Accuracy / tolerance</td><td>___ definition (e.g., 98% within ±X)</td></tr>
+      <tr><td>Reject rate</td><td>___ max with reason</td></tr>
+      <tr><td>Changeover</td><td>___ minutes with one operator</td></tr>
+    </table>
+
+    <h2>7) Deliverables and documentation package</h2>
+    <ul>
+      <li>Manual (operation + maintenance)</li>
+      <li>Electrical schematic and wiring diagram</li>
+      <li>Pneumatic diagram (if applicable)</li>
+      <li>Spare parts list (part numbers + photos + recommended stock)</li>
+      <li>Final configuration list + parameter/settings sheet</li>
+      <li>FAT report/video + deviation log (with closure)</li>
+    </ul>
+
+    <h2>8) Quote response format</h2>
+    <ul>
+      <li>Quote line items: base machine, options, integration items, spares, installation/training</li>
+      <li>Lead time by milestone (engineering, build, FAT, shipment)</li>
+      <li>Payment terms proposal tied to milestones and FAT acceptance</li>
+      <li>Warranty and after-sales support process</li>
+    </ul>
+
+    <h2>Email-ready RFQ block</h2>
+    <pre>Subject: RFQ — [Project Name] — [Machine/Line Type]
+
+Hello,
+Please quote based on the following scope. If any item is unclear, list your assumptions explicitly.
+
+1) Product &amp; packaging: ___
+2) Output target &amp; run plan: ___
+3) Utilities: ___
+4) Acceptance criteria (FAT): ___
+5) Document package required: manual + diagrams + spares list + FAT report/video + deviation log
+
+Please respond in the same section order and include option breakdown and lead times.
+
+Regards,
+___</pre>
+  </body>
+</html>
+

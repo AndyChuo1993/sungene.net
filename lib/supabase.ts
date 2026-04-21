@@ -1,5 +1,5 @@
 /**
- * Supabase client factory.
+ * Supabase client creator.
  *
  * Three clients are exported:
  *  1. `supabase`        — anon client for Server Components + public pages.

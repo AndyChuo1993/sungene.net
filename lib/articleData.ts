@@ -32,7 +32,7 @@ export const ARTICLES: ArticleData[] = [
   { slug: 'protein-powder-filling-machine',        category: 'application',  relatedMachine: 'powder-filling-machine' },
   { slug: 'edible-oil-filling-machine',            category: 'application',  relatedMachine: 'liquid-filling-machine' },
   // Buying guides
-  { slug: 'what-to-prepare-before-machine-quote',  category: 'buying',       relatedMachine: 'pouch-packing-machine' },
+  { slug: 'what-to-prepare-before-sourcing-assessment', category: 'buying',  relatedMachine: 'pouch-packing-machine' },
   { slug: 'voltage-customization-for-export',      category: 'buying',       relatedMachine: 'conveyor-system' },
   { slug: 'ce-guide-for-machinery-buyers',         category: 'buying',       relatedMachine: 'pouch-packing-machine' },
 ]

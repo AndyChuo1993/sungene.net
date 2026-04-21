@@ -17,18 +17,18 @@ PHOTO_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file_
 # (unsplash_id, relative_path)  — 73 unique photos, no duplicates
 PHOTOS = [
     # ── HERO IMAGES ──────────────────────────────────────────────────────────
-    ("HNLlzPGbTBM", "hero/home.jpg"),            # industrial factory floor, modern
-    ("de-NdF2E9WA",  "hero/about.jpg"),           # polymer factory machines / production line
-    ("n-BivD2fBL0",  "hero/contact.jpg"),         # engineer (m+f) with laptop in factory
+    ("HNLlzPGbTBM", "hero/home.jpg"),            # industrial operations floor, modern
+    ("de-NdF2E9WA",  "hero/about.jpg"),           # polymer equipment / integrated line
+    ("n-BivD2fBL0",  "hero/contact.jpg"),         # engineer (m+f) with laptop onsite
     ("NDv3QO5QQvI",  "hero/industries.jpg"),      # automotive industry assembly shop
-    ("IWJNXtezL2I",  "hero/machinery-catalog.jpg"), # factory with lots of machinery
-    ("KBtFGRUqJ1o",  "hero/resources.jpg"),       # technologist with laptop in dairy factory
+    ("IWJNXtezL2I",  "hero/machinery-catalog.jpg"), # industrial site with lots of machinery
+    ("KBtFGRUqJ1o",  "hero/resources.jpg"),       # technologist with laptop in dairy facility
     ("Om6MgwFdnE4",  "hero/solutions.jpg"),       # robotic arm placing items on conveyor
 
     # ── HOME — Machine By Product ─────────────────────────────────────────────
     ("5ke1WEwbTmg",  "home/machine-by-product-01-powder.jpg"),   # clean room stainless machines
     ("ZCDXHhBkhT4",  "home/machine-by-product-02-liquid.jpg"),   # auto filling machine PET bottles
-    ("NizEm-Sy6yM",  "home/machine-by-product-03-pouch.jpg"),    # cookie factory food packing
+    ("NizEm-Sy6yM",  "home/machine-by-product-03-pouch.jpg"),    # cookie packaging line
     ("kGuqkoK4m38",  "home/machine-by-product-04-conveyor.jpg"), # conveyor in modern plant
 
     # ── HOME — Trust Gallery (8 square) ──────────────────────────────────────
@@ -42,23 +42,23 @@ PHOTOS = [
     ("_luiFaaZU6k",  "home/trust-08-qc.jpg"),         # digital caliper measuring metal part
 
     # ── HOME — Process Thumbnails ─────────────────────────────────────────────
-    ("pun3UkaC5VY",  "home/process-01-requirements.jpg"), # man reviewing paper in factory
+    ("pun3UkaC5VY",  "home/process-01-requirements.jpg"), # man reviewing paper onsite
     ("mrGSW_VZp0s",  "home/process-04-qc.jpg"),           # man using measurement tools
     ("T2zsJgHKW3U",  "home/process-05-shipping.jpg"),     # cargo ship with containers at port
 
     # ── ABOUT PAGE gallery ────────────────────────────────────────────────────
-    ("tJh73V0Jzw0",  "about/gallery-01-workshop.jpg"),     # factory filled with machines
-    ("C6FKQMijEdc",  "about/gallery-02-assembly.jpg"),     # workers assembling on production line
+    ("tJh73V0Jzw0",  "about/gallery-01-workshop.jpg"),     # workshop filled with machines
+    ("C6FKQMijEdc",  "about/gallery-02-assembly.jpg"),     # workers assembling on integrated line
     ("Bg3g5PqqD54",  "about/gallery-03-factoryline.jpg"),  # automotive plant production / welding
-    ("MrNR0v4HSiU",  "about/gallery-04-controlpanel.jpg"), # woman at factory control desk
+    ("MrNR0v4HSiU",  "about/gallery-04-controlpanel.jpg"), # woman at control desk
 
     # ── CONTACT ───────────────────────────────────────────────────────────────
-    ("JkdmC_eUbwA",  "contact/form-side.jpg"),  # engineer with laptop in factory
+    ("JkdmC_eUbwA",  "contact/form-side.jpg"),  # engineer with laptop onsite
 
     # ── INDUSTRIES cards ──────────────────────────────────────────────────────
     ("uoagt03j7bw",  "industries/card-01-powder.jpg"),     # steel chromed tank, pressure meter
     ("c6BIhsuRIDg",  "industries/card-02-liquid.jpg"),     # conveyor belt with bottles at beverage plant
-    ("QXr9b1qfapw",  "industries/card-03-snack.jpg"),      # close-up salty snacks in food factory
+    ("QXr9b1qfapw",  "industries/card-03-snack.jpg"),      # close-up salty snacks in food facility
     ("3RO3W1L6fYs",  "industries/card-04-food.jpg"),       # worker picking biscuits from machine
     ("6G3f9sYLDbA",  "industries/card-05-industrial.jpg"), # workers moving pallets in warehouse
 
@@ -68,33 +68,33 @@ PHOTOS = [
     ("dPHAWuVx1bE",  "resources/card-03-automation.jpg"),      # robots assemble cars on assembly line
     ("zBt4b91thF4",  "resources/card-04-import-shipping.jpg"), # Asian foreman container logistics
     ("rDyXca1ZGRI",  "resources/card-05-voltage.jpg"),         # control panel in building at night
-    ("X61nl06t4oc",  "resources/card-06-supplier-audit.jpg"),  # engineer making laptop entries at factory
+    ("X61nl06t4oc",  "resources/card-06-supplier-audit.jpg"),  # engineer making laptop entries onsite
 
     # ── MACHINERY categories ──────────────────────────────────────────────────
     ("kvIn5fDIvww",  "machinery/category-01-packaging.jpg"),      # employees packing cookies in boxes
     ("mUSP46d8Iyw",  "machinery/category-02-food-processing.jpg"), # dairy/cheese production, chrome tanks
     ("4ylGUWrgj6s",  "machinery/category-03-filling-sealing.jpg"), # conveyor with bottles, beverages
-    ("qWUXZWuftJI",  "machinery/category-04-conveying.jpg"),       # industrial conveyor belt in factory
+    ("qWUXZWuftJI",  "machinery/category-04-conveying.jpg"),       # industrial conveyor belt onsite
     ("KeLUeVSplNY",  "machinery/category-05-custom.jpg"),          # man working on laptop with tools
 
     # ── MACHINERY sub-page heroes ─────────────────────────────────────────────
     ("UOCu07aRCK4",  "machinery-sub/packaging.jpg"),          # packaging bag production workshop
     ("oLS6IxceVNs",  "machinery-sub/food-processing.jpg"),    # apple processing company interior
     ("IyfkENZVyMY",  "machinery-sub/filling-sealing.jpg"),    # auto filling machine PET bottles
-    ("ayov53QiSSg",  "machinery-sub/conveying-automation.jpg"), # automated production line solar
+    ("ayov53QiSSg",  "machinery-sub/conveying-automation.jpg"), # automated integrated line
     ("uX6uT3Vgv0Y",  "machinery-sub/custom.jpg"),             # engineer with laptop, pipeline monitoring
 
     # ── MACHINE detail heroes ─────────────────────────────────────────────────
     ("7LHH0BlHsjE",  "machines/pouch-packing-hero.jpg"),     # clean room stainless steel machines
     ("vZaU5A9m4bs",  "machines/powder-filling-hero.jpg"),    # plant facility clean room stainless
     ("qw1_1KgWCUA",  "machines/liquid-filling-hero.jpg"),    # conveyor belt with bottles of water
-    ("_XDK4naBbgw",  "machines/conveyor-system-hero.jpg"),   # refrigerator mfg automated production line
-    ("H1dVEaatdfE",  "machines/snack-processing-hero.jpg"),  # salty snacks in factory production line
+    ("_XDK4naBbgw",  "machines/conveyor-system-hero.jpg"),   # refrigerator automation integrated line
+    ("H1dVEaatdfE",  "machines/snack-processing-hero.jpg"),  # salty snacks on integrated processing line
 
     # ── DETAILS — close-up machine parts ─────────────────────────────────────
     ("HdLqoJX0IIo",  "details/detail-01-hmi.jpg"),        # green machine with yellow touchscreen
     ("cI4Xrsu-CUE",  "details/detail-02-wiring.jpg"),     # brewery worker checking scheme on screen
-    ("CpaSFr-XFUQ",  "details/detail-03-nozzle.jpg"),     # filter/pipe system at beer factory
+    ("CpaSFr-XFUQ",  "details/detail-03-nozzle.jpg"),     # filter/pipe system at beer facility
     ("Fcdi3k5d3tw",  "details/detail-04-sealingjaw.jpg"), # close-up drill chuck on machine
     ("-Ir96PBJEoY",  "details/detail-05-stainless.jpg"),  # silver and gold steel tube close-up
 ]

@@ -4,6 +4,13 @@ import { getTopicHubFaqs } from '@/lib/topicHubFaq'
 
 export async function GET() {
   const base = `${SITE_URL}/en`
+  const routeSlugByMachine = {
+    'pouch-packing-machine': 'pouch-packaging',
+    'powder-filling-machine': 'powder-dosing',
+    'liquid-filling-machine': 'liquid-filling',
+    'snack-processing-line': 'food-processing-line',
+    'conveyor-system': 'conveying-automation',
+  } as const
   const clusters = [
     { label: 'Pouch packing', machine: 'pouch-packing-machine' as const },
     { label: 'Powder filling', machine: 'powder-filling-machine' as const },
@@ -11,16 +18,15 @@ export async function GET() {
     { label: 'Snack processing', machine: 'snack-processing-line' as const },
     { label: 'Conveyors', machine: 'conveyor-system' as const },
   ].map((c) => {
+    const s = routeSlugByMachine[c.machine]
     const items = getResourceArticlesByMachine(c.machine, 'en', 8)
-    const hub = `  - Hub: ${base}/resources/topic/${c.machine}`
-    const hubFaq = `  - Hub FAQ: ${base}/resources/topic/${c.machine}#faq`
-    const recommend = `  - Recommendation (prefilled): ${base}/recommend?machine=${c.machine}`
-    const contact = `  - Contact (prefilled): ${base}/contact?machine=${c.machine}`
+    const hub = `  - Hub: ${base}/resources/route/${s}`
+    const hubFaq = `  - Hub FAQ: ${base}/resources/route/${s}#faq`
     const faqs = getTopicHubFaqs('en', c.machine)
     const faqLines = faqs.map((f) => `    - ${f.q}: ${f.a}`).join('\n')
     const faq = `  - FAQ\n${faqLines}`
     const lines = items.map((it) => `  - ${it.title}: ${base}/resources/${it.slug}`).join('\n')
-    return `- ${c.label}\n${hub}\n${hubFaq}\n${recommend}\n${contact}\n${faq}\n${lines}`
+    return `- ${c.label}\n${hub}\n${hubFaq}\n${faq}\n${lines}`
   }).join('\n')
 
   const specsTable = `## Machine Specs — Quick Reference
@@ -43,11 +49,11 @@ export async function GET() {
 All ranges are configuration-dependent. SunGene confirms output and fill ranges based on the customer's product, packaging format, voltage, and layout.
 
 ## Compliance & Construction
-- Certifications: CE (EU), SUS304 or 316L stainless standard on food-contact parts.
+- Certifications: CE-oriented documentation support where applicable; SUS304 or 316L stainless options for food-contact parts.
 - Voltage: 110V / 220V / 380V / 480V, 50 Hz or 60 Hz, 1-phase or 3-phase — configured per order.
 - Safety: emergency stops, interlocked guarding, PLC with diagnostics.
-- Testing: factory acceptance test (FAT) on every machine, video + results delivered.
-- Warranty: 1-year parts + lifetime remote technical support; spare parts shipped within 48 hours.
+- Testing: supplier FAT/SAT and function checks where applicable, video + results delivered.
+- Warranty: 1-year parts + long-term remote technical support; spare parts typically ship within 48 hours (subject to stock and destination).
 
 ## Commercial Terms
 - MOQ: 1 unit. Payment: T/T 30/70 or L/C at sight. Shipping: FOB Taichung or CIF any port.
@@ -80,21 +86,21 @@ ${specsTable}
 - ${SITE_URL}/sitemap.xml
 
 ## Key pages
-- Recommendation / machine selector: ${SITE_URL}/en/recommend
-- Machinery catalog: ${SITE_URL}/en/machinery
+- Sourcing assessment / selector: ${SITE_URL}/en/assessment
+- Sourcing scope: ${SITE_URL}/en/machinery
 - Industries & applications: ${SITE_URL}/en/industries
 - Automation solutions: ${SITE_URL}/en/solutions
 - Buying guides & resources: ${SITE_URL}/en/resources
-- Contact / quote request: ${SITE_URL}/en/contact
+- Contact / sourcing assessment: ${SITE_URL}/en/contact
 
-## Machine landing pages
+## Configuration landing pages
 - Pouch packing: ${SITE_URL}/en/machines/pouch-packing-machine
 - Powder filling: ${SITE_URL}/en/machines/powder-filling-machine
 - Liquid filling: ${SITE_URL}/en/machines/liquid-filling-machine
 - Snack processing line: ${SITE_URL}/en/machines/snack-processing-line
 - Conveyor systems: ${SITE_URL}/en/machines/conveyor-system
 
-## Topic clusters (by machine)
+## Topic clusters (by configuration route)
 ${clusters}
 `
 

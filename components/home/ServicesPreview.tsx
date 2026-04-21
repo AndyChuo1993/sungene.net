@@ -35,7 +35,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Pouch & Packaging', desc: 'Stand-up pouches, pillow bags, vacuum packs...' },
         { title: 'Line Integration', desc: 'Conveyors, checkweighers, detectors, palletizers, and integration planning...' },
       ],
-      banner: 'Not sure which machine? → Send us your product details',
+      banner: 'Not sure which sourcing path fits? → Send us your product details',
     },
     cn: {
       sectionLabel: '设备与解决方案',
@@ -47,7 +47,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: '袋装与包装', desc: '自立袋、枕形袋、真空包装...' },
         { title: '产线整合', desc: '输送、检重、检测、码垛与整线整合规划...' },
       ],
-      banner: '不确定哪台机器？→ 发送您的产品信息给我们',
+      banner: '不确定哪条采购路径适合？→ 发送您的产品信息给我们',
     },
     zh: {
       sectionLabel: '設備與解決方案',
@@ -59,7 +59,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: '袋裝與包裝', desc: '自立袋、枕形袋、真空包裝...' },
         { title: '產線整合', desc: '輸送、檢重、檢測、碼垛與整線整合規劃...' },
       ],
-      banner: '不確定哪台機器？→ 發送您的產品資訊給我們',
+      banner: '不確定哪條採購路徑適合？→ 發送您的產品資訊給我們',
     },
     fr: {
       sectionLabel: 'ÉQUIPEMENTS & SOLUTIONS',
@@ -71,7 +71,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Sachets et emballage', desc: 'Sachets stand-up, sachets coussin, emballages sous vide...' },
         { title: 'Intégration de ligne', desc: 'Convoyeurs, contrôle de poids, détection, palettiseurs et planification d’intégration...' },
       ],
-      banner: 'Pas sûr de la machine ? → Envoyez-nous les détails de votre produit',
+      banner: 'Pas sûr du bon parcours sourcing ? → Envoyez-nous les détails de votre produit',
     },
     es: {
       sectionLabel: 'EQUIPOS & SOLUCIONES',
@@ -83,7 +83,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Bolsas y empaque', desc: 'Bolsas stand-up, bolsas almohada, empaque al vacío...' },
         { title: 'Integración de línea', desc: 'Transportadores, control de peso, detección, paletizadores y planificación de integración...' },
       ],
-      banner: '¿No sabe qué máquina necesita? → Envíenos los detalles de su producto',
+      banner: '¿No sabe qué ruta de abastecimiento encaja? → Envíenos los detalles de su producto',
     },
     pt: {
       sectionLabel: 'EQUIPAMENTOS & SOLUÇÕES',
@@ -95,7 +95,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Sachês e embalagem', desc: 'Sachês stand-up, sachês almofada, embalagens a vácuo...' },
         { title: 'Integração de linha', desc: 'Esteiras, checkweigher, detectores, paletizadores e planejamento de integração...' },
       ],
-      banner: 'Não tem certeza de qual máquina? → Envie-nos os detalhes do seu produto',
+      banner: 'Não sabe qual caminho de sourcing se encaixa? → Envie-nos os detalhes do seu produto',
     },
     ko: {
       sectionLabel: '장비 & 솔루션',
@@ -107,7 +107,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: '파우치 및 포장', desc: '스탠드업 파우치, 필로우백, 진공포장...' },
         { title: '라인 통합', desc: '컨베이어, 중량검사, 이물검출, 팔레타이저 및 라인 통합 계획...' },
       ],
-      banner: '어떤 기계가 필요한지 모르겠나요? → 제품 정보를 보내주세요',
+      banner: '어떤 소싱 경로가 맞는지 모르겠나요? → 제품 정보를 보내주세요',
     },
     ja: {
       sectionLabel: '機器 & ソリューション',
@@ -119,7 +119,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'パウチ・包装', desc: 'スタンドアップパウチ、ピロー袋、真空パック...' },
         { title: 'ライン統合', desc: 'コンベア、チェッカー、検出機、パレタイザー、ライン統合計画...' },
       ],
-      banner: 'どの機械が必要かわからない？→ 製品の詳細をお送りください',
+      banner: 'どの調達ルートが合うかわからない？→ 製品情報をお送りください',
     },
     ar: {
       sectionLabel: 'معدات وحلول',
@@ -131,7 +131,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'أكياس وتغليف', desc: 'أكياس قائمة، أكياس وسادة، تغليف بالتفريغ...' },
         { title: 'تكامل الخط', desc: 'سيور ناقلة، فحص وزن، كشف، رص على منصات، وتخطيط التكامل...' },
       ],
-      banner: 'لست متأكدًا من الماكينة المناسبة؟ → أرسل لنا تفاصيل منتجك',
+      banner: 'لست متأكدًا من مسار التوريد المناسب؟ → أرسل لنا تفاصيل منتجك',
     },
     th: {
       sectionLabel: 'อุปกรณ์ & โซลูชัน',
@@ -143,7 +143,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'ซองและบรรจุภัณฑ์', desc: 'ซองตั้ง ซองหมอน บรรจุภัณฑ์สุญญากาศ...' },
         { title: 'บูรณาการไลน์', desc: 'สายพาน เครื่องตรวจน้ำหนัก เครื่องตรวจจับ เครื่องจัดเรียงพาเลท และการวางแผนการบูรณาการ...' },
       ],
-      banner: 'ไม่แน่ใจว่าต้องใช้เครื่องจักรใด? → ส่งรายละเอียดผลิตภัณฑ์ของคุณมาให้เรา',
+      banner: 'ยังไม่แน่ใจว่าเส้นทางการจัดหาแบบไหนเหมาะ? → ส่งรายละเอียดผลิตภัณฑ์ของคุณมาให้เรา',
     },
     vi: {
       sectionLabel: 'THIẾT BỊ & GIẢI PHÁP',
@@ -155,7 +155,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Túi và bao bì', desc: 'Túi đứng, túi gối, bao bì hút chân không...' },
         { title: 'Tích hợp dây chuyền', desc: 'Băng tải, cân kiểm tra, thiết bị dò, xếp pallet và kế hoạch tích hợp...' },
       ],
-      banner: 'Không chắc cần máy nào? → Gửi thông tin sản phẩm cho chúng tôi',
+      banner: 'Không chắc lộ trình sourcing nào phù hợp? → Gửi thông tin sản phẩm cho chúng tôi',
     },
     de: {
       sectionLabel: 'ANLAGEN & LÖSUNGEN',
@@ -167,7 +167,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         { title: 'Beutel und Verpackung', desc: 'Standbeutel, Kissenbeutel, Vakuumverpackungen...' },
         { title: 'Linienintegration', desc: 'Förderer, Kontrollwaagen, Detektoren, Palettierer und Integrationsplanung...' },
       ],
-      banner: 'Nicht sicher, welche Maschine? → Senden Sie uns Ihre Produktdetails',
+      banner: 'Nicht sicher, welcher Sourcing-Pfad passt? → Senden Sie uns Ihre Produktdetails',
     }
   }
 
@@ -186,7 +186,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl">{t.title}</h2>
           </div>
           <Link href={`/${lang}/machinery`} className="hidden sm:flex items-center gap-2 text-sm font-semibold text-accent-600 hover:text-accent-700">
-            View all machinery
+            {({ en: 'View sourcing scope', cn: '查看采购范围', zh: '查看採購範圍', fr: 'Voir le périmètre sourcing', es: 'Ver alcance de abastecimiento', pt: 'Ver escopo de sourcing', ko: '소싱 범위 보기', ja: '調達範囲を見る', ar: 'عرض نطاق التوريد', th: 'ดูขอบเขตการจัดหา', vi: 'Xem phạm vi sourcing', de: 'Sourcing-Bereich ansehen' } as Record<string, string>)[lang] || 'View sourcing scope'}
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </Link>
         </div>
@@ -202,7 +202,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
               <h3 className="font-bold text-gray-900 text-base leading-snug">{item.title}</h3>
               <p className="mt-2 text-sm text-gray-500 leading-relaxed flex-1">{item.desc}</p>
               <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-accent-600 group-hover:gap-2 transition-all">
-                <span>Learn more</span>
+                <span>{({ en: 'See sourcing path', cn: '查看采购路径', zh: '查看採購路徑', fr: 'Voir le parcours sourcing', es: 'Ver ruta de abastecimiento', pt: 'Ver caminho de sourcing', ko: '소싱 경로 보기', ja: '調達ルートを見る', ar: 'عرض مسار التوريد', th: 'ดูเส้นทางการจัดหา', vi: 'Xem lộ trình sourcing', de: 'Sourcing-Pfad ansehen' } as Record<string, string>)[lang] || 'See sourcing path'}</span>
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </div>
             </Link>
@@ -212,7 +212,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         {/* Banner CTA */}
         <div className="mt-10">
           <Link
-            href={`/${lang}/recommend`}
+            href={`/${lang}/assessment`}
             className="block rounded-2xl bg-brand-950 px-8 py-6 text-center text-lg font-semibold text-white transition hover:bg-brand-900 sm:text-xl"
           >
             {t.banner}

@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "hand-sealer-impulse-type",
+    "name_en": "Hand Sealer (Impulse Type)",
+    "name_zh": "手壓式封口機",
+    "url": "https://en.wuusheng.com.tw/show-779595.html",
+    "description": "Sealing machine could be used in many kinds of products such as Foods, Stationery, Electronics, Hardware tools, Daily Necessities, etc., which require plastic to pack and seal. Available film: LLDPE, PVC, OPP, PP and POF.",
+    "features": [
+      "Sealing control is used by transient heating, which is quickly seal, beautiful, and saving electricity.",
+      "Sealing time and temperature can be changed which is decided by the thickness of film.",
+      "Saving Electricity and resources. Just need one person to operate.",
+      "Easy operating and maintenance."
+    ],
+    "specs": {
+      "headers": ["Model", "Power", "Electric Heating", "Machine Size (LxWxH)", "Machine Weight", "Sealer Length", "Sealer Width"],
+      "rows": [
+        ["WS-20-1", "110V / 220V", "290W", "320 x 80 x 215 mm", "2.5KG", "200mm", "2mm / 5mm / Round"],
+        ["WS-30-1", "110V / 220V", "370W", "430 x 80 x 255 mm", "3.3KG", "300mm", "2mm / 5mm / Round"],
+        ["WS-40-1", "110V / 220V", "530W", "530 x 90 x 270 mm", "4.8KG", "400mm", "2mm / 5mm / Round"],
+        ["WS-52-1", "110V / 220V", "600W", "650 x 90 x 280 mm", "6KG", "520mm", "2mm / 5mm / Round"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/01_Hand_Sealer_Impulse_Type/Hand_Sealer_Impulse_Type.jpg"]
+  },
+  {
+    "slug": "extra-long-hand-sealer-impulse-type",
+    "name_en": "Extra Long Hand Sealer (Impulse Type)",
+    "name_zh": "手壓式封口機-特長型",
+    "url": "https://en.wuusheng.com.tw/extra-long-hand-sealer-impulse-type.html",
+    "description": "Sealing machine could be used in many kinds of products such as Foods, Stationery, Electronics, Hardware tools, Daily Necessities, etc., which require plastic to pack and seal. Available film: LLDPE, PVC, OPP, PP and POF. Option: Cutting Knife.",
+    "features": [
+      "Impulse sealer is using electronic control which is easy to operate.",
+      "Option: Cutting Knife.",
+      "Powder paint.",
+      "Easy operating and maintenance."
+    ],
+    "specs": {
+      "headers": ["Model", "Power", "Electrical Heating", "Machine Size", "Machine Weight", "Sealing Size", "Sealing Width", "Max. Temp."],
+      "rows": [
+        ["WS-45", "110V / 220V", "600W", "66*13*25cm", "9KG", "450mm", "2.7mm / 5mm", "250°C"],
+        ["WS-60", "110V / 220V", "800W", "81*13*25cm", "9.5KG", "600mm", "2.7mm / 5mm", "250°C"],
+        ["WS-75", "110V / 220V", "1000W", "96*13*25cm", "11KG", "750mm", "2.7mm / 5mm", "250°C"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/02_Extra_Long_Hand_Sealer_Impulse_Type/Extra_Long_Hand_Sealer_Impulse_Type.jpg"]
+  },
+  {
+    "slug": "foot-sealer-impulse-type",
+    "name_en": "Foot Sealer (Impulse Type)",
+    "name_zh": "腳踏式封口機",
+    "url": "https://en.wuusheng.com.tw/foot-sealer-impulse-type.html",
+    "description": "Sealing machine could be used in many kinds of products such as Foods, Stationery, Electronics, Hardware tools, Daily Necessities, etc., which require plastic to pack and seal. Available film: LLDPE, PVC, OPP, PP and POF.",
+    "features": [
+      "Sealing control is used by transient heating, which is quickly seal, beautiful, and saving electricity.",
+      "Sealing time and temperature can be changed which is decided by the thickness of film.",
+      "Saving Electricity and resources. Just need one person to operate.",
+      "Easy operating and maintenance."
+    ],
+    "specs": {
+      "headers": ["Model", "Power", "Electric Heating", "Machine Size (LxWxH)", "Machine Weight", "Sealer Length", "Sealer Width"],
+      "rows": [
+        ["WS-30", "110V/220V", "450W", "38*34*88cm", "16KG", "300mm", "2.7mm /5mm"],
+        ["WS-45", "110V/220V", "600W", "53*34*88cm", "18KG", "450mm", "2.7mm /5mm"],
+        ["WS-60", "110V/220V", "800W", "68*34*88cm", "19.5KG", "600mm", "2.7mm /5mm"],
+        ["WS-75", "110V/220V", "1000W", "83*34*88cm", "21KG", "750mm", "2.7mm /5mm"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/03_Foot_Sealer_Impulse_Type/Foot_Sealer_Impulse_Type.jpg"]
+  },
+  {
+    "slug": "shrinking-machine",
+    "name_en": "Shrinking Machine",
+    "name_zh": "收縮機",
+    "url": "https://en.wuusheng.com.tw/shrinking-machine.html",
+    "description": "Sealing machine could be used in many kinds of products such as Foods, Stationery, Electronics, Hardware tools, Daily Necessities, etc., which require shrinking and packing. Available film: LLDPE, PVC, OPP, PP and POF.",
+    "features": [
+      "Saving Electricity and resources. Just need one person to operate.",
+      "Easy operating and maintenance."
+    ],
+    "specs": {
+      "headers": ["Model", "Machine Size (LxWxH)", "Tunnel Size(LxWxH)", "Power", "Electric Heating", "Conveyor Speed", "Roller Pitch"],
+      "rows": [
+        ["RST-350/200", "1150*700*1050 mm", "600*350*200 mm", "220V. 1Ø", "5 KW", "0-7 M/min", "1\""],
+        ["RST-400/200", "1350*700*1100 mm", "800*400*200 mm", "220V. 1Ø", "6 KW", "0-7 M/min", "1\""],
+        ["CST-400/200", "1750*850*1350 mm", "1200*400*200 mm", "220V. 1Ø", "9 KW", "4-12 M/min", "2\""],
+        ["CST-600/300", "1750*1050*1350 mm", "1200*600*300 mm", "220V. 3Ø", "13 KW", "4-12 M/min", "2\""],
+        ["EST-400/200", "2500*850*1350 mm", "1400*400*200 mm", "220V. 3Ø", "18 KW", "4-12 M/min", "2\""],
+        ["EST-600/300", "2500*1050*1350 mm", "1400*600*300 mm", "220V. 3Ø", "21 KW", "4-12 M/min", "2\""],
+        ["PST-400/200", "2500*700*1100 mm", "1800*400*200 mm", "220V. 3Ø", "24 KW", "10-18 M/min", "1\""]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/03_Shrinking_Tunnel/01_Shrinking_Machine/Shrinking_Machine.jpg"]
+  },
+  {
+    "slug": "vacuum-packing-machine",
+    "name_en": "Vacuum Packing Machine",
+    "name_zh": "真空包裝機",
+    "url": "https://en.wuusheng.com.tw/vacuum-packing-machine.html",
+    "description": "For foods: extends storage date, prevents pollution, keeps food fresh, antiseptic, moisture-proof, and dust-proof. For electronics: prevents corrosion, moisture, and dust.",
+    "features": [
+      "Extends storage date of food and prevents pollution.",
+      "Prevents electronic parts from corrosion, moisture, and dust.",
+      "Easy operating, use friendly.",
+      "High-quality electric parts and vacuum pump—low failure rate.",
+      "Electronic circuit is stable, moisture-proof, low failure rate, and easy to maintain."
+    ],
+    "specs": {
+      "headers": ["Model", "Machine Size(LxWxH)", "Chamber Size(LxWxH)", "Sealer Length", "Vacuum Pump", "Electrical Heating"],
+      "rows": [
+        ["WS-350", "370 x 440 x 880 mm", "340 x 330 x 120 mm", "310 mm", "1/2 HP", "0.4 KW"],
+        ["WS-420", "690 x 580 x 910 mm", "480 x 450 x 140 mm", "420 mm x 2", "1 HP", "1 KW"],
+        ["WS-720", "850 x 810 x 1300 mm", "805 x 560 x 140 mm", "720 mm x 2", "3 HP", "1.9 KW"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/12_Vacuum_Packing_Machine/01_Vacuum_Packing_Machine/Vacuum_Packing_Machine.jpg"]
+  },
+  {
+    "slug": "pillow-type-packing-machine",
+    "name_en": "Pillow Type Packing Machine",
+    "name_zh": "臥式包裝機",
+    "url": "https://en.wuusheng.com.tw/pillow-type-packing-machine.html",
+    "description": "Suitable for OPP, CPP, KOP, PET, Aluminum Foil & Back Laminated Paper. For packing instant noodles, biscuits, ice cream, chewing-gum, chocolate, bread, and various solid products.",
+    "features": [
+      "Easy to adjust and operate with any different products.",
+      "Can pack various sizes of solid articles; adjustable and changeable into various packing sizes.",
+      "Package position and size conveniently adjusted from switch on control panel.",
+      "Contacting surfaces with packing articles made of stainless steel for sanitary purpose.",
+      "High-quality electric parts, long lasting, low failure rate.",
+      "Easy maintain and user friendly."
+    ],
+    "specs": {
+      "headers": ["Model", "Packing Length", "Packing Width", "Packing Height", "Capacity", "Longitudinal Heater", "Cross Heater", "Machine Size"],
+      "rows": [
+        ["WS-600", "80~300 mm", "10~100mm", "10~60mm", "30~200pcs/min", "400W x 2", "300W x 4", "3400 x 800 x 1600 mm"],
+        ["WS-800", "80~400 mm", "10~180mm", "10~100mm", "30~200pcs/min", "400W x 2", "300W x 4", "4200 x 900 x 1700mm"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/11_Horizontal_Packing_Mac/01_Pillow_Type_Packing_Machine/Pillow_Type_Packing_Machine.gif"]
+  },
+  {
+    "slug": "stretch-wrapping-machine",
+    "name_en": "Stretch Wrapping Machine",
+    "name_zh": "纏繞膜包裝機",
+    "url": "https://en.wuusheng.com.tw/stretch-wrapping-machine.html",
+    "description": "Used for export goods, foods, drinks, cartons, paints, plastics, glasses, and electrical parts that need bundling in one package. Prevents damage during delivery and keeps goods clean.",
+    "features": [
+      "Stretch film carriage equipped with hinged drive for smooth vertical movement—speed adjustable.",
+      "Turntable equipped with hinged drive for stable turning during pallet loading—speed adjustable.",
+      "Motor speed controlled by inverter for steady, smooth running.",
+      "Two-dent design at bottom of turntable allows easy forklift movement.",
+      "Photoelectric cell reads pallet height automatically—easy operating.",
+      "Pre-stretch System optional to save film material."
+    ],
+    "specs": {
+      "headers": ["Model", "Packing Height", "Turntable Diameter", "Turntable Height", "Turntable Speed", "Electrical Heating", "Machine Size(LxWxH)"],
+      "rows": [
+        ["WSV-1521", "2100mm", "1500mm", "80mm", "5~15RPM", "1.2KW", "2623x1500x2410 mm"],
+        ["WSV-1821", "2100mm", "1800mm", "80mm", "5~15RPM", "1.5KW", "2623x1500x2410 mm"]
+      ]
+    },
+    "images": ["https://img.mweb.com.tw/thumb/758/1000x1000/product/14_Stretch_Wrapping_Machine/01_Stretch_Wrapping_Machine/Stretch_Wrapping_Machine.jpg"]
+  }
+]

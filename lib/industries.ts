@@ -98,7 +98,7 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
     slug: 'snack-chips',
     name: 'Snack & Chips Packaging',
     intro:
-      'Complete snack production and packaging lines — continuous fryers, seasoning tumblers, multi-head weighers, and VFFS baggers for potato chips, banana chips, tortilla chips, extruded snacks.',
+      'Complete snack processing and packaging line integrations — continuous fryers, seasoning tumblers, multi-head weighers, and VFFS baggers for potato chips, banana chips, tortilla chips, extruded snacks.',
     productForms: ['Potato chips', 'Banana chips', 'Tortilla chips', 'Extruded puffs', 'Tapioca chips', 'Plantain chips'],
     packagingFormats: ['Pillow bag (VFFS)', 'Stand-up pouch', 'Multi-pack carton', 'Jar', 'Rigid tube'],
     recommendedMachines: ['snack-processing-line', 'pouch-packing-machine', 'conveyor-system'],

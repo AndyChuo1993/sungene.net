@@ -13,33 +13,33 @@ import { COMPANY_FAQS } from '@/lib/companyFaq'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {
-  en: 'Get a Free Quote | Contact',
-  cn: '获取免费报价 | 联系我们',
-  zh: '取得免費報價 | 聯絡我們',
-  fr: 'Devis gratuit | Contact',
-  es: 'Cotización gratuita | Contacto',
-  pt: 'Orçamento grátis | Contato',
-  ko: '무료 견적 받기 | 문의',
-  ja: '無料見積もり | お問い合わせ',
-  ar: 'احصل على عرض سعر مجاني | اتصل بنا',
-  th: 'ขอใบเสนอราคาฟรี | ติดต่อเรา',
-  vi: 'Nhận Báo Giá Miễn Phí | Liên Hệ',
-  de: 'Kostenloses Angebot | Kontakt',
+  en: 'Request a Sourcing Assessment | Contact',
+  cn: '申请采购评估 | 联系我们',
+  zh: '申請採購評估 | 聯絡我們',
+  fr: 'Évaluation d’approvisionnement | Contact',
+  es: 'Evaluación de abastecimiento | Contacto',
+  pt: 'Avaliação de sourcing | Contato',
+  ko: '소싱 평가 요청 | 문의',
+  ja: '調達評価の依頼 | お問い合わせ',
+  ar: 'اطلب تقييم التوريد | اتصل بنا',
+  th: 'ขอการประเมินการจัดซื้อ | ติดต่อเรา',
+  vi: 'Yêu cầu đánh giá nguồn cung | Liên hệ',
+  de: 'Beschaffungsbewertung anfragen | Kontakt',
 }
 
 const CONTACT_META_DESCRIPTIONS: Record<string, string> = {
-  en: 'Request a free quote for packaging machinery, food processing equipment, or any industrial machinery. Our engineers respond within 24 hours.',
-  cn: '请求包装机械、食品加工设备的免费报价。我们的工程师将在24小时内回复。',
-  zh: '請求包裝機械、食品加工設備的免費報價。我們的工程師將在24小時內回覆。',
-  fr: 'Demandez un devis gratuit pour machines industrielles. Nos ingénieurs répondent sous 24 heures.',
-  es: 'Solicite cotización gratis para maquinaria industrial. Nuestros ingenieros responden en 24 horas.',
-  pt: 'Solicite orçamento grátis para máquinas industriais. Nossos engenheiros respondem em 24 horas.',
-  ko: '산업 기계 무료 견적을 요청하세요. 24시간 내 응답 보장.',
-  ja: '産業機械の無料見積もりをご依頼ください。24時間以内にご返信します。',
-  ar: 'اطلب عرض سعر مجاني للآلات الصناعية. مهندسونا يردون خلال 24 ساعة.',
-  th: 'ขอใบเสนอราคาฟรีสำหรับเครื่องจักรอุตสาหกรรม วิศวกรตอบกลับภายใน 24 ชั่วโมง',
-  vi: 'Yêu cầu báo giá miễn phí cho máy móc công nghiệp. Kỹ sư phản hồi trong 24 giờ.',
-  de: 'Kostenloses Angebot für Industriemaschinen. Unsere Ingenieure antworten innerhalb von 24 Stunden.',
+  en: 'Request a sourcing assessment for packaging systems, industrial equipment, or automation components. Our engineers respond within 24 hours.',
+  cn: '申请包装系统、工业设备或自动化部件的采购评估。我们的工程师将在24小时内回复。',
+  zh: '申請包裝系統、工業設備或自動化零組件的採購評估。我們的工程師將在24小時內回覆。',
+  fr: 'Demandez une évaluation d’approvisionnement pour systèmes d’emballage, équipements industriels ou composants d’automatisation. Réponse sous 24 h.',
+  es: 'Solicite una evaluación de abastecimiento para sistemas de empaque, equipos industriales o componentes de automatización. Respuesta en 24 h.',
+  pt: 'Solicite uma avaliação de sourcing para sistemas de embalagem, equipamentos industriais ou componentes de automação. Resposta em 24 h.',
+  ko: '포장 시스템, 산업 장비, 자동화 부품에 대한 소싱 평가를 요청하세요. 24시간 내 응답.',
+  ja: '包装システム、産業機器、オートメーション部品の調達評価をご依頼ください。24時間以内にご返信します。',
+  ar: 'اطلب تقييم توريد لأنظمة التعبئة أو المعدات الصناعية أو مكونات الأتمتة. يرد مهندسونا خلال 24 ساعة.',
+  th: 'ขอการประเมินการจัดซื้อสำหรับระบบบรรจุภัณฑ์ อุปกรณ์อุตสาหกรรม หรือชิ้นส่วนระบบอัตโนมัติ วิศวกรตอบกลับภายใน 24 ชั่วโมง',
+  vi: 'Yêu cầu đánh giá nguồn cung cho hệ thống đóng gói, thiết bị công nghiệp hoặc linh kiện tự động hóa. Kỹ sư phản hồi trong 24 giờ.',
+  de: 'Fordern Sie eine Beschaffungsbewertung für Verpackungssysteme, Industrieanlagen oder Automatisierungskomponenten an. Antwort innerhalb von 24 Stunden.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: CONTACT_META_DESCRIPTIONS[l] || CONTACT_META_DESCRIPTIONS.en,
     pathname: '/contact',
     type: 'website',
-    keywords: ['SunGene contact', 'packaging machinery quote', 'machinery inquiry Taiwan', 'industrial machinery quotation', 'machinery quote request'],
+    keywords: ['SunGene contact', 'sourcing assessment', 'industrial equipment sourcing', 'machinery procurement', 'supplier vetting'],
   })
 }
 
@@ -150,9 +150,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   const content: Record<string, any> = {
     en: {
-      kicker: 'GET A FREE QUOTE',
+      kicker: 'SOURCING ASSESSMENT',
       title: 'Tell Us What You Need',
-      desc: 'Share your product type, target output, and requirements. Our engineering team will respond with a customized machinery recommendation within 24 hours.',
+      desc: 'Share your product type, target output, and requirements. Our engineering team will respond with a sourcing assessment and a recommended configuration within 24 hours.',
       infoTitle: 'What to Include',
       formList: [
         'What product do you process or pack?',
@@ -167,9 +167,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Average response time: within 24 hours',
     },
     cn: {
-      kicker: '获取免费报价',
+      kicker: '申请采购评估',
       title: '告诉我们您的需求',
-      desc: '分享您的产品类型、目标产能和要求。我们的工程团队将在24小时内提供定制机械建议。',
+      desc: '分享您的产品类型、目标产能和要求。我们的工程团队将在24小时内提供采购评估与定制设备建议。',
       infoTitle: '请提供以下信息',
       formList: [
         '您加工或包装什么产品？',
@@ -180,13 +180,13 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         '预算范围（可选）',
       ],
       methodsTitle: '快速联系',
-      btn: '提交询价',
+      btn: '提交评估申请',
       responseNote: '⚡ 平均回复时间：24小时内',
     },
     zh: {
-      kicker: '取得免費報價',
+      kicker: '申請採購評估',
       title: '告訴我們您的需求',
-      desc: '分享您的產品類型、目標產能和要求。我們的工程團隊將在24小時內提供客製機械建議。',
+      desc: '分享您的產品類型、目標產能和要求。我們的工程團隊將在24小時內提供採購評估與客製設備建議。',
       infoTitle: '請提供以下資訊',
       formList: [
         '您加工或包裝什麼產品？',
@@ -197,13 +197,13 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         '預算範圍（可選）',
       ],
       methodsTitle: '快速聯繫',
-      btn: '提交詢價',
+      btn: '提交評估申請',
       responseNote: '⚡ 平均回覆時間：24小時內',
     },
     fr: {
-      kicker: 'DEVIS GRATUIT',
+      kicker: 'ÉVALUATION D’APPROVISIONNEMENT',
       title: 'Décrivez-nous vos besoins',
-      desc: 'Partagez votre type de produit, objectif de production et exigences. Notre équipe d\'ingénierie vous répondra avec une recommandation personnalisée sous 24 heures.',
+      desc: 'Partagez votre type de produit, objectif de production et exigences. Notre équipe d\'ingénierie vous répondra avec une évaluation d’approvisionnement et une proposition de configuration sous 24 heures.',
       infoTitle: 'Informations à fournir',
       formList: ['Quel produit transformez-vous ou emballez-vous ?', 'Production cible par heure ou par jour', 'Format d\'emballage (sachets, bouteilles, poches, etc.)', 'Niveau d\'automatisation souhaité', 'Pays de destination et tension', 'Fourchette budgétaire (optionnel)'],
       methodsTitle: 'Contact rapide',
@@ -211,9 +211,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Temps de réponse moyen : moins de 24 heures',
     },
     es: {
-      kicker: 'COTIZACIÓN GRATIS',
+      kicker: 'EVALUACIÓN DE ABASTECIMIENTO',
       title: 'Cuéntenos qué necesita',
-      desc: 'Comparta su tipo de producto, producción objetivo y requisitos. Nuestro equipo de ingeniería le proporcionará una recomendación personalizada en 24 horas.',
+      desc: 'Comparta su tipo de producto, producción objetivo y requisitos. Nuestro equipo de ingeniería le proporcionará una evaluación de abastecimiento y una propuesta de configuración en 24 horas.',
       infoTitle: 'Información a incluir',
       formList: ['¿Qué producto procesa o empaca?', 'Producción objetivo por hora o por día', 'Formato de empaque (bolsas, botellas, pouches, etc.)', 'Preferencia de nivel de automatización', 'País de destino y voltaje', 'Rango de presupuesto (opcional)'],
       methodsTitle: 'Contacto rápido',
@@ -221,9 +221,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Tiempo de respuesta promedio: menos de 24 horas',
     },
     pt: {
-      kicker: 'ORÇAMENTO GRÁTIS',
+      kicker: 'AVALIAÇÃO DE SOURCING',
       title: 'Diga-nos o que você precisa',
-      desc: 'Compartilhe seu tipo de produto, produção desejada e requisitos. Nossa equipe de engenharia fornecerá uma recomendação personalizada em 24 horas.',
+      desc: 'Compartilhe seu tipo de produto, produção desejada e requisitos. Nossa equipe de engenharia fornecerá uma avaliação de sourcing e uma proposta de configuração em 24 horas.',
       infoTitle: 'O que incluir',
       formList: ['Qual produto você processa ou embala?', 'Produção desejada por hora ou por dia', 'Formato de embalagem (sacos, garrafas, sachês, etc.)', 'Preferência de nível de automação', 'País de destino e voltagem', 'Faixa de orçamento (opcional)'],
       methodsTitle: 'Contato rápido',
@@ -231,9 +231,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Tempo médio de resposta: menos de 24 horas',
     },
     ko: {
-      kicker: '무료 견적',
+      kicker: '소싱 평가',
       title: '필요한 사항을 알려주세요',
-      desc: '제품 유형, 목표 생산량 및 요구 사항을 공유하세요. 엔지니어링 팀이 24시간 내에 맞춤 기계 추천을 제공합니다.',
+      desc: '제품 유형, 목표 생산량 및 요구 사항을 공유하세요. 엔지니어링 팀이 24시간 내에 소싱 평가와 맞춤 구성 제안을 제공합니다.',
       infoTitle: '포함할 정보',
       formList: ['어떤 제품을 가공 또는 포장하시나요?', '시간당 또는 일일 목표 생산량', '포장 형태 (봉지, 병, 파우치 등)', '자동화 수준 선호도', '목적 국가 및 전압', '예산 범위 (선택 사항)'],
       methodsTitle: '빠른 연락',
@@ -241,9 +241,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ 평균 응답 시간: 24시간 이내',
     },
     ja: {
-      kicker: '無料見積もり',
+      kicker: '調達評価',
       title: 'ご要望をお聞かせください',
-      desc: '製品タイプ、目標生産量、要件をお伝えください。エンジニアリングチームが24時間以内にカスタマイズされた機械の提案をいたします。',
+      desc: '製品タイプ、目標生産量、要件をお伝えください。エンジニアリングチームが24時間以内に調達評価と最適構成の提案をお送りします。',
       infoTitle: '記載事項',
       formList: ['加工・包装する製品は何ですか？', '1時間または1日あたりの目標生産量', '包装形態（袋、ボトル、パウチなど）', '自動化レベルの希望', '仕向国と電圧', '予算範囲（任意）'],
       methodsTitle: '直接お問い合わせ',
@@ -251,9 +251,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ 平均返信時間：24時間以内',
     },
     ar: {
-      kicker: 'عرض سعر مجاني',
+      kicker: 'تقييم التوريد',
       title: 'أخبرنا بما تحتاجه',
-      desc: 'شارك نوع منتجك والإنتاج المستهدف ومتطلباتك. سيقوم فريق الهندسة بتقديم توصية مخصصة للآلات خلال 24 ساعة.',
+      desc: 'شارك نوع منتجك والإنتاج المستهدف ومتطلباتك. سيقدم فريق الهندسة تقييم توريد واقتراح تهيئة خلال 24 ساعة.',
       infoTitle: 'المعلومات المطلوبة',
       formList: ['ما المنتج الذي تعالجه أو تعبئه؟', 'الإنتاج المستهدف بالساعة أو باليوم', 'شكل التعبئة (أكياس، زجاجات، أكياس مرنة، إلخ)', 'تفضيل مستوى الأتمتة', 'بلد الوجهة والجهد الكهربائي', 'نطاق الميزانية (اختياري)'],
       methodsTitle: 'تواصل سريع',
@@ -261,9 +261,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ متوسط وقت الرد: أقل من 24 ساعة',
     },
     th: {
-      kicker: 'ขอใบเสนอราคาฟรี',
+      kicker: 'ประเมินการจัดซื้อ',
       title: 'บอกเราเกี่ยวกับความต้องการของคุณ',
-      desc: 'แจ้งประเภทผลิตภัณฑ์ กำลังการผลิตเป้าหมาย และข้อกำหนด ทีมวิศวกรจะแนะนำเครื่องจักรที่เหมาะสมภายใน 24 ชั่วโมง',
+      desc: 'แจ้งประเภทผลิตภัณฑ์ กำลังการผลิตเป้าหมาย และข้อกำหนด ทีมวิศวกรจะส่งการประเมินการจัดซื้อและคำแนะนำที่เหมาะสมภายใน 24 ชั่วโมง',
       infoTitle: 'ข้อมูลที่ควรระบุ',
       formList: ['คุณแปรรูปหรือบรรจุผลิตภัณฑ์อะไร?', 'กำลังการผลิตเป้าหมายต่อชั่วโมงหรือต่อวัน', 'รูปแบบบรรจุภัณฑ์ (ถุง, ขวด, ซอง ฯลฯ)', 'ระดับระบบอัตโนมัติที่ต้องการ', 'ประเทศปลายทางและแรงดันไฟฟ้า', 'งบประมาณ (ไม่บังคับ)'],
       methodsTitle: 'ติดต่อด่วน',
@@ -271,9 +271,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ เวลาตอบกลับเฉลี่ย: น้อยกว่า 24 ชั่วโมง',
     },
     vi: {
-      kicker: 'BÁO GIÁ MIỄN PHÍ',
+      kicker: 'ĐÁNH GIÁ NGUỒN CUNG',
       title: 'Cho chúng tôi biết bạn cần gì',
-      desc: 'Chia sẻ loại sản phẩm, sản lượng mục tiêu và yêu cầu. Đội ngũ kỹ sư sẽ phản hồi với đề xuất máy móc phù hợp trong 24 giờ.',
+      desc: 'Chia sẻ loại sản phẩm, sản lượng mục tiêu và yêu cầu. Đội ngũ kỹ sư sẽ phản hồi với đánh giá nguồn cung và đề xuất phù hợp trong 24 giờ.',
       infoTitle: 'Thông tin cần cung cấp',
       formList: ['Bạn chế biến hoặc đóng gói sản phẩm gì?', 'Sản lượng mục tiêu mỗi giờ hoặc mỗi ngày', 'Dạng đóng gói (túi, chai, gói, v.v.)', 'Mức độ tự động hóa mong muốn', 'Quốc gia đích và điện áp', 'Khoảng ngân sách (tùy chọn)'],
       methodsTitle: 'Liên hệ nhanh',
@@ -281,9 +281,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Thời gian phản hồi trung bình: dưới 24 giờ',
     },
     de: {
-      kicker: 'KOSTENLOSES ANGEBOT',
+      kicker: 'BESCHAFFUNGSBEWERTUNG',
       title: 'Teilen Sie uns Ihren Bedarf mit',
-      desc: 'Teilen Sie Produkttyp, Ausbringung und Anforderungen mit. Unser Ingenieurteam antwortet innerhalb von 24 Stunden mit einer maßgeschneiderten Empfehlung.',
+      desc: 'Teilen Sie Produkttyp, Ausbringung und Anforderungen mit. Unser Ingenieurteam antwortet innerhalb von 24 Stunden mit einer Beschaffungsbewertung und einem maßgeschneiderten Vorschlag.',
       infoTitle: 'Anzugebende Informationen',
       formList: ['Welches Produkt verarbeiten oder verpacken Sie?', 'Zielausbringung pro Stunde oder Tag', 'Verpackungsformat (Beutel, Flaschen, Pouches, etc.)', 'Gewünschter Automatisierungsgrad', 'Zielland und Spannung', 'Budgetrahmen (optional)'],
       methodsTitle: 'Schnellkontakt',
@@ -319,7 +319,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         kicker={t.kicker}
         title={t.title}
         desc={t.desc}
-        image={{ src: heroPhoto, alt: 'Contact SunGene factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Contact SunGene sourcing team', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
 
       <section className="py-12 sm:py-16 bg-gray-50">
@@ -397,26 +397,26 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
               <Card className="p-6">
                 <h2 className="text-base font-bold text-gray-950">
                   {({
-                    en: 'Buying guides by machine',
-                    cn: '按机型浏览采购指南',
-                    zh: '依機型瀏覽採購指南',
-                    fr: 'Guides d’achat par machine',
-                    es: 'Guías de compra por máquina',
-                    pt: 'Guias de compra por máquina',
-                    ko: '기계별 구매 가이드',
-                    ja: '機種別 購入ガイド',
-                    ar: 'أدلة الشراء حسب الماكينة',
-                    th: 'คู่มือการเลือกซื้อตามเครื่อง',
-                    vi: 'Hướng dẫn mua theo máy',
-                    de: 'Kaufratgeber nach Maschine',
-                  } as Record<string, string>)[lang] || 'Buying guides by machine'}
+                    en: 'Configuration guides by route',
+                    cn: '按配置路线浏览指南',
+                    zh: '依配置路線瀏覽指南',
+                    fr: 'Guides par parcours de configuration',
+                    es: 'Guías por ruta de configuración',
+                    pt: 'Guias por rota de configuração',
+                    ko: '구성 경로별 가이드',
+                    ja: '構成ルート別 ガイド',
+                    ar: 'أدلة حسب مسار التهيئة',
+                    th: 'คู่มือตามเส้นทางการกำหนดค่า',
+                    vi: 'Hướng dẫn theo lộ trình cấu hình',
+                    de: 'Leitfäden nach Konfigurationspfad',
+                  } as Record<string, string>)[lang] || 'Configuration guides by route'}
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/pouch-packing-machine`}>{({ en: 'Pouch packing', cn: '袋装包装', zh: '袋裝包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치 포장', ja: 'パウチ包装', ar: 'تعبئة الأكياس', th: 'บรรจุถุง', vi: 'Đóng gói túi', de: 'Beutelverpackung' } as Record<string, string>)[lang] || 'Pouch packing'}</a>
-                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/powder-filling-machine`}>{({ en: 'Powder filling', cn: '粉末灌装', zh: '粉末灌裝', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder filling'}</a>
-                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/liquid-filling-machine`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
-                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/snack-processing-line`}>{({ en: 'Snack processing', cn: '休闲食品', zh: '休閒食品', fr: 'Snack', es: 'Snacks', pt: 'Snacks', ko: '스낵', ja: 'スナック', ar: 'سناكات', th: 'สแน็ค', vi: 'Snack', de: 'Snack' } as Record<string, string>)[lang] || 'Snack processing'}</a>
-                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/topic/conveyor-system`}>{({ en: 'Conveyors', cn: '输送', zh: '輸送', fr: 'Convoyeurs', es: 'Transporte', pt: 'Transporte', ko: '컨베이어', ja: '搬送', ar: 'نقل', th: 'ลำเลียง', vi: 'Băng tải', de: 'Fördertechnik' } as Record<string, string>)[lang] || 'Conveyors'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/pouch-packaging`}>{({ en: 'Pouch packaging', cn: '袋包装', zh: '袋包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치', ja: 'パウチ', ar: 'أكياس', th: 'ถุง', vi: 'Túi', de: 'Beutel' } as Record<string, string>)[lang] || 'Pouch packaging'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/powder-dosing`}>{({ en: 'Powder dosing', cn: '粉体计量', zh: '粉體計量', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder dosing'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/liquid-filling`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/food-processing-line`}>{({ en: 'Food processing line', cn: '食品加工线', zh: '食品加工線', fr: 'Process', es: 'Proceso', pt: 'Processo', ko: '식품 라인', ja: '加工ライン', ar: 'معالجة', th: 'กระบวนการ', vi: 'Chế biến', de: 'Prozess' } as Record<string, string>)[lang] || 'Food processing line'}</a>
+                  <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/conveying-automation`}>{({ en: 'Conveying & automation', cn: '输送与自动化', zh: '輸送與自動化', fr: 'Convoyage', es: 'Transporte', pt: 'Transporte', ko: '이송/자동화', ja: '搬送/自動化', ar: 'نقل/أتمتة', th: 'ลำเลียง/อัตโนมัติ', vi: 'Băng tải/TĐH', de: 'Fördertechnik/Automation' } as Record<string, string>)[lang] || 'Conveying & automation'}</a>
                 </div>
               </Card>
 
@@ -431,7 +431,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
               <Card className="p-8 shadow-elev-2">
                 <div className="mb-8 overflow-hidden rounded-2xl ring-1 ring-gray-200/60">
                   <div className="relative aspect-[4/3] bg-gray-100">
-                    <Image src={formPhoto} alt="Factory test and engineering" fill sizes="(min-width: 1024px) 56vw, 92vw" className="object-cover" />
+                    <Image src={formPhoto} alt="Quality verification and engineering review" fill sizes="(min-width: 1024px) 56vw, 92vw" className="object-cover" />
                   </div>
                 </div>
                 <InquiryForm

@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/11_Horizontal_Packing_Mac/01_Pillow_Type_Packing_Machine/Pillow_Type_Packing_Machine.gif'
 
 const metaTitles: Record<string, string> = {
-  en: 'Pillow Type Packing Machine | Horizontal Flow Wrapper for Snacks & Baked Goods',
-  cn: '枕式包装机（卧式） | 零食与烘焙品流动包装机',
-  zh: '枕式包裝機（臥式） | 零食與烘焙品流動包裝機',
-  fr: 'Machine d\'emballage de type oreiller | Enveloppeur flow pack horizontal',
-  es: 'Máquina de empaque tipo almohada | Envolvedora horizontal para snacks y bollería',
-  pt: 'Máquina de embalagem tipo travesseiro | Flowpack horizontal para snacks e pão',
-  ko: '베개형 포장기 (수평식) | 스낵·제과류 수평 플로우 래퍼',
-  ja: 'ピロー包装機（横型） | スナック・焼き菓子向けフロー包装機',
-  ar: 'آلة التغليف بالوسادة | غلاف التدفق الأفقي للمقرمشات والمخبوزات',
-  th: 'เครื่องแพ็กแบบหมอน (แนวนอน) | เครื่องห่อฟลูว์แพ็คสำหรับขนมและเบเกอรี่',
-  vi: 'Máy đóng gói kiểu gối (nằm ngang) | Máy gói dòng chảy cho snack và bánh',
-  de: 'Kissenverpackungsmaschine (Horizontal) | Flow-Wrapper für Snacks und Backwaren',
+  en: 'Pillow Packaging Configuration Route | Flow Wrap & Integration Planning',
+  cn: '枕式包装配置路线 | 流包与整合规划',
+  zh: '枕式包裝配置路線 | 流包與整合規劃',
+  fr: 'Machine d\'emballage oreiller | Sourcing et intégration Flow Pack',
+  es: 'Máquina de empaque tipo almohada | Abastecimiento técnico e integración',
+  pt: 'Máquina de embalagem tipo travesseiro | Sourcing técnico e integração',
+  ko: '베개형 포장기 | 기술 소싱 및 플로우 랩 통합',
+  ja: 'ピロー包装機 | 技術ソーシングとフロー包装統合',
+  ar: 'آلة التغليف بالوسادة | التوريد التقني وتكامل تغليف التدفق',
+  th: 'เครื่องแพ็กแบบหมอน | การจัดซื้อเชิงเทคนิคและการรวมการห่อฟลูว์',
+  vi: 'Máy đóng gói kiểu gối | Đánh giá nguồn cung và tích hợp đóng gói',
+  de: 'Kissenverpackungsmaschine | Technisches Sourcing & Integration',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Horizontal pillow-type flow wrapper for biscuits, bread, instant noodles, ice cream, chocolate, and solid food products. WS-600 and WS-800 models. Output 30–200 pcs/min. Compatible with OPP, CPP, KOP, PET, aluminum foil.',
-  cn: '臥式枕型流动包装机，适用于饼干、面包、方便面、冰淇淋、巧克力及固体食品，WS-600/WS-800型，产速30-200件/分钟，兼容OPP/CPP/KOP/PET/铝箔。',
-  zh: '臥式枕型流動包裝機，適用於餅乾、麵包、方便麵、冰淇淋、巧克力及固體食品，WS-600/WS-800型，產速30-200件/分鐘，相容OPP/CPP/KOP/PET/鋁箔。',
-  fr: 'Emballeuse flux horizontal type oreiller pour biscuits, pain, nouilles instantanées, glaces, chocolat et solides. Modèles WS-600 et WS-800. 30–200 pcs/min. OPP, CPP, KOP, PET, aluminium.',
-  es: 'Empaquetadora tipo almohada de flujo horizontal para galletas, pan, fideos instantáneos, helado, chocolate y sólidos. WS-600 y WS-800. 30–200 uds/min. OPP, CPP, KOP, PET, aluminio.',
-  pt: 'Empacotadora tipo travesseiro de fluxo horizontal para biscoitos, pão, macarrão instantâneo, sorvete, chocolate e sólidos. WS-600 e WS-800. 30–200 pçs/min. OPP, CPP, KOP, PET, alumínio.',
-  ko: '비스킷, 빵, 라면, 아이스크림, 초콜릿 등 고형 식품용 수평 베개형 플로우 래퍼. WS-600, WS-800. 30~200개/분. OPP, CPP, KOP, PET, 알루미늄 포일 호환.',
-  ja: 'ビスケット、パン、インスタントラーメン、アイスクリーム、チョコレート等の固形食品向け横型ピロー式フロー包装機。WS-600・WS-800。30〜200個/分。OPP/CPP/KOP/PET/アルミ箔対応。',
-  ar: 'ماكينة تغليف تدفق أفقي من نوع الوسادة للبسكويت والخبز والمعكرونة الفورية والآيس كريم والشوكولاتة. طرازا WS-600 وWS-800. 30–200 قطعة/دقيقة.',
-  th: 'เครื่องแพ็กฟลูว์แพ็คแบบนอนสำหรับบิสกิต ขนมปัง บะหมี่กึ่งสำเร็จรูป ไอศกรีม ช็อกโกแลต และอาหารแข็ง WS-600, WS-800 ผลิต 30-200 ชิ้น/นาที',
-  vi: 'Máy gói dòng chảy kiểu gối nằm ngang cho bánh quy, bánh mì, mì ăn liền, kem, sô cô la và thực phẩm rắn. WS-600, WS-800. 30–200 cái/phút.',
-  de: 'Horizontaler Kissen-Flow-Wrapper für Kekse, Brot, Instantnudeln, Eis, Schokolade und feste Lebensmittel. WS-600 und WS-800. 30–200 Stk/min. OPP, CPP, KOP, PET, Alufolie.',
+  en: 'Flow-wrap sourcing support: align HFFS configuration with product and film, verify seal/cut consistency, and lock FAT/acceptance criteria before release.',
+  cn: '流包采购支持：让 HFFS 配置与产品和膜材匹配，验证封切一致性，并在放行前锁定 FAT 与验收标准。',
+  zh: '流包採購支援：讓 HFFS 配置與產品和膜材匹配，驗證封切一致性，並在放行前鎖定 FAT 與驗收標準。',
+  fr: 'Sourcing professionnel pour emballeuses flow pack horizontales (HFFS). Validation technique des modèles WS-600/800 pour vos lignes d’emballage.',
+  es: 'Abastecimiento profesional para envolvedoras horizontales (HFFS). Validación técnica para modelos WS-600/800 y compatibilidad con sus líneas de empaque.',
+  pt: 'Sourcing profissional para empacotadoras flowpack horizontais (HFFS). Validação técnica dos modelos WS-600/800 para suas linhas de embalagem.',
+  ko: '수평형 베개형 플로우 래퍼(HFFS) 전문 소싱. 스낵, 베이커리 또는 고형 식품 포장 라인과의 호환성을 보장하기 위해 WS-600/800 모델에 대한 기술 심사를 제공합니다.',
+  ja: '横型ピロー式フロー包装機（HFFS）の専門ソーシング。スナック、ベーカリー、固形食品の包装ラインとの適合性を確保するため、WS-600/800モデルの技術審査を提供します。',
+  ar: 'توريد احترافي لآلات تغليف التدفق الأفقي (HFFS). نقدم تدقيقًا فنيًا لطرازي WS-600/800 لضمان التوافق مع خطوط التغليف الخاصة بك.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับเครื่องห่อฟลูว์แพ็คแนวนอน (HFFS) เราให้บริการตรวจสอบทางเทคนิคสำหรับรุ่น WS-600/800 เพื่อความเข้ากันได้กับไลน์บรรจุภัณฑ์ของคุณ',
+  vi: 'Nguồn cung chuyên nghiệp cho máy đóng gói dòng chảy nằm ngang (HFFS). Chúng tôi thẩm định kỹ thuật dòng WS-600/800 để đảm bảo tương thích với dây chuyền đóng gói.',
+  de: 'Professionelles Sourcing für horizontale Schlauchbeutelmaschinen (HFFS). Technische Prüfung der Modelle WS-600/800 für Ihre Verpackungslinien.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/pillow-type-packing-machine',
     type: 'website',
-    keywords: ['pillow packing machine', 'flow wrapper', 'horizontal packing machine', 'HFFS machine', 'snack packing machine', 'biscuit packing machine', 'Wuu Sheng', 'Taiwan flow wrapper'],
+    keywords: ['pillow packaging configuration', 'flow wrap setup', 'HFFS configuration', 'seal cut consistency', 'acceptance criteria', 'FAT checklist', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -87,8 +88,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Biscuits & crackers', 'Instant noodles', 'Ice cream bars', 'Chewing gum & candy', 'Chocolate bars', 'Bread & bakery', 'Soap & detergent bars', 'Hardware components'],
-    ctaTitle: 'Looking for a horizontal flow wrapper? Tell us your product dimensions, film type, and target output.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Planning a horizontal flow wrap line? Request a professional sourcing assessment for technical vetting and integration support.',
+    ctaBtn: 'Request Sourcing Assessment',
   },
   cn: {
     kicker: '卧式包装',
@@ -108,8 +109,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['饼干与苏打', '方便面', '冰棒与冰淇淋', '口香糖与糖果', '巧克力棒', '面包与烘焙', '香皂与洗涤块', '五金零件'],
-    ctaTitle: '需要卧式流动包装机？告诉我们您的产品尺寸、薄膜类型及产量目标。',
-    ctaBtn: '获取报价',
+    ctaTitle: '计划卧式流动包装线体？申请专业采购评估，获取技术审核与整合支持。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '臥式包裝',
@@ -129,8 +130,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['餅乾與蘇打', '方便麵', '冰棒與冰淇淋', '口香糖與糖果', '巧克力棒', '麵包與烘焙', '香皂與洗滌塊', '五金零件'],
-    ctaTitle: '需要臥式流動包裝機？告訴我們您的產品尺寸、薄膜類型及產量目標。',
-    ctaBtn: '取得報價',
+    ctaTitle: '計劃臥式流動包裝線體？申請專業採購評估，獲取技術審核與整合支持。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'EMBALLAGE HORIZONTAL',
@@ -150,8 +151,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Biscuits et crackers', 'Nouilles instantanées', 'Glaces et sorbet', 'Chewing-gum et bonbons', 'Tablettes de chocolat', 'Pain et viennoiseries', 'Savon et détergent en barre', 'Composants industriels'],
-    ctaTitle: 'Cherchez-vous une emballeuse flow pack horizontale ? Indiquez-nous vos dimensions produit, film et cadence cible.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Vous planifiez une ligne flow pack ? Demandez une évaluation de sourcing professionnelle.',
+    ctaBtn: 'Demander une évaluation',
   },
   es: {
     kicker: 'EMPAQUE HORIZONTAL',
@@ -171,8 +172,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Galletas y crackers', 'Fideos instantáneos', 'Paletas y helados', 'Chicle y caramelos', 'Barras de chocolate', 'Pan y bollería', 'Jabón y detergente en barra', 'Componentes industriales'],
-    ctaTitle: '¿Busca una empaquetadora de flujo horizontal? Indíquenos las dimensiones, el film y la capacidad deseada.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Planea una línea de flujo horizontal? Solicite una evaluación de abastecimiento profesional.',
+    ctaBtn: 'Solicitar evaluación',
   },
   pt: {
     kicker: 'EMBALAGEM HORIZONTAL',
@@ -192,12 +193,12 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Biscoitos e crackers', 'Macarrão instantâneo', 'Picolés e sorvetes', 'Chiclete e balas', 'Barras de chocolate', 'Pão e confeitaria', 'Sabão e detergente em barra', 'Componentes industriais'],
-    ctaTitle: 'Procura uma empacotadora de fluxo horizontal? Informe-nos dimensões, filme e capacidade desejada.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Planejando uma linha flowpack? Peça uma avaliação de sourcing profissional.',
+    ctaBtn: 'Solicitar avaliação',
   },
   ko: {
     kicker: '수평 포장',
-    heroTitle: '베개형 포장기 (수평식)',
+    heroTitle: '베개형 포장기 (수評式)',
     heroSubtitle: '수평 성형-충전-밀봉(HFFS) 방식으로 베개형 봉지를 형성·충전·밀봉하는 포장기. 비스킷, 빵, 아이스크림 바, 껌, 초콜릿 바 등 고형 제품에 적합. OPP, CPP, KOP, PET, 알루미늄 포일, 라미네이팅지 호환.',
     featuresTitle: '주요 특징',
     features: [
@@ -213,13 +214,13 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['비스킷·크래커', '라면·면류', '아이스크림 바', '껌·사탕', '초콜릿 바', '빵·베이커리', '비누·세제 바', '공업용 부품'],
-    ctaTitle: '수평 플로우 래퍼가 필요하신가요? 제품 치수, 필름 종류, 목표 생산량을 알려주세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '수평 플로우 랩 라인을 계획 중이신가요? 기술 심사 및 통합 지원을 위한 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 신청',
   },
   ja: {
     kicker: '横型包装',
     heroTitle: 'ピロー包装機（横型）',
-    heroSubtitle: '横型フォームフィルシール（HFFS）方式でピロー袋を成形・充填・シールします。ビスケット、パン、アイスクリームバー、ガム、チョコレートバーなどの固形製品に対応。OPP・CPP・KOP・PET・アルミ箔・ラミネート紙対応。',
+    heroSubtitle: '横型フォームフィルシール（HFFS）方式でピロー袋を成形・充填・シールします。ビスケット、パン、アイスクリームバー、ガム、チョコレートバーなどの固形製品に対応。OPP・CPP・KOP・PET・アルミ箔・ラミネート紙対応制。',
     featuresTitle: '主な特長',
     features: [
       'ピロー包装のための連続横型フォームフィルシール',
@@ -234,8 +235,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['ビスケット・クラッカー', 'インスタント麺', 'アイスクリームバー', 'ガム・キャンディ', 'チョコレートバー', 'パン・焼き菓子', '石鹸・洗剤バー', '工業部品'],
-    ctaTitle: '横型フロー包装機をお探しですか？製品サイズ、フィルム種類、目標能力をお知らせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '横型フロー包装ラインをご検討中ですか？技術審査と統合サポートのためのソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'التعبئة الأفقية',
@@ -255,8 +256,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['البسكويت والمقرمشات', 'النودلز الفوري', 'الآيس كريم', 'العلكة والحلوى', 'ألواح الشوكولاتة', 'الخبز والمخبوزات', 'الصابون وقوالب المنظفات', 'المكونات الصناعية'],
-    ctaTitle: 'تبحث عن ماكينة تغليف أفقية؟ أخبرنا بأبعاد منتجك ونوع الغشاء وطاقة الإنتاج المستهدفة.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تخطط لخط تغليف أفقي؟ اطلب تقييم توريد احترافيًا للتدقيق الفني ودعم التكامل.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'บรรจุภัณฑ์แนวนอน',
@@ -276,8 +277,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['บิสกิตและแครกเกอร์', 'บะหมี่กึ่งสำเร็จรูป', 'ไอศกรีมและไอติม', 'หมากฝรั่งและขนม', 'ช็อกโกแลตบาร์', 'ขนมปังและเบเกอรี่', 'สบู่และผลิตภัณฑ์ทำความสะอาด', 'ชิ้นส่วนอุตสาหกรรม'],
-    ctaTitle: 'ต้องการเครื่องแพ็กฟลูว์แพ็คแนวนอน? บอกเราเรื่องขนาดสินค้า ชนิดฟิล์ม และกำลังการผลิต',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'กำลังวางแผนการบูรณาการไลน์ฟลูว์แพ็คแนวนอน? ขอรับการประเมินการจัดซื้อเพื่อการตรวจสอบทางเทคนิค',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'ĐÓNG GÓI NẰM NGANG',
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Bánh quy và bánh giòn', 'Mì ăn liền', 'Kem que và kem cốc', 'Kẹo cao su và kẹo', 'Thanh sô cô la', 'Bánh mì và bánh ngọt', 'Xà phòng và chất tẩy rửa dạng bánh', 'Linh kiện công nghiệp'],
-    ctaTitle: 'Cần máy gói dòng chảy nằm ngang? Cho chúng tôi biết kích thước sản phẩm, loại màng và năng suất mục tiêu.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Đang lên kế hoạch cho dây chuyền đóng gói nằm ngang? Yêu cầu đánh giá nguồn cung để được hỗ trợ kỹ thuật.',
+    ctaBtn: 'Yêu cầu đánh giá',
   },
   de: {
     kicker: 'HORIZONTALVERPACKUNG',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Kekse und Cracker', 'Instantnudeln', 'Eisriegel und Eis', 'Kaugummi und Bonbons', 'Schokoriegel', 'Brot und Backwaren', 'Seife und Waschmittelriegel', 'Industriekomponenten'],
-    ctaTitle: 'Suchen Sie einen horizontalen Flow-Wrapper? Teilen Sie uns Produktmaße, Folientyp und Zieldurchsatz mit.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Planen Sie eine horizontale Schlauchbeutel-Linie? Fordern Sie eine professionelle Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -421,6 +422,8 @@ export default async function PillowPackingPage({ params }: { params: Promise<{ 
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

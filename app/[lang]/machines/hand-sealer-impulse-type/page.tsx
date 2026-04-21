@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/01_Sealer/01_Hand_Sealer_Impulse_Type/Hand_Sealer_Impulse_Type.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Hand Sealer (Impulse Type) | Wuu Sheng Packaging Machines',
-  cn: '手压式封口机 | 吴胜包装机械',
-  zh: '手壓式封口機 | 吳勝包裝機械',
-  fr: 'Soudeuse à main (type impulsion) | Machines d\'emballage Wuu Sheng',
-  es: 'Selladora de mano (tipo impulso) | Máquinas de embalaje Wuu Sheng',
-  pt: 'Seladora manual (tipo impulso) | Máquinas de embalagem Wuu Sheng',
-  ko: '수동 임펄스 실러 | 우성 포장기계',
-  ja: 'ハンドシーラー（インパルス式）| ウーシェン包装機',
-  ar: 'جهاز الختم اليدوي (نوع النبضة) | آلات تغليف Wuu Sheng',
-  th: 'เครื่องซีลมือ (แบบอิมพัลส์) | เครื่องจักรบรรจุภัณฑ์ Wuu Sheng',
-  vi: 'Máy hàn tay (loại xung) | Máy đóng gói Wuu Sheng',
-  de: 'Handschweißgerät (Impulstyp) | Wuu Sheng Verpackungsmaschinen',
+  en: 'Hand Sealing Configuration Route | Benchtop Packaging Control',
+  cn: '手压封口配置路线 | 桌面包装控制',
+  zh: '手壓封口配置路線 | 桌面包裝控制',
+  fr: 'Soudeuse à main | Sourcing technique et solutions de comptoir',
+  es: 'Selladora de mano | Abastecimiento técnico y soluciones de sobremesa',
+  pt: 'Seladora manual | Sourcing técnico e soluções de bancada',
+  ko: '수동 실러 | 기술 소싱 및 벤치탑 솔루션',
+  ja: 'ハンドシーラー | 技術ソーシングと卓上ソリューション',
+  ar: 'جهاز الختم اليدوي | التوريد التقني وحلول الطاولة',
+  th: 'เครื่องซีลมือ | การจัดซื้อเชิงเทคนิคและโซลูชันแบบตั้งโต๊ะ',
+  vi: 'Máy hàn tay | Đánh giá nguồn cung và giải pháp để bàn',
+  de: 'Handschweißgerät | Technisches Sourcing & Benchtop-Lösungen',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Compact impulse hand sealer for food, stationery, electronics, hardware, and daily necessities. Compatible with LLDPE, PVC, OPP, PP and POF films. Models from 200mm to 520mm sealing length.',
-  cn: '适用于食品、文具、电子、五金及日用品的手压式脉冲封口机，兼容LLDPE、PVC、OPP、PP和POF薄膜，封口长度200mm至520mm。',
-  zh: '適用於食品、文具、電子、五金及日用品的手壓式脈衝封口機，相容LLDPE、PVC、OPP、PP和POF薄膜，封口長度200mm至520mm。',
-  fr: 'Soudeuse à main à impulsion compacte pour l\'alimentation, la papeterie, l\'électronique, la quincaillerie et les articles ménagers. Compatible LLDPE, PVC, OPP, PP et POF. Modèles de 200mm à 520mm.',
-  es: 'Selladora de mano por impulso para alimentos, papelería, electrónica, ferretería y artículos del hogar. Compatible con LLDPE, PVC, OPP, PP y POF. Modelos de 200mm a 520mm.',
-  pt: 'Seladora manual por impulso para alimentos, papelaria, eletrônicos, ferragens e artigos domésticos. Compatível com LLDPE, PVC, OPP, PP e POF. Modelos de 200mm a 520mm.',
-  ko: '식품, 문구류, 전자제품, 철물, 생활용품용 임펄스 수동 실러. LLDPE, PVC, OPP, PP, POF 필름 호환. 200mm~520mm 실링 길이 모델.',
-  ja: '食品・文具・電子部品・金物・日用品向けコンパクトインパルスハンドシーラー。LLDPE、PVC、OPP、PP、POFフィルム対応。封口長200〜520mmモデル。',
-  ar: 'جهاز ختم يدوي بالنبضات للأغذية والقرطاسية والإلكترونيات والأدوات المعدنية والمستلزمات اليومية. متوافق مع LLDPE وPVC وOPP وPP وPOF. موديلات من 200 إلى 520 مم.',
-  th: 'เครื่องซีลมือแบบอิมพัลส์สำหรับอาหาร เครื่องเขียน อิเล็กทรอนิกส์ เครื่องมือ และของใช้ในชีวิตประจำวัน รองรับ LLDPE, PVC, OPP, PP, POF ความยาวซีล 200-520 มม.',
-  vi: 'Máy hàn tay xung điện cho thực phẩm, văn phòng phẩm, điện tử, phần cứng và đồ dùng hàng ngày. Tương thích LLDPE, PVC, OPP, PP, POF. Chiều dài hàn 200-520mm.',
-  de: 'Kompaktes Impuls-Handschweißgerät für Lebensmittel, Schreibwaren, Elektronik, Heimwerkerbedarf und Haushaltswaren. Kompatibel mit LLDPE, PVC, OPP, PP und POF. Modelle von 200 bis 520 mm.',
+  en: 'Hand-sealer sourcing support: verify seal consistency, film compatibility, and maintenance access; align acceptance checks and spare parts before approval.',
+  cn: '手压封口采购支持：验证封口一致性、膜材兼容与维护可达性，并在核准前对齐验收检查与备件。',
+  zh: '手壓封口採購支援：驗證封口一致性、膜材相容與維護可達性，並在核准前對齊驗收檢查與備件。',
+  fr: 'Sourcing professionnel pour soudeuses à main compactes. Validation qualité des séries WS-20/30/40/52 pour un scellage de table fiable.',
+  es: 'Abastecimiento profesional para selladoras de mano compactas. Verificación de calidad para series WS-20/30/40/52 para sellado de sobremesa confiable.',
+  pt: 'Sourcing profissional para seladoras manuais compactas. Verificação de qualidade para séries WS-20/30/40/52 para selagem de bancada confiável.',
+  ko: '소형 임펄스 수동 실러 전문 소싱. 식품, 전자제품 및 생활용품의 신뢰할 수 있는 벤치탑 실링을 위해 WS-20/30/40/52 시리즈에 대한 품질 검증을 제공합니다.',
+  ja: 'コンパクトインパルスハンドシーラーの専門ソーシング。食品・電子機器・日用品の信頼性の高い卓上シールを実現するため、WS-20/30/40/52シリーズの品質検証を提供します。',
+  ar: 'توريد احترافي لأجهزة ختم الأكياس اليدوية المدمجة. نحن نقدم تحققًا من الجودة لسلسلة WS-20/30/40/52 لضمان ختم طاولة موثوق.',
+  th: 'การจัดซื้อระดับมืออาชีพสำหรับเครื่องซีลมือขนาดกะทัดรัด เราให้บริการตรวจสอบคุณภาพสำหรับซีรีส์ WS-20/30/40/52 เพื่อการซีลแบบตั้งโต๊ะที่เชื่อถือได้',
+  vi: 'Nguồn cung chuyên nghiệp cho máy hàn tay xung điện nhỏ gọn. Chúng tôi xác minh chất lượng dòng WS-20/30/40/52 để đảm bảo hiệu quả hàn túi để bàn tin cậy.',
+  de: 'Professionelles Sourcing für kompakte Impuls-Handschweißgeräte. Wir bieten Qualitätsprüfung der WS-20/30/40/52-Serien für zuverlässiges Tisch-Versiegeln.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/hand-sealer-impulse-type',
     type: 'website',
-    keywords: ['hand sealer', 'impulse sealer', 'bag sealer', 'plastic bag sealer', 'packaging sealer', 'Wuu Sheng', 'Taiwan sealer'],
+    keywords: ['hand sealing configuration', 'impulse sealing consistency', 'film compatibility', 'acceptance checklist', 'spare parts planning', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -86,8 +87,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Food packaging', 'Stationery & office supplies', 'Electronics & components', 'Hardware & tools', 'Daily necessities', 'Cosmetics & personal care', 'Medical supplies', 'Industrial parts'],
-    ctaTitle: 'Need a hand sealer for your production line? Contact us for pricing and availability.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Need a reliable hand sealer for your workspace? Request a professional sourcing assessment for our sealer series.',
+    ctaBtn: 'Get Sourcing Assessment',
     packagingLabel: 'Packaging',
   },
   cn: {
@@ -106,8 +107,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['食品包装', '文具与办公用品', '电子元器件', '五金工具', '日用消费品', '化妆品与个护', '医疗耗材', '工业零件'],
-    ctaTitle: '需要为您的生产线配备手压封口机？联系我们获取报价与供货信息。',
-    ctaBtn: '获取报价',
+    ctaTitle: '工作间需要可靠的手压封口机？申请专业采购评估，了解我们的封口机系列。',
+    ctaBtn: '获取采购评估',
     packagingLabel: '包装机械',
   },
   zh: {
@@ -126,8 +127,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['食品包裝', '文具與辦公用品', '電子元器件', '五金工具', '日用消費品', '化妝品與個人護理', '醫療耗材', '工業零件'],
-    ctaTitle: '需要為您的生產線配備手壓封口機？聯繫我們獲取報價與供貨資訊。',
-    ctaBtn: '取得報價',
+    ctaTitle: '工作間需要可靠的手壓封口機？申請專業採購評估，了解我們的封口機系列。',
+    ctaBtn: '獲取採購評估',
     packagingLabel: '包裝機械',
   },
   fr: {
@@ -146,8 +147,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Emballage alimentaire', 'Papeterie & fournitures de bureau', 'Électronique & composants', 'Quincaillerie & outils', 'Articles ménagers', 'Cosmétiques & soins', 'Fournitures médicales', 'Pièces industrielles'],
-    ctaTitle: 'Besoin d\'une soudeuse à main pour votre ligne de production ? Contactez-nous pour un devis.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Besoin d\'une soudeuse à main fiable pour votre espace ? Demandez une évaluation de sourcing.',
+    ctaBtn: 'Obtenir une évaluation',
     packagingLabel: 'Emballage',
   },
   es: {
@@ -166,8 +167,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Envasado de alimentos', 'Papelería y suministros de oficina', 'Electrónica y componentes', 'Ferretería y herramientas', 'Artículos de uso diario', 'Cosméticos y cuidado personal', 'Suministros médicos', 'Piezas industriales'],
-    ctaTitle: '¿Necesita una selladora de mano para su línea de producción? Contáctenos para precios y disponibilidad.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Busca una selladora de mano confiable? Solicite una evaluación de abastecimiento.',
+    ctaBtn: 'Obtener evaluación',
     packagingLabel: 'Embalaje',
   },
   pt: {
@@ -186,8 +187,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Embalagem de alimentos', 'Papelaria e material de escritório', 'Eletrônicos e componentes', 'Ferragens e ferramentas', 'Artigos de uso diário', 'Cosméticos e cuidados pessoais', 'Suprimentos médicos', 'Peças industriais'],
-    ctaTitle: 'Precisa de uma seladora manual para sua linha de produção? Entre em contato para preços e disponibilidade.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Precisa de uma seladora manual confiável? Peça uma avaliação de sourcing.',
+    ctaBtn: 'Obter avaliação',
     packagingLabel: 'Embalagem',
   },
   ko: {
@@ -206,8 +207,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['식품 포장', '문구류 및 사무용품', '전자부품', '철물 및 공구', '생활용품', '화장품 및 뷰티', '의료용품', '산업용 부품'],
-    ctaTitle: '생산 라인에 수동 실러가 필요하신가요? 가격 및 재고 문의는 지금 바로 연락해 주세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '작업 공간에 신뢰할 수 있는 수동 실러가 필요하신가요? 전문 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 받기',
     packagingLabel: '포장',
   },
   ja: {
@@ -226,8 +227,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['食品包装', '文具・事務用品', '電子部品', '金物・工具', '日用品', '化粧品・パーソナルケア', '医療用品', '産業用部品'],
-    ctaTitle: '生産ラインにハンドシーラーをお探しですか？価格・在庫については今すぐお問い合わせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '信頼できるハンドシーラーをお探しですか？シーラーシリーズの専門ソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
     packagingLabel: '包装',
   },
   ar: {
@@ -246,8 +247,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['تغليف الأغذية', 'القرطاسية ومستلزمات المكتب', 'الإلكترونيات والمكونات', 'الأدوات المعدنية والعدد', 'المستلزمات اليومية', 'مستحضرات التجميل والعناية الشخصية', 'المستلزمات الطبية', 'القطع الصناعية'],
-    ctaTitle: 'هل تحتاج إلى جهاز ختم يدوي لخط إنتاجك؟ تواصل معنا للحصول على الأسعار والتوافر.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تحتاج إلى جهاز ختم يدوي موثوق لمساحة عملك؟ اطلب تقييم توريد احترافي.',
+    ctaBtn: 'طلب تقييم التوريد',
     packagingLabel: 'التغليف',
   },
   th: {
@@ -266,8 +267,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['บรรจุภัณฑ์อาหาร', 'เครื่องเขียนและอุปกรณ์สำนักงาน', 'อิเล็กทรอนิกส์และชิ้นส่วน', 'เครื่องมือและอุปกรณ์', 'ของใช้ประจำวัน', 'เครื่องสำอางและการดูแลส่วนตัว', 'อุปกรณ์การแพทย์', 'ชิ้นส่วนอุตสาหกรรม'],
-    ctaTitle: 'ต้องการเครื่องซีลมือสำหรับสายการผลิตของคุณ? ติดต่อเราเพื่อขอราคาและข้อมูลเพิ่มเติม',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'ต้องการเครื่องซีลมือที่เชื่อถือได้สำหรับพื้นที่ทำงานของคุณ? ขอรับการประเมินการจัดซื้อ',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
     packagingLabel: 'บรรจุภัณฑ์',
   },
   vi: {
@@ -286,8 +287,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Đóng gói thực phẩm', 'Văn phòng phẩm', 'Linh kiện điện tử', 'Phần cứng và công cụ', 'Đồ dùng hàng ngày', 'Mỹ phẩm và chăm sóc cá nhân', 'Vật tư y tế', 'Linh kiện công nghiệp'],
-    ctaTitle: 'Cần máy hàn tay cho dây chuyền sản xuất? Liên hệ chúng tôi để báo giá và tình trạng hàng.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Cần máy hàn tay tin cậy cho không gian làm việc? Nhận đánh giá nguồn cung chuyên nghiệp.',
+    ctaBtn: 'Nhận đánh giá nguồn cung',
     packagingLabel: 'Đóng gói',
   },
   de: {
@@ -306,8 +307,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Lebensmittelverpackung', 'Schreibwaren & Bürobedarf', 'Elektronik & Komponenten', 'Heimwerkerbedarf & Werkzeuge', 'Haushaltswaren', 'Kosmetik & Körperpflege', 'Medizinisches Verbrauchsmaterial', 'Industrieteile'],
-    ctaTitle: 'Benötigen Sie ein Handschweißgerät für Ihre Produktionslinie? Kontaktieren Sie uns für Preise und Verfügbarkeit.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Benötigen Sie ein zuverlässiges Handschweißgerät? Fordern Sie eine Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
     packagingLabel: 'Verpackung',
   },
 }
@@ -435,6 +436,8 @@ export default async function HandSealerPage({ params }: { params: Promise<{ lan
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       {/* CTA */}
       <section className="bg-brand-950 py-16 sm:py-20">

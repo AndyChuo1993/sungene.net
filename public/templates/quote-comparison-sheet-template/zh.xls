@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>報價對照表</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #d9d9d9; padding: 8px; }
+      th { background: #f3f3f3; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>項目</th>
+        <th>供應商A</th>
+        <th>供應商B</th>
+        <th>供應商C</th>
+        <th>備註</th>
+      </tr>
+      <tr><td>主機型號</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>產能（bpm）</td><td></td><td></td><td></td><td>需定義條件</td></tr>
+      <tr><td>精度/公差</td><td></td><td></td><td></td><td>抽樣計畫</td></tr>
+      <tr><td>除塵/止滴</td><td></td><td></td><td></td><td>封口穩定</td></tr>
+      <tr><td>檢測模組</td><td></td><td></td><td></td><td>金檢/檢重/視覺</td></tr>
+      <tr><td>換型設計</td><td></td><td></td><td></td><td>時間＋零件</td></tr>
+      <tr><td>文件包</td><td></td><td></td><td></td><td>手冊/圖面/備品</td></tr>
+      <tr><td>FAT 驗收條件</td><td></td><td></td><td></td><td>pass/fail</td></tr>
+      <tr><td>交期</td><td></td><td></td><td></td><td>拆里程碑</td></tr>
+      <tr><td>付款條件</td><td></td><td></td><td></td><td>綁證據</td></tr>
+      <tr><td>保固/售後</td><td></td><td></td><td></td><td>回覆時效</td></tr>
+    </table>
+  </body>
+</html>
+

@@ -6,13 +6,29 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { SITE_URL } from '@/lib/siteConfig'
 import { getAllPublishedCaseStudies } from '@/lib/cmsContent'
 
-export const metadata: Metadata = {
-  title: 'Customer Case Studies | SunGene Machinery',
-  description: 'Real customer success stories from SunGene Taiwan machinery deployments worldwide — from coffee packaging to snack processing lines.',
-  alternates: { canonical: `${SITE_URL}/case-studies` },
-}
+export async function generateMetadata(): Promise<Metadata> {
+  const canonical = `${SITE_URL}/case-studies`
 
-export const revalidate = 60
+  return {
+    title: 'Customer Case Studies | SunGene',
+    description: 'Real customer success stories from SunGene sourcing and integration projects worldwide — from coffee packaging to turnkey snack processing lines.',
+    alternates: { canonical },
+    openGraph: {
+      title: 'Customer Case Studies | SunGene',
+      description: 'Real customer success stories from SunGene sourcing and integration projects worldwide.',
+      url: canonical,
+      type: 'website',
+      siteName: 'SunGene',
+      images: [{ url: `${SITE_URL}/og/og.png`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Customer Case Studies | SunGene',
+      description: 'Real customer success stories from SunGene sourcing and integration projects worldwide.',
+      images: [`${SITE_URL}/og/og.png`],
+    },
+  }
+}
 
 export default async function CaseStudiesIndexPage() {
   const caseStudies = await getAllPublishedCaseStudies()
@@ -40,7 +56,7 @@ export default async function CaseStudiesIndexPage() {
       <PageHero
         kicker="CASE STUDIES"
         title="Customer Success Stories"
-        desc="Real-world deployments of SunGene machinery — from smallholder roasters in Vietnam to turnkey snack lines in Mexico."
+        desc="Real-world sourcing and integration projects — from smallholder roasters in Vietnam to turnkey snack lines in Mexico."
         image={{
           src: PHOTO.home.hero,
           alt: 'SunGene customer case studies',
@@ -66,7 +82,6 @@ export default async function CaseStudiesIndexPage() {
                   className="group block overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:border-brand-400 hover:shadow-md"
                 >
                   {cs.hero_image_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
                     <img src={cs.hero_image_url} alt={cs.title} className="aspect-[16/10] w-full object-cover" />
                   ) : (
                     <div className="flex aspect-[16/10] w-full items-center justify-center bg-gray-100 text-gray-400 text-sm">

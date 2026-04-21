@@ -3,40 +3,40 @@ import { Lang } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import JsonLd from '@/components/JsonLd'
-import RecommendForm from '@/components/RecommendForm'
+import AssessmentForm from '@/components/AssessmentForm'
 import { WhatsAppLink, EmailLink } from '@/components/ContactTracker'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
 const metaTitles: Record<string, string> = {
-  en: 'Get a Machine Recommendation | Packaging & Filling Machinery',
-  cn: '获取机械推荐 | 包装与灌装机械',
-  zh: '取得機械推薦 | 包裝與灌裝機械',
-  fr: 'Obtenir une recommandation de machine | Machines d\'emballage et de remplissage',
-  es: 'Obtener recomendación de máquina | Maquinaria de empaque y llenado',
-  pt: 'Obter recomendação de máquina | Máquinas de embalagem e enchimento',
-  ko: '기계 추천 받기 | 포장 및 충전 기계',
-  ja: '機械の推薦を受ける | 包装・充填機械',
-  ar: 'احصل على توصية بالآلة | آلات التعبئة والتغليف والملء',
-  th: 'รับคำแนะนำเครื่องจักร | เครื่องบรรจุภัณฑ์และบรรจุ',
-  vi: 'Nhận đề xuất máy | Máy đóng gói và chiết rót',
-  de: 'Maschinenempfehlung erhalten | Verpackungs- und Abfüllmaschinen',
+  en: 'Get a Sourcing Assessment | Packaging, Filling & Automation',
+  cn: '获取采购评估 | 包装、灌装与自动化',
+  zh: '取得採購評估 | 包裝、灌裝與自動化',
+  fr: 'Obtenir une évaluation sourcing | Emballage, remplissage & automatisation',
+  es: 'Obtener evaluación de abastecimiento | Empaque, llenado y automatización',
+  pt: 'Obter avaliação de sourcing | Embalagem, envase e automação',
+  ko: '소싱 평가 받기 | 포장, 충전 및 자동화',
+  ja: '調達評価を受ける | 包装・充填・自動化',
+  ar: 'احصل على تقييم توريد | التعبئة والتغليف والملء والأتمتة',
+  th: 'รับการประเมินการจัดหา | บรรจุภัณฑ์ การบรรจุ และระบบอัตโนมัติ',
+  vi: 'Nhận đánh giá sourcing | Đóng gói, chiết rót & tự động hóa',
+  de: 'Sourcing-Bewertung erhalten | Verpackung, Abfüllung & Automatisierung',
 }
 
 const metaDescriptions: Record<string, string> = {
-  en: 'Describe your product and production goals. Our engineers will match you with the right packaging or filling machine — free, within 1–2 business days. No model numbers needed.',
-  cn: '描述您的产品和生产目标。我们的工程师将在1-2个工作日内为您匹配合适的包装或灌装机械——免费，无需型号。',
-  zh: '描述您的產品和生產目標。我們的工程師將在1-2個工作日內為您匹配合適的包裝或灌裝機械——免費，無需型號。',
-  fr: 'Décrivez votre produit et vos objectifs. Nos ingénieurs vous recommandent la bonne machine d\'emballage ou de remplissage — gratuitement, sous 1 à 2 jours ouvrés.',
-  es: 'Describa su producto y metas de producción. Nuestros ingenieros le recomendarán la máquina de empaque o llenado adecuada — gratis, en 1-2 días hábiles.',
-  pt: 'Descreva seu produto e metas de produção. Nossos engenheiros indicarão a máquina de embalagem ou enchimento certa — gratuitamente, em 1 a 2 dias úteis.',
-  ko: '제품과 생산 목표를 설명해 주세요. 당사 엔지니어가 1-2 영업일 내에 적합한 포장 또는 충전 기계를 무료로 추천해 드립니다.',
-  ja: '製品と生産目標を教えてください。エンジニアが1〜2営業日以内に適切な包装・充填機械を無料でご提案します。',
-  ar: 'صف منتجك وأهداف إنتاجك. سيقترح مهندسونا الآلة المناسبة للتعبئة أو التغليف مجاناً خلال 1-2 يوم عمل.',
-  th: 'อธิบายผลิตภัณฑ์และเป้าหมายการผลิตของคุณ วิศวกรจะแนะนำเครื่องบรรจุหรือเครื่องบรรจุภัณฑ์ที่เหมาะสม ฟรี ภายใน 1-2 วันทำการ',
-  vi: 'Mô tả sản phẩm và mục tiêu sản xuất. Kỹ sư sẽ đề xuất máy đóng gói hoặc chiết rót phù hợp — miễn phí, trong 1-2 ngày làm việc.',
-  de: 'Beschreiben Sie Ihr Produkt und Ihre Produktionsziele. Unsere Ingenieure empfehlen die passende Verpackungs- oder Abfüllmaschine — kostenlos, innerhalb von 1–2 Werktagen.',
+  en: 'Describe your product and target output. Our team will reply with the right sourcing path, packaging or filling configuration, and next steps within 1–2 business days.',
+  cn: '描述您的产品和目标产能。我们的团队将在1-2个工作日内回复合适的采购路径、包装或灌装配置与下一步建议。',
+  zh: '描述您的產品和目標產能。我們的團隊將在1-2個工作日內回覆合適的採購路徑、包裝或灌裝配置與下一步建議。',
+  fr: 'Décrivez votre produit et vos objectifs. Notre équipe répond avec le bon parcours sourcing, la configuration d’emballage/remplissage et les prochaines étapes sous 1 à 2 jours ouvrés.',
+  es: 'Describa su producto y su salida objetivo. Nuestro equipo responde con la ruta de sourcing correcta, la configuración de empaque/llenado y los siguientes pasos en 1-2 días hábiles.',
+  pt: 'Descreva seu produto e a saída-alvo. Nossa equipe responde com o caminho de sourcing certo, a configuração de embalagem/envase e os próximos passos em 1 a 2 dias úteis.',
+  ko: '제품과 목표 처리량을 알려주세요. 1-2 영업일 내에 적합한 소싱 경로, 포장/충전 구성, 다음 단계를 안내합니다.',
+  ja: '製品と目標処理量を教えてください。エンジニアが1〜2営業日以内に適切な包装・充填機械を無料でご提案します。',
+  ar: 'صف منتجك والقدرة المستهدفة. سيقترح مهندسونا الآلة المناسبة للتعبئة أو التغليف مجاناً خلال 1-2 يوم عمل.',
+  th: 'อธิบายผลิตภัณฑ์และเป้าหมายกำลังการผลิตของคุณ วิศวกรจะแนะนำเครื่องบรรจุหรือเครื่องบรรจุภัณฑ์ที่เหมาะสม ฟรี ภายใน 1-2 วันทำการ',
+  vi: 'Mô tả sản phẩm và công suất mục tiêu. Kỹ sư sẽ đề xuất máy đóng gói hoặc chiết rót phù hợp — miễn phí, trong 1-2 ngày làm việc.',
+  de: 'Beschreiben Sie Ihr Produkt und Ihre Zielleistung. Unser Team antwortet mit dem passenden Sourcing-Pfad, der Verpackungs-/Abfüllkonfiguration und den nächsten Schritten innerhalb von 1–2 Werktagen.',
 }
 
 const VALID_LANGS = ['en', 'zh', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
@@ -55,16 +55,16 @@ export async function generateMetadata({
     lang: l,
     title,
     description,
-    pathname: '/recommend',
+    pathname: '/assessment',
     type: 'website',
     keywords: [
-      'machinery recommendation',
-      'packaging machine selection',
-      'filling machine recommendation',
-      'machine consultation',
-      'Taiwan industrial machinery',
-      'VFFS machine recommendation',
-      'pouch packing machine',
+      'sourcing assessment',
+      'packaging system selection',
+      'filling project assessment',
+      'configuration consultation',
+      'Taiwan industrial sourcing',
+      'VFFS configuration guidance',
+      'pouch packaging configuration',
     ],
   })
 }
@@ -72,48 +72,48 @@ export async function generateMetadata({
 // ── Page copy ─────────────────────────────────────────────────────────────────
 
 const kicker: Record<string, string> = {
-  en: 'FREE RECOMMENDATION',
-  cn: '免费选型推荐',
-  zh: '免費選型推薦',
-  fr: 'RECOMMANDATION GRATUITE',
-  es: 'RECOMENDACIÓN GRATUITA',
-  pt: 'RECOMENDAÇÃO GRATUITA',
-  ko: '무료 추천',
-  ja: '無料推薦',
-  ar: 'توصية مجانية',
-  th: 'คำแนะนำฟรี',
+  en: 'FREE ASSESSMENT',
+  cn: '免费采购评估',
+  zh: '免費採購評估',
+  fr: 'ÉVALUATION GRATUITE',
+  es: 'EVALUACIÓN GRATUITA',
+  pt: 'AVALIAÇÃO GRATUITA',
+  ko: '무료 평가',
+  ja: '無料評価',
+  ar: 'تقييم مجاني',
+  th: 'การประเมินฟรี',
   vi: 'TƯ VẤN MIỄN PHÍ',
-  de: 'KOSTENLOSE EMPFEHLUNG',
+  de: 'KOSTENLOSE BEWERTUNG',
 }
 
 const h1: Record<string, string> = {
-  en: "Tell us what you need to pack — we'll match the right machine.",
+  en: "Tell us what you need to pack — we'll assess and propose the right configuration.",
   cn: '告诉我们您要包装什么——我们为您匹配合适的机械方案。',
   zh: '告訴我們您要包裝什麼——我們為您匹配合適的機械方案。',
-  fr: 'Dites-nous ce que vous souhaitez emballer — nous vous recommandons la bonne machine.',
+  fr: 'Dites-nous ce que vous souhaitez emballer — nous évaluons et proposons la configuration adaptée.',
   es: 'Cuéntenos qué desea empacar — encontraremos la máquina adecuada para usted.',
-  pt: 'Diga-nos o que você precisa embalar — recomendaremos a máquina certa.',
-  ko: '포장해야 하는 것을 알려주세요 — 최적의 기계를 추천해 드립니다.',
+  pt: 'Diga-nos o que você precisa embalar — avaliaremos e proporemos a configuração certa.',
+  ko: '포장해야 하는 것을 알려주세요 — 평가 후 최적의 구성을 제안해 드립니다.',
   ja: '包装したいものを教えてください — 最適な機械をご提案します。',
   ar: 'أخبرنا بما تحتاج لتعبئته — سنقترح لك الآلة المناسبة.',
   th: 'บอกเราว่าคุณต้องการบรรจุอะไร — เราจะแนะนำเครื่องจักรที่เหมาะสม',
   vi: 'Cho chúng tôi biết bạn cần đóng gói gì — chúng tôi sẽ đề xuất máy phù hợp.',
-  de: 'Sagen Sie uns, was Sie verpacken möchten — wir empfehlen die richtige Maschine.',
+  de: 'Sagen Sie uns, was Sie verpacken möchten — wir bewerten und schlagen die passende Konfiguration vor.',
 }
 
 const subtitle: Record<string, string> = {
-  en: 'No model numbers, no catalog browsing. Describe your product and production goals, and our engineers will recommend the right machine configuration for your specific application.',
-  cn: '无需型号，无需目录。描述您的产品和生产目标，我们的工程师将为您的具体应用推荐合适的机械配置。',
-  zh: '無需型號，無需目錄。描述您的產品和生產目標，我們的工程師將為您的具體應用推薦合適的機械配置。',
-  fr: 'Pas de numéro de modèle, pas de catalogue. Décrivez votre produit et vos objectifs, nos ingénieurs recommanderont la bonne configuration de machine pour votre application.',
-  es: 'Sin números de modelo, sin catálogos. Describa su producto y metas de producción, nuestros ingenieros recomendarán la configuración de máquina adecuada para su aplicación.',
-  pt: 'Sem números de modelo, sem catálogos. Descreva seu produto e metas de produção, nossos engenheiros recomendarão a configuração de máquina certa para sua aplicação.',
-  ko: '모델 번호나 카탈로그 없이도 됩니다. 제품과 생산 목표를 설명하면 엔지니어가 맞춤 기계 구성을 추천해 드립니다.',
-  ja: '型番やカタログは不要です。製品と生産目標をお伝えください。エンジニアが最適な機械構成をご提案します。',
-  ar: 'لا أرقام نماذج، لا كتالوجات. صف منتجك وأهدافك الإنتاجية، سيوصي مهندسونا بتهيئة الآلة المناسبة لتطبيقك.',
-  th: 'ไม่ต้องการหมายเลขรุ่นหรือแคตตาล็อก อธิบายผลิตภัณฑ์และเป้าหมายการผลิต วิศวกรจะแนะนำการกำหนดค่าเครื่องจักรที่เหมาะสม',
-  vi: 'Không cần số model, không cần duyệt catalog. Mô tả sản phẩm và mục tiêu sản xuất, kỹ sư sẽ đề xuất cấu hình máy phù hợp cho ứng dụng của bạn.',
-  de: 'Keine Modellnummern, kein Katalog. Beschreiben Sie Ihr Produkt und Ihre Produktionsziele — unsere Ingenieure empfehlen die richtige Maschinenkonfiguration für Ihre Anwendung.',
+  en: 'No model numbers, no catalog browsing. Describe your product and target output, and our engineers will assess and propose the right configuration for your application.',
+  cn: '无需型号，无需目录。描述您的产品和目标产能，我们的工程师将为您的具体应用提供评估并给出合适的配置建议。',
+  zh: '無需型號，無需目錄。描述您的產品和目標產能，我們的工程師將為您的具體應用提供評估並給出合適的配置建議。',
+  fr: 'Pas de numéro de modèle, pas de catalogue. Décrivez votre produit et vos objectifs : nos ingénieurs évalueront et proposeront la configuration adaptée.',
+  es: 'Sin números de modelo, sin catálogos. Describa su producto y su salida objetivo: nuestros ingenieros evaluarán y propondrán la configuración adecuada.',
+  pt: 'Sem números de modelo, sem catálogos. Descreva seu produto e a saída-alvo — nossos engenheiros avaliarão e proporão a configuração certa.',
+  ko: '모델 번호나 카탈로그 없이도 됩니다. 제품과 목표 처리량을 알려주시면 엔지니어가 평가 후 최적 구성을 제안해 드립니다.',
+  ja: '型番やカタログは不要です。製品と目標処理量をお伝えください。エンジニアが最適な構成をご提案します。',
+  ar: 'لا أرقام نماذج، لا كتالوجات. صف منتجك والقدرة المستهدفة — سيوصي مهندسونا بالتهيئة المناسبة لتطبيقك.',
+  th: 'ไม่ต้องการหมายเลขรุ่นหรือแคตตาล็อก อธิบายผลิตภัณฑ์และเป้าหมายกำลังการผลิต วิศวกรจะแนะนำการกำหนดค่าที่เหมาะสม',
+  vi: 'Không cần số model, không cần duyệt catalog. Mô tả sản phẩm và công suất mục tiêu — kỹ sư sẽ đề xuất cấu hình phù hợp cho ứng dụng của bạn.',
+  de: 'Keine Modellnummern, kein Katalog. Beschreiben Sie Ihr Produkt und Ihre Zielleistung — unsere Ingenieure bewerten und schlagen die passende Konfiguration vor.',
 }
 
 function getSubtitle(lang: Lang): string {
@@ -141,74 +141,74 @@ const howItWorks: Record<string, string[]> = {
   en: [
     'Fill in your requirements (2 minutes)',
     'Our engineers review your product specs',
-    'We reply with a matched machine path + options',
-    'You request samples, videos, or a detailed quote',
+    'We reply with a matched configuration route + options',
+    'You request samples, videos, or a sourcing assessment',
   ],
   cn: [
     '填写您的需求（2分钟）',
     '我们的工程师审查您的产品规格',
-    '我们回复匹配的机械方案与选项',
-    '您索取样品、视频或详细报价',
+    '我们回复匹配的配置路线与选项',
+    '您索取样品、视频或采购评估',
   ],
   zh: [
     '填寫您的需求（2分鐘）',
     '我們的工程師審查您的產品規格',
-    '我們回覆匹配的機械方案與選項',
-    '您索取樣品、影片或詳細報價',
+    '我們回覆匹配的配置路線與選項',
+    '您索取樣品、影片或採購評估',
   ],
   fr: [
     'Remplissez vos exigences (2 minutes)',
     'Nos ingénieurs examinent vos spécifications',
-    'Nous répondons avec un chemin machine adapté',
-    'Vous demandez des échantillons, vidéos ou un devis détaillé',
+    'Nous répondons avec une route de configuration adaptée',
+    'Vous demandez des échantillons, vidéos ou une évaluation',
   ],
   es: [
     'Complete sus requisitos (2 minutos)',
     'Nuestros ingenieros revisan sus especificaciones',
-    'Respondemos con una solución de máquina adaptada',
-    'Solicita muestras, videos o cotización detallada',
+    'Respondemos con una ruta de configuración adaptada',
+    'Solicita muestras, videos o una evaluación',
   ],
   pt: [
     'Preencha seus requisitos (2 minutos)',
     'Nossos engenheiros revisam suas especificações',
-    'Respondemos com a solução de máquina adequada',
-    'Solicite amostras, vídeos ou orçamento detalhado',
+    'Respondemos com a rota de configuração adequada',
+    'Solicite amostras, vídeos ou uma avaliação',
   ],
   ko: [
     '요구사항 입력 (2분)',
     '엔지니어가 제품 사양 검토',
-    '적합한 기계 경로 및 옵션으로 답변',
-    '샘플, 영상 또는 상세 견적 요청',
+    '적합한 구성 경로 및 옵션으로 답변',
+    '샘플, 영상 또는 소싱 평가 요청',
   ],
   ja: [
     '要件を入力（2分）',
     'エンジニアが製品仕様を確認',
-    '最適な機械パスとオプションをご提案',
-    'サンプル、動画、または詳細見積を依頼',
+    '最適な構成ルートとオプションをご提案',
+    'サンプル、動画、またはソーシング評価を依頼',
   ],
   ar: [
     'أدخل متطلباتك (دقيقتان)',
     'يراجع مهندسونا مواصفات منتجك',
     'نرد بمسار الآلة المناسب والخيارات',
-    'تطلب عينات أو مقاطع فيديو أو عرض أسعار مفصل',
+    'تطلب عينات أو مقاطع فيديو أو تقييم توريد',
   ],
   th: [
     'กรอกข้อกำหนดของคุณ (2 นาที)',
     'วิศวกรตรวจสอบข้อมูลผลิตภัณฑ์ของคุณ',
     'เราตอบกลับพร้อมเส้นทางเครื่องจักรที่เหมาะสม',
-    'คุณขอตัวอย่าง วิดีโอ หรือใบเสนอราคาโดยละเอียด',
+    'คุณขอตัวอย่าง วิดีโอ หรือการประเมินการจัดซื้อ',
   ],
   vi: [
     'Điền yêu cầu của bạn (2 phút)',
     'Kỹ sư xem xét thông số kỹ thuật sản phẩm',
     'Chúng tôi trả lời với giải pháp máy phù hợp',
-    'Bạn yêu cầu mẫu, video hoặc báo giá chi tiết',
+    'Bạn yêu cầu mẫu, video hoặc đánh giá nguồn cung',
   ],
   de: [
     'Anforderungen ausfüllen (2 Minuten)',
     'Unsere Ingenieure prüfen Ihre Produktspezifikationen',
-    'Wir antworten mit passendem Maschinenweg + Optionen',
-    'Sie fordern Muster, Videos oder ein Detailangebot an',
+    'Wir antworten mit passendem Konfigurationspfad + Optionen',
+    'Sie fordern Muster, Videos oder eine Beschaffungsbewertung an',
   ],
 }
 
@@ -228,18 +228,18 @@ const whatWeHelpTitle: Record<string, string> = {
 }
 
 const whatWeHelp: Record<string, string[]> = {
-  en: ['Powder, flour, granule filling & packaging', 'Liquid, sauce, paste filling systems', 'Pouch, bag, sachet packaging', 'Snack & food processing lines', 'Conveyor & production line automation', 'Custom or OEM machinery engineering'],
-  cn: ['粉末、面粉、颗粒灌装与包装', '液体、酱料、膏体灌装系统', '袋装、包装袋、小袋包装', '零食与食品加工生产线', '输送与生产线自动化', '定制与OEM机械工程'],
-  zh: ['粉末、麵粉、顆粒灌裝與包裝', '液體、醬料、膏體灌裝系統', '袋裝、包裝袋、小袋包裝', '零食與食品加工生產線', '輸送與生產線自動化', '定制與OEM機械工程'],
-  fr: ['Remplissage et conditionnement poudre, farine, granulés', 'Systèmes de remplissage liquide, sauce, pâte', 'Conditionnement sachet, pouch, stick', 'Lignes de transformation alimentaire et snacks', 'Automatisation de convoyage et de lignes', 'Ingénierie sur mesure et OEM'],
-  es: ['Llenado y envasado de polvo, harina, granulado', 'Sistemas de llenado de líquidos, salsas, pastas', 'Envasado en pouch, bolsa, sachet', 'Líneas de procesamiento de snacks y alimentos', 'Automatización de conveyors y líneas de producción', 'Ingeniería personalizada y OEM'],
-  pt: ['Enchimento e embalagem de pó, farinha, granulado', 'Sistemas de enchimento de líquidos, molhos, pastas', 'Embalagem em sachê, bolsa, pouch', 'Linhas de processamento de snacks e alimentos', 'Automação de transporte e linhas', 'Engenharia personalizada e OEM'],
-  ko: ['분말, 밀가루, 과립 충진 및 포장', '액체, 소스, 페이스트 충진 시스템', '파우치, 백, 사쉐 포장', '스낵 및 식품 가공 라인', '컨베이어 및 생산 라인 자동화', '맞춤형 및 OEM 기계 엔지니어링'],
-  ja: ['粉末・小麦粉・顆粒の充填・包装', '液体・ソース・ペーストの充填システム', 'パウチ・袋・スティックパック包装', 'スナック・食品加工ライン', 'コンベヤ・生産ライン自動化', 'カスタム・OEM機械エンジニアリング'],
-  ar: ['تعبئة وتغليف المساحيق والطحين والحبيبات', 'أنظمة تعبئة السوائل والصلصات والمعاجين', 'التغليف في الأكياس والمحافظ والأكياس الصغيرة', 'خطوط تجهيز الوجبات الخفيفة والمواد الغذائية', 'أتمتة الناقل وخطوط الإنتاج', 'هندسة الآلات المخصصة وOEM'],
-  th: ['บรรจุและแพ็คผง แป้ง เม็ด', 'ระบบบรรจุของเหลว ซอส เพสต์', 'บรรจุภัณฑ์ถุง ซอง สแต็ก', 'สายการผลิตขนมและอาหาร', 'ระบบสายพานและอัตโนมัติสายผลิต', 'วิศวกรรมเครื่องจักรเฉพาะและ OEM'],
-  vi: ['Chiết rót và đóng gói bột, bột mì, hạt', 'Hệ thống chiết rót chất lỏng, sốt, bột nhão', 'Đóng gói túi, bao, gói nhỏ', 'Dây chuyền chế biến đồ ăn nhẹ và thực phẩm', 'Tự động hóa băng tải và dây chuyền sản xuất', 'Kỹ thuật máy móc tùy chỉnh và OEM'],
-  de: ['Abfüllen und Verpacken von Pulver, Mehl, Granulat', 'Flüssigkeits-, Soßen- und Pastenfüllsysteme', 'Verpackung in Beutel, Sachet, Stick', 'Snack- und Lebensmittelverarbeitungslinien', 'Förder- und Produktionslinienautomatisierung', 'Maßgefertigte und OEM-Maschinentechnik'],
+  en: ['Powder, flour, granule filling & packaging', 'Liquid, sauce, paste filling systems', 'Pouch, bag, sachet packaging', 'Snack & food processing lines', 'Conveying & line automation', 'Custom machinery engineering'],
+  cn: ['粉末、面粉、颗粒灌装与包装', '液体、酱料、膏体灌装系统', '袋装、包装袋、小袋包装', '零食与食品加工线体', '输送与线体自动化', '定制机械工程'],
+  zh: ['粉末、麵粉、顆粒灌裝與包裝', '液體、醬料、膏體灌裝系統', '袋裝、包裝袋、小袋包裝', '零食與食品加工線體', '輸送與線體自動化', '定制機械工程'],
+  fr: ['Remplissage et conditionnement poudre, farine, granulés', 'Systèmes de remplissage liquide, sauce, pâte', 'Conditionnement sachet, pouch, stick', 'Lignes de transformation alimentaire et snacks', 'Automatisation de convoyage et de lignes', 'Ingénierie sur mesure'],
+  es: ['Llenado y envasado de polvo, harina, granulado', 'Sistemas de llenado de líquidos, salsas, pastas', 'Envasado en pouch, bolsa, sachet', 'Líneas de procesamiento de snacks y alimentos', 'Automatización e integración de líneas y conveyors', 'Ingeniería personalizada'],
+  pt: ['Enchimento e embalagem de pó, farinha, granulado', 'Sistemas de enchimento de líquidos, molhos, pastas', 'Embalagem em sachê, bolsa, pouch', 'Linhas de processamento de snacks e alimentos', 'Automação de transporte e linhas', 'Engenharia personalizada'],
+  ko: ['분말, 밀가루, 과립 충진 및 포장', '액체, 소스, 페이스트 충진 시스템', '파우치, 백, 사쉐 포장', '스낵 및 식품 가공 라인', '컨베이어 및 라인 자동화', '맞춤형 기계 엔지니어링'],
+  ja: ['粉末・小麦粉・顆粒の充填・包装', '液体・ソース・ペーストの充填システム', 'パウチ・袋・スティックパック包装', 'スナック・食品加工ライン', 'コンベヤ・ライン自動化', 'カスタム機械エンジニアリング'],
+  ar: ['تعبئة وتغليف المساحيق والطحين والحبيبات', 'أنظمة تعبئة السوائل والصلصات والمعاجين', 'التغليف في الأكياس والمحافظ والأكياس الصغيرة', 'خطوط تجهيز الوجبات الخفيفة والمواد الغذائية', 'أتمتة الناقل وتكامل الخطوط', 'هندسة الآلات المخصصة'],
+  th: ['บรรจุและแพ็คผง แป้ง เม็ด', 'ระบบบรรจุของเหลว ซอส เพสต์', 'บรรจุภัณฑ์ถุง ซอง สแต็ก', 'ไลน์แปรรูปขนมและอาหาร', 'ระบบสายพานและอัตโนมัติไลน์', 'วิศวกรรมเครื่องจักรเฉพาะ'],
+  vi: ['Chiết rót và đóng gói bột, bột mì, hạt', 'Hệ thống chiết rót chất lỏng, sốt, bột nhão', 'Đóng gói túi, bao, gói nhỏ', 'Dây chuyền chế biến đồ ăn nhẹ và thực phẩm', 'Tự động hóa băng tải và tích hợp dây chuyền', 'Kỹ thuật máy móc tùy chỉnh'],
+  de: ['Abfüllen und Verpacken von Pulver, Mehl, Granulat', 'Flüssigkeits-, Soßen- und Pastenfüllsysteme', 'Verpackung in Beutel, Sachet, Stick', 'Snack- und Lebensmittelverarbeitungslinien', 'Fördertechnik und Linienautomatisierung', 'Maßgefertigte Maschinentechnik'],
 }
 
 const trustTitle: Record<string, string> = {
@@ -258,18 +258,18 @@ const trustTitle: Record<string, string> = {
 }
 
 const trustSignals: Record<string, string[]> = {
-  en: ['CE Certified Machinery', 'SUS304 / SUS316L Food-Grade Materials', 'Factory-Direct from Taiwan', 'Custom Voltage & Configuration', 'Exported to 50+ Countries', 'OEM & Custom Engineering Available'],
-  cn: ['CE 认证机械', 'SUS304 / SUS316L 食品级材料', '台湾工厂直销', '定制电压与配置', '出口50多个国家', '提供OEM与定制工程服务'],
-  zh: ['CE 認證機械', 'SUS304 / SUS316L 食品級材料', '台灣工廠直銷', '定制電壓與配置', '出口50多個國家', '提供OEM與定制工程服務'],
-  fr: ['Machines certifiées CE', 'Matériaux alimentaires SUS304 / SUS316L', 'Vente directe usine Taiwan', 'Tension et configuration sur mesure', 'Exportation vers 50+ pays', 'OEM et ingénierie sur mesure disponibles'],
-  es: ['Maquinaria certificada CE', 'Materiales alimentarios SUS304 / SUS316L', 'Venta directa de fábrica Taiwan', 'Voltaje y configuración personalizados', 'Exportado a 50+ países', 'OEM e ingeniería personalizada disponibles'],
-  pt: ['Máquinas certificadas CE', 'Materiais alimentares SUS304 / SUS316L', 'Venda direta da fábrica Taiwan', 'Voltagem e configuração personalizados', 'Exportado para 50+ países', 'OEM e engenharia personalizada disponíveis'],
-  ko: ['CE 인증 기계', 'SUS304 / SUS316L 식품용 소재', '대만 공장 직판', '맞춤형 전압 및 구성', '50개국 이상 수출', 'OEM 및 맞춤 엔지니어링 가능'],
-  ja: ['CE認証取得機械', 'SUS304 / SUS316L 食品用材料', '台湾工場直販', 'カスタム電圧・仕様', '50カ国以上に輸出', 'OEM・カスタムエンジニアリング対応'],
-  ar: ['آلات حاصلة على شهادة CE', 'مواد SUS304 / SUS316L مخصصة للأغذية', 'مباشرة من مصنع تايوان', 'جهد كهربائي وتكوين مخصص', 'تصدير لأكثر من 50 دولة', 'OEM والهندسة المخصصة متاحة'],
-  th: ['เครื่องจักรได้รับการรับรอง CE', 'วัสดุสัมผัสอาหาร SUS304 / SUS316L', 'ส่งตรงจากโรงงานในไต้หวัน', 'แรงดันและการกำหนดค่าเฉพาะ', 'ส่งออกกว่า 50 ประเทศ', 'รองรับ OEM และวิศวกรรมเฉพาะ'],
-  vi: ['Máy được chứng nhận CE', 'Vật liệu thực phẩm SUS304 / SUS316L', 'Trực tiếp từ nhà máy Đài Loan', 'Tùy chỉnh điện áp và cấu hình', 'Xuất khẩu đến 50+ quốc gia', 'OEM và kỹ thuật tùy chỉnh'],
-  de: ['CE-zertifizierte Maschinen', 'SUS304 / SUS316L Lebensmittelmaterialien', 'Direkt ab Werk Taiwan', 'Spannung und Konfiguration anpassbar', 'Export in 50+ Länder', 'OEM und kundenspezifische Technik verfügbar'],
+  en: ['CE documentation support (where applicable)', 'SUS304 / SUS316L Food-Grade Materials', 'Supplier-vetted sourcing', 'Custom Voltage & Configuration', 'Exported to 50+ Countries', 'Custom engineering available'],
+  cn: ['CE 文件支持（视机型与目的地而定）', 'SUS304 / SUS316L 食品级材料', '供应商审查与选型', '定制电压与配置', '出口50多个国家', '提供定制工程服务'],
+  zh: ['CE 文件支援（視機型與目的地而定）', 'SUS304 / SUS316L 食品級材料', '供應商審查與選型', '定制電壓與配置', '出口50多個國家', '提供定制工程服務'],
+  fr: ['Support documentaire CE (selon machine et destination)', 'Matériaux alimentaires SUS304 / SUS316L', 'Sourcing avec fournisseurs audités', 'Tension et configuration sur mesure', 'Exportation vers 50+ pays', 'Ingénierie sur mesure disponible'],
+  es: ['Soporte de documentación CE (según máquina y destino)', 'Materiales alimentarios SUS304 / SUS316L', 'Sourcing con proveedores auditados', 'Voltaje y configuración personalizados', 'Exportado a 50+ países', 'Ingeniería personalizada disponible'],
+  pt: ['Suporte de documentação CE (conforme máquina e destino)', 'Materiais alimentares SUS304 / SUS316L', 'Sourcing com fornecedores auditados', 'Voltagem e configuração personalizados', 'Exportado para 50+ países', 'Engenharia personalizada disponível'],
+  ko: ['CE 문서 지원(기종/목적지에 따라)', 'SUS304 / SUS316L 식품용 소재', '공급업체 검증 소싱', '맞춤형 전압 및 구성', '50개국 이상 수출', '맞춤 엔지니어링 가능'],
+  ja: ['CE書類サポート（機種・仕向地により）', 'SUS304 / SUS316L 食品用材料', 'サプライヤー審査付きソーシング', 'カスタム電圧・仕様', '50カ国以上に輸出', 'カスタムエンジニアリング対応'],
+  ar: ['دعم وثائق CE (حسب الماكينة والوجهة)', 'مواد SUS304 / SUS316L مخصصة للأغذية', 'سورسينغ مع تدقيق الموردين', 'جهد كهربائي وتكوين مخصص', 'تصدير لأكثر من 50 دولة', 'هندسة مخصصة متاحة'],
+  th: ['สนับสนุนเอกสาร CE (ขึ้นอยู่กับรุ่นและปลายทาง)', 'วัสดุสัมผัสอาหาร SUS304 / SUS316L', 'ซอร์สซิ่งพร้อมตรวจสอบซัพพลายเออร์', 'แรงดันและการกำหนดค่าเฉพาะ', 'ส่งออกกว่า 50 ประเทศ', 'รองรับวิศวกรรมเฉพาะ'],
+  vi: ['Hỗ trợ tài liệu CE (tùy máy và điểm đến)', 'Vật liệu thực phẩm SUS304 / SUS316L', 'Sourcing với nhà cung cấp được thẩm định', 'Tùy chỉnh điện áp và cấu hình', 'Xuất khẩu đến 50+ quốc gia', 'Hỗ trợ kỹ thuật tùy chỉnh'],
+  de: ['CE-Dokumentationssupport (je nach Maschine/Zielmarkt)', 'SUS304 / SUS316L Lebensmittelmaterialien', 'Sourcing mit geprüften Lieferanten', 'Spannung und Konfiguration anpassbar', 'Export in 50+ Länder', 'Kundenspezifische Technik verfügbar'],
 }
 
 const talkTitle: Record<string, string> = {
@@ -305,34 +305,34 @@ const responseTime: Record<string, string> = {
 // ── JSON-LD ───────────────────────────────────────────────────────────────────
 
 const breadcrumbNames: Record<Lang, { home: string; recommend: string }> = {
-  en: { home: 'Home', recommend: 'Recommendation' },
-  cn: { home: '首页', recommend: '选型推荐' },
-  zh: { home: '首頁', recommend: '選型推薦' },
-  fr: { home: 'Accueil', recommend: 'Recommandation' },
-  es: { home: 'Inicio', recommend: 'Recomendación' },
-  pt: { home: 'Início', recommend: 'Recomendação' },
-  ko: { home: '홈', recommend: '추천' },
-  ja: { home: 'ホーム', recommend: '推薦' },
-  ar: { home: 'الرئيسية', recommend: 'توصية' },
-  th: { home: 'หน้าแรก', recommend: 'คำแนะนำ' },
-  vi: { home: 'Trang chủ', recommend: 'Tư vấn' },
-  de: { home: 'Startseite', recommend: 'Empfehlung' },
+  en: { home: 'Home', recommend: 'Assessment' },
+  cn: { home: '首页', recommend: '采购评估' },
+  zh: { home: '首頁', recommend: '採購評估' },
+  fr: { home: 'Accueil', recommend: 'Évaluation' },
+  es: { home: 'Inicio', recommend: 'Evaluación' },
+  pt: { home: 'Início', recommend: 'Avaliação' },
+  ko: { home: '홈', recommend: '평가' },
+  ja: { home: 'ホーム', recommend: '評価' },
+  ar: { home: 'الرئيسية', recommend: 'تقييم' },
+  th: { home: 'หน้าแรก', recommend: 'การประเมิน' },
+  vi: { home: 'Trang chủ', recommend: 'Đánh giá' },
+  de: { home: 'Startseite', recommend: 'Bewertung' },
 }
 
 const faqByLang: Record<Lang, { q: string; a: string }[]> = {
   en: [
-    { q: 'How long does it take to get a recommendation?', a: 'Typically 1–2 business days after we receive your product and packaging details.' },
+    { q: 'How long does it take to get an assessment?', a: 'Typically 1–2 business days after we receive your product and packaging details.' },
     { q: 'What information should I prepare?', a: 'Product type/state, package format, fill range, target output, and destination voltage/frequency.' },
     { q: 'Do I need to know the exact machine model?', a: 'No. Describe your product and goals — we will match the right machine type and configuration.' },
   ],
   zh: [
-    { q: '多久可以拿到推薦配置？', a: '通常在收到產品與包裝需求後 1–2 個工作日內回覆。' },
-    { q: '詢問前要準備哪些資料？', a: '產品類型/狀態、包材/容器形式、灌裝範圍、目標產速，以及目的地電壓/頻率。' },
+    { q: '多久可以拿到評估結果？', a: '通常在收到產品與包裝需求後 1–2 個工作日內回覆。' },
+    { q: '申請採購評估前要準備哪些資料？', a: '產品類型/狀態、包材/容器形式、灌裝範圍、目標產速，以及目的地電壓/頻率。' },
     { q: '一定要知道機型或型號嗎？', a: '不需要。描述產品與目標即可，我們會回覆適合的機型路線與配置。' },
   ],
   cn: [
-    { q: '多久可以拿到推荐配置？', a: '通常在收到产品与包装需求后 1–2 个工作日内回复。' },
-    { q: '询问前要准备哪些资料？', a: '产品类型/形态、包装/容器形式、灌装范围、目标产速，以及目的地电压/频率。' },
+    { q: '多久可以拿到评估结果？', a: '通常在收到产品与包装需求后 1–2 个工作日内回复。' },
+    { q: '申请采购评估前要准备哪些资料？', a: '产品类型/形态、包装/容器形式、灌装范围、目标产速，以及目的地电压/频率。' },
     { q: '一定要知道机型或型号吗？', a: '不需要。描述产品与目标即可，我们会给出合适的机型方向与配置建议。' },
   ],
   fr: [
@@ -351,7 +351,7 @@ const faqByLang: Record<Lang, { q: string; a: string }[]> = {
     { q: 'Preciso saber o modelo exato da máquina?', a: 'Não. Descreva o produto e a meta; recomendamos o tipo de máquina e a configuração.' },
   ],
   ko: [
-    { q: '추천을 받는 데 얼마나 걸리나요?', a: '제품/포장 정보가 확인되면 보통 1–2영업일 내에 답변합니다.' },
+    { q: '평가를 받는 데 얼마나 걸리나요?', a: '제품/포장 정보가 확인되면 보통 1–2영업일 내에 답변합니다.' },
     { q: '어떤 정보를 준비하면 되나요?', a: '제품 종류/상태, 포장 형식, 충전 범위, 목표 속도, 목적지 전압/주파수.' },
     { q: '정확한 모델을 알아야 하나요?', a: '아니요. 제품과 목표만 알려주시면 적합한 기종과 구성을 제안합니다.' },
   ],
@@ -376,14 +376,14 @@ const faqByLang: Record<Lang, { q: string; a: string }[]> = {
     { q: 'Có cần biết đúng model máy không?', a: 'Không cần. Chỉ cần mô tả sản phẩm và mục tiêu, chúng tôi sẽ đề xuất loại máy và cấu hình phù hợp.' },
   ],
   de: [
-    { q: 'Wie lange dauert eine Empfehlung?', a: 'In der Regel 1–2 Werktage nach Eingang Ihrer Produkt- und Verpackungsdaten.' },
+    { q: 'Wie lange dauert eine Bewertung?', a: 'In der Regel 1–2 Werktage nach Eingang Ihrer Produkt- und Verpackungsdaten.' },
     { q: 'Welche Informationen sollte ich vorbereiten?', a: 'Produkttyp/-zustand, Verpackungsformat, Füllbereich, Zielleistung, Spannung/Frequenz.' },
     { q: 'Muss ich das genaue Maschinenmodell kennen?', a: 'Nein. Beschreiben Sie Produkt und Ziel — wir empfehlen Typ und Konfiguration.' },
   ],
 }
 
 function buildJsonLd(lang: Lang) {
-  const pageUrl = `${SITE_URL}/${lang}/recommend`
+  const pageUrl = `${SITE_URL}/${lang}/assessment`
   const faqs = faqByLang[lang] ?? faqByLang.en
   const bc = breadcrumbNames[lang] ?? breadcrumbNames.en
 
@@ -437,17 +437,17 @@ function buildJsonLd(lang: Lang) {
     '@context': 'https://schema.org',
     '@type': 'Service',
     inLanguage: LANG_META[lang].htmlLang,
-    name: 'Machine Recommendation Service',
-    description: 'Free machinery recommendation based on product specs, packaging format, target output, and destination voltage.',
+    name: 'Sourcing Assessment Service',
+    description: 'Free sourcing assessment based on product specs, packaging format, target output, and destination requirements.',
     provider: { '@type': 'Organization', name: 'SunGene Co., LTD.', url: SITE_URL },
-    serviceType: 'Machinery Consultation',
+    serviceType: 'Industrial Sourcing Consultation',
     areaServed: { '@type': 'Place', name: 'Worldwide' },
     url: pageUrl,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
-      description: 'Free machine recommendation — no obligation',
+      description: 'Free sourcing assessment — no obligation',
     },
   }
 
@@ -523,7 +523,7 @@ export default async function RecommendPage({
           <div className="gap-10 lg:grid lg:grid-cols-5">
             {/* Left: Form — ~60% */}
             <div className="lg:col-span-3">
-              <RecommendForm lang={lang} />
+              <AssessmentForm lang={lang} />
             </div>
 
             {/* Right: Sidebar — ~40% */}
@@ -582,7 +582,7 @@ export default async function RecommendPage({
                     </svg>
                     <WhatsAppLink
                       lang={lang}
-                      sourcePage="recommend"
+                      sourcePage="assessment"
                       className="font-medium text-accent-700 hover:underline"
                     >
                       WhatsApp: +86 181 4413 2078
@@ -600,7 +600,7 @@ export default async function RecommendPage({
                     </svg>
                     <EmailLink
                       lang={lang}
-                      sourcePage="recommend"
+                      sourcePage="assessment"
                       className="font-medium text-accent-700 hover:underline"
                     >
                       contact@sungene.net

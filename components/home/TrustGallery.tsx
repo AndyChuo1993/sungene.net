@@ -16,17 +16,17 @@ import {
 export default function TrustGallery({ lang }: { lang: Lang }) {
   const title =
     lang === 'cn'
-      ? '工厂制造 · 品控测试 · 出口交付（实景）'
+      ? '供应商协作 · 品控测试 · 出口交付（实景）'
       : lang === 'zh'
-        ? '工廠製造 · 品控測試 · 出口交付（實景）'
-        : 'Factory Build · QC Test · Export Delivery'
+        ? '供應商協作 · 品控測試 · 出口交付（實景）'
+        : 'Supplier Coordination · QC Test · Export Delivery'
 
   const desc =
     lang === 'cn'
-      ? '用真实照片按流程展示：团队评审 → 制造装配 → FAT测试 → 质检与打包出货。让您在询价前就能看到我们如何交付。'
+      ? '用真实照片按流程展示：团队评审 → 供应商装配协作 → FAT测试 → 质检与打包出货。让您在申请采购评估前就能看到我们如何交付。'
       : lang === 'zh'
-        ? '用真實照片按流程展示：團隊評審 → 製造裝配 → FAT測試 → 質檢與打包出貨。讓您在詢價前就能看到我們如何交付。'
-        : 'A photo narrative of how your machine is built, tested (FAT), inspected, and shipped — before you request a quote.'
+        ? '用真實照片按流程展示：團隊評審 → 供應商裝配協作 → FAT測試 → 質檢與打包出貨。讓您在申請採購評估前就能看到我們如何交付。'
+        : 'A photo narrative of how your line is verified (FAT), inspected, and shipped — before you request a sourcing assessment.'
 
   const steps: {
     key: string
@@ -39,7 +39,7 @@ export default function TrustGallery({ lang }: { lang: Lang }) {
     {
       key: 'team',
       src: PHOTO.home.trustGallery[6],
-      alt: 'Engineering and production team on factory floor',
+      alt: 'Engineering and quality team review',
       Icon: Users,
       title: lang === 'cn' ? '团队评审' : lang === 'zh' ? '團隊評審' : 'Team Review',
       desc:
@@ -47,20 +47,20 @@ export default function TrustGallery({ lang }: { lang: Lang }) {
           ? '工程、生产与品控一起确认需求、产能与安全规范。'
           : lang === 'zh'
             ? '工程、生產與品控一起確認需求、產能與安全規範。'
-            : 'Engineering, production, and QC align on specs, capacity, and safety.',
+            : 'Engineering, operations, and QC align on specs, capacity, and safety.',
     },
     {
       key: 'build',
       src: PHOTO.home.trustGallery[0],
       alt: 'SUS304 weld detail',
       Icon: Wrench,
-      title: lang === 'cn' ? '自有工厂制造' : lang === 'zh' ? '自有工廠製造' : 'In-House Build',
+      title: lang === 'cn' ? '供应商协作制造' : lang === 'zh' ? '供應商協作製造' : 'Supplier Build Coordination',
       desc:
         lang === 'cn'
-          ? '从材料到组装全流程控管，关键部位工艺可追溯。'
+          ? '从材料到组装进行协作控管，关键部位工艺可追溯。'
           : lang === 'zh'
-            ? '從材料到組裝全流程控管，關鍵部位工藝可追溯。'
-            : 'Controlled manufacturing from materials to assembly with traceable workmanship.',
+            ? '從材料到組裝進行協作控管，關鍵部位工藝可追溯。'
+            : 'Coordinated build from materials to assembly with traceable workmanship.',
     },
     {
       key: 'controls',
@@ -91,14 +91,14 @@ export default function TrustGallery({ lang }: { lang: Lang }) {
     {
       key: 'fat',
       src: PHOTO.home.trustGallery[3],
-      alt: 'Factory acceptance test',
+      alt: 'FAT acceptance test',
       Icon: ClipboardCheck,
-      title: lang === 'cn' ? 'FAT出厂测试' : lang === 'zh' ? 'FAT出廠測試' : 'FAT Testing',
+      title: lang === 'cn' ? 'FAT验收测试' : lang === 'zh' ? 'FAT驗收測試' : 'FAT Testing',
       desc:
         lang === 'cn'
-          ? '按您的产品与包装材做测试，并提供出厂测试视频。'
+          ? '按您的产品与包装材做测试，并提供验收测试视频。'
           : lang === 'zh'
-            ? '按您的產品與包裝材做測試，並提供出廠測試影片。'
+            ? '按您的產品與包裝材做測試，並提供驗收測試影片。'
             : 'We run tests with your product/material and provide FAT test videos.',
     },
     {

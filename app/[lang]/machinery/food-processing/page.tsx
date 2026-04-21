@@ -6,29 +6,30 @@ import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
+import SourcingRouteGuide from '@/components/machinery/SourcingRouteGuide'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS, LANG_META } from '@/lib/seo'
 
 const metaTitles: Record<string, string> = {
   en: 'Food Processing Equipment | Snack Line, Frying, Roasting, Mixing',
-  cn: '食品加工设备 | 零食生产线、油炸、烘焙、搅拌',
-  zh: '食品加工設備 | 零食生產線、油炸、烘焙、攪拌',
+  cn: '食品加工设备 | 零食加工线体技术采购',
+  zh: '食品加工設備 | 零食加工線體技術採購',
   fr: 'Équipement de traitement alimentaire | Ligne snack, Friture, Torréfaction',
   es: 'Equipo de procesamiento de alimentos | Línea de snacks, Fritura, Tostado',
   pt: 'Equipamento de processamento de alimentos | Linha de snacks, Fritura, Torração',
   ko: '식품 가공 장비 | 스낵 라인, 튀김, 로스팅, 혼합',
   ja: '食品加工設備 | スナックライン、フライ、ローストミキシング',
   ar: 'معدات تصنيع الأغذية | خط الوجبات الخفيفة والقلي والتحميص',
-  th: 'อุปกรณ์แปรรูปอาหาร | สายผลิตขนม ทอด อบ ผสม',
-  vi: 'Thiết bị chế biến thực phẩm | Dây chuyền snack, chiên, rang, trộn',
+  th: 'อุปกรณ์แปรรูปอาหาร | ไลน์แปรรูปสแน็ค ทอด อบ ผสม',
+  vi: 'Thiết bị chế biến thực phẩm | Hệ thống snack, chiên, rang, trộn',
   de: 'Lebensmittelverarbeitungsmaschinen | Snack-Linie, Frittieren, Rösten',
 }
 
 const metaDescs: Record<string, string> = {
   en: 'Food processing equipment including snack lines, frying machines, roasters, mixing systems, and continuous cooking lines.',
-  cn: '食品加工设备：零食生产线、油炸机、烘烤炉、搅拌系统与连续蒸煮线。',
-  zh: '食品加工設備：零食生產線、油炸機、烘烤爐、攪拌系統與連續蒸煮線。',
+  cn: '食品加工设备：零食加工线体、油炸机、烘烤炉、搅拌系统与连续蒸煮线。',
+  zh: '食品加工設備：零食加工線體、油炸機、烘烤爐、攪拌系統與連續蒸煮線。',
   fr: 'Équipements de traitement alimentaire : lignes snack, friteuses, fours de torréfaction, systèmes de mélange et lignes de cuisson continues.',
   es: 'Equipos de procesamiento de alimentos: líneas de snacks, freidoras, hornos de tostado, sistemas de mezcla y líneas de cocción continua.',
   pt: 'Equipamentos de processamento de alimentos: linhas de snacks, fritadeiras, fornos de torra, sistemas de mistura e linhas de cozimento contínuo.',
@@ -36,7 +37,7 @@ const metaDescs: Record<string, string> = {
   ja: '食品加工設備：スナックライン、フライヤー、ロースト、混合、連続調理ライン。',
   ar: 'معدات تصنيع الأغذية: خطوط السناك، آلات القلي، أفران التحميص، أنظمة الخلط وخطوط الطهي المستمر.',
   th: 'อุปกรณ์แปรรูปอาหาร: ไลน์ขนม เครื่องทอด เตาอบ/คั่ว ระบบผสม และไลน์ปรุงต่อเนื่อง',
-  vi: 'Thiết bị chế biến thực phẩm gồm dây chuyền snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
+  vi: 'Thiết bị chế biến thực phẩm gồm hệ thống snack, máy chiên, lò rang, hệ thống trộn và dây chuyền nấu liên tục.',
   de: 'Lebensmitteltechnik: Snack-Linien, Frittiermaschinen, Röstöfen, Mischsysteme und kontinuierliche Kochlinien.',
 }
 
@@ -135,7 +136,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
       p1: 'โครงการแปรรูปอาหารมีความแตกต่างกันอย่างมากขึ้นอยู่กับประเภทผลิตภัณฑ์ ข้อกำหนดด้านสุขอนามัย เวิร์กโฟลว์ ปริมาณการผลิต และความต้องการบรรจุภัณฑ์ปลายทาง เราสนับสนุนลูกค้าในการประเมินเครื่องจักรสำหรับการเตรียม การจัดการ การผสม การตัด และกระบวนการผลิตที่เลือก',
       p2: 'ในระยะเริ่มต้น ผู้ซื้อมักไม่ต้องการแคตตาล็อกยาว พวกเขาต้องการความเข้าใจที่ชัดเจนยิ่งขึ้นว่าการตั้งค่าเครื่องจักรประเภทใดที่เหมาะกับผลิตภัณฑ์และเป้าหมายการผลิตของตน นั่นคือจุดเริ่มต้นของการสนับสนุนจากเรา',
       subTitle: 'เหมาะสำหรับผู้ซื้อที่กำลังมองหา',
-      cons: ['กระบวนการเตรียมอาหาร', 'การอัปเกรดการผลิตแบบกึ่งอัตโนมัติ', 'การวางแผนสายการผลิตใหม่', 'การปรับปรุงการจัดการผลิตภัณฑ์', 'การจัดหาอุปกรณ์เพื่อการส่งออก'],
+      cons: ['กระบวนการเตรียมอาหาร', 'การอัปเกรดแบบกึ่งอัตโนมัติ', 'การวางแผนการบูรณาการไลน์ใหม่', 'การปรับปรุงการจัดการผลิตภัณฑ์', 'การจัดหาอุปกรณ์เพื่อการส่งออก'],
       cta: 'แบ่งปันผลิตภัณฑ์และกำลังการผลิตเป้าหมายของคุณเพื่อเริ่มการสนทนา'
     },
     vi: {
@@ -143,7 +144,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
       p1: 'Các dự án chế biến thực phẩm rất đa dạng tùy thuộc vào loại sản phẩm, yêu cầu vệ sinh, quy trình làm việc, sản lượng và nhu cầu đóng gói hạ nguồn. Chúng tôi hỗ trợ khách hàng đánh giá máy móc cho việc chuẩn bị, xử lý, trộn, cắt và các quy trình sản xuất được chọn.',
       p2: 'Ở giai đoạn đầu, người mua thường không cần một danh mục dài. Họ cần hiểu rõ hơn về loại cấu hình máy móc nào phù hợp với sản phẩm và mục tiêu sản xuất của mình. Đó là nơi sự hỗ trợ của chúng tôi bắt đầu.',
       subTitle: 'Phù hợp cho người mua đang tìm kiếm',
-      cons: ['Quy trình chuẩn bị thực phẩm', 'Nâng cấp sản xuất bán tự động', 'Lập kế hoạch dây chuyền mới', 'Cải thiện xử lý sản phẩm', 'Mua sắm thiết bị hướng xuất khẩu'],
+      cons: ['Quy trình chuẩn bị thực phẩm', 'Nâng cấp bán tự động', 'Lập kế hoạch tích hợp dây chuyền mới', 'Cải thiện xử lý sản phẩm', 'Mua sắm thiết bị hướng xuất khẩu'],
       cta: 'Chia sẻ sản phẩm và công suất mục tiêu của bạn để bắt đầu thảo luận.'
     },
     de: {
@@ -156,6 +157,23 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     }
   }
   const t = content[lang] || content['en']
+  const routeGuide = {
+    notFit: ({
+      en: ['Simple outsourced prep work with no in-house process plan', 'Projects without hygiene, utility, or throughput requirements defined', 'Buyers who only need a single standalone machine but no line planning'],
+      zh: ['只有外包前處理、沒有內部製程規劃的需求', '尚未定義衛生、能源與產能條件的專案', '只想買單機、但不考慮整線與前後段的人'],
+      cn: ['只有外包前处理、没有内部制程规划的需求', '尚未定义卫生、能源与产能条件的项目', '只想买单机、但不考虑整线与前后段的人'],
+    } as Record<string, string[]>)[lang] || ['Simple outsourced prep work with no in-house process plan', 'Projects without hygiene, utility, or throughput requirements defined', 'Buyers who only need a single standalone machine but no line planning'],
+    compare: ({
+      en: ['Cleaning method, food-contact material, and sanitation access', 'Utility load, heat source, controls, and operator requirement', 'What the supplier covers for layout, commissioning, training, and spare parts'],
+      zh: ['清潔方式、接觸食品材質與清洗可及性', '能源負載、熱源、控制方式與操作人力需求', '供應商是否涵蓋佈局、調試、培訓與備件'],
+      cn: ['清洁方式、接触食品材质与清洗可及性', '能源负载、热源、控制方式与操作人力需求', '供应商是否涵盖布局、调试、培训与备件'],
+    } as Record<string, string[]>)[lang] || ['Cleaning method, food-contact material, and sanitation access', 'Utility load, heat source, controls, and operator requirement', 'What the supplier covers for layout, commissioning, training, and spare parts'],
+    acceptance: ({
+      en: ['Test your real product, not water-only or empty-run FAT', 'Confirm output, temperature control, residence time, and cleaning workflow', 'Release only after manuals, wiring docs, spare parts, and FAT reports are aligned'],
+      zh: ['FAT 請用實際產品，而不是只做空機或清水測試', '確認產能、溫控、停留時間與清洗流程', '手冊、配線文件、備件與 FAT 報告齊全後再放行出貨'],
+      cn: ['FAT 请用实际产品，而不是只做空机或清水测试', '确认产能、温控、停留时间与清洗流程', '手册、配线文件、备件与 FAT 报告齐全后再放行出货'],
+    } as Record<string, string[]>)[lang] || ['Test your real product, not water-only or empty-run FAT', 'Confirm output, temperature control, residence time, and cleaning workflow', 'Release only after manuals, wiring docs, spare parts, and FAT reports are aligned'],
+  }
 
   const pageUrl = `${SITE_URL}/${lang}/machinery/food-processing`
   const itemListId = `${pageUrl}#itemlist`
@@ -181,7 +199,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
     isPartOf: { '@id': pageUrl },
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Snack Processing Line', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/machines/snack-processing-line`, url: `${SITE_URL}/${lang}/machines/snack-processing-line`, name: 'Snack Processing Line' } },
-      { '@type': 'ListItem', position: 2, name: 'Snack Processing Buying Guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, url: `${SITE_URL}/${lang}/resources/topic/snack-processing-line`, name: 'Snack Processing Buying Guides' } },
+      { '@type': 'ListItem', position: 2, name: 'Food processing line configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${lang}/resources/route/food-processing-line`, url: `${SITE_URL}/${lang}/resources/route/food-processing-line`, name: 'Food processing line configuration guides' } },
     ],
   }
 
@@ -192,7 +210,7 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
         kicker={({ en: 'FOOD PROCESSING', cn: '食品加工', zh: '食品加工', fr: 'AGROALIMENTAIRE', es: 'PROCESAMIENTO DE ALIMENTOS', pt: 'PROCESSAMENTO DE ALIMENTOS', ko: '식품 가공', ja: '食品加工', ar: 'معالجة الأغذية', th: 'แปรรูปอาหาร', vi: 'CHẾ BIẾN THỰC PHẨM', de: 'LEBENSMITTELVERARBEITUNG' } as Record<string,string>)[lang] || 'FOOD PROCESSING'}
         title={t.title}
         desc={t.p1}
-        image={{ src: heroPhoto, alt: 'Food processing machinery in factory', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'Food processing equipment sourcing support', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
       <section className="bg-white py-6">
         <Container className="max-w-5xl">
@@ -230,13 +248,34 @@ export default async function FoodProcessingPage({ params }: { params: Promise<{
               <h2 className="text-xl font-semibold">{t.cta}</h2>
               <div className="mt-8">
                 <ButtonLink href={`/${lang}/contact`} size="lg">
-                  {lang === 'en' ? 'Send an Inquiry' : (lang === 'cn' ? '提交询价' : '提交詢價')}
+                  {({
+                    en: 'Request Assessment',
+                    cn: '获取采购评估',
+                    zh: '取得採購評估',
+                    fr: 'Demander évaluation',
+                    es: 'Solicitar evaluación',
+                    pt: 'Solicitar avaliação',
+                    ko: '평가 요청',
+                    ja: '評価依頼',
+                    ar: 'طلب تقييم',
+                    th: 'ขอการประเมิน',
+                    vi: 'Yêu cầu đánh giá',
+                    de: 'Bewertung anfordern',
+                  } as Record<string, string>)[lang] || 'Request Assessment'}
                 </ButtonLink>
               </div>
             </div>
           </div>
         </Container>
       </section>
+
+      <SourcingRouteGuide
+        lang={lang}
+        fitItems={t.cons}
+        notFitItems={routeGuide.notFit}
+        compareItems={routeGuide.compare}
+        acceptanceItems={routeGuide.acceptance}
+      />
     </>
   )
 }

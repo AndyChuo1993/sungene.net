@@ -104,11 +104,11 @@ export async function GET() {
     entries.push({
       pageUrl: `${SITE_URL}/${lang}/resources`,
       images: [
-        { loc: abs(PHOTO.pages.resources.hero), title: 'Machinery buying guides — SunGene resources', caption: 'Practical buying guides for machinery buyers' },
+        { loc: abs(PHOTO.pages.resources.hero), title: 'Industrial sourcing guides — SunGene resources', caption: 'Practical guides for industrial equipment buyers' },
         ...PHOTO.pages.resources.cards.map((p) => ({
           loc: abs(p),
-          title: 'SunGene buying guide',
-          caption: 'Detailed guide for industrial machinery buyers',
+          title: 'SunGene sourcing guide',
+          caption: 'Detailed guide for industrial equipment buyers',
         })),
       ],
     })
@@ -130,10 +130,10 @@ export async function GET() {
     entries.push({
       pageUrl: `${SITE_URL}/${lang}/machinery`,
       images: [
-        { loc: abs(PHOTO.machinery.catalogHero), title: 'Machinery catalog — sourcing support', caption: 'Industrial machinery catalog with sourcing guidance' },
+        { loc: abs(PHOTO.machinery.catalogHero), title: 'Sourcing scope — industrial equipment support', caption: 'Industrial equipment sourcing scope with guidance' },
         ...PHOTO.machinery.categoryPhotos.map((p) => ({
           loc: abs(p),
-          title: 'Machinery category',
+          title: 'Sourcing category',
           caption: 'Industrial equipment and automation sourcing categories',
         })),
       ],

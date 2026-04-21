@@ -8,38 +8,39 @@ import JsonLd from '@/components/JsonLd'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, BREADCRUMB_LABELS } from '@/lib/seo'
 import { buildWuushengProductSchema } from '@/lib/productSchema'
+import MachineDecisionGuide from '@/components/machines/MachineDecisionGuide'
 import Image from 'next/image'
 
 const PRODUCT_IMAGE = 'https://img.mweb.com.tw/thumb/758/1000x1000/product/14_Stretch_Wrapping_Machine/01_Stretch_Wrapping_Machine/Stretch_Wrapping_Machine.jpg'
 
 const metaTitles: Record<string, string> = {
-  en: 'Stretch Wrapping Machine | Pallet Stretch Wrapper for Export & Logistics',
-  cn: '缠绕膜包装机 | 托盘缠绕机 出口与物流专用',
-  zh: '纏繞膜包裝機 | 棧板纏繞機 出口與物流專用',
-  fr: 'Banderoleuse | Machine de banderolage de palettes pour export et logistique',
-  es: 'Enfardadora | Máquina de envoltura de palés para exportación y logística',
-  pt: 'Envolvedora de pallet | Máquina de embrulho stretch para exportação e logística',
-  ko: '스트레치 랩핑기 | 팔레트 스트레치 래퍼 수출·물류용',
-  ja: 'ストレッチラップ機 | パレット輸送・輸出向けストレッチラッパー',
-  ar: 'آلة لف التمدد | ملفوف تمدد الطبق للتصدير واللوجستيات',
-  th: 'เครื่องพันฟิล์มสเตรช | เครื่องพันฟิล์มพาเลทสำหรับส่งออกและโลจิสติกส์',
-  vi: 'Máy quấn màng co giãn | Máy quấn pallet cho xuất khẩu và logistics',
-  de: 'Stretchwickelmaschine | Palettenwickler für Export und Logistik',
+  en: 'Stretch Wrapping Configuration Route | Pallet Stability & Export Readiness',
+  cn: '缠绕包装配置路线 | 稳定性与出口准备',
+  zh: '纏繞包裝配置路線 | 穩定性與出口準備',
+  fr: 'Banderoleuse | Évaluation de sourcing technique',
+  es: 'Enfardadora | Evaluación de abastecimiento técnico',
+  pt: 'Envolvedora de pallet | Avaliação de sourcing técnico',
+  ko: '스트레치 랩핑기 | 기술 소싱 및 통합 평가',
+  ja: 'ストレッチラップ機 | 技術ソーシングと統合評価',
+  ar: 'آلة لف التمدد | تقييم التوريد والتكامل التقني',
+  th: 'เครื่องพันฟิล์มสเตรช | การประเมินการจัดซื้อและการรวมเทคนิค',
+  vi: 'Máy quấn màng co giãn | Đánh giá nguồn cung và tích hợp kỹ thuật',
+  de: 'Stretchwickelmaschine | Technische Sourcing-Bewertung',
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Turntable-based pallet stretch wrapping machines for bundling export goods, cartons, food, drinks, paints, plastics, and electrical parts. Models WSV-1521 and WSV-1821 with automatic height detection and inverter-controlled motors.',
-  cn: '转台式托盘缠绕机，用于捆扎出口商品、纸箱、食品、饮料、涂料、塑料及电器。WSV-1521/WSV-1821型，自动检测高度，变频控制。',
-  zh: '轉台式棧板纏繞機，用於捆紮出口商品、紙箱、食品、飲料、塗料、塑料及電器。WSV-1521/WSV-1821型，自動檢測高度，變頻控制。',
-  fr: 'Banderoleuses de palettes rotatives pour emballage de marchandises export, cartons, aliments, boissons, peintures, plastiques et pièces électriques. WSV-1521 et WSV-1821.',
-  es: 'Enfardadoras de palés con plataforma giratoria para embalaje de mercancías de exportación, cajas, alimentos, bebidas, pinturas, plásticos y componentes eléctricos. WSV-1521 y WSV-1821.',
-  pt: 'Envolvedoras de pallet com plataforma giratória para embalar mercadorias de exportação, caixas, alimentos, bebidas, tintas, plásticos e peças elétricas. WSV-1521 e WSV-1821.',
-  ko: '수출 상품, 카톤, 식품, 음료, 페인트, 플라스틱, 전기 부품 번들링을 위한 턴테이블식 팔레트 스트레치 래핑기. WSV-1521, WSV-1821. 자동 높이 감지, 인버터 제어 모터.',
-  ja: '輸出品・カートン・食品・飲料・塗料・プラスチック・電気部品のバンドリング向けターンテーブル式パレットストレッチラッパー。WSV-1521・WSV-1821。自動高さ検出・インバータ制御。',
-  ar: 'ملفوفات طبق دوارة لتجميع البضائع للتصدير والكراتين والأغذية والمشروبات والدهانات والبلاستيك والقطع الكهربائية. طرازا WSV-1521 وWSV-1821.',
-  th: 'เครื่องพันฟิล์มสเตรชแบบจานหมุนสำหรับมัดสินค้าส่งออก กล่อง อาหาร เครื่องดื่ม สี พลาสติก และชิ้นส่วนไฟฟ้า รุ่น WSV-1521 และ WSV-1821',
-  vi: 'Máy quấn pallet dạng bàn xoay để đóng gói hàng xuất khẩu, thùng carton, thực phẩm, đồ uống, sơn, nhựa và linh kiện điện. WSV-1521 và WSV-1821.',
-  de: 'Drehtisch-Palettenwickler für die Bündelung von Exportgütern, Kartons, Lebensmitteln, Getränken, Farben, Kunststoffen und Elektrobauteilen. WSV-1521 und WSV-1821.',
+  en: 'Pallet wrapping sourcing support: verify load stability, film/stretch settings, and conveyor handoff; align FAT and shipping requirements before release.',
+  cn: '托盘缠绕采购支持：确认堆栈稳定、拉伸膜参数与输送衔接，并在放行前对齐 FAT 与出货要求。',
+  zh: '棧板纏繞採購支援：確認堆棧穩定、拉伸膜參數與輸送銜接，並在放行前對齊 FAT 與出貨要求。',
+  fr: 'Sourcing technique pour banderoleuses de palettes. Nous assurons la validation des fournisseurs et la vérification technique pour la série WSV.',
+  es: 'Abastecimiento técnico para enfardadoras de palés. Proporcionamos auditoría de proveedores y verificación de ingeniería para la serie WSV.',
+  pt: 'Sourcing técnico para envolvedoras de pallet. Oferecemos auditoria de fornecedores e verificação de engenharia para a série WSV.',
+  ko: '팔레트 스트레치 랩핑기 기술 소싱. WSV 시리즈에 대한 공급업체 심사 및 엔지니어링 검증을 통해 안전한 수출 물류를 보장합니다.',
+  ja: 'パレットストレッチラッパーの技術ソーシング。WSVシリーズのサプライヤー審査と技術検証により、安全な輸出物流を実現します。',
+  ar: 'التوريد التقني لآلات لف الطبق. نحن نقدم تدقيق الموردين والتحقق الهندسي لسلسلة WSV لضمان الخدمات اللوجستية للتصدير الآمن.',
+  th: 'การจัดซื้อเชิงเทคนิคสำหรับเครื่องพันฟิล์มพาเลท เราให้บริการตรวจสอบซัพพลายเออร์และยืนยันทางวิศวกรรมสำหรับซีรีส์ WSV',
+  vi: 'Nguồn cung kỹ thuật cho máy quấn pallet. Chúng tôi cung cấp dịch vụ thẩm định nhà cung cấp và xác minh kỹ thuật cho dòng WSV.',
+  de: 'Technisches Sourcing für Palettenwickler. Wir bieten Lieferantenprüfung und technische Verifizierung für die WSV-Serie.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/machines/stretch-wrapping-machine',
     type: 'website',
-    keywords: ['stretch wrapping machine', 'pallet wrapper', 'stretch film wrapper', 'turntable pallet wrapper', 'Wuu Sheng', 'Taiwan stretch wrapper', 'export packaging machine'],
+    keywords: ['stretch wrapping configuration', 'pallet stability verification', 'film tension setting', 'FAT checklist', 'shipping readiness', 'supplier vetting', 'documentation handoff'],
   })
 }
 
@@ -87,8 +88,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technical Specifications',
     applicationsTitle: 'Applications',
     applications: ['Export goods palletizing', 'Warehouse bundling', 'Food & beverage pallets', 'Carton & case stacking', 'Paint & chemical drums', 'Glass & fragile goods', 'Plastic & industrial resin', 'Electronics & appliances'],
-    ctaTitle: 'Need to secure pallets for export or storage? Ask us about the WSV stretch wrapper series.',
-    ctaBtn: 'Get a Quote',
+    ctaTitle: 'Need technical advice on securing pallets for export? Request a professional sourcing assessment for the WSV series.',
+    ctaBtn: 'Get Sourcing Assessment',
   },
   cn: {
     kicker: '托盘缠绕',
@@ -108,8 +109,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技术规格',
     applicationsTitle: '应用领域',
     applications: ['出口商品托盘化', '仓库捆扎', '食品饮料托盘', '纸箱码垛', '涂料与化工桶', '玻璃与易碎品', '塑料与工业树脂', '电子与家电'],
-    ctaTitle: '需要为出口或仓储捆扎托盘？了解WSV缠绕机系列。',
-    ctaBtn: '获取报价',
+    ctaTitle: '需要出口托盘固定的技术建议？申请WSV系列的专业采购评估。',
+    ctaBtn: '获取采购评估',
   },
   zh: {
     kicker: '棧板纏繞',
@@ -129,8 +130,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術規格',
     applicationsTitle: '應用領域',
     applications: ['出口商品棧板化', '倉庫捆紮', '食品飲料棧板', '紙箱碼垛', '塗料與化工桶', '玻璃與易碎品', '塑料與工業樹脂', '電子與家電'],
-    ctaTitle: '需要為出口或倉儲捆紮棧板？了解WSV纏繞機系列。',
-    ctaBtn: '取得報價',
+    ctaTitle: '需要出口棧板固定的技術建議？申請WSV系列的專業採購評估。',
+    ctaBtn: '獲取採購評估',
   },
   fr: {
     kicker: 'BANDEROLAGE DE PALETTES',
@@ -150,8 +151,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Spécifications techniques',
     applicationsTitle: 'Applications',
     applications: ['Palettisation de marchandises export', 'Groupage en entrepôt', 'Palettes alimentaires et boissons', 'Empilage de cartons', 'Fûts de peinture et produits chimiques', 'Verre et produits fragiles', 'Plastiques et résines industrielles', 'Électronique et électroménager'],
-    ctaTitle: 'Besoin de sécuriser vos palettes pour l\'export ou le stockage ? Renseignez-vous sur la gamme WSV.',
-    ctaBtn: 'Demander un devis',
+    ctaTitle: 'Besoin d\'un conseil technique pour l\'export ? Demandez une évaluation de sourcing professionnelle.',
+    ctaBtn: 'Obtenir une évaluation',
   },
   es: {
     kicker: 'FLEJADO DE PALÉS',
@@ -171,8 +172,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificaciones técnicas',
     applicationsTitle: 'Aplicaciones',
     applications: ['Paletización de mercancías de exportación', 'Agrupamiento en almacén', 'Palés de alimentos y bebidas', 'Apilado de cajas', 'Barriles de pintura y productos químicos', 'Vidrio y productos frágiles', 'Plásticos y resinas industriales', 'Electrónica y electrodomésticos'],
-    ctaTitle: '¿Necesita asegurar palés para exportación o almacenamiento? Consulte la serie WSV.',
-    ctaBtn: 'Solicitar cotización',
+    ctaTitle: '¿Necesita asesoramiento técnico para exportación? Solicite una evaluación de abastecimiento.',
+    ctaBtn: 'Obtener evaluación',
   },
   pt: {
     kicker: 'EMBRULHO DE PALLET',
@@ -192,8 +193,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Especificações técnicas',
     applicationsTitle: 'Aplicações',
     applications: ['Paletização de exportação', 'Agrupamento em armazém', 'Pallets de alimentos e bebidas', 'Empilhamento de caixas', 'Tambores de tinta e produtos químicos', 'Vidro e produtos frágeis', 'Plásticos e resinas industriais', 'Eletrônicos e eletrodomésticos'],
-    ctaTitle: 'Precisa proteger pallets para exportação ou armazenamento? Consulte a série WSV.',
-    ctaBtn: 'Solicitar orçamento',
+    ctaTitle: 'Precisa de consultoria técnica para exportação? Peça uma avaliação de sourcing.',
+    ctaBtn: 'Obter avaliação',
   },
   ko: {
     kicker: '팔레트 랩핑',
@@ -213,8 +214,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '기술 사양',
     applicationsTitle: '적용 분야',
     applications: ['수출 상품 팔레타이징', '창고 번들링', '식품·음료 팔레트', '카톤·케이스 적재', '페인트·화학 드럼', '유리·파손 주의 제품', '플라스틱·공업용 수지', '전자제품·가전'],
-    ctaTitle: '수출이나 보관을 위해 팔레트를 고정해야 하나요? WSV 스트레치 래퍼 시리즈를 문의해 보세요.',
-    ctaBtn: '견적 받기',
+    ctaTitle: '수출을 위한 기술적 조언이 필요하십니까? WSV 시리즈 소싱 평가를 신청하세요.',
+    ctaBtn: '소싱 평가 받기',
   },
   ja: {
     kicker: 'パレット包装',
@@ -234,8 +235,8 @@ const content: Record<string, PageContent> = {
     specsTitle: '技術仕様',
     applicationsTitle: '適用分野',
     applications: ['輸出品パレタイジング', '倉庫バンドリング', '食品・飲料パレット', 'カートン・ケース積み', '塗料・化学品ドラム', 'ガラス・精密品', 'プラスチック・工業用樹脂', '電子機器・家電'],
-    ctaTitle: '輸出や保管のためにパレットを固定したい方はWSVシリーズについてお問い合わせください。',
-    ctaBtn: '見積もりを依頼',
+    ctaTitle: '輸出パレット固定の技術相談が必要ですか？WSVシリーズのソーシング評価をご依頼ください。',
+    ctaBtn: 'ソーシング評価を依頼',
   },
   ar: {
     kicker: 'تلفيف الطبق',
@@ -255,8 +256,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'المواصفات التقنية',
     applicationsTitle: 'التطبيقات',
     applications: ['تلفيف بضائع التصدير', 'ربط المستودع', 'طبق الأغذية والمشروبات', 'تكديس الكراتين', 'براميل الدهانات والمواد الكيميائية', 'الزجاج والبضائع الهشة', 'البلاستيك والراتنج الصناعي', 'الإلكترونيات والأجهزة'],
-    ctaTitle: 'تحتاج إلى تأمين الطبق للتصدير أو التخزين؟ استفسر عن سلسلة WSV.',
-    ctaBtn: 'طلب عرض سعر',
+    ctaTitle: 'هل تحتاج إلى نصيحة تقنية لتأمين الشحنات؟ اطلب تقييم توريد احترافي لسلسلة WSV.',
+    ctaBtn: 'طلب تقييم التوريد',
   },
   th: {
     kicker: 'พันฟิล์มพาเลท',
@@ -276,8 +277,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'ข้อมูลจำเพาะทางเทคนิค',
     applicationsTitle: 'การใช้งาน',
     applications: ['จัดพาเลทสินค้าส่งออก', 'มัดรวมในคลังสินค้า', 'พาเลทอาหารและเครื่องดื่ม', 'วางซ้อนกล่องและลัง', 'ถังสีและสารเคมี', 'แก้วและสินค้าแตกง่าย', 'พลาสติกและเรซินอุตสาหกรรม', 'อิเล็กทรอนิกส์และเครื่องใช้ไฟฟ้า'],
-    ctaTitle: 'ต้องการยึดพาเลทสำหรับส่งออกหรือจัดเก็บ? สอบถามเกี่ยวกับซีรีส์ WSV',
-    ctaBtn: 'ขอใบเสนอราคา',
+    ctaTitle: 'ต้องการคำแนะนำด้านเทคนิคสำหรับการส่งออก? ขอรับการประเมินการจัดซื้อสำหรับซีรีส์ WSV',
+    ctaBtn: 'ขอการประเมินการจัดซื้อ',
   },
   vi: {
     kicker: 'QUẤN MÀNG PALLET',
@@ -297,8 +298,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Thông số kỹ thuật',
     applicationsTitle: 'Ứng dụng',
     applications: ['Ghép pallet hàng xuất khẩu', 'Bó hàng trong kho', 'Pallet thực phẩm & đồ uống', 'Xếp chồng thùng carton', 'Thùng sơn và hóa chất', 'Thủy tinh và hàng dễ vỡ', 'Nhựa và nhựa công nghiệp', 'Điện tử và thiết bị'],
-    ctaTitle: 'Cần cố định pallet để xuất khẩu hoặc bảo quản? Hỏi về dòng máy WSV.',
-    ctaBtn: 'Nhận báo giá',
+    ctaTitle: 'Cần tư vấn kỹ thuật về đóng gói xuất khẩu? Nhận đánh giá nguồn cung cho dòng máy WSV.',
+    ctaBtn: 'Nhận đánh giá nguồn cung',
   },
   de: {
     kicker: 'PALETTENWICKLUNG',
@@ -318,8 +319,8 @@ const content: Record<string, PageContent> = {
     specsTitle: 'Technische Daten',
     applicationsTitle: 'Anwendungen',
     applications: ['Palettenwicklung für Export', 'Lager-Bündelung', 'Lebensmittel- und Getränkepaletten', 'Karton- und Kistenpalettierung', 'Farbfässer und Chemikalien', 'Glas und Zerbrechliches', 'Kunststoffe und Industrieharze', 'Elektronik und Haushaltsgeräte'],
-    ctaTitle: 'Müssen Sie Paletten für den Export oder die Lagerung sichern? Fragen Sie nach der WSV-Serie.',
-    ctaBtn: 'Angebot anfordern',
+    ctaTitle: 'Benötigen Sie technische Beratung zur Ladungssicherung? Fordern Sie eine Sourcing-Bewertung an.',
+    ctaBtn: 'Bewertung anfordern',
   },
 }
 
@@ -421,6 +422,8 @@ export default async function StretchWrappingPage({ params }: { params: Promise<
           </div>
         </Container>
       </section>
+
+      <MachineDecisionGuide lang={lang} fitScenarios={t.applications} />
 
       <section className="bg-brand-950 py-16 sm:py-20">
         <Container className="max-w-4xl text-center text-white">

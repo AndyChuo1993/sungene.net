@@ -1,0 +1,5 @@
+Category,Weight,What to look for
+Technical fit,30%,"Similar references, engineering clarity, interface understanding"
+Quality system,25%,"Checklists, incoming inspection, wiring discipline, revision control"
+Acceptance capability,25%,"FAT plan, sampling, deviation log and retest"
+Delivery & service,20%,"Document package, spares, response workflow, escalation"
