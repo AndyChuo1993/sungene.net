@@ -2,6 +2,14 @@ import '../styles/globals.css'
 import React from 'react'
 import { headers } from 'next/headers'
 import Script from 'next/script'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata = {
   title: 'SunGene | Industrial Equipment & Automation Sourcing Partner',
@@ -22,12 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLang} dir={dir} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-      </head>
-      <body className="min-h-screen font-sans">
+      <body className={`${inter.variable} min-h-screen font-sans`}>
         {children}
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>

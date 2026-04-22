@@ -147,6 +147,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
 
+  const llmDocs = [
+    item(`${baseUrl}/llms.txt`, 'monthly', 0.1),
+    item(`${baseUrl}/llms-full.txt`, 'monthly', 0.1),
+    item(`${baseUrl}/ai.txt`, 'monthly', 0.1),
+  ]
+  const llmDocsByLang = [
+    ...langs.map((lang) => item(`${baseUrl}/${lang}/llms.txt`, 'monthly', 0.1)),
+    ...langs.map((lang) => item(`${baseUrl}/${lang}/llms-full.txt`, 'monthly', 0.1)),
+  ]
+
   return [
     ...homepages,
     ...machineSitemap,
@@ -163,5 +173,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...caseStudiesDetail,
     ...routeHubSitemap,
     ...resourceArticlesSitemap,
+    ...llmDocs,
+    ...llmDocsByLang,
   ]
 }

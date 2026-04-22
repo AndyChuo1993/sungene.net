@@ -5,6 +5,9 @@ const [baseConfig, ...rest] = configs
 
 const finalConfig = [
   {
+    ignores: ['node_modules/**', '.next/**', 'reports/**', 'public/**'],
+  },
+  {
     ...baseConfig,
     rules: {
       ...baseConfig.rules,

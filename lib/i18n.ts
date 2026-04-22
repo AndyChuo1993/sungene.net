@@ -61,7 +61,7 @@ const dict: Record<string, Record<string, string>> = {
   'fr': {
     nav_home: 'Accueil', nav_machinery: 'Machines', nav_industries: 'Industries', nav_solutions: 'Solutions',
     nav_sourcing: 'Sourcing',
-    nav_resources: 'Ressources', nav_recommend: 'Recommandation', nav_about: 'À propos', nav_contact: 'Contact', nav_free_analysis: 'Recommandation gratuite',
+    nav_resources: 'Ressources', nav_recommend: 'Évaluation', nav_about: 'À propos', nav_contact: 'Contact', nav_free_analysis: 'Évaluation gratuite',
     nav_machinery_packaging: 'Machines d\'emballage', nav_machinery_food: 'Équipements agroalimentaires',
     nav_machinery_filling: 'Remplissage et scellage', nav_machinery_conveying: 'Convoyage et automatisation',
     nav_machinery_custom: 'Machines sur mesure',
@@ -80,7 +80,7 @@ const dict: Record<string, Record<string, string>> = {
   'es': {
     nav_home: 'Inicio', nav_machinery: 'Maquinaria', nav_industries: 'Industrias', nav_solutions: 'Soluciones',
     nav_sourcing: 'Sourcing',
-    nav_resources: 'Recursos', nav_recommend: 'Recomendación', nav_about: 'Nosotros', nav_contact: 'Contacto', nav_free_analysis: 'Recomendación gratuita',
+    nav_resources: 'Recursos', nav_recommend: 'Evaluación', nav_about: 'Nosotros', nav_contact: 'Contacto', nav_free_analysis: 'Evaluación gratuita',
     nav_machinery_packaging: 'Maquinaria de empaque', nav_machinery_food: 'Equipos de procesamiento de alimentos',
     nav_machinery_filling: 'Llenado y sellado', nav_machinery_conveying: 'Transporte y automatización',
     nav_machinery_custom: 'Maquinaria personalizada',
@@ -99,7 +99,7 @@ const dict: Record<string, Record<string, string>> = {
   'pt': {
     nav_home: 'Início', nav_machinery: 'Máquinas', nav_industries: 'Indústrias', nav_solutions: 'Soluções',
     nav_sourcing: 'Sourcing',
-    nav_resources: 'Recursos', nav_recommend: 'Recomendação', nav_about: 'Sobre nós', nav_contact: 'Contato', nav_free_analysis: 'Recomendação gratuita',
+    nav_resources: 'Recursos', nav_recommend: 'Avaliação', nav_about: 'Sobre nós', nav_contact: 'Contato', nav_free_analysis: 'Avaliação gratuita',
     nav_machinery_packaging: 'Máquinas de embalagem', nav_machinery_food: 'Equipamentos de processamento de alimentos',
     nav_machinery_filling: 'Envase e selagem', nav_machinery_conveying: 'Transporte e automação',
     nav_machinery_custom: 'Máquinas personalizadas',
@@ -194,7 +194,7 @@ const dict: Record<string, Record<string, string>> = {
   'vi': {
     nav_home: 'Trang chủ', nav_machinery: 'Máy móc', nav_industries: 'Ngành nghề', nav_solutions: 'Giải pháp',
     nav_sourcing: 'Sourcing',
-    nav_resources: 'Tài nguyên', nav_recommend: 'Nhận tư vấn', nav_about: 'Về chúng tôi', nav_contact: 'Liên hệ', nav_free_analysis: 'Tư vấn miễn phí',
+    nav_resources: 'Tài nguyên', nav_recommend: 'Nhận đánh giá', nav_about: 'Về chúng tôi', nav_contact: 'Liên hệ', nav_free_analysis: 'Đánh giá miễn phí',
     nav_machinery_packaging: 'Máy đóng gói', nav_machinery_food: 'Thiết bị chế biến thực phẩm',
     nav_machinery_filling: 'Máy chiết rót và hàn kín', nav_machinery_conveying: 'Băng tải và tự động hóa',
     nav_machinery_custom: 'Máy móc tùy chỉnh',
@@ -213,7 +213,7 @@ const dict: Record<string, Record<string, string>> = {
   'de': {
     nav_home: 'Startseite', nav_machinery: 'Maschinen', nav_industries: 'Branchen', nav_solutions: 'Lösungen',
     nav_sourcing: 'Sourcing',
-    nav_resources: 'Ressourcen', nav_recommend: 'Empfehlung', nav_about: 'Über uns', nav_contact: 'Kontakt', nav_free_analysis: 'Kostenlose Empfehlung',
+    nav_resources: 'Ressourcen', nav_recommend: 'Bewertung', nav_about: 'Über uns', nav_contact: 'Kontakt', nav_free_analysis: 'Kostenlose Bewertung',
     nav_machinery_packaging: 'Verpackungsmaschinen', nav_machinery_food: 'Lebensmittelverarbeitungsanlagen',
     nav_machinery_filling: 'Abfüll- und Verschließanlagen', nav_machinery_conveying: 'Fördertechnik und Automatisierung',
     nav_machinery_custom: 'Sondermaschinen',

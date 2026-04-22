@@ -113,7 +113,7 @@ const content: Record<string, PageContent> = {
   en: {
     kicker: 'LIQUID FILLING SYSTEMS',
     heroTitle: 'Liquid Filling Machines — Piston, Gravity, Overflow, and Pump Systems',
-    heroSubtitle: 'SunGene manufactures liquid filling machines for thin liquids, viscous sauces, oils, creams, and industrial fluids. The right filling method depends on your liquid\'s viscosity, fill volume, foam sensitivity, and required accuracy.',
+    heroSubtitle: 'SunGene sources and integrates liquid filling systems for thin liquids, viscous sauces, oils, creams, and industrial fluids. The right filling method depends on your liquid\'s viscosity, fill volume, foam sensitivity, and required accuracy.',
 
     whoTitle: 'Who It\'s For',
     whoItems: [
