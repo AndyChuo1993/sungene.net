@@ -54,6 +54,7 @@ function hasTrackingParams(searchParams: URLSearchParams) {
   for (const [k] of searchParams.entries()) {
     if (k.startsWith('utm_')) return true
   }
+  // Note: omit bare `source=` - internal CTAs use it (e.g. /assessment?source=sourcing).
   const keys = [
     'gclid',
     'fbclid',
@@ -74,7 +75,6 @@ function hasTrackingParams(searchParams: URLSearchParams) {
     'q',
     's',
     'ref',
-    'source',
     'replytocom',
     'amp',
   ]
