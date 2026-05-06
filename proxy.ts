@@ -128,7 +128,7 @@ function should410NoLocalePath(pathname: string) {
   )
 }
 
-export function proxy(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
@@ -299,23 +299,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}${map[restPath]}`, request.url), 308)
   }
 
-  if (
-    (restPath === '/assessment' || restPath === '/contact') &&
-    (searchParams.has('machine') || searchParams.has('product'))
-  ) {
-    const res = NextResponse.next()
-    res.headers.set('X-Robots-Tag', 'noindex, follow')
-    return res
-  }
-
-  if (
-    (restPath === '/resources' && (searchParams.has('tab') || searchParams.has('category'))) ||
-    (restPath === '/contact' && (searchParams.has('service') || searchParams.has('type')))
-  ) {
-    const res = NextResponse.next()
-    res.headers.set('X-Robots-Tag', 'noindex, follow')
-    return res
-  }
+  // Query variants (e.g. /contact?service=…) use page-level canonical URLs without
+  // search params (see generateMetadata + buildAlternates). Do not also send
+  // X-Robots-Tag: noindex — that duplicates the signal and surfaces as separate
+  // “Excluded by noindex” rows in Search Console while canonical already excludes duplicates.
 
   const legacy410Prefixes = [
     '/wp-admin',
