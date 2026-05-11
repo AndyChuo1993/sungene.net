@@ -357,12 +357,13 @@ export default function proxy(request: NextRequest) {
 
   if (pathnameIsMissingLocale) {
     if (pathname === '/') {
-      return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url), 308)
+      // Use 307 (temporary) so browsers don't cache the locale choice permanently.
+      return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url), 307)
     }
     if (isAllowedNoLocalePath(pathname)) {
       return NextResponse.redirect(
         new URL(`/${defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
-        308
+        307
       )
     }
     return plain(404, 'Not Found')
