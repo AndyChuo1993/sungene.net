@@ -1,7 +1,23 @@
 import { ImageResponse } from 'next/og'
 import { normalizeLang } from '@/lib/seo'
+import fs from 'fs'
+import path from 'path'
 
-export const runtime = 'edge'
+// Node.js runtime: allows fs access to load the logo from disk, avoiding
+// self-referential HTTP fetches that fail behind a reverse proxy (0.0.0.0 issue).
+export const runtime = 'nodejs'
+
+let logoDataUrl: string | null = null
+function getLogoDataUrl(): string | null {
+  if (logoDataUrl) return logoDataUrl
+  try {
+    const buf = fs.readFileSync(path.join(process.cwd(), 'public', 'logo', 'sungene.png'))
+    logoDataUrl = `data:image/png;base64,${buf.toString('base64')}`
+    return logoDataUrl
+  } catch {
+    return null
+  }
+}
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -10,11 +26,7 @@ export async function GET(request: Request) {
   const desc = (searchParams.get('desc') || 'Industrial equipment and automation sourcing partner supporting packaging systems, machinery, components, and line integration across Taiwan and China.').trim().slice(0, 160)
   const path = (searchParams.get('path') || '').trim().slice(0, 80)
 
-  // Use forwarded host so the logo resolves correctly behind a reverse proxy.
-  // Falls back to sungene.net so self-referential fetches never target 0.0.0.0.
-  const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'sungene.net'
-  const proto = request.headers.get('x-forwarded-proto') || 'https'
-  const logo = `${proto}://${host}/logo/sungene.png`
+  const logo = getLogoDataUrl()
 
   const langLabel: Record<string, string> = {
     en: 'Taiwan Sourcing Partner',
@@ -47,7 +59,7 @@ export async function GET(request: Request) {
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <img src={logo} alt="" width={56} height={56} style={{ borderRadius: 12 }} />
+          {logo && <img src={logo} alt="" width={56} height={56} style={{ borderRadius: 12 }} />}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: 0.2 }}>SunGene</div>
             <div style={{ fontSize: 16, opacity: 0.85 }}>{langLabel[lang] || langLabel.en}</div>
