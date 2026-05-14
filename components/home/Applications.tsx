@@ -186,13 +186,27 @@ export default function Applications({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {t.categories.map((cat: any, i: number) => (
-            <div key={i} className="group rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:border-accent-200 hover:bg-accent-50/50 hover:shadow-elev-1">
-              <span className="text-2xl">{cat.icon}</span>
-              <h3 className="mt-3 text-lg font-bold text-gray-950">{cat.name}</h3>
-              <p className="mt-2 text-sm text-gray-500">{cat.examples}</p>
-            </div>
-          ))}
+          {t.categories.map((cat: any, i: number) => {
+            // First four categories map onto the four deep sourcing landing pages.
+            // Index order: 0 flexible packaging, 1 rigid packaging, 2 kitchen & dining,
+            // 3 home decor & organisation, 4 garden & outdoor, 5 beauty containers.
+            const slug = i <= 1 ? 'packaging' : i <= 3 ? 'home' : i === 4 ? 'garden' : 'beauty'
+            return (
+              <Link
+                key={i}
+                href={`/${lang}/sourcing/${slug}`}
+                className="group rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:border-accent-300 hover:bg-accent-50/50 hover:shadow-elev-1"
+              >
+                <span className="text-2xl">{cat.icon}</span>
+                <h3 className="mt-3 text-lg font-bold text-gray-950 group-hover:text-accent-700">{cat.name}</h3>
+                <p className="mt-2 text-sm text-gray-500">{cat.examples}</p>
+                <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-accent-600 opacity-0 transition group-hover:opacity-100">
+                  {({ en: 'See sourcing details', zh: '查看採購細節', cn: '查看采购细节', fr: 'Voir les détails', es: 'Ver detalles' } as Record<string, string>)[lang] || 'See sourcing details'}
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </div>
+              </Link>
+            )
+          })}
         </div>
 
         <div className="mt-12 text-center">

@@ -77,8 +77,12 @@ SunGene operates as a trading company, not a commission-based sourcing agent. Th
 - Homepage: ${SITE_URL}/en
 - About: ${SITE_URL}/en/about
 - How we work (sourcing process): ${SITE_URL}/en/sourcing
+- Packaging category — full product groups, commercial terms, QC, FAQ: ${SITE_URL}/en/sourcing/packaging
+- Home & kitchen goods category: ${SITE_URL}/en/sourcing/home
+- Garden & outdoor category: ${SITE_URL}/en/sourcing/garden
+- Beauty & personal care packaging category: ${SITE_URL}/en/sourcing/beauty
 - Contact (start a sourcing conversation): ${SITE_URL}/en/contact
-- Resources: ${SITE_URL}/en/resources
+- Resources (background sourcing guides): ${SITE_URL}/en/resources
 - Alibaba.com storefront (third-party verification): https://momas.en.alibaba.com/
 
 ## Languages Served on Website

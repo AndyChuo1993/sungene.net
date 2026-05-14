@@ -50,15 +50,36 @@ const nextConfig = {
       { source: '/:lang/resources/topic/snack-processing-line', destination: '/:lang/resources/route/food-processing-line', permanent: true },
       { source: '/:lang/resources/topic/conveyor-system', destination: '/:lang/resources/route/conveying-automation', permanent: true },
       { source: '/:lang/recommend', destination: '/:lang/assessment', permanent: true },
-      // ── Repositioning redirects (2026-05-14): machinery/solutions/industries
-      // off-positioning hubs → /sourcing. Markets stays. Individual machine
-      // pages keep their slugs (still referenced by some sitemap entries).
+      // ── Repositioning redirects: machinery/solutions/industries/markets hubs
+      // and machinery-specific landing pages now 308 → /sourcing or /contact.
+      // These were holdovers from the previous machinery sales positioning.
       { source: '/:lang(en|zh|cn|fr|es)/solutions', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/solutions/:path*', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/machinery', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/machinery/:path*', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/industries', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/industries/:path*', destination: '/:lang/sourcing', permanent: true },
+      // /machines/* are pure machinery sales pages — redirect to category-specific sourcing anchor on /sourcing.
+      { source: '/:lang(en|zh|cn|fr|es)/machines', destination: '/:lang/sourcing#packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/pouch-packing-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/powder-filling-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/liquid-filling-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/snack-processing-line', destination: '/:lang/sourcing/home', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/conveyor-system', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/vacuum-packing-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/shrinking-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/pillow-type-packing-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/stretch-wrapping-machine', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/hand-sealer-impulse-type', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/foot-sealer-impulse-type', destination: '/:lang/sourcing/packaging', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machines/extra-long-hand-sealer-impulse-type', destination: '/:lang/sourcing/packaging', permanent: true },
+      // /quote/* — quote forms for individual machines → /contact (general inquiry form)
+      { source: '/:lang(en|zh|cn|fr|es)/quote', destination: '/:lang/contact', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/quote/:path*', destination: '/:lang/contact', permanent: true },
+      // /markets and /markets/* were country pages framed around machinery export.
+      // Until refreshed for the new positioning, route everything to /sourcing.
+      { source: '/:lang(en|zh|cn|fr|es)/markets', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/markets/:path*', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies', destination: '/case-studies', permanent: true },
       { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies/:slug', destination: '/case-studies/:slug', permanent: true },
       // Legacy machine SEO pages are handled by proxy.ts (308 redirects with lang detection)

@@ -31,31 +31,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Priority 1.0 - Homepage
   const homepages = langs.map(lang => item(`${baseUrl}/${lang}`, 'weekly', 1.0))
 
-  // Priority 0.95 - Configuration landing pages (highest conversion value)
-  const machinePages = [
-    '/machines/pouch-packing-machine',
-    '/machines/powder-filling-machine',
-    '/machines/liquid-filling-machine',
-    '/machines/snack-processing-line',
-    '/machines/conveyor-system',
-  ]
-  const machineSitemap = machinePages.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.95))
-  )
-
-  // Priority 0.8 - Wuu Sheng supplementary product pages
-  const wuushengPages = [
-    '/machines/vacuum-packing-machine',
-    '/machines/shrinking-machine',
-    '/machines/pillow-type-packing-machine',
-    '/machines/stretch-wrapping-machine',
-    '/machines/hand-sealer-impulse-type',
-    '/machines/foot-sealer-impulse-type',
-    '/machines/extra-long-hand-sealer-impulse-type',
-  ]
-  const wuushengSitemap = wuushengPages.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'monthly', 0.8))
-  )
+  // /machines/* pages now 308-redirect to /sourcing/<category> — removed from sitemap.
+  const machineSitemap: ReturnType<typeof item>[] = []
+  const wuushengSitemap: ReturnType<typeof item>[] = []
 
   // Priority 0.9 - Conversion pages
   const conversionRoutes = [
@@ -66,17 +44,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
   )
 
-  // Priority 0.9 - Quote landing pages
-  const quoteRoutes = [
-    '/quote',
-    '/quote/pouch-packing-machine',
-    '/quote/powder-filling-machine',
-    '/quote/liquid-filling-machine',
-    '/quote/snack-processing-line',
-    '/quote/conveyor-system',
-  ]
-  const quoteSitemap = quoteRoutes.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
+  // /quote/* pages now 308-redirect to /contact — removed from sitemap.
+  const quoteSitemap: ReturnType<typeof item>[] = []
+
+  // NEW: /sourcing/<category> deep landing pages (high SEO + conversion value).
+  const sourcingCategories = ['packaging', 'home', 'garden', 'beauty']
+  const sourcingCategorySitemap = sourcingCategories.flatMap((cat) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/sourcing/${cat}`, 'weekly', 0.95))
   )
 
   // Repositioning (2026-05-14): /machinery/* now 308-redirect to /sourcing.
@@ -107,13 +81,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, route === '/about' ? 'yearly' : 'monthly', 0.75))
   )
 
-  // Priority 0.75 - Markets index hub
-  const marketsHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/markets`, 'monthly', 0.75))
-
-  // Priority 0.7 - Individual market landing pages
-  const marketDetailSitemap = MARKET_SLUGS.flatMap((slug) =>
-    langs.map((lang) => item(`${baseUrl}/${lang}/markets/${slug}`, 'monthly', 0.7))
-  )
+  // /markets and /markets/<country> pages now 308 → /sourcing
+  // (country pages were framed around machinery export — to be reauthored later).
+  const marketsHubSitemap: ReturnType<typeof item>[] = []
+  const marketDetailSitemap: ReturnType<typeof item>[] = []
 
   // /industries pages now 308 → /sourcing, so removed from sitemap.
   const industryDetailSitemap: ReturnType<typeof item>[] = []
@@ -147,16 +118,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...homepages,
-    ...machineSitemap,
-    ...wuushengSitemap,
+    ...sourcingCategorySitemap,
     ...conversionSitemap,
-    ...quoteSitemap,
-    ...machinerySitemap,
     ...resourcesHubSitemap,
     ...supportSitemap,
-    ...marketsHubSitemap,
-    ...marketDetailSitemap,
-    ...industryDetailSitemap,
     ...caseStudiesHub,
     ...caseStudiesDetail,
     ...routeHubSitemap,
