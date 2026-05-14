@@ -24,13 +24,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const l = normalizeLang(lang)
   const i18n = getResourceArticleI18n(slug, l) ?? getResourceArticleI18n(slug, 'en')
   if (!i18n) {
-    return buildPageMetadata({
-      lang: l,
-      title: 'Resources',
-      description: 'Industrial sourcing guides and practical evaluation notes.',
-      pathname: '/resources',
-      type: 'website',
-    })
+    // No article exists for this slug — the page below will call notFound().
+    // Emit noindex metadata so the 404 response can't leak the resources-index
+    // canonical to crawlers.
+    return {
+      title: 'Page not found',
+      robots: { index: false, follow: false },
+    }
   }
 
   const metaTitle = i18n.metaTitle.replace(/\s*\|\s*SunGene\s*$/i, '').trim()

@@ -273,7 +273,8 @@ export default function proxy(request: NextRequest) {
 
   if (restPath === '/resources/what-to-prepare-before-machine-quote') {
     const lang = currentLang || defaultLocale
-    return NextResponse.redirect(new URL(`/${lang}/resources/what-to-prepare-before-sourcing-assessment`, request.url), 308)
+    // Target slug was never built — go straight to the resources index.
+    return NextResponse.redirect(new URL(`/${lang}/resources`, request.url), 308)
   }
 
   if (searchParams.has('post_type') || searchParams.has('p')) {

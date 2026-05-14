@@ -95,8 +95,16 @@ export async function GET(request: Request) {
     </div>
   )
 
+  // OG images are referenced from <meta property="og:image"> tags only — they
+  // must never be indexed as standalone pages. Also block crawlers from
+  // discovering them so historical 5xx reports in GSC clear naturally.
+  const responseHeaders = {
+    'X-Robots-Tag': 'noindex, nofollow',
+    'Cache-Control': 'public, max-age=86400, immutable',
+  }
+
   try {
-    return new ImageResponse(content, { width: 1200, height: 630 })
+    return new ImageResponse(content, { width: 1200, height: 630, headers: responseHeaders })
   } catch {
     // Font rendering failures (e.g. unsupported Arabic glyph tables) fall back to a
     // minimal branded image so the endpoint always returns 200 instead of 5xx.
@@ -119,7 +127,7 @@ export async function GET(request: Request) {
           <div style={{ fontSize: 28, opacity: 0.75, marginTop: 16 }}>sungene.net</div>
         </div>
       ),
-      { width: 1200, height: 630 }
+      { width: 1200, height: 630, headers: responseHeaders }
     )
   }
 }

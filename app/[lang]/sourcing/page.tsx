@@ -416,9 +416,13 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
     'handover-document-package-template',
   ]
 
-  const guides = guideSlugs.map((slug) => {
+  // Filter to slugs that actually have a resource article. Prevents the page
+  // from linking to /resources/{slug} URLs that 404 (was the #1 source of
+  // "Not found (404)" reports in Google Search Console).
+  const guides = guideSlugs.flatMap((slug) => {
     const i18n = getResourceArticleI18n(slug, lang) || getResourceArticleI18n(slug, 'en')
-    return { slug, title: i18n?.title ?? slug, desc: i18n?.description ?? '' }
+    if (!i18n) return []
+    return [{ slug, title: i18n.title, desc: i18n.description }]
   })
 
   const startTitle = sectionTitles[lang]?.start || sectionTitles.en.start
@@ -696,18 +700,20 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
             </ButtonLink>
           </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {guides.map((g) => (
-              <a
-                key={g.slug}
-                href={`/${lang}/resources/${g.slug}`}
-                className="rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:border-accent-300 hover:bg-accent-50"
-              >
-                <div className="text-sm font-bold text-gray-950">{g.title}</div>
-                <div className="mt-2 text-sm text-gray-600">{g.desc}</div>
-              </a>
-            ))}
-          </div>
+          {guides.length > 0 && (
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {guides.map((g) => (
+                <a
+                  key={g.slug}
+                  href={`/${lang}/resources/${g.slug}`}
+                  className="rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:border-accent-300 hover:bg-accent-50"
+                >
+                  <div className="text-sm font-bold text-gray-950">{g.title}</div>
+                  <div className="mt-2 text-sm text-gray-600">{g.desc}</div>
+                </a>
+              ))}
+            </div>
+          )}
         </Container>
       </section>
 

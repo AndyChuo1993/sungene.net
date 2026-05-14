@@ -23,7 +23,27 @@ const nextConfig = {
       { source: '/:lang/resources/flour-packaging', destination: '/:lang/resources/flour-packaging-machine-guide', permanent: true },
       { source: '/:lang/resources/sauce-filling', destination: '/:lang/resources/sauce-filling-machine-selection', permanent: true },
       { source: '/:lang/resources/detergent-powder-packaging', destination: '/:lang/resources/detergent-powder-packaging-machine', permanent: true },
-      { source: '/:lang/resources/what-to-include-in-quote-request', destination: '/:lang/resources/what-to-prepare-before-sourcing-assessment', permanent: true },
+      // Old "what-to-include-in-quote-request" and its successor slug were
+      // never built as real articles → point both at the resources index.
+      { source: '/:lang/resources/what-to-include-in-quote-request', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/resources/what-to-prepare-before-sourcing-assessment', destination: '/:lang/resources', permanent: true },
+      // Phantom slugs referenced by old sitemap/articleData but never built.
+      // Redirect to closest real article (or resources index) so GSC drops the 404s.
+      { source: '/:lang/resources/protein-powder-filling-machine', destination: '/:lang/resources/spice-powder-packaging-machine', permanent: true },
+      { source: '/:lang/resources/edible-oil-filling-machine', destination: '/:lang/resources/sauce-filling-machine-selection', permanent: true },
+      { source: '/:lang/resources/ce-guide-for-machinery-buyers', destination: '/:lang/resources/fat-sat-acceptance-criteria-packaging-machinery', permanent: true },
+      { source: '/:lang/resources/third-party-inspection-vs-fat', destination: '/:lang/resources/fat-sat-acceptance-criteria-packaging-machinery', permanent: true },
+      { source: '/:lang/resources/fat-acceptance-checklist-template', destination: '/:lang/resources/fat-sat-acceptance-criteria-packaging-machinery', permanent: true },
+      { source: '/:lang/resources/voltage-customization-for-export', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/resources/japan-market-guide', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/resources/quote-comparison-sheet-template', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang/resources/taiwan-china-sourcing-partner-model', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/supplier-qualification-checklist', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/how-to-compare-quotes-apples-to-apples', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/incoterms-for-machinery-and-automation', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/payment-terms-risk-control', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/rfq-template-industrial-equipment', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang/resources/handover-document-package-template', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang/resources/topic/pouch-packing-machine', destination: '/:lang/resources/route/pouch-packaging', permanent: true },
       { source: '/:lang/resources/topic/powder-filling-machine', destination: '/:lang/resources/route/powder-dosing', permanent: true },
       { source: '/:lang/resources/topic/liquid-filling-machine', destination: '/:lang/resources/route/liquid-filling', permanent: true },

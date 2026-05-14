@@ -40,7 +40,7 @@ const AI_USER_AGENTS = [
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const commonAllow = ['/', '/sitemap.xml', '/sitemap-images.xml', '/llms.txt', '/llms-full.txt', '/ai.txt']
-  const commonDisallow = ['/api/', '/_next/', '/management', '/*/management']
+  const commonDisallow = ['/api/', '/_next/', '/management', '/*/management', '/og-image']
 
   const aiRules = AI_USER_AGENTS.map((ua) => ({
     userAgent: ua,
