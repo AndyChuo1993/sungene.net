@@ -8,6 +8,8 @@ export const LANG_META: Record<Lang, { htmlLang: string; hrefLang: string; ogLoc
   cn: { htmlLang: 'zh-Hans', hrefLang: 'zh-CN', ogLocale: 'zh_CN', dir: 'ltr' },
   fr: { htmlLang: 'fr', hrefLang: 'fr', ogLocale: 'fr_FR', dir: 'ltr' },
   es: { htmlLang: 'es', hrefLang: 'es', ogLocale: 'es_ES', dir: 'ltr' },
+  // Dropped locales — kept for type compatibility only. ALL_LANGS no longer
+  // iterates these, and proxy.ts 308-redirects their URLs to /en.
   pt: { htmlLang: 'pt', hrefLang: 'pt', ogLocale: 'pt_PT', dir: 'ltr' },
   ko: { htmlLang: 'ko', hrefLang: 'ko', ogLocale: 'ko_KR', dir: 'ltr' },
   ja: { htmlLang: 'ja', hrefLang: 'ja', ogLocale: 'ja_JP', dir: 'ltr' },
@@ -18,18 +20,18 @@ export const LANG_META: Record<Lang, { htmlLang: string; hrefLang: string; ogLoc
 }
 
 export const BREADCRUMB_LABELS: Record<Lang, { home: string; machinery: string }> = {
-  en: { home: 'Home', machinery: 'Sourcing Scope' },
-  zh: { home: '首頁', machinery: '採購範圍' },
-  cn: { home: '首页', machinery: '采购范围' },
-  fr: { home: 'Accueil', machinery: 'Périmètre sourcing' },
-  es: { home: 'Inicio', machinery: 'Alcance de abastecimiento' },
-  pt: { home: 'Início', machinery: 'Escopo de sourcing' },
-  ko: { home: '홈', machinery: '소싱 범위' },
-  ja: { home: 'ホーム', machinery: '調達範囲' },
-  ar: { home: 'الرئيسية', machinery: 'نطاق التوريد' },
-  th: { home: 'หน้าแรก', machinery: 'ขอบเขตการจัดหา' },
-  vi: { home: 'Trang chủ', machinery: 'Phạm vi sourcing' },
-  de: { home: 'Startseite', machinery: 'Sourcing-Bereich' },
+  en: { home: 'Home', machinery: 'What we source' },
+  zh: { home: '首頁', machinery: '採購品類' },
+  cn: { home: '首页', machinery: '采购品类' },
+  fr: { home: 'Accueil', machinery: 'Catégories' },
+  es: { home: 'Inicio', machinery: 'Categorías' },
+  pt: { home: 'Home', machinery: 'What we source' },
+  ko: { home: 'Home', machinery: 'What we source' },
+  ja: { home: 'Home', machinery: 'What we source' },
+  ar: { home: 'Home', machinery: 'What we source' },
+  th: { home: 'Home', machinery: 'What we source' },
+  vi: { home: 'Home', machinery: 'What we source' },
+  de: { home: 'Home', machinery: 'What we source' },
 }
 
 export function normalizeLang(raw: string | undefined | null): Lang {

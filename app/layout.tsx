@@ -12,9 +12,9 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'SunGene | Industrial Equipment & Automation Sourcing Partner',
-  description: 'SunGene supports sourcing for packaging systems, industrial equipment, automation components, and selected technical projects across Taiwan and China. Built for fit, compatibility, and long-term reliability.',
-  keywords: ['industrial equipment sourcing', 'automation components sourcing', 'packaging systems supplier', 'industrial sourcing partner', 'technical sourcing China'],
+  title: 'SunGene | Taiwan + China sourcing partner for packaging, home & garden brands',
+  description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct — on-site QC, no factory kickbacks, transparent quotes. Three years on Alibaba.com. MOQ USD 1,000.',
+  keywords: ['Taiwan sourcing partner', 'China sourcing agent', 'packaging sourcing', 'home goods sourcing', 'garden products sourcing', 'Alibaba supplier', 'factory inspection'],
 }
 
 export default async function RootLayout({
@@ -24,9 +24,9 @@ export default async function RootLayout({
 }) {
   const h = await headers()
   const lang = h.get('x-lang')
-  const langMap: Record<string, string> = { en: 'en', zh: 'zh-Hant', cn: 'zh-Hans', fr: 'fr', es: 'es', pt: 'pt', ko: 'ko', ja: 'ja', ar: 'ar', th: 'th', vi: 'vi', de: 'de' }
+  const langMap: Record<string, string> = { en: 'en', zh: 'zh-Hant', cn: 'zh-Hans', fr: 'fr', es: 'es' }
   const htmlLang = langMap[lang || ''] || 'en'
-  const dir = lang === 'ar' ? 'rtl' : 'ltr'
+  const dir = 'ltr'
 
   return (
     <html lang={htmlLang} dir={dir} suppressHydrationWarning>

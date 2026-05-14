@@ -79,18 +79,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.9))
   )
 
-  // Priority 0.85 - Machinery categories
-  const machineryRoutes = [
-    '/machinery',
-    '/machinery/packaging',
-    '/machinery/food-processing',
-    '/machinery/filling-sealing',
-    '/machinery/conveying-automation',
-    '/machinery/custom',
-  ]
-  const machinerySitemap = machineryRoutes.flatMap(route =>
-    langs.map(lang => item(`${baseUrl}/${lang}${route}`, 'weekly', 0.85))
-  )
+  // Repositioning (2026-05-14): /machinery/* now 308-redirect to /sourcing.
+  // Don't list them in sitemap or GSC flags them as "URLs in sitemap that redirect".
+  const machinerySitemap: ReturnType<typeof item>[] = []
 
   // Priority 0.8 - Resources hub + configuration topic hubs
   const resourcesHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/resources`, 'weekly', 0.8))
@@ -106,12 +97,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/route/${s}`, 'weekly', 0.8))
   )
 
-  // Priority 0.75 - Supporting pages
+  // Priority 0.75 - Supporting pages (removed industries + solutions — they redirect to /sourcing now)
   const supportRoutes = [
-    '/industries',
-    '/solutions',
     '/sourcing',
     '/about',
+    '/contact',
   ]
   const supportSitemap = supportRoutes.flatMap(route =>
     langs.map(lang => item(`${baseUrl}/${lang}${route}`, route === '/about' ? 'yearly' : 'monthly', 0.75))
@@ -120,15 +110,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Priority 0.75 - Markets index hub
   const marketsHubSitemap = langs.map(lang => item(`${baseUrl}/${lang}/markets`, 'monthly', 0.75))
 
-  // Priority 0.7 - Individual market landing pages (18 countries × 12 langs = 216 URLs)
+  // Priority 0.7 - Individual market landing pages
   const marketDetailSitemap = MARKET_SLUGS.flatMap((slug) =>
     langs.map((lang) => item(`${baseUrl}/${lang}/markets/${slug}`, 'monthly', 0.7))
   )
 
-  // Priority 0.7 - Industry sub-pages (15 industries × 12 langs = 180 URLs)
-  const industryDetailSitemap = INDUSTRY_SLUGS.flatMap((slug) =>
-    langs.map((lang) => item(`${baseUrl}/${lang}/industries/${slug}`, 'monthly', 0.7))
-  )
+  // /industries pages now 308 → /sourcing, so removed from sitemap.
+  const industryDetailSitemap: ReturnType<typeof item>[] = []
 
   // Priority 0.75 - Case studies hub + per-slug pages (published only)
   const caseStudies = await getAllPublishedCaseStudies()

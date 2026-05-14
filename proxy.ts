@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const locales = ['zh', 'en', 'cn', 'fr', 'es', 'pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
+const locales = ['en', 'zh', 'cn', 'fr', 'es']
+// Locales we used to serve (2026-04) but are dropping in favour of redirecting
+// to /en. Kept here so the middleware can issue clean 308s instead of 404s.
+const droppedLocales = ['pt', 'ko', 'ja', 'ar', 'th', 'vi', 'de']
 
 function getDefaultLocaleByHost(host: string | null) {
   return 'en'
@@ -208,14 +211,22 @@ export default function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/en', request.url), 308)
   }
 
-  const matchLang = pathname.match(/^\/(zh|cn|en|fr|es|pt|ko|ja|ar|th|vi|de)(?:\/|$)/)
+  // Dropped locales (pt/ko/ja/ar/th/vi/de) → 308 redirect to /en equivalent.
+  // We do this early so we never run the per-page handlers for those URLs.
+  const droppedLangMatch = pathname.match(/^\/(pt|ko|ja|ar|th|vi|de)(\/.*)?$/)
+  if (droppedLangMatch) {
+    const rest = droppedLangMatch[2] || ''
+    return NextResponse.redirect(new URL(`/en${rest}`, request.url), 308)
+  }
+
+  const matchLang = pathname.match(/^\/(en|zh|cn|fr|es)(?:\/|$)/)
   const currentLang = matchLang ? matchLang[1] : defaultLocale
   const restPath = matchLang ? pathname.replace(new RegExp(`^/${currentLang}(?=/|$)`), '') || '/' : pathname
   const shouldNoindexByParams = hasTrackingParams(searchParams)
 
   if (!matchLang) {
     const first = pathname.match(/^\/([^/]+)(?:\/|$)/)?.[1]
-    if (first && /^[a-z]{2}$/i.test(first) && !locales.includes(first.toLowerCase())) {
+    if (first && /^[a-z]{2}$/i.test(first) && !locales.includes(first.toLowerCase()) && !droppedLocales.includes(first.toLowerCase())) {
       return plain(404, 'Not Found')
     }
     if (pathname !== '/' && !isAllowedNoLocalePath(pathname)) {

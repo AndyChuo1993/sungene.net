@@ -50,6 +50,15 @@ const nextConfig = {
       { source: '/:lang/resources/topic/snack-processing-line', destination: '/:lang/resources/route/food-processing-line', permanent: true },
       { source: '/:lang/resources/topic/conveyor-system', destination: '/:lang/resources/route/conveying-automation', permanent: true },
       { source: '/:lang/recommend', destination: '/:lang/assessment', permanent: true },
+      // ── Repositioning redirects (2026-05-14): machinery/solutions/industries
+      // off-positioning hubs → /sourcing. Markets stays. Individual machine
+      // pages keep their slugs (still referenced by some sitemap entries).
+      { source: '/:lang(en|zh|cn|fr|es)/solutions', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/solutions/:path*', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machinery', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/machinery/:path*', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/industries', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/industries/:path*', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies', destination: '/case-studies', permanent: true },
       { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies/:slug', destination: '/case-studies/:slug', permanent: true },
       // Legacy machine SEO pages are handled by proxy.ts (308 redirects with lang detection)

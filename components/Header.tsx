@@ -9,28 +9,28 @@ import { ButtonLink } from '@/components/ui/Button'
 
 export default function Header({ lang }: { lang: Lang }) {
   const sourcingScopeLabel = ({
-    en: 'Sourcing Scope',
-    zh: '採購範圍',
-    cn: '采购范围',
-    fr: 'Périmètre sourcing',
-    es: 'Alcance de abastecimiento',
-    pt: 'Escopo de sourcing',
-    ko: '소싱 범위',
-    ja: '調達範囲',
-    ar: 'نطاق التوريد',
-    th: 'ขอบเขตการจัดหา',
-    vi: 'Phạm vi sourcing',
-    de: 'Sourcing-Bereich',
-  } as Record<string, string>)[lang] || 'Sourcing Scope'
+    en: 'What we source',
+    zh: '採購品類',
+    cn: '采购品类',
+    fr: 'Catégories',
+    es: 'Categorías',
+  } as Record<string, string>)[lang] || 'What we source'
 
+  const howWeWorkLabel = ({
+    en: 'How we work',
+    zh: '合作方式',
+    cn: '合作方式',
+    fr: 'Notre méthode',
+    es: 'Cómo trabajamos',
+  } as Record<string, string>)[lang] || 'How we work'
+
+  // Trimmed nav: dropped Sourcing Scope (machinery catalog), Solutions, Industries,
+  // and Assessment from main nav (Assessment is still the orange CTA button).
+  // /sourcing covers both "how we work" and "what we source" under the new positioning.
   const links = [
     { href: `/${lang}`, label: t(lang, 'nav_home') },
-    { href: `/${lang}/machinery`, label: sourcingScopeLabel },
-    { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
-    { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
-    { href: `/${lang}/sourcing`, label: t(lang, 'nav_sourcing') },
+    { href: `/${lang}/sourcing`, label: howWeWorkLabel },
     { href: `/${lang}/resources`, label: t(lang, 'nav_resources') },
-    { href: `/${lang}/assessment`, label: t(lang, 'nav_recommend') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
@@ -76,7 +76,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Image src="/logo/sungene.png" alt="SunGene" width={36} height={36} className="h-9 w-auto" priority />
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tight text-brand-950 leading-tight">SunGene</span>
-              <span className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 sm:block">Sourcing Partner</span>
+              <span className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 xl:block">Taichung · Xiamen</span>
             </div>
           </Link>
 

@@ -9,13 +9,6 @@ const languages = [
   { code: 'cn', label: '简体中文', flag: '🇨🇳' },
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
-  { code: 'pt', label: 'Português', flag: '🇧🇷' },
-  { code: 'ko', label: '한국어', flag: '🇰🇷' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
-  { code: 'ar', label: 'العربية', flag: '🇸🇦' },
-  { code: 'th', label: 'ไทย', flag: '🇹🇭' },
-  { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
 ] as const
 
 export default function LanguageSwitcher({ lang }: { lang: Lang }) {

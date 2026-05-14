@@ -5,23 +5,22 @@ import { SITE_URL } from '@/lib/siteConfig'
 export const BRAND = {
   legalName: 'SunGene Co., LTD.',
   alternateName: '上瑾錸有限公司',
-  description: 'Industrial equipment and automation sourcing partner supporting packaging systems, supplier evaluation, configuration planning, components, and selected technical projects across Taiwan and China.',
+  description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging products, home goods, garden tools and accessories. On-site QC by our own team. Verified Alibaba.com supplier since 2023.',
   telephoneTW: '+886-4-37032705',
   telephoneCN: '+86-18144132078',
   email: 'contact@sungene.net',
-  foundingDate: '2010',
+  foundingDate: '2023',
   sameAs: [
     'https://momas.en.alibaba.com',
     'https://www.linkedin.com/company/sungene-co-ltd',
-    'https://sungene.en.alibaba.com',
   ],
   knowsAbout: [
-    'Packaging Systems Sourcing', 'Food Processing Equipment Sourcing', 'Filling Systems',
-    'Sealing Systems', 'Conveyor Systems', 'Industrial Automation',
-    'VFFS', 'HFFS', 'Powder Packaging', 'Liquid Filling',
-    'Snack Processing Lines', 'CE Documentation Support', 'Spec Customization',
-    'Industrial Equipment Sourcing', 'Automation Components Sourcing',
-    'Supplier Vetting', 'FAT Planning', 'Acceptance Criteria',
+    'Packaging Sourcing', 'Home Goods Sourcing', 'Garden Products Sourcing',
+    'Flexible Packaging', 'Rigid Packaging', 'Kitchen & Dining',
+    'Home Decor & Organisation', 'Garden Tools & Outdoor',
+    'Beauty & Personal Care Containers',
+    'Taiwan Sourcing', 'China Sourcing', 'Triangle Trade',
+    'Factory Inspection', 'On-site QC', 'Direct Buy-and-Resell',
   ],
 } as const
 
