@@ -16,57 +16,57 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
       kicker: 'HOW WE WORK',
-      title: 'From Inquiry to Delivery in 5 Steps',
+      title: 'From your first message to your container, in 5 steps',
       items: [
-        { step: '01', title: 'Share Your Requirements', desc: 'Tell us your product type, target output, packaging format, and destination country. We start from your application, not a catalog.' },
-        { step: '02', title: 'Engineering Consultation', desc: 'Our technical team analyzes your needs and recommends the optimal machine configuration, materials, and automation level.' },
-        { step: '03', title: 'Assessment & Proposal', desc: 'Receive a detailed assessment and proposal with specifications, layout drawings, pricing, delivery timeline, and warranty terms.' },
-        { step: '04', title: 'Supplier Coordination & QC', desc: 'We coordinate supplier scheduling, inspections, and quality checks. We share verification videos and photos before shipment.' },
-        { step: '05', title: 'Export & Installation', desc: 'Professional crating, international shipping, customs documentation, and remote video-guided installation support.' }
+        { step: '01', title: 'Send us your brief', desc: 'A reference photo or competitor link is enough to start. Tell us target quantity, the price you have in mind, and your destination market. No NDA at this stage — just a sourcing conversation.' },
+        { step: '02', title: 'We shortlist 2–3 factories', desc: 'From our own network plus targeted search. We rule out factories that quote too cheaply (almost always a quality red flag), refuse to share certificates, or have a track record we cannot verify.' },
+        { step: '03', title: 'You get one transparent quote', desc: 'Our resale price, the underlying FOB or EXW (on request), the lead time, and the payment terms. No surprise commission added at the end.' },
+        { step: '04', title: 'We inspect before it ships', desc: 'Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. You get photos and video of the actual goods — not stock images.' },
+        { step: '05', title: 'Goods ship under our name', desc: 'Because we are the seller of record, customs documents, B/L, and any after-sales claim sit cleanly between you and us. No three-way email chains with a factory that doesn’t reply.' }
       ]
     },
     cn: {
       kicker: '合作流程',
-      title: '从需求到交付只需5步',
+      title: '从您第一封讯息到您的货柜，5 步搞定',
       items: [
-        { step: '01', title: '提交需求', desc: '告诉我们您的产品类型、目标产能、包装形式和目的国。我们从您的应用出发，而非产品目录。' },
-        { step: '02', title: '工程咨询', desc: '我们的技术团队分析您的需求，推荐最优的机器配置、材料和自动化水平。' },
-        { step: '03', title: '评估与方案', desc: '获取详细方案书，包含设备规格、布局图、价格、交期和保修条款。' },
-        { step: '04', title: '供应商协作与质检', desc: '我们协调供应商排程、检验与品质检验。发货前提供验证视频和照片。' },
-        { step: '05', title: '出口与安装', desc: '专业木箱包装、国际运输、报关文件及远程视频安装指导。' }
+        { step: '01', title: '给我们一份简单的 brief', desc: '一张参考图、一个竞品连结就够。再告诉我们目标数量、心目中的价格、销往哪个市场。这阶段不签 NDA——就是单纯的采购对话。' },
+        { step: '02', title: '我们筛 2–3 家工厂出来', desc: '从自己的供应商网络加上针对性搜寻。报价过低（几乎都是品质警讯）、不肯出认证、来历查不到的工厂我们直接刷掉。' },
+        { step: '03', title: '一份透明报价给您', desc: '我们的转售价、底下的 FOB 或 EXW（您问就给）、交期、付款条件。最后不会再冒出额外抽佣。' },
+        { step: '04', title: '出货前我们亲自验货', desc: '台湾的工厂团队直接开车去。中国的工厂出货先进我们合作货代的仓库，验货后才放行出口。给您看的是实拍照片与影片，不是工厂样照。' },
+        { step: '05', title: '以我们名义出货', desc: '因为我们才是卖方，报关单、提单、售后索赔都干净落在您和我们之间。不会出现「写信给工厂三天没人回」的状况。' }
       ]
     },
     zh: {
       kicker: '合作流程',
-      title: '從需求到交付只需5步',
+      title: '從你第一封訊息到你的貨櫃，5 步搞定',
       items: [
-        { step: '01', title: '提交需求', desc: '告訴我們您的產品類型、目標產能、包裝形式和目的國。我們從您的應用出發，而非產品目錄。' },
-        { step: '02', title: '工程諮詢', desc: '我們的技術團隊分析您的需求，推薦最優的機器配置、材料和自動化水平。' },
-        { step: '03', title: '評估與方案', desc: '獲取詳細方案書，包含設備規格、佈局圖、價格、交期和保修條款。' },
-        { step: '04', title: '供應商協作與質檢', desc: '我們協調供應商排程、檢驗與品質檢驗。出貨前提供驗證影片和照片。' },
-        { step: '05', title: '出口與安裝', desc: '專業木箱包裝、國際運輸、報關文件及遠端視訊安裝指導。' }
+        { step: '01', title: '給我們一份簡單的 brief', desc: '一張參考圖、一個競品連結就夠。再告訴我們目標數量、心目中的價格、銷往哪個市場。這階段不簽 NDA——就是單純的採購對話。' },
+        { step: '02', title: '我們篩 2–3 家工廠出來', desc: '從自己的供應商網絡加上針對性搜尋。報價過低（幾乎都是品質警訊）、不肯出認證、來歷查不到的工廠我們直接刷掉。' },
+        { step: '03', title: '一份透明報價給你', desc: '我們的轉售價、底下的 FOB 或 EXW（你問就給）、交期、付款條件。最後不會再冒出額外抽佣。' },
+        { step: '04', title: '出貨前我們親自驗貨', desc: '台灣的工廠團隊直接開車去。中國的工廠出貨先進我們合作貨代的倉庫，驗貨後才放行出口。給你看的是實拍照片與影片，不是工廠樣照。' },
+        { step: '05', title: '以我們名義出貨', desc: '因為我們才是賣方，報關單、提單、售後索賠都乾淨落在你和我們之間。不會出現「寫信給工廠三天沒人回」的狀況。' }
       ]
     },
     fr: {
       kicker: 'NOTRE PROCESSUS',
-      title: 'De la demande à la livraison en 5 étapes',
+      title: 'De votre premier message à votre conteneur, en 5 étapes',
       items: [
-        { step: '01', title: 'Décrivez vos besoins', desc: 'Indiquez-nous votre type de produit, votre objectif de production, le format d\'emballage et le pays de destination. Nous partons de votre application, pas d\'un catalogue.' },
-        { step: '02', title: 'Consultation technique', desc: 'Notre équipe technique analyse vos besoins et recommande la configuration machine, les matériaux et le niveau d\'automatisation optimaux.' },
-        { step: '03', title: 'Évaluation et proposition', desc: 'Recevez une évaluation et une proposition détaillées avec spécifications, plans d\'implantation, tarifs, calendrier de livraison et conditions de garantie.' },
-        { step: '04', title: 'Coordination fournisseur & qualité', desc: 'Nous coordonnons planning, inspections et contrôles qualité avec le fournisseur sélectionné. Nous partageons vidéos et photos de vérification avant expédition.' },
-        { step: '05', title: 'Export et installation', desc: 'Mise en caisse professionnelle, expédition internationale, documents douaniers et assistance à l\'installation guidée par vidéo à distance.' }
+        { step: '01', title: 'Envoyez-nous un brief simple', desc: "Une photo de référence ou un lien concurrent suffit. Indiquez quantité cible, prix visé et marché de destination. Pas de NDA à ce stade — juste une conversation sourcing." },
+        { step: '02', title: 'Nous présélectionnons 2–3 usines', desc: "Depuis notre propre réseau et une recherche ciblée. Nous écartons les usines aux prix trop bas (presque toujours un drapeau rouge qualité), celles qui refusent de partager leurs certificats et celles dont nous ne pouvons pas vérifier l'historique." },
+        { step: '03', title: 'Un devis transparent', desc: "Notre prix de revente, le FOB ou EXW sous-jacent (sur demande), le délai et les conditions de paiement. Pas de commission surprise ajoutée à la fin." },
+        { step: '04', title: 'Inspection avant expédition', desc: "Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise arrive à l'entrepôt de notre transitaire et nous inspectons avant export. Photos et vidéo de la marchandise réelle — pas de visuel d'usine." },
+        { step: '05', title: 'Expédition à notre nom', desc: "Comme nous sommes le vendeur enregistré, documents douaniers, B/L et réclamations après-vente passent proprement entre vous et nous. Pas de chaînes d'e-mails à trois avec une usine qui ne répond pas." }
       ]
     },
     es: {
       kicker: 'NUESTRO PROCESO',
-      title: 'De la consulta a la entrega en 5 pasos',
+      title: 'Desde su primer mensaje hasta su contenedor, en 5 pasos',
       items: [
-        { step: '01', title: 'Comparta sus requisitos', desc: 'Indíquenos su tipo de producto, producción objetivo, formato de empaque y país de destino. Partimos de su aplicación, no de un catálogo.' },
-        { step: '02', title: 'Consulta de ingeniería', desc: 'Nuestro equipo técnico analiza sus necesidades y recomienda la configuración de máquina, materiales y nivel de automatización óptimos.' },
-        { step: '03', title: 'Evaluación y propuesta', desc: 'Reciba una evaluación y propuesta detallada con especificaciones, planos, precios, cronograma de entrega y términos de garantía.' },
-        { step: '04', title: 'Coordinación con proveedor y QC', desc: 'Coordinamos programación, inspecciones y control de calidad con el proveedor seleccionado. Compartimos videos y fotos de verificación antes del envío.' },
-        { step: '05', title: 'Exportación e instalación', desc: 'Embalaje profesional en cajas de madera, envío internacional, documentación aduanera y asistencia de instalación guiada por video remoto.' }
+        { step: '01', title: 'Envíenos un brief simple', desc: 'Una foto de referencia o un enlace de la competencia basta. Díganos cantidad objetivo, precio que tiene en mente y mercado de destino. Sin NDA en esta etapa — solo conversación de sourcing.' },
+        { step: '02', title: 'Preseleccionamos 2–3 fábricas', desc: 'De nuestra propia red más búsqueda dirigida. Descartamos fábricas con precios demasiado bajos (casi siempre una bandera roja de calidad), que se niegan a compartir certificados o cuyo historial no podemos verificar.' },
+        { step: '03', title: 'Una cotización transparente', desc: 'Nuestro precio de reventa, el FOB o EXW subyacente (bajo petición), tiempo de entrega y condiciones de pago. Sin comisión sorpresa al final.' },
+        { step: '04', title: 'Inspección antes del envío', desc: 'Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Fotos y video de la mercancía real — no imágenes de fábrica.' },
+        { step: '05', title: 'La mercancía se exporta a nuestro nombre', desc: 'Como somos el vendedor registrado, los documentos aduaneros, B/L y cualquier reclamo post-venta quedan limpios entre usted y nosotros. Sin cadenas de correos a tres con una fábrica que no responde.' }
       ]
     },
     pt: {

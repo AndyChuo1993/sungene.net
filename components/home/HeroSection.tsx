@@ -4,77 +4,102 @@ import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import HeroCtaWrapper from '@/components/home/HeroCtaWrapper'
 
+const ALIBABA_URL = 'https://momas.en.alibaba.com/'
+
+// Defaults used when a locale doesn't override the new trust fields.
+// (Older locales scheduled for removal will fall back to these.)
+const defaultExtras = {
+  badges: ['Verified Alibaba supplier', 'TW + CN offices', 'On-site QC', 'No factory kickbacks'],
+  certLabel: 'Verified',
+  certChips: ['Alibaba.com', 'TW Co.', 'CN Co.'],
+}
+
 export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'INDUSTRIAL EQUIPMENT & TECH SOURCING',
-      h1: 'Industrial Equipment & Automation Sourcing across Taiwan and China',
-      sub: 'We don’t just supply machines — we help you make the right sourcing decisions before you commit capital.',
-      subSecondary: 'From packaging systems to automation components, we support sourcing conversations that need stronger fit, compatibility, and long-term reliability.',
-      btnQuote: 'Send Your Product → Get Recommendation',
-      btnCatalog: 'Explore Sourcing Scope',
+      kicker: 'TAIWAN + CHINA SOURCING',
+      h1: 'Sourcing partner for packaging, home & garden brands',
+      sub: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell to you direct — on-site QC by our own team, no factory kickbacks, transparent quotes.',
+      subSecondary: 'Three years sourcing on Alibaba.com. Minimum order USD 1,000 — built for long-term partnerships, not one-off scavenging.',
+      btnQuote: 'Tell us what you need',
+      btnCatalog: 'How we work',
       stats: [
-        { value: '500+', label: 'Projects Supported' },
-        { value: '50+', label: 'Countries Served' },
-        { value: '15+', label: 'Years Experience' },
-        { value: '24h', label: 'Assessment Response' },
-      ]
-    },
-    cn: {
-      kicker: '工业设备与技术采购',
-      h1: '台灣与中国工业设备与自动化采购支持',
-      sub: '我们不只是供应机器，而是在您投入资本之前，协助您做出更正确的采购判断。',
-      subSecondary: '从包装系统到自动化零组件，我们支持更重视适配性、兼容性与长期可靠性的采购沟通。',
-      btnQuote: '发送产品信息 → 获取评估',
-      btnCatalog: '查看采购范围',
-      stats: [
-        { value: '500+', label: '个项目支持' },
-        { value: '50+', label: '个国家服务' },
-        { value: '15+', label: '年行业经验' },
-        { value: '24h', label: '评估回复' },
-      ]
+        { value: 'TW + CN', label: 'Offices' },
+        { value: '3 yr', label: 'On Alibaba.com' },
+        { value: 'USD 1,000', label: 'Min. order' },
+        { value: 'Same day', label: 'First reply' },
+      ],
+      badges: ['Verified Alibaba supplier', 'TW + CN offices', 'On-site QC', 'No factory kickbacks'],
+      certLabel: 'Verified',
+      certChips: ['Alibaba.com', 'TW Co.', 'CN Co.'],
     },
     zh: {
-      kicker: '工業設備與技術採購',
-      h1: '台灣與中國工業設備與自動化採購支援',
-      sub: '我們不只是供應機器，而是在您投入資本之前，協助您做出更正確的採購判斷。',
-      subSecondary: '從包裝系統到自動化零組件，我們支援更重視適配性、相容性與長期可靠性的採購溝通。',
-      btnQuote: '發送產品資訊 → 取得評估',
-      btnCatalog: '查看採購範圍',
+      kicker: '台灣 ＋ 中國  採購',
+      h1: '包裝、家居與園藝品牌的台灣・中國採購夥伴',
+      sub: '台灣與中國均設有公司的小型貿易商。我們直接向審查過的工廠下單、轉手出貨給你——驗貨由團隊親自到場、不收工廠紅包、報價透明。',
+      subSecondary: '經營 Alibaba.com 三年。最低訂單 USD 1,000——只接長期合作，不接零碎散單。',
+      btnQuote: '告訴我們你的需求',
+      btnCatalog: '我們怎麼合作',
       stats: [
-        { value: '500+', label: '個專案支援' },
-        { value: '50+', label: '個國家服務' },
-        { value: '15+', label: '年行業經驗' },
-        { value: '24h', label: '評估回覆' },
-      ]
+        { value: '台灣＋中國', label: '雙公司' },
+        { value: '3 年', label: 'Alibaba.com 經驗' },
+        { value: 'USD 1,000', label: '最低訂單' },
+        { value: '當日', label: '首次回覆' },
+      ],
+      badges: ['已驗證 Alibaba 供應商', '台灣＋中國雙公司', '親自到場驗貨', '不收工廠紅包'],
+      certLabel: '已驗證',
+      certChips: ['Alibaba.com', '台灣公司', '中國公司'],
+    },
+    cn: {
+      kicker: '台湾 ＋ 中国  采购',
+      h1: '包装、家居与园艺品牌的台湾・中国采购伙伴',
+      sub: '台湾与中国均设有公司的小型贸易商。我们直接向核查过的工厂下单、转手出货给您——验货由团队亲自到场、不收工厂红包、报价透明。',
+      subSecondary: '经营 Alibaba.com 三年。最低订单 USD 1,000——只接长期合作，不接零碎散单。',
+      btnQuote: '告诉我们您的需求',
+      btnCatalog: '我们怎么合作',
+      stats: [
+        { value: '台湾＋中国', label: '双公司' },
+        { value: '3 年', label: 'Alibaba.com 经验' },
+        { value: 'USD 1,000', label: '最低订单' },
+        { value: '当日', label: '首次回复' },
+      ],
+      badges: ['已认证 Alibaba 供应商', '台湾＋中国双公司', '亲自到场验货', '不收工厂红包'],
+      certLabel: '已认证',
+      certChips: ['Alibaba.com', '台湾公司', '中国公司'],
     },
     fr: {
-      kicker: 'ÉQUIPEMENTS INDUSTRIELS & SOURCING TECHNIQUE',
-      h1: "Sourcing d'équipements industriels et d'automatisation — Taïwan & Chine",
-      sub: "Nous ne livrons pas que des machines — nous vous aidons à prendre les bonnes décisions d'achat avant d'engager votre capital.",
-      subSecondary: "Des systèmes d'emballage aux composants d'automatisation, nous accompagnons les démarches de sourcing qui exigent compatibilité, intégration et fiabilité sur le long terme.",
-      btnQuote: 'Envoyez votre produit → Obtenez une recommandation',
-      btnCatalog: 'Voir le périmètre sourcing',
+      kicker: 'SOURCING TAÏWAN + CHINE',
+      h1: "Partenaire de sourcing pour marques d'emballage, maison & jardin",
+      sub: "Société de négoce avec bureaux à Taïwan et en Chine. Nous achetons auprès d'usines vérifiées puis vous revendons en direct — contrôle qualité sur place par notre équipe, aucune commission occulte, devis transparents.",
+      subSecondary: "Trois ans d'activité sur Alibaba.com. Commande minimum USD 1 000 — partenariats long terme, pas de commandes éparpillées.",
+      btnQuote: 'Dites-nous votre besoin',
+      btnCatalog: 'Notre méthode',
       stats: [
-        { value: '500+', label: 'Projets accompagnés' },
-        { value: '50+', label: 'Pays desservis' },
-        { value: '15+', label: "Années d'expérience" },
-        { value: '24h', label: 'Réponse évaluation' },
-      ]
+        { value: 'TW + CN', label: 'Bureaux' },
+        { value: '3 ans', label: 'Sur Alibaba.com' },
+        { value: 'USD 1 000', label: 'Commande min.' },
+        { value: 'Jour même', label: 'Première réponse' },
+      ],
+      badges: ['Fournisseur Alibaba vérifié', 'Bureaux TW + CN', 'Contrôle qualité sur place', 'Sans commission occulte'],
+      certLabel: 'Vérifié',
+      certChips: ['Alibaba.com', 'Sté. TW', 'Sté. CN'],
     },
     es: {
-      kicker: 'EQUIPOS INDUSTRIALES & SOURCING TÉCNICO',
-      h1: 'Abastecimiento de equipos industriales y automatización — Taiwán & China',
-      sub: 'No solo suministramos máquinas — le ayudamos a tomar las decisiones de abastecimiento correctas antes de comprometer su capital.',
-      subSecondary: 'Desde sistemas de empaque hasta componentes de automatización, apoyamos conversaciones de sourcing que exigen compatibilidad, integración y confiabilidad a largo plazo.',
-      btnQuote: 'Envíe su producto → Obtenga recomendación',
-      btnCatalog: 'Ver alcance de sourcing',
+      kicker: 'SOURCING TAIWÁN + CHINA',
+      h1: 'Socio de abastecimiento para marcas de empaque, hogar y jardín',
+      sub: 'Empresa comercial con oficinas en Taiwán y China. Compramos a fábricas verificadas y le revendemos directamente — control de calidad en sitio realizado por nuestro equipo, sin comisiones encubiertas, presupuestos transparentes.',
+      subSecondary: 'Tres años operando en Alibaba.com. Pedido mínimo USD 1 000 — colaboraciones de largo plazo, no pedidos dispersos.',
+      btnQuote: 'Cuéntenos qué necesita',
+      btnCatalog: 'Cómo trabajamos',
       stats: [
-        { value: '500+', label: 'Proyectos apoyados' },
-        { value: '50+', label: 'Países atendidos' },
-        { value: '15+', label: 'Años de experiencia' },
-        { value: '24h', label: 'Respuesta de evaluación' },
-      ]
+        { value: 'TW + CN', label: 'Oficinas' },
+        { value: '3 años', label: 'En Alibaba.com' },
+        { value: 'USD 1 000', label: 'Pedido mín.' },
+        { value: 'Mismo día', label: 'Primera respuesta' },
+      ],
+      badges: ['Proveedor Alibaba verificado', 'Oficinas TW + CN', 'Control de calidad en sitio', 'Sin comisiones ocultas'],
+      certLabel: 'Verificado',
+      certChips: ['Alibaba.com', 'Cía. TW', 'Cía. CN'],
     },
     pt: {
       kicker: 'EQUIPAMENTOS INDUSTRIAIS & SOURCING TÉCNICO',
@@ -178,6 +203,9 @@ export default function HeroSection({ lang }: { lang: Lang }) {
 
   const t = content[lang] || content['en']
   const heroPhoto = PHOTO.home.hero
+  const badges: string[] = t.badges || defaultExtras.badges
+  const certLabel: string = t.certLabel || defaultExtras.certLabel
+  const certChips: string[] = t.certChips || defaultExtras.certChips
 
   return (
     <section className="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
@@ -227,36 +255,71 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             {/* CTAs */}
             <HeroCtaWrapper lang={lang} btnQuote={t.btnQuote} btnCatalog={t.btnCatalog} />
 
-            {/* Trust badges */}
+            {/* Trust badges — first item links out to the verifiable Alibaba storefront */}
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-8">
-              {['CE Docs Support', 'ISO Quality', 'SUS304 Steel', 'Supplier Vetted'].map((badge) => (
-                <div key={badge} className="flex items-center gap-2 text-brand-300">
-                  <svg className="h-4 w-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
-                  <span className="text-sm font-medium">{badge}</span>
-                </div>
-              ))}
+              {badges.map((badge, i) => {
+                const inner = (
+                  <>
+                    <svg className="h-4 w-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                    <span className="text-sm font-medium">{badge}</span>
+                  </>
+                )
+                if (i === 0) {
+                  return (
+                    <a
+                      key={badge}
+                      href={ALIBABA_URL}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="flex items-center gap-2 text-brand-200 hover:text-white transition-colors underline decoration-accent-500/40 hover:decoration-accent-400 underline-offset-4"
+                    >
+                      {inner}
+                    </a>
+                  )
+                }
+                return (
+                  <div key={badge} className="flex items-center gap-2 text-brand-300">
+                    {inner}
+                  </div>
+                )
+              })}
             </div>
           </div>
 
-          {/* Stats column — industrial data panel */}
+          {/* Stats column — real, verifiable numbers (no fabricated 500+ / 15+ years) */}
           <div className="hidden lg:block">
             <div className="grid grid-cols-2 gap-4">
               {t.stats.map((stat: any, i: number) => (
                 <div key={i} className="relative bg-brand-900/60 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-accent-500/30 transition-colors">
                   <div className="absolute top-0 left-0 w-1 h-full bg-accent-500 rounded-l-xl" />
-                  <div className="text-3xl font-black text-accent-400">{stat.value}</div>
+                  <div className="text-2xl lg:text-3xl font-black text-accent-400">{stat.value}</div>
                   <div className="mt-1 text-sm font-medium text-brand-300">{stat.label}</div>
                 </div>
               ))}
             </div>
 
-            {/* Industrial certification bar */}
+            {/* Bottom strip: clickable Alibaba.com chip + registered entity chips */}
             <div className="mt-4 bg-brand-900/40 border border-white/10 rounded-xl p-4 flex items-center justify-between">
-              <span className="text-xs text-brand-400 uppercase tracking-wider">Certifications</span>
+              <span className="text-xs text-brand-400 uppercase tracking-wider">{certLabel}</span>
               <div className="flex gap-3">
-                {['CE Docs', 'ISO', 'SUS304'].map(c => (
-                  <span key={c} className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded">{c}</span>
-                ))}
+                {certChips.map((c, i) => {
+                  if (i === 0) {
+                    return (
+                      <a
+                        key={c}
+                        href={ALIBABA_URL}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        className="text-xs font-bold text-white bg-white/10 hover:bg-white/20 px-3 py-1 rounded transition-colors"
+                      >
+                        {c} ↗
+                      </a>
+                    )
+                  }
+                  return (
+                    <span key={c} className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded">{c}</span>
+                  )
+                })}
               </div>
             </div>
           </div>

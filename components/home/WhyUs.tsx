@@ -4,68 +4,68 @@ import { Container } from '@/components/ui/Container'
 export default function WhyUs({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'WHY CHOOSE US',
-      title: 'Your Trusted Sourcing Partner for Industrial Tech',
-      desc: 'We don’t just supply machines — we help you make the right sourcing decisions before you commit capital. We bridge the gap between technical specs and supply chain reality.',
+      kicker: 'WHY WORK WITH US',
+      title: 'A trading company built so quality is our problem, not yours',
+      desc: 'We are not a commission agent: we buy the goods, then resell to you. That means rejecting defective product before shipment is in our own financial interest — not a favour we do for you.',
       items: [
-        { icon: '01', title: 'Technical Vetting', desc: 'We perform supplier audits and engineering verification before selection to help verify alignment with your quality criteria.' },
-        { icon: '02', title: 'Sourcing Accuracy', desc: 'We match equipment to your product behavior and footprint, reducing the risk of incompatibility after the machines arrive.' },
-        { icon: '03', title: 'Risk Management', desc: 'From CE-oriented documentation and destination-market requirements to multi-voltage customization (110–480V), we help manage technical risks in international procurement.' },
-        { icon: '04', title: 'Supply Chain Support', desc: 'We coordinate across suppliers for components, sensors, and controls to support a unified and integrated line system.' },
-        { icon: '05', title: 'Custom Engineering', desc: 'Our team tailors dimensions, materials (SUS304/316L), and automation levels to fit your specific industrial environment.' },
-        { icon: '06', title: 'Global Export Logistics', desc: 'Experienced in shipping technical cargo to 50+ countries with full documentation and international shipping coordination.' },
+        { icon: '01', title: 'Direct buy-and-resell', desc: 'We take ownership of the goods at the factory. Our margin is on the resale, not a hidden commission on the factory price.' },
+        { icon: '02', title: 'On-site QC by our team', desc: 'Taiwan factories: we drive to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. Photos and video with every shipment.' },
+        { icon: '03', title: 'No factory kickbacks', desc: 'We have walked away from suppliers who offered envelopes to pass sub-spec goods. Inspection result is what we saw — not what was paid for.' },
+        { icon: '04', title: 'Verified Alibaba.com supplier', desc: 'Three years operating momas.en.alibaba.com. Rating fluctuates between 3 and 5 stars by period. Storefront is public — verify it before you commit.' },
+        { icon: '05', title: 'Taiwan + China dual entity', desc: 'Two registered companies. Pay the Taiwan entity (cleaner banking and dispute path); China entity manages factory relationships and pre-shipment logistics.' },
+        { icon: '06', title: 'Built for long-term partnership', desc: 'MOQ USD 1,000 per shipment. We decline very small mixed orders so we can give the orders we take real attention.' },
       ]
     },
     cn: {
-      kicker: '为什么选择我们',
-      title: '您值得信赖的工业技术采购伙伴',
-      desc: '我们不仅仅是提供机器——我们协助您在投入资本前做出正确的采购决策。我们填补了技术规格与供应链现状之间的鸿沟。',
+      kicker: '为什么找我们',
+      title: '我们是把品质当成自己问题的贸易商',
+      desc: '我们不是抽佣的代理：我们把货从工厂买下，再转卖给您。挡下瑕疵品是我们自己的利益——不是替您做人情。',
       items: [
-        { icon: '01', title: '技术审核', desc: '我们在选型前进行供应商审核与工程验证，协助验证设备与您的质量标准是否一致。' },
-        { icon: '02', title: '采购精准度', desc: '我们将设备与您的产品特性及场地空间精准匹配，降低设备到场后不兼容的风险。' },
-        { icon: '03', title: '风险控管', desc: '从 CE/UL 相关合规要求到多电压定制 (110–480V)，我们协助识别并降低国际采购中的主要技术风险。' },
-        { icon: '04', title: '供应链支持', desc: '我们协调多个零部件、传感器与控制系统供应商，推动线体系统的顺利整合。' },
-        { icon: '05', title: '定制工程', desc: '我们的团队根据您的特定工业环境，定制尺寸、材料（SUS304/316L）与自动化水平。' },
-        { icon: '06', title: '全球出口物流', desc: '拥有向 50 多个国家运送技术货物的经验，提供完整文件支持与国际物流协调。' },
+        { icon: '01', title: '直接买进卖出', desc: '我们在工厂端把货买下，转手卖给您。利润来自转售差价，不是藏在工厂报价里的回扣。' },
+        { icon: '02', title: '亲自到场验货', desc: '台湾工厂：团队直接开车到现场。中国工厂：货进我们合作货代的仓库由我们验货后才放行出口。每批附验货影片与照片。' },
+        { icon: '03', title: '不收工厂红包', desc: '碰过工厂塞红包想让我们放行不合规的货，我们选择不合作。验货结果是我们看到的事实，不是被买通的结论。' },
+        { icon: '04', title: 'Alibaba.com 认证供应商', desc: '经营 momas.en.alibaba.com 三年。星等会随期间在 3 到 5 星之间波动。店面公开——签约前可以先去查。' },
+        { icon: '05', title: '台湾＋中国双公司', desc: '两家公司分工：付款给台湾公司（银行往来与争议处理更清楚）；中国公司管工厂关系与出口前物流。' },
+        { icon: '06', title: '为长期合作设计', desc: '最低订单 USD 1,000。一次很多项、杂小单我们会婉拒——这样才能把接下来的订单做好。' },
       ]
     },
     zh: {
-      kicker: '為什麼選擇我們',
-      title: '您值得信賴的工業技術採購夥伴',
-      desc: '我們不僅僅是提供機器——我們協助您在投入資本前做出正確的採購決策。我們填補了技術規格與供應鏈現狀之間的鴻溝。',
+      kicker: '為什麼找我們',
+      title: '我們是把品質當成自己問題的貿易商',
+      desc: '我們不是抽佣代理：我們把貨從工廠買下、再轉賣給你。擋下瑕疵品是我們自己的利益——不是替你做人情。',
       items: [
-        { icon: '01', title: '技術審核', desc: '我們在選型前進行供應商稽核與工程驗證，協助驗證設備與您的品質標準是否一致。' },
-        { icon: '02', title: '採購精準度', desc: '我們將設備與您的產品特性及場地空間精準匹配，降低設備到場後不相容的風險。' },
-        { icon: '03', title: '風險控管', desc: '從 CE/UL 相關合規要求到多電壓客製 (110–480V)，我們協助識別並降低國際採購中的主要技術風險。' },
-        { icon: '04', title: '供應鏈支援', desc: '我們協調多個零組件、感測器與控制系統供應商，推動線體系統的順利整合。' },
-        { icon: '05', title: '客製工程', desc: '我們的團隊根據您的特定工業環境，客製尺寸、材料（SUS304/316L）與自動化水平。' },
-        { icon: '06', title: '全球出口物流', desc: '擁有向 50 多個國家運送技術貨物的經驗，提供完整文件支援與國際物流協調。' },
+        { icon: '01', title: '直接買進賣出', desc: '我們在工廠端把貨買下，轉手賣給你。利潤來自轉售差價，不是藏在工廠報價裡的回扣。' },
+        { icon: '02', title: '親自到場驗貨', desc: '台灣工廠：團隊直接開車到現場。中國工廠：貨進我們合作貨代的倉庫，由我們驗貨後才放行出口。每批附驗貨影片與照片。' },
+        { icon: '03', title: '不收工廠紅包', desc: '碰過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。驗貨結果是我們看到的事實，不是被買通的結論。' },
+        { icon: '04', title: 'Alibaba.com 認證供應商', desc: '經營 momas.en.alibaba.com 三年。星等會隨期間在 3 到 5 星之間波動。店面公開——簽約前可以先去查。' },
+        { icon: '05', title: '台灣＋中國雙公司', desc: '兩家公司分工：付款給台灣公司（銀行往來與爭議處理更清楚）；中國公司管工廠關係與出口前物流。' },
+        { icon: '06', title: '為長期合作而設計', desc: '最低訂單 USD 1,000。一次很多項、雜小單我們會婉拒——這樣才有餘力把接下來的訂單做好。' },
       ]
     },
     fr: {
-      kicker: 'POURQUOI NOUS CHOISIR',
-      title: 'Votre partenaire de sourcing de confiance en Asie',
-      desc: 'Nous ne nous contentons pas de vendre des machines. De la sélection des équipements à la gestion logistique de l\'exportation, nous offrons un accompagnement complet sur lequel les acheteurs internationaux comptent.',
+      kicker: 'POURQUOI TRAVAILLER AVEC NOUS',
+      title: "Une société de négoce conçue pour que la qualité soit notre problème, pas le vôtre",
+      desc: "Nous ne sommes pas un agent à la commission : nous achetons la marchandise, puis nous vous la revendons. Écarter les défauts avant expédition est donc dans notre propre intérêt financier — pas une faveur que nous vous faisons.",
       items: [
-        { icon: '01', title: 'Tarifs fournisseurs directs', desc: 'En tant que partenaire de sourcing expert, nous obtenons des tarifs compétitifs directement auprès des fournisseurs, sans marge d\'intermédiaire.' },
-        { icon: '02', title: 'Solutions clé en main', desc: 'Des machines individuelles aux intégrations de ligne complètes, nous concevons et livrons des solutions intégrées conçues pour vos besoins précis.' },
-        { icon: '03', title: 'Expertise export mondiale', desc: 'Expérience d\'exportation vers plus de 50 pays avec documentation complète, adaptation des tensions et support logistique international.' },
-        { icon: '04', title: 'Service après-vente et formation', desc: 'Assistance à l\'installation par vidéo à distance, formation des opérateurs, fourniture de pièces détachées et support technique 24h/24 et 7j/7.' },
-        { icon: '05', title: 'Ingénierie sur mesure', desc: 'Notre équipe peut personnaliser dimensions, matériaux, débit cible et niveau d\'automatisation selon vos contraintes de site.' },
-        { icon: '06', title: 'Conformité & documents', desc: 'Support documentaire CE à l’export lorsque applicable, avec options SUS304/316L pour les surfaces en contact produit.' },
+        { icon: '01', title: 'Achat-revente direct', desc: "Nous prenons possession de la marchandise à l'usine. Notre marge porte sur la revente, pas sur une commission cachée dans le prix usine." },
+        { icon: '02', title: 'Contrôle qualité sur place', desc: "Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise entre à l'entrepôt de notre transitaire et nous l'inspectons avant export. Photos et vidéo à chaque expédition." },
+        { icon: '03', title: "Pas de pourboire d'usine", desc: "Nous avons refusé des fournisseurs proposant une enveloppe pour faire passer de la marchandise hors spécification. Le résultat d'inspection est ce que nous avons vu — pas ce qui a été payé pour." },
+        { icon: '04', title: 'Fournisseur Alibaba.com vérifié', desc: "Trois ans d'activité sur momas.en.alibaba.com. La note fluctue entre 3 et 5 étoiles selon la période. Boutique publique — à vérifier avant tout engagement." },
+        { icon: '05', title: 'Entités Taïwan + Chine', desc: "Deux sociétés enregistrées. Paiement vers l'entité taïwanaise (relations bancaires et gestion des litiges plus claires) ; l'entité chinoise gère les relations usines et la logistique pré-export." },
+        { icon: '06', title: 'Conçu pour le long terme', desc: 'Commande minimum USD 1 000 par expédition. Nous refusons les très petites commandes éparpillées pour pouvoir réellement suivre celles que nous prenons.' },
       ]
     },
     es: {
-      kicker: 'POR QUÉ ELEGIRNOS',
-      title: 'Su socio experto en abastecimiento en Asia',
-      desc: 'No solo vendemos máquinas. Desde la selección de equipos hasta la gestión logística de exportación, ofrecemos un soporte integral en el que confían compradores de todo el mundo.',
+      kicker: 'POR QUÉ TRABAJAR CON NOSOTROS',
+      title: 'Una empresa comercial diseñada para que la calidad sea nuestro problema, no el suyo',
+      desc: 'No somos un agente a comisión: compramos la mercancía y se la revendemos. Rechazar defectos antes del envío está en nuestro propio interés financiero — no es un favor que le hacemos.',
       items: [
-        { icon: '01', title: 'Precios directos del proveedor', desc: 'Como su socio experto en abastecimiento, obtenemos precios competitivos directamente de los proveedores sin recargos de intermediarios.' },
-        { icon: '02', title: 'Soluciones llave en mano', desc: 'Desde máquinas individuales hasta integraciones de línea completas, diseñamos y entregamos soluciones integradas adaptadas a sus requisitos específicos.' },
-        { icon: '03', title: 'Experiencia en exportación global', desc: 'Experiencia exportando a más de 50 países con documentación completa, personalización de voltaje y soporte logístico internacional.' },
-        { icon: '04', title: 'Postventa y capacitación', desc: 'Asistencia de instalación por video remoto, capacitación de operadores, suministro de repuestos y soporte técnico 24/7.' },
-        { icon: '05', title: 'Ingeniería a medida', desc: 'Nuestro equipo puede personalizar dimensiones, materiales, capacidad objetivo y nivel de automatización según las condiciones de su sitio.' },
-        { icon: '06', title: 'Cumplimiento y documentación', desc: 'Soporte de documentación CE para exportación cuando aplica, con opciones SUS304/316L en superficies de contacto con producto.' },
+        { icon: '01', title: 'Compra-reventa directa', desc: 'Tomamos posesión de la mercancía en la fábrica. Nuestro margen está en la reventa, no en una comisión oculta dentro del precio de fábrica.' },
+        { icon: '02', title: 'Control de calidad en sitio', desc: 'Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Fotos y video con cada envío.' },
+        { icon: '03', title: 'Sin sobres a la fábrica', desc: 'Hemos rechazado proveedores que ofrecían sobres para aprobar mercancía fuera de especificación. El resultado de la inspección es lo que vimos — no lo que se pagó por aprobar.' },
+        { icon: '04', title: 'Proveedor Alibaba.com verificado', desc: 'Tres años operando momas.en.alibaba.com. La calificación fluctúa entre 3 y 5 estrellas según el período. Tienda pública — verifíquela antes de comprometerse.' },
+        { icon: '05', title: 'Entidades Taiwán + China', desc: 'Dos empresas registradas. Pago a la entidad taiwanesa (relaciones bancarias y manejo de disputas más claros); la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
+        { icon: '06', title: 'Diseñado para largo plazo', desc: 'Pedido mínimo USD 1 000 por envío. Rechazamos pedidos muy pequeños y dispersos para poder dar atención real a los que sí aceptamos.' },
       ]
     },
     pt: {
@@ -191,15 +191,20 @@ export default function WhyUs({ lang }: { lang: Lang }) {
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">{t.title}</h2>
             <p className="mt-5 text-lg leading-relaxed text-gray-600">{t.desc}</p>
 
-            {/* Highlighted stat */}
-            <div className="mt-8 inline-flex items-center gap-4 rounded-xl bg-brand-950 px-6 py-4">
-              <div className="text-3xl font-black text-accent-400">50+</div>
-              <div className="text-sm font-medium text-brand-300">Countries Served<br/><span className="text-xs text-brand-400">Supplier-vetted sourcing</span></div>
-            </div>
+            {/* Highlighted stat — real number, not fake */}
+            <a
+              href="https://momas.en.alibaba.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="mt-8 inline-flex items-center gap-4 rounded-xl bg-brand-950 px-6 py-4 hover:bg-brand-900 transition-colors"
+            >
+              <div className="text-3xl font-black text-accent-400">3 yr</div>
+              <div className="text-sm font-medium text-brand-300">{t.highlightLabel || 'Verified on Alibaba.com'}<br/><span className="text-xs text-brand-400">{t.highlightSub || 'momas.en.alibaba.com ↗'}</span></div>
+            </a>
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {['CE Docs Support', 'SUS304/316L', '15+ Years'].map((badge) => (
+              {(t.trustBadges || ['Alibaba.com verified', 'No factory kickbacks', 'TW + CN offices']).map((badge: string) => (
                 <span key={badge} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
                   <svg className="h-3.5 w-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
                   {badge}

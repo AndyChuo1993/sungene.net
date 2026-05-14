@@ -46,12 +46,25 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
-              {({en: 'SunGene is an industrial equipment and automation sourcing partner supporting packaging systems, machinery, components, and selected technical projects across Taiwan and China.', cn: 'SunGene 是工业设备与自动化采购合作伙伴，协助包装系统、机械设备、零组件与特定技术项目的采购，覆盖台湾与中国。', zh: 'SunGene 是工業設備與自動化採購合作夥伴，協助包裝系統、機械設備、零組件與特定技術項目的採購，涵蓋台灣與中國。', fr: 'SunGene est un partenaire d’approvisionnement en équipements industriels et automatisation, couvrant les systèmes d’emballage, machines, composants et certains projets techniques entre Taïwan et la Chine.', es: 'SunGene es un socio de abastecimiento para equipos industriales y automatización, apoyando sistemas de empaque, maquinaria, componentes y proyectos técnicos seleccionados entre Taiwán y China.', pt: 'A SunGene é uma parceira de sourcing para equipamentos industriais e automação, apoiando sistemas de embalagem, máquinas, componentes e projetos técnicos selecionados entre Taiwan e China.', ko: 'SunGene은 대만과 중국을 아우르며 포장 시스템, 기계 설비, 부품, 일부 기술 프로젝트의 조달을 지원하는 산업 장비·자동화 소싱 파트너입니다.', ja: 'SunGeneは、台湾と中国をまたいで包装システム、機械設備、部品、特定技術案件の調達を支援する産業機器・自動化ソーシングパートナーです。', ar: 'SunGene شريك توريد للمعدات الصناعية والأتمتة، يدعم أنظمة التعبئة والمعدات والمكونات وبعض المشاريع التقنية بين تايوان والصين.', th: 'SunGene คือพาร์ตเนอร์ด้านการจัดหาสินค้าอุตสาหกรรมและระบบอัตโนมัติ ครอบคลุมระบบบรรจุภัณฑ์ เครื่องจักร ชิ้นส่วน และโครงการเทคนิคบางประเภทระหว่างไต้หวันและจีน', vi: 'SunGene là đối tác sourcing về thiết bị công nghiệp và tự động hóa, hỗ trợ hệ thống đóng gói, máy móc, linh kiện và một số dự án kỹ thuật giữa Đài Loan và Trung Quốc.', de: 'SunGene ist ein Sourcing-Partner für Industrieausrüstung und Automatisierung und unterstützt Verpackungssysteme, Maschinen, Komponenten sowie ausgewählte technische Projekte zwischen Taiwan und China.' } as Record<string,string>)[lang] || 'SunGene is an industrial equipment and automation sourcing partner supporting packaging systems, machinery, components, and selected technical projects across Taiwan and China.'}
+              {({
+                en: 'A small Taiwan + China trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier for three years.',
+                cn: '台湾＋中国双公司架构的小型贸易商。直接向核查过的工厂下单、转手出货给您——包装、家居、园艺品类。亲自验货、不收红包。Alibaba.com 认证供应商三年。',
+                zh: '台灣＋中國雙公司架構的小型貿易商。直接向審查過的工廠下單、轉手出貨給你——包裝、家居、園藝品類。親自驗貨、不收紅包。Alibaba.com 認證供應商三年。',
+                fr: "Petite société de négoce Taïwan + Chine. Nous achetons auprès d'usines vérifiées et revendons en direct dans les catégories emballage, maison et jardin. Contrôle qualité par notre équipe. Sans commission occulte. Fournisseur Alibaba.com vérifié depuis trois ans.",
+                es: 'Pequeña empresa comercial Taiwán + China. Compramos a fábricas verificadas y revendemos directamente en empaque, hogar y jardín. Control de calidad por nuestro equipo. Sin comisiones ocultas. Proveedor Alibaba.com verificado desde hace tres años.',
+              } as Record<string, string>)[lang] || 'A small Taiwan + China trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier for three years.'}
             </p>
-            <div className="mt-6 flex items-center gap-4">
-              <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">CE</div>
-              <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">ISO</div>
-              <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">SUS304</div>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href="https://momas.en.alibaba.com/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300 hover:bg-white/20 transition-colors"
+              >
+                Alibaba.com ↗
+              </a>
+              <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">TW Co.</div>
+              <div className="flex h-8 items-center rounded bg-white/10 px-3 text-xs font-semibold text-gray-300">CN Co.</div>
             </div>
           </div>
 
@@ -145,7 +158,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="text-xs text-gray-500">{t(lang, 'footer_copyright')}</p>
           <div className="flex items-center gap-4 text-xs text-gray-500">
-            <span>Alibaba: momas.en.alibaba.com</span>
+            <a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-gray-300 transition-colors">Alibaba: momas.en.alibaba.com ↗</a>
             <span>|</span>
             <span>LinkedIn: SunGene Co., LTD.</span>
           </div>

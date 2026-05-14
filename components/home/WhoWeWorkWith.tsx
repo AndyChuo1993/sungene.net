@@ -18,58 +18,58 @@ const customerIcons = [
 export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'OUR CLIENTS',
-      title: 'Who We Serve',
-      desc: 'Our sourcing expertise serves a diverse range of global buyers across the industrial supply chain.',
+      kicker: 'WHO WE SERVE',
+      title: 'A good fit looks like this',
+      desc: 'We work best with buyers who want a real conversation, not a catalog dump. If the description below sounds like you, we will be a good match.',
       items: [
-        { title: 'Importers & Distributors', desc: 'Source machinery with professional technical vetting for your local market, including full export documentation and logistics coordination.' },
-        { title: 'Food & Beverage Producers', desc: 'Secure the right throughput with verified processing, packaging, and automation equipment.' },
-        { title: 'Project Buyers & Engineers', desc: 'Plan new line integrations or facility expansions with our engineering consultation and supplier auditing support.' },
-        { title: 'Brand Owners & Private Label', desc: 'Private-label equipment coordination and custom-branded machinery options for product line expansion.' },
+        { title: 'Online retailers & Amazon FBA sellers', desc: 'You need consistent, photo-faithful product from China and want someone in Asia to check the goods before they go in your container.' },
+        { title: 'Private-label brand owners', desc: 'You sell home, kitchen, garden, or packaging products under your own brand and need quality control that survives more than two re-orders.' },
+        { title: 'Importers & distributors', desc: 'You sell into your local market and want a partner who replies same-day, sends inspection videos, and disclosed FOB prices when you ask.' },
+        { title: 'Boutique buyers & specialty stores', desc: 'You order small batches, you care about how the product actually looks in hand, and you would rather pay a fair markup than chase factories yourself.' },
       ]
     },
     cn: {
-      kicker: '我们的客户',
-      title: '服务对象',
-      desc: '我们的采购专业知识服务于工业供应链中多元化的全球买家。',
+      kicker: '我们服务谁',
+      title: '什么样的客户跟我们合得来',
+      desc: '我们最适合的合作对象是想认真对话、不是来「丢清单要报价」的买家。如果下面这些描述像您，我们应该会合得来。',
       items: [
-        { title: '进口商与经销商', desc: '为您的当地市场提供经过专业技术审核的机械采购，包含完整的出口文件与物流协调。' },
-        { title: '食品饮料企业', desc: '通过经过验证的加工、包装与自动化设备，确保您的产能目标稳健达成。' },
-        { title: '项目采购与工程师', desc: '为新线体整合或场地扩建提供工程咨询与供应商审核支持。' },
-        { title: '品牌商与贴牌需求', desc: '为您的产品线扩张提供贴牌设备协调与定制品牌机械选项。' },
+        { title: '电商卖家与亚马逊 FBA 卖家', desc: '您需要从中国稳定拿到与图片一致的产品，希望有人在亚洲帮您验货后再装柜。' },
+        { title: '自有品牌商', desc: '您在家居、厨房、园艺或包装领域做自有品牌，需要的是补单两次以上还稳得住品质的供应商。' },
+        { title: '进口商与经销商', desc: '您卖到本地市场，想要的是当天回讯、附验货视频、被问就告诉您 FOB 价的合作伙伴。' },
+        { title: '精品采购与特色店家', desc: '您下小批次单，在意产品上手实际质感，宁愿付合理加价也不想自己天天追工厂。' },
       ]
     },
     zh: {
-      kicker: '傳統產業',
-      title: '服務對象',
-      desc: '我們的採購專業知識服務於工業供應鏈中多元化的全球買家。',
+      kicker: '我們服務誰',
+      title: '什麼樣的客戶跟我們合得來',
+      desc: '我們最適合的合作對象是想認真對話、不是來「丟清單要報價」的買家。如果下面這些描述像你，我們應該會合得來。',
       items: [
-        { title: '進口商與經銷商', desc: '為您的當地市場提供經過專業技術審核的機械採購，包含完整的出口文件與物流協調。' },
-        { title: '食品飲料企業', desc: '透過經過驗證的加工、包裝與自動化設備，確保您的產能目標穩健達成。' },
-        { title: '專案採購與工程師', desc: '為新線體整合或場地擴建提供工程諮詢與供應商審核支援。' },
-        { title: '品牌商與貼牌需求', desc: '為您的產品線擴張提供貼牌設備協調與客製品牌機械選項。' },
+        { title: '電商賣家與亞馬遜 FBA 賣家', desc: '你需要從中國穩定拿到與圖片一致的產品，希望有人在亞洲幫你驗貨後再裝櫃。' },
+        { title: '自有品牌商', desc: '你在家居、廚房、園藝或包裝領域做自有品牌，需要的是補單兩次以上還穩得住品質的供應商。' },
+        { title: '進口商與經銷商', desc: '你賣到本地市場，想要的是當天回訊、附驗貨影片、被問就告訴你 FOB 價的合作夥伴。' },
+        { title: '精品採購與特色店家', desc: '你下小批次單，在意產品上手實際質感，寧願付合理加價也不想自己天天追工廠。' },
       ]
     },
     fr: {
-      kicker: 'NOS CLIENTS',
-      title: 'À qui nous nous adressons',
-      desc: 'Notre expertise en sourcing est au service d\'une clientèle mondiale diversifiée à travers la chaîne d\'approvisionnement industrielle.',
+      kicker: 'À QUI NOUS NOUS ADRESSONS',
+      title: "Un bon profil ressemble à ça",
+      desc: "Nous fonctionnons le mieux avec des acheteurs qui veulent un vrai dialogue, pas un dépôt de catalogue. Si la description ci-dessous vous ressemble, nous serons un bon match.",
       items: [
-        { title: 'Importateurs et distributeurs', desc: 'Approvisionnez-vous en machines avec un audit technique professionnel pour votre marché local, incluant la documentation complète.' },
-        { title: 'Entreprises agroalimentaires', desc: 'Atteignez vos objectifs de débit avec des équipements de transformation, d\'emballage et d\'automatisation vérifiés.' },
-        { title: 'Acheteurs de projets et ingénieurs', desc: 'Planifiez de nouvelles lignes ou des extensions d\'usine avec notre conseil en ingénierie et l\'audit des fournisseurs.' },
-        { title: 'Marques & private label', desc: 'Coordination d’équipements en marque blanche et options de marquage pour l’expansion de votre gamme.' },
+        { title: 'E-commerçants & vendeurs Amazon FBA', desc: 'Vous voulez des produits chinois conformes aux photos, et un partenaire en Asie qui inspecte avant la mise en conteneur.' },
+        { title: 'Marques en private label', desc: 'Vous vendez maison, cuisine, jardin ou emballage sous votre marque et avez besoin d’une qualité qui tient plus de deux réassorts.' },
+        { title: 'Importateurs & distributeurs', desc: 'Vous vendez sur votre marché local et cherchez un partenaire qui répond le jour même, fournit les vidéos d’inspection et divulgue les prix FOB sur demande.' },
+        { title: 'Acheteurs boutique & magasins spécialisés', desc: "Vous commandez en petite série, vous tenez à l'aspect réel du produit en main, et vous préférez payer une marge correcte plutôt que poursuivre les usines vous-même." },
       ]
     },
     es: {
-      kicker: 'NUESTROS CLIENTES',
-      title: 'A quién servimos',
-      desc: 'Nuestra experiencia en abastecimiento atiende a una amplia gama de compradores globales en toda la cadena de suministro industrial.',
+      kicker: 'A QUIÉN SERVIMOS',
+      title: 'Un buen perfil se parece a esto',
+      desc: 'Trabajamos mejor con compradores que quieren una conversación real, no un volcado de catálogo. Si la descripción siguiente se parece a usted, encajaremos bien.',
       items: [
-        { title: 'Importadores y distribuidores', desc: 'Adquiera maquinaria con auditoría técnica profesional para su mercado local, incluyendo documentación completa y logística.' },
-        { title: 'Fabricantes de alimentos y bebidas', desc: 'Asegure su capacidad de producción con equipos verificados de procesamiento, empaque y automatización.' },
-        { title: 'Compradores de proyectos e ingenieros', desc: 'Planifique nuevas líneas o ampliaciones con nuestra consultoría de ingeniería y soporte en auditoría de proveedores.' },
-        { title: 'Marcas y private label', desc: 'Coordinación de equipos de marca blanca y opciones de marca para ampliar su línea de productos.' },
+        { title: 'E-commerce y vendedores de Amazon FBA', desc: 'Necesita producto chino fiel a las fotos y quiere alguien en Asia que revise antes de cargar el contenedor.' },
+        { title: 'Marcas de private label', desc: 'Vende hogar, cocina, jardín o empaque bajo su marca y necesita una calidad que aguante más de dos rondas de reabastecimiento.' },
+        { title: 'Importadores y distribuidores', desc: 'Vende en su mercado local y busca un socio que responda el mismo día, envíe videos de inspección y revele precios FOB cuando pregunta.' },
+        { title: 'Compradores boutique y tiendas especializadas', desc: 'Pide lotes pequeños, le importa cómo se ve el producto en la mano, y prefiere pagar un margen justo antes que perseguir fábricas usted mismo.' },
       ]
     },
     pt: {

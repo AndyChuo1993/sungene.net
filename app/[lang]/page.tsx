@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Lang, t } from '@/lib/i18n'
 import Link from 'next/link'
 import HeroSection from '@/components/home/HeroSection'
-import MachineByProduct from '@/components/home/MachineByProduct'
-import ServicesPreview from '@/components/home/ServicesPreview'
 import WhyUs from '@/components/home/WhyUs'
 import WhoWeWorkWith from '@/components/home/WhoWeWorkWith'
 import ProcessSection from '@/components/home/ProcessSection'
@@ -31,87 +29,87 @@ const HOME_POSITIONING: Partial<Record<Lang, {
 }>> = {
   en: {
     sourceKicker: 'What we source',
-    sourceTitle: 'A broader sourcing entry point for industrial and technical projects',
-    sourceIntro: 'We support sourcing conversations that start with machines and expand into adjacent industrial and technical requirements.',
+    sourceTitle: 'Packaging, home & garden — plus what your buyers ask for next',
+    sourceIntro: 'Our daily work is packaging products, household goods, garden tools, and the related accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.',
     sourceItems: [
-      'Packaging systems',
-      'Industrial equipment',
-      'Automation components',
-      'Selected tech-related sourcing',
+      'Packaging — bags, boxes, jars, pumps, closures',
+      'Home goods — kitchenware, decor, organisation, small living',
+      'Garden — tools, planters, watering, outdoor accessories',
+      'Adjacent categories on a case-by-case basis',
     ],
-    beyondKicker: 'Beyond machines',
-    beyondTitle: 'Position the website for more advanced sourcing conversations',
+    beyondKicker: 'How we sell',
+    beyondTitle: 'Direct buy-and-resell — not a commission middleman',
     beyondBody: [
-      'Today, sourcing is no longer just about equipment.',
-      'It’s about integration, compatibility, and long-term reliability — especially in advanced industrial and technical environments.',
+      'We are a trading company, not a sourcing agent. We buy the goods from the factory and resell to you. The price you see is the final price — no hidden factory kickback, no per-shipment commission.',
+      'Because the goods are on our books, rejecting defects before shipment is our own interest, not a favour. Quality becomes our problem, not yours.',
     ],
   },
   zh: {
     sourceKicker: '採購範圍',
-    sourceTitle: '為工業與技術型專案打開更寬的採購入口',
-    sourceIntro: '我們支援從機器開始、再延伸到周邊工業與技術需求的採購溝通。',
+    sourceTitle: '包裝、家居、園藝——以及你客戶下一步會問的相關品類',
+    sourceIntro: '我們每天處理的是包裝產品、家居用品、園藝工具與相關配件。長期合作客戶的相近延伸品類——化妝品、蠟燭、玻璃、輕五金——我們也接。',
     sourceItems: [
-      '包裝系統',
-      '工業設備',
-      '自動化零組件',
-      '特定技術相關採購',
+      '包裝產品——袋、盒、瓶、泵頭、封口',
+      '家居用品——廚房、佈置、收納、生活小物',
+      '園藝產品——工具、花盆、澆灌、戶外配件',
+      '相鄰品類依個案合作評估',
     ],
-    beyondKicker: '不只機器',
-    beyondTitle: '讓網站能承接更進階的採購對話',
+    beyondKicker: '我們的角色',
+    beyondTitle: '直接買進賣出——不是抽佣中間人',
     beyondBody: [
-      '現在的採購，已經不只是買設備。',
-      '更關鍵的是整合性、相容性與長期可靠性，特別是在更進階的工業與技術環境中。',
+      '我們是貿易商，不是 sourcing agent。我們從工廠把貨買下、再轉賣給你。你看到的價格就是最終價，沒有躲在後面的工廠紅包，也沒有每筆出貨的抽成。',
+      '因為貨在我們手上、用我們的資金壓著，瑕疵品擋下來是我們自己的事——驗貨有沒有放水，直接影響我們的庫存與利潤。',
     ],
   },
   cn: {
     sourceKicker: '采购范围',
-    sourceTitle: '为工业与技术型项目打开更宽的采购入口',
-    sourceIntro: '我们支持从机器开始、再延伸到周边工业与技术需求的采购沟通。',
+    sourceTitle: '包装、家居、园艺——以及您客户下一步会问的相关品类',
+    sourceIntro: '我们日常处理的是包装产品、家居用品、园艺工具与相关配件。长期合作客户的相邻延伸品类——化妆品、蜡烛、玻璃、轻五金——也可以接。',
     sourceItems: [
-      '包装系统',
-      '工业设备',
-      '自动化零组件',
-      '特定技术相关采购',
+      '包装产品——袋、盒、瓶、泵头、封口',
+      '家居用品——厨房、布置、收纳、生活小物',
+      '园艺产品——工具、花盆、浇灌、户外配件',
+      '相邻品类按个案合作评估',
     ],
-    beyondKicker: '不只机器',
-    beyondTitle: '让网站可以承接更进阶的采购对话',
+    beyondKicker: '我们的角色',
+    beyondTitle: '直接买进卖出——不是抽佣中间人',
     beyondBody: [
-      '今天，采购早已不只是买设备。',
-      '更关键的是整合性、兼容性与长期可靠性，特别是在更先进的工业与技术环境中。',
+      '我们是贸易商，不是 sourcing agent。我们从工厂把货买下、再转卖给您。您看到的价格就是最终价，没有躲在后面的工厂红包，也没有每笔出货的抽成。',
+      '因为货在我们手上、用我们的资金压着，瑕疵品挡下来是我们自己的事——验货有没有放水，直接影响我们的库存与利润。',
     ],
   },
   fr: {
-    sourceKicker: 'Ce que nous sourcions',
-    sourceTitle: "Un point d'entrée sourcing plus large pour les projets industriels et techniques",
-    sourceIntro: "Nous accompagnons les démarches de sourcing qui démarrent par des machines et s'étendent aux besoins industriels et techniques adjacents.",
+    sourceKicker: 'Ce que nous sourçons',
+    sourceTitle: 'Emballage, maison & jardin — et les catégories voisines que demanderont vos acheteurs',
+    sourceIntro: "Notre quotidien : produits d'emballage, articles de maison, outils de jardin et accessoires associés. Pour les partenaires de long terme, catégories voisines acceptées (cosmétiques, bougies, verre, petite quincaillerie).",
     sourceItems: [
-      "Systèmes d'emballage",
-      'Équipements industriels',
-      "Composants d'automatisation",
-      'Sourcing technique sélectionné',
+      'Emballage — sachets, boîtes, flacons, pompes, fermetures',
+      'Maison — cuisine, déco, rangement, petit habitat',
+      'Jardin — outils, jardinières, arrosage, accessoires extérieurs',
+      'Catégories voisines au cas par cas',
     ],
-    beyondKicker: 'Au-delà des machines',
-    beyondTitle: 'Un partenaire de sourcing pour des conversations plus avancées',
+    beyondKicker: 'Notre rôle',
+    beyondTitle: "Achat-revente direct — pas d'intermédiaire à la commission",
     beyondBody: [
-      "Aujourd'hui, le sourcing ne se limite plus à l'achat de matériel.",
-      "Ce qui compte, c'est l'intégration, la compatibilité et la fiabilité sur le long terme — en particulier dans les environnements industriels avancés.",
+      "Nous sommes une société de négoce, pas un agent de sourcing. Nous achetons la marchandise à l'usine, puis nous vous la revendons. Le prix affiché est le prix final — pas de pourboire d'usine caché, pas de commission par expédition.",
+      "Comme la marchandise est sur nos comptes, écarter les défauts avant l'expédition est notre intérêt direct, pas une faveur. La qualité devient notre problème, pas le vôtre.",
     ],
   },
   es: {
     sourceKicker: 'Lo que abastecemos',
-    sourceTitle: 'Un punto de entrada de sourcing más amplio para proyectos industriales y técnicos',
-    sourceIntro: 'Apoyamos conversaciones de sourcing que comienzan con máquinas y se expanden hacia necesidades industriales y técnicas adyacentes.',
+    sourceTitle: 'Empaque, hogar y jardín — y las categorías vecinas que pedirán sus compradores',
+    sourceIntro: 'Nuestro día a día son productos de empaque, artículos del hogar, herramientas de jardín y accesorios relacionados. Para socios de largo plazo aceptamos categorías cercanas: cosmética, velas, vidrio, ferretería ligera.',
     sourceItems: [
-      'Sistemas de empaque',
-      'Equipos industriales',
-      'Componentes de automatización',
-      'Sourcing técnico seleccionado',
+      'Empaque — bolsas, cajas, frascos, bombas, cierres',
+      'Hogar — cocina, decoración, organización, pequeño hogar',
+      'Jardín — herramientas, macetas, riego, accesorios de exterior',
+      'Categorías vecinas caso por caso',
     ],
-    beyondKicker: 'Más allá de las máquinas',
-    beyondTitle: 'Un socio de sourcing para conversaciones más avanzadas',
+    beyondKicker: 'Nuestro rol',
+    beyondTitle: 'Compra-reventa directa — no un intermediario a comisión',
     beyondBody: [
-      'Hoy en día, el abastecimiento ya no se trata solo de comprar equipos.',
-      'Se trata de integración, compatibilidad y confiabilidad a largo plazo — especialmente en entornos industriales avanzados.',
+      'Somos una empresa comercial, no un agente de sourcing. Compramos la mercancía a la fábrica y se la revendemos. El precio mostrado es el final — sin comisión oculta de fábrica, sin pago por envío.',
+      'Como la mercancía pasa por nuestras cuentas, rechazar defectos antes del envío es nuestro interés directo, no un favor. La calidad pasa a ser nuestro problema, no el suyo.',
     ],
   },
   pt: {
@@ -263,73 +261,73 @@ const SCHEMA_TEXT: Record<Lang, {
   faq: { q: string; a: string }[]
 }> = {
   en: {
-    listName: 'SunGene Industrial Equipment Sourcing',
-    listDesc: 'Industrial equipment and automation sourcing support: packaging, food processing, filling & sealing, conveying, and turnkey integration.',
-    categories: { packaging: 'Packaging Systems Sourcing', food: 'Food Equipment Sourcing', filling: 'Filling & Sealing Projects', conveying: 'Conveying & Automation Integration', custom: 'Custom Project Coordination' },
+    listName: 'SunGene — Taiwan & China sourcing for packaging, home & garden',
+    listDesc: 'Direct buy-and-resell sourcing for packaging products, home goods, and garden products from vetted Taiwan and China factories. On-site QC, no kickbacks, transparent pricing.',
+    categories: { packaging: 'Packaging Sourcing', food: 'Home & Kitchen Sourcing', filling: 'Beauty & Container Sourcing', conveying: 'Garden & Outdoor Sourcing', custom: 'Custom Sourcing Requests' },
     faq: [
-      { q: 'What is the minimum order quantity?', a: 'MOQ is 1 unit. Machines are configured to your product, packaging format, and target output.' },
-      { q: 'Can you customize machines?', a: 'Yes. Materials, dimensions, capacity, voltage/frequency, and automation modules can be configured to your requirements.' },
-      { q: 'What countries do you export to?', a: 'We export to 50+ countries across Southeast Asia, Middle East, Europe, Americas, and Africa. Voltage and frequency are configured to your local standard.' },
-      { q: 'What is the delivery lead time?', a: 'Lead time depends on configuration. Typical ranges: 15–30 days for single machines, 45–90 days for full lines.' },
-      { q: 'Do you provide FAT/SAT tests?', a: 'When applicable, we coordinate supplier FAT/SAT and function checks before shipment. Test videos and results can be provided as part of the handover.' },
-      { q: 'What certifications do your machines have?', a: 'We support CE documentation for export where applicable. Food-contact surfaces can be specified as food-grade SUS304/316L stainless steel.' },
-      { q: 'What after-sales support do you offer?', a: 'Remote video installation guidance, operator training, spare parts typically shipped within 48 hours (subject to stock and destination), and long-term technical support by phone or video call.' },
+      { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
+      { q: 'What is your minimum order?', a: 'USD 1,000 per shipment. We turn down very small mixed orders so we can give the orders we take the attention they need.' },
+      { q: 'How does pricing work? Is there a commission on top?', a: 'We are a trading company, not a commission agent. We buy the goods from the factory and resell to you. The price you see is the final landed cost we quote — no hidden factory kickback, no per-shipment commission. We disclose the relevant FOB or EXW factory price on request.' },
+      { q: 'How do you handle factory inspection?', a: 'We inspect personally. For factories in Taiwan, our team drives to the site. For factories in China, the goods ship to our forwarder’s warehouse where we inspect before export. We have walked away from factories that offered envelopes to pass goods we judged sub-spec. Inspection videos and photos are included with every shipment.' },
+      { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
+      { q: 'Can I see your Alibaba.com track record?', a: 'Yes — our storefront is at momas.en.alibaba.com. We have been a verified supplier there for three years. Star rating fluctuates between 3 and 5 stars depending on the period; check the live page for current standing.' },
+      { q: 'How fast do you reply?', a: 'Same day during Taipei business hours (UTC+8, Mon–Fri 09:00–18:00). Outside hours, within 12 hours.' },
     ],
   },
   zh: {
-    listName: 'SunGene 工業採購範圍',
-    listDesc: '包裝系統、食品設備、灌裝封口專案與輸送/自動化整合。',
-    categories: { packaging: '包裝系統採購', food: '食品設備採購', filling: '灌裝與封口專案', conveying: '輸送與自動化整合', custom: '客製專案協調' },
+    listName: 'SunGene｜台灣＋中國 採購夥伴｜包裝、家居、園藝',
+    listDesc: '直接從台灣與中國審查過的工廠買進、轉手出貨給你——包裝產品、家居用品、園藝工具與相關配件。親自驗貨、不收紅包、報價透明。',
+    categories: { packaging: '包裝產品採購', food: '家居廚房採購', filling: '美容容器採購', conveying: '園藝戶外採購', custom: '客製品採購' },
     faq: [
-      { q: '最小訂購量是多少？', a: '最小訂購量為 1 台。可依產品、包材形式與目標產速進行配置。' },
-      { q: '可以客製化嗎？', a: '可以。材質、尺寸、產能、電壓/頻率與自動化模組皆可依需求調整。' },
-      { q: '出口到哪些國家？', a: '已出口 50+ 國家，涵蓋東南亞、中東、歐洲、美洲與非洲。電壓與頻率可依目的地標準配置。' },
-      { q: '交期大約多久？', a: '交期取決於配置與整線範圍。常見區間：單機 15–30 天、整線 45–90 天。' },
-      { q: '出貨前會做 FAT/SAT 測試嗎？', a: '視設備與供應商而定，我們可協調供應商端的 FAT/SAT 與功能檢測；並可提供測試影片與結果作為交付文件。' },
-      { q: '機器有哪些認證？', a: '可提供 CE 文件支援（依設備/供應商而定），接觸面可指定食品級 SUS304/316L 不鏽鋼。' },
-      { q: '售後支援包含哪些？', a: '遠端視訊安裝指導、操作培訓、備件通常於 48 小時內出貨（視庫存與目的地而定），以及長期電話或視訊技術支援。' },
+      { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
+      { q: '最低訂單是多少？', a: 'USD 1,000 起。一次很多項、雜小單我們會婉拒——這樣才有餘力把接下來的單做好。' },
+      { q: '報價是怎麼算的？會在工廠價之外抽佣嗎？', a: '我們是貿易商，不是抽佣的代理。我們把貨從工廠買下、再轉賣給你。你看到的就是最終到岸價，沒有躲在後面的工廠紅包，也沒有每筆出貨的抽成。你要看 FOB 或 EXW 工廠價我們會直接揭露。' },
+      { q: '驗貨怎麼做？', a: '我們親自驗。台灣的工廠我們團隊直接開車去；中國的工廠出貨先進我們合作貨代的倉庫，由我們進場驗貨後才放行出口。曾經遇過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。每批出貨都附驗貨影片與照片。' },
+      { q: '你們在哪？', a: '兩家公司——一家在台灣台中，一家在中國大陸。台灣公司開發票、收款；中國公司管工廠關係與出口前的物流。' },
+      { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——店面是 momas.en.alibaba.com，已經是認證供應商三年。星等會隨期間在 3 到 5 星之間波動，建議直接點過去看當下狀態。' },
+      { q: '回覆多快？', a: '台灣上班時間（UTC+8，週一至五 09:00–18:00）當日回。下班時段 12 小時內。' },
     ],
   },
   cn: {
-    listName: 'SunGene 工业机械',
-    listDesc: '包装机械、食品加工设备、灌装封口系统与输送/自动化整线。',
-    categories: { packaging: '包装机械', food: '食品加工设备', filling: '灌装与封口系统', conveying: '输送与自动化', custom: '定制机械' },
+    listName: 'SunGene｜台湾＋中国 采购伙伴｜包装、家居、园艺',
+    listDesc: '直接从台湾与中国核查过的工厂买进、转手出货给您——包装产品、家居用品、园艺工具与相关配件。亲自验货、不收红包、报价透明。',
+    categories: { packaging: '包装产品采购', food: '家居厨房采购', filling: '美容容器采购', conveying: '园艺户外采购', custom: '定制品采购' },
     faq: [
-      { q: '最小订购量是多少？', a: '最小订购量为 1 台。可按产品、包装形式与目标产速进行配置。' },
-      { q: '可以定制吗？', a: '可以。材质、尺寸、产能、电压/频率与自动化模块都可按需求调整。' },
-      { q: '出口到哪些国家？', a: '已出口 50+ 国家，涵盖东南亚、中东、欧洲、美洲与非洲。电压与频率可按目的地标准配置。' },
-      { q: '交期大约多久？', a: '交期取决于配置与整线范围。常见区间：单机 15–30 天、整线 45–90 天。' },
-      { q: '出货前会做 FAT/SAT 测试吗？', a: '视设备与供应商而定，我们可协调供应商端的 FAT/SAT 与功能检测，并提供测试视频与结果作为交付文件。' },
-      { q: '机器有哪些认证？', a: '可提供 CE 文件支持（视设备/供应商而定），接触面可指定食品级 SUS304/316L 不锈钢。' },
-      { q: '售后支持包含哪些？', a: '远程视频安装指导、操作培训、备件通常在 48 小时内发货（视库存与目的地而定），以及长期电话或视频技术支持。' },
+      { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
+      { q: '最低订单是多少？', a: 'USD 1,000 起。一次很多项、杂小单我们会婉拒——这样才有余力把接下来的单做好。' },
+      { q: '报价是怎么算的？工厂价之外会抽佣吗？', a: '我们是贸易商，不是抽佣代理。我们把货从工厂买下，再转卖给您。您看到的就是最终到岸价，没有躲在后面的工厂红包，也没有每笔出货的抽成。您要看 FOB 或 EXW 工厂价我们会直接揭露。' },
+      { q: '验货怎么做？', a: '我们亲自验。台湾的工厂我们团队直接开车去；中国的工厂出货先进我们合作货代的仓库，由我们进场验货后才放行出口。曾经遇过工厂递红包让我们放行不合规的货，我们选择不合作。每批出货都附验货视频与照片。' },
+      { q: '你们在哪？', a: '两家公司——一家在台湾台中，一家在中国大陆。台湾公司开发票、收款；中国公司管工厂关系与出口前的物流。' },
+      { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——店面是 momas.en.alibaba.com，已经是认证供应商三年。星等会在 3 到 5 星之间波动，建议直接点过去看当下状态。' },
+      { q: '回复多快？', a: '台北上班时间（UTC+8，周一至五 09:00–18:00）当日回复。下班时段 12 小时内。' },
     ],
   },
   fr: {
-    listName: 'SunGene — Machines industrielles',
-    listDesc: 'Machines d’emballage, équipements agroalimentaires, remplissage/scellage et convoyage/automatisation.',
-    categories: { packaging: 'Machines d’emballage', food: 'Équipements agroalimentaires', filling: 'Remplissage & scellage', conveying: 'Convoyage & automatisation', custom: 'Machines sur mesure' },
+    listName: "SunGene | Sourcing Taïwan & Chine pour marques d'emballage, maison & jardin",
+    listDesc: "Achat direct auprès d'usines vérifiées à Taïwan et en Chine, revente en direct — produits d'emballage, articles de maison, outils de jardin et accessoires. Contrôle qualité sur place, sans commission occulte, devis transparents.",
+    categories: { packaging: 'Sourcing emballage', food: 'Sourcing maison & cuisine', filling: 'Sourcing beauté & flaconnage', conveying: 'Sourcing jardin & extérieur', custom: 'Demandes sur mesure' },
     faq: [
-      { q: 'Quelle est la quantité minimum de commande ?', a: 'MOQ : 1 machine. Configuration selon produit, format et cadence cible.' },
-      { q: 'Faites-vous du sur-mesure ?', a: 'Oui. Matériaux, dimensions, capacité, tension/fréquence et modules d’automatisation sont configurables.' },
-      { q: 'Vers quels pays exportez-vous ?', a: 'Export vers 50+ pays en Asie du Sud-Est, Moyen-Orient, Europe, Amériques et Afrique. Tension et fréquence adaptées.' },
-      { q: 'Quel est le délai de livraison ?', a: 'Selon configuration : en général 15–30 jours (machine) et 45–90 jours (ligne complète).' },
-      { q: 'Faites-vous des tests FAT/SAT avant expédition ?', a: 'Selon l’équipement et le fournisseur, nous coordonnons des tests FAT/SAT et des contrôles fonctionnels avant expédition. Vidéo et résultats peuvent être fournis.' },
-      { q: 'Quelles certifications sont disponibles ?', a: 'Nous accompagnons la documentation CE à l’export lorsque c’est applicable. Les surfaces en contact produit peuvent être spécifiées en SUS304/316L de grade alimentaire.' },
-      { q: 'Quel SAV proposez-vous ?', a: 'Assistance vidéo à distance, formation opérateur, pièces détachées généralement expédiées sous 48h (selon stock et destination) et support technique long terme.' },
+      { q: 'Quels produits sourcez-vous ?', a: "Principalement de l'emballage (sachets, boîtes, flacons, pompes, fermetures), des articles de maison (cuisine, décoration, rangement) et des outils et accessoires de jardin. Catégories voisines (cosmétiques, bougies, verre, petite quincaillerie) acceptées pour les partenariats de long terme." },
+      { q: 'Quelle est la commande minimum ?', a: 'USD 1 000 par expédition. Nous refusons les très petites commandes éparpillées pour pouvoir donner aux commandes prises le suivi nécessaire.' },
+      { q: 'Comment est calculé le prix ? Y a-t-il une commission ?', a: "Nous sommes une société de négoce, pas un agent à la commission. Nous achetons la marchandise à l'usine et vous la revendons. Le prix affiché est le coût final livré — pas de pourboire d'usine, pas de commission par expédition. Le prix FOB ou EXW usine est communiqué sur demande." },
+      { q: "Comment se passe l'inspection en usine ?", a: "Nous inspectons en personne. Pour les usines à Taïwan, notre équipe se déplace sur site. Pour la Chine, la marchandise arrive d'abord à l'entrepôt de notre transitaire où nous inspectons avant export. Nous avons refusé des usines qui proposaient une enveloppe pour faire passer de la marchandise hors spécification. Vidéos et photos d'inspection sont fournies à chaque expédition." },
+      { q: 'Où êtes-vous basés ?', a: "Deux sociétés enregistrées — une à Taichung, Taïwan ; une en Chine continentale. L'entité taïwanaise facture et reçoit les paiements ; l'entité chinoise gère les relations usines et la logistique pré-export." },
+      { q: "Peut-on vérifier votre historique sur Alibaba.com ?", a: "Oui — notre boutique est sur momas.en.alibaba.com. Nous sommes fournisseur vérifié depuis trois ans. La note fluctue entre 3 et 5 étoiles selon la période ; vérifiez en direct." },
+      { q: 'Délai de réponse ?', a: "Réponse le jour même pendant les heures de bureau de Taipei (UTC+8, lun.–ven. 09:00–18:00). Hors horaires, sous 12 heures." },
     ],
   },
   es: {
-    listName: 'SunGene — Maquinaria industrial',
-    listDesc: 'Maquinaria de empaque, equipos de alimentos, llenado/sellado y transporte/automatización.',
-    categories: { packaging: 'Maquinaria de empaque', food: 'Equipos de alimentos', filling: 'Llenado y sellado', conveying: 'Transporte y automatización', custom: 'Maquinaria a medida' },
+    listName: 'SunGene | Sourcing Taiwán & China para marcas de empaque, hogar y jardín',
+    listDesc: 'Compra directa a fábricas verificadas en Taiwán y China, reventa directa — productos de empaque, artículos del hogar, herramientas de jardín y accesorios. Control de calidad en sitio, sin comisiones ocultas, presupuestos transparentes.',
+    categories: { packaging: 'Sourcing de empaque', food: 'Sourcing hogar y cocina', filling: 'Sourcing belleza y envase', conveying: 'Sourcing jardín y exterior', custom: 'Solicitudes a medida' },
     faq: [
-      { q: '¿Cuál es el pedido mínimo?', a: 'MOQ: 1 unidad. Se configura según producto, formato y velocidad objetivo.' },
-      { q: '¿Pueden personalizar máquinas?', a: 'Sí. Materiales, dimensiones, capacidad, voltaje/frecuencia y módulos de automatización son configurables.' },
-      { q: '¿A qué países exportan?', a: 'Exportamos a 50+ países en Asia, Medio Oriente, Europa, América y África. Voltaje y frecuencia se ajustan al estándar local.' },
-      { q: '¿Cuál es el plazo de entrega?', a: 'Depende de la configuración: típico 15–30 días (máquina) y 45–90 días (línea completa).' },
-      { q: '¿Realizan pruebas FAT/SAT antes del envío?', a: 'Según el equipo y el proveedor, coordinamos pruebas FAT/SAT y verificaciones funcionales antes del envío. Se pueden proporcionar video y resultados.' },
-      { q: '¿Qué certificaciones están disponibles?', a: 'Apoyamos la documentación CE para exportación cuando aplique. Las superficies en contacto con el producto pueden especificarse en SUS304/316L de grado alimentario.' },
-      { q: '¿Qué soporte posventa ofrecen?', a: 'Asistencia remota por video, capacitación, repuestos normalmente enviados en 48 horas (según stock y destino) y soporte técnico a largo plazo.' },
+      { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
+      { q: '¿Cuál es el pedido mínimo?', a: 'USD 1 000 por envío. Rechazamos pedidos muy pequeños y dispersos para poder dar a los aceptados la atención que necesitan.' },
+      { q: '¿Cómo se calcula el precio? ¿Hay comisión sobre el precio de fábrica?', a: 'Somos una empresa comercial, no un agente a comisión. Compramos la mercancía a la fábrica y se la revendemos. El precio mostrado es el costo final entregado — sin comisión oculta de fábrica, sin pago por envío. El precio FOB o EXW de fábrica se comunica bajo petición.' },
+      { q: '¿Cómo realizan la inspección en fábrica?', a: 'Inspeccionamos en persona. Para fábricas en Taiwán, nuestro equipo se desplaza al sitio. Para China, la mercancía llega primero al almacén de nuestro agente de carga, donde inspeccionamos antes de exportar. Hemos rechazado fábricas que ofrecían sobres para aprobar mercancía fuera de especificación. Video y fotos de inspección con cada envío.' },
+      { q: '¿Dónde están ubicados?', a: 'Dos empresas registradas — una en Taichung, Taiwán; otra en China continental. La entidad taiwanesa factura y recibe pagos; la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
+      { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — nuestra tienda está en momas.en.alibaba.com. Somos proveedor verificado desde hace tres años. La calificación fluctúa entre 3 y 5 estrellas según el período; verifique en vivo.' },
+      { q: '¿Qué tan rápido responden?', a: 'Mismo día en horario laboral de Taipéi (UTC+8, lun–vie 09:00–18:00). Fuera de horario, en 12 horas.' },
     ],
   },
   pt: {
@@ -510,8 +508,10 @@ export default async function Page({ params }: PageParams) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <HeroSection lang={safeLang} />
-      <MachineByProduct lang={safeLang} />
-      <ServicesPreview lang={safeLang} />
+      {/* Removed MachineByProduct and ServicesPreview — these were machine-catalog
+          sections that contradict the new packaging/home/garden sourcing positioning.
+          Applications section below covers the same category-discovery purpose
+          with content aligned to the new positioning. */}
       <section className="bg-white py-16 sm:py-20">
         <Container className="max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -562,7 +562,9 @@ export default async function Page({ params }: PageParams) {
           </div>
         </Container>
       </section>
-      <section className="bg-white py-8">
+      {/* Section "Configuration guides by route" removed — links pointed to
+          machine-route resource pages, off-positioning. */}
+      {false && (<section className="bg-white py-8">
         <Container className="max-w-7xl">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-base font-bold text-gray-950">
@@ -608,7 +610,7 @@ export default async function Page({ params }: PageParams) {
             </div>
           </div>
         </Container>
-      </section>
+      </section>)}
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />
       <ProcessSection lang={safeLang} />
