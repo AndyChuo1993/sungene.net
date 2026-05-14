@@ -7,7 +7,7 @@ export async function GET() {
     `sitemap-images: ${SITE_URL}/sitemap-images.xml`,
     `llms: ${SITE_URL}/llms.txt`,
     `llms-full: ${SITE_URL}/llms-full.txt`,
-    `notes: SunGene is a Taiwan + China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging, home goods, garden products. MOQ USD 1,000 per shipment. Verified Alibaba.com supplier (momas.en.alibaba.com).`,
+    `notes: SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories across both markets and resell direct to international buyers in packaging, home goods, and garden categories. On-site QC by our own team. Orders from USD 1,000. Verified Alibaba.com supplier (momas.en.alibaba.com).`,
     '',
   ].join('\n')
 

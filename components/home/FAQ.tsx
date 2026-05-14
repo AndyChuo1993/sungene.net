@@ -10,13 +10,13 @@ export default function FAQ({ lang }: { lang: Lang }) {
       title: 'Common questions before we talk',
       items: [
         { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
-        { q: 'What is your minimum order?', a: 'USD 1,000 per shipment. We turn down very small mixed orders so we can give the orders we take the attention they need.' },
+        { q: 'What is your minimum order?', a: 'Orders start at USD 1,000 per shipment. This entry tier ensures every order receives dedicated sourcing, on-site QC, and full export documentation — whether you ship a pallet or a full container.' },
         { q: 'How does pricing work? Is there a commission on top?', a: 'We are a trading company, not a commission agent. We buy the goods from the factory and resell to you. The price you see is the final landed cost we quote — no hidden factory kickback, no per-shipment commission. We disclose the relevant FOB or EXW factory price on request.' },
         { q: 'How do you handle factory inspection?', a: 'We inspect personally. Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. We have walked away from factories that offered envelopes to pass sub-spec goods. Inspection videos and photos with every shipment.' },
         { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
-        { q: 'Can I see your Alibaba.com track record?', a: 'Yes — momas.en.alibaba.com. Verified supplier for three years. Star rating fluctuates between 3 and 5 stars depending on the period; check the live page for current standing.' },
+        { q: 'Can I see your Alibaba.com track record?', a: 'Yes — verified supplier storefront at momas.en.alibaba.com. Public, third-party-hosted, and updated in real time. We encourage every prospective partner to verify it before any commitment.' },
         { q: 'How fast do you reply?', a: 'Same day during Taipei business hours (UTC+8, Mon–Fri 09:00–18:00). Outside hours, within 12 hours.' },
-        { q: 'What language do you communicate in?', a: 'We are Chinese-native and use machine translation plus chat tools (WhatsApp, WeChat, LINE, email) for English/French/Spanish customers. Communication is via text — typos may happen but the meaning carries cleanly.' },
+        { q: 'What language do you communicate in?', a: 'English, French, Spanish, Traditional Chinese, and Simplified Chinese. Daily channels: WhatsApp, WeChat, LINE, and email. Written documentation in the buyer\'s language for every shipment.' },
       ]
     },
     cn: {
@@ -24,13 +24,13 @@ export default function FAQ({ lang }: { lang: Lang }) {
       title: '聊之前先看这些问题',
       items: [
         { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
-        { q: '最低订单是多少？', a: 'USD 1,000 起。一次很多项、杂小单我们会婉拒——这样才有余力把接下来的订单做好。' },
+        { q: '最低订单是多少？', a: '订单 USD 1,000 起接。这个起接金额能让每一笔订单都享有专属的采购、现场验货与完整出口文件——不管您是出一个棧板还是一整个货柜。' },
         { q: '报价怎么算？工厂价之外会抽佣吗？', a: '我们是贸易商，不是抽佣代理。我们把货从工厂买下，再转卖给您。您看到的就是最终到岸价，没有躲在后面的工厂红包，也没有每笔出货的抽成。您要看 FOB 或 EXW 工厂价我们会直接揭露。' },
         { q: '验货怎么做？', a: '我们亲自验。台湾工厂团队直接开车去；中国工厂出货先进我们合作货代仓库，由我们验货后才放行出口。曾经遇过工厂塞红包想让我们放行不合规的货，我们选择不合作。每批附验货视频与照片。' },
         { q: '你们在哪？', a: '两家公司——一家在台湾台中，一家在中国大陆。台湾公司开发票、收款；中国公司管工厂关系与出口前的物流。' },
-        { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——momas.en.alibaba.com。已经是认证供应商三年。星等会随期间在 3 到 5 星之间波动，建议直接点过去看当下状态。' },
+        { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——momas.en.alibaba.com 认证店面。公开、由第三方维护、即时更新。建议任何潜在合作方在签约前先去查看。' },
         { q: '回复多快？', a: '台北上班时间（UTC+8，周一至五 09:00–18:00）当日回复。下班时段 12 小时内。' },
-        { q: '你们用什么语言沟通？', a: '我们是中文母语，对英、法、西语客户用翻译软体加上 WhatsApp / WeChat / LINE / Email 文字沟通。错别字偶尔有，但意思传达干净。' },
+        { q: '你们用什么语言沟通？', a: '英语、法语、西语、繁体中文、简体中文。日常对话工具：WhatsApp、WeChat、LINE、Email。每批出货都附买方语言版的书面文件。' },
       ]
     },
     zh: {
@@ -38,13 +38,13 @@ export default function FAQ({ lang }: { lang: Lang }) {
       title: '聊之前先看這些問題',
       items: [
         { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
-        { q: '最低訂單是多少？', a: 'USD 1,000 起。一次很多項、雜小單我們會婉拒——這樣才有餘力把接下來的訂單做好。' },
+        { q: '最低訂單是多少？', a: '訂單 USD 1,000 起接。這個起接金額能讓每一筆訂單都享有專屬的採購、現場驗貨與完整出口文件——不管你是出一個棧板還是一整個貨櫃。' },
         { q: '報價怎麼算？工廠價之外會抽佣嗎？', a: '我們是貿易商，不是抽佣代理。我們把貨從工廠買下、再轉賣給你。你看到的就是最終到岸價，沒有躲在後面的工廠紅包，也沒有每筆出貨的抽成。你要看 FOB 或 EXW 工廠價我們會直接揭露。' },
         { q: '驗貨怎麼做？', a: '我們親自驗。台灣工廠團隊直接開車去；中國工廠出貨先進我們合作貨代倉庫，由我們驗貨後才放行出口。曾經遇過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。每批附驗貨影片與照片。' },
         { q: '你們在哪？', a: '兩家公司——一家在台灣台中，一家在中國大陸。台灣公司開發票、收款；中國公司管工廠關係與出口前的物流。' },
-        { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——momas.en.alibaba.com。已經是認證供應商三年。星等會隨期間在 3 到 5 星之間波動，建議直接點過去看當下狀態。' },
+        { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——momas.en.alibaba.com 認證店面。公開、由第三方維護、即時更新。建議任何潛在合作方在簽約前先去查看。' },
         { q: '回覆多快？', a: '台灣上班時間（UTC+8，週一至五 09:00–18:00）當日回。下班時段 12 小時內。' },
-        { q: '你們用什麼語言溝通？', a: '我們是中文母語，對英、法、西語客戶用翻譯軟體加上 WhatsApp / WeChat / LINE / Email 文字溝通。錯別字偶爾有，但意思傳達乾淨。' },
+        { q: '你們用什麼語言溝通？', a: '英語、法語、西語、繁體中文、簡體中文。日常對話工具：WhatsApp、WeChat、LINE、Email。每批出貨都附買方語言版的書面文件。' },
       ]
     },
     fr: {
@@ -52,13 +52,13 @@ export default function FAQ({ lang }: { lang: Lang }) {
       title: 'Les questions à éclaircir avant de discuter',
       items: [
         { q: 'Quels produits sourcez-vous ?', a: "Principalement de l'emballage (sachets, boîtes, flacons, pompes, fermetures), des articles de maison (cuisine, décoration, rangement) et des outils et accessoires de jardin. Catégories voisines (cosmétiques, bougies, verre, petite quincaillerie) acceptées pour les partenariats de long terme." },
-        { q: 'Quelle est la commande minimum ?', a: 'USD 1 000 par expédition. Nous refusons les très petites commandes éparpillées pour pouvoir donner aux commandes prises le suivi nécessaire.' },
+        { q: 'Quelle est la commande minimum ?', a: 'Les commandes démarrent à USD 1 000 par expédition. Ce seuil garantit que chaque commande bénéficie d\'un sourcing dédié, d\'un contrôle qualité sur site et d\'une documentation export complète — qu\'il s\'agisse d\'une palette ou d\'un conteneur entier.' },
         { q: 'Comment est calculé le prix ? Y a-t-il une commission ?', a: "Nous sommes une société de négoce, pas un agent à la commission. Nous achetons la marchandise à l'usine et vous la revendons. Le prix affiché est le coût final livré — pas de pourboire d'usine, pas de commission par expédition. Le prix FOB ou EXW usine est communiqué sur demande." },
         { q: "Comment se passe l'inspection en usine ?", a: "Nous inspectons en personne. Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise arrive à l'entrepôt de notre transitaire et nous inspectons avant export. Nous avons refusé des usines qui proposaient une enveloppe pour faire passer de la marchandise hors spécification. Vidéos et photos d'inspection à chaque expédition." },
         { q: 'Où êtes-vous basés ?', a: "Deux sociétés enregistrées — une à Taichung, Taïwan ; une en Chine continentale. L'entité taïwanaise facture et reçoit les paiements ; l'entité chinoise gère les relations usines et la logistique pré-export." },
-        { q: "Peut-on vérifier votre historique sur Alibaba.com ?", a: "Oui — momas.en.alibaba.com. Fournisseur vérifié depuis trois ans. La note fluctue entre 3 et 5 étoiles selon la période ; vérifiez en direct." },
+        { q: "Peut-on vérifier votre historique sur Alibaba.com ?", a: "Oui — boutique fournisseur vérifié sur momas.en.alibaba.com. Publique, hébergée par un tiers, mise à jour en temps réel. Nous encourageons toute vérification avant engagement." },
         { q: 'Délai de réponse ?', a: "Le jour même pendant les heures de bureau de Taipei (UTC+8, lun.–ven. 09:00–18:00). Hors horaires, sous 12 heures." },
-        { q: 'En quelle langue communiquez-vous ?', a: "Notre langue maternelle est le chinois. Pour les clients anglo/franco/hispanophones, nous utilisons la traduction automatique combinée à WhatsApp / WeChat / LINE / e-mail. Communication par écrit — quelques coquilles possibles, mais le sens passe clairement." },
+        { q: 'En quelle langue communiquez-vous ?', a: "Anglais, français, espagnol, chinois traditionnel et simplifié. Canaux quotidiens : WhatsApp, WeChat, LINE, e-mail. Documentation écrite dans la langue de l'acheteur pour chaque expédition." },
       ]
     },
     es: {
@@ -66,13 +66,13 @@ export default function FAQ({ lang }: { lang: Lang }) {
       title: 'Preguntas a aclarar antes de hablar',
       items: [
         { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
-        { q: '¿Cuál es el pedido mínimo?', a: 'USD 1 000 por envío. Rechazamos pedidos muy pequeños y dispersos para poder dar a los aceptados la atención que necesitan.' },
+        { q: '¿Cuál es el pedido mínimo?', a: 'Los pedidos parten de USD 1 000 por envío. Este umbral garantiza que cada pedido reciba sourcing dedicado, control de calidad en sitio y documentación de exportación completa — sea un pallet o un contenedor entero.' },
         { q: '¿Cómo se calcula el precio? ¿Hay comisión sobre el precio de fábrica?', a: 'Somos una empresa comercial, no un agente a comisión. Compramos la mercancía a la fábrica y se la revendemos. El precio mostrado es el costo final entregado — sin propina oculta de fábrica, sin comisión por envío. El precio FOB o EXW de fábrica se comunica bajo petición.' },
         { q: '¿Cómo realizan la inspección en fábrica?', a: 'Inspeccionamos en persona. Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Hemos rechazado fábricas que ofrecían sobres para aprobar mercancía fuera de especificación. Video y fotos de inspección con cada envío.' },
         { q: '¿Dónde están ubicados?', a: 'Dos empresas registradas — una en Taichung, Taiwán; otra en China continental. La entidad taiwanesa factura y recibe pagos; la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
-        { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — momas.en.alibaba.com. Proveedor verificado desde hace tres años. La calificación fluctúa entre 3 y 5 estrellas según el período; verifique en vivo.' },
+        { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — tienda de proveedor verificado en momas.en.alibaba.com. Pública, alojada por terceros, actualizada en tiempo real. Recomendamos verificarla antes de cualquier compromiso.' },
         { q: '¿Qué tan rápido responden?', a: 'Mismo día en horario laboral de Taipéi (UTC+8, lun–vie 09:00–18:00). Fuera de horario, en 12 horas.' },
-        { q: '¿En qué idioma se comunican?', a: 'Nuestro idioma materno es el chino. Para clientes en inglés/francés/español usamos traducción automática combinada con WhatsApp / WeChat / LINE / correo. Comunicación por escrito — alguna errata puntual, pero el sentido se mantiene claro.' },
+        { q: '¿En qué idioma se comunican?', a: 'Inglés, francés, español, chino tradicional y simplificado. Canales diarios: WhatsApp, WeChat, LINE, correo. Documentación escrita en el idioma del comprador para cada envío.' },
       ]
     },
     pt: {

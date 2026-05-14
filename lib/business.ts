@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 export const BRAND = {
   legalName: 'SunGene Co., LTD.',
   alternateName: '上瑾錸有限公司',
-  description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging products, home goods, garden tools and accessories. On-site QC by our own team. Verified Alibaba.com supplier since 2023.',
+  description: 'SunGene is a Taiwan–China dual-entity trading company. We purchase from vetted factories across both markets and resell direct to international buyers in packaging products, home goods, and garden categories. Verified Alibaba.com supplier with on-site QC by our own team and zero factory kickbacks.',
   telephoneTW: '+886-4-37032705',
   telephoneCN: '+86-18144132078',
   email: 'contact@sungene.net',

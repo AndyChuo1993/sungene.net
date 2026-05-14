@@ -42,12 +42,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {({
-                en: 'A small Taiwan + China trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier for three years.',
-                cn: '台湾＋中国双公司架构的小型贸易商。直接向核查过的工厂下单、转手出货给您——包装、家居、园艺品类。亲自验货、不收红包。Alibaba.com 认证供应商三年。',
-                zh: '台灣＋中國雙公司架構的小型貿易商。直接向審查過的工廠下單、轉手出貨給你——包裝、家居、園藝品類。親自驗貨、不收紅包。Alibaba.com 認證供應商三年。',
-                fr: "Petite société de négoce Taïwan + Chine. Nous achetons auprès d'usines vérifiées et revendons en direct dans les catégories emballage, maison et jardin. Contrôle qualité par notre équipe. Sans commission occulte. Fournisseur Alibaba.com vérifié depuis trois ans.",
-                es: 'Pequeña empresa comercial Taiwán + China. Compramos a fábricas verificadas y revendemos directamente en empaque, hogar y jardín. Control de calidad por nuestro equipo. Sin comisiones ocultas. Proveedor Alibaba.com verificado desde hace tres años.',
-              } as Record<string, string>)[lang] || 'A small Taiwan + China trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier for three years.'}
+                en: 'SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier.',
+                cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。直接向审核过的工厂采购、转手出货给您——包装、家居、园艺品类。亲自验货、不收红包。Alibaba.com 认证供应商。',
+                zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。直接向審核過的工廠採購、轉手出貨給你——包裝、家居、園藝品類。親自驗貨、不收紅包。Alibaba.com 認證供應商。',
+                fr: "SunGene est une société de négoce à double entité Taïwan + Chine. Nous achetons auprès d'usines vérifiées et revendons en direct dans les catégories emballage, maison et jardin. Contrôle qualité par notre équipe. Sans commission occulte. Fournisseur Alibaba.com vérifié.",
+                es: 'SunGene es una empresa comercial con doble entidad Taiwán + China. Compramos a fábricas verificadas y revendemos directamente en empaque, hogar y jardín. Control de calidad por nuestro equipo. Sin comisiones ocultas. Proveedor Alibaba.com verificado.',
+              } as Record<string, string>)[lang] || 'SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier.'}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

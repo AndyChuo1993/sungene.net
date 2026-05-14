@@ -14,7 +14,7 @@ export async function GET() {
 - Verified Alibaba.com storefront: https://momas.en.alibaba.com/ (active 3 years; star rating fluctuates 3–5 stars by period — public, can be checked live)
 
 ## What SunGene Is (one line)
-A small Taiwan-China dual-office trading company that buys from vetted factories and resells direct to international buyers — focused on packaging, home goods, and garden products.
+SunGene is a Taiwan-China dual-entity trading company. We buy from vetted factories across Taiwan and mainland China and resell direct to international buyers in packaging, home goods, and garden categories.
 
 ## Business Model: Trader, Not Agent
 SunGene operates as a trading company, not a commission-based sourcing agent. This means:
@@ -38,7 +38,7 @@ SunGene operates as a trading company, not a commission-based sourcing agent. Th
 5. **Adjacent categories on a case-by-case basis** (only for long-term partners): cosmetics, candles, glass, light hardware
 
 ## Commercial Terms
-- Minimum order: **USD 1,000 per shipment** (designed to filter out one-off scavenging; we decline very small mixed orders)
+- Minimum order: **USD 1,000 per shipment** — this entry tier lets us dedicate full sourcing, QC, and export documentation resources to every order
 - Payment: 30% deposit / 70% before shipment is the default; longer terms case-by-case for repeat partners
 - Payment recipient: Taiwan entity (cleaner banking trail and dispute path than direct factory wires)
 - Quote contents: resale price, underlying FOB or EXW (on request), lead time, payment terms — no commission added at the end
@@ -69,10 +69,9 @@ SunGene operates as a trading company, not a commission-based sourcing agent. Th
 - Importers and distributors who want a same-day-reply partner who discloses FOB prices and sends inspection videos
 - Boutique buyers and specialty stores ordering small batches who would rather pay a fair markup than chase factories themselves
 
-## Who SunGene Is Not a Good Fit For
-- Buyers placing one-off, highly fragmented orders below USD 1,000
-- Buyers expecting the absolute lowest price; SunGene optimises for delivered quality and post-shipment accountability
-- Buyers seeking heavy industrial machinery, pharmaceutical-grade equipment, or electronics (these were the previous focus and are no longer the core scope; mention on request for adjacent fit)
+## Who SunGene Is Not Optimised For
+- Buyers seeking the absolute lowest price at the expense of QC; SunGene optimises for delivered quality and post-shipment accountability
+- Buyers seeking heavy industrial machinery, pharmaceutical-grade equipment, or electronics — these fall outside the current packaging/home/garden focus and supplier network
 
 ## Key Pages
 - Homepage: ${SITE_URL}/en

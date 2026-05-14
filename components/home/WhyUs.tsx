@@ -13,7 +13,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'No factory kickbacks', desc: 'We have walked away from suppliers who offered envelopes to pass sub-spec goods. Inspection result is what we saw — not what was paid for.' },
         { icon: '04', title: 'Verified Alibaba.com supplier', desc: 'Three years operating momas.en.alibaba.com. Rating fluctuates between 3 and 5 stars by period. Storefront is public — verify it before you commit.' },
         { icon: '05', title: 'Taiwan + China dual entity', desc: 'Two registered companies. Pay the Taiwan entity (cleaner banking and dispute path); China entity manages factory relationships and pre-shipment logistics.' },
-        { icon: '06', title: 'Built for long-term partnership', desc: 'MOQ USD 1,000 per shipment. We decline very small mixed orders so we can give the orders we take real attention.' },
+        { icon: '06', title: 'Built for serious buyers', desc: 'Orders from USD 1,000 per shipment. Every order gets dedicated sourcing, on-site QC, and pre-shipment documentation — the same level of care whether you ship one pallet or a full container.' },
       ]
     },
     cn: {
@@ -26,7 +26,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: '不收工厂红包', desc: '碰过工厂塞红包想让我们放行不合规的货，我们选择不合作。验货结果是我们看到的事实，不是被买通的结论。' },
         { icon: '04', title: 'Alibaba.com 认证供应商', desc: '经营 momas.en.alibaba.com 三年。星等会随期间在 3 到 5 星之间波动。店面公开——签约前可以先去查。' },
         { icon: '05', title: '台湾＋中国双公司', desc: '两家公司分工：付款给台湾公司（银行往来与争议处理更清楚）；中国公司管工厂关系与出口前物流。' },
-        { icon: '06', title: '为长期合作设计', desc: '最低订单 USD 1,000。一次很多项、杂小单我们会婉拒——这样才能把接下来的订单做好。' },
+        { icon: '06', title: '为认真的买家而设计', desc: '订单 USD 1,000 起。每一笔订单都享有专属的采购、现场验货与出口前文件准备——不管是一个棧板还是整个货柜，服务水准一致。' },
       ]
     },
     zh: {
@@ -39,7 +39,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: '不收工廠紅包', desc: '碰過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。驗貨結果是我們看到的事實，不是被買通的結論。' },
         { icon: '04', title: 'Alibaba.com 認證供應商', desc: '經營 momas.en.alibaba.com 三年。星等會隨期間在 3 到 5 星之間波動。店面公開——簽約前可以先去查。' },
         { icon: '05', title: '台灣＋中國雙公司', desc: '兩家公司分工：付款給台灣公司（銀行往來與爭議處理更清楚）；中國公司管工廠關係與出口前物流。' },
-        { icon: '06', title: '為長期合作而設計', desc: '最低訂單 USD 1,000。一次很多項、雜小單我們會婉拒——這樣才有餘力把接下來的訂單做好。' },
+        { icon: '06', title: '為認真的買家而設計', desc: '訂單 USD 1,000 起。每一筆訂單都享有專屬的採購、現場驗貨與出口前文件準備——不管是一個棧板還是整個貨櫃，服務水準一致。' },
       ]
     },
     fr: {
@@ -52,7 +52,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: "Pas de pourboire d'usine", desc: "Nous avons refusé des fournisseurs proposant une enveloppe pour faire passer de la marchandise hors spécification. Le résultat d'inspection est ce que nous avons vu — pas ce qui a été payé pour." },
         { icon: '04', title: 'Fournisseur Alibaba.com vérifié', desc: "Trois ans d'activité sur momas.en.alibaba.com. La note fluctue entre 3 et 5 étoiles selon la période. Boutique publique — à vérifier avant tout engagement." },
         { icon: '05', title: 'Entités Taïwan + Chine', desc: "Deux sociétés enregistrées. Paiement vers l'entité taïwanaise (relations bancaires et gestion des litiges plus claires) ; l'entité chinoise gère les relations usines et la logistique pré-export." },
-        { icon: '06', title: 'Conçu pour le long terme', desc: 'Commande minimum USD 1 000 par expédition. Nous refusons les très petites commandes éparpillées pour pouvoir réellement suivre celles que nous prenons.' },
+        { icon: '06', title: 'Conçu pour des acheteurs sérieux', desc: "Commandes à partir de USD 1 000 par expédition. Chaque commande bénéficie d'un sourcing dédié, d'un contrôle qualité sur place et d'une préparation documentaire complète — qu'il s'agisse d'une palette ou d'un conteneur entier." },
       ]
     },
     es: {
@@ -65,7 +65,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'Sin sobres a la fábrica', desc: 'Hemos rechazado proveedores que ofrecían sobres para aprobar mercancía fuera de especificación. El resultado de la inspección es lo que vimos — no lo que se pagó por aprobar.' },
         { icon: '04', title: 'Proveedor Alibaba.com verificado', desc: 'Tres años operando momas.en.alibaba.com. La calificación fluctúa entre 3 y 5 estrellas según el período. Tienda pública — verifíquela antes de comprometerse.' },
         { icon: '05', title: 'Entidades Taiwán + China', desc: 'Dos empresas registradas. Pago a la entidad taiwanesa (relaciones bancarias y manejo de disputas más claros); la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
-        { icon: '06', title: 'Diseñado para largo plazo', desc: 'Pedido mínimo USD 1 000 por envío. Rechazamos pedidos muy pequeños y dispersos para poder dar atención real a los que sí aceptamos.' },
+        { icon: '06', title: 'Diseñado para compradores serios', desc: 'Pedidos desde USD 1 000 por envío. Cada pedido recibe sourcing dedicado, control de calidad en sitio y preparación documental completa — sea un pallet o un contenedor entero.' },
       ]
     },
     pt: {

@@ -35,11 +35,11 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'A small trading company in Taichung, Taiwan + mainland China. We buy from vetted factories at FOB or EXW and resell direct. On-site QC by our own team. No factory kickbacks. Three years on Alibaba.com.',
-  cn: '台湾台中＋中国大陆双公司的小型贸易商。我们以 FOB 或 EXW 直接买货，转手卖给您。亲自验货、不收红包、报价透明。Alibaba.com 经营三年。',
-  zh: '台灣台中＋中國大陸雙公司的小型貿易商。我們以 FOB 或 EXW 直接買貨，轉手賣給你。親自驗貨、不收紅包、報價透明。Alibaba.com 經營三年。',
-  fr: "Petite société de négoce basée à Taichung (Taïwan) et en Chine continentale. Nous achetons en FOB ou EXW auprès d'usines vérifiées et revendons en direct. Contrôle qualité par notre équipe. Sans commission occulte. Trois ans sur Alibaba.com.",
-  es: 'Pequeña empresa comercial con sede en Taichung (Taiwán) y China continental. Compramos FOB o EXW a fábricas verificadas y revendemos directamente. Control de calidad por nuestro equipo. Sin comisiones ocultas. Tres años en Alibaba.com.',
+  en: 'SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories at FOB or EXW and resell direct to international buyers. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier.',
+  cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。我们以 FOB 或 EXW 直接采购，转手出货给海外买家。亲自验货、不收红包、报价透明。Alibaba.com 认证供应商。',
+  zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。我們以 FOB 或 EXW 直接採購，轉手出貨給海外買家。親自驗貨、不收紅包、報價透明。Alibaba.com 認證供應商。',
+  fr: "SunGene est une société de négoce à double entité Taïwan + Chine. Nous achetons en FOB ou EXW auprès d'usines vérifiées et revendons en direct aux acheteurs internationaux. Contrôle qualité par notre équipe. Sans commission occulte. Fournisseur Alibaba.com vérifié.",
+  es: 'SunGene es una empresa comercial con doble entidad Taiwán + China. Compramos FOB o EXW a fábricas verificadas y revendemos directamente a compradores internacionales. Control de calidad por nuestro equipo. Sin comisiones ocultas. Proveedor Alibaba.com verificado.',
   pt: 'Sourcing de equipamentos via Taiwan e China: avaliação de fornecedores, critérios de aceitação, FAT, documentação e logística de exportação.',
   ko: '대만과 중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, FAT, 문서 및 수출 물류로 리스크를 줄입니다.',
   ja: '台湾と中国の供給網で設備を調達：サプライヤー審査、受入基準、FAT、書類、輸出物流まで支援します。',
