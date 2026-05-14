@@ -7,7 +7,6 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
-import { PHOTO } from '@/lib/photoLibrary'
 
 export const dynamic = 'force-static'
 
@@ -951,8 +950,6 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
     })),
   }
 
-  const heroPhoto = PHOTO.home.hero
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -963,7 +960,6 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
         kicker={c.kicker}
         title={c.h1}
         desc={c.intro}
-        image={{ src: heroPhoto, alt: c.h1, priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
 
       <section className="py-6 bg-white">

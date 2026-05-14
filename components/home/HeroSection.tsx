@@ -1,7 +1,5 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
-import Image from 'next/image'
-import { PHOTO } from '@/lib/photoLibrary'
 import HeroCtaWrapper from '@/components/home/HeroCtaWrapper'
 
 const ALIBABA_URL = 'https://momas.en.alibaba.com/'
@@ -202,26 +200,15 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   }
 
   const t = content[lang] || content['en']
-  const heroPhoto = PHOTO.home.hero
   const badges: string[] = t.badges || defaultExtras.badges
   const certLabel: string = t.certLabel || defaultExtras.certLabel
   const certChips: string[] = t.certChips || defaultExtras.certChips
 
   return (
     <section className="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
-      <div className="absolute inset-0">
-        <Image
-          src={heroPhoto}
-          alt="SunGene supply network"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-950/70 to-brand-950/95" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.06]" />
+      {/* Pure brand gradient + grid + glow — no machinery stock photo background. */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-950" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.08]" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-600/[0.08] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-700/20 rounded-full blur-[100px] pointer-events-none" />
 

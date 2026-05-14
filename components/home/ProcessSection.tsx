@@ -1,16 +1,6 @@
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
-import Image from 'next/image'
 import Link from 'next/link'
-import { PHOTO } from '@/lib/photoLibrary'
-
-const stepThumbs = {
-  0: PHOTO.home.processThumbs[0],
-  1: PHOTO.home.processThumbs[1],
-  2: PHOTO.home.processThumbs[2],
-  3: PHOTO.home.processThumbs[3],
-  4: PHOTO.home.processThumbs[4],
-} as const
 
 export default function ProcessSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
@@ -170,19 +160,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
               <h3 className="mt-5 text-lg font-bold">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-300">{item.desc}</p>
 
-              {i in stepThumbs ? (
-                <div className="mx-auto mt-5 hidden w-[150px] overflow-hidden rounded-xl ring-1 ring-white/10 md:block">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={stepThumbs[i as keyof typeof stepThumbs]}
-                      alt={`${item.title} - process photo`}
-                      fill
-                      sizes="150px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              ) : null}
+              {/* Process thumbnails removed — were stock machinery photos. */}
             </div>
           ))}
         </div>

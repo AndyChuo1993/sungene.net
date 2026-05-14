@@ -355,15 +355,13 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     geo: { '@type': 'GeoCoordinates', latitude: 24.1433, longitude: 120.6845 },
     telephone: '+886-4-3703-2705',
     email: 'contact@sungene.net',
-    numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 50, maxValue: 200 },
     knowsAbout: [
-      'Packaging Systems Sourcing', 'VFFS Projects', 'HFFS Flow Wrappers',
-      'Powder Dosing', 'Liquid Filling Projects', 'Food Processing Equipment',
-      'Conveyor Systems', 'PLC Automation', 'CE Documentation',
+      'Packaging Sourcing', 'Home Goods Sourcing', 'Garden Products Sourcing',
+      'Flexible Packaging', 'Rigid Packaging', 'Beauty & Personal Care Containers',
+      'Taiwan Sourcing', 'China Sourcing', 'Factory Inspection', 'Direct Buy-and-Resell',
     ],
     sameAs: [
-      'https://www.linkedin.com/company/sungene-machinery',
-      'https://sungene.en.alibaba.com',
+      'https://momas.en.alibaba.com/',
     ],
   }
 
@@ -392,7 +390,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
             <p className="mt-4 text-base text-white/70">{t.mission}</p>
           </>
         )}
-        image={{ src: PHOTO.pages.about.hero, alt: 'SunGene sourcing and engineering team', priority: true, aspectClassName: 'aspect-[16/10]' }}
         below={(
           <div className="pt-10 border-t border-white/10 grid grid-cols-2 gap-px md:grid-cols-4">
             {t.stats.map((stat: { value: string; label: string }, i: number) => (

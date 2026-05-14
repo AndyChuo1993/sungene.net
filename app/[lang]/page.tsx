@@ -8,7 +8,6 @@ import ProcessSection from '@/components/home/ProcessSection'
 import Applications from '@/components/home/Applications'
 import CTASection from '@/components/home/CTASection'
 import FAQ from '@/components/home/FAQ'
-import TrustGallery from '@/components/home/TrustGallery'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { SITE_URL } from '@/lib/siteConfig'
@@ -652,7 +651,7 @@ export default async function Page({ params }: PageParams) {
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />
       <ProcessSection lang={safeLang} />
-      <TrustGallery lang={safeLang} />
+      {/* TrustGallery removed — showed stock machinery photos labelled as "real" delivery photos. */}
       <Applications lang={safeLang} />
       <CTASection lang={safeLang} />
       <FAQ lang={safeLang} />
