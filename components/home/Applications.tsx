@@ -196,7 +196,7 @@ export default function Applications({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-12 text-center">
-          <Link href={`/${lang}/industries`} className="inline-flex items-center gap-2 text-base font-semibold text-accent-600 transition hover:text-accent-700">
+          <Link href={`/${lang}/sourcing`} className="inline-flex items-center gap-2 text-base font-semibold text-accent-600 transition hover:text-accent-700">
             {t.cta}
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </Link>

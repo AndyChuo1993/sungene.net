@@ -173,8 +173,8 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link href={`/${lang}/industries`} className="text-sm font-semibold text-accent-600 hover:underline">
-            {({ en: 'View industries we serve →', cn: '查看我们服务的行业 →', zh: '查看我們服務的產業 →', fr: 'Voir les industries desservies →', es: 'Ver industrias que atendemos →', pt: 'Ver setores que atendemos →', ko: '서비스 산업 보기 →', ja: '対応業界を見る →', ar: 'عرض الصناعات التي نخدمها ←', th: 'ดูอุตสาหกรรมที่เราให้บริการ →', vi: 'Xem ngành chúng tôi phục vụ →', de: 'Branchen ansehen →' } as Record<string, string>)[lang] || 'View industries we serve →'}
+          <Link href={`/${lang}/sourcing`} className="text-sm font-semibold text-accent-600 hover:underline">
+            {({ en: 'How we work with these buyers →', zh: '我們怎麼跟這些買家合作 →', cn: '我们怎么跟这些买家合作 →', fr: 'Comment nous travaillons avec eux →', es: 'Cómo trabajamos con ellos →' } as Record<string, string>)[lang] || 'How we work with these buyers →'}
           </Link>
           <Link href={`/${lang}/assessment`} className="text-sm font-semibold text-accent-600 hover:underline">
             {({ en: 'Get sourcing assessment →', cn: '获取采购评估 →', zh: '取得採購評估 →', fr: 'Obtenir une évaluation →', es: 'Obtener evaluación →', pt: 'Obter avaliação →', ko: '소싱 평가 받기 →', ja: 'ソーシング評価を受ける →', ar: 'احصل على تقييم التوريد ←', th: 'รับการประเมินการจัดหา →', vi: 'Nhận đánh giá sourcing →', de: 'Sourcing-Bewertung erhalten →' } as Record<string, string>)[lang] || 'Get sourcing assessment →'}

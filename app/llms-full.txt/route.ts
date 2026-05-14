@@ -74,24 +74,16 @@ ${specsTable}
 - ${SITE_URL}/cn/llms-full.txt
 - ${SITE_URL}/fr/llms-full.txt
 - ${SITE_URL}/es/llms-full.txt
-- ${SITE_URL}/pt/llms-full.txt
-- ${SITE_URL}/ko/llms-full.txt
-- ${SITE_URL}/ja/llms-full.txt
-- ${SITE_URL}/ar/llms-full.txt
-- ${SITE_URL}/th/llms-full.txt
-- ${SITE_URL}/vi/llms-full.txt
-- ${SITE_URL}/de/llms-full.txt
 
 ## Sitemap
 - ${SITE_URL}/sitemap.xml
 
 ## Key pages
-- Sourcing assessment / selector: ${SITE_URL}/en/assessment
-- Sourcing scope: ${SITE_URL}/en/machinery
-- Industries & applications: ${SITE_URL}/en/industries
-- Automation solutions: ${SITE_URL}/en/solutions
-- Buying guides & resources: ${SITE_URL}/en/resources
+- About: ${SITE_URL}/en/about
+- How we work (sourcing process): ${SITE_URL}/en/sourcing
+- Resources (buying guides): ${SITE_URL}/en/resources
 - Contact / sourcing assessment: ${SITE_URL}/en/contact
+- Alibaba.com verification: https://momas.en.alibaba.com/
 
 ## Configuration landing pages
 - Pouch packing: ${SITE_URL}/en/machines/pouch-packing-machine

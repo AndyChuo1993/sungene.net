@@ -35,12 +35,12 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
+  // Mobile menu category links — point to /sourcing (not redirected /machinery/* paths).
   const serviceLinks = [
-    { href: `/${lang}/machinery/packaging`, label: ({ en: 'Packaging Sourcing', zh: '包裝採購', cn: '包装采购', fr: 'Sourcing emballage', es: 'Sourcing de empaque', pt: 'Sourcing de embalagem', ko: '포장 소싱', ja: '包装調達', ar: 'توريد التعبئة', th: 'การจัดหาบรรจุภัณฑ์', vi: 'Sourcing đóng gói', de: 'Verpackungs-Sourcing' } as Record<string, string>)[lang] || 'Packaging Sourcing' },
-    { href: `/${lang}/machinery/food-processing`, label: ({ en: 'Food Equipment Sourcing', zh: '食品設備採購', cn: '食品设备采购', fr: 'Sourcing agroalimentaire', es: 'Sourcing de equipos alimentarios', pt: 'Sourcing de alimentos', ko: '식품 설비 소싱', ja: '食品設備調達', ar: 'توريد معدات الغذاء', th: 'การจัดหาอุปกรณ์อาหาร', vi: 'Sourcing thiết bị thực phẩm', de: 'Food-Equipment-Sourcing' } as Record<string, string>)[lang] || 'Food Equipment Sourcing' },
-    { href: `/${lang}/machinery/filling-sealing`, label: ({ en: 'Filling & Sealing Scope', zh: '充填封口範圍', cn: '灌装封口范围', fr: 'Périmètre remplissage/scellage', es: 'Alcance de llenado y sellado', pt: 'Escopo de envase e selagem', ko: '충전·밀봉 범위', ja: '充填・シール範囲', ar: 'نطاق التعبئة والإغلاق', th: 'ขอบเขตการบรรจุและซีล', vi: 'Phạm vi chiết rót và hàn kín', de: 'Abfüll- und Verschließbereich' } as Record<string, string>)[lang] || 'Filling & Sealing Scope' },
-    { href: `/${lang}/machinery/conveying-automation`, label: ({ en: 'Automation & Integration', zh: '自動化與整合', cn: '自动化与整合', fr: 'Automatisation & intégration', es: 'Automatización e integración', pt: 'Automação e integração', ko: '자동화 및 통합', ja: '自動化・統合', ar: 'الأتمتة والتكامل', th: 'อัตโนมัติและบูรณาการ', vi: 'Tự động hóa và tích hợp', de: 'Automatisierung & Integration' } as Record<string, string>)[lang] || 'Automation & Integration' },
-    { href: `/${lang}/machinery/custom`, label: ({ en: 'Custom Projects', zh: '客製專案', cn: '定制项目', fr: 'Projets sur mesure', es: 'Proyectos a medida', pt: 'Projetos sob medida', ko: '맞춤 프로젝트', ja: 'カスタム案件', ar: 'مشاريع مخصصة', th: 'โครงการสั่งทำ', vi: 'Dự án tùy chỉnh', de: 'Sonderprojekte' } as Record<string, string>)[lang] || 'Custom Projects' },
+    { href: `/${lang}/sourcing#packaging`, label: ({ en: 'Packaging', zh: '包裝', cn: '包装', fr: 'Emballage', es: 'Empaque' } as Record<string, string>)[lang] || 'Packaging' },
+    { href: `/${lang}/sourcing#home`, label: ({ en: 'Home goods', zh: '家居用品', cn: '家居用品', fr: 'Maison', es: 'Hogar' } as Record<string, string>)[lang] || 'Home goods' },
+    { href: `/${lang}/sourcing#garden`, label: ({ en: 'Garden & outdoor', zh: '園藝戶外', cn: '园艺户外', fr: 'Jardin & extérieur', es: 'Jardín y exterior' } as Record<string, string>)[lang] || 'Garden & outdoor' },
+    { href: `/${lang}/sourcing#beauty`, label: ({ en: 'Beauty containers', zh: '美容容器', cn: '美容容器', fr: 'Flaconnage', es: 'Envase cosmético' } as Record<string, string>)[lang] || 'Beauty containers' },
   ]
 
   return (

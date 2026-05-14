@@ -457,11 +457,11 @@ export default async function Page({ params }: PageParams) {
     description: s.listDesc,
     numberOfItems: 5,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: s.categories.packaging, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/packaging`, url: `${SITE_URL}/${safeLang}/machinery/packaging`, name: s.categories.packaging } },
-      { '@type': 'ListItem', position: 2, name: s.categories.food, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/food-processing`, url: `${SITE_URL}/${safeLang}/machinery/food-processing`, name: s.categories.food } },
-      { '@type': 'ListItem', position: 3, name: s.categories.filling, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/filling-sealing`, url: `${SITE_URL}/${safeLang}/machinery/filling-sealing`, name: s.categories.filling } },
-      { '@type': 'ListItem', position: 4, name: s.categories.conveying, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/conveying-automation`, url: `${SITE_URL}/${safeLang}/machinery/conveying-automation`, name: s.categories.conveying } },
-      { '@type': 'ListItem', position: 5, name: s.categories.custom, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/machinery/custom`, url: `${SITE_URL}/${safeLang}/machinery/custom`, name: s.categories.custom } },
+      { '@type': 'ListItem', position: 1, name: s.categories.packaging, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#packaging`, url: `${SITE_URL}/${safeLang}/sourcing#packaging`, name: s.categories.packaging } },
+      { '@type': 'ListItem', position: 2, name: s.categories.food, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#home`, url: `${SITE_URL}/${safeLang}/sourcing#home`, name: s.categories.food } },
+      { '@type': 'ListItem', position: 3, name: s.categories.filling, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#beauty`, url: `${SITE_URL}/${safeLang}/sourcing#beauty`, name: s.categories.filling } },
+      { '@type': 'ListItem', position: 4, name: s.categories.conveying, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#garden`, url: `${SITE_URL}/${safeLang}/sourcing#garden`, name: s.categories.conveying } },
+      { '@type': 'ListItem', position: 5, name: s.categories.custom, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing`, url: `${SITE_URL}/${safeLang}/sourcing`, name: s.categories.custom } },
     ]
   }
 
@@ -501,8 +501,46 @@ export default async function Page({ params }: PageParams) {
     })),
   }
 
+  // Organization schema — gives Google + AI search engines a concise, structured
+  // summary of who SunGene is. Important for GEO (ChatGPT / Perplexity citations).
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}#organization`,
+    name: 'SunGene Co., LTD.',
+    alternateName: '上瑾錸有限公司',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo/sungene.png`,
+    description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging products, home goods, garden tools and accessories. On-site QC by our own team. Verified Alibaba.com supplier since 2023.',
+    foundingDate: '2023',
+    knowsAbout: ['Packaging sourcing', 'Home goods sourcing', 'Garden products sourcing', 'Taiwan sourcing', 'China sourcing', 'Factory inspection', 'Direct buy-and-resell trading'],
+    sameAs: ['https://momas.en.alibaba.com/'],
+    address: [
+      {
+        '@type': 'PostalAddress',
+        '@id': `${SITE_URL}#tw-office`,
+        streetAddress: '201 Guangfu Rd., Central District',
+        addressLocality: 'Taichung',
+        postalCode: '40041',
+        addressCountry: 'TW',
+      },
+      {
+        '@type': 'PostalAddress',
+        '@id': `${SITE_URL}#cn-office`,
+        streetAddress: "Rm. 1001-2, Bldg. A1, Yincheng Zhigu, No. 6788-1 Binhai W. Ave., Tong'an District",
+        addressLocality: 'Xiamen',
+        addressCountry: 'CN',
+      },
+    ],
+    contactPoint: [
+      { '@type': 'ContactPoint', telephone: '+886-4-37032705', contactType: 'sales', areaServed: 'Worldwide', availableLanguage: ['English', 'Chinese', 'French', 'Spanish'], email: 'contact@sungene.net' },
+      { '@type': 'ContactPoint', telephone: '+86-18144132078', contactType: 'sales', areaServed: 'China', contactOption: 'WhatsApp, WeChat, LINE' },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(topicHubSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

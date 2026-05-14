@@ -8,19 +8,14 @@ export default function Footer({ lang }: { lang: Lang }) {
   const commonNeedsLabel = ({ en: 'Common Needs', cn: '常见需求', zh: '常見需求', fr: 'Besoins courants', es: 'Necesidades comunes', pt: 'Necessidades comuns', ko: '주요 요구', ja: 'よくある要件', ar: 'الاحتياجات الشائعة', th: 'ความต้องการทั่วไป', vi: 'Nhu cầu phổ biến', de: 'Typische Bedarfe' } as Record<string, string>)[lang] || 'Common Needs'
   const toolsLabel = ({ en: 'Sourcing Tools', cn: '采购工具', zh: '採購工具', fr: 'Outils sourcing', es: 'Herramientas de abastecimiento', pt: 'Ferramentas de sourcing', ko: '소싱 도구', ja: '調達ツール', ar: 'أدوات التوريد', th: 'เครื่องมือจัดหา', vi: 'Công cụ sourcing', de: 'Sourcing-Tools' } as Record<string, string>)[lang] || 'Sourcing Tools'
 
-  const machineryLinks = [
-    { href: `/${lang}/machinery/packaging`, label: t(lang, 'nav_machinery_packaging') },
-    { href: `/${lang}/machinery/food-processing`, label: t(lang, 'nav_machinery_food') },
-    { href: `/${lang}/machinery/filling-sealing`, label: t(lang, 'nav_machinery_filling') },
-    { href: `/${lang}/machinery/conveying-automation`, label: t(lang, 'nav_machinery_conveying') },
-    { href: `/${lang}/machinery/custom`, label: t(lang, 'nav_machinery_custom') },
-  ]
-
-  const solutionLinks = [
-    { href: `/${lang}/solutions#single`, label: t(lang, 'nav_sol_single') },
-    { href: `/${lang}/solutions#semi`, label: t(lang, 'nav_sol_semi') },
-    { href: `/${lang}/solutions#line`, label: t(lang, 'nav_sol_line') },
-    { href: `/${lang}/solutions#custom`, label: t(lang, 'nav_sol_custom') },
+  // Footer category links point to /sourcing (not the redirected /machinery/* paths).
+  // The labels reflect the new positioning: packaging, home, garden categories.
+  const categoryLinks = [
+    { href: `/${lang}/sourcing#packaging`, label: ({ en: 'Packaging', zh: '包裝', cn: '包装', fr: 'Emballage', es: 'Empaque' } as Record<string, string>)[lang] || 'Packaging' },
+    { href: `/${lang}/sourcing#home`, label: ({ en: 'Home goods', zh: '家居用品', cn: '家居用品', fr: 'Maison', es: 'Hogar' } as Record<string, string>)[lang] || 'Home goods' },
+    { href: `/${lang}/sourcing#garden`, label: ({ en: 'Garden & outdoor', zh: '園藝戶外', cn: '园艺户外', fr: 'Jardin & extérieur', es: 'Jardín y exterior' } as Record<string, string>)[lang] || 'Garden & outdoor' },
+    { href: `/${lang}/sourcing#beauty`, label: ({ en: 'Beauty containers', zh: '美容容器', cn: '美容容器', fr: 'Flaconnage', es: 'Envase cosmético' } as Record<string, string>)[lang] || 'Beauty containers' },
+    { href: `/${lang}/sourcing`, label: ({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos' } as Record<string, string>)[lang] || 'How we work' },
   ]
 
   const machineLinks = [
@@ -68,11 +63,11 @@ export default function Footer({ lang }: { lang: Lang }) {
             </div>
           </div>
 
-          {/* Sourcing Scope */}
+          {/* What we source */}
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{sourcingScopeLabel}</h4>
             <ul className="space-y-3">
-              {machineryLinks.map((link) => (
+              {categoryLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">{link.label}</Link>
                 </li>
@@ -80,15 +75,15 @@ export default function Footer({ lang }: { lang: Lang }) {
             </ul>
           </div>
 
-          {/* Common Needs */}
+          {/* Common Sourcing Questions */}
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{commonNeedsLabel}</h4>
             <ul className="space-y-3">
-              {machineLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">{link.label}</Link>
-                </li>
-              ))}
+              <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How pricing works', zh: '報價如何計算', cn: '报价如何计算', fr: 'Comment notre prix est calculé', es: 'Cómo calculamos el precio' } as Record<string, string>)[lang] || 'How pricing works'}</Link></li>
+              <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How we inspect', zh: '我們怎麼驗貨', cn: '我们怎么验货', fr: 'Comment nous inspectons', es: 'Cómo inspeccionamos' } as Record<string, string>)[lang] || 'How we inspect'}</Link></li>
+              <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'No factory kickbacks', zh: '不收工廠紅包', cn: '不收工厂红包', fr: 'Pas de pourboire usine', es: 'Sin sobres a fábrica' } as Record<string, string>)[lang] || 'No factory kickbacks'}</Link></li>
+              <li><a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Verify us on Alibaba.com ↗', zh: '到 Alibaba.com 查證 ↗', cn: '到 Alibaba.com 查证 ↗', fr: 'Vérifier sur Alibaba.com ↗', es: 'Verificar en Alibaba.com ↗' } as Record<string, string>)[lang] || 'Verify us on Alibaba.com ↗'}</a></li>
+              <li><Link href={`/${lang}/contact`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Minimum order USD 1,000', zh: '最低訂單 USD 1,000', cn: '最低订单 USD 1,000', fr: 'Commande min. USD 1 000', es: 'Pedido mín. USD 1 000' } as Record<string, string>)[lang] || 'Minimum order USD 1,000'}</Link></li>
             </ul>
           </div>
 
@@ -97,10 +92,9 @@ export default function Footer({ lang }: { lang: Lang }) {
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-300">{toolsLabel}</h4>
             <ul className="space-y-3">
               <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
-              <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_sourcing')}</Link></li>
+              <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos' } as Record<string, string>)[lang] || 'How we work'}</Link></li>
               <li><Link href={`/${lang}/resources`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_resources')}</Link></li>
-              <li><Link href={`/${lang}/industries`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_industries')}</Link></li>
-              <li><Link href={`/${lang}/markets`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Export Markets', zh: '出口市場', cn: '出口市场', fr: 'Marchés export', es: 'Mercados de exportación', pt: 'Mercados de exportação', ko: '수출 시장', ja: '輸出市場', ar: 'أسواق التصدير', th: 'ตลาดส่งออก', vi: 'Thị trường xuất khẩu', de: 'Exportmärkte' } as Record<string,string>)[lang] || 'Export Markets'}</Link></li>
+              <li><Link href={`/${lang}/markets`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Export Markets', zh: '出口市場', cn: '出口市场', fr: 'Marchés export', es: 'Mercados de exportación' } as Record<string,string>)[lang] || 'Export Markets'}</Link></li>
               <li><Link href={`/${lang}/contact`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_contact')}</Link></li>
             </ul>
           </div>

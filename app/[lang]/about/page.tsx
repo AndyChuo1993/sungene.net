@@ -467,8 +467,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
               <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/conveying-automation`}>{({ en: 'Conveying & automation', cn: '输送与自动化', zh: '輸送與自動化', fr: 'Convoyage', es: 'Transporte', pt: 'Transporte', ko: '이송/자동화', ja: '搬送/自動化', ar: 'نقل/أتمتة', th: 'ลำเลียง/อัตโนมัติ', vi: 'Băng tải/TĐH', de: 'Fördertechnik/Automation' } as Record<string, string>)[lang] || 'Conveying & automation'}</a>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={`/${lang}/machinery`} variant="secondary" size="md">
-                {({ en: 'Sourcing Scope', cn: '采购范围', zh: '採購範圍', fr: 'Périmètre sourcing', es: 'Alcance de abastecimiento', pt: 'Escopo de sourcing', ko: '소싱 범위', ja: '調達範囲', ar: 'نطاق التوريد', th: 'ขอบเขตการจัดหา', vi: 'Phạm vi sourcing', de: 'Sourcing-Bereich' } as Record<string, string>)[lang] || 'Sourcing Scope'}
+              <ButtonLink href={`/${lang}/sourcing`} variant="secondary" size="md">
+                {({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos', pt: 'Como trabalhamos', ko: '소싱 방식', ja: '進め方', ar: 'كيف نعمل', th: 'วิธีการทำงาน', vi: 'Cách chúng tôi làm việc', de: 'Unsere Methode' } as Record<string, string>)[lang] || 'How we work'}
               </ButtonLink>
               <ButtonLink href={`/${lang}/assessment`} size="md">
                 {({ en: 'Get Assessment', cn: '获取评估', zh: '取得評估', fr: 'Obtenir une évaluation', es: 'Obtener evaluación', pt: 'Obter avaliação', ko: '평가 받기', ja: '評価を受ける', ar: 'احصل على تقييم', th: 'รับการประเมิน', vi: 'Nhận đánh giá', de: 'Bewertung erhalten' } as Record<string, string>)[lang] || 'Get Assessment'}

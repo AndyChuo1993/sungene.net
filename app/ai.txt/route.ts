@@ -7,7 +7,7 @@ export async function GET() {
     `sitemap-images: ${SITE_URL}/sitemap-images.xml`,
     `llms: ${SITE_URL}/llms.txt`,
     `llms-full: ${SITE_URL}/llms-full.txt`,
-    `notes: SunGene is an industrial equipment & automation sourcing partner across Taiwan and China.`,
+    `notes: SunGene is a Taiwan + China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging, home goods, garden products. MOQ USD 1,000 per shipment. Verified Alibaba.com supplier (momas.en.alibaba.com).`,
     '',
   ].join('\n')
 
