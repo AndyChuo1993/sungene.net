@@ -7,13 +7,19 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
 import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildServiceSchemas, buildWebsiteSchema } from '@/lib/business'
 
+export const viewport = {
+  themeColor: '#0c1a3d',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
   const lang = normalizeLang(rawLang)
 
   const baseUrl = SITE_URL
-  const title = 'SunGene | Industrial Equipment & Automation Sourcing Partner'
-  const description = 'Industrial equipment and automation sourcing support for packaging systems, supplier evaluation, configuration planning, components, and selected technical projects across Taiwan and China.'
+  const title = 'SunGene | Taiwan + China sourcing partner — packaging, home, garden, beauty'
+  const description = 'Taiwan + China dual-entity trading company. Direct-buy sourcing of packaging, home goods, garden, and beauty products from vetted factories. On-site QC. Verified Alibaba 5-star supplier.'
 
   return {
     metadataBase: new URL(baseUrl),
@@ -21,7 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: buildAlternates(lang, '/'),
     openGraph: buildOpenGraph({ lang, title, description, pathname: '/', type: 'website' }),
     twitter: buildTwitter({ lang, title, description, pathname: '/' }),
-    icons: { icon: '/logo/sungene.png' },
+    icons: { icon: '/logo/sungene.png', apple: '/logo/sungene.png' },
+    manifest: '/site.webmanifest',
     robots: buildRobots(),
   }
 }

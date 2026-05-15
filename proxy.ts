@@ -368,5 +368,5 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|ai.txt|site.webmanifest|manifest.json|.well-known|logo/|og/|banner/|partner/|photo-real/|illustrations/|templates/|grid.svg|whatsapp-qr.png|googlea3301176ef1c8c54.html|bc92b7ac1caf40b3addfb82892e2ba78.txt).*)'],
 }
