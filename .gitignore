@@ -19,3 +19,5 @@ data/analytics.ndjson
 data/analytics.json
 
 .secrets/
+.next.previous-static/
+.next.staging/
