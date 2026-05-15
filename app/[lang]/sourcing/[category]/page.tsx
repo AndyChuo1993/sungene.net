@@ -40,8 +40,8 @@ type CategoryContent = {
 const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
   packaging: {
     en: {
-      metaTitle: 'Packaging Sourcing from Taiwan + China | SunGene',
-      metaDescription: 'Direct-buy sourcing of stand-up pouches, ziplock bags, glass jars, plastic bottles, tin containers, gift boxes, pumps and closures from Taiwan and China factories. On-site QC. Orders from USD 1,000. Verified Alibaba.com supplier.',
+      metaTitle: 'Packaging Sourcing from Taiwan + China',
+      metaDescription: 'Stand-up pouches, glass jars, PET bottles, tin containers, gift boxes, pumps and closures from Taiwan + China factories. On-site QC. MOQ USD 1,000.',
       kicker: 'PACKAGING SOURCING',
       h1: 'Packaging sourcing from Taiwan & China factories',
       intro: 'SunGene sources flexible and rigid packaging directly from vetted Taiwan and China factories. We are a trading company — we buy the goods at FOB or EXW and resell to you with our margin disclosed on top. Our team handles on-site QC at every Taiwan supplier and inspects all China-origin goods at our forwarder warehouse before export. Every shipment ships under SunGene Co., LTD.',
@@ -82,7 +82,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '包裝產品採購｜台灣 + 中國工廠｜SunGene',
+      metaTitle: '包裝產品採購｜台灣 + 中國工廠',
       metaDescription: '直接從台灣與中國審核過的工廠採購立袋、夾鏈袋、玻璃罐、塑膠瓶、馬口鐵罐、禮盒、泵頭與封口。團隊親自驗貨。訂單 USD 1,000 起接。Alibaba.com 認證供應商。',
       kicker: '包裝產品採購',
       h1: '台灣與中國工廠的包裝產品採購',
@@ -124,7 +124,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '包装产品采购｜台湾 + 中国工厂｜SunGene',
+      metaTitle: '包装产品采购｜台湾 + 中国工厂',
       metaDescription: '直接从台湾与中国核查过的工厂采购立袋、自封袋、玻璃罐、塑料瓶、马口铁罐、礼盒、泵头与封口。团队亲自验货。订单 USD 1,000 起接。Alibaba.com 认证供应商。',
       kicker: '包装产品采购',
       h1: '台湾与中国工厂的包装产品采购',
@@ -166,8 +166,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取报价',
     },
     fr: {
-      metaTitle: "Sourcing emballage Taïwan + Chine | SunGene",
-      metaDescription: "Achat-revente direct de pochettes stand-up, sachets zip, bocaux verre, flacons plastique, boîtes métal, coffrets cadeaux, pompes et fermetures depuis des usines Taïwan et Chine. Contrôle qualité sur place. Commandes à partir de USD 1 000. Fournisseur Alibaba.com vérifié.",
+      metaTitle: "Sourcing emballage Taïwan + Chine",
+      metaDescription: "Pochettes stand-up, bocaux verre, flacons PET, boîtes métal, coffrets, pompes — usines Taïwan + Chine, CQ sur place, MOQ 1 000 USD.",
       kicker: "SOURCING EMBALLAGE",
       h1: "Sourcing emballage depuis Taïwan & Chine",
       intro: "SunGene achète emballages souples et rigides directement auprès d'usines vérifiées à Taïwan et en Chine. Nous sommes une société de négoce — nous achetons en FOB ou EXW et vous revendons avec notre marge clairement affichée. Notre équipe inspecte chaque usine taïwanaise sur place et vérifie toute marchandise d'origine chinoise dans notre entrepôt transitaire avant export. Chaque expédition part au nom de SunGene Co., LTD.",
@@ -208,8 +208,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Demander un devis',
     },
     es: {
-      metaTitle: 'Sourcing de empaque Taiwán + China | SunGene',
-      metaDescription: 'Compra-reventa directa de bolsas stand-up, bolsas con cierre, frascos de vidrio, botellas plásticas, latas, cajas regalo, bombas y cierres desde fábricas en Taiwán y China. Control de calidad en sitio. Pedidos desde USD 1 000. Proveedor Alibaba.com verificado.',
+      metaTitle: 'Sourcing de empaque Taiwán + China',
+      metaDescription: 'Bolsas stand-up, frascos vidrio, botellas PET, latas, cajas regalo, bombas — fábricas Taiwán + China. QC en sitio. MOQ USD 1 000.',
       kicker: 'SOURCING DE EMPAQUE',
       h1: 'Sourcing de empaque desde Taiwán y China',
       intro: 'SunGene compra empaque flexible y rígido directamente a fábricas verificadas en Taiwán y China. Somos una empresa comercial — compramos FOB o EXW y le revendemos con nuestro margen claramente mostrado. Nuestro equipo inspecciona cada fábrica taiwanesa en sitio y verifica toda mercancía de origen chino en nuestro almacén transitario antes de exportar. Cada envío sale a nombre de SunGene Co., LTD.',
@@ -252,8 +252,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
   },
   home: {
     en: {
-      metaTitle: 'Home Goods Sourcing from Taiwan + China | SunGene',
-      metaDescription: 'Direct-buy sourcing of kitchenware, storage, decor, and small living goods from Taiwan and China factories. On-site QC, no factory kickbacks, transparent quotes. Orders from USD 1,000.',
+      metaTitle: 'Home Goods Sourcing from Taiwan + China',
+      metaDescription: 'Kitchenware, dining, storage, decor and small living goods from Taiwan + China factories. On-site QC, transparent quotes. MOQ USD 1,000.',
       kicker: 'HOME GOODS SOURCING',
       h1: 'Home & kitchen goods sourcing from Taiwan & China',
       intro: 'SunGene sources kitchen, dining, decor, and organisation products directly from vetted Taiwan and China factories. We buy at FOB or EXW and resell to you direct under SunGene Co., LTD. — same on-site QC, same transparent pricing, same factory price disclosure on request as our packaging customers receive.',
@@ -294,7 +294,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '家居用品採購｜台灣 + 中國工廠｜SunGene',
+      metaTitle: '家居用品採購｜台灣 + 中國工廠',
       metaDescription: '直接從台灣與中國審核過的工廠採購廚具、餐具、收納、家飾與生活小物。團隊親自驗貨、不收紅包、報價透明。訂單 USD 1,000 起接。',
       kicker: '家居用品採購',
       h1: '台灣與中國工廠的家居廚房用品採購',
@@ -336,7 +336,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '家居用品采购｜台湾 + 中国工厂｜SunGene',
+      metaTitle: '家居用品采购｜台湾 + 中国工厂',
       metaDescription: '直接从台湾与中国核查过的工厂采购厨具、餐具、收纳、家饰与生活小物。团队亲自验货、不收红包、报价透明。订单 USD 1,000 起接。',
       kicker: '家居用品采购',
       h1: '台湾与中国工厂的家居厨房用品采购',
@@ -378,8 +378,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取报价',
     },
     fr: {
-      metaTitle: 'Sourcing articles maison Taïwan + Chine | SunGene',
-      metaDescription: "Achat-revente direct d'ustensiles de cuisine, rangement, déco et petits articles maison depuis des usines Taïwan et Chine. Contrôle qualité sur place, sans commission occulte, devis transparents. Commandes à partir de USD 1 000.",
+      metaTitle: 'Sourcing articles maison Taïwan + Chine',
+      metaDescription: "Cuisine, table, rangement, déco maison depuis usines Taïwan + Chine. CQ sur place, devis transparents, sans commission. MOQ 1 000 USD.",
       kicker: 'SOURCING ARTICLES MAISON',
       h1: 'Sourcing maison & cuisine depuis Taïwan et Chine',
       intro: "SunGene achète articles cuisine, table, déco et rangement directement auprès d'usines vérifiées à Taïwan et en Chine. Nous achetons en FOB ou EXW et vous revendons sous SunGene Co., LTD. — même contrôle qualité sur place, mêmes devis transparents, même divulgation prix usine sur demande que pour nos clients emballage.",
@@ -420,8 +420,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Demander un devis',
     },
     es: {
-      metaTitle: 'Sourcing artículos del hogar Taiwán + China | SunGene',
-      metaDescription: 'Compra-reventa directa de utensilios de cocina, almacenamiento, decoración y pequeños artículos para el hogar desde fábricas en Taiwán y China. Control de calidad en sitio, sin comisiones ocultas, presupuestos transparentes. Pedidos desde USD 1 000.',
+      metaTitle: 'Sourcing artículos del hogar Taiwán + China',
+      metaDescription: 'Cocina, mesa, almacenamiento, decoración desde fábricas Taiwán + China. QC en sitio, presupuestos transparentes. MOQ USD 1 000.',
       kicker: 'SOURCING DE HOGAR',
       h1: 'Sourcing de hogar y cocina desde Taiwán y China',
       intro: 'SunGene compra artículos de cocina, mesa, decoración y organización directamente a fábricas verificadas en Taiwán y China. Compramos FOB o EXW y le revendemos bajo SunGene Co., LTD. — mismo control de calidad en sitio, mismas cotizaciones transparentes, misma divulgación de precio de fábrica bajo petición que reciben nuestros clientes de empaque.',
@@ -464,8 +464,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
   },
   garden: {
     en: {
-      metaTitle: 'Garden & Outdoor Goods Sourcing from Taiwan + China | SunGene',
-      metaDescription: 'Direct-buy sourcing of garden tools, planters, watering cans, hose accessories and patio items from Taiwan and China factories. On-site QC, transparent pricing. Orders from USD 1,000.',
+      metaTitle: 'Garden & Outdoor Goods Sourcing from Taiwan + China',
+      metaDescription: 'Garden tools, planters, watering cans, hose accessories and patio items from Taiwan + China factories. On-site QC. MOQ USD 1,000.',
       kicker: 'GARDEN & OUTDOOR SOURCING',
       h1: 'Garden tools & outdoor goods sourcing from Taiwan & China',
       intro: 'SunGene sources garden, planter, watering, and patio products directly from vetted Taiwan and China factories. We are a trading company — we buy and resell direct under SunGene Co., LTD., with on-site QC, no factory kickbacks, and transparent pricing on every quote.',
@@ -506,7 +506,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '園藝與戶外用品採購｜台灣 + 中國工廠｜SunGene',
+      metaTitle: '園藝與戶外用品採購｜台灣 + 中國工廠',
       metaDescription: '直接從台灣與中國審核過的工廠採購園藝工具、花盆、灑水壺、水管配件與戶外用品。團隊親自驗貨、報價透明。訂單 USD 1,000 起接。',
       kicker: '園藝與戶外採購',
       h1: '台灣與中國工廠的園藝工具與戶外用品採購',
@@ -548,7 +548,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '园艺与户外用品采购｜台湾 + 中国工厂｜SunGene',
+      metaTitle: '园艺与户外用品采购｜台湾 + 中国工厂',
       metaDescription: '直接从台湾与中国核查过的工厂采购园艺工具、花盆、洒水壶、水管配件与户外用品。团队亲自验货、报价透明。订单 USD 1,000 起接。',
       kicker: '园艺与户外采购',
       h1: '台湾与中国工厂的园艺工具与户外用品采购',
@@ -590,8 +590,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取报价',
     },
     fr: {
-      metaTitle: 'Sourcing jardin & extérieur Taïwan + Chine | SunGene',
-      metaDescription: "Achat-revente direct d'outils de jardin, jardinières, arrosoirs, accessoires tuyau et articles patio depuis usines Taïwan et Chine. Contrôle qualité sur place, prix transparents. Commandes à partir de USD 1 000.",
+      metaTitle: 'Sourcing jardin & extérieur Taïwan + Chine',
+      metaDescription: "Outils de jardin, jardinières, arrosoirs, accessoires tuyau et patio — usines Taïwan + Chine, CQ sur place, MOQ 1 000 USD.",
       kicker: 'SOURCING JARDIN & EXTÉRIEUR',
       h1: 'Sourcing outils jardin & extérieur depuis Taïwan et Chine',
       intro: "SunGene achète articles jardin, jardinières, arrosage et patio directement auprès d'usines vérifiées à Taïwan et en Chine. Nous sommes une société de négoce — nous achetons et revendons sous SunGene Co., LTD., avec contrôle qualité sur place, sans commission occulte, et tarification transparente sur chaque devis.",
@@ -632,8 +632,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Demander un devis',
     },
     es: {
-      metaTitle: 'Sourcing jardín y exterior Taiwán + China | SunGene',
-      metaDescription: 'Compra-reventa directa de herramientas de jardín, macetas, regaderas, accesorios para manguera y artículos de patio desde fábricas en Taiwán y China. Control de calidad en sitio, precio transparente. Pedidos desde USD 1 000.',
+      metaTitle: 'Sourcing jardín y exterior Taiwán + China',
+      metaDescription: 'Herramientas de jardín, macetas, regaderas, accesorios y artículos patio — fábricas Taiwán + China. QC en sitio. MOQ USD 1 000.',
       kicker: 'SOURCING JARDÍN Y EXTERIOR',
       h1: 'Sourcing de herramientas de jardín y exterior desde Taiwán y China',
       intro: 'SunGene compra artículos de jardín, macetas, riego y patio directamente a fábricas verificadas en Taiwán y China. Somos empresa comercial — compramos y revendemos bajo SunGene Co., LTD., con control de calidad en sitio, sin sobres a fábrica, y precios transparentes en cada cotización.',
@@ -676,8 +676,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
   },
   beauty: {
     en: {
-      metaTitle: 'Beauty & Personal Care Packaging Sourcing | SunGene',
-      metaDescription: 'Direct-buy sourcing of cosmetic jars, dropper bottles, airless pumps, lipstick tubes, sample vials, and beauty packaging from Taiwan and China factories. On-site QC. Orders from USD 1,000.',
+      metaTitle: 'Beauty & Personal Care Packaging Sourcing',
+      metaDescription: 'Cosmetic jars, dropper bottles, airless pumps, lipstick tubes, sample vials and beauty packaging — Taiwan + China factories. QC. MOQ USD 1,000.',
       kicker: 'BEAUTY PACKAGING SOURCING',
       h1: 'Beauty & personal care packaging from Taiwan & China',
       intro: 'SunGene sources cosmetic and personal-care packaging — jars, bottles, pumps, dispensers, tubes — directly from vetted Taiwan and China factories. Decoration (silk-screen, hot stamp, UV print, frosting, matte finish) coordinated through the same supplier network for a single SunGene quote.',
@@ -718,7 +718,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '美容與個護包裝採購｜SunGene',
+      metaTitle: '美容與個護包裝採購',
       metaDescription: '直接從台灣與中國審核過的工廠採購化妝品罐、滴管瓶、真空泵瓶、口紅管、試用小瓶與美容包裝。團隊親自驗貨。訂單 USD 1,000 起接。',
       kicker: '美容包裝採購',
       h1: '台灣與中國的美容與個護包裝採購',
@@ -760,7 +760,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '美容与个护包装采购｜SunGene',
+      metaTitle: '美容与个护包装采购',
       metaDescription: '直接从台湾与中国核查过的工厂采购化妆品罐、滴管瓶、真空泵瓶、口红管、试用小瓶与美容包装。团队亲自验货。订单 USD 1,000 起接。',
       kicker: '美容包装采购',
       h1: '台湾与中国的美容与个护包装采购',
@@ -802,8 +802,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取报价',
     },
     fr: {
-      metaTitle: 'Sourcing flaconnage cosmétique Taïwan + Chine | SunGene',
-      metaDescription: "Achat-revente direct de pots cosmétiques, flacons compte-gouttes, pompes airless, étuis rouge à lèvres, échantillons et flaconnage beauté depuis Taïwan et Chine. Contrôle qualité sur place. Commandes à partir de USD 1 000.",
+      metaTitle: 'Sourcing flaconnage cosmétique Taïwan + Chine',
+      metaDescription: "Pots cosmétiques, flacons compte-gouttes, pompes airless, étuis rouge à lèvres et flaconnage beauté — Taïwan + Chine, CQ. MOQ 1 000 USD.",
       kicker: 'SOURCING FLACONNAGE BEAUTÉ',
       h1: 'Flaconnage cosmétique et beauté depuis Taïwan et Chine',
       intro: "SunGene achète flaconnage cosmétique et soins personnels — pots, flacons, pompes, distributeurs, tubes — directement auprès d'usines vérifiées à Taïwan et en Chine. Décoration (sérigraphie, marquage à chaud, impression UV, givré, finition mate) coordonnée via le même réseau pour un devis SunGene unique.",
@@ -844,8 +844,8 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Demander un devis',
     },
     es: {
-      metaTitle: 'Sourcing envase cosmético Taiwán + China | SunGene',
-      metaDescription: 'Compra-reventa directa de tarros cosméticos, frascos cuentagotas, bombas airless, tubos de labial, viales de muestra y envase de belleza desde fábricas en Taiwán y China. Control de calidad en sitio. Pedidos desde USD 1 000.',
+      metaTitle: 'Sourcing envase cosmético Taiwán + China',
+      metaDescription: 'Tarros cosméticos, cuentagotas, bombas airless, tubos de labial, viales y envase de belleza — fábricas Taiwán + China. QC en sitio. MOQ USD 1 000.',
       kicker: 'SOURCING ENVASE COSMÉTICO',
       h1: 'Envase cosmético y cuidado personal desde Taiwán y China',
       intro: 'SunGene compra envase cosmético y de cuidado personal — tarros, frascos, bombas, dispensadores, tubos — directamente a fábricas verificadas en Taiwán y China. La decoración (serigrafía, hot stamping, impresión UV, esmerilado, acabado mate) se coordina a través de la misma red de proveedores en una cotización única SunGene.',

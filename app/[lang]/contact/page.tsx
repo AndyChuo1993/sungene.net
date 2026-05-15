@@ -31,7 +31,7 @@ const CONTACT_META_DESCRIPTIONS: Record<string, string> = {
   en: 'Send a reference image, target quantity, and destination market. Same-day reply during Taipei business hours. MOQ USD 1,000.',
   cn: '发一张参考图、目标数量、销往的市场。台北上班时间当天回讯。最低订单 USD 1,000。',
   zh: '發一張參考圖、目標數量、銷往的市場。台北上班時間當天回訊。最低訂單 USD 1,000。',
-  fr: "Envoyez une photo de référence, la quantité cible et le marché de destination. Réponse le jour même pendant les heures de bureau de Taipei. Commande min. USD 1 000.",
+  fr: "Envoyez photo de référence, quantité cible et marché de destination. Réponse le jour même (heures de Taipei). MOQ 1 000 USD.",
   es: 'Envíe una foto de referencia, cantidad objetivo y mercado de destino. Respuesta el mismo día en horario laboral de Taipéi. Pedido mín. USD 1 000.',
   pt: 'Solicite uma avaliação de sourcing para sistemas de embalagem, equipamentos industriais ou componentes de automação. Resposta em 24 h.',
   ko: '포장 시스템, 산업 장비, 자동화 부품에 대한 소싱 평가를 요청하세요. 24시간 내 응답.',

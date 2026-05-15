@@ -20,11 +20,11 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Practical sourcing guides for buyers working with Taiwan and Mainland China factories: supplier evaluation, MOQ negotiation, on-site QC, consolidated shipping, Incoterms, payment-term risk control, and private-label preparation.',
-  cn: '工业设备实用采购指南：配置规划、供应商评估、台湾/中国采购、电压要求、FAT准备与商业风险控制。',
-  zh: '工業設備實用採購指南：配置規劃、供應商評估、台灣/中國採購、電壓要求、FAT準備與商務風險控管。',
-  fr: 'Guides pratiques de sourcing industriel : plan de configuration, audit fournisseurs, sourcing Taïwan/Chine, tension, préparation FAT et contrôle des risques commerciaux.',
-  es: 'Guías prácticas de abastecimiento industrial: planificación de configuración, evaluación de proveedores, sourcing Taiwán/China, requisitos eléctricos, preparación FAT y control de riesgos.',
+  en: 'Practical sourcing guides for Taiwan + China factory buyers — supplier evaluation, MOQ negotiation, on-site QC, Incoterms, payment risk, private label.',
+  cn: '台湾＋中国采购实用指南——供应商审查、MOQ 议价、到厂验货、合并出货、Incoterms、付款条件风险、品牌贴牌准备。',
+  zh: '台灣＋中國採購實用指南——供應商審查、MOQ 議價、到廠驗貨、合併出貨、Incoterms、付款條件風險、品牌貼牌準備。',
+  fr: 'Guides pratiques de sourcing Taïwan + Chine — audit fournisseurs, négociation MOQ, CQ sur place, Incoterms, risques de paiement, marque blanche.',
+  es: 'Guías prácticas de sourcing Taiwán + China — evaluación de proveedores, negociación MOQ, QC en sitio, Incoterms, riesgo de pagos, marca blanca.',
   pt: 'Guias práticos de sourcing industrial: planejamento de configuração, avaliação de fornecedores, sourcing Taiwan/China, requisitos elétricos, preparação FAT e controle de risco comercial.',
   ko: '산업 장비 실무 소싱 가이드: 구성 계획, 공급업체 평가, 대만/중국 소싱, 전압 요구사항, FAT 준비 및 상업 리스크 관리.',
   ja: '産業設備の実務的な調達ガイド：構成計画、サプライヤー評価、台湾/中国調達、電圧要件、FAT準備、商務リスク管理。',

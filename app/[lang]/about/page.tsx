@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params
   const l = normalizeLang(lang)
   const titles = {
-    en: 'About SunGene | Taiwan + China trading company for packaging, home & garden',
+    en: 'About SunGene — Taiwan + China sourcing partner',
     cn: '关于 SunGene｜台湾＋中国 包装・家居・园艺 贸易公司',
     zh: '關於 SunGene｜台灣＋中國 包裝・家居・園藝 貿易公司',
-    fr: 'À propos de SunGene | Société de négoce Taïwan + Chine pour emballage, maison & jardin',
-    es: 'Acerca de SunGene | Empresa comercial Taiwán + China para empaque, hogar y jardín',
+    fr: 'À propos de SunGene — sourcing Taïwan + Chine',
+    es: 'Acerca de SunGene — sourcing Taiwán + China',
     pt: 'Sobre a SunGene | Especialistas em Sourcing Industrial e Automação',
     ko: 'SunGene 소개 | 산업 및 자동화 소싱 전문가',
     ja: 'SunGeneについて | 産業・自動化ソーシングのエキスパート',
@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Über SunGene | Experten für industrielles Sourcing und Automatisierung',
   }
   const descriptions: Record<string, string> = {
-    en: 'SunGene is a Taiwan–China dual-entity trading company. We buy from vetted factories across both markets and resell direct to international buyers in packaging, home goods, and garden categories. On-site QC by our own team. Verified Alibaba.com supplier.',
+    en: 'Taiwan–China dual-entity trading company. Direct factory buying, on-site QC by our own team, transparent quotes. Packaging, home, garden, beauty. Alibaba 5★.',
     cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。我们直接向两地审核过的工厂采购、转手出货给海外买家——包装、家居、园艺品类。亲自验货。Alibaba.com 认证供应商。',
     zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。我們直接向兩地審核過的工廠採購、轉手出貨給海外買家——包裝、家居、園藝品類。親自驗貨。Alibaba.com 認證供應商。',
-    fr: "SunGene est une société de négoce à double entité Taïwan-Chine. Nous achetons auprès d'usines vérifiées dans les deux marchés et revendons en direct aux acheteurs internationaux — emballage, maison, jardin. Contrôle qualité par notre équipe. Fournisseur Alibaba.com vérifié.",
-    es: 'SunGene es una empresa comercial con doble entidad Taiwán-China. Compramos a fábricas verificadas en ambos mercados y revendemos directamente a compradores internacionales — empaque, hogar, jardín. Control de calidad por nuestro equipo. Proveedor Alibaba.com verificado.',
+    fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5★ vérifié.",
+    es: 'Empresa comercial Taiwán-China. Compra directa de fábrica, QC en sitio, reventa directa — empaque, hogar, jardín, belleza. Alibaba 5★ verificado.',
     pt: 'A SunGene oferece suporte profissional de sourcing para equipamentos industriais, sistemas de embalagem e componentes de automação em Taiwan e na China.',
     ko: 'SunGene은 대만과 중국 전역에서 산업 장비, 포장 시스템 및 자동화 부품에 대한 전문적인 소싱 지원을 제공합니다.',
     ja: 'SunGeneは、台湾と中国全域で産業機器、包装システム、自動化コンポーネントの専門的なソーシング・サポートを提供しています。',
