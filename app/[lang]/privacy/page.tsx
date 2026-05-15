@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const m = META[l] ?? META.en
   return buildPageMetadata({
     lang: l,
-    title: `${m.title} | SunGene`,
+    title: m.title,
     description: m.desc,
     pathname: '/privacy',
     type: 'website',

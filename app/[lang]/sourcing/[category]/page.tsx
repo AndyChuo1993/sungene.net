@@ -84,7 +84,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '包裝產品採購｜台灣 + 中國工廠',
+      metaTitle: '包裝產品採購 | 台灣+中國工廠',
       metaDescription: '直接從台灣與中國審核過的工廠採購立袋、夾鏈袋、玻璃罐、塑膠瓶、馬口鐵罐、禮盒、泵頭與封口。團隊親自驗貨。訂單 USD 1,000 起接。Alibaba.com 認證供應商。',
       kicker: '包裝產品採購',
       h1: '台灣與中國工廠的包裝產品採購',
@@ -126,7 +126,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '包装产品采购｜台湾 + 中国工厂',
+      metaTitle: '包装产品采购 | 台湾+中国工厂',
       metaDescription: '直接从台湾与中国核查过的工厂采购立袋、自封袋、玻璃罐、塑料瓶、马口铁罐、礼盒、泵头与封口。团队亲自验货。订单 USD 1,000 起接。Alibaba.com 认证供应商。',
       kicker: '包装产品采购',
       h1: '台湾与中国工厂的包装产品采购',
@@ -296,7 +296,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '家居用品採購｜台灣 + 中國工廠',
+      metaTitle: '家居用品採購 | 台灣+中國工廠',
       metaDescription: '從台灣與中國大陸審核過的工廠採購廚具、餐具、收納、家飾與生活小物。團隊親自驗貨,報價單上工廠價與我方利潤分開列出。MOQ USD 1,000。',
       kicker: '家居用品採購',
       h1: '台灣與中國工廠的家居廚房用品採購',
@@ -338,7 +338,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '家居用品采购｜台湾 + 中国工厂',
+      metaTitle: '家居用品采购 | 台湾+中国工厂',
       metaDescription: '从台湾与中国大陆核查过的工厂采购厨具、餐具、收纳、家饰与生活小物。团队亲自验货,报价单上工厂价与我方利润分开列出。MOQ USD 1,000。',
       kicker: '家居用品采购',
       h1: '台湾与中国工厂的家居厨房用品采购',
@@ -508,7 +508,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: 'Request a quote',
     },
     zh: {
-      metaTitle: '園藝與戶外用品採購｜台灣 + 中國工廠',
+      metaTitle: '園藝與戶外用品採購 | 台灣+中國工廠',
       metaDescription: '直接從台灣與中國審核過的工廠採購園藝工具、花盆、灑水壺、水管配件與戶外用品。團隊親自驗貨、報價透明。訂單 USD 1,000 起接。',
       kicker: '園藝與戶外採購',
       h1: '台灣與中國工廠的園藝工具與戶外用品採購',
@@ -550,7 +550,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       ctaBtn: '索取報價',
     },
     cn: {
-      metaTitle: '园艺与户外用品采购｜台湾 + 中国工厂',
+      metaTitle: '园艺与户外用品采购 | 台湾+中国工厂',
       metaDescription: '直接从台湾与中国核查过的工厂采购园艺工具、花盆、洒水壶、水管配件与户外用品。团队亲自验货、报价透明。订单 USD 1,000 起接。',
       kicker: '园艺与户外采购',
       h1: '台湾与中国工厂的园艺工具与户外用品采购',

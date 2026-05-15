@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const l = normalizeLang(lang)
   const titles = {
     en: 'About — Taiwan + China sourcing',
-    cn: '关于我们｜台湾＋中国采购',
-    zh: '關於我們｜台灣＋中國採購',
+    cn: '关于我们 | 台湾+中国采购',
+    zh: '關於我們 | 台灣+中國採購',
     fr: 'À propos — sourcing Taïwan + Chine',
     es: 'Acerca — sourcing Taiwán + China',
     ko: 'SunGene 소개 | 산업 및 자동화 소싱 전문가',
@@ -60,7 +60,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const content: Record<string, any> = {
     en: {
       kicker: 'ABOUT SUNGENE',
-      title: 'A trading company built so quality is our problem, not yours',
+      title: 'Trading company built for quality',
       intro: 'SunGene is a sourcing partner with teams in Taichung (Taiwan) and Xiamen (Mainland China). We buy from vetted factories across both markets and ship to international buyers in packaging, home goods, garden and beauty categories. Our team combines B2B export sales, factory operations, and supply chain logistics experience across Greater China.',
       mission: 'We act as principal — we buy the goods, then resell — which puts the goods on our balance sheet. That single accounting fact means rejecting a sub-spec batch is our own financial decision, not a courtesy we extend to you. Quality moves from "we will try" to "we have to".',
       stats: [
@@ -123,7 +123,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     },
     fr: {
       kicker: 'À PROPOS DE SUNGENE',
-      title: "Une société de négoce conçue pour que la qualité soit notre problème, pas le vôtre",
+      title: 'Société de négoce Taïwan + Chine',
       intro: "SunGene est un partenaire de sourcing avec des équipes à Taichung (Taïwan) et Xiamen (Chine continentale). Nous achetons auprès d'usines vérifiées des deux côtés et revendons aux acheteurs internationaux dans les catégories emballage, maison, jardin et beauté. Notre équipe combine vente export B2B, opérations usine et logistique chaîne d'approvisionnement à travers la Grande Chine.",
       mission: "Nous opérons en société de négoce — non en agent à la commission — pour une raison structurelle précise : la marchandise apparaît à notre bilan. Ce simple fait comptable change la structure des incitations. Refuser un lot hors spécification devient notre propre décision financière, pas une courtoisie que nous vous accordons. La qualité passe de « nous essaierons » à « nous devons ».",
       stats: [
@@ -144,7 +144,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     },
     es: {
       kicker: 'SOBRE SUNGENE',
-      title: 'Una empresa comercial diseñada para que la calidad sea nuestro problema, no el suyo',
+      title: 'Empresa comercial Taiwán + China',
       intro: 'SunGene es un socio de sourcing con equipos en Taichung (Taiwán) y Xiamen (China continental). Compramos a fábricas verificadas de ambos lados y revendemos a compradores internacionales en categorías de empaque, hogar, jardín y belleza. Nuestro equipo combina ventas export B2B, operaciones de fábrica y logística de cadena de suministro en toda la Gran China.',
       mission: 'Operamos como empresa comercial — no como agente a comisión — por una razón estructural concreta: la mercancía aparece en nuestro balance. Ese único hecho contable cambia la estructura de incentivos. Rechazar un lote fuera de especificación pasa a ser nuestra propia decisión financiera, no una cortesía hacia usted. La calidad cambia de "lo intentaremos" a "tenemos que".',
       stats: [

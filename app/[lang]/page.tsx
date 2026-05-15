@@ -11,7 +11,7 @@ import FAQ from '@/components/home/FAQ'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 
 type PageParams = {
   params: Promise<{ lang?: string }>
@@ -111,125 +111,6 @@ const HOME_POSITIONING: Partial<Record<Lang, {
       'Como la mercancía figura en nuestro balance, rechazar defectos antes del envío está en nuestro propio interés financiero. La calidad pasa a ser nuestro problema a resolver, no el suyo a perseguir.',
     ],
   },
-  pt: {
-    sourceKicker: 'O que fornecemos',
-    sourceTitle: 'Um ponto de entrada de sourcing mais amplo para projetos industriais e técnicos',
-    sourceIntro: 'Apoiamos conversas de sourcing que começam com máquinas e se expandem para necessidades industriais e técnicas adjacentes.',
-    sourceItems: [
-      'Sistemas de embalagem',
-      'Equipamentos industriais',
-      'Componentes de automação',
-      'Sourcing técnico selecionado',
-    ],
-    beyondKicker: 'Além das máquinas',
-    beyondTitle: 'Um parceiro de sourcing para conversas mais avançadas',
-    beyondBody: [
-      'Hoje, o sourcing não se resume mais à compra de equipamentos.',
-      'Trata-se de integração, compatibilidade e confiabilidade a longo prazo — especialmente em ambientes industriais avançados.',
-    ],
-  },
-  ko: {
-    sourceKicker: '조달 범위',
-    sourceTitle: '산업 및 기술 프로젝트를 위한 더 넓은 소싱 입구',
-    sourceIntro: '기계에서 시작해 인접한 산업 및 기술 요구사항으로 확장되는 소싱 대화를 지원합니다.',
-    sourceItems: [
-      '포장 시스템',
-      '산업 장비',
-      '자동화 부품',
-      '선별 기술 관련 소싱',
-    ],
-    beyondKicker: '기계 그 이상',
-    beyondTitle: '더 고도화된 소싱 대화를 위한 파트너',
-    beyondBody: [
-      '오늘날 소싱은 단순한 장비 구매가 아닙니다.',
-      '통합성, 호환성, 장기 신뢰성이 핵심입니다 — 특히 고도화된 산업 환경에서.',
-    ],
-  },
-  ja: {
-    sourceKicker: '調達範囲',
-    sourceTitle: '産業・技術プロジェクトのための幅広いソーシング入口',
-    sourceIntro: '機械から始まり、隣接する産業・技術ニーズへと広がるソーシング相談を支援します。',
-    sourceItems: [
-      '包装システム',
-      '産業機器',
-      '自動化部品',
-      '特定技術関連ソーシング',
-    ],
-    beyondKicker: '機械を超えて',
-    beyondTitle: 'より高度な調達対話のためのパートナー',
-    beyondBody: [
-      '今日の調達は、設備購入だけではありません。',
-      '統合性、互換性、長期的な信頼性が重要です — 特に高度な産業環境において。',
-    ],
-  },
-  ar: {
-    sourceKicker: 'نطاق التوريد',
-    sourceTitle: 'نقطة دخول توريد أوسع للمشاريع الصناعية والتقنية',
-    sourceIntro: 'ندعم محادثات التوريد التي تبدأ بالآلات وتمتد إلى المتطلبات الصناعية والتقنية المجاورة.',
-    sourceItems: [
-      'أنظمة التعبئة والتغليف',
-      'المعدات الصناعية',
-      'مكونات الأتمتة',
-      'توريد تقني مختار',
-    ],
-    beyondKicker: 'أبعد من الآلات',
-    beyondTitle: 'شريك توريد لمحادثات أكثر تقدماً',
-    beyondBody: [
-      'اليوم، التوريد لم يعد مجرد شراء معدات.',
-      'يتعلق الأمر بالتكامل والتوافق والموثوقية على المدى البعيد — خاصة في البيئات الصناعية المتقدمة.',
-    ],
-  },
-  th: {
-    sourceKicker: 'ขอบเขตการจัดหา',
-    sourceTitle: 'จุดเข้าการจัดหาที่กว้างขึ้นสำหรับโครงการอุตสาหกรรมและเทคนิค',
-    sourceIntro: 'เราสนับสนุนการสนทนาด้านการจัดหาที่เริ่มต้นจากเครื่องจักรและขยายไปสู่ความต้องการทางอุตสาหกรรมและเทคนิคที่เกี่ยวข้อง',
-    sourceItems: [
-      'ระบบบรรจุภัณฑ์',
-      'อุปกรณ์อุตสาหกรรม',
-      'ชิ้นส่วนระบบอัตโนมัติ',
-      'การจัดหาเชิงเทคนิคที่คัดสรร',
-    ],
-    beyondKicker: 'เกินกว่าแค่เครื่องจักร',
-    beyondTitle: 'พาร์ทเนอร์การจัดหาสำหรับการสนทนาขั้นสูง',
-    beyondBody: [
-      'ปัจจุบัน การจัดหาไม่ใช่แค่การซื้ออุปกรณ์อีกต่อไป',
-      'สิ่งสำคัญคือการบูรณาการ ความเข้ากันได้ และความน่าเชื่อถือในระยะยาว — โดยเฉพาะในสภาพแวดล้อมอุตสาหกรรมขั้นสูง',
-    ],
-  },
-  vi: {
-    sourceKicker: 'Phạm vi tìm nguồn cung',
-    sourceTitle: 'Điểm vào tìm nguồn cung rộng hơn cho các dự án công nghiệp và kỹ thuật',
-    sourceIntro: 'Chúng tôi hỗ trợ các cuộc thảo luận tìm nguồn cung bắt đầu từ máy móc và mở rộng sang các yêu cầu công nghiệp và kỹ thuật liên quan.',
-    sourceItems: [
-      'Hệ thống đóng gói',
-      'Thiết bị công nghiệp',
-      'Linh kiện tự động hóa',
-      'Tìm nguồn cung kỹ thuật được chọn lọc',
-    ],
-    beyondKicker: 'Hơn cả máy móc',
-    beyondTitle: 'Đối tác tìm nguồn cung cho các cuộc thảo luận nâng cao',
-    beyondBody: [
-      'Ngày nay, tìm nguồn cung không chỉ là mua thiết bị.',
-      'Điều quan trọng là tích hợp, tương thích và độ tin cậy lâu dài — đặc biệt trong môi trường công nghiệp tiên tiến.',
-    ],
-  },
-  de: {
-    sourceKicker: 'Was wir beschaffen',
-    sourceTitle: 'Ein breiterer Sourcing-Einstiegspunkt für industrielle und technische Projekte',
-    sourceIntro: 'Wir begleiten Sourcing-Gespräche, die bei Maschinen beginnen und sich auf angrenzende industrielle und technische Anforderungen ausweiten.',
-    sourceItems: [
-      'Verpackungssysteme',
-      'Industrieanlagen',
-      'Automatisierungskomponenten',
-      'Ausgewähltes technisches Sourcing',
-    ],
-    beyondKicker: 'Mehr als Maschinen',
-    beyondTitle: 'Ein Sourcing-Partner für fortgeschrittene Beschaffungsgespräche',
-    beyondBody: [
-      'Heute geht es beim Sourcing nicht mehr nur um den Kauf von Anlagen.',
-      'Es geht um Integration, Kompatibilität und langfristige Zuverlässigkeit — besonders in fortgeschrittenen industriellen Umgebungen.',
-    ],
-  },
 }
 
 const HOME_KEYWORDS: Record<Lang, string[]> = {
@@ -271,12 +152,12 @@ const HOME_KEYWORDS: Record<Lang, string[]> = {
   de: ['Sourcing-Partner Taiwan China', 'Beschaffungsagentur Asien'],
 }
 
-const SCHEMA_TEXT: Record<Lang, {
+const SCHEMA_TEXT: Partial<Record<Lang, {
   listName: string
   listDesc: string
   categories: { packaging: string; food: string; filling: string; conveying: string; custom: string }
   faq: { q: string; a: string }[]
-}> = {
+}>> = {
   en: {
     listName: 'SunGene — Taiwan & China sourcing for packaging, home & garden',
     listDesc: 'Sourcing for packaging, home goods, and garden products from vetted Taiwan and Mainland China factories. On-site QC, factory price + margin shown separately on every quote.',
@@ -347,104 +228,6 @@ const SCHEMA_TEXT: Record<Lang, {
       { q: '¿Qué tan rápido responden?', a: 'Mismo día en horario laboral de Taipéi (UTC+8, lun–vie 09:00–18:00). Fuera de horario, en 12 horas.' },
     ],
   },
-  pt: {
-    listName: 'SunGene — Máquinas industriais',
-    listDesc: 'Máquinas de embalagem, equipamentos de alimentos, envase/selagem e transporte/automação.',
-    categories: { packaging: 'Máquinas de embalagem', food: 'Equipamentos de alimentos', filling: 'Envase e selagem', conveying: 'Transporte e automação', custom: 'Máquinas sob medida' },
-    faq: [
-      { q: 'Qual é o pedido mínimo?', a: 'MOQ: 1 unidade. Configuração conforme produto, formato e velocidade-alvo.' },
-      { q: 'Vocês fazem personalização?', a: 'Sim. Materiais, dimensões, capacidade, tensão/frequência e módulos de automação são configuráveis.' },
-      { q: 'Para quais países vocês exportam?', a: 'Exportamos para 50+ países na Ásia, Oriente Médio, Europa, Américas e África. Tensão e frequência são ajustadas.' },
-      { q: 'Qual é o prazo de entrega?', a: 'Depende da configuração: típico 15–30 dias (máquina) e 45–90 dias (linha completa).' },
-      { q: 'Vocês realizam testes FAT/SAT antes do envio?', a: 'Conforme o equipamento e o fornecedor, coordenamos testes FAT/SAT e verificações funcionais antes do envio. Vídeo e resultados podem ser fornecidos.' },
-      { q: 'Quais certificações estão disponíveis?', a: 'Trabalhamos com documentação de exportação apropriada por categoria (CE, FDA, REACH, RoHS quando aplicável). Solicite a lista de verificação de conformidade para sua categoria.' },
-      { q: 'Que suporte pós-venda vocês oferecem?', a: 'Assistência remota por vídeo, treinamento, peças normalmente enviadas em 48 horas (conforme estoque e destino) e suporte técnico de longo prazo.' },
-    ],
-  },
-  ko: {
-    listName: 'SunGene 산업용 기계',
-    listDesc: '포장기계, 식품가공장비, 충전/밀봉, 컨베이어/자동화 라인.',
-    categories: { packaging: '포장기계', food: '식품가공장비', filling: '충전 및 밀봉', conveying: '컨베이어 및 자동화', custom: '맞춤형 기계' },
-    faq: [
-      { q: '최소 주문 수량은?', a: 'MOQ는 1대입니다. 제품, 포장 형식, 목표 생산속도에 맞춰 구성합니다.' },
-      { q: '맞춤 제작이 가능한가요?', a: '가능합니다. 재질, 치수, 생산능력, 전압/주파수, 자동화 모듈을 요구사항에 맞춰 구성합니다.' },
-      { q: '어느 나라로 수출하나요?', a: '동남아, 중동, 유럽, 미주, 아프리카 등 50개국 이상 수출합니다. 전압과 주파수는 현지 표준에 맞춰 설정합니다.' },
-      { q: '납기는 얼마나 걸리나요?', a: '구성에 따라 다릅니다. 일반적으로 단일 장비 15–30일, 라인 45–90일 범위입니다.' },
-      { q: '출하 전 FAT/SAT 테스트를 하나요?', a: '장비와 공급사에 따라 FAT/SAT 및 기능 검사를 조율할 수 있으며, 테스트 영상과 결과를 제공할 수 있습니다.' },
-      { q: '어떤 인증을 지원하나요?', a: '카테고리별로 적절한 수출 문서(CE, FDA, REACH, RoHS — 해당 시)를 지원합니다. 카테고리별 컴플라이언스 체크리스트를 요청하세요.' },
-      { q: '애프터서비스는 어떻게 되나요?', a: '원격 영상 설치 안내, 운전자 교육, 예비 부품은 보통 48시간 내 발송(재고 및 목적지에 따라), 장기 기술 지원을 제공합니다.' },
-    ],
-  },
-  ja: {
-    listName: 'SunGene 産業機械',
-    listDesc: '包装機械、食品加工機器、充填/シール、搬送/自動化ライン。',
-    categories: { packaging: '包装機械', food: '食品加工機器', filling: '充填・シール', conveying: '搬送・自動化', custom: 'カスタム機械' },
-    faq: [
-      { q: '最小注文数量は？', a: 'MOQは1台です。製品、包装形態、目標能力に合わせて構成します。' },
-      { q: 'カスタマイズは可能？', a: '可能です。材質、寸法、能力、電圧/周波数、各種モジュールを要件に合わせて設定します。' },
-      { q: 'どの国に輸出していますか？', a: '東南アジア、中東、欧州、米州、アフリカなど50か国以上に輸出しています。電圧・周波数は現地規格に合わせます。' },
-      { q: '納期は？', a: '構成によります。目安：単体 15–30日、ライン 45–90日。' },
-      { q: '出荷前にFAT/SATテストは実施しますか？', a: '設備とサプライヤーにより、FAT/SATおよび機能確認を出荷前に調整できます。テスト動画と結果を提供可能です。' },
-      { q: 'どのような認証に対応していますか？', a: 'カテゴリごとに適切な輸出書類（CE、FDA、REACH、RoHS — 該当する場合）に対応します。カテゴリ別コンプライアンスチェックリストをご請求ください。' },
-      { q: 'アフターサポートの内容は？', a: 'リモートビデオでの設置支援、オペレーター研修、部品は通常48時間以内に発送（在庫・仕向地により）、長期技術サポートをご提供します。' },
-    ],
-  },
-  ar: {
-    listName: 'SunGene — معدات صناعية',
-    listDesc: 'آلات التعبئة والتغليف، معدات الأغذية، التعبئة/الإغلاق، وأنظمة النقل/الأتمتة.',
-    categories: { packaging: 'آلات التعبئة والتغليف', food: 'معدات تصنيع الأغذية', filling: 'التعبئة والإغلاق', conveying: 'النقل والأتمتة', custom: 'آلات مخصصة' },
-    faq: [
-      { q: 'ما هو الحد الأدنى للطلب؟', a: 'الحد الأدنى: آلة واحدة. نضبط المواصفات حسب المنتج وشكل العبوة والسرعة المطلوبة.' },
-      { q: 'هل يمكن التخصيص؟', a: 'نعم. المواد والأبعاد والقدرة والجهد/التردد ووحدات الأتمتة قابلة للتخصيص.' },
-      { q: 'إلى أي دول تقومون بالتصدير؟', a: 'نصدر إلى أكثر من 50 دولة في جنوب شرق آسيا والشرق الأوسط وأوروبا والأمريكتين وأفريقيا.' },
-      { q: 'كم يستغرق وقت التسليم؟', a: 'يعتمد على التكوين: غالبًا 15–30 يومًا للآلة و45–90 يومًا للخط الكامل.' },
-      { q: 'هل تجرون اختبارات FAT/SAT قبل الشحن؟', a: 'حسب المعدة والمورد، نقوم بتنسيق اختبارات FAT/SAT وفحوصات الوظائف قبل الشحن. يمكن توفير فيديو ونتائج الاختبار.' },
-      { q: 'ما هي الشهادات المتاحة؟', a: 'ندعم وثائق التصدير المناسبة حسب الفئة (CE، FDA، REACH، RoHS عند الانطباق). اطلب قائمة الامتثال الخاصة بفئتك.' },
-      { q: 'ما هو دعم ما بعد البيع؟', a: 'دعم تركيب عن بُعد عبر الفيديو، تدريب المشغلين، قطع غيار تُشحن عادة خلال 48 ساعة (حسب المخزون والوجهة)، ودعم فني طويل الأجل.' },
-    ],
-  },
-  th: {
-    listName: 'SunGene เครื่องจักรอุตสาหกรรม',
-    listDesc: 'เครื่องบรรจุภัณฑ์ อุปกรณ์แปรรูปอาหาร ระบบบรรจุ/ซีล และสายพาน/อัตโนมัติ',
-    categories: { packaging: 'เครื่องบรรจุภัณฑ์', food: 'อุปกรณ์แปรรูปอาหาร', filling: 'ระบบบรรจุและซีล', conveying: 'ลำเลียงและอัตโนมัติ', custom: 'เครื่องจักรสั่งทำ' },
-    faq: [
-      { q: 'สั่งขั้นต่ำกี่เครื่อง?', a: 'ขั้นต่ำ 1 เครื่อง สามารถปรับสเปกตามสินค้า รูปแบบบรรจุภัณฑ์ และความเร็วเป้าหมาย' },
-      { q: 'สั่งทำ/ปรับแต่งได้ไหม?', a: 'ได้ ปรับวัสดุ ขนาด กำลังการผลิต แรงดัน/ความถี่ และโมดูลอัตโนมัติได้ตามความต้องการ' },
-      { q: 'ส่งออกไปประเทศไหนบ้าง?', a: 'ส่งออกมากกว่า 50 ประเทศในเอเชียตะวันออกเฉียงใต้ ตะวันออกกลาง ยุโรป อเมริกา และแอฟริกา' },
-      { q: 'ระยะเวลาจัดหาและส่งมอบนานไหม?', a: 'ขึ้นอยู่กับสเปก โดยทั่วไปเครื่องเดี่ยว 15–30 วัน และไลน์ 45–90 วัน' },
-      { q: 'มีการทดสอบก่อนส่งมอบไหม?', a: 'ตามอุปกรณ์และซัพพลายเออร์ เราสามารถประสานการทดสอบ FAT/SAT และการตรวจสอบการทำงานก่อนส่ง พร้อมวิดีโอและรายงานผล' },
-      { q: 'มีใบรับรองอะไรบ้าง?', a: 'เราสนับสนุนเอกสารส่งออกตามหมวดหมู่ที่เหมาะสม (CE, FDA, REACH, RoHS เมื่อมี) ขอเช็คลิสต์การปฏิบัติตามข้อกำหนดของหมวดหมู่ของคุณ' },
-      { q: 'บริการหลังการขายมีอะไรบ้าง?', a: 'แนะนำติดตั้งผ่านวิดีโอ ฝึกอบรมผู้ปฏิบัติงาน อะไหล่โดยทั่วไปส่งภายใน 48 ชม. (ขึ้นอยู่กับสต็อกและปลายทาง) และสนับสนุนเทคนิคระยะยาว' },
-    ],
-  },
-  vi: {
-    listName: 'SunGene — Máy móc công nghiệp',
-    listDesc: 'Máy đóng gói, thiết bị thực phẩm, chiết rót/hàn kín và băng tải/tự động hóa.',
-    categories: { packaging: 'Máy đóng gói', food: 'Thiết bị thực phẩm', filling: 'Chiết rót & hàn kín', conveying: 'Băng tải & tự động hóa', custom: 'Máy tùy chỉnh' },
-    faq: [
-      { q: 'MOQ là bao nhiêu?', a: 'MOQ: 1 máy. Cấu hình theo sản phẩm, kiểu bao bì và công suất mục tiêu.' },
-      { q: 'Có thể tùy chỉnh không?', a: 'Có. Vật liệu, kích thước, công suất, điện áp/tần số và module tự động hóa đều có thể cấu hình.' },
-      { q: 'Xuất khẩu đến những nước nào?', a: 'Xuất khẩu 50+ quốc gia tại Đông Nam Á, Trung Đông, Châu Âu, Châu Mỹ và Châu Phi.' },
-      { q: 'Thời gian giao hàng?', a: 'Tùy cấu hình: thường 15–30 ngày (máy đơn) và 45–90 ngày (dây chuyền).' },
-      { q: 'Có test FAT/SAT trước khi giao không?', a: 'Tùy theo thiết bị và nhà cung cấp, chúng tôi có thể điều phối FAT/SAT và kiểm tra chức năng trước khi giao. Có thể cung cấp video và kết quả.' },
-      { q: 'Máy có chứng nhận gì?', a: 'Chúng tôi hỗ trợ tài liệu xuất khẩu phù hợp theo từng danh mục (CE, FDA, REACH, RoHS khi phù hợp). Yêu cầu danh sách kiểm tra tuân thủ cho danh mục của bạn.' },
-      { q: 'Hỗ trợ sau bán hàng gồm những gì?', a: 'Hướng dẫn lắp đặt qua video, đào tạo vận hành, phụ tùng thường giao trong 48 giờ (tùy tồn kho và điểm đến) và hỗ trợ kỹ thuật dài hạn.' },
-    ],
-  },
-  de: {
-    listName: 'SunGene — Industriemaschinen',
-    listDesc: 'Verpackungsmaschinen, Lebensmittelanlagen, Abfüll-/Verschließsysteme sowie Fördertechnik/Automatisierung.',
-    categories: { packaging: 'Verpackungsmaschinen', food: 'Lebensmittelanlagen', filling: 'Abfüllen & Verschließen', conveying: 'Fördertechnik & Automatisierung', custom: 'Sondermaschinen' },
-    faq: [
-      { q: 'Wie hoch ist die Mindestbestellmenge?', a: 'MOQ: 1 Maschine. Konfiguration nach Produkt, Verpackungsformat und Zielleistung.' },
-      { q: 'Ist kundenspezifische Ausführung möglich?', a: 'Ja. Material, Abmessungen, Leistung, Spannung/Frequenz und Automationsmodule sind konfigurierbar.' },
-      { q: 'In welche Länder exportieren Sie?', a: 'Export in 50+ Länder in Südostasien, Nahost, Europa, Amerika und Afrika. Spannung und Frequenz werden angepasst.' },
-      { q: 'Wie lange ist die Lieferzeit?', a: 'Abhängig von der Konfiguration: typ. 15–30 Tage (Einzelmaschine) und 45–90 Tage (Linie).' },
-      { q: 'Gibt es FAT/SAT-Tests vor der Lieferung?', a: 'Je nach Maschine und Lieferant koordinieren wir FAT/SAT und Funktionsprüfungen vor dem Versand. Testvideo und Ergebnisse können bereitgestellt werden.' },
-      { q: 'Welche Zertifizierungen sind verfügbar?', a: 'Wir unterstützen exportrelevante Dokumentation je nach Kategorie (CE, FDA, REACH, RoHS — falls zutreffend). Fragen Sie die Compliance-Checkliste für Ihre Kategorie an.' },
-      { q: 'Welchen After-Sales-Support bieten Sie?', a: 'Ferninstallation per Video, Schulung, Ersatzteile werden in der Regel innerhalb von 48 Stunden versandt (abhängig von Lagerbestand und Ziel) und langfristiger technischer Support.' },
-    ],
-  },
 }
 
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
@@ -463,13 +246,13 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
 export default async function Page({ params }: PageParams) {
   const { lang } = await params
   const safeLang = normalizeLang(lang)
-  const s = SCHEMA_TEXT[safeLang] ?? SCHEMA_TEXT.en
+  const s = (SCHEMA_TEXT[safeLang] ?? SCHEMA_TEXT.en)!
   const positioning = HOME_POSITIONING[safeLang] ?? HOME_POSITIONING.en!
 
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: LANG_META[safeLang].htmlLang,
+    inLanguage: langMeta(safeLang).htmlLang,
     name: s.listName,
     description: s.listDesc,
     numberOfItems: 5,
@@ -485,14 +268,13 @@ export default async function Page({ params }: PageParams) {
   const topicHubSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: LANG_META[safeLang].htmlLang,
-    name: 'Configuration guides by route',
+    inLanguage: langMeta(safeLang).htmlLang,
+    name: 'Sourcing scope by category',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pouch packaging configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/pouch-packaging`, url: `${SITE_URL}/${safeLang}/resources/route/pouch-packaging`, name: 'Pouch packaging configuration guides' } },
-      { '@type': 'ListItem', position: 2, name: 'Powder dosing configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/powder-dosing`, url: `${SITE_URL}/${safeLang}/resources/route/powder-dosing`, name: 'Powder dosing configuration guides' } },
-      { '@type': 'ListItem', position: 3, name: 'Liquid filling configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/liquid-filling`, url: `${SITE_URL}/${safeLang}/resources/route/liquid-filling`, name: 'Liquid filling configuration guides' } },
-      { '@type': 'ListItem', position: 4, name: 'Food processing line configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/food-processing-line`, url: `${SITE_URL}/${safeLang}/resources/route/food-processing-line`, name: 'Food processing line configuration guides' } },
-      { '@type': 'ListItem', position: 5, name: 'Conveying & automation configuration guides', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/resources/route/conveying-automation`, url: `${SITE_URL}/${safeLang}/resources/route/conveying-automation`, name: 'Conveying & automation configuration guides' } },
+      { '@type': 'ListItem', position: 1, name: 'Packaging sourcing', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/packaging`, url: `${SITE_URL}/${safeLang}/sourcing/packaging`, name: 'Packaging sourcing' } },
+      { '@type': 'ListItem', position: 2, name: 'Home goods sourcing', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/home`, url: `${SITE_URL}/${safeLang}/sourcing/home`, name: 'Home goods sourcing' } },
+      { '@type': 'ListItem', position: 3, name: 'Garden products sourcing', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/garden`, url: `${SITE_URL}/${safeLang}/sourcing/garden`, name: 'Garden products sourcing' } },
+      { '@type': 'ListItem', position: 4, name: 'Beauty packaging sourcing', item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/beauty`, url: `${SITE_URL}/${safeLang}/sourcing/beauty`, name: 'Beauty packaging sourcing' } },
     ],
   }
 
@@ -510,7 +292,7 @@ export default async function Page({ params }: PageParams) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: LANG_META[safeLang].htmlLang,
+    inLanguage: langMeta(safeLang).htmlLang,
     mainEntity: s.faq.map((f) => ({
       '@type': 'Question',
       name: f.q,

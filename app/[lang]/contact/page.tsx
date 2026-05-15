@@ -14,8 +14,8 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {
   en: 'Start a sourcing conversation',
-  cn: '聯絡我們｜開始一次採購對話',
-  zh: '聯絡我們｜開始一次採購對話',
+  cn: '聯絡我們 | 開始一次採購對話',
+  zh: '聯絡我們 | 開始一次採購對話',
   fr: 'Démarrer une conversation sourcing',
   es: 'Iniciar una conversación de sourcing',
   pt: 'Avaliação de sourcing | Contato',
