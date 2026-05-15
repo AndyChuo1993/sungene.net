@@ -10,26 +10,6 @@ function getDefaultLocaleByHost(host: string | null) {
   return 'en'
 }
 
-function inferMachineFromLegacyPath(path: string): string | null {
-  const s = path.toLowerCase()
-  if (s.includes('powder') || s.includes('auger') || s.includes('spice') || s.includes('flour') || s.includes('detergent')) return 'powder-filling-machine'
-  if (s.includes('liquid') || s.includes('piston') || s.includes('pump') || s.includes('sauce') || s.includes('bottle') || s.includes('jar')) return 'liquid-filling-machine'
-  if (
-    s.includes('pouch') ||
-    s.includes('vffs') ||
-    s.includes('hffs') ||
-    s.includes('flow-wrapper') ||
-    s.includes('flowwrapper') ||
-    s.includes('stick') ||
-    s.includes('bag') ||
-    s.includes('sachet')
-  ) {
-    return 'pouch-packing-machine'
-  }
-  if (s.includes('snack') || s.includes('fryer') || s.includes('roaster') || s.includes('chips') || s.includes('nuts') || s.includes('seasoning')) return 'snack-processing-line'
-  if (s.includes('conveyor') || s.includes('elevator') || s.includes('automation') || s.includes('bucket') || s.includes('pallet')) return 'conveyor-system'
-  return null
-}
 
 function inferLegacyDestination(restPath: string): string {
   const s = restPath.toLowerCase()

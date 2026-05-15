@@ -563,10 +563,6 @@ export default async function Page({ params }: PageParams) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <HeroSection lang={safeLang} />
-      {/* Removed MachineByProduct and ServicesPreview — these were machine-catalog
-          sections that contradict the new packaging/home/garden sourcing positioning.
-          Applications section below covers the same category-discovery purpose
-          with content aligned to the new positioning. */}
       <section className="bg-white py-16 sm:py-20">
         <Container className="max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -669,7 +665,6 @@ export default async function Page({ params }: PageParams) {
       <WhyUs lang={safeLang} />
       <WhoWeWorkWith lang={safeLang} />
       <ProcessSection lang={safeLang} />
-      {/* TrustGallery removed — showed stock machinery photos labelled as "real" delivery photos. */}
       <Applications lang={safeLang} />
       <CTASection lang={safeLang} />
       <FAQ lang={safeLang} />

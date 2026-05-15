@@ -12,13 +12,13 @@ export default function MobileMenu({
   links,
   serviceLinks,
   ctaLabel,
-  machineryLabel,
+  categoryLabel,
 }: {
   lang: Lang
   links: { href: string; label: string }[]
   serviceLinks: { href: string; label: string }[]
   ctaLabel: string
-  machineryLabel: string
+  categoryLabel: string
 }) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
@@ -75,7 +75,7 @@ export default function MobileMenu({
               </Link>
             ))}
             <div className="mt-3 grid gap-1 rounded-xl bg-gray-50 p-3">
-              <div className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-gray-400">{machineryLabel}</div>
+              <div className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-gray-400">{categoryLabel}</div>
               {serviceLinks.map((l) => (
                 <Link
                   key={l.href}

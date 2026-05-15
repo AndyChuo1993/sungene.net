@@ -24,7 +24,7 @@ export default function Header({ lang }: { lang: Lang }) {
     es: 'Cómo trabajamos',
   } as Record<string, string>)[lang] || 'How we work'
 
-  // Trimmed nav: dropped Sourcing Scope (machinery catalog), Solutions, Industries,
+  // Trimmed nav focused on 4 sourcing categories.
   // and Assessment from main nav (Assessment is still the orange CTA button).
   // /sourcing covers both "how we work" and "what we source" under the new positioning.
   const links = [
@@ -35,7 +35,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
-  // Mobile menu category links — point to /sourcing (not redirected /machinery/* paths).
+  // Mobile menu category links.
   const serviceLinks = [
     { href: `/${lang}/sourcing#packaging`, label: ({ en: 'Packaging', zh: '包裝', cn: '包装', fr: 'Emballage', es: 'Empaque' } as Record<string, string>)[lang] || 'Packaging' },
     { href: `/${lang}/sourcing#home`, label: ({ en: 'Home goods', zh: '家居用品', cn: '家居用品', fr: 'Maison', es: 'Hogar' } as Record<string, string>)[lang] || 'Home goods' },
@@ -102,7 +102,7 @@ export default function Header({ lang }: { lang: Lang }) {
             links={links}
             serviceLinks={serviceLinks}
             ctaLabel={t(lang, 'nav_free_analysis')}
-            machineryLabel={sourcingScopeLabel}
+            categoryLabel={sourcingScopeLabel}
           />
         </Container>
       </header>
