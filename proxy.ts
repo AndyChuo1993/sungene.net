@@ -107,6 +107,17 @@ export default function proxy(request: NextRequest) {
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
 
+  // Soft-404 prevention: single-segment paths with file extension that did NOT
+  // match any explicit static asset (matcher in config excludes the known list:
+  // favicon.ico, robots.txt, sitemap.xml, llms.txt, ai.txt, site.webmanifest,
+  // manifest.json, logo/*, og/*, banner/*, photo-real/*, .well-known/*, etc.)
+  // are unknown crawler probes (/index.php, /.DS_Store, /sitemap.xml.gz, etc).
+  // Return 404 instead of falling through to the [lang] dynamic route which
+  // would render the home page with HTTP 200 (Google soft-404 penalty).
+  if (/^\/(\.[^/]+|[^/]+\.[a-zA-Z0-9]+)$/.test(pathname)) {
+    return plain(404, 'Not Found')
+  }
+
   if (pathname.includes('[lang]')) {
     return plain(410, 'Gone')
   }
@@ -368,5 +379,5 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|ai.txt|site.webmanifest|manifest.json|.well-known|logo/|og/|banner/|partner/|photo-real/|illustrations/|templates/|grid.svg|whatsapp-qr.png|googlea3301176ef1c8c54.html|bc92b7ac1caf40b3addfb82892e2ba78.txt).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|ai.txt|humans.txt|site.webmanifest|manifest.json|.well-known|logo/|og/|banner/|partner/|photo-real/|illustrations/|templates/|grid.svg|whatsapp-qr.png|googlea3301176ef1c8c54.html|bc92b7ac1caf40b3addfb82892e2ba78.txt).*)'],
 }
