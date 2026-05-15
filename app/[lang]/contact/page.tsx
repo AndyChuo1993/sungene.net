@@ -10,6 +10,9 @@ import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import { COMPANY_FAQS } from '@/lib/companyFaq'
+
+export const dynamic = 'force-static'
+export const revalidate = 86400
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {

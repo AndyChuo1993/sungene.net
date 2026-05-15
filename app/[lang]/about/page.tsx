@@ -11,7 +11,8 @@ import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { COMPANY_FAQS } from '@/lib/companyFaq'
 
-// About content changes rarely — let Next cache the SSR result for 1 day.
+// About content changes rarely — force-static + 1-day ISR refresh window.
+export const dynamic = 'force-static'
 export const revalidate = 86400
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {

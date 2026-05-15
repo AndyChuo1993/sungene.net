@@ -28,13 +28,13 @@ const descriptions: Record<string, string> = {
   zh: '台灣＋中國採購實用指南——供應商審查、MOQ 議價、到廠驗貨、合併出貨、Incoterms、付款條件風險、品牌貼牌準備。',
   fr: 'Guides pratiques de sourcing Taïwan + Chine — audit fournisseurs, négociation MOQ, CQ sur place, Incoterms, risques de paiement, marque blanche.',
   es: 'Guías prácticas de sourcing Taiwán + China — evaluación de proveedores, negociación MOQ, QC en sitio, Incoterms, riesgo de pagos, marca blanca.',
-  pt: 'Guias práticos de sourcing industrial: planejamento de configuração, avaliação de fornecedores, sourcing Taiwan/China, requisitos elétricos, preparação FAT e controle de risco comercial.',
-  ko: '산업 장비 실무 소싱 가이드: 구성 계획, 공급업체 평가, 대만/중국 소싱, 전압 요구사항, FAT 준비 및 상업 리스크 관리.',
-  ja: '産業設備の実務的な調達ガイド：構成計画、サプライヤー評価、台湾/中国調達、電圧要件、FAT準備、商務リスク管理。',
-  ar: 'أدلة عملية للتوريد الصناعي: تخطيط التهيئة، تقييم الموردين، التوريد من تايوان/الصين، متطلبات الجهد، التحضير لـ FAT وضبط المخاطر التجارية.',
-  th: 'คู่มือการจัดหาอุปกรณ์อุตสาหกรรมเชิงปฏิบัติ: การวางแผนการจัดวาง การประเมินซัพพลายเออร์ การจัดหาจากไต้หวัน/จีน ข้อกำหนดไฟฟ้า การเตรียม FAT และการควบคุมความเสี่ยงทางการค้า',
-  vi: 'Hướng dẫn sourcing thiết bị công nghiệp thực tế: lập kế hoạch cấu hình, đánh giá nhà cung cấp, sourcing Đài Loan/Trung Quốc, yêu cầu điện áp, chuẩn bị FAT và kiểm soát rủi ro thương mại.',
-  de: 'Praktische Sourcing-Leitfäden für Industrieausrüstung: Konfigurationsplanung, Lieferantenbewertung, Taiwan/China-Sourcing, Spannungsanforderungen, FAT-Vorbereitung und kaufmännische Risikosteuerung.',
+  pt: 'Guias práticos de sourcing industrial: planejamento de configuração, avaliação de fornecedores, sourcing Taiwan/China, requisitos elétricos, preparação para inspeção pré-envio e controle de risco comercial.',
+  ko: '산업 장비 실무 소싱 가이드: 구성 계획, 공급업체 평가, 대만/중국 소싱, 전압 요구사항, 출하 전 검사 준비 및 상업 리스크 관리.',
+  ja: '産業設備の実務的な調達ガイド：構成計画、サプライヤー評価、台湾/中国調達、電圧要件、出荷前検査の準備、商務リスク管理。',
+  ar: 'أدلة عملية للتوريد الصناعي: تخطيط التهيئة، تقييم الموردين، التوريد من تايوان/الصين، متطلبات الجهد، التحضير للتفتيش قبل الشحن وضبط المخاطر التجارية.',
+  th: 'คู่มือการจัดหาอุปกรณ์อุตสาหกรรมเชิงปฏิบัติ: การวางแผนการจัดวาง การประเมินซัพพลายเออร์ การจัดหาจากไต้หวัน/จีน ข้อกำหนดไฟฟ้า การเตรียมการตรวจสอบก่อนส่ง และการควบคุมความเสี่ยงทางการค้า',
+  vi: 'Hướng dẫn sourcing thiết bị công nghiệp thực tế: lập kế hoạch cấu hình, đánh giá nhà cung cấp, sourcing Đài Loan/Trung Quốc, yêu cầu điện áp, chuẩn bị kiểm tra trước giao hàng và kiểm soát rủi ro thương mại.',
+  de: 'Praktische Sourcing-Leitfäden für Industrieausrüstung: Konfigurationsplanung, Lieferantenbewertung, Taiwan/China-Sourcing, Spannungsanforderungen, Vorbereitung der Vor-Versand-Inspektion und kaufmännische Risikosteuerung.',
 }
 
 export const dynamic = 'force-static'
@@ -146,9 +146,9 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   }
 
   const heroDescs: Record<string, string> = {
-    en: 'Practical guides to help you define the right sourcing path, evaluate suppliers, prepare FAT criteria, and control integration risk before you commit capital.',
-    cn: '帮助您定义合适采购路径、评估供应商、准备FAT条件并控制整合风险的实用指南。',
-    zh: '幫助您定義合適採購路徑、評估供應商、準備FAT條件並控管整合風險的實用指南。',
+    en: 'Practical guides to help you define the right sourcing path, evaluate suppliers, prepare pre-shipment inspection criteria, and control quality risk before you commit.',
+    cn: '帮助您定义合适采购路径、评估供应商、准备出货前验货条件并控制品质风险的实用指南。',
+    zh: '幫助你定義合適採購路徑、評估供應商、準備出貨前驗貨條件並控管品質風險的實用指南。',
     fr: 'Guides pratiques pour vous aider à choisir la bonne machine, planifier votre intégration de ligne et naviguer le processus d\'exportation.',
     es: 'Guías prácticas para ayudarle a elegir la maquinaria adecuada, planificar su línea de producción y navegar el proceso de exportación.',
     pt: 'Guias práticos para ajudá-lo a escolher o maquinário certo, planejar sua linha de produção e navegar pelo processo de exportação.',
@@ -397,7 +397,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       <div className="sticky top-0 z-20 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
         <Container>
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none sm:gap-2" aria-label="Resource categories">
-            {cats.map((cat) => (
+            {cats.filter((cat) => cat.articles.length > 0).map((cat) => (
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
@@ -410,8 +410,8 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         </Container>
       </div>
 
-      {/* Category sections */}
-      {cats.map((cat) => (
+      {/* Category sections — only render when articles remain after HIDDEN_RESOURCE_SLUGS filter */}
+      {cats.filter((cat) => cat.articles.length > 0).map((cat) => (
         <section key={cat.id} id={cat.id} className="scroll-mt-16 py-14 sm:py-18 odd:bg-gray-50">
           <Container>
             <div className="mb-8 flex items-center gap-3">

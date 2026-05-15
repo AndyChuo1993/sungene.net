@@ -13,6 +13,9 @@ import { ButtonLink } from '@/components/ui/Button'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 
+export const dynamic = 'force-static'
+export const revalidate = 86400
+
 type PageParams = {
   params: Promise<{ lang?: string }>
 }
