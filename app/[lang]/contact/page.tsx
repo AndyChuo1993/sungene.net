@@ -13,11 +13,11 @@ import { COMPANY_FAQS } from '@/lib/companyFaq'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {
-  en: 'Contact SunGene | Start a sourcing conversation',
-  cn: '联系 SunGene｜开始一次采购对话',
-  zh: '聯絡 SunGene｜開始一次採購對話',
-  fr: 'Contacter SunGene | Démarrer une conversation sourcing',
-  es: 'Contactar a SunGene | Iniciar una conversación de sourcing',
+  en: 'Start a sourcing conversation',
+  cn: '聯絡我們｜開始一次採購對話',
+  zh: '聯絡我們｜開始一次採購對話',
+  fr: 'Démarrer une conversation sourcing',
+  es: 'Iniciar una conversación de sourcing',
   pt: 'Avaliação de sourcing | Contato',
   ko: '소싱 평가 요청 | 문의',
   ja: '調達評価の依頼 | お問い合わせ',

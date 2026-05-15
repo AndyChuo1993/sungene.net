@@ -17,9 +17,23 @@ import { RESOURCE_ARTICLES, getResourceArticleI18n } from '@/lib/resourceArticle
 // and create dissonance with the trading-company positioning.
 const HUB_HIDDEN_SLUGS = new Set<string>([
   'vffs-vs-hffs',
-  'premade-pouch-machine-vs-vffs',
-  'snack-packing',
   'fat-sat-acceptance-criteria-packaging-machinery',
+  'bottle-capping-options-after-filling',
+  'powder-dosing-when-to-use-auger-filler',
+  'conveyor-layout-packaging-line',
+  'auger-vs-volumetric-filler',
+  'piston-vs-pump-filler',
+  'premade-pouch-machine-vs-vffs',
+  'semi-auto-vs-full-auto-packaging-line',
+  'how-to-choose-powder-filling-machine',
+  'how-to-choose-liquid-filling-machine',
+  'how-to-choose-pouch-packing-machine',
+  'how-to-choose-conveyor-system',
+  'spice-powder-packaging-machine',
+  'flour-packaging-machine-guide',
+  'sauce-filling-machine-selection',
+  'snack-packing',
+  'detergent-powder-packaging-machine',
 ])
 
 

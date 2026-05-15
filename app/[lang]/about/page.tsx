@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Über SunGene | Experten für industrielles Sourcing und Automatisierung',
   }
   const descriptions: Record<string, string> = {
-    en: 'Sourcing partner with teams in Taichung and Xiamen. Direct buying from vetted Taiwan + China factories for packaging, home, garden, beauty. On-site QC. Alibaba 5★.',
+    en: 'Sourcing partner with teams in Taichung and Xiamen. Direct buying from vetted Taiwan + China factories for packaging, home, garden, beauty. On-site QC. Alibaba 5-star.',
     cn: 'SunGene 是贸易采购伙伴,团队分驻台中与厦门。我们直接向两地审核过的工厂采购、出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
     zh: 'SunGene 是貿易採購夥伴,團隊分駐台中與廈門。我們直接向兩地審核過的工廠採購、出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
-    fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5★ vérifié.",
-    es: 'Empresa comercial Taiwán-China. Compra directa de fábrica, QC en sitio, reventa directa — empaque, hogar, jardín, belleza. Alibaba 5★ verificado.',
+    fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5-star vérifié.",
+    es: 'Empresa comercial Taiwán-China. Compra directa de fábrica, QC en sitio, reventa directa — empaque, hogar, jardín, belleza. Alibaba 5-star verificado.',
     ko: 'SunGene은 대만과 중국 전역에서 산업 장비, 포장 시스템 및 자동화 부품에 대한 전문적인 소싱 지원을 제공합니다.',
     ja: 'SunGeneは、台湾と中国全域で産業機器、包装システム、自動化コンポーネントの専門的なソーシング・サポートを提供しています。',
     ar: 'توفر SunGene دعماً مهنياً في توريد المعدات الصناعية وأنظمة التعبئة والتغليف ومكونات الأتمتة عبر تايوان والصين.',

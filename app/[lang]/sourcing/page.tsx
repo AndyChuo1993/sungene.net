@@ -35,18 +35,18 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Sourcing partner with teams in Taichung and Xiamen. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on every quote. Alibaba 5★.',
+  en: 'Sourcing partner with teams in Taichung and Xiamen. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on every quote. Alibaba 5-star.',
   cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。Alibaba 5 星认证。',
   zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。Alibaba 5 星認證。',
-  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Alibaba 5★.",
-  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Alibaba 5★.',
-  pt: 'Sourcing de equipamentos via Taiwan e China: avaliação de fornecedores, critérios de aceitação, FAT, documentação e logística de exportação.',
-  ko: '대만과 중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, FAT, 문서 및 수출 물류로 리스크를 줄입니다.',
-  ja: '台湾と中国の供給網で設備を調達：サプライヤー審査、受入基準、FAT、書類、輸出物流まで支援します。',
-  ar: 'توريد معدات عبر تايوان والصين: تدقيق الموردين، معايير القبول، FAT، المستندات، واللوجستيات للتصدير.',
-  th: 'จัดหาเครื่องจักรผ่านไต้หวันและจีน: คัดกรองซัพพลายเออร์ เกณฑ์การรับมอบ FAT เอกสาร และโลจิสติกส์ส่งออก',
-  vi: 'Tìm nguồn cung ứng qua Đài Loan và Trung Quốc: thẩm định nhà cung cấp, tiêu chí nghiệm thu, FAT, tài liệu và logistics xuất khẩu.',
-  de: 'Sourcing von Anlagen über Taiwan und China: Lieferantenprüfung, Abnahmekriterien, FAT, Dokumentation und Exportlogistik.',
+  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Alibaba 5-star.",
+  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Alibaba 5-star.',
+  pt: 'Sourcing de embalagem, lar, jardim e beleza via Taiwan e China: avaliação de fornecedores, critérios de aceitação, inspeção pré-envio, documentação e logística de exportação.',
+  ko: '대만·중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, 출하 전 검사, 문서, 수출 물류로 리스크 관리.',
+  ja: '台湾と中国の供給網で調達:サプライヤー審査、受入基準、出荷前検査、書類、輸出物流まで支援。',
+  ar: 'توريد عبر تايوان والصين: تدقيق الموردين، معايير القبول، التفتيش قبل الشحن، المستندات، واللوجستيات للتصدير.',
+  th: 'จัดหาผ่านไต้หวันและจีน: คัดกรองซัพพลายเออร์ เกณฑ์การรับมอบ การตรวจสอบก่อนส่ง เอกสาร โลจิสติกส์ส่งออก',
+  vi: 'Tìm nguồn cung ứng qua Đài Loan và Trung Quốc: thẩm định nhà cung cấp, tiêu chí nghiệm thu, kiểm tra trước giao hàng, tài liệu và logistics xuất khẩu.',
+  de: 'Sourcing über Taiwan und China: Lieferantenprüfung, Abnahmekriterien, Vor-Versand-Inspektion, Dokumentation, Exportlogistik.',
 }
 
 const heroKicker: Record<string, string> = {
@@ -85,13 +85,13 @@ const heroDescs: Record<string, string> = {
   zh: '我們把貨從工廠買下，再轉賣給你。我們的轉售利潤揭露在外面。出貨前由我們親自把關——台灣的工廠直接到場、中國的貨進我們合作貨代倉庫由我們驗貨。整筆交易落在你和一家台灣註冊公司之間，而不是「寫信給工廠等三天沒回應」的三方信件。',
   fr: "Nous achetons la marchandise à l'usine et vous la revendons. Notre marge est clairement affichée. Nous inspectons nous-mêmes avant que la marchandise ne quitte l'usine ou l'entrepôt du transitaire. Toute la transaction passe entre vous et une société taïwanaise enregistrée — pas une chaîne d'e-mails à trois avec une usine injoignable.",
   es: 'Compramos la mercancía a la fábrica y se la revendemos. Nuestro margen está claramente mostrado. Inspeccionamos nosotros mismos antes de que la mercancía salga de la fábrica o del almacén del agente de carga. Toda la transacción está entre usted y una empresa registrada en Taiwán — no una cadena de correos a tres con una fábrica que no responde.',
-  pt: 'Não afirmamos fabricar tudo. Convertimos requisitos em critérios de aceitação verificáveis, auditamos fornecedores, realizamos FAT e entregamos documentação completa.',
-  ko: '우리는 모든 것을 제조한다고 주장하지 않습니다. 요구사항을 검증 가능한 수락 기준으로 바꾸고, 공급업체를 심사하며, FAT와 문서 패키지를 제공합니다.',
-  ja: 'すべてを製造すると主張しません。要件を検証可能な受入基準に落とし込み、サプライヤー審査、FAT、文書パッケージまで提供します。',
-  ar: 'لا ندّعي أننا نصنع كل شيء. نحول متطلباتك إلى معايير قبول قابلة للتحقق، ندقق الموردين، نجري FAT، ونوفر حزمة مستندات كاملة.',
-  th: 'เราไม่ได้อ้างว่าผลิตทุกอย่างเอง เราแปลงความต้องการให้เป็นเกณฑ์รับมอบที่ตรวจสอบได้ คัดกรองซัพพลายเออร์ ทำ FAT และส่งมอบเอกสารครบถ้วน',
-  vi: 'Chúng tôi không tuyên bố tự sản xuất mọi thứ. Chúng tôi chuyển yêu cầu thành tiêu chí nghiệm thu kiểm chứng được, thẩm định nhà cung cấp, chạy FAT và bàn giao bộ tài liệu.',
-  de: 'Wir behaupten nicht, alles selbst zu fertigen. Wir übersetzen Anforderungen in prüfbare Abnahmekriterien, prüfen Lieferanten, führen FAT durch und liefern ein Dokumentationspaket.',
+  pt: 'Não afirmamos fabricar tudo. Convertimos requisitos em critérios de aceitação verificáveis, auditamos fornecedores, realizamos inspeção pré-envio e entregamos documentação completa.',
+  ko: '우리는 모든 것을 제조한다고 주장하지 않습니다. 요구사항을 검증 가능한 수락 기준으로 바꾸고, 공급업체를 심사하며, 출하 전 검사와 문서 패키지를 제공합니다.',
+  ja: 'すべてを製造すると主張しません。要件を検証可能な受入基準に落とし込み、サプライヤー審査、出荷前検査、文書パッケージまで提供します。',
+  ar: 'لا ندّعي أننا نصنع كل شيء. نحول متطلباتك إلى معايير قبول قابلة للتحقق، ندقق الموردين، نجري التفتيش قبل الشحن، ونوفر حزمة مستندات كاملة.',
+  th: 'เราไม่ได้อ้างว่าผลิตทุกอย่างเอง เราแปลงความต้องการให้เป็นเกณฑ์รับมอบที่ตรวจสอบได้ คัดกรองซัพพลายเออร์ ทำการตรวจสอบก่อนส่ง และส่งมอบเอกสารครบถ้วน',
+  vi: 'Chúng tôi không tuyên bố tự sản xuất mọi thứ. Chúng tôi chuyển yêu cầu thành tiêu chí nghiệm thu kiểm chứng được, thẩm định nhà cung cấp, chạy kiểm tra trước giao hàng và bàn giao bộ tài liệu.',
+  de: 'Wir behaupten nicht, alles selbst zu fertigen. Wir übersetzen Anforderungen in prüfbare Abnahmekriterien, prüfen Lieferanten, führen Vor-Versand-Inspektion durch und liefern ein Dokumentationspaket.',
 }
 
 const sectionTitles: Record<
@@ -247,10 +247,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           '@type': 'Answer',
           text:
             lang === 'zh'
-              ? '我們的定位是採購夥伴。我們會依專案需求匹配台灣與中國供應鏈，並用供應商資格審查與 FAT 驗收來控制風險。'
+              ? '我們的定位是採購夥伴。我們依專案需求媒合台灣與中國供應商,並用供應商資格審查與出貨前驗貨控制風險。'
               : lang === 'cn'
-                ? '我们的定位是采购伙伴。我们会按项目需求匹配台湾与中国供应链，并用供应商资格审查与 FAT 验收控制风险。'
-                : 'We are a sourcing partner. We match suppliers across Taiwan and China and control risk via supplier vetting and FAT acceptance.',
+                ? '我们的定位是采购伙伴。我们依项目需求匹配台湾与中国供应商,并用供应商资格审查与出货前验货控制风险。'
+                : 'We are a sourcing partner. We match suppliers across Taiwan and Mainland China and control risk via supplier vetting and pre-shipment inspection.',
         },
       },
       {
@@ -260,10 +260,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           '@type': 'Answer',
           text:
             lang === 'zh'
-              ? '信任來自可驗證的證據：一致的 RFQ 範圍、文件化驗收標準、FAT 影片與偏差清單、以及完整交付文件包。'
+              ? '信任來自可驗證的證據:一致的 RFQ 範圍、文件化驗收標準、出貨前驗貨影片與偏差清單、以及完整交付文件包。'
               : lang === 'cn'
-                ? '信任来自可验证的证据：一致的 RFQ 范围、文件化验收标准、FAT 视频与偏差清单，以及完整交付文件包。'
-                : 'Trust comes from evidence: normalized RFQ scope, documented acceptance criteria, FAT video + deviation log, and a complete handover package.',
+                ? '信任来自可验证的证据:一致的 RFQ 范围、文件化验收标准、出货前验货视频与偏差清单,以及完整交付文件包。'
+                : 'Trust comes from evidence: normalized RFQ scope, documented acceptance criteria, pre-shipment inspection video + deviation log, and a complete handover package.',
         },
       },
       {
@@ -286,10 +286,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           '@type': 'Answer',
           text:
             lang === 'zh'
-              ? '我們會先把 RFQ 內容標準化：包裝/容器範圍、產能目標、檢測模組、公用工程、文件包與 FAT 條件都對齊，讓不同供應商的報價可比較。'
+              ? '我們會先把 RFQ 內容標準化:產品規格範圍、訂購數量、品質要求、包材規格、文件包與驗貨條件都對齊,讓不同供應商的報價可比較。'
               : lang === 'cn'
-                ? '我们会先把 RFQ 内容标准化：包装/容器范围、产能目标、检测模块、公用工程、文件包与 FAT 条件都对齐，让不同供应商的报价可比较。'
-                : 'We normalize RFQ scope (range, output target, inspection modules, utilities, documents, FAT conditions) so quotes become comparable.',
+                ? '我们会先把 RFQ 内容标准化:产品规格范围、订购数量、品质要求、包材规格、文件包与验货条件都对齐,让不同供应商的报价可比较。'
+                : 'We normalize RFQ scope (product spec range, order quantity, quality criteria, packaging spec, documents, inspection conditions) so quotes become comparable.',
         },
       },
     ],
@@ -301,7 +301,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           { title: '需求拆解', body: '把產品、包裝形式、產能與限制轉成可驗證的規格與驗收條件。' },
           { title: '供應商篩選', body: '用資格審查與風險篩選建立短名單，避免不明來源風險。' },
           { title: 'RFQ 對齊', body: '標準化範圍讓報價可比較，避免後續追加造成成本漂移。' },
-          { title: 'FAT 驗收', body: '用抽樣計畫、影片與偏差清單證明性能，出貨前先把問題關掉。' },
+          { title: '出貨前驗貨', body: '用 AQL 抽樣計畫、影片與偏差清單證明合規,出貨前先把問題關掉。' },
           { title: '交付與物流', body: '交付文件包、備品清單與出貨文件一致性核對，降低清關與維修風險。' },
         ]
       : lang === 'cn'
@@ -309,40 +309,40 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
             { title: '需求拆解', body: '把产品、包装形式、产能与限制转成可验证的规格与验收条件。' },
             { title: '供应商筛选', body: '用资格审查与风险筛选建立短名单，避免不明来源风险。' },
             { title: 'RFQ 对齐', body: '标准化范围让报价可比较，避免后续追加造成成本漂移。' },
-            { title: 'FAT 验收', body: '用抽样计划、视频与偏差清单证明性能，出货前先把问题关掉。' },
+            { title: '出货前验货', body: '用 AQL 抽样计划、视频与偏差清单证明合规,出货前先把问题关掉。' },
             { title: '交付与物流', body: '交付文件包、备品清单与出货文件一致性核对，降低清关与维修风险。' },
           ]
         : [
             { title: 'Requirement capture', body: 'Convert intent into testable requirements and acceptance criteria.' },
             { title: 'Supplier vetting', body: 'Shortlist suppliers with capability and risk screening.' },
             { title: 'RFQ normalization', body: 'Standardize scope so quotes are comparable and stable.' },
-            { title: 'FAT acceptance', body: 'Prove performance with sampling plan, video, and deviation log.' },
+            { title: 'Pre-shipment inspection', body: 'Prove compliance with AQL sampling plan, video, and deviation log before container loading.' },
             { title: 'Handover & logistics', body: 'Deliver documentation, spares list, and verify shipment documents.' },
           ]
 
   const deliverItems: string[] =
     lang === 'zh'
-      ? ['可比較的 RFQ 範圍與配置對照', '供應商資格審查重點與風險點', 'FAT 驗收清單＋抽樣計畫', '偏差清單（含改善與複測）', '交付文件包（手冊/圖面/備品）', '出貨文件一致性核對']
+      ? ['可比較的 RFQ 範圍與配置對照', '供應商資格審查重點與風險點', '出貨前驗貨清單＋AQL 抽樣計畫', '偏差清單（含改善與複測）', '交付文件包（包材規格/標準/條碼）', '出貨文件一致性核對']
       : lang === 'cn'
-        ? ['可比较的 RFQ 范围与配置对照', '供应商资格审查要点与风险点', 'FAT 验收清单＋抽样计划', '偏差清单（含改善与复测）', '交付文件包（手册/图纸/备品）', '出货文件一致性核对']
-        : ['Comparable RFQ scope + configuration alignment', 'Supplier qualification evidence + risk notes', 'FAT checklist + sampling plan', 'Deviation log with corrective actions', 'Handover document package', 'Shipment document verification']
+        ? ['可比较的 RFQ 范围与配置对照', '供应商资格审查要点与风险点', '出货前验货清单＋AQL 抽样计划', '偏差清单（含改善与复测）', '交付文件包（包材规格/标准/条码）', '出货文件一致性核对']
+        : ['Comparable RFQ scope + spec alignment', 'Supplier qualification evidence + risk notes', 'Pre-shipment inspection checklist + AQL sampling plan', 'Deviation log with corrective actions', 'Handover document package (specs, standards, barcodes)', 'Shipment document verification']
 
   const trustItems: Array<{ title: string; body: string }> =
     lang === 'zh'
       ? [
           { title: '責任邊界寫清楚', body: '我們不靠話術建立信任，而是用範圍、文件、驗收條件與證據。' },
-          { title: '證據導向的驗收', body: 'FAT 影片＋抽樣結果＋偏差結案，讓性能與交付可被追溯。' },
+          { title: '證據導向的驗收', body: '驗貨影片＋AQL 抽樣結果＋偏差結案,讓品質與交付可被追溯。' },
           { title: '跨區供應鏈實作', body: '台灣＋中國團隊協作，讓選型、交付與溝通更順。' },
         ]
       : lang === 'cn'
         ? [
             { title: '责任边界写清楚', body: '我们不靠话术建立信任，而是用范围、文件、验收条件与证据。' },
-            { title: '证据导向的验收', body: 'FAT 视频＋抽样结果＋偏差结案，让性能与交付可被追溯。' },
+            { title: '证据导向的验收', body: '验货视频＋AQL 抽样结果＋偏差结案,让品质与交付可被追溯。' },
             { title: '跨区供应链实作', body: '台湾＋中国团队协作，让选型、交付与沟通更顺。' },
           ]
         : [
             { title: 'Clear responsibilities', body: 'Trust is built through scope, documents, acceptance criteria, and evidence.' },
-            { title: 'Evidence-based acceptance', body: 'FAT video + sampling results + closed deviations make delivery traceable.' },
+            { title: 'Evidence-based acceptance', body: 'Inspection video + AQL sampling results + closed deviations make every delivery traceable.' },
             { title: 'Cross-border execution', body: 'Taiwan + China presence supports faster coordination and risk control.' },
           ]
 
@@ -350,26 +350,26 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
     lang === 'zh'
       ? [
           { title: '書面驗收標準', body: '把「跑得起來」變成可判定的 pass/fail 條件，而不是口頭承諾。', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
-          { title: 'FAT 影片＋報告', body: '用長時間運轉與抽樣結果證明性能，避免短 demo 造成誤判。', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
+          { title: '驗貨影片＋報告', body: '用裝櫃前的完整驗貨流程影片與抽樣結果證明合規,而非只看樣品。', example: 'Inspection evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
           { title: '偏差清單（含複測）', body: '所有問題都要落在偏差清單，寫明改善措施與複測結果。', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
-          { title: '交付文件包', body: '手冊、圖面、電控/氣路、備品清單與設定表，讓售後可追溯。', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
+          { title: '交付文件包', body: '產品規格、材質證明、包裝/條碼/標準、合規文件,讓貨況可追溯。', example: 'Handover package\n- Product spec\n- Material cert\n- Packing list + barcode\n- Compliance doc\n- Inspection report' },
           { title: '備品/耗材策略', body: '用料號＋照片＋工位對應，避免現場找不到料、停機等交期。', example: 'Spares\nStation: Sealing\nPart: Heater bar\nQty: 2\nLead time: ___' },
           { title: '出貨文件一致性核對', body: '發票、裝箱單、HS code、箱號與備品標示一致，降低清關風險。', example: 'Shipping docs\nInvoice: ___\nPacking list: ___\nHS code: ___\nCOO: ___' },
         ]
       : lang === 'cn'
         ? [
             { title: '书面验收标准', body: '把“跑得起来”变成可判定的 pass/fail 条件，而不是口头承诺。', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
-            { title: 'FAT 视频＋报告', body: '用长时间运行与抽样结果证明性能，避免短 demo 造成误判。', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
+            { title: '验货视频＋报告', body: '用装柜前的完整验货流程视频与抽样结果证明合规,而非只看样品。', example: 'Inspection evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
             { title: '偏差清单（含复测）', body: '所有问题都要落在偏差清单，写明改善措施与复测结果。', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
-            { title: '交付文件包', body: '手册、图纸、电控/气路、备品清单与设置表，让售后可追溯。', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
+            { title: '交付文件包', body: '产品规格、材质证明、包装/条码/标准、合规文件,让货况可追溯。', example: 'Handover package\n- Product spec\n- Material cert\n- Packing list + barcode\n- Compliance doc\n- Inspection report' },
             { title: '备品/耗材策略', body: '用料号＋照片＋工位对应，避免现场找不到料、停机等交期。', example: 'Spares\nStation: Sealing\nPart: Heater bar\nQty: 2\nLead time: ___' },
             { title: '出货文件一致性核对', body: '发票、装箱单、HS code、箱号与备品标识一致，降低清关风险。', example: 'Shipping docs\nInvoice: ___\nPacking list: ___\nHS code: ___\nCOO: ___' },
           ]
         : [
             { title: 'Written acceptance criteria', body: 'Turn promises into pass/fail conditions you can verify.', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
-            { title: 'FAT video + report', body: 'Performance proof across time with sampling results, not a short demo.', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
+            { title: 'Inspection video + report', body: 'Full pre-shipment inspection footage and AQL sampling results, not just a sample.', example: 'Inspection evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
             { title: 'Deviation log (with retest)', body: 'Every issue is logged with corrective action and retest evidence.', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
-            { title: 'Handover document package', body: 'Manuals, diagrams, spares list, and settings sheet for traceable service.', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
+            { title: 'Handover document package', body: 'Product specs, material certs, packing lists, barcodes, compliance docs for traceable delivery.', example: 'Handover package\n- Product spec\n- Material cert\n- Packing list + barcode\n- Compliance doc\n- Inspection report' },
             { title: 'Spare parts plan', body: 'Part numbers + photos + station mapping to reduce downtime after shipment.', example: 'Spares\nStation: Sealing\nPart: Heater bar\nQty: 2\nLead time: ___' },
             { title: 'Shipment document verification', body: 'Invoice, packing list, HS code, crate IDs aligned to avoid customs delays.', example: 'Shipping docs\nInvoice: ___\nPacking list: ___\nHS code: ___\nCOO: ___' },
           ]
@@ -379,20 +379,20 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
       ? [
           { area: '技術適配', weight: '30%', focus: '產品特性、包裝形式、節拍與接口' },
           { area: '品質系統', weight: '25%', focus: '檢核表、來料檢驗、配線標準、版本控管' },
-          { area: '驗收能力', weight: '25%', focus: 'FAT 計畫、抽樣、偏差處理與複測' },
+          { area: '驗貨能力', weight: '25%', focus: '驗貨計畫、AQL 抽樣、偏差處理與複驗' },
           { area: '交付/售後', weight: '20%', focus: '文件包、備品策略、回覆流程與升級機制' },
         ]
       : lang === 'cn'
         ? [
             { area: '技术适配', weight: '30%', focus: '产品特性、包装形式、节拍与接口' },
             { area: '质量系统', weight: '25%', focus: '检查表、来料检验、配线标准、版本控制' },
-            { area: '验收能力', weight: '25%', focus: 'FAT 计划、抽样、偏差处理与复测' },
+            { area: '验货能力', weight: '25%', focus: '验货计画、AQL 抽样、偏差处理与复验' },
             { area: '交付/售后', weight: '20%', focus: '文件包、备品策略、回复流程与升级机制' },
           ]
         : [
             { area: 'Technical fit', weight: '30%', focus: 'Product behavior, packaging format, throughput, interfaces' },
             { area: 'Quality system', weight: '25%', focus: 'Checklists, incoming inspection, wiring standards, revision control' },
-            { area: 'Acceptance capability', weight: '25%', focus: 'FAT plan, sampling, deviation handling and retest' },
+            { area: 'Inspection capability', weight: '25%', focus: 'Inspection plan, AQL sampling, deviation handling and retest' },
             { area: 'Delivery & service', weight: '20%', focus: 'Document package, spare plan, support workflow and escalation' },
           ]
 
@@ -517,7 +517,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
             </div>
             <div className="flex gap-3">
               <ButtonLink href={`/${lang}/resources/third-party-inspection-vs-fat`} variant="secondary" size="md">
-                {lang === 'zh' ? '看 FAT vs 檢驗' : lang === 'cn' ? '看 FAT vs 检验' : 'FAT vs Inspection'}
+                {lang === 'zh' ? '看驗貨流程指南' : lang === 'cn' ? '看验货流程指南' : 'View inspection process'}
               </ButtonLink>
               <ButtonLink href="/case-studies" variant="soft" size="md">
                 {lang === 'zh' ? '看案例' : lang === 'cn' ? '看案例' : 'Case studies'}
@@ -559,10 +559,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               </div>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700">
                 {(lang === 'zh'
-                  ? ['配置路線與關鍵限制清單', '可比較的 RFQ 範圍（含選配模組）', '驗收條件草案（FAT）', '下一步需要你補的資料']
+                  ? ['品類路線與關鍵限制清單', '可比較的 RFQ 範圍（含客製選項）', '驗收條件草案（出貨前驗貨）', '下一步需要你補的資料']
                   : lang === 'cn'
-                    ? ['配置路线与关键限制清单', '可比较的 RFQ 范围（含选配模块）', '验收条件草案（FAT）', '下一步需要你补的资料']
-                    : ['Configuration path + critical constraints list', 'Comparable RFQ scope (including options)', 'Acceptance criteria draft (FAT)', 'Next data points we need from you']
+                    ? ['品类路线与关键限制清单', '可比较的 RFQ 范围（含定制选项）', '验收条件草案（出货前验货）', '下一步需要您补的资料']
+                    : ['Category path + critical constraints list', 'Comparable RFQ scope (including customization options)', 'Acceptance criteria draft (pre-shipment inspection)', 'Next data points we need from you']
                 ).map((x) => (
                   <li key={x}>{x}</li>
                 ))}
@@ -633,10 +633,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               </div>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700">
                 {(lang === 'zh'
-                  ? ['要求 RFQ 範圍標準化（含文件包與 FAT 條件）', '要求偏差清單＋複測才出貨', '用里程碑付款對齊驗收證據', '備品清單要「料號＋照片＋工位」']
+                  ? ['要求 RFQ 範圍標準化（含文件包與出貨前驗貨條件）', '要求偏差清單＋複驗才出貨', '用里程碑付款對齊驗收證據', '裝箱清單要「品號＋照片＋條碼」']
                   : lang === 'cn'
-                    ? ['要求 RFQ 范围标准化（含文件包与 FAT 条件）', '要求偏差清单＋复测才出货', '用里程碑付款对齐验收证据', '备品清单要“料号＋照片＋工位”']
-                    : ['Normalize RFQ scope (including documents + FAT conditions)', 'Require deviation log + retest before shipment', 'Align milestone payments to acceptance evidence', 'Demand spare list with part numbers + photos + station mapping']
+                    ? ['要求 RFQ 范围标准化（含文件包与出货前验货条件）', '要求偏差清单＋复验才出货', '用里程碑付款对齐验收证据', '装箱清单要「品号＋照片＋条码」']
+                    : ['Normalize RFQ scope (including documents + pre-shipment inspection conditions)', 'Require deviation log + retest before shipment', 'Align milestone payments to inspection evidence', 'Demand packing list with item codes + photos + barcodes']
                 ).map((x) => (
                   <li key={x}>{x}</li>
                 ))}

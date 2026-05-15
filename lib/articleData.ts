@@ -7,7 +7,7 @@ export type ArticleCategory = 'comparison' | 'selection' | 'application' | 'buyi
 export interface ArticleData {
   slug: string          // path segment, e.g. 'vffs-vs-hffs'
   category: ArticleCategory
-  relatedMachine?: string  // machine page slug, e.g. 'pouch-packing-machine'
+  relatedMachine?: string  // DEPRECATED — consumer code in resources/[slug] now maps all values to /sourcing/packaging regardless
 }
 
 // Full path = /resources/{slug}
