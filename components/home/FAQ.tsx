@@ -11,7 +11,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
         { q: 'What is your minimum order?', a: 'Orders start at USD 1,000 per shipment. This entry tier ensures every order receives dedicated sourcing, on-site QC, and full export documentation — whether you ship a pallet or a full container.' },
-        { q: 'How does pricing work? Is there a commission on top?', a: 'We are a trading company, not a commission agent. We buy the goods from the factory and resell to you. The price you see is the final landed cost we quote — no hidden factory kickback, no per-shipment commission. We disclose the relevant FOB or EXW factory price on request.' },
+        { q: 'How is pricing structured?', a: 'We act as principal — we buy from the factory and resell. Every quote breaks out the factory price (FOB or EXW) and our margin on separate lines. The underlying factory invoice is available on request before order confirmation.' },
         { q: 'How do you handle factory inspection?', a: 'We inspect personally. Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. We have walked away from factories that offered envelopes to pass sub-spec goods. Inspection videos and photos with every shipment.' },
         { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
         { q: 'Can I see your Alibaba.com track record?', a: 'Yes — verified supplier storefront at momas.en.alibaba.com. Public, third-party-hosted, and updated in real time. We encourage every prospective partner to verify it before any commitment.' },
@@ -25,8 +25,8 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
         { q: '最低订单是多少？', a: '订单 USD 1,000 起接。这个起接金额能让每一笔订单都享有专属的采购、现场验货与完整出口文件——不管您是出一个棧板还是一整个货柜。' },
-        { q: '报价怎么算？工厂价之外会抽佣吗？', a: '我们是贸易商，不是抽佣代理。我们把货从工厂买下，再转卖给您。您看到的就是最终到岸价，没有躲在后面的工厂红包，也没有每笔出货的抽成。您要看 FOB 或 EXW 工厂价我们会直接揭露。' },
-        { q: '验货怎么做？', a: '我们亲自验。台湾工厂团队直接开车去；中国工厂出货先进我们合作货代仓库，由我们验货后才放行出口。曾经遇过工厂塞红包想让我们放行不合规的货，我们选择不合作。每批附验货视频与照片。' },
+        { q: '报价怎么结构？', a: '我们以本身名义(principal)从工厂买货,加上我方利润后转卖给您。报价单上工厂价与我方利润分两行列出,下单前可索取工厂发票对照。' },
+        { q: '验货怎么做？', a: '团队亲自到厂验货。台湾工厂直接开车去现场;中国工厂出货先进我们合作货代仓库,我们验货后才放行出口。每批附验货视频与照片,依 AQL 抽样。' },
         { q: '你们在哪？', a: '两家公司——一家在台湾台中，一家在中国大陆。台湾公司开发票、收款；中国公司管工厂关系与出口前的物流。' },
         { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——momas.en.alibaba.com 认证店面。公开、由第三方维护、即时更新。建议任何潜在合作方在签约前先去查看。' },
         { q: '回复多快？', a: '台北上班时间（UTC+8，周一至五 09:00–18:00）当日回复。下班时段 12 小时内。' },
@@ -39,8 +39,8 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
         { q: '最低訂單是多少？', a: '訂單 USD 1,000 起接。這個起接金額能讓每一筆訂單都享有專屬的採購、現場驗貨與完整出口文件——不管你是出一個棧板還是一整個貨櫃。' },
-        { q: '報價怎麼算？工廠價之外會抽佣嗎？', a: '我們是貿易商，不是抽佣代理。我們把貨從工廠買下、再轉賣給你。你看到的就是最終到岸價，沒有躲在後面的工廠紅包，也沒有每筆出貨的抽成。你要看 FOB 或 EXW 工廠價我們會直接揭露。' },
-        { q: '驗貨怎麼做？', a: '我們親自驗。台灣工廠團隊直接開車去；中國工廠出貨先進我們合作貨代倉庫，由我們驗貨後才放行出口。曾經遇過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。每批附驗貨影片與照片。' },
+        { q: '報價怎麼結構？', a: '我們以本身名義(principal)從工廠買貨,加上我方利潤後轉賣給你。報價單上工廠價與我方利潤分兩行列出,下單前可索取工廠發票對照。' },
+        { q: '驗貨怎麼做？', a: '團隊親自到廠驗貨。台灣工廠直接開車去現場;中國工廠出貨先進我們合作貨代倉庫,我們驗貨後才放行出口。每批附驗貨影片與照片,依 AQL 抽樣。' },
         { q: '你們在哪？', a: '兩家公司——一家在台灣台中，一家在中國大陸。台灣公司開發票、收款；中國公司管工廠關係與出口前的物流。' },
         { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——momas.en.alibaba.com 認證店面。公開、由第三方維護、即時更新。建議任何潛在合作方在簽約前先去查看。' },
         { q: '回覆多快？', a: '台灣上班時間（UTC+8，週一至五 09:00–18:00）當日回。下班時段 12 小時內。' },
@@ -67,7 +67,7 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
         { q: '¿Cuál es el pedido mínimo?', a: 'Los pedidos parten de USD 1 000 por envío. Este umbral garantiza que cada pedido reciba sourcing dedicado, control de calidad en sitio y documentación de exportación completa — sea un pallet o un contenedor entero.' },
-        { q: '¿Cómo se calcula el precio? ¿Hay comisión sobre el precio de fábrica?', a: 'Somos una empresa comercial, no un agente a comisión. Compramos la mercancía a la fábrica y se la revendemos. El precio mostrado es el costo final entregado — sin propina oculta de fábrica, sin comisión por envío. El precio FOB o EXW de fábrica se comunica bajo petición.' },
+        { q: '¿Cómo se estructura el precio?', a: 'Actuamos como principal — compramos a la fábrica y revendemos. Cada cotización desglosa el precio de fábrica (FOB o EXW) y nuestra margen en líneas separadas. La factura de fábrica subyacente está disponible bajo solicitud antes de confirmar.' },
         { q: '¿Cómo realizan la inspección en fábrica?', a: 'Inspeccionamos en persona. Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Hemos rechazado fábricas que ofrecían sobres para aprobar mercancía fuera de especificación. Video y fotos de inspección con cada envío.' },
         { q: '¿Dónde están ubicados?', a: 'Dos empresas registradas — una en Taichung, Taiwán; otra en China continental. La entidad taiwanesa factura y recibe pagos; la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
         { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — tienda de proveedor verificado en momas.en.alibaba.com. Pública, alojada por terceros, actualizada en tiempo real. Recomendamos verificarla antes de cualquier compromiso.' },

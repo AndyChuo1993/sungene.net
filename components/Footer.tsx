@@ -34,12 +34,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {({
-                en: 'SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier.',
-                cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。直接向审核过的工厂采购、转手出货给您——包装、家居、园艺品类。亲自验货、不收红包。Alibaba.com 认证供应商。',
-                zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。直接向審核過的工廠採購、轉手出貨給你——包裝、家居、園藝品類。親自驗貨、不收紅包。Alibaba.com 認證供應商。',
-                fr: "SunGene est une société de négoce à double entité Taïwan + Chine. Nous achetons auprès d'usines vérifiées et revendons en direct dans les catégories emballage, maison et jardin. Contrôle qualité par notre équipe. Sans commission occulte. Fournisseur Alibaba.com vérifié.",
-                es: 'SunGene es una empresa comercial con doble entidad Taiwán + China. Compramos a fábricas verificadas y revendemos directamente en empaque, hogar y jardín. Control de calidad por nuestro equipo. Sin comisiones ocultas. Proveedor Alibaba.com verificado.',
-              } as Record<string, string>)[lang] || 'SunGene is a Taiwan + China dual-entity trading company. We buy from vetted factories and resell direct in packaging, home, and garden categories. On-site QC by our own team. No factory kickbacks. Verified Alibaba.com supplier.'}
+                en: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Alibaba 5-star verified.',
+                cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。向两岸审核过的工厂采购,出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
+                zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。向兩岸審核過的工廠採購,出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
+                fr: "SunGene est un partenaire de sourcing avec des équipes à Taichung et Xiamen. Nous achetons auprès d'usines vérifiées Taïwan + Chine en emballage, maison, jardin et beauté. CQ sur place. Alibaba 5★.",
+                es: 'SunGene es un socio de sourcing con equipos en Taichung y Xiamen. Compramos a fábricas verificadas Taiwán + China en empaque, hogar, jardín y belleza. QC en sitio. Alibaba 5★.',
+              } as Record<string, string>)[lang] || 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Alibaba 5-star verified.'}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
@@ -73,7 +73,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <ul className="space-y-3">
               <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How pricing works', zh: '報價如何計算', cn: '报价如何计算', fr: 'Comment notre prix est calculé', es: 'Cómo calculamos el precio' } as Record<string, string>)[lang] || 'How pricing works'}</Link></li>
               <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How we inspect', zh: '我們怎麼驗貨', cn: '我们怎么验货', fr: 'Comment nous inspectons', es: 'Cómo inspeccionamos' } as Record<string, string>)[lang] || 'How we inspect'}</Link></li>
-              <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'No factory kickbacks', zh: '不收工廠紅包', cn: '不收工厂红包', fr: 'Pas de pourboire usine', es: 'Sin sobres a fábrica' } as Record<string, string>)[lang] || 'No factory kickbacks'}</Link></li>
+              <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How we work', zh: '如何運作', cn: '如何运作', fr: 'Comment ça marche', es: 'Cómo funciona' } as Record<string, string>)[lang] || 'How we work'}</Link></li>
               <li><a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Verify us on Alibaba.com ↗', zh: '到 Alibaba.com 查證 ↗', cn: '到 Alibaba.com 查证 ↗', fr: 'Vérifier sur Alibaba.com ↗', es: 'Verificar en Alibaba.com ↗' } as Record<string, string>)[lang] || 'Verify us on Alibaba.com ↗'}</a></li>
               <li><Link href={`/${lang}/contact`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Minimum order USD 1,000', zh: '最低訂單 USD 1,000', cn: '最低订单 USD 1,000', fr: 'Commande min. USD 1 000', es: 'Pedido mín. USD 1 000' } as Record<string, string>)[lang] || 'Minimum order USD 1,000'}</Link></li>
             </ul>

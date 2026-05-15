@@ -37,9 +37,9 @@ const HOME_POSITIONING: Partial<Record<Lang, {
       'Adjacent categories quoted on request',
     ],
     beyondKicker: 'Our model',
-    beyondTitle: 'Direct buy-and-resell — not a commission middleman',
+    beyondTitle: 'How pricing works',
     beyondBody: [
-      'SunGene operates as a trading company, not a commission-based sourcing agent. We purchase from the factory and resell to you. The quoted price is the final price — no hidden factory kickback, no per-shipment commission, no surprise add-ons.',
+      'We buy from the factory at FOB or EXW, and resell with our margin shown separately on the quote. You see the factory line, our line, and the total. Underlying factory pricing is available on request before you confirm the order.',
       'Because the goods sit on our balance sheet, rejecting defects before shipment is in our own financial interest. Quality becomes our problem to solve, not yours to chase.',
     ],
   },
@@ -56,7 +56,7 @@ const HOME_POSITIONING: Partial<Record<Lang, {
     beyondKicker: '我們的模式',
     beyondTitle: '直接買進賣出——不是抽佣中間人',
     beyondBody: [
-      'SunGene 是貿易公司，不是抽佣型的 sourcing agent。我們從工廠把貨買下、再轉賣給你。你看到的就是最終報價，沒有躲在後面的工廠紅包、沒有每筆出貨的抽成、沒有後續加碼。',
+      '我們以本身名義(principal)從工廠買貨,加上我方利潤後轉賣給你。報價單上工廠價與我方利潤分兩行列出,下單前可索取工廠發票對照。',
       '因為貨在我們的資產負債表上，把瑕疵品擋下來是我們的財務利益。品質變成我們要解決的問題，而不是你要追的麻煩。',
     ],
   },
@@ -73,7 +73,7 @@ const HOME_POSITIONING: Partial<Record<Lang, {
     beyondKicker: '我们的模式',
     beyondTitle: '直接买进卖出——不是抽佣中间人',
     beyondBody: [
-      'SunGene 是贸易公司，不是抽佣型的 sourcing agent。我们从工厂把货买下、再转卖给您。您看到的就是最终报价，没有躲在后面的工厂红包、没有每笔出货的抽成、没有后续加码。',
+      '我们以本身名义(principal)从工厂买货,加上我方利润后转卖给您。报价单上工厂价与我方利润分两行列出,下单前可索取工厂发票对照。',
       '因为货在我们的资产负债表上，把瑕疵品挡下来是我们的财务利益。品质变成我们要解决的问题，而不是您要追的麻烦。',
     ],
   },
@@ -107,7 +107,7 @@ const HOME_POSITIONING: Partial<Record<Lang, {
     beyondKicker: 'Nuestro modelo',
     beyondTitle: 'Compra-reventa directa — no un intermediario a comisión',
     beyondBody: [
-      'SunGene opera como empresa comercial, no como agente de sourcing a comisión. Compramos a la fábrica y le revendemos. El precio indicado es el precio final — sin comisión oculta de fábrica, sin pago por envío, sin sorpresas.',
+      'Operamos como principal — compramos a la fábrica y revendemos. Cada cotización muestra el precio de fábrica (FOB o EXW) y nuestra margen en líneas separadas. El precio de fábrica subyacente está disponible bajo solicitud antes de confirmar.',
       'Como la mercancía figura en nuestro balance, rechazar defectos antes del envío está en nuestro propio interés financiero. La calidad pasa a ser nuestro problema a resolver, no el suyo a perseguir.',
     ],
   },
@@ -238,7 +238,7 @@ const HOME_KEYWORDS: Record<Lang, string[]> = {
     'garden products sourcing', 'beauty product sourcing China', 'private label sourcing partner',
     'Alibaba verified supplier', 'direct factory pricing Asia', 'B2B trading company Taiwan',
     'consolidated shipping China Taiwan', 'low MOQ sourcing partner', 'on-site QC China',
-    'no-kickback sourcing agent', 'Amazon FBA supplier sourcing', 'importer sourcing partner',
+    'transparent sourcing agent', 'Amazon FBA supplier sourcing', 'importer sourcing partner',
   ],
   zh: [
     '台灣中國採購代理', '包裝材料採購', '家居用品採購中國', '園藝戶外採購', '美容包材採購',
@@ -279,12 +279,12 @@ const SCHEMA_TEXT: Record<Lang, {
 }> = {
   en: {
     listName: 'SunGene — Taiwan & China sourcing for packaging, home & garden',
-    listDesc: 'Direct buy-and-resell sourcing for packaging products, home goods, and garden products from vetted Taiwan and China factories. On-site QC, no kickbacks, transparent pricing.',
+    listDesc: 'Sourcing for packaging, home goods, and garden products from vetted Taiwan and Mainland China factories. On-site QC, factory price + margin shown separately on every quote.',
     categories: { packaging: 'Packaging Sourcing', food: 'Home & Kitchen Sourcing', filling: 'Beauty & Container Sourcing', conveying: 'Garden & Outdoor Sourcing', custom: 'Custom Sourcing Requests' },
     faq: [
       { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
       { q: 'What is your minimum order?', a: 'Orders start at USD 1,000 per shipment. This entry tier ensures every order receives dedicated sourcing, on-site QC, and full export documentation — whether you ship a pallet or a full container.' },
-      { q: 'How does pricing work? Is there a commission on top?', a: 'We are a trading company, not a commission agent. We buy the goods from the factory and resell to you. The price you see is the final landed cost we quote — no hidden factory kickback, no per-shipment commission. We disclose the relevant FOB or EXW factory price on request.' },
+      { q: 'How is pricing structured?', a: 'Every quote breaks out the factory price (FOB or EXW), our margin, and the landed cost. The underlying factory invoice is available on request before order confirmation. One number on the quote, full breakdown when you want it.' },
       { q: 'How do you handle factory inspection?', a: 'We inspect personally. For factories in Taiwan, our team drives to the site. For factories in China, the goods ship to our forwarder’s warehouse where we inspect before export. We have walked away from factories that offered envelopes to pass goods we judged sub-spec. Inspection videos and photos are included with every shipment.' },
       { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
       { q: 'Can I see your Alibaba.com track record?', a: 'Yes — our storefront is at momas.en.alibaba.com. We have been a verified supplier there for three years. Star rating fluctuates between 3 and 5 stars depending on the period; check the live page for current standing.' },
@@ -293,13 +293,13 @@ const SCHEMA_TEXT: Record<Lang, {
   },
   zh: {
     listName: 'SunGene｜台灣＋中國 採購夥伴｜包裝、家居、園藝',
-    listDesc: '直接從台灣與中國審查過的工廠買進、轉手出貨給你——包裝產品、家居用品、園藝工具與相關配件。親自驗貨、不收紅包、報價透明。',
+    listDesc: '從台灣與中國大陸審查過的工廠採購包裝、家居、園藝品類。團隊親自驗貨,報價單上工廠價與我方利潤分開列出。',
     categories: { packaging: '包裝產品採購', food: '家居廚房採購', filling: '美容容器採購', conveying: '園藝戶外採購', custom: '客製品採購' },
     faq: [
       { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
       { q: '最低訂單是多少？', a: '訂單 USD 1,000 起接。這個起接金額能讓每一筆訂單都享有專屬的採購、現場驗貨與完整出口文件——不管你是出一個棧板還是一整個貨櫃。' },
-      { q: '報價是怎麼算的？會在工廠價之外抽佣嗎？', a: '我們是貿易商，不是抽佣的代理。我們把貨從工廠買下、再轉賣給你。你看到的就是最終到岸價，沒有躲在後面的工廠紅包，也沒有每筆出貨的抽成。你要看 FOB 或 EXW 工廠價我們會直接揭露。' },
-      { q: '驗貨怎麼做？', a: '我們親自驗。台灣的工廠我們團隊直接開車去；中國的工廠出貨先進我們合作貨代的倉庫，由我們進場驗貨後才放行出口。曾經遇過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。每批出貨都附驗貨影片與照片。' },
+      { q: '報價怎麼結構？', a: '每份報價單會把工廠價(FOB 或 EXW)、我方利潤、總到岸成本分行列出。下單前你可要求看到工廠發票。報價上一個數字,需要時隨時拆解。' },
+      { q: '驗貨怎麼做？', a: '我們親自驗。台灣的工廠我們團隊直接開車去現場;中國的工廠出貨先進我們合作貨代的倉庫,由我們進場驗貨後才放行出口。每批出貨都附驗貨影片與照片,並依 AQL 抽樣。' },
       { q: '你們在哪？', a: '兩家公司——一家在台灣台中，一家在中國大陸。台灣公司開發票、收款；中國公司管工廠關係與出口前的物流。' },
       { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——店面是 momas.en.alibaba.com，已經是認證供應商三年。星等會隨期間在 3 到 5 星之間波動，建議直接點過去看當下狀態。' },
       { q: '回覆多快？', a: '台灣上班時間（UTC+8，週一至五 09:00–18:00）當日回。下班時段 12 小時內。' },
@@ -307,13 +307,13 @@ const SCHEMA_TEXT: Record<Lang, {
   },
   cn: {
     listName: 'SunGene｜台湾＋中国 采购伙伴｜包装、家居、园艺',
-    listDesc: '直接从台湾与中国核查过的工厂买进、转手出货给您——包装产品、家居用品、园艺工具与相关配件。亲自验货、不收红包、报价透明。',
+    listDesc: '从台湾与中国大陆核查过的工厂采购包装、家居、园艺品类。团队亲自验货,报价单上工厂价与我方利润分开列出。',
     categories: { packaging: '包装产品采购', food: '家居厨房采购', filling: '美容容器采购', conveying: '园艺户外采购', custom: '定制品采购' },
     faq: [
       { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
       { q: '最低订单是多少？', a: '订单 USD 1,000 起接。这个起接金额能让每一笔订单都享有专属的采购、现场验货与完整出口文件——不管您是出一个棧板还是一整个货柜。' },
-      { q: '报价是怎么算的？工厂价之外会抽佣吗？', a: '我们是贸易商，不是抽佣代理。我们把货从工厂买下，再转卖给您。您看到的就是最终到岸价，没有躲在后面的工厂红包，也没有每笔出货的抽成。您要看 FOB 或 EXW 工厂价我们会直接揭露。' },
-      { q: '验货怎么做？', a: '我们亲自验。台湾的工厂我们团队直接开车去；中国的工厂出货先进我们合作货代的仓库，由我们进场验货后才放行出口。曾经遇过工厂递红包让我们放行不合规的货，我们选择不合作。每批出货都附验货视频与照片。' },
+      { q: '报价怎么结构？', a: '每份报价单会把工厂价(FOB 或 EXW)、我方利润、总到岸成本分行列出。下单前您可要求看到工厂发票。报价上一个数字,需要时随时拆解。' },
+      { q: '验货怎么做？', a: '我们亲自验。台湾的工厂我们团队直接开车去现场;中国的工厂出货先进我们合作货代的仓库,由我们进场验货后才放行出口。每批出货都附验货视频与照片,并依 AQL 抽样。' },
       { q: '你们在哪？', a: '两家公司——一家在台湾台中，一家在中国大陆。台湾公司开发票、收款；中国公司管工厂关系与出口前的物流。' },
       { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——店面是 momas.en.alibaba.com，已经是认证供应商三年。星等会在 3 到 5 星之间波动，建议直接点过去看当下状态。' },
       { q: '回复多快？', a: '台北上班时间（UTC+8，周一至五 09:00–18:00）当日回复。下班时段 12 小时内。' },
@@ -321,7 +321,7 @@ const SCHEMA_TEXT: Record<Lang, {
   },
   fr: {
     listName: "SunGene | Sourcing Taïwan & Chine pour marques d'emballage, maison & jardin",
-    listDesc: "Achat direct auprès d'usines vérifiées à Taïwan et en Chine, revente en direct — produits d'emballage, articles de maison, outils de jardin et accessoires. Contrôle qualité sur place, sans commission occulte, devis transparents.",
+    listDesc: "Sourcing chez des usines vérifiées à Taïwan et en Chine continentale — emballage, maison, jardin. Contrôle qualité sur place, prix usine et marge affichés séparément sur chaque devis.",
     categories: { packaging: 'Sourcing emballage', food: 'Sourcing maison & cuisine', filling: 'Sourcing beauté & flaconnage', conveying: 'Sourcing jardin & extérieur', custom: 'Demandes sur mesure' },
     faq: [
       { q: 'Quels produits sourcez-vous ?', a: "Principalement de l'emballage (sachets, boîtes, flacons, pompes, fermetures), des articles de maison (cuisine, décoration, rangement) et des outils et accessoires de jardin. Catégories voisines (cosmétiques, bougies, verre, petite quincaillerie) acceptées pour les partenariats de long terme." },
@@ -335,12 +335,12 @@ const SCHEMA_TEXT: Record<Lang, {
   },
   es: {
     listName: 'SunGene | Sourcing Taiwán & China para marcas de empaque, hogar y jardín',
-    listDesc: 'Compra directa a fábricas verificadas en Taiwán y China, reventa directa — productos de empaque, artículos del hogar, herramientas de jardín y accesorios. Control de calidad en sitio, sin comisiones ocultas, presupuestos transparentes.',
+    listDesc: 'Sourcing en fábricas verificadas en Taiwán y China continental — empaque, hogar, jardín. QC en sitio, precio de fábrica y nuestra margen mostrados por separado en cada cotización.',
     categories: { packaging: 'Sourcing de empaque', food: 'Sourcing hogar y cocina', filling: 'Sourcing belleza y envase', conveying: 'Sourcing jardín y exterior', custom: 'Solicitudes a medida' },
     faq: [
       { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
       { q: '¿Cuál es el pedido mínimo?', a: 'USD 1 000 por envío. Rechazamos pedidos muy pequeños y dispersos para poder dar a los aceptados la atención que necesitan.' },
-      { q: '¿Cómo se calcula el precio? ¿Hay comisión sobre el precio de fábrica?', a: 'Somos una empresa comercial, no un agente a comisión. Compramos la mercancía a la fábrica y se la revendemos. El precio mostrado es el costo final entregado — sin comisión oculta de fábrica, sin pago por envío. El precio FOB o EXW de fábrica se comunica bajo petición.' },
+      { q: '¿Cómo se estructura el precio?', a: 'Actuamos como principal — compramos a la fábrica y revendemos. Cada cotización desglosa el precio de fábrica (FOB o EXW) y nuestra margen en líneas separadas. La factura de fábrica subyacente está disponible bajo solicitud antes de confirmar.' },
       { q: '¿Cómo realizan la inspección en fábrica?', a: 'Inspeccionamos en persona. Para fábricas en Taiwán, nuestro equipo se desplaza al sitio. Para China, la mercancía llega primero al almacén de nuestro agente de carga, donde inspeccionamos antes de exportar. Hemos rechazado fábricas que ofrecían sobres para aprobar mercancía fuera de especificación. Video y fotos de inspección con cada envío.' },
       { q: '¿Dónde están ubicados?', a: 'Dos empresas registradas — una en Taichung, Taiwán; otra en China continental. La entidad taiwanesa factura y recibe pagos; la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
       { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — nuestra tienda está en momas.en.alibaba.com. Somos proveedor verificado desde hace tres años. La calificación fluctúa entre 3 y 5 estrellas según el período; verifique en vivo.' },
@@ -528,7 +528,7 @@ export default async function Page({ params }: PageParams) {
     alternateName: '上瑾錸有限公司',
     url: SITE_URL,
     logo: `${SITE_URL}/logo/sungene.png`,
-    description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct to international buyers — packaging products, home goods, garden tools and accessories. On-site QC by our own team. Verified Alibaba.com supplier since 2023.',
+    description: 'Sourcing partner with teams in Taichung and Xiamen, supplying packaging, home goods and garden products from vetted Taiwan + China factories. Direct factory pricing with margin shown on every quote. On-site QC. Verified Alibaba 5-star supplier since 2023.',
     foundingDate: '2023',
     knowsAbout: ['Packaging sourcing', 'Home goods sourcing', 'Garden products sourcing', 'Taiwan sourcing', 'China sourcing', 'Factory inspection', 'Direct buy-and-resell trading'],
     sameAs: ['https://momas.en.alibaba.com/'],

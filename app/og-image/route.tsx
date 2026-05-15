@@ -103,7 +103,7 @@ export async function GET(req: Request) {
         <div style={{ display: 'flex', gap: 14, alignItems: 'center', zIndex: 1 }}>
           {[
             'Alibaba 5★ verified',
-            'TW + CN dual entity',
+            'Taichung + Xiamen',
             'On-site QC',
             'MOQ USD 1,000',
             `sungene.net/${lang}`,

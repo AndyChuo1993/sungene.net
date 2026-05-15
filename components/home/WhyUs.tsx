@@ -6,39 +6,39 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     en: {
       kicker: 'WHY WORK WITH US',
       title: 'A trading company built so quality is our problem, not yours',
-      desc: 'We are not a commission agent: we buy the goods, then resell to you. That means rejecting defective product before shipment is in our own financial interest — not a favour we do for you.',
+      desc: 'We act as principal: we buy the goods, then resell to you. Rejecting defective product before shipment is in our own financial interest — your protection is structural, not a favour.',
       items: [
-        { icon: '01', title: 'Direct buy-and-resell', desc: 'We take ownership of the goods at the factory. Our margin is on the resale, not a hidden commission on the factory price.' },
+        { icon: '01', title: 'We act as principal', desc: 'We take ownership of the goods at the factory. Our margin is on the resale, shown separately on every quote.' },
         { icon: '02', title: 'On-site QC by our team', desc: 'Taiwan factories: we drive to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. Photos and video with every shipment.' },
-        { icon: '03', title: 'No factory kickbacks', desc: 'We have walked away from suppliers who offered envelopes to pass sub-spec goods. Inspection result is what we saw — not what was paid for.' },
+        { icon: '03', title: 'Transparent margin disclosure', desc: 'Every quote shows the factory price and our margin on separate lines. The underlying factory invoice is available on request before order confirmation.' },
         { icon: '04', title: 'Verified Alibaba.com supplier', desc: 'Three years operating momas.en.alibaba.com. Rating fluctuates between 3 and 5 stars by period. Storefront is public — verify it before you commit.' },
-        { icon: '05', title: 'Taiwan + China dual entity', desc: 'Two registered companies. Pay the Taiwan entity (cleaner banking and dispute path); China entity manages factory relationships and pre-shipment logistics.' },
+        { icon: '05', title: 'Teams in Taichung + Xiamen', desc: 'On-the-ground presence on both sides of the strait. Taiwan handles banking and contracts; Xiamen team handles factory relationships and pre-export inspection.' },
         { icon: '06', title: 'Built for serious buyers', desc: 'Orders from USD 1,000 per shipment. Every order gets dedicated sourcing, on-site QC, and pre-shipment documentation — the same level of care whether you ship one pallet or a full container.' },
       ]
     },
     cn: {
       kicker: '为什么找我们',
       title: '我们是把品质当成自己问题的贸易商',
-      desc: '我们不是抽佣的代理：我们把货从工厂买下，再转卖给您。挡下瑕疵品是我们自己的利益——不是替您做人情。',
+      desc: '我们以 principal 身分买下货物,再转卖给您。挡下瑕疵品是我们自己的财务利益,您的保护是结构性的,不是人情。',
       items: [
         { icon: '01', title: '直接买进卖出', desc: '我们在工厂端把货买下，转手卖给您。利润来自转售差价，不是藏在工厂报价里的回扣。' },
         { icon: '02', title: '亲自到场验货', desc: '台湾工厂：团队直接开车到现场。中国工厂：货进我们合作货代的仓库由我们验货后才放行出口。每批附验货影片与照片。' },
-        { icon: '03', title: '不收工厂红包', desc: '碰过工厂塞红包想让我们放行不合规的货，我们选择不合作。验货结果是我们看到的事实，不是被买通的结论。' },
+        { icon: '03', title: '利润分行列出', desc: '每份报价单工厂价与我方利润分两行列出。下单前可索取工厂发票对照,完全透明。' },
         { icon: '04', title: 'Alibaba.com 认证供应商', desc: '经营 momas.en.alibaba.com 三年。星等会随期间在 3 到 5 星之间波动。店面公开——签约前可以先去查。' },
-        { icon: '05', title: '台湾＋中国双公司', desc: '两家公司分工：付款给台湾公司（银行往来与争议处理更清楚）；中国公司管工厂关系与出口前物流。' },
+        { icon: '05', title: '台中＋厦门两地团队', desc: '海峡两岸都有人。台湾团队负责银行往来与合约;厦门团队负责工厂关系与出口前验货。' },
         { icon: '06', title: '为认真的买家而设计', desc: '订单 USD 1,000 起。每一笔订单都享有专属的采购、现场验货与出口前文件准备——不管是一个棧板还是整个货柜，服务水准一致。' },
       ]
     },
     zh: {
       kicker: '為什麼找我們',
       title: '我們是把品質當成自己問題的貿易商',
-      desc: '我們不是抽佣代理：我們把貨從工廠買下、再轉賣給你。擋下瑕疵品是我們自己的利益——不是替你做人情。',
+      desc: '我們以 principal 身分買下貨物,再轉賣給你。擋下瑕疵品是我們自己的財務利益,你的保護是結構性的,不是人情。',
       items: [
         { icon: '01', title: '直接買進賣出', desc: '我們在工廠端把貨買下，轉手賣給你。利潤來自轉售差價，不是藏在工廠報價裡的回扣。' },
         { icon: '02', title: '親自到場驗貨', desc: '台灣工廠：團隊直接開車到現場。中國工廠：貨進我們合作貨代的倉庫，由我們驗貨後才放行出口。每批附驗貨影片與照片。' },
-        { icon: '03', title: '不收工廠紅包', desc: '碰過工廠塞紅包想讓我們放行不合規的貨，我們選擇不合作。驗貨結果是我們看到的事實，不是被買通的結論。' },
+        { icon: '03', title: '利潤分行列出', desc: '每份報價單工廠價與我方利潤分兩行列出。下單前可索取工廠發票對照,完全透明。' },
         { icon: '04', title: 'Alibaba.com 認證供應商', desc: '經營 momas.en.alibaba.com 三年。星等會隨期間在 3 到 5 星之間波動。店面公開——簽約前可以先去查。' },
-        { icon: '05', title: '台灣＋中國雙公司', desc: '兩家公司分工：付款給台灣公司（銀行往來與爭議處理更清楚）；中國公司管工廠關係與出口前物流。' },
+        { icon: '05', title: '台中＋廈門兩地團隊', desc: '海峽兩岸都有人。台灣團隊負責銀行往來與合約;廈門團隊負責工廠關係與出口前驗貨。' },
         { icon: '06', title: '為認真的買家而設計', desc: '訂單 USD 1,000 起。每一筆訂單都享有專屬的採購、現場驗貨與出口前文件準備——不管是一個棧板還是整個貨櫃，服務水準一致。' },
       ]
     },
@@ -204,7 +204,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {(t.trustBadges || ['Alibaba.com verified', 'No factory kickbacks', 'TW + CN offices']).map((badge: string) => (
+              {(t.trustBadges || ['Alibaba 5★ verified', 'Taichung + Xiamen', 'On-site QC']).map((badge: string) => (
                 <span key={badge} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
                   <svg className="h-3.5 w-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
                   {badge}

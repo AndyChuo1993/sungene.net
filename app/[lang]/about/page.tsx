@@ -29,9 +29,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Über SunGene | Experten für industrielles Sourcing und Automatisierung',
   }
   const descriptions: Record<string, string> = {
-    en: 'Taiwan–China dual-entity trading company. Direct factory buying, on-site QC by our own team, transparent quotes. Packaging, home, garden, beauty. Alibaba 5★.',
-    cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。我们直接向两地审核过的工厂采购、转手出货给海外买家——包装、家居、园艺品类。亲自验货。Alibaba.com 认证供应商。',
-    zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。我們直接向兩地審核過的工廠採購、轉手出貨給海外買家——包裝、家居、園藝品類。親自驗貨。Alibaba.com 認證供應商。',
+    en: 'Sourcing partner with teams in Taichung and Xiamen. Direct buying from vetted Taiwan + China factories for packaging, home, garden, beauty. On-site QC. Alibaba 5★.',
+    cn: 'SunGene 是贸易采购伙伴,团队分驻台中与厦门。我们直接向两地审核过的工厂采购、出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
+    zh: 'SunGene 是貿易採購夥伴,團隊分駐台中與廈門。我們直接向兩地審核過的工廠採購、出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
     fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5★ vérifié.",
     es: 'Empresa comercial Taiwán-China. Compra directa de fábrica, QC en sitio, reventa directa — empaque, hogar, jardín, belleza. Alibaba 5★ verificado.',
     pt: 'A SunGene oferece suporte profissional de sourcing para equipamentos industriais, sistemas de embalagem e componentes de automação em Taiwan e na China.',
@@ -60,17 +60,17 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     en: {
       kicker: 'ABOUT SUNGENE',
       title: 'A trading company built so quality is our problem, not yours',
-      intro: 'SunGene is a Taiwan-China dual-entity trading company. SunGene Co., LTD. is registered in Taichung, Taiwan; our mainland operation is registered in Xiamen. We buy from vetted factories across both markets and resell directly to international buyers in packaging, home goods, and garden categories. Our team combines B2B export sales, factory operations, and supply chain logistics experience across the Greater China region.',
-      mission: 'We operate as a trading company — not a commission-based sourcing agent — for a specific structural reason: it puts the goods on our balance sheet. That single accounting fact changes the incentive structure. Rejecting a sub-spec batch becomes our own financial decision, not a courtesy we extend to you. Quality moves from "we will try" to "we have to".',
+      intro: 'SunGene is a sourcing partner with teams in Taichung (Taiwan) and Xiamen (Mainland China). We buy from vetted factories across both markets and ship to international buyers in packaging, home goods, garden and beauty categories. Our team combines B2B export sales, factory operations, and supply chain logistics experience across Greater China.',
+      mission: 'We act as principal — we buy the goods, then resell — which puts the goods on our balance sheet. That single accounting fact means rejecting a sub-spec batch is our own financial decision, not a courtesy we extend to you. Quality moves from "we will try" to "we have to".',
       stats: [
         { value: 'TW + CN', label: 'Dual operations' },
         { value: 'Verified', label: 'Alibaba.com supplier' },
         { value: 'USD 1,000', label: 'Order entry' },
-        { value: 'Zero', label: 'Factory kickbacks' },
+        { value: 'On every quote', label: 'Margin shown separately' },
       ],
       strengthsTitle: 'What sets SunGene apart',
       strengths: [
-        { title: 'Direct buy, not commission', desc: 'Commission agents earn on a factory price you never see. SunGene does not. We purchase at FOB or EXW from the factory and resell with our margin disclosed on top. The underlying factory price is available on request — full transparency, every quote.' },
+        { title: 'Factory price + our margin, shown separately', desc: 'Every quote lists the factory invoice line (FOB or EXW) and our margin on a second line. The underlying factory price is available on request before order confirmation. One number to compare, full breakdown when you need it.' },
         { title: 'On-site QC by our own team', desc: 'Inspection is performed by SunGene staff — not subcontracted to third-party agents who never set foot in the factory. We visit Taiwan factories directly and route China-origin goods through our forwarder warehouse for pre-export inspection. Photo and video documentation with every shipment.' },
         { title: 'Focused expertise across packaging, home and garden', desc: 'We invest depth into supplier relationships within packaging products, home goods, and garden categories rather than spreading thin across unrelated sectors. Adjacent categories are quoted on request when our supplier network reaches.' },
       ],
@@ -81,17 +81,17 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     cn: {
       kicker: '关于 SunGene',
       title: '一家把品质当成自己问题、不让您操心的贸易公司',
-      intro: 'SunGene 是一家台湾＋中国双主体的贸易公司。台湾公司 SunGene Co., LTD. 注册於台中；中国大陆事业体注册於厦门。我们直接向两地审核过的工厂采购，转手出货给海外买家，专精包装、家居与园艺三大品类。团队结合了 B2B 出口业务、工厂端运营、与大中华区供应链物流的实战经验。',
-      mission: '我们采用「贸易商」模式而非「抽佣代理」模式，有一个具体的结构性理由：贸易商模式让货走我们自己的帐。这一个会计事实就改变了诱因结构——挡下不合规的货，是我们自己的财务决定，不是给您的人情。品质从「我们尽量」变成「我们不得不」。',
+      intro: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。我们向两岸审核过的工厂采购、出货给海外买家,专精包装、家居、园艺、美容四大品类。团队结合 B2B 出口业务、工厂端运营、与大中华区供应链物流的实战经验。',
+      mission: '我们以 principal 身分买断再转售,货走我们自己的帐。这一个会计事实就改变了诱因结构——挡下不合规的货,是我们自己的财务决定。品质从「我们尽量」变成「我们不得不」。',
       stats: [
-        { value: '台湾＋中国', label: '双公司运营' },
+        { value: '台湾＋中国', label: '两岸都有人' },
         { value: '已认证', label: 'Alibaba.com 供应商' },
         { value: 'USD 1,000', label: '订单起接' },
-        { value: '零', label: '工厂红包' },
+        { value: '報價內', label: '利润分行列出' },
       ],
       strengthsTitle: 'SunGene 与众不同之处',
       strengths: [
-        { title: '直接买进卖出，不抽佣', desc: '抽佣代理是按您看不到的工厂报价抽成。SunGene 不抽佣。我们在 FOB 或 EXW 把货买下，加上揭露在外面的转售利润后卖给您。底下的工厂报价您随时可以问——每一笔报价都完全透明。' },
+        { title: '工厂价与我方利润分开列', desc: '每份报价单会把工厂发票线(FOB 或 EXW)与我方利润分两行列出。下单前您可要求看到工厂发票。一个数字便于比较,需要时随时拆解。' },
         { title: '团队亲自验货', desc: '验货由 SunGene 团队亲自执行——不外包给从没踏进工厂的第三方代理。台湾工厂直接到场验货；中国工厂出货先进我们合作货代的仓库，由我们出口前验货放行。每批附验货影片与照片。' },
         { title: '聚焦包装、家居与园艺的深度', desc: '我们把资源投在包装、家居与园艺这三大品类的供应商关系深耕，而不是散在不相关的领域。相邻品类只要我们的供应商网络可及，欢迎询价。' },
       ],
@@ -102,17 +102,17 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     zh: {
       kicker: '關於 SunGene',
       title: '一家把品質當成自己問題、不讓你操心的貿易公司',
-      intro: 'SunGene 是一家台灣＋中國雙主體的貿易公司。台灣公司 SunGene Co., LTD. 註冊於台中；中國大陸事業體註冊於廈門。我們直接向兩地審核過的工廠採購，轉手出貨給海外買家，專精包裝、家居與園藝三大品類。團隊結合了 B2B 出口業務、工廠端運營、與大中華區供應鏈物流的實戰經驗。',
-      mission: '我們採用「貿易商」模式而非「抽佣代理」模式，有一個具體的結構性理由：貿易商模式讓貨走我們自己的帳。這一個會計事實就改變了誘因結構——擋下不合規的貨，是我們自己的財務決定，不是給你的人情。品質從「我們盡量」變成「我們不得不」。',
+      intro: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。我們向兩岸審核過的工廠採購、出貨給海外買家,專精包裝、家居、園藝、美容四大品類。團隊結合 B2B 出口業務、工廠端運營、與大中華區供應鏈物流的實戰經驗。',
+      mission: '我們以 principal 身分買斷再轉售,貨走我們自己的帳。這一個會計事實就改變了誘因結構——擋下不合規的貨,是我們自己的財務決定。品質從「我們盡量」變成「我們不得不」。',
       stats: [
-        { value: '台灣＋中國', label: '雙公司運營' },
+        { value: '台灣＋中國', label: '兩岸都有人' },
         { value: '已認證', label: 'Alibaba.com 供應商' },
         { value: 'USD 1,000', label: '訂單起接' },
-        { value: '零', label: '工廠紅包' },
+        { value: '報價內', label: '利潤分行列出' },
       ],
       strengthsTitle: 'SunGene 與眾不同之處',
       strengths: [
-        { title: '直接買進賣出，不抽佣', desc: '抽佣代理是按你看不到的工廠報價抽成。SunGene 不抽佣。我們在 FOB 或 EXW 把貨買下，加上揭露在外面的轉售利潤後賣給你。底下的工廠報價你隨時可以問——每一筆報價都完全透明。' },
+        { title: '工廠價與我方利潤分開列', desc: '每份報價單會把工廠發票線(FOB 或 EXW)與我方利潤分兩行列出。下單前你可要求看到工廠發票。一個數字便於比較,需要時隨時拆解。' },
         { title: '團隊親自驗貨', desc: '驗貨由 SunGene 團隊親自執行——不外包給從沒踏進工廠的第三方代理。台灣工廠直接到場驗貨；中國工廠出貨先進我們合作貨代的倉庫，由我們出口前驗貨放行。每批附驗貨影片與照片。' },
         { title: '聚焦包裝、家居與園藝的深度', desc: '我們把資源投在包裝、家居與園藝這三大品類的供應商關係深耕，而不是散在不相關的領域。相鄰品類只要我們的供應商網絡可及，歡迎詢價。' },
       ],
@@ -123,7 +123,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     fr: {
       kicker: 'À PROPOS DE SUNGENE',
       title: "Une société de négoce conçue pour que la qualité soit notre problème, pas le vôtre",
-      intro: "SunGene est une société de négoce à double entité Taïwan-Chine. SunGene Co., LTD. est enregistrée à Taichung (Taïwan) ; notre entité opérationnelle continentale est enregistrée à Xiamen. Nous achetons auprès d'usines vérifiées dans les deux marchés et revendons en direct aux acheteurs internationaux sur les catégories emballage, maison et jardin. Notre équipe combine une expérience en vente export B2B, en opérations usine et en logistique de la chaîne d'approvisionnement à travers la région du Grand Chine.",
+      intro: "SunGene est un partenaire de sourcing avec des équipes à Taichung (Taïwan) et Xiamen (Chine continentale). Nous achetons auprès d'usines vérifiées des deux côtés et revendons aux acheteurs internationaux dans les catégories emballage, maison, jardin et beauté. Notre équipe combine vente export B2B, opérations usine et logistique chaîne d'approvisionnement à travers la Grande Chine.",
       mission: "Nous opérons en société de négoce — non en agent à la commission — pour une raison structurelle précise : la marchandise apparaît à notre bilan. Ce simple fait comptable change la structure des incitations. Refuser un lot hors spécification devient notre propre décision financière, pas une courtoisie que nous vous accordons. La qualité passe de « nous essaierons » à « nous devons ».",
       stats: [
         { value: 'TW + CN', label: 'Double opération' },
@@ -133,7 +133,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       ],
       strengthsTitle: 'Ce qui distingue SunGene',
       strengths: [
-        { title: "Achat-revente, pas de commission", desc: "Les agents à la commission gagnent sur un prix usine que vous ne voyez pas. SunGene non. Nous achetons en FOB ou EXW à l'usine et revendons avec notre marge clairement affichée. Le prix usine sous-jacent est communiqué sur simple demande — transparence complète à chaque devis." },
+        { title: 'Prix usine + notre marge, affichés séparément', desc: 'Chaque devis présente le prix usine (FOB ou EXW) et notre marge sur deux lignes distinctes. Le prix usine sous-jacent est communiqué sur demande avant confirmation. Un seul chiffre à comparer, ventilation complète sur demande.' },
         { title: 'Contrôle qualité par notre propre équipe', desc: "L'inspection est réalisée par le personnel SunGene — non sous-traitée à des agents tiers qui ne mettent jamais les pieds à l'usine. Nous visitons les usines taïwanaises directement et faisons transiter la marchandise d'origine chinoise par notre entrepôt transitaire pour inspection pré-export. Documentation photo et vidéo à chaque expédition." },
         { title: 'Expertise concentrée sur emballage, maison et jardin', desc: "Nous investissons en profondeur dans les relations fournisseurs au sein des catégories emballage, maison et jardin plutôt que de nous disperser sur des secteurs sans lien. Les catégories voisines sont chiffrées sur demande, dans la limite de notre réseau fournisseur." },
       ],
@@ -144,7 +144,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     es: {
       kicker: 'SOBRE SUNGENE',
       title: 'Una empresa comercial diseñada para que la calidad sea nuestro problema, no el suyo',
-      intro: 'SunGene es una empresa comercial con doble entidad Taiwán-China. SunGene Co., LTD. está registrada en Taichung (Taiwán); nuestra entidad operativa continental está registrada en Xiamen. Compramos a fábricas verificadas en ambos mercados y revendemos directamente a compradores internacionales en categorías de empaque, hogar y jardín. Nuestro equipo combina experiencia en ventas de exportación B2B, operaciones de fábrica y logística de cadena de suministro en toda la región de la Gran China.',
+      intro: 'SunGene es un socio de sourcing con equipos en Taichung (Taiwán) y Xiamen (China continental). Compramos a fábricas verificadas de ambos lados y revendemos a compradores internacionales en categorías de empaque, hogar, jardín y belleza. Nuestro equipo combina ventas export B2B, operaciones de fábrica y logística de cadena de suministro en toda la Gran China.',
       mission: 'Operamos como empresa comercial — no como agente a comisión — por una razón estructural concreta: la mercancía aparece en nuestro balance. Ese único hecho contable cambia la estructura de incentivos. Rechazar un lote fuera de especificación pasa a ser nuestra propia decisión financiera, no una cortesía hacia usted. La calidad cambia de "lo intentaremos" a "tenemos que".',
       stats: [
         { value: 'TW + CN', label: 'Operación dual' },
@@ -154,7 +154,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       ],
       strengthsTitle: 'Lo que distingue a SunGene',
       strengths: [
-        { title: 'Compra-reventa, no comisión', desc: 'Los agentes a comisión ganan sobre un precio de fábrica que usted no ve. SunGene no. Compramos FOB o EXW a la fábrica y revendemos con nuestro margen mostrado en la cotización. El precio de fábrica subyacente se comunica bajo petición — transparencia completa en cada cotización.' },
+        { title: 'Precio de fábrica + nuestra margen, por separado', desc: 'Cada cotización muestra el precio de fábrica (FOB o EXW) y nuestra margen en líneas separadas. El precio de fábrica subyacente está disponible bajo solicitud antes de confirmar. Un número para comparar, desglose completo bajo demanda.' },
         { title: 'Control de calidad por nuestro propio equipo', desc: 'La inspección la realiza personal de SunGene — no se subcontrata a agentes terceros que nunca pisan la fábrica. Visitamos las fábricas en Taiwán directamente y enrutamos la mercancía de origen chino a través de nuestro almacén transitario para inspección previa a la exportación. Documentación fotográfica y de video con cada envío.' },
         { title: 'Experiencia concentrada en empaque, hogar y jardín', desc: 'Invertimos en profundidad en relaciones con proveedores dentro de las categorías de empaque, hogar y jardín, en lugar de dispersarnos en sectores no relacionados. Las categorías vecinas se cotizan bajo petición, dentro del alcance de nuestra red de proveedores.' },
       ],

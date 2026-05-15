@@ -35,11 +35,11 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Taiwan + China dual-entity trading company. Direct FOB/EXW factory buying, on-site QC, transparent margin, no kickbacks. Alibaba 5★ verified supplier.',
-  cn: 'SunGene 是一家台湾＋中国双主体的贸易公司。我们以 FOB 或 EXW 直接采购，转手出货给海外买家。亲自验货、不收红包、报价透明。Alibaba.com 认证供应商。',
-  zh: 'SunGene 是一家台灣＋中國雙主體的貿易公司。我們以 FOB 或 EXW 直接採購，轉手出貨給海外買家。親自驗貨、不收紅包、報價透明。Alibaba.com 認證供應商。',
-  fr: "Société de négoce Taïwan + Chine. Achat FOB/EXW direct usine, CQ sur place, marge transparente, sans commission occulte. Alibaba 5★ vérifié.",
-  es: 'Empresa comercial Taiwán + China. Compra FOB/EXW directa de fábrica, QC en sitio, margen transparente, sin comisiones ocultas. Alibaba 5★ verificado.',
+  en: 'Sourcing partner with teams in Taichung and Xiamen. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on every quote. Alibaba 5★.',
+  cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。Alibaba 5 星认证。',
+  zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。Alibaba 5 星認證。',
+  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Alibaba 5★.",
+  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Alibaba 5★.',
   pt: 'Sourcing de equipamentos via Taiwan e China: avaliação de fornecedores, critérios de aceitação, FAT, documentação e logística de exportação.',
   ko: '대만과 중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, FAT, 문서 및 수출 물류로 리스크를 줄입니다.',
   ja: '台湾と中国の供給網で設備を調達：サプライヤー審査、受入基準、FAT、書類、輸出物流まで支援します。',
@@ -65,9 +65,9 @@ const heroKicker: Record<string, string> = {
 }
 
 const heroTitles: Record<string, string> = {
-  en: 'Direct buy-and-resell, not a commission on top of a factory quote',
-  cn: '直接买进卖出——不是在工厂报价上抽佣的代理',
-  zh: '直接買進賣出——不是在工廠報價上抽佣的代理',
+  en: 'Factory price + our margin, shown separately on the quote',
+  cn: '工厂价 + 我方利润,报价单分行列出',
+  zh: '工廠價 + 我方利潤,報價單分行列出',
   fr: "Achat-revente direct — pas une commission ajoutée à un devis d'usine",
   es: 'Compra-reventa directa — no una comisión sobre un precio de fábrica',
   pt: 'Rede Taiwan + China, com entrega controlada por critérios de aceitação',

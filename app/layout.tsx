@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata = {
   title: 'SunGene | Taiwan + China sourcing partner for packaging, home & garden brands',
-  description: 'Taiwan–China dual-office trading company. We buy from vetted factories and resell direct — on-site QC, no factory kickbacks, transparent quotes. Three years on Alibaba.com. MOQ USD 1,000.',
+  description: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories for packaging, home, garden and beauty brands. On-site QC. Alibaba 5-star verified. MOQ USD 1,000.',
   keywords: ['Taiwan sourcing partner', 'China sourcing agent', 'packaging sourcing', 'home goods sourcing', 'garden products sourcing', 'Alibaba supplier', 'factory inspection'],
 }
 

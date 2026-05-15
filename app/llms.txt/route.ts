@@ -14,10 +14,10 @@ export async function GET() {
 - Verified Alibaba.com storefront: https://momas.en.alibaba.com/ (active 3 years; star rating fluctuates 3–5 stars by period — public, can be checked live)
 
 ## What SunGene Is (one line)
-SunGene is a Taiwan-China dual-entity trading company. We buy from vetted factories across Taiwan and mainland China and resell direct to international buyers in packaging, home goods, and garden categories.
+SunGene is a sourcing partner with teams in Taichung (Taiwan) and Xiamen (Mainland China). We buy from vetted factories across both markets and ship to international buyers in packaging, home goods, garden and beauty categories.
 
 ## Business Model: Trader, Not Agent
-SunGene operates as a trading company, not a commission-based sourcing agent. This means:
+How pricing works:
 - We purchase goods from the factory at FOB or EXW (we own the goods)
 - We resell to the buyer with our margin disclosed on top — no commission hidden inside the factory price
 - The underlying FOB or EXW factory price is communicated on request

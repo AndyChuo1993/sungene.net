@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
   const baseUrl = SITE_URL
   const title = 'SunGene | Taiwan + China sourcing partner — packaging, home, garden, beauty'
-  const description = 'Taiwan + China dual-entity trading company. Direct-buy sourcing of packaging, home goods, garden, and beauty products from vetted factories. On-site QC. Verified Alibaba 5-star supplier.'
+  const description = 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories for packaging, home, garden and beauty brands. Transparent quotes, on-site QC, Alibaba 5-star verified.'
 
   return {
     metadataBase: new URL(baseUrl),

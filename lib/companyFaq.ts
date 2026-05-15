@@ -12,7 +12,7 @@ type Faq = { q: string; a: string }
 
 export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   en: [
-    { q: 'Where is SunGene located?', a: 'SunGene Co., LTD. is a dual-entity trading company headquartered in Taichung, Taiwan, with a registered office in Xiamen, Mainland China. The dual-entity setup lets us buy direct on both sides of the Taiwan Strait and consolidate shipments to a single container.' },
+    { q: 'Where is SunGene located?', a: 'SunGene Co., LTD. is headquartered in Taichung, Taiwan, with a team on the ground in Xiamen, Mainland China. Two offices means we can buy direct from factories on either side of the strait and consolidate everything into a single container.' },
     { q: 'What does SunGene source?', a: 'Packaging materials (cartons, mailer boxes, pouches, custom-print packaging), home goods (kitchen, dining, storage, organization), garden products (planters, outdoor furniture, tools, decor), and beauty products (cosmetic packaging, beauty tools, private-label-ready SKUs).' },
     { q: 'What is the minimum order quantity?', a: 'MOQ is USD 1,000 per shipment. You can mix categories — packaging, home, garden, beauty — within one consolidated order. Larger orders unlock lower factory pricing and dedicated container loading.' },
     { q: 'What is the typical lead time?', a: 'Stock SKUs: 7–14 days to ship. Custom-print packaging: 25–35 days. Private-label home/garden/beauty: 35–55 days. Sea freight to most ports: 18–35 days.' },
@@ -21,10 +21,10 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
     { q: 'Does SunGene offer customization?', a: 'Yes. Custom-print packaging, OEM/ODM branding, dimensional customization, material selection (eco-friendly, food-grade, premium retail), and Pantone color matching are supported. Tooling and sample lead times vary by category.' },
     { q: 'Which countries does SunGene export to?', a: 'SunGene exports to over 40 countries across North America, Europe, Latin America, Southeast Asia, Middle East, Africa, and Oceania. Export documentation (CE, FDA, REACH, RoHS, FSC, country-of-origin certificates) is coordinated per category and destination.' },
     { q: 'How is quality control handled?', a: 'Our own team in Taiwan and China visits the factory before shipment. We send photo and video inspection reports before container loading. AQL-based sampling on every order. No reliance on third-party inspection unless you request it.' },
-    { q: 'Why work with SunGene instead of buying direct on Alibaba?', a: 'We are a verified 5-star supplier on Alibaba ourselves — we know how the platform works from the seller side. We negotiate factory prices directly, take no kickbacks, handle on-site QC, and consolidate multiple suppliers into one shipment. You get factory pricing + a partner who answers same-day in your timezone.' },
+    { q: 'Why work with SunGene instead of buying direct on Alibaba?', a: 'We are a verified 5-star supplier on Alibaba ourselves — we know how the platform works from the seller side. We negotiate factory prices directly, handle on-site QC, and consolidate multiple suppliers into one shipment. Factory price and our margin are shown separately on every quote. One contact who answers same-day in your timezone.' },
   ],
   zh: [
-    { q: 'SunGene 在哪裡？', a: 'SunGene Co., LTD.（上瑾錸有限公司）是一家雙實體貿易公司——總部在台灣台中,中國大陸廈門設有公司。雙實體配置讓我們可以在海峽兩岸直接採購,並整併到一個貨櫃出口。' },
+    { q: 'SunGene 在哪裡？', a: 'SunGene Co., LTD.(上瑾錸有限公司)總部在台灣台中,中國大陸廈門設有團隊。兩地都有人可以直接到工廠採購,並把多個供應商合併到一個貨櫃出口。' },
     { q: 'SunGene 做什麼採購？', a: '包裝材料（紙箱、郵寄盒、軟包、客製印刷包裝）、家居用品（廚房、餐具、收納）、園藝戶外（盆器、戶外家具、工具、裝飾）、美容包材（化妝品包裝、美容工具、可貼牌成品）。' },
     { q: '最小訂購量是多少？', a: '單批訂單 MOQ USD 1,000。可在一次合併出貨中混搭品類——包裝、家居、園藝、美容。訂單越大,工廠價格越優、貨櫃裝載也越專屬。' },
     { q: '一般交期多久？', a: '現貨 SKU:7–14 天可出。客製印刷包裝:25–35 天。家居/園藝/美容貼牌:35–55 天。海運到多數港口:18–35 天。' },
@@ -36,7 +36,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
     { q: '為什麼不自己上 Alibaba 採購就好？', a: '我們本身就是 Alibaba 的 5 星認證供應商——我們從賣方視角熟悉平台運作。直接議價、不收回扣、到廠驗貨、把多個供應商整併成一個貨櫃。客戶拿到的是工廠價,加上一位在你時區當日回覆的合作夥伴。' },
   ],
   cn: [
-    { q: 'SunGene 在哪里？', a: 'SunGene Co., LTD.（上瑾錸有限公司）是一家双实体贸易公司——总部在台湾台中,中国大陆厦门设有公司。双实体配置让我们可以在海峡两岸直接采购,并合并到一个货柜出口。' },
+    { q: 'SunGene 在哪里？', a: 'SunGene Co., LTD.(上瑾錸有限公司)总部在台湾台中,中国大陆厦门设有团队。两地都有人可以直接到工厂采购,并把多个供应商合并到一个货柜出口。' },
     { q: 'SunGene 做什么采购？', a: '包装材料（纸箱、邮寄盒、软包、定制印刷包装）、家居用品（厨房、餐具、收纳）、园艺户外（盆器、户外家具、工具、装饰）、美容包材（化妆品包装、美容工具、可贴牌成品）。' },
     { q: '最小订购量是多少？', a: '单批订单 MOQ USD 1,000。可在一次合并出货中混搭品类——包装、家居、园艺、美容。订单越大,工厂价格越优、货柜装载也越专属。' },
     { q: '一般交期多久？', a: '现货 SKU:7–14 天可出。定制印刷包装:25–35 天。家居/园艺/美容贴牌:35–55 天。海运到多数港口:18–35 天。' },
@@ -69,7 +69,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
     { q: '¿SunGene ofrece personalización?', a: 'Sí. Empaque impreso personalizado, marca blanca OEM/ODM, dimensiones a medida, selección de material (eco, grado alimentario, retail premium), correspondencia Pantone. Plazos de troquel/muestra varían por categoría.' },
     { q: '¿A qué países exporta SunGene?', a: 'Exportamos a más de 40 países — Norteamérica, Europa, Latinoamérica, Sudeste Asiático, Medio Oriente, África, Oceanía. Documentación de exportación (CE, FDA, REACH, RoHS, FSC, certificado de origen) coordinada por categoría y destino.' },
     { q: '¿Cómo se gestiona la calidad?', a: 'Nuestro propio equipo en Taiwán y China visita la fábrica antes del envío. Reportes de inspección foto + video antes de cargar el contenedor. Muestreo AQL en cada orden. Inspección externa solo a solicitud.' },
-    { q: '¿Por qué trabajar con SunGene en vez de comprar directo en Alibaba?', a: 'Nosotros somos proveedor verificado 5 estrellas en Alibaba — conocemos la plataforma desde el lado del vendedor. Negociamos precio de fábrica, sin comisiones encubiertas, hacemos QC en sitio y consolidamos múltiples proveedores en un contenedor. Usted obtiene precio de fábrica y un socio que responde el mismo día en su zona horaria.' },
+    { q: '¿Por qué trabajar con SunGene en vez de comprar directo en Alibaba?', a: 'Somos proveedor verificado 5 estrellas en Alibaba — conocemos la plataforma desde el lado del vendedor. Negociamos precio de fábrica, hacemos QC en sitio y consolidamos múltiples proveedores en un contenedor. Precio de fábrica y nuestra margen mostrados por separado en cada cotización. Un contacto que responde el mismo día en su zona horaria.' },
   ],
   pt: [
     { q: 'Onde fica a SunGene?', a: 'SunGene Co., LTD. é uma empresa comercial de dupla entidade — sede em Taichung (Taiwan) e escritório registrado em Xiamen (China continental).' },

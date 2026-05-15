@@ -295,7 +295,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
     },
     zh: {
       metaTitle: '家居用品採購｜台灣 + 中國工廠',
-      metaDescription: '直接從台灣與中國審核過的工廠採購廚具、餐具、收納、家飾與生活小物。團隊親自驗貨、不收紅包、報價透明。訂單 USD 1,000 起接。',
+      metaDescription: '從台灣與中國大陸審核過的工廠採購廚具、餐具、收納、家飾與生活小物。團隊親自驗貨,報價單上工廠價與我方利潤分開列出。MOQ USD 1,000。',
       kicker: '家居用品採購',
       h1: '台灣與中國工廠的家居廚房用品採購',
       intro: 'SunGene 直接向台灣與中國審核過的工廠採購廚房、餐桌、家飾與收納產品。以 FOB 或 EXW 在工廠把貨買下、轉手以 SunGene Co., LTD. 名義出貨給你——你獲得的服務與包裝品類客戶相同：團隊親自驗貨、報價透明、工廠價可揭露。',
@@ -337,7 +337,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
     },
     cn: {
       metaTitle: '家居用品采购｜台湾 + 中国工厂',
-      metaDescription: '直接从台湾与中国核查过的工厂采购厨具、餐具、收纳、家饰与生活小物。团队亲自验货、不收红包、报价透明。订单 USD 1,000 起接。',
+      metaDescription: '从台湾与中国大陆核查过的工厂采购厨具、餐具、收纳、家饰与生活小物。团队亲自验货,报价单上工厂价与我方利润分开列出。MOQ USD 1,000。',
       kicker: '家居用品采购',
       h1: '台湾与中国工厂的家居厨房用品采购',
       intro: 'SunGene 直接向台湾与中国核查过的工厂采购厨房、餐桌、家饰与收纳产品。以 FOB 或 EXW 在工厂把货买下、转手以 SunGene Co., LTD. 名义出货给您——您获得的服务与包装品类客户相同：团队亲自验货、报价透明、工厂价可揭露。',
@@ -379,7 +379,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
     },
     fr: {
       metaTitle: 'Sourcing articles maison Taïwan + Chine',
-      metaDescription: "Cuisine, table, rangement, déco maison depuis usines Taïwan + Chine. CQ sur place, devis transparents, sans commission. MOQ 1 000 USD.",
+      metaDescription: "Cuisine, table, rangement, déco maison depuis usines Taïwan + Chine. CQ sur place, prix usine + marge affichés séparément. MOQ 1 000 USD.",
       kicker: 'SOURCING ARTICLES MAISON',
       h1: 'Sourcing maison & cuisine depuis Taïwan et Chine',
       intro: "SunGene achète articles cuisine, table, déco et rangement directement auprès d'usines vérifiées à Taïwan et en Chine. Nous achetons en FOB ou EXW et vous revendons sous SunGene Co., LTD. — même contrôle qualité sur place, mêmes devis transparents, même divulgation prix usine sur demande que pour nos clients emballage.",
@@ -468,7 +468,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       metaDescription: 'Garden tools, planters, watering cans, hose accessories and patio items from Taiwan + China factories. On-site QC. MOQ USD 1,000.',
       kicker: 'GARDEN & OUTDOOR SOURCING',
       h1: 'Garden tools & outdoor goods sourcing from Taiwan & China',
-      intro: 'SunGene sources garden, planter, watering, and patio products directly from vetted Taiwan and China factories. We are a trading company — we buy and resell direct under SunGene Co., LTD., with on-site QC, no factory kickbacks, and transparent pricing on every quote.',
+      intro: 'SunGene sources garden, planter, watering, and patio products directly from vetted Taiwan and Mainland China factories. We act as principal, buying and reselling under SunGene Co., LTD., with on-site QC and factory price + our margin shown separately on every quote.',
       productGroupTitle: 'Garden & outdoor product groups',
       productGroups: [
         { title: 'Garden tools', items: ['Pruning shears (bypass, anvil, ratchet)', 'Loppers and long-reach pruners', 'Hand trowels and cultivators', 'Garden gloves (latex, nitrile, leather)', 'Weeders and hand cultivators', 'Garden knives and harvesting tools'] },
@@ -510,7 +510,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       metaDescription: '直接從台灣與中國審核過的工廠採購園藝工具、花盆、灑水壺、水管配件與戶外用品。團隊親自驗貨、報價透明。訂單 USD 1,000 起接。',
       kicker: '園藝與戶外採購',
       h1: '台灣與中國工廠的園藝工具與戶外用品採購',
-      intro: 'SunGene 直接向台灣與中國審核過的工廠採購園藝、花盆、澆灌與戶外用品。我們是貿易公司——以 SunGene Co., LTD. 名義買進賣出，現場親自驗貨、不收工廠紅包、每筆報價透明。',
+      intro: 'SunGene 向台灣與中國大陸審核過的工廠採購園藝、花盆、澆灌與戶外用品。我們以 SunGene Co., LTD. 為主體買斷再轉售,現場親自驗貨,報價單上工廠價與我方利潤分開列出。',
       productGroupTitle: '園藝與戶外產品群',
       productGroups: [
         { title: '園藝工具', items: ['修剪剪（旁路、平砧、棘輪）', '長柄修枝剪', '手鏟與培土器', '園藝手套（乳膠、丁腈、皮革）', '除草工具與小耙', '園藝刀與採收工具'] },
@@ -552,7 +552,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       metaDescription: '直接从台湾与中国核查过的工厂采购园艺工具、花盆、洒水壶、水管配件与户外用品。团队亲自验货、报价透明。订单 USD 1,000 起接。',
       kicker: '园艺与户外采购',
       h1: '台湾与中国工厂的园艺工具与户外用品采购',
-      intro: 'SunGene 直接向台湾与中国核查过的工厂采购园艺、花盆、浇灌与户外用品。我们是贸易公司——以 SunGene Co., LTD. 名义买进卖出，现场亲自验货、不收工厂红包、每笔报价透明。',
+      intro: 'SunGene 向台湾与中国大陆核查过的工厂采购园艺、花盆、浇灌与户外用品。我们以 SunGene Co., LTD. 为主体买断再转售,现场亲自验货,报价单上工厂价与我方利润分开列出。',
       productGroupTitle: '园艺与户外产品群',
       productGroups: [
         { title: '园艺工具', items: ['修剪剪（旁路、平砧、棘轮）', '长柄修枝剪', '手铲与培土器', '园艺手套（乳胶、丁腈、皮革）', '除草工具与小耙', '园艺刀与采收工具'] },
@@ -594,7 +594,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
       metaDescription: "Outils de jardin, jardinières, arrosoirs, accessoires tuyau et patio — usines Taïwan + Chine, CQ sur place, MOQ 1 000 USD.",
       kicker: 'SOURCING JARDIN & EXTÉRIEUR',
       h1: 'Sourcing outils jardin & extérieur depuis Taïwan et Chine',
-      intro: "SunGene achète articles jardin, jardinières, arrosage et patio directement auprès d'usines vérifiées à Taïwan et en Chine. Nous sommes une société de négoce — nous achetons et revendons sous SunGene Co., LTD., avec contrôle qualité sur place, sans commission occulte, et tarification transparente sur chaque devis.",
+      intro: "SunGene source articles jardin, jardinières, arrosage et patio directement auprès d'usines vérifiées à Taïwan et en Chine continentale. Nous achetons et revendons sous SunGene Co., LTD., avec CQ sur place et prix usine + notre marge affichés séparément sur chaque devis.",
       productGroupTitle: 'Groupes de produits jardin & extérieur',
       productGroups: [
         { title: 'Outils de jardin', items: ['Sécateurs (bypass, enclume, à crémaillère)', 'Élagueurs et coupe-branches longs', 'Truelles et cultivateurs main', 'Gants jardin (latex, nitrile, cuir)', 'Désherbeurs et binettes', 'Couteaux de jardin et outils de récolte'] },
