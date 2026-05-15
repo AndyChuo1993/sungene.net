@@ -1,3 +1,11 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Page not found | SunGene',
+  description: 'The page you requested could not be found.',
+  robots: { index: false, follow: true },
+}
+
 import Link from 'next/link'
 import { headers } from 'next/headers'
 

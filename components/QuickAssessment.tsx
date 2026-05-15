@@ -6,7 +6,7 @@ import { trackEvent, trackFormSubmitFail, trackFormSubmitSuccess } from '@/lib/a
 type Props = {
   lang: Lang
   context: string
-  source?: 'machine' | 'market' | 'industry' | 'resource' | 'quote' | 'sourcing'
+  source?: string
 }
 
 const labels: Record<

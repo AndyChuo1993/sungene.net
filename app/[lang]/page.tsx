@@ -550,8 +550,8 @@ export default async function Page({ params }: PageParams) {
       },
     ],
     contactPoint: [
-      { '@type': 'ContactPoint', telephone: '+886-4-37032705', contactType: 'sales', areaServed: 'Worldwide', availableLanguage: ['English', 'Chinese', 'French', 'Spanish'], email: 'contact@sungene.net' },
-      { '@type': 'ContactPoint', telephone: '+86-18144132078', contactType: 'sales', areaServed: 'China', contactOption: 'WhatsApp, WeChat, LINE' },
+      { '@type': 'ContactPoint', telephone: '+886437032705', contactType: 'sales', areaServed: 'Worldwide', availableLanguage: ['English', 'Chinese', 'French', 'Spanish'], email: 'contact@sungene.net' },
+      { '@type': 'ContactPoint', telephone: '+8618144132078', contactType: 'sales', areaServed: 'China', contactOption: 'WhatsApp, WeChat, LINE' },
     ],
   }
 

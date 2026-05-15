@@ -11,6 +11,9 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { COMPANY_FAQS } from '@/lib/companyFaq'
 
+// About content changes rarely — let Next cache the SSR result for 1 day.
+export const revalidate = 86400
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   const l = normalizeLang(lang)
@@ -351,7 +354,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       addressCountry: 'TW',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 24.1433, longitude: 120.6845 },
-    telephone: '+886-4-3703-2705',
+    telephone: '+886437032705',
     email: 'contact@sungene.net',
     knowsAbout: [
       'Packaging Sourcing', 'Home Goods Sourcing', 'Garden Products Sourcing',

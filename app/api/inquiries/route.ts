@@ -304,7 +304,7 @@ async function sendAckEmail(args: {
 
   const ackSubj = `We received your inquiry (Ref: ${id}) | 已收到您的詢價（${id}）`
   const contactEmail = 'contact@sungene.net'
-  const contactPhone = '+886 4 3703 2705'
+  const contactPhone = '+886 4-3703-2705'
   const contactWhatsApp = '+86 18144132078'
   const contactLine = '@sungene'
   const ackText =

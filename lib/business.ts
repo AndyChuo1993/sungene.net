@@ -6,8 +6,8 @@ export const BRAND = {
   legalName: 'SunGene Co., LTD.',
   alternateName: '上瑾錸有限公司',
   description: 'SunGene is a sourcing partner with teams in Taichung (Taiwan) and Xiamen (Mainland China). We buy from vetted factories on both sides and ship to international buyers in packaging, home goods, garden and beauty categories. Verified Alibaba 5-star supplier with on-site QC by our own team and margin shown separately on every quote.',
-  telephoneTW: '+886-4-37032705',
-  telephoneCN: '+86-18144132078',
+  telephoneTW: '+886437032705',
+  telephoneCN: '+8618144132078',
   email: 'contact@sungene.net',
   foundingDate: '2023',
   sameAs: [

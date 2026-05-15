@@ -5,6 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
+import QuickAssessment from '@/components/QuickAssessment'
 import { PHOTO } from '@/lib/photoLibrary'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
@@ -464,7 +465,7 @@ const CONTENT: Record<Category, Partial<Record<Lang, CategoryContent>>> = {
   },
   garden: {
     en: {
-      metaTitle: 'Garden & Outdoor Goods Sourcing from Taiwan + China',
+      metaTitle: 'Garden Sourcing from Taiwan + China',
       metaDescription: 'Garden tools, planters, watering cans, hose accessories and patio items from Taiwan + China factories. On-site QC. MOQ USD 1,000.',
       kicker: 'GARDEN & OUTDOOR SOURCING',
       h1: 'Garden tools & outdoor goods sourcing from Taiwan & China',
@@ -1064,6 +1065,13 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
               </details>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* Inline Quick Request form — reduces friction vs navigating to /contact */}
+      <section className="bg-white py-12 sm:py-16">
+        <Container className="max-w-3xl">
+          <QuickAssessment lang={l} context={`sourcing-${cat}`} source={`sourcing-${cat}`} />
         </Container>
       </section>
 
