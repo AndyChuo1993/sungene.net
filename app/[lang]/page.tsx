@@ -474,10 +474,10 @@ export default async function Page({ params }: PageParams) {
     description: s.listDesc,
     numberOfItems: 5,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: s.categories.packaging, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#packaging`, url: `${SITE_URL}/${safeLang}/sourcing#packaging`, name: s.categories.packaging } },
-      { '@type': 'ListItem', position: 2, name: s.categories.food, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#home`, url: `${SITE_URL}/${safeLang}/sourcing#home`, name: s.categories.food } },
-      { '@type': 'ListItem', position: 3, name: s.categories.filling, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#beauty`, url: `${SITE_URL}/${safeLang}/sourcing#beauty`, name: s.categories.filling } },
-      { '@type': 'ListItem', position: 4, name: s.categories.conveying, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing#garden`, url: `${SITE_URL}/${safeLang}/sourcing#garden`, name: s.categories.conveying } },
+      { '@type': 'ListItem', position: 1, name: s.categories.packaging, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/packaging`, url: `${SITE_URL}/${safeLang}/sourcing/packaging`, name: s.categories.packaging } },
+      { '@type': 'ListItem', position: 2, name: s.categories.food, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/home`, url: `${SITE_URL}/${safeLang}/sourcing/home`, name: s.categories.food } },
+      { '@type': 'ListItem', position: 3, name: s.categories.filling, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/beauty`, url: `${SITE_URL}/${safeLang}/sourcing/beauty`, name: s.categories.filling } },
+      { '@type': 'ListItem', position: 4, name: s.categories.conveying, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing/garden`, url: `${SITE_URL}/${safeLang}/sourcing/garden`, name: s.categories.conveying } },
       { '@type': 'ListItem', position: 5, name: s.categories.custom, item: { '@type': 'WebPage', '@id': `${SITE_URL}/${safeLang}/sourcing`, url: `${SITE_URL}/${safeLang}/sourcing`, name: s.categories.custom } },
     ]
   }
