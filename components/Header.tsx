@@ -92,7 +92,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<div className="h-9 w-28 rounded-lg bg-gray-100 animate-pulse" />}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
-            <ButtonLink href={`/${lang}/assessment`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
+            <ButtonLink href={`/${lang}/contact`} size="sm" className="bg-accent-600 text-white shadow-md shadow-accent-700/25 hover:bg-accent-700">
               {t(lang, 'nav_free_analysis')}
             </ButtonLink>
           </div>

@@ -296,10 +296,10 @@ export default async function RouteHubPage({ params }: { params: Promise<{ lang:
 
   const guides = getResourceArticlesByMachine(m, l, 32)
   const title = `${machineLabel[l][m]} ${t.titleSuffix}`
-  const machineHref = `/${l}/machines/${m}`
-  const recommendHref = `/${l}/assessment`
+  const machineHref = `/${l}/sourcing/packaging`
+  const recommendHref = `/${l}/contact`
   const contactHref = `/${l}/contact`
-  const quoteHref = `/${l}/quote/${m}`
+  const quoteHref = `/${l}/contact/${m}`
   const pageUrl = `${SITE_URL}/${l}/resources/route/${s}`
   const itemListId = `${pageUrl}#itemlist`
 

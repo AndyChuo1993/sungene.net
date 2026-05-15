@@ -450,7 +450,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
             <h2 className="text-2xl font-bold text-white sm:text-3xl">{cta.heading}</h2>
             <p className="mt-3 text-base text-brand-200 sm:text-lg">{cta.body}</p>
             <div className="mt-8">
-              <ButtonLink href={`/${lang}/assessment`} size="lg">{cta.btn}</ButtonLink>
+              <ButtonLink href={`/${lang}/contact`} size="lg">{cta.btn}</ButtonLink>
             </div>
           </div>
         </Container>

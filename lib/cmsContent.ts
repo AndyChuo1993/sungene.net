@@ -228,9 +228,9 @@ export function buildCaseStudySchema(cs: CaseStudy) {
     ...(cs.machine_slug ? {
       about: {
         '@type': 'Product',
-        '@id': `${SITE_URL}/en/machines/${cs.machine_slug}#product`,
+        '@id': `${SITE_URL}/en/sourcing/packaging#service`,
         name: cs.machine_slug,
-        url: `${SITE_URL}/en/machines/${cs.machine_slug}`,
+        url: `${SITE_URL}/en/sourcing/packaging`,
       },
     } : {}),
     ...(cs.country ? { locationCreated: { '@type': 'Country', name: cs.country } } : {}),

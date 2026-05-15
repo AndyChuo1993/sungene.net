@@ -5,7 +5,6 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import MachineQuickLinks from '@/components/MachineQuickLinks'
 import CopyBlock from '@/components/CopyBlock'
 import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_DEFAULT_PUBLISHED_AT, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
@@ -423,17 +422,15 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
     isPartOf: { '@type': 'CollectionPage', '@id': `${SITE_URL}/${l}/resources`, name: 'Industrial Sourcing Guides' },
     about: article.relatedMachine ? {
-      '@type': 'Product',
-      '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+      '@type': 'Service', '@id': `${SITE_URL}/${l}/sourcing/packaging#service`,
       name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
-      url: `${SITE_URL}/${l}/machines/${article.relatedMachine}`,
+      url: `${SITE_URL}/${l}/sourcing/packaging`,
     } : undefined,
     ...(article.relatedMachine ? {
       mentions: {
-        '@type': 'Product',
-        '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+        '@type': 'Service', '@id': `${SITE_URL}/${l}/sourcing/packaging#service`,
         name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
-        url: `${SITE_URL}/${l}/machines/${article.relatedMachine}`,
+        url: `${SITE_URL}/${l}/sourcing/packaging`,
         brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
       },
     } : {}),
@@ -494,8 +491,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
           step: steps,
           about: article.relatedMachine
             ? {
-                '@type': 'Product',
-                '@id': `${SITE_URL}/${l}/machines/${article.relatedMachine}#product`,
+                '@type': 'Service', '@id': `${SITE_URL}/${l}/sourcing/packaging#service`,
                 name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],
               }
             : undefined,
@@ -534,7 +530,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
 
   const relatedItems = relatedMachine ? [
     {
-      href: `/${l}/machines/${relatedMachine}`,
+      href: `/${l}/sourcing/packaging`,
       label: (machineLabels[l] ?? machineLabels.en)[relatedMachine],
     },
     {
@@ -625,10 +621,9 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
               <div className="rounded-xl border border-accent-200 bg-accent-50 p-6">
                 <h3 className="text-base font-bold text-brand-950">{i18n.sidebarCtaTitle}</h3>
                 <p className="mt-2 text-sm text-gray-600">{i18n.sidebarCtaBody}</p>
-                <ButtonLink href={`/${l}/assessment`} variant="primary" size="sm" className="mt-4 w-full justify-center">
+                <ButtonLink href={`/${l}/contact`} variant="primary" size="sm" className="mt-4 w-full justify-center">
                   {i18n.sidebarCtaBtn}
                 </ButtonLink>
-                {relatedMachine ? <MachineQuickLinks lang={l} machine={relatedMachine} /> : null}
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
@@ -640,7 +635,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
                     </li>
                   ))}
                   <li>
-                    <a href={`/${l}/machinery`} className="text-accent-600 hover:underline">{t.viewAll}</a>
+                    <a href={`/${l}/sourcing`} className="text-accent-600 hover:underline">{t.viewAll}</a>
                   </li>
                 </ul>
               </div>

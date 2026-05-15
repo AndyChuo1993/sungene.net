@@ -33,17 +33,13 @@ function inferMachineFromLegacyPath(path: string): string | null {
 
 function inferLegacyDestination(restPath: string): string {
   const s = restPath.toLowerCase()
-  const m = inferMachineFromLegacyPath(s)
-  if (m) return `/machines/${m}`
   if (s.startsWith('/blog') || s.startsWith('/services') || s.startsWith('/service')) return '/sourcing'
   if (s.includes('analysis') || s.includes('report')) return '/resources'
-  if (s.includes('service')) return '/sourcing'
-  if (s.includes('custom') || s.includes('oem') || s.includes('odm')) return '/machinery/custom'
-  if (s.includes('convey') || s.includes('automation') || s.includes('plc')) return '/machinery/conveying-automation'
-  if (s.includes('food') || s.includes('processing') || s.includes('fryer') || s.includes('roaster')) return '/machinery/food-processing'
-  if (s.includes('fill') || s.includes('sealing') || s.includes('cap') || s.includes('capping')) return '/machinery/filling-sealing'
-  if (s.includes('pack') || s.includes('wrap') || s.includes('shrink') || s.includes('carton')) return '/machinery/packaging'
-  return '/machinery'
+  if (s.includes('home') || s.includes('kitchen') || s.includes('houseware')) return '/sourcing/home'
+  if (s.includes('garden') || s.includes('outdoor') || s.includes('planter')) return '/sourcing/garden'
+  if (s.includes('beauty') || s.includes('cosmetic') || s.includes('skincare')) return '/sourcing/beauty'
+  if (s.includes('pack') || s.includes('box') || s.includes('carton') || s.includes('pouch') || s.includes('mailer')) return '/sourcing/packaging'
+  return '/sourcing'
 }
 
 function plain(status: number, body: string) {
@@ -88,12 +84,7 @@ function isAllowedNoLocalePath(pathname: string) {
   return (
     pathname === '/about' ||
     pathname === '/contact' ||
-    pathname === '/assessment' ||
     pathname === '/resources' ||
-    pathname === '/markets' ||
-    pathname === '/machinery' ||
-    pathname === '/industries' ||
-    pathname === '/solutions' ||
     pathname === '/sourcing'
   )
 }
@@ -266,7 +257,7 @@ export default function proxy(request: NextRequest) {
     restPath === '/markets/south-asia'
   ) {
     const lang = currentLang || defaultLocale
-    return NextResponse.redirect(new URL(`/${lang}/markets`, request.url), 308)
+    return NextResponse.redirect(new URL(`/${lang}/sourcing`, request.url), 308)
   }
 
   if (
@@ -290,7 +281,7 @@ export default function proxy(request: NextRequest) {
 
   if (searchParams.has('post_type') || searchParams.has('p')) {
     const lang = currentLang || defaultLocale
-    return NextResponse.redirect(new URL(`/${lang}/machinery`, request.url), 308)
+    return NextResponse.redirect(new URL(`/${lang}/sourcing`, request.url), 308)
   }
 
   if (
@@ -301,14 +292,7 @@ export default function proxy(request: NextRequest) {
     restPath === '/conveyor-system'
   ) {
     const lang = currentLang || defaultLocale
-    const map: Record<string, string> = {
-      '/pouch-packing-machine': '/machines/pouch-packing-machine',
-      '/powder-packaging-machine': '/machines/powder-filling-machine',
-      '/powder-filling-machine': '/machines/powder-filling-machine',
-      '/liquid-filling-machine': '/machines/liquid-filling-machine',
-      '/conveyor-system': '/machines/conveyor-system',
-    }
-    return NextResponse.redirect(new URL(`/${lang}${map[restPath]}`, request.url), 308)
+    return NextResponse.redirect(new URL(`/${lang}/sourcing/packaging`, request.url), 308)
   }
 
   // Query variants (e.g. /contact?service=…) use page-level canonical URLs without

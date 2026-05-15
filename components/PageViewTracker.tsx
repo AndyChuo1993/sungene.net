@@ -5,11 +5,11 @@ import { trackPageView } from '@/lib/analytics'
 
 function guessPageType(pathname: string) {
   if (pathname === '/' || pathname === '/en' || pathname === '/zh' || pathname === '/cn') return 'home'
-  if (pathname.includes('/quote')) return 'quote'
+  
   if (pathname.includes('/sourcing')) return 'sourcing'
   if (pathname.includes('/resources')) return 'resource'
-  if (pathname.includes('/machines')) return 'machine'
-  if (pathname.includes('/assessment')) return 'recommend'
+  
+  if (pathname.includes('/sourcing/')) return 'sourcing-category'
   if (pathname.includes('/contact')) return 'contact'
   return 'page'
 }

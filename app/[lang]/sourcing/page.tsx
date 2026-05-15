@@ -738,10 +738,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <ButtonLink href={`/${lang}/assessment?source=sourcing`} variant="primary" size="lg">
+              <ButtonLink href={`/${lang}/contact`} variant="primary" size="lg">
                 {primaryCta}
               </ButtonLink>
-              <ButtonLink href={`/${lang}/quote`} variant="secondary" size="lg">
+              <ButtonLink href={`/${lang}/contact`} variant="secondary" size="lg">
                 {secondaryCta}
               </ButtonLink>
               <ButtonLink href={`/${lang}/contact?source=sourcing`} variant="soft" size="lg">

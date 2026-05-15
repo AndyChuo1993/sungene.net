@@ -7,7 +7,7 @@ export default function HeroCtaWrapper({ lang, btnQuote, btnCatalog }: { lang: L
   return (
     <div className="mt-10 flex flex-wrap gap-4">
       <ButtonLink
-        href={`/${lang}/assessment`}
+        href={`/${lang}/contact`}
         size="lg"
         className="shadow-lg shadow-accent-700/30"
         onClick={() => trackMachineCtaClick({ product_cluster: 'general', cta_position: 'hero', cta_label: btnQuote, lang, page_type: 'home' })}

@@ -18,14 +18,6 @@ export default function Footer({ lang }: { lang: Lang }) {
     { href: `/${lang}/sourcing`, label: ({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos' } as Record<string, string>)[lang] || 'How we work' },
   ]
 
-  const machineLinks = [
-    { href: `/${lang}/machines/pouch-packing-machine`, label: ({ en: 'Pouch Packing Machine', cn: '袋装包装机', zh: '袋裝包裝機', fr: 'Machine d\'ensachage', es: 'Empacadora de bolsas', pt: 'Máquina de sachês', ko: '파우치 포장기', ja: 'パウチ包装機', ar: 'ماكينة تعبئة الأكياس', th: 'เครื่องแพ็กถุง', vi: 'Máy đóng gói túi', de: 'Beutelverpackungsmaschine' } as Record<string, string>)[lang] || 'Pouch Packing Machine' },
-    { href: `/${lang}/machines/powder-filling-machine`, label: ({ en: 'Powder Filling Machine', cn: '粉末灌装机', zh: '粉末充填機', fr: 'Remplisseuse poudre', es: 'Llenadora de polvo', pt: 'Envasadora de pó', ko: '분말 충전기', ja: '粉体充填機', ar: 'ماكينة تعبئة المساحيق', th: 'เครื่องบรรจุผง', vi: 'Máy chiết rót bột', de: 'Pulverfüllmaschine' } as Record<string, string>)[lang] || 'Powder Filling Machine' },
-    { href: `/${lang}/machines/liquid-filling-machine`, label: ({ en: 'Liquid Filling Machine', cn: '液体灌装机', zh: '液體充填機', fr: 'Remplisseuse liquide', es: 'Llenadora de líquido', pt: 'Envasadora de líquido', ko: '액체 충전기', ja: '液体充填機', ar: 'ماكينة تعبئة السوائل', th: 'เครื่องบรรจุของเหลว', vi: 'Máy chiết rót chất lỏng', de: 'Flüssigkeitsfüllmaschine' } as Record<string, string>)[lang] || 'Liquid Filling Machine' },
-    { href: `/${lang}/machines/snack-processing-line`, label: ({ en: 'Snack Processing Line', cn: '零食加工线', zh: '零食加工線', fr: 'Ligne snack', es: 'Línea de snacks', pt: 'Linha de snacks', ko: '스낵 가공 라인', ja: 'スナック加工ライン', ar: 'خط معالجة السناكات', th: 'ไลน์แปรรูปสแน็ก', vi: 'Dây chuyền snack', de: 'Snack-Produktionslinie' } as Record<string, string>)[lang] || 'Snack Processing Line' },
-    { href: `/${lang}/machines/conveyor-system`, label: ({ en: 'Conveyor System', cn: '输送带系统', zh: '輸送帶系統', fr: 'Système de convoyage', es: 'Sistema de transporte', pt: 'Sistema de transportadores', ko: '컨베이어 시스템', ja: 'コンベアシステム', ar: 'نظام السيور الناقلة', th: 'ระบบสายพานลำเลียง', vi: 'Hệ thống băng tải', de: 'Fördersystem' } as Record<string, string>)[lang] || 'Conveyor System' },
-  ]
-
   return (
     <footer className="bg-brand-950 text-white">
       {/* Main footer */}
@@ -94,7 +86,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <li><Link href={`/${lang}/about`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
               <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos' } as Record<string, string>)[lang] || 'How we work'}</Link></li>
               <li><Link href={`/${lang}/resources`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_resources')}</Link></li>
-              <li><Link href={`/${lang}/markets`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Export Markets', zh: '出口市場', cn: '出口市场', fr: 'Marchés export', es: 'Mercados de exportación' } as Record<string,string>)[lang] || 'Export Markets'}</Link></li>
+              <li><Link href={`/${lang}/sourcing`} className="text-sm text-gray-400 transition hover:text-white">{({ en: 'Export Markets', zh: '出口市場', cn: '出口市场', fr: 'Marchés export', es: 'Mercados de exportación' } as Record<string,string>)[lang] || 'Export Markets'}</Link></li>
               <li><Link href={`/${lang}/contact`} className="text-sm text-gray-400 transition hover:text-white">{t(lang, 'nav_contact')}</Link></li>
             </ul>
           </div>

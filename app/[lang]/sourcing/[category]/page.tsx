@@ -5,6 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
+import { PHOTO } from '@/lib/photoLibrary'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
@@ -960,6 +961,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
         kicker={c.kicker}
         title={c.h1}
         desc={c.intro}
+        image={{ src: PHOTO.categories[cat], alt: c.h1, priority: true, aspectClassName: 'aspect-[4/3]' }}
       />
 
       <section className="py-6 bg-white">

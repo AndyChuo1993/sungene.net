@@ -6,7 +6,7 @@ import { Lang } from '@/lib/i18n'
 export default function CTAButtonWrapper({ lang, label }: { lang: Lang; label: string }) {
   return (
     <ButtonLink
-      href={`/${lang}/assessment`}
+      href={`/${lang}/contact`}
       size="lg"
       onClick={() =>
         trackMachineCtaClick({

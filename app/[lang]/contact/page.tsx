@@ -319,6 +319,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         kicker={t.kicker}
         title={t.title}
         desc={t.desc}
+        image={{ src: PHOTO.pages.contact.hero, alt: 'Talk to our sourcing team', priority: true, aspectClassName: 'aspect-[4/3]' }}
       />
 
       <section className="py-12 sm:py-16 bg-gray-50">

@@ -166,7 +166,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
         </div>
         <div className="mt-12 text-center">
           <Link
-            href={`/${lang}/assessment`}
+            href={`/${lang}/contact`}
             className="inline-flex items-center gap-2 rounded-full bg-accent-600 px-8 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-700"
           >
             {({ en: 'Start Step 1 →', cn: '开始第一步 →', zh: '開始第一步 →', fr: 'Commencer l\'étape 1 →', es: 'Iniciar paso 1 →', pt: 'Iniciar etapa 1 →', ko: '1단계 시작 →', ja: 'ステップ1を始める →', ar: 'ابدأ الخطوة الأولى ←', th: 'เริ่มขั้นตอนที่ 1 →', vi: 'Bắt đầu bước 1 →', de: 'Schritt 1 starten →' } as Record<string, string>)[lang] || 'Start Step 1 →'}

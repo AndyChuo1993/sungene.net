@@ -5,6 +5,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+            {
+        protocol: 'https',
         hostname: 'lf-cdn.trae.ai',
         pathname: '/obj/**',
       },
@@ -49,7 +54,9 @@ const nextConfig = {
       { source: '/:lang/resources/topic/liquid-filling-machine', destination: '/:lang/resources/route/liquid-filling', permanent: true },
       { source: '/:lang/resources/topic/snack-processing-line', destination: '/:lang/resources/route/food-processing-line', permanent: true },
       { source: '/:lang/resources/topic/conveyor-system', destination: '/:lang/resources/route/conveying-automation', permanent: true },
-      { source: '/:lang/recommend', destination: '/:lang/assessment', permanent: true },
+      { source: '/:lang/recommend', destination: '/:lang/contact', permanent: true },
+      { source: '/:lang/assessment', destination: '/:lang/contact', permanent: true },
+      { source: '/:lang/assessment/:path*', destination: '/:lang/contact', permanent: true },
       // ── Repositioning redirects: machinery/solutions/industries/markets hubs
       // and machinery-specific landing pages now 308 → /sourcing or /contact.
       // These were holdovers from the previous machinery sales positioning.

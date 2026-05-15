@@ -1,102 +1,53 @@
-const BASE = '/photo-real/library'
+/**
+ * Curated Unsplash photography aligned with our trading/sourcing positioning.
+ * Container ports, warehouses, packaging materials, home/garden/beauty product imagery.
+ * All URLs use Unsplash CDN; ?w=1600&q=80&auto=format renders sharp WebP under Next/Image.
+ */
+const U = (id: string, w = 1600) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`
 
 export const PHOTO = {
-  home: {
-    hero: `${BASE}/hero/home.jpg`,
-    machineByProduct: [
-      `${BASE}/home/machine-by-product-01-powder.jpg`,
-      `${BASE}/home/machine-by-product-02-liquid.jpg`,
-      `${BASE}/home/machine-by-product-03-pouch.jpg`,
-      `${BASE}/home/machine-by-product-04-conveyor.jpg`,
-    ],
-    trustGallery: [
-      `${BASE}/home/trust-01-weld.jpg`,
-      `${BASE}/home/trust-02-plc.jpg`,
-      `${BASE}/home/trust-03-sealing.jpg`,
-      `${BASE}/home/trust-04-fat.jpg`,
-      `${BASE}/home/trust-05-crate.jpg`,
-      `${BASE}/home/trust-06-container.jpg`,
-      `${BASE}/home/trust-07-team.jpg`,
-      `${BASE}/home/trust-08-qc.jpg`,
-    ],
-    processThumbs: {
-      0: `${BASE}/home/process-01-requirements.jpg`,
-      1: `${BASE}/home/process-02-consultation.jpg`,
-      2: `${BASE}/home/process-03-quotation.jpg`,
-      3: `${BASE}/home/process-04-qc.jpg`,
-      4: `${BASE}/home/process-05-shipping.jpg`,
-    } as const,
-  },
   pages: {
+    home: {
+      hero: U('1494412519320-aa613dfb7738'),
+    },
     about: {
-      hero: `${BASE}/hero/about.jpg`,
+      hero: U('1553413077-190dd305871c'),
       gallery: [
-        `${BASE}/about/gallery-01-workshop.jpg`,
-        `${BASE}/about/gallery-02-assembly.jpg`,
-        `${BASE}/about/gallery-03-factoryline.jpg`,
-        `${BASE}/about/gallery-04-controlpanel.jpg`,
+        U('1494412519320-aa613dfb7738', 1200),
+        U('1565374395542-0ce18882c857', 1200),
+        U('1556761175-4b46a572b786', 1200),
+        U('1581094794329-c8112a89af12', 1200),
       ],
     },
     contact: {
-      hero: `${BASE}/hero/contact.jpg`,
-      formSide: `${BASE}/contact/form-side.jpg`,
+      hero: U('1577415124269-fc1140a69e91'),
+      formSide: U('1556761175-4b46a572b786', 1200),
     },
-    resources: {
-      hero: `${BASE}/hero/resources.jpg`,
-      cards: [
-        `${BASE}/resources/card-01-choose-machine.jpg`,
-        `${BASE}/resources/card-02-vffs.jpg`,
-        `${BASE}/resources/card-03-automation.jpg`,
-        `${BASE}/resources/card-04-import-shipping.jpg`,
-        `${BASE}/resources/card-05-voltage.jpg`,
-        `${BASE}/resources/card-06-supplier-audit.jpg`,
-      ],
-    },
-    industries: {
-      hero: `${BASE}/hero/industries.jpg`,
-      cards: [
-        `${BASE}/industries/card-01-powder.jpg`,
-        `${BASE}/industries/card-02-liquid.jpg`,
-        `${BASE}/industries/card-03-snack.jpg`,
-        `${BASE}/industries/card-04-food.jpg`,
-        `${BASE}/industries/card-05-industrial.jpg`,
-      ],
+    sourcing: {
+      hero: U('1542838132-92c53300491e'),
     },
     solutions: {
-      hero: `${BASE}/hero/solutions.jpg`,
+      hero: U('1542838132-92c53300491e'),
+    },
+    resources: {
+      hero: U('1568992687947-868a62a9f521'),
     },
   },
-  machinery: {
-    catalogHero: `${BASE}/hero/machinery-catalog.jpg`,
-    categoryPhotos: [
-      `${BASE}/machinery/category-01-packaging.jpg`,
-      `${BASE}/machinery/category-02-food-processing.jpg`,
-      `${BASE}/machinery/category-03-filling-sealing.jpg`,
-      `${BASE}/machinery/category-04-conveying.jpg`,
-      `${BASE}/machinery/category-05-custom.jpg`,
+  home: {
+    trustGallery: [
+      U('1530103862676-de8c9debad1d', 800),
+      U('1556909114-f6e7ad7d3136', 800),
+      U('1416879595882-3373a0480b5b', 800),
+      U('1556228720-195a672e8a03', 800),
+      U('1606206873764-fd15e242df52', 800),
+      U('1586528116311-ad8dd3c8310d', 800),
     ],
-    subpageHeroes: {
-      packaging: `${BASE}/machinery-sub/packaging.jpg`,
-      foodProcessing: `${BASE}/machinery-sub/food-processing.jpg`,
-      fillingSealing: `${BASE}/machinery-sub/filling-sealing.jpg`,
-      conveyingAutomation: `${BASE}/machinery-sub/conveying-automation.jpg`,
-      custom: `${BASE}/machinery-sub/custom.jpg`,
-    },
   },
-  machines: {
-    pouchPackingHero: `${BASE}/machines/pouch-packing-hero.jpg`,
-    powderFillingHero: `${BASE}/machines/powder-filling-hero.jpg`,
-    liquidFillingHero: `${BASE}/machines/liquid-filling-hero.jpg`,
-    conveyorSystemHero: `${BASE}/machines/conveyor-system-hero.jpg`,
-    snackProcessingHero: `${BASE}/machines/snack-processing-hero.jpg`,
-  },
-  details: {
-    items: [
-      `${BASE}/details/detail-01-hmi.jpg`,
-      `${BASE}/details/detail-02-wiring.jpg`,
-      `${BASE}/details/detail-03-nozzle.jpg`,
-      `${BASE}/details/detail-04-sealingjaw.jpg`,
-      `${BASE}/details/detail-05-stainless.jpg`,
-    ],
+  categories: {
+    packaging: U('1530103862676-de8c9debad1d'),
+    home: U('1556909114-f6e7ad7d3136'),
+    garden: U('1416879595882-3373a0480b5b'),
+    beauty: U('1556228720-195a672e8a03'),
   },
 } as const

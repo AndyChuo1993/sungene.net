@@ -176,7 +176,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
           <Link href={`/${lang}/sourcing`} className="text-sm font-semibold text-accent-600 hover:underline">
             {({ en: 'How we work with these buyers →', zh: '我們怎麼跟這些買家合作 →', cn: '我们怎么跟这些买家合作 →', fr: 'Comment nous travaillons avec eux →', es: 'Cómo trabajamos con ellos →' } as Record<string, string>)[lang] || 'How we work with these buyers →'}
           </Link>
-          <Link href={`/${lang}/assessment`} className="text-sm font-semibold text-accent-600 hover:underline">
+          <Link href={`/${lang}/contact`} className="text-sm font-semibold text-accent-600 hover:underline">
             {({ en: 'Get sourcing assessment →', cn: '获取采购评估 →', zh: '取得採購評估 →', fr: 'Obtenir une évaluation →', es: 'Obtener evaluación →', pt: 'Obter avaliação →', ko: '소싱 평가 받기 →', ja: 'ソーシング評価を受ける →', ar: 'احصل على تقييم التوريد ←', th: 'รับการประเมินการจัดหา →', vi: 'Nhận đánh giá sourcing →', de: 'Sourcing-Bewertung erhalten →' } as Record<string, string>)[lang] || 'Get sourcing assessment →'}
           </Link>
         </div>

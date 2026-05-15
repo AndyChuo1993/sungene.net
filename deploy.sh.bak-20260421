@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+LOG="/www/wwwlogs/sungene-deploy.log"
+PROJECT="/www/wwwroot/sungene.net"
+
+echo "========================================" >> $LOG
+echo "[$(date)] Deploy triggered" >> $LOG
+
+cd $PROJECT
+
+# Pull latest code
+echo "[$(date)] Pulling from GitHub..." >> $LOG
+git fetch origin >> $LOG 2>&1
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse origin/main)
+
+if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "[$(date)] Already up to date ($LOCAL). Skipping." >> $LOG
+    exit 0
+fi
+
+echo "[$(date)] Updating $LOCAL -> $REMOTE" >> $LOG
+git reset --hard origin/main >> $LOG 2>&1
+
+# Install deps
+echo "[$(date)] Installing dependencies..." >> $LOG
+npm install --production=false >> $LOG 2>&1
+
+# Build
+echo "[$(date)] Building..." >> $LOG
+npm run build >> $LOG 2>&1
+
+# Copy assets to standalone
+echo "[$(date)] Copying static assets..." >> $LOG
+cp -r public .next/standalone/
+cp -r .next/static .next/standalone/.next/
+
+# Restart PM2
+echo "[$(date)] Restarting PM2 sungene..." >> $LOG
+pm2 restart sungene >> $LOG 2>&1
+
+echo "[$(date)] Deploy complete! Now at $(git rev-parse --short HEAD)" >> $LOG
+echo "========================================" >> $LOG

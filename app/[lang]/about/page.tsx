@@ -384,6 +384,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       <PageHero
         kicker={t.kicker}
         title={t.title}
+        image={{ src: PHOTO.pages.about.hero, alt: 'SunGene sourcing team', priority: true, aspectClassName: 'aspect-[4/3]' }}
         desc={(
           <>
             <p className="text-white/85">{t.intro}</p>
@@ -467,7 +468,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
               <ButtonLink href={`/${lang}/sourcing`} variant="secondary" size="md">
                 {({ en: 'How we work', zh: '合作方式', cn: '合作方式', fr: 'Notre méthode', es: 'Cómo trabajamos', pt: 'Como trabalhamos', ko: '소싱 방식', ja: '進め方', ar: 'كيف نعمل', th: 'วิธีการทำงาน', vi: 'Cách chúng tôi làm việc', de: 'Unsere Methode' } as Record<string, string>)[lang] || 'How we work'}
               </ButtonLink>
-              <ButtonLink href={`/${lang}/assessment`} size="md">
+              <ButtonLink href={`/${lang}/contact`} size="md">
                 {({ en: 'Get Assessment', cn: '获取评估', zh: '取得評估', fr: 'Obtenir une évaluation', es: 'Obtener evaluación', pt: 'Obter avaliação', ko: '평가 받기', ja: '評価を受ける', ar: 'احصل على تقييم', th: 'รับการประเมิน', vi: 'Nhận đánh giá', de: 'Bewertung erhalten' } as Record<string, string>)[lang] || 'Get Assessment'}
               </ButtonLink>
               <ButtonLink href={`/${lang}/contact`} variant="secondary" size="md">

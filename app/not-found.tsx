@@ -30,13 +30,13 @@ export default async function NotFound() {
           <Link href={`/${lang}`} className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-800 hover:border-brand-400 hover:text-brand-700">
             {t.home}
           </Link>
-          <Link href={`/${lang}/machinery`} className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-800 hover:border-brand-400 hover:text-brand-700">
+          <Link href={`/${lang}/sourcing`} className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-800 hover:border-brand-400 hover:text-brand-700">
             {t.machinery}
           </Link>
           <Link href={`/${lang}/resources`} className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-800 hover:border-brand-400 hover:text-brand-700">
             {t.resources}
           </Link>
-          <Link href={`/${lang}/assessment`} className="rounded-full bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-700">
+          <Link href={`/${lang}/contact`} className="rounded-full bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-700">
             {t.recommend}
           </Link>
         </div>

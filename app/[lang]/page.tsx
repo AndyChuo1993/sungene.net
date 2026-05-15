@@ -638,7 +638,7 @@ export default async function Page({ params }: PageParams) {
               </Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={`/${safeLang}/assessment`} size="md">
+              <ButtonLink href={`/${safeLang}/contact`} size="md">
                 {({ en: 'Get Assessment', cn: '获取评估', zh: '取得評估', fr: 'Obtenir une évaluation', es: 'Obtener evaluación', pt: 'Obter avaliação', ko: '평가 받기', ja: '評価を受ける', ar: 'احصل على تقييم', th: 'รับการประเมิน', vi: 'Nhận đánh giá', de: 'Bewertung erhalten' } as Record<string, string>)[safeLang] || 'Get Assessment'}
               </ButtonLink>
               <ButtonLink href={`/${safeLang}/contact`} variant="secondary" size="md">
