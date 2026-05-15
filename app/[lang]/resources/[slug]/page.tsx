@@ -481,8 +481,8 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
           totalTime: 'PT15M',
           estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
           supply: [
-            { '@type': 'HowToSupply', name: 'Product specification sheet (name, form, size, target output)' },
-            { '@type': 'HowToSupply', name: 'Site voltage and frequency' },
+            { '@type': 'HowToSupply', name: 'Product brief — category, target SKU spec, reference photos, target order quantity' },
+            { '@type': 'HowToSupply', name: 'Destination market and shipping country' },
             { '@type': 'HowToSupply', name: 'Destination port / incoterm preference' },
           ],
           tool: [

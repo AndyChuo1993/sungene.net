@@ -276,7 +276,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               ? '提供產品/包裝形式、目標產能、目的地電壓/頻率，以及任何硬限制（場地、衛生、合規）。照片會加速評估。'
               : lang === 'cn'
                 ? '提供产品/包装形式、目标产能、目的地电压/频率，以及任何硬限制（场地、卫生、合规）。照片会加速评估。'
-                : 'Product + packaging format, target output, destination voltage/frequency, and any hard constraints (space, hygiene, compliance). Photos help.',
+                : 'Product category, target quantity per shipment, packaging spec, destination market, and any hard constraints (certification, lead time, custom branding). Reference photos or Alibaba links help.',
         },
       },
       {
@@ -349,7 +349,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
   const evidenceItems: Array<{ title: string; body: string; example: string }> =
     lang === 'zh'
       ? [
-          { title: '書面驗收標準', body: '把「跑得起來」變成可判定的 pass/fail 條件，而不是口頭承諾。', example: 'FAT scope\n- Output: ___ bags/min\n- Accuracy: ___%\n- Run time: ___ min\n- Pass/Fail: ___' },
+          { title: '書面驗收標準', body: '把「跑得起來」變成可判定的 pass/fail 條件，而不是口頭承諾。', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
           { title: 'FAT 影片＋報告', body: '用長時間運轉與抽樣結果證明性能，避免短 demo 造成誤判。', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
           { title: '偏差清單（含複測）', body: '所有問題都要落在偏差清單，寫明改善措施與複測結果。', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
           { title: '交付文件包', body: '手冊、圖面、電控/氣路、備品清單與設定表，讓售後可追溯。', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
@@ -358,7 +358,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
         ]
       : lang === 'cn'
         ? [
-            { title: '书面验收标准', body: '把“跑得起来”变成可判定的 pass/fail 条件，而不是口头承诺。', example: 'FAT scope\n- Output: ___ bags/min\n- Accuracy: ___%\n- Run time: ___ min\n- Pass/Fail: ___' },
+            { title: '书面验收标准', body: '把“跑得起来”变成可判定的 pass/fail 条件，而不是口头承诺。', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
             { title: 'FAT 视频＋报告', body: '用长时间运行与抽样结果证明性能，避免短 demo 造成误判。', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
             { title: '偏差清单（含复测）', body: '所有问题都要落在偏差清单，写明改善措施与复测结果。', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
             { title: '交付文件包', body: '手册、图纸、电控/气路、备品清单与设置表，让售后可追溯。', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
@@ -366,7 +366,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
             { title: '出货文件一致性核对', body: '发票、装箱单、HS code、箱号与备品标识一致，降低清关风险。', example: 'Shipping docs\nInvoice: ___\nPacking list: ___\nHS code: ___\nCOO: ___' },
           ]
         : [
-            { title: 'Written acceptance criteria', body: 'Turn promises into pass/fail conditions you can verify.', example: 'FAT scope\n- Output: ___ bags/min\n- Accuracy: ___%\n- Run time: ___ min\n- Pass/Fail: ___' },
+            { title: 'Written acceptance criteria', body: 'Turn promises into pass/fail conditions you can verify.', example: 'QC scope\n- Inspected lot: ___ pcs\n- AQL: 2.5 / 4.0\n- Critical defects: 0\n- Major defects: ___\n- Pass / Fail: ___' },
             { title: 'FAT video + report', body: 'Performance proof across time with sampling results, not a short demo.', example: 'FAT evidence\n- Video link: ___\n- Samples: ___ pcs\n- Result: ___\n- Deviation: ___' },
             { title: 'Deviation log (with retest)', body: 'Every issue is logged with corrective action and retest evidence.', example: 'Deviation log\n#12 Seal contamination\nAction: add dust removal\nRetest: pass\nDate: ___' },
             { title: 'Handover document package', body: 'Manuals, diagrams, spares list, and settings sheet for traceable service.', example: 'Handover package\n- Manual\n- Wiring diagram\n- Spare parts\n- Settings sheet\n- FAT report' },
@@ -548,7 +548,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
                   ? ['產品與包裝形式（照片最好）', '目標產能（bpm 或 日產）', '目的地電壓/頻率', '硬限制：場地、衛生、法規、換型頻率']
                   : lang === 'cn'
                     ? ['产品与包装形式（照片最好）', '目标产能（bpm 或 日产）', '目的地电压/频率', '硬限制：场地、卫生、法规、换型频率']
-                    : ['Product + packaging format (photos help)', 'Target output (bpm or units/day)', 'Destination voltage/frequency', 'Hard constraints: space, hygiene, compliance, changeover frequency']
+                    : ['Product category + reference photos or Alibaba link', 'Quantity per shipment (e.g. 5,000 pcs)', 'Destination market / shipping country', 'Hard constraints: certification, lead time, branding, packaging spec']
                 ).map((x) => (
                   <li key={x}>{x}</li>
                 ))}

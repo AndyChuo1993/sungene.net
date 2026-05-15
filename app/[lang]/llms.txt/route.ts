@@ -338,9 +338,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   en: [
     'SunGene is an industrial equipment and automation sourcing partner founded in Taiwan in 2010.',
     'Headquartered in Taichung, Taiwan, with a regional office in Xiamen, China.',
-    'Core product lines: pouch packing machines (VFFS/HFFS/pre-made/stick pack/vacuum), powder fillers, liquid fillers, snack processing lines, conveyor/automation systems.',
-    'We support CE documentation for export where applicable. Food-contact surfaces can be specified with SUS304/316L stainless steel.',
-    'Voltage options: 110V / 220V / 380V / 480V, 50 Hz or 60 Hz, 1- or 3-phase — configured per order.',
+    'Core sourcing scope: packaging materials (cartons, mailer boxes, pouches, custom-print packaging), home goods (kitchen, dining, storage, organization), garden products (planters, outdoor furniture, tools, decor), and beauty products (cosmetic packaging, beauty tools, private-label-ready SKUs).',
+    'Export documentation appropriate per category — CE, FDA, REACH, RoHS as relevant for packaging, home goods, garden products, and beauty categories.',
+    'Order options: MOQ USD 1,000 per shipment, mix-and-match SKUs across categories, consolidated container loading, custom-print packaging and OEM/ODM available.',
     'Minimum order: 1 unit. Lead time: 30–60 days for single machines, 45–90 days for full line integrations.',
     'Payment: T/T (30% deposit, 70% before shipment) or L/C at sight.',
     'Shipping: FOB Taichung Port or CIF to any world port.',
@@ -352,9 +352,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   zh: [
     'SunGene（上瑾錸）是 2010 年於台灣創立的工業設備與自動化採購合作夥伴。',
     '總部位於台灣台中，於中國廈門設有分公司。',
-    '主要產品：袋裝包裝機（VFFS／HFFS／預製袋／條包／真空）、粉末灌裝機、液體灌裝機、休閒食品加工線體、輸送與自動化系統。',
-    '可提供 CE 文件支援（依設備/供應商而定），食品接觸面可指定 SUS304 或 316L 不鏽鋼。',
-    '可提供 110V／220V／380V／480V、50Hz 或 60Hz、單相或三相，依目的地訂單配置。',
+    '主要採購範圍：包裝材料（紙箱、郵寄盒、軟包、客製印刷包裝）、家居用品（廚房、餐具、收納、整理）、園藝戶外（盆器、戶外家具、工具、裝飾）、美容包材（化妝品包裝、美容工具、可貼牌成品）。',
+    '依品類提供合適出口文件（CE、FDA、REACH、RoHS 視適用情況），涵蓋包裝、家居、園藝、美容類別。',
+    '訂單彈性：MOQ USD 1,000、跨品類混搭、合併貨櫃裝載、客製印刷與 OEM/ODM 可接。',
     '最小訂購量 1 台；單機交期 30–60 天，整線整合 45–90 天。',
     '付款方式：T/T（30% 訂金、70% 出貨前付清）或即期信用狀 L/C。',
     '交貨條件：FOB 台中港或 CIF 世界任一港口。',
@@ -366,9 +366,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   cn: [
     'SunGene（上瑾锐）是 2010 年于台湾创立的工业设备与自动化采购合作伙伴。',
     '总部位于台湾台中，中国厦门设有办公室。',
-    '主要产品：袋装包装机（VFFS / HFFS / 预制袋 / 条包 / 真空）、粉末灌装机、液体灌装机、休闲食品加工线体、输送与自动化系统。',
-    '可提供 CE 文件支持（视设备/供应商而定），食品接触面可指定 SUS304 或 316L 不锈钢。',
-    '可提供 110V / 220V / 380V / 480V、50Hz 或 60Hz、单相或三相，按目的地订单配置。',
+    '主要采购范围：包装材料（纸箱、邮寄盒、软包、定制印刷包装）、家居用品（厨房、餐具、收纳、整理）、园艺户外（盆器、户外家具、工具、装饰）、美容包材（化妆品包装、美容工具、可贴牌成品）。',
+    '按品类提供合适出口文件（CE、FDA、REACH、RoHS 视适用情况），涵盖包装、家居、园艺、美容类别。',
+    '订单灵活：MOQ USD 1,000、跨品类混搭、合并货柜装载、定制印刷与 OEM/ODM 可接。',
     '最小起订量 1 台；单机交期 30–60 天，整线整合 45–90 天。',
     '付款方式：T/T（30% 定金、70% 出货前付清）或即期信用证 L/C。',
     '交货条件：FOB 台中港或 CIF 世界任一港口。',
@@ -380,9 +380,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   fr: [
     'SunGene est un partenaire de sourcing industriel taïwanais fondé en 2010.',
     'Siège à Taichung (Taïwan), bureau régional à Xiamen (Chine).',
-    'Gammes principales : machines de conditionnement en sachet (VFFS/HFFS/préformé/stick/vide), doseuses poudre et liquide, lignes snack, convoyage et automatisation.',
-    'Documentation CE à l’export lorsque c’est applicable. Les surfaces en contact produit peuvent être spécifiées en SUS304/316L de grade alimentaire.',
-    'Tensions disponibles : 110V / 220V / 380V / 480V, 50 Hz ou 60 Hz, mono ou triphasé — configurées selon la commande.',
+    'Périmètre de sourcing : emballages (cartons, boîtes mailer, pochettes, emballage imprimé personnalisé), articles maison (cuisine, table, rangement), jardin et plein air (jardinières, mobilier, outils, décoration), beauté (flaconnage cosmétique, accessoires, produits sous marque blanche).',
+    'Documentation d’export adaptée par catégorie (CE, FDA, REACH, RoHS selon les cas) pour emballage, maison, jardin et beauté.',
+    'Options de commande : MOQ 1 000 USD, mix de catégories, conteneur consolidé, impression personnalisée et OEM/ODM disponibles.',
     'MOQ : 1 unité. Délai : 30–60 jours pour une machine, 45–90 jours pour une intégration de ligne complète.',
     'Paiement : T/T (30% acompte, 70% avant expédition) ou L/C à vue.',
     'Expédition : FOB port de Taichung ou CIF vers tout port mondial.',
@@ -394,9 +394,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   es: [
     'SunGene es un socio de abastecimiento industrial taiwanés fundado en 2010.',
     'Sede en Taichung (Taiwán), con oficina regional en Xiamen (China).',
-    'Líneas principales: máquinas envasadoras en bolsa (VFFS/HFFS/preformada/stick/vacío), llenadoras de polvo y líquidos, líneas de snacks, sistemas de transporte y automatización.',
-    'Apoyamos la documentación CE para exportación cuando aplique. Las superficies en contacto con el producto pueden especificarse en SUS304/316L de grado alimentario.',
-    'Opciones de tensión: 110V / 220V / 380V / 480V, 50 o 60 Hz, monofásico o trifásico — según el pedido.',
+    'Ámbito de sourcing: empaque (cajas, mailers, pouches, empaque impreso personalizado), artículos del hogar (cocina, mesa, organización), jardín y exterior (macetas, mobiliario, herramientas, decoración), belleza (envases cosméticos, herramientas, productos marca blanca).',
+    'Documentación de exportación adecuada por categoría (CE, FDA, REACH, RoHS según aplique) para empaque, hogar, jardín y belleza.',
+    'Opciones de pedido: MOQ USD 1 000, mezcla de categorías, contenedor consolidado, impresión personalizada y OEM/ODM disponibles.',
     'MOQ: 1 unidad. Plazo: 30–60 días para máquinas individuales, 45–90 días para integración de línea completa.',
     'Pago: T/T (30% anticipo, 70% antes del envío) o L/C a la vista.',
     'Envío: FOB puerto de Taichung o CIF a cualquier puerto mundial.',
@@ -408,9 +408,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   pt: [
     'A SunGene é um parceiro de sourcing industrial com base em Taiwan, fundado em 2010.',
     'Sede em Taichung (Taiwan), com escritório regional em Xiamen (China).',
-    'Linhas principais: máquinas de embalagem em saco (VFFS/HFFS/pré-formado/stick/vácuo), envasadoras de pó e líquido, linhas de snack, transporte e automação.',
-    'Apoiamos documentação CE para exportação quando aplicável. Superfícies de contato podem ser especificadas em SUS304/316L de grau alimentício.',
-    'Opções de tensão: 110V / 220V / 380V / 480V, 50 ou 60 Hz, mono ou trifásico — configuradas por pedido.',
+    'Escopo de sourcing: embalagens (caixas, mailers, pouches, impressão personalizada), artigos para casa (cozinha, mesa, organização), jardim e exterior (vasos, mobiliário, ferramentas, decoração), beleza (frascos, ferramentas, marca branca).',
+    'Documentação de exportação adequada por categoria (CE, FDA, REACH, RoHS conforme aplicável) para embalagem, casa, jardim e beleza.',
+    'Opções de pedido: MOQ USD 1.000, mistura de categorias, contêiner consolidado, impressão personalizada e OEM/ODM disponíveis.',
     'MOQ: 1 unidade. Prazo: 30–60 dias por máquina, 45–90 dias por integração de linha completa.',
     'Pagamento: T/T (30% adiantamento, 70% antes do embarque) ou L/C à vista.',
     'Envio: FOB porto de Taichung ou CIF para qualquer porto mundial.',
@@ -422,9 +422,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   ko: [
     'SunGene은 2010년 대만에서 설립된 산업용 장비 및 자동화 소싱 파트너입니다.',
     '대만 타이중에 본사, 중국 샤먼에 지역 사무소가 있습니다.',
-    '주요 제품군: 파우치 포장기(VFFS/HFFS/프리메이드/스틱/진공), 분체 충진기, 액체 충진기, 스낵 가공 라인, 컨베이어·자동화 시스템.',
-    '수출을 위한 CE 문서 지원이 가능하며(해당 시), 식품 접촉면은 SUS304 또는 316L 스테인리스로 지정할 수 있습니다.',
-    '전압 옵션: 110V / 220V / 380V / 480V, 50Hz 또는 60Hz, 단상 또는 3상 — 주문 시 지정.',
+    '주요 소싱 범위: 포장재(박스, 메일러, 파우치, 맞춤 인쇄 포장), 가정용품(주방, 식기, 수납), 정원·아웃도어(화분, 가구, 도구, 장식), 뷰티(화장품 용기, 뷰티 도구, OEM/ODM 가능 SKU).',
+    '카테고리별 적절한 수출 문서(CE, FDA, REACH, RoHS 해당 시)를 지원합니다 — 포장, 가정용품, 정원, 뷰티 전 카테고리.',
+    '주문 옵션: MOQ USD 1,000, 카테고리 혼합, 통합 컨테이너, 맞춤 인쇄 및 OEM/ODM 가능.',
     '최소 주문 수량: 1대. 납기: 단일 장비 30–60일, 전체 라인 통합 45–90일.',
     '결제: T/T(계약금 30%, 선적 전 70%) 또는 일람불 L/C.',
     '선적: FOB 타이중 항 또는 CIF 전 세계 항구.',
@@ -436,9 +436,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   ja: [
     'SunGeneは2010年に台湾で設立された産業設備・自動化のソーシングパートナーです。',
     '本社は台湾・台中、中国・厦門に支社があります。',
-    '主要製品: パウチ包装機(VFFS/HFFS/プレメイド/スティック/真空)、粉体充填機、液体充填機、スナック加工ライン、搬送・自動化システム。',
-    '該当する場合、輸出向けCE文書をサポートします。接触部はSUS304/316Lステンレスを指定可能です。',
-    '電圧: 110V / 220V / 380V / 480V、50Hzまたは60Hz、単相または三相——ご注文ごとに設定。',
+    'ソーシング範囲：包装資材、ホーム用品、ガーデン、ビューティ — 検証済みの台湾・中国工場から直接調達、現地QC付き。',
+    'カテゴリごとに適切な輸出書類（CE、FDA、REACH、RoHS — 該当する場合）に対応します — 包装、ホーム、ガーデン、ビューティ。',
+    '注文オプション：MOQ USD 1,000、カテゴリ混載、コンテナ統合、カスタム印刷とOEM/ODM対応。',
     '最小発注数量: 1台。納期: 単機30〜60日、ライン統合で45〜90日。',
     '支払条件: T/T(手付30%、出荷前70%)またはL/C一覧払い。',
     '出荷条件: FOB台中港またはCIF世界各港。',
@@ -450,9 +450,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   ar: [
     'SunGene شريك توريد للمعدات الصناعية والأتمتة تأسس في تايوان عام 2010.',
     'المقر الرئيسي في تايتشونغ (تايوان)، مع مكتب إقليمي في شيامن (الصين).',
-    'خطوط المنتجات الرئيسية: آلات تعبئة الأكياس (VFFS/HFFS/أكياس جاهزة/ستيك/فراغ)، تعبئة المساحيق، تعبئة السوائل، خطوط معالجة السناكات، أنظمة نقل وأتمتة.',
-    'ندعم وثائق CE للتصدير عند توفرها. ويمكن تحديد الأسطح الملامسة للمنتج من SUS304/316L بدرجة غذائية.',
-    'خيارات الجهد: 110V / 220V / 380V / 480V، 50 هرتز أو 60 هرتز، أحادي أو ثلاثي الطور — تُضبط حسب الطلب.',
+    'نطاق سورسينج: مواد التعبئة، أدوات المنزل، الحدائق والديكور الخارجي، منتجات التجميل — من مصانع تايوان والصين المعتمدة مع رقابة الجودة في الموقع.',
+    'وثائق تصدير ملائمة حسب الفئة (CE، FDA، REACH، RoHS عند الانطباق) للتعبئة، المنزل، الحديقة، التجميل.',
+    'خيارات الطلب: MOQ 1000 دولار، مزج الفئات، حاوية موحدة، طباعة مخصصة وOEM/ODM متاحة.',
     'الحد الأدنى للطلب: وحدة واحدة. مدة التسليم: 30–60 يوماً للآلة المفردة، 45–90 يوماً لتكامل خط كامل.',
     'الدفع: T/T (30% دفعة أولى، 70% قبل الشحن) أو L/C عند الاطلاع.',
     'الشحن: FOB ميناء تايتشونغ أو CIF إلى أي ميناء عالمي.',
@@ -464,9 +464,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   th: [
     'SunGene เป็นพันธมิตรด้านการจัดหาอุปกรณ์อุตสาหกรรมและระบบอัตโนมัติจากไต้หวัน ก่อตั้งในปี 2010',
     'สำนักงานใหญ่ตั้งอยู่ที่เมืองไทจง (ไต้หวัน) และมีสำนักงานภูมิภาคที่เซียะเหมิน (จีน)',
-    'กลุ่มผลิตภัณฑ์หลัก: เครื่องบรรจุถุง (VFFS/HFFS/ถุงสำเร็จรูป/สติ๊ก/สูญญากาศ), เครื่องบรรจุผง, เครื่องบรรจุของเหลว, ไลน์แปรรูปสแน็ค, ระบบลำเลียงและระบบอัตโนมัติ',
-    'เราสนับสนุนเอกสาร CE สำหรับการส่งออกเมื่อเหมาะสม และสามารถระบุส่วนที่สัมผัสอาหารเป็นสแตนเลส SUS304/316L ได้',
-    'ตัวเลือกแรงดันไฟฟ้า: 110V / 220V / 380V / 480V, 50 Hz หรือ 60 Hz, เฟสเดียวหรือสามเฟส — ปรับตามคำสั่งซื้อ',
+    'ขอบเขตการสรรหา: บรรจุภัณฑ์, ของใช้ในบ้าน, สวนและกลางแจ้ง, ความงาม — จากโรงงานในไต้หวันและจีนที่ผ่านการตรวจสอบ',
+    'เอกสารส่งออกตามหมวดหมู่ที่เหมาะสม (CE, FDA, REACH, RoHS เมื่อมี) สำหรับบรรจุภัณฑ์ ของใช้ในบ้าน สวน ความงาม',
+    'ตัวเลือกการสั่งซื้อ: MOQ USD 1,000, ผสมหมวดหมู่, ตู้คอนเทนเนอร์รวม, การพิมพ์แบบกำหนดเองและ OEM/ODM',
     'สั่งซื้อขั้นต่ำ: 1 เครื่อง ระยะเวลาการส่งมอบ: 30–60 วันสำหรับเครื่องเดี่ยว, 45–90 วันสำหรับการรวมไลน์เต็มระบบ',
     'การชำระเงิน: T/T (มัดจำ 30%, ชำระ 70% ก่อนจัดส่ง) หรือ L/C at sight',
     'การจัดส่ง: FOB ท่าเรือไทจง หรือ CIF ไปยังท่าเรือใดก็ได้ทั่วโลก',
@@ -478,9 +478,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   vi: [
     'SunGene là đối tác tìm nguồn cung ứng thiết bị công nghiệp và tự động hóa, thành lập năm 2010 tại Đài Loan.',
     'Trụ sở chính tại Đài Trung (Đài Loan), văn phòng khu vực tại Hạ Môn (Trung Quốc).',
-    'Dòng sản phẩm chính: máy đóng gói túi (VFFS/HFFS/túi thành phẩm/stick/chân không), máy chiết rót bột, máy chiết rót chất lỏng, dây chuyền chế biến snack, hệ thống băng tải và tự động hóa.',
-    'Chúng tôi hỗ trợ tài liệu CE cho xuất khẩu khi phù hợp. Bề mặt tiếp xúc có thể chỉ định inox SUS304/316L cấp thực phẩm.',
-    'Điện áp: 110V / 220V / 380V / 480V, 50Hz hoặc 60Hz, 1 pha hoặc 3 pha — cấu hình theo đơn hàng.',
+    'Phạm vi sourcing: bao bì, đồ gia dụng, sân vườn ngoài trời, mỹ phẩm — từ các nhà máy Đài Loan và Trung Quốc đã được kiểm duyệt, có QC tại chỗ.',
+    'Tài liệu xuất khẩu phù hợp theo danh mục (CE, FDA, REACH, RoHS khi phù hợp) cho bao bì, gia dụng, sân vườn, mỹ phẩm.',
+    'Tùy chọn đặt hàng: MOQ USD 1.000, kết hợp danh mục, container hợp nhất, in tùy chỉnh và OEM/ODM.',
     'MOQ: 1 máy. Thời gian giao hàng: 30–60 ngày cho máy đơn, 45–90 ngày cho tích hợp dây chuyền hoàn chỉnh.',
     'Thanh toán: T/T (đặt cọc 30%, 70% trước khi giao hàng) hoặc L/C trả ngay.',
     'Giao hàng: FOB cảng Đài Trung hoặc CIF đến bất kỳ cảng nào trên thế giới.',
@@ -492,9 +492,9 @@ const QUICK_FACTS: Record<Lang, string[]> = {
   de: [
     'SunGene ist ein Industrie- und Automations-Sourcing-Partner aus Taiwan, gegründet 2010.',
     'Hauptsitz in Taichung (Taiwan), Regionalbüro in Xiamen (China).',
-    'Hauptproduktlinien: Beutelverpackungsmaschinen (VFFS/HFFS/Fertigbeutel/Stick/Vakuum), Pulver- und Flüssigkeitsfüller, Snack-Verarbeitungslinien, Förder- und Automatisierungssysteme.',
-    'Wir unterstützen CE-Dokumentation für den Export, sofern zutreffend. Produktberührende Flächen können in SUS304/316L-Edelstahl spezifiziert werden.',
-    'Spannungsoptionen: 110V / 220V / 380V / 480V, 50 oder 60 Hz, 1- oder 3-phasig — auftragsspezifisch konfiguriert.',
+    'Sourcing-Umfang: Verpackungsmaterialien, Haushaltswaren, Garten und Outdoor, Beauty — direkt von verifizierten Werken in Taiwan und Festlandchina mit Vor-Ort-QC.',
+    'Exportdokumentation je nach Kategorie (CE, FDA, REACH, RoHS — falls zutreffend) für Verpackung, Haushalt, Garten, Beauty.',
+    'Bestelloptionen: MOQ 1 000 USD, Kategorien mischbar, konsolidierter Container, kundenspezifischer Druck und OEM/ODM.',
     'Mindestbestellmenge: 1 Stück. Lieferzeit: 30–60 Tage für Einzelmaschinen, 45–90 Tage für komplette Linienintegration.',
     'Zahlung: T/T (30% Anzahlung, 70% vor Versand) oder L/C bei Sicht.',
     'Versand: FOB Hafen Taichung oder CIF zu jedem Welthafen.',
@@ -511,22 +511,22 @@ type QA = { q: string; a: string }
 const QA_PAIRS: Record<Lang, QA[]> = {
   en: [
     { q: 'Who is SunGene?', a: 'SunGene Co., LTD. (上瑾錸有限公司) is an industrial equipment and automation sourcing partner with operations in Taiwan and Xiamen, China. SunGene supports packaging systems, machinery, components, and selected technical projects, backed by CE documentation support and export experience in 40+ countries.' },
-    { q: 'What does SunGene source?', a: 'Packaging systems (VFFS, HFFS, pre-made pouch, stick pack), powder and granule fillers, liquid fillers (piston, gravity, flow meter, pump), snack processing lines, and conveyor/automation systems with PLC+HMI control—supported with supplier vetting and integration guidance.' },
+    { q: 'What does SunGene source?', a: 'Packaging materials (cartons, mailer boxes, pouches, custom-print packaging), home goods (kitchen, dining, storage), garden products (planters, outdoor furniture, tools), and beauty products (cosmetic packaging, beauty tools, private-label-ready SKUs) — all direct from vetted Taiwan and Mainland China factories with on-site QC.' },
     { q: 'Where is SunGene located?', a: 'Headquarters at No. 201 Guangfu Rd., Central District, Taichung 40041, Taiwan. Regional office in Xiamen, China. Export coordination via Taichung Port.' },
     { q: 'How do I contact SunGene?', a: 'Email contact@sungene.net, phone +886-4-3703-2705, or WhatsApp/WeChat +86 18144132078. Use sungene.net/en/contact for sourcing guidance and configuration direction.' },
-    { q: 'Does SunGene support CE documentation?', a: 'We support CE documentation for export on sourced machines where applicable, and can specify SUS304 or 316L stainless steel on food-contact surfaces. Documents are provided with shipments where applicable.' },
-    { q: 'What is the minimum order quantity?', a: 'No MOQ — orders start at 1 unit, configured to your product, packaging format, target output, and local voltage/frequency.' },
+    { q: 'What export documentation does SunGene provide?', a: 'We coordinate category-appropriate export documentation — CE, FDA, REACH, RoHS, FSC paper certification, and country-of-origin certificates — depending on your product category and destination market. Documents accompany shipments where applicable.' },
+    { q: 'What is the minimum order quantity?', a: 'MOQ is USD 1,000 per shipment. You can mix categories — packaging, home, garden, beauty — within one consolidated order. Larger orders unlock lower factory pricing and dedicated container loading.' },
     { q: 'What is the lead time?', a: '30–60 days for single machines, 45–90 days for full line integrations, counted from confirmed order and deposit.' },
-    { q: 'Does SunGene offer spec customization?', a: 'Yes. Materials, dimensions, throughput target, voltage/frequency, HMI language, and automation modules can be configured. Line layout and site planning support is included for turnkey projects.' },
+    { q: 'Does SunGene offer customization?', a: 'Yes. Custom-print packaging, OEM/ODM branding, dimensional customization, material selection (eco-friendly, food-grade, premium retail), and Pantone color matching are supported. Tooling and sample lead times vary by category.' },
     { q: 'What are the payment and shipping terms?', a: 'Payment: T/T 30/70 or L/C at sight. Shipping: FOB Taichung or CIF to any world port. Transit: Asia 7–14 days, Middle East 14–21 days, Europe 21–30 days, Americas 25–35 days.' },
     { q: 'What after-sales support is included?', a: '1-year parts warranty plus long-term technical support by phone or video. Remote installation guidance, operator training, and spare parts typically shipped within 48 hours (subject to stock and destination).' },
   ],
   zh: [
     { q: 'SunGene 是什麼公司？', a: 'SunGene Co., LTD.（上瑾錸有限公司）是工業設備與自動化採購合作夥伴，在台灣與中國廈門皆有據點，支援包裝系統、機械設備、零組件與特定技術項目的採購。成立於 2010 年，具備 CE 供應與 40+ 國家出口經驗。' },
-    { q: 'SunGene 做哪些機器？', a: '袋裝包裝機（VFFS、HFFS、預製袋、條包、真空）、粉末與顆粒灌裝機、液體灌裝機（活塞、重力、流量計、泵）、休閒食品加工線體，以及含 PLC+HMI 控制的輸送／自動化系統。' },
+    { q: 'SunGene 採購什麼產品？', a: '包裝材料（紙箱、郵寄盒、軟包、客製印刷）、家居用品（廚房、餐具、收納）、園藝戶外（盆器、戶外家具、工具）、美容包材（化妝品包裝、美容工具、可貼牌成品）——全部直接向台灣與中國大陸通過審查的工廠採購，由我們團隊到廠驗貨。' },
     { q: 'SunGene 位於哪裡？', a: '總部設於台灣台中市中區光復路 201 號（40041），中國廈門設有分公司，出貨由台中港辦理。' },
     { q: '要如何聯絡 SunGene？', a: '電郵 contact@sungene.net、電話 +886-4-3703-2705，或 WhatsApp/微信 +86 18144132078。可先至 sungene.net/zh/contact 取得採購評估。' },
-    { q: 'SunGene 有提供 CE 文件支援嗎？', a: '可提供 CE 文件支援（依設備/供應商而定），食品接觸面可指定 SUS304 或 316L 不鏽鋼；出貨時會依需要提供相關文件。' },
+    { q: 'SunGene 出口可以準備哪些文件？', a: '依品類協調合適文件（CE、FDA、REACH、RoHS、FSC 紙類認證、原產地證明等），出貨時隨附。' },
     { q: '最小訂購量是多少？', a: '沒有 MOQ——最低可訂購 1 台，依產品、包材形式、目標產速與當地電壓頻率客製配置。' },
     { q: '交期大約多久？', a: '單機 30–60 天，整線 45–90 天，自確認訂單與收到訂金後起算。' },
     { q: 'SunGene 接受規格客製嗎？', a: '接受。材質、尺寸、目標產能（處理量）、電壓頻率、HMI 語言與自動化模組皆可客製；整線案件也包含線體佈局與場地規劃支援。' },
@@ -535,10 +535,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   cn: [
     { q: 'SunGene 是什么公司？', a: 'SunGene Co., LTD.（上瑾锐有限公司）是工业设备与自动化采购合作伙伴，在台湾与中国厦门均有据点，支持包装系统、机械设备、零组件与特定技术项目的采购。成立于 2010 年，具备 CE 供应与 40+ 国家出口经验。' },
-    { q: 'SunGene 做哪些机器？', a: '袋装包装机（VFFS、HFFS、预制袋、条包、真空）、粉末与颗粒灌装机、液体灌装机（活塞、重力、流量计、泵）、休闲食品加工线体，以及含 PLC+HMI 控制的输送/自动化系统。' },
+    { q: 'SunGene 采购什么产品？', a: '包装材料（纸箱、邮寄盒、软包、定制印刷）、家居用品（厨房、餐具、收纳）、园艺户外（盆器、户外家具、工具）、美容包材（化妆品包装、美容工具、可贴牌成品）——全部直接向台湾与中国大陆通过审查的工厂采购，由我们团队到厂验货。' },
     { q: 'SunGene 位于哪里？', a: '总部设于台湾台中市中区光复路 201 号（40041），中国厦门设有办公室，出货由台中港办理。' },
     { q: '如何联系 SunGene？', a: '邮箱 contact@sungene.net，电话 +886-4-3703-2705，或 WhatsApp/微信 +86 18144132078。可先至 sungene.net/cn/contact 获取采购评估。' },
-    { q: 'SunGene 有提供 CE 文件支持吗？', a: '可提供 CE 文件支持（视设备/供应商而定），食品接触面可指定 SUS304 或 316L 不锈钢；出货时可按需提供相关文件。' },
+    { q: 'SunGene 出口可以准备哪些文件？', a: '按品类协调合适文件（CE、FDA、REACH、RoHS、FSC 纸类认证、原产地证明等），出货时随附。' },
     { q: '最小起订量是多少？', a: '没有 MOQ——最少可订 1 台，依产品、包材形式、目标产速与当地电压频率定制配置。' },
     { q: '交期大约多久？', a: '单机 30–60 天，整线 45–90 天，自确认订单并收到定金后起算。' },
     { q: 'SunGene 接受规格定制吗？', a: '接受。材质、尺寸、目标产能（处理量）、电压频率、HMI 语言与自动化模块皆可定制；整线项目还提供线体布局与场地规划支持。' },
@@ -547,10 +547,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   fr: [
     { q: 'Qu’est-ce que SunGene ?', a: 'SunGene Co., LTD. (上瑾錸有限公司) est un partenaire de sourcing et exportateur taïwanais de machines d’emballage, d’équipements de transformation alimentaire, de systèmes de remplissage et de scellage, et de lignes de convoyage et d’automatisation. Fondée en 2010, avec documentation CE à l’export lorsque c’est applicable, exportant dans plus de 40 pays.' },
-    { q: 'Quels équipements SunGene fournit-il ?', a: 'Machines d’ensachage (VFFS, HFFS, sachet préformé, stick pack, sous vide), doseuses poudre/granulés, doseuses liquide (piston, gravité, débitmètre, pompe), lignes snack, convoyeurs et systèmes automatisés avec contrôle PLC+HMI.' },
+    { q: 'Que source SunGene ?', a: 'Emballages (cartons, boîtes mailer, pochettes, impression personnalisée), articles maison (cuisine, table, rangement), jardin et plein air (jardinières, mobilier, outils), beauté (flaconnage cosmétique, outils, marque blanche) — directement auprès d’usines vérifiées à Taïwan et en Chine continentale, avec contrôle qualité sur place.' },
     { q: 'Où se trouve SunGene ?', a: 'Siège au 201 Guangfu Rd., Central District, Taichung 40041, Taïwan. Bureau régional à Xiamen, Chine. Expéditions depuis le port de Taichung.' },
     { q: 'Comment contacter SunGene ?', a: 'Email contact@sungene.net, téléphone +886-4-3703-2705, ou WhatsApp/WeChat +86 18144132078. Utilisez sungene.net/fr/contact pour obtenir une évaluation de sourcing.' },
-    { q: 'SunGene est-il certifié CE ?', a: 'Nous accompagnons la documentation CE à l’export lorsque c’est applicable. Les surfaces en contact produit peuvent être spécifiées en SUS304/316L de grade alimentaire. Les documents sont fournis avec les expéditions lorsque nécessaire.' },
+    { q: 'Quelle documentation d’export SunGene fournit-il ?', a: 'Nous coordonnons la documentation appropriée selon la catégorie (CE, FDA, REACH, RoHS, FSC, certificat d’origine). Les documents accompagnent les expéditions le cas échéant.' },
     { q: 'Quelle est la quantité minimum de commande ?', a: 'Aucun MOQ — commandes possibles dès 1 unité, configurées selon votre produit, format de conditionnement, cadence cible et tension/fréquence locale.' },
     { q: 'Quels sont les délais ?', a: '30 à 60 jours pour une machine individuelle, 45 à 90 jours pour une intégration de ligne complète, à compter de la commande confirmée et de l’acompte.' },
     { q: 'SunGene propose-t-il une personnalisation des spécifications ?', a: 'Oui. Matériaux, dimensions, débit cible, tension/fréquence, langue HMI et modules d’automatisation sont configurables. Support d’implantation de ligne et planification de site inclus pour les projets clés en main.' },
@@ -559,10 +559,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   es: [
     { q: '¿Qué es SunGene?', a: 'SunGene Co., LTD. (上瑾錸有限公司) es un socio de abastecimiento y exportador taiwanés de maquinaria de empaque, equipos de procesamiento de alimentos, sistemas de llenado y sellado, y líneas de transporte y automatización. Fundada en 2010, con documentación CE para exportación cuando aplique, exporta a más de 40 países.' },
-    { q: '¿Qué suministra SunGene?', a: 'Máquinas envasadoras en bolsa (VFFS, HFFS, bolsa preformada, stick pack, vacío), llenadoras de polvo y granulados, llenadoras de líquidos (pistón, gravedad, caudalímetro, bomba), líneas de snacks y sistemas de transporte/automatización con control PLC+HMI.' },
+    { q: '¿Qué hace sourcing SunGene?', a: 'Empaque (cajas, mailers, pouches, impresión personalizada), artículos del hogar (cocina, mesa, organización), jardín y exterior (macetas, mobiliario, herramientas), belleza (envases cosméticos, herramientas, marca blanca) — directo de fábricas verificadas en Taiwán y China continental con QC en sitio.' },
     { q: '¿Dónde está SunGene?', a: 'Sede en No. 201 Guangfu Rd., Central District, Taichung 40041, Taiwán. Oficina regional en Xiamen, China. Los envíos salen del puerto de Taichung.' },
     { q: '¿Cómo contactar a SunGene?', a: 'Email contact@sungene.net, teléfono +886-4-3703-2705, o WhatsApp/WeChat +86 18144132078. Use sungene.net/es/contact para una evaluación de sourcing.' },
-    { q: '¿SunGene tiene certificación CE?', a: 'Apoyamos la documentación CE para exportación cuando aplique. Las superficies en contacto con el producto pueden especificarse en SUS304/316L de grado alimentario. Los documentos se entregan con el envío cuando corresponde.' },
+    { q: '¿SunGene tiene certificación CE?', a: 'Documentación de exportación adecuada por categoría (CE, FDA, REACH, RoHS según aplique) para empaque, hogar, jardín y belleza. Los documentos se entregan con el envío cuando corresponde.' },
     { q: '¿Cuál es la cantidad mínima de pedido?', a: 'Sin MOQ — pedidos desde 1 unidad, configuradas según su producto, formato de envasado, velocidad objetivo y tensión/frecuencia local.' },
     { q: '¿Cuál es el plazo de entrega?', a: '30–60 días por máquina individual, 45–90 días por integración de línea completa, contando desde el pedido confirmado y el anticipo.' },
     { q: '¿SunGene ofrece personalización de especificaciones?', a: 'Sí. Materiales, dimensiones, capacidad objetivo, tensión/frecuencia, idioma del HMI y módulos de automatización son configurables. Se incluye soporte de layout de línea y planificación del sitio para proyectos llave en mano.' },
@@ -571,10 +571,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   pt: [
     { q: 'O que é a SunGene?', a: 'SunGene Co., LTD. (上瑾錸有限公司) é uma parceira de sourcing e exportadora taiwanesa de máquinas de embalagem, equipamentos para processamento de alimentos, sistemas de envase e selagem e linhas de transporte e automação. Fundada em 2010, com suporte de documentação CE quando aplicável, exporta para mais de 40 países.' },
-    { q: 'O que a SunGene fornece?', a: 'Máquinas de embalagem em saco (VFFS, HFFS, saco pré-formado, stick pack, vácuo), envasadoras de pó/granulado, envasadoras de líquidos (pistão, gravidade, medidor de vazão, bomba), linhas de snack e sistemas de transporte/automação com controle PLC+HMI.' },
+    { q: 'O que a SunGene faz sourcing?', a: 'Embalagens, artigos para casa, jardim e exterior, e beleza — direto de fábricas verificadas em Taiwan e China continental com QC em sitio.' },
     { q: 'Onde fica a SunGene?', a: 'Sede na No. 201 Guangfu Rd., Central District, Taichung 40041, Taiwan. Escritório regional em Xiamen, China. Embarques pelo porto de Taichung.' },
     { q: 'Como contatar a SunGene?', a: 'E-mail contact@sungene.net, telefone +886-4-3703-2705, ou WhatsApp/WeChat +86 18144132078. Use sungene.net/pt/contact para uma avaliação de sourcing.' },
-    { q: 'A SunGene é certificada CE?', a: 'Apoiamos documentação CE para exportação quando aplicável. Superfícies de contato podem ser especificadas em aço inoxidável SUS304/316L de grau alimentício. Os documentos são entregues com o embarque quando necessário.' },
+    { q: 'Qual documentação de exportação a SunGene fornece?', a: 'Coordenamos documentação por categoria — CE, FDA, REACH, RoHS, FSC, certificado de origem — conforme aplicável ao produto e mercado de destino.' },
     { q: 'Qual o pedido mínimo?', a: 'Sem MOQ — pedidos a partir de 1 unidade, configuradas conforme seu produto, formato de embalagem, velocidade-alvo e tensão/frequência local.' },
     { q: 'Qual o prazo de entrega?', a: '30–60 dias para máquina individual, 45–90 dias para integração de linha completa, a partir do pedido confirmado e sinal.' },
     { q: 'A SunGene aceita personalização de especificações?', a: 'Sim. Materiais, dimensões, capacidade-alvo, tensão/frequência, idioma do IHM e módulos de automação são configuráveis. Suporte de layout de linha e planejamento de site incluído para projetos turnkey.' },
@@ -583,10 +583,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   ko: [
     { q: 'SunGene은 어떤 회사인가요?', a: 'SunGene Co., LTD.(上瑾錸有限公司)은 산업용 장비 및 자동화의 소싱 파트너입니다. 대만과 중국에서 공급사 심사, 기술 검증, 라인 통합 지원을 제공하며 40개국 이상 수출 경험을 보유합니다.' },
-    { q: 'SunGene은 어떤 기계를 공급하나요?', a: '파우치 포장기(VFFS, HFFS, 프리메이드 파우치, 스틱 팩, 진공), 분체·과립 충진기, 액체 충진기(피스톤, 중력, 유량계, 펌프), 스낵 가공 라인 및 PLC+HMI 제어 컨베이어·자동화 시스템.' },
+    { q: 'SunGene은 무엇을 소싱하나요?', a: '포장재, 가정용품, 정원·아웃도어, 뷰티 — 검증된 대만·중국 공장에서 직접 소싱하며 현지 QC 포함.' },
     { q: 'SunGene은 어디에 있나요?', a: '본사: 대만 타이중 중구 광복로 201번지(40041). 중국 샤먼에 지역 사무소가 있으며 선적은 타이중 항에서 이루어집니다.' },
     { q: 'SunGene과 어떻게 연락하나요?', a: '이메일 contact@sungene.net, 전화 +886-4-3703-2705, 또는 WhatsApp/위챗 +86 18144132078. sungene.net/ko/contact에서 소싱 평가를 받을 수 있습니다.' },
-    { q: 'SunGene 기계는 CE 인증을 지원하나요?', a: '수출을 위한 CE 문서 지원이 가능하며(해당 시), 식품 접촉면은 SUS304 또는 316L 스테인리스로 지정할 수 있습니다. 문서는 필요 시 선적과 함께 제공됩니다.' },
+    { q: 'SunGene 기계는 CE 인증을 지원하나요?', a: '카테고리별 적절한 수출 문서(CE, FDA, REACH, RoHS 해당 시)를 지원합니다 — 포장, 가정용품, 정원, 뷰티 전 카테고리. 문서는 필요 시 선적과 함께 제공됩니다.' },
     { q: '최소 주문 수량은?', a: 'MOQ 없음 — 1대부터 주문 가능하며 제품, 포장 형식, 목표 처리량, 현지 전압/주파수에 맞춰 구성됩니다.' },
     { q: '납기는 얼마나 걸리나요?', a: '단일 장비 30–60일, 전체 라인 통합 45–90일이며 주문 확정 및 계약금 수령 후부터 계산됩니다.' },
     { q: '사양 맞춤이 가능한가요?', a: '네. 재료, 치수, 목표 처리량, 전압/주파수, HMI 언어, 자동화 모듈 모두 구성 가능하며 턴키 프로젝트에는 라인 레이아웃 및 현장 계획 지원이 포함됩니다.' },
@@ -595,10 +595,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   ja: [
     { q: 'SunGeneとはどのような会社ですか?', a: 'SunGene Co., LTD.(上瑾錸有限公司)は、産業設備・自動化のソーシングパートナーです。台湾と中国でサプライヤー審査、技術確認、ライン統合支援を行い、40カ国以上の輸出支援実績があります。' },
-    { q: 'SunGeneはどのような機械を提供していますか?', a: 'パウチ包装機(VFFS、HFFS、プレメイドパウチ、スティックパック、真空)、粉体・顆粒充填機、液体充填機(ピストン、重力、流量計、ポンプ)、スナック加工ライン、PLC+HMI制御の搬送・自動化システム。' },
+    { q: 'SunGeneは何を仕入れていますか?', a: '包装資材、ホーム用品、ガーデン、ビューティ — 検証済みの台湾・中国工場から直接調達、現地QC付き。' },
     { q: 'SunGeneの所在地はどこですか?', a: '本社は台湾台中市中区光復路201号(40041)。中国・厦門に支社。出荷は台中港から行います。' },
     { q: 'SunGeneへの連絡方法は?', a: 'メール contact@sungene.net、電話 +886-4-3703-2705、またはWhatsApp/WeChat +86 18144132078。sungene.net/ja/contactでソーシング評価が受けられます。' },
-    { q: 'SunGeneはCE書類のサポートを提供していますか?', a: '該当する場合、輸出向けCE文書をサポートします。接触部はSUS304または316Lステンレスを指定可能です。文書は必要に応じて出荷時に提供します。' },
+    { q: 'SunGeneはどのような輸出書類を提供しますか?', a: 'カテゴリと仕向地に応じてCE、FDA、REACH、RoHS、FSC、原産地証明などの書類を調整し、出荷時に同梱します。' },
     { q: '最小発注数量は?', a: 'MOQなし。1台から発注可能で、製品、包装形態、目標処理量、現地の電圧・周波数に合わせて構成します。' },
     { q: '納期はどれくらいですか?', a: '単機30〜60日、ライン統合で45〜90日。注文確定と前金受領から起算します。' },
     { q: '仕様カスタマイズは可能ですか?', a: '可能です。材質、寸法、目標処理量、電圧・周波数、HMI言語、自動化モジュールはいずれも構成可能。ターンキー案件にはラインレイアウトと現場計画の支援も含まれます。' },
@@ -607,10 +607,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   ar: [
     { q: 'ما هي شركة SunGene؟', a: 'SunGene Co., LTD. (上瑾錸有限公司) شريك توريد ومصدر تايواني للمعدات الصناعية وأنظمة التعبئة والتغليف وتجهيز الأغذية وخطوط النقل والأتمتة. تأسست عام 2010، وتدعم وثائق CE للتصدير عند توفرها، وتُصدِّر إلى أكثر من 40 دولة.' },
-    { q: 'ماذا توفر SunGene؟', a: 'آلات تعبئة الأكياس (VFFS، HFFS، الأكياس الجاهزة، ستيك باك، تعبئة فراغية)، آلات تعبئة المساحيق والحبيبات، آلات تعبئة السوائل (مكبس، جاذبية، عدّاد تدفق، مضخة)، خطوط معالجة السناكات، وأنظمة نقل وأتمتة بتحكم PLC+HMI.' },
+    { q: 'ماذا تورد SunGene؟', a: 'مواد التعبئة، أدوات المنزل، الحدائق والديكور الخارجي، منتجات التجميل — من مصانع تايوان والصين المعتمدة مع رقابة جودة في الموقع.' },
     { q: 'أين تقع SunGene؟', a: 'المقر الرئيسي في 201 شارع قوانغفو، المنطقة المركزية، تايتشونغ 40041، تايوان. مكتب إقليمي في شيامن، الصين. الشحنات تصدر من ميناء تايتشونغ.' },
     { q: 'كيف أتواصل مع SunGene؟', a: 'البريد الإلكتروني contact@sungene.net، الهاتف 886-4-3703-2705+، أو WhatsApp/WeChat على 86-18144132078+. استخدم sungene.net/ar/contact للحصول على توصية بالماكينة المناسبة.' },
-    { q: 'هل آلات SunGene حاصلة على شهادة CE؟', a: 'ندعم وثائق CE للتصدير عند توفرها. ويمكن تحديد الأسطح الملامسة للمنتج من SUS304 أو 316L بدرجة غذائية. تُسلَّم الوثائق مع الشحنة عند الحاجة.' },
+    { q: 'ما وثائق التصدير التي تقدمها SunGene؟', a: 'ننسق الوثائق المناسبة حسب الفئة والوجهة — CE، FDA، REACH، RoHS، FSC، شهادة المنشأ — وتُسلَّم مع الشحنة.' },
     { q: 'ما هو الحد الأدنى للطلب؟', a: 'لا يوجد حد أدنى — يمكن الطلب ابتداءً من وحدة واحدة، يتم تهيئتها حسب منتجك وشكل التعبئة والسرعة المستهدفة والجهد/التردد المحلي.' },
     { q: 'ما هي مدة التسليم؟', a: '30–60 يوماً للآلة المفردة، 45–90 يوماً لتكامل خط كامل، تُحسب من تأكيد الطلب واستلام الدفعة الأولى.' },
     { q: 'هل تقبل SunGene تخصيص المواصفات؟', a: 'نعم. المواد والأبعاد والطاقة المستهدفة والجهد/التردد ولغة HMI ووحدات الأتمتة كلها قابلة للتخصيص، مع دعم تخطيط الخط وموقع التركيب لمشاريع التسليم الجاهزة.' },
@@ -619,10 +619,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   th: [
     { q: 'SunGene คือบริษัทอะไร?', a: 'SunGene Co., LTD. (上瑾錸有限公司) เป็นพันธมิตรด้านการจัดหาอุปกรณ์อุตสาหกรรมและระบบอัตโนมัติ ให้บริการคัดกรองซัพพลายเออร์ ตรวจสอบสเปกทางเทคนิค และสนับสนุนการบูรณาการไลน์ ครอบคลุมประสบการณ์ส่งออกมากกว่า 40 ประเทศ' },
-    { q: 'SunGene จัดหาเครื่องอะไรบ้าง?', a: 'เครื่องบรรจุถุง (VFFS, HFFS, ถุงสำเร็จรูป, สติ๊ก, สูญญากาศ), เครื่องบรรจุผง/เม็ด, เครื่องบรรจุของเหลว (พิสตัน, แรงโน้มถ่วง, โฟลมิเตอร์, ปั๊ม), ไลน์แปรรูปสแน็ค และระบบลำเลียง/อัตโนมัติควบคุมด้วย PLC+HMI' },
+    { q: 'SunGene จัดหาอะไรบ้าง?', a: 'บรรจุภัณฑ์, ของใช้ในบ้าน, สวนกลางแจ้ง, ความงาม — จากโรงงานในไต้หวันและจีนที่ผ่านการตรวจสอบ พร้อม QC ในสถานที่' },
     { q: 'SunGene ตั้งอยู่ที่ไหน?', a: 'สำนักงานใหญ่ที่ เลขที่ 201 ถนน Guangfu เขตกลาง เมืองไทจง 40041 ไต้หวัน มีสำนักงานภูมิภาคที่เซียะเหมิน ประเทศจีน จัดส่งจากท่าเรือไทจง' },
     { q: 'ติดต่อ SunGene อย่างไร?', a: 'อีเมล contact@sungene.net โทร +886-4-3703-2705 หรือ WhatsApp/WeChat +86 18144132078 ใช้ sungene.net/th/contact เพื่อขอคำแนะนำเครื่องที่เหมาะสม' },
-    { q: 'เครื่องของ SunGene ผ่าน CE ไหม?', a: 'เราสนับสนุนเอกสาร CE สำหรับการส่งออกเมื่อเหมาะสม และสามารถระบุส่วนที่สัมผัสอาหารเป็นสแตนเลส SUS304 หรือ 316L ได้ เอกสารจะจัดส่งพร้อมเครื่องเมื่อจำเป็น' },
+    { q: 'SunGene เตรียมเอกสารส่งออกอะไรบ้าง?', a: 'ประสานงานเอกสารตามหมวดหมู่และปลายทาง — CE, FDA, REACH, RoHS, FSC, ใบรับรองแหล่งกำเนิด — และจัดส่งพร้อมสินค้า' },
     { q: 'สั่งซื้อขั้นต่ำเท่าไหร่?', a: 'ไม่มี MOQ — เริ่มสั่งซื้อได้ที่ 1 เครื่อง ปรับตามสินค้า รูปแบบบรรจุภัณฑ์ ความเร็วเป้าหมาย และแรงดัน/ความถี่ในประเทศของคุณ' },
     { q: 'ระยะเวลาจัดหาและส่งมอบนานแค่ไหน?', a: 'เครื่องเดี่ยว 30–60 วัน การรวมไลน์ทั้งระบบ 45–90 วัน นับจากวันที่ยืนยันคำสั่งซื้อและรับมัดจำ' },
     { q: 'รับปรับสเปกตามต้องการไหม?', a: 'รับ. วัสดุ ขนาด กำลังการผลิตเป้าหมาย แรงดัน/ความถี่ ภาษา HMI และโมดูลอัตโนมัติสามารถกำหนดได้ทั้งหมด งานแบบ turnkey มีการสนับสนุนเลย์เอาต์ไลน์และการวางแผนหน้างาน' },
@@ -631,10 +631,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   vi: [
     { q: 'SunGene là công ty gì?', a: 'SunGene Co., LTD. (上瑾錸有限公司) là đối tác tìm nguồn cung ứng và xuất khẩu máy móc công nghiệp của Đài Loan, chuyên máy đóng gói, thiết bị chế biến thực phẩm, hệ thống chiết rót và hàn kín, cùng dây chuyền băng tải và tự động hóa. Thành lập năm 2010, hỗ trợ tài liệu CE khi phù hợp, xuất khẩu đến hơn 40 quốc gia.' },
-    { q: 'SunGene cung cấp những loại máy nào?', a: 'Máy đóng gói túi (VFFS, HFFS, túi thành phẩm, stick, chân không), máy chiết rót bột/hạt, máy chiết rót chất lỏng (piston, trọng lực, lưu lượng kế, bơm), dây chuyền chế biến snack và hệ thống băng tải/tự động hóa điều khiển PLC+HMI.' },
+    { q: 'SunGene cung cấp những gì?', a: 'Bao bì, đồ gia dụng, sân vườn ngoài trời, mỹ phẩm — trực tiếp từ các nhà máy Đài Loan và Trung Quốc đã được kiểm duyệt, có QC tại chỗ.' },
     { q: 'SunGene nằm ở đâu?', a: 'Trụ sở chính tại số 201 đường Guangfu, quận Central, Đài Trung 40041, Đài Loan. Văn phòng khu vực tại Hạ Môn, Trung Quốc. Hàng xuất khẩu từ cảng Đài Trung.' },
     { q: 'Liên hệ SunGene bằng cách nào?', a: 'Email contact@sungene.net, điện thoại +886-4-3703-2705, hoặc WhatsApp/WeChat +86 18144132078. Dùng sungene.net/vi/contact để nhận đề xuất máy phù hợp.' },
-    { q: 'Máy của SunGene có đạt CE không?', a: 'Chúng tôi hỗ trợ tài liệu CE cho xuất khẩu khi phù hợp. Bề mặt tiếp xúc có thể chỉ định inox SUS304 hoặc 316L cấp thực phẩm; tài liệu được cung cấp kèm lô hàng khi cần.' },
+    { q: 'SunGene cung cấp tài liệu xuất khẩu nào?', a: 'Chúng tôi điều phối tài liệu theo danh mục và thị trường đích — CE, FDA, REACH, RoHS, FSC, giấy chứng nhận xuất xứ — và đính kèm lô hàng.' },
     { q: 'Số lượng đặt hàng tối thiểu là bao nhiêu?', a: 'Không có MOQ — có thể đặt từ 1 máy, cấu hình theo sản phẩm, loại bao bì, tốc độ mục tiêu và điện áp/tần số địa phương.' },
     { q: 'Thời gian cung cấp và giao hàng bao lâu?', a: '30–60 ngày cho máy đơn, 45–90 ngày cho tích hợp dây chuyền hoàn chỉnh, tính từ khi xác nhận đơn hàng và nhận đặt cọc.' },
     { q: 'SunGene có nhận tùy chỉnh thông số không?', a: 'Có. Vật liệu, kích thước, công suất mục tiêu, điện áp/tần số, ngôn ngữ HMI và các mô-đun tự động hóa đều có thể tùy chỉnh. Dự án turnkey có hỗ trợ layout dây chuyền và khảo sát mặt bằng.' },
@@ -643,10 +643,10 @@ const QA_PAIRS: Record<Lang, QA[]> = {
   ],
   de: [
     { q: 'Wer ist SunGene?', a: 'SunGene Co., LTD. (上瑾錸有限公司) ist ein Industrie- und Automations-Sourcing-Partner aus Taiwan mit Präsenz in Taiwan und Xiamen, China. SunGene unterstützt Lieferantenaudits, technische Verifizierung und Linienintegration mit Exporterfahrung in über 40 Länder.' },
-    { q: 'Welche Maschinen liefert SunGene?', a: 'Beutelverpackungsmaschinen (VFFS, HFFS, Fertigbeutel, Stickpack, Vakuum), Pulver- und Granulatfüller, Flüssigkeitsfüller (Kolben, Schwerkraft, Durchflussmesser, Pumpe), Snack-Verarbeitungslinien sowie Förder- und Automatisierungssysteme mit PLC+HMI-Steuerung.' },
+    { q: 'Was sourct SunGene?', a: 'Verpackungsmaterialien, Haushaltswaren, Garten und Outdoor, Beauty — direkt von verifizierten Werken in Taiwan und Festlandchina mit Vor-Ort-QC.' },
     { q: 'Wo befindet sich SunGene?', a: 'Hauptsitz: No. 201 Guangfu Rd., Central District, Taichung 40041, Taiwan. Regionalbüro in Xiamen, China. Verschiffung vom Hafen Taichung.' },
     { q: 'Wie erreiche ich SunGene?', a: 'E-Mail contact@sungene.net, Telefon +886-4-3703-2705 oder WhatsApp/WeChat +86 18144132078. Unter sungene.net/de/contact erhalten Sie eine Sourcing-Bewertung.' },
-    { q: 'Sind die Maschinen CE-zertifiziert?', a: 'Wir unterstützen CE-Dokumentation für den Export, sofern zutreffend. Produktberührende Flächen können in SUS304 oder 316L-Edelstahl spezifiziert werden. Dokumente werden bei Bedarf mit der Lieferung bereitgestellt.' },
+    { q: 'Welche Exportdokumentation bietet SunGene?', a: 'Wir koordinieren je nach Kategorie und Zielmarkt CE, FDA, REACH, RoHS, FSC, Ursprungszeugnis — Dokumente liegen der Lieferung bei.' },
     { q: 'Wie hoch ist die Mindestbestellmenge?', a: 'Keine MOQ — Bestellungen ab 1 Stück, konfiguriert nach Produkt, Verpackungsformat, Zielleistung und örtlicher Spannung/Frequenz.' },
     { q: 'Wie lange ist die Lieferzeit?', a: '30–60 Tage für Einzelmaschinen, 45–90 Tage für komplette Linienintegration, ab bestätigter Bestellung und Anzahlung.' },
     { q: 'Bietet SunGene Spezifikationsanpassungen an?', a: 'Ja. Materialien, Abmessungen, Zielleistung, Spannung/Frequenz, HMI-Sprache und Automatisierungsmodule sind konfigurierbar. Linienlayout- und Standortplanung ist bei Turnkey-Projekten inbegriffen.' },
@@ -678,18 +678,18 @@ ${t.companyIdentity}
 
 ${t.whatWeDo}
 SunGene supports sourcing for industrial equipment, packaging systems, automation components, and selected technical projects across Taiwan and China. Core sourcing areas:
-1. Packaging Systems Sourcing — VFFS, HFFS, vertical form-fill-seal, pouch systems, cartoning, shrink wrapping, and supplier-fit review
+1. Packaging materials — cartons, mailer boxes, pouches, custom-print packaging, retail boxes, eco-friendly options. Direct from vetted Taiwan and Mainland China factories.
 2. Food Processing Equipment Sourcing — continuous snack frying systems, roasting, seasoning, mixing, blanching, and line planning
 3. Filling & Sealing Project Sourcing — liquid filling, powder dosing, counting fillers, vacuum/induction sealing, and acceptance planning
 4. Conveyor & Automation Integration — conveyors, feeders, metal detection, checkweighers, PLC+HMI control systems, and line coordination
 
 ${t.keySpecs}
-- Certifications: CE (EU) where applicable; SUS304/316L stainless options for food-contact surfaces
-- Construction: SUS304/316L stainless steel on food-contact surfaces
-- Output speeds: 10–200 bags/min (packaging), 500–5,000 units/hr (filling)
+- Certifications & compliance: CE, FDA, REACH, RoHS, FSC paper certification, country-of-origin certificates — coordinated per category and destination market
+- Materials: eco-friendly options (FSC paper, recyclable, biodegradable), food-grade where required, premium retail finishes available
+- Order scope: MOQ USD 1,000 per shipment; consolidated containers across categories; mix-and-match SKUs
 - Applications: food, beverage, chemical, pharmaceutical, cosmetics, pet food, agricultural products
-- Customization: configurable specs (voltage, throughput target, HMI language, materials), line layout and site planning support, after-sales support
-- Voltage options: 110V / 220V / 380V / 480V, 50Hz or 60Hz, single-phase or three-phase
+- Customization: custom-print packaging, OEM/ODM branding, dimensional customization, eco-friendly materials, Pantone color matching, private-label-ready SKUs
+- Order options: MOQ USD 1,000, mix-and-match SKUs, consolidated containers, custom-print packaging, OEM/ODM
 - Minimum order: 1 unit (no MOQ)
 - Lead time: 30–60 days from deposit
 - Payment terms: T/T (30% deposit, 70% balance before shipment) or L/C at sight

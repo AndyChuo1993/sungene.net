@@ -20,7 +20,7 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  en: 'Practical sourcing guides for industrial equipment: configuration planning, supplier evaluation, Taiwan/China sourcing, voltage requirements, FAT preparation, and commercial risk control.',
+  en: 'Practical sourcing guides for buyers working with Taiwan and Mainland China factories: supplier evaluation, MOQ negotiation, on-site QC, consolidated shipping, Incoterms, payment-term risk control, and private-label preparation.',
   cn: '工业设备实用采购指南：配置规划、供应商评估、台湾/中国采购、电压要求、FAT准备与商业风险控制。',
   zh: '工業設備實用採購指南：配置規劃、供應商評估、台灣/中國採購、電壓要求、FAT準備與商務風險控管。',
   fr: 'Guides pratiques de sourcing industriel : plan de configuration, audit fournisseurs, sourcing Taïwan/Chine, tension, préparation FAT et contrôle des risques commerciaux.',
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     pathname: '/resources',
     type: 'website',
-    keywords: ['industrial equipment sourcing guide', 'supplier evaluation checklist', 'Taiwan China sourcing', 'FAT checklist', 'voltage requirements export', 'configuration planning'],
+    keywords: ['Taiwan China sourcing guide', 'supplier evaluation checklist', 'MOQ negotiation', 'on-site QC inspection', 'Incoterms FOB CIF', 'consolidated shipping container', 'private label sourcing'],
   })
 }
 

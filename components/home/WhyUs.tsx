@@ -78,7 +78,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'Expertise em Exportação Global', desc: 'Experiência em exportação para mais de 50 países com documentação completa, personalização de voltagem e suporte logístico internacional.' },
         { icon: '04', title: 'Pós-Venda e Treinamento', desc: 'Orientação de instalação por vídeo remoto, treinamento de operadores, fornecimento de peças de reposição e suporte técnico 24/7 para todos os equipamentos.' },
         { icon: '05', title: 'Engenharia Personalizada', desc: 'Nossa equipe pode personalizar dimensões, materiais, capacidade-alvo e níveis de automação para atender às condições do seu site.' },
-        { icon: '06', title: 'Conformidade e documentação', desc: 'Suporte de documentação CE para exportação quando aplicável, com opções SUS304/316L em superfícies de contato com produto.' },
+        { icon: '06', title: 'Conformidade e documentação', desc: 'Suporte de documentação CE para exportação quando aplicável, com opções  em superfícies de contato com produto.' },
       ]
     },
     ko: {
@@ -91,7 +91,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: '글로벌 수출 전문성', desc: '50개 이상의 국가에 수출 경험을 보유하며, 완전한 서류, 전압 맞춤 및 국제 물류 지원을 제공합니다.' },
         { icon: '04', title: 'A/S 및 교육', desc: '원격 화상 설치 안내, 운전자 교육, 예비 부품 공급 및 모든 장비에 대한 24/7 기술 지원.' },
         { icon: '05', title: '맞춤 엔지니어링', desc: '현장 조건에 맞춰 치수, 재질, 목표 처리량 및 자동화 수준을 구성합니다.' },
-        { icon: '06', title: '컴플라이언스 문서', desc: '수출 목적지 요건에 따라 CE 관련 문서 지원(해당 시)과 SUS304/316L 옵션을 제공합니다.' },
+        { icon: '06', title: '컴플라이언스 문서', desc: '수출 목적지 요건에 따라 CE 관련 문서 지원(해당 시)과  옵션을 제공합니다.' },
       ]
     },
     ja: {
@@ -104,7 +104,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'グローバル輸出実績', desc: '50カ国以上への輸出実績があり、完全な書類作成、電圧カスタマイズ、国際配送サポートを提供します。' },
         { icon: '04', title: 'アフターサービスとトレーニング', desc: 'リモートビデオによる設置ガイダンス、オペレーター研修、予備部品供給、全設備24時間365日技術サポート。' },
         { icon: '05', title: 'カスタムエンジニアリング', desc: '現場条件に合わせて寸法、材質、目標処理量、自動化レベルを構成します。' },
-        { icon: '06', title: 'コンプライアンス書類', desc: '輸出向けに、必要に応じてCE関連書類をサポートします。食品接触部はSUS304/316Lを指定可能です。' },
+        { icon: '06', title: 'コンプライアンス書類', desc: '輸出向けに、必要に応じてCE関連書類をサポートします。食品接触部はを指定可能です。' },
       ]
     },
     ar: {
@@ -117,7 +117,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'خبرة تصدير عالمية', desc: 'خبرة في التصدير إلى أكثر من 50 دولة مع وثائق كاملة وتخصيص الجهد الكهربائي ودعم الشحن الدولي.' },
         { icon: '04', title: 'خدمة ما بعد البيع والتدريب', desc: 'إرشادات التركيب عبر الفيديو عن بُعد، تدريب المشغلين، توريد قطع الغيار، ودعم فني على مدار الساعة لجميع معداتنا.' },
         { icon: '05', title: 'هندسة مخصصة', desc: 'نخصص الأبعاد والمواد والطاقة المستهدفة ومستوى الأتمتة لتناسب ظروف موقعك.' },
-        { icon: '06', title: 'الامتثال والوثائق', desc: 'دعم وثائق CE للتصدير عند الحاجة، مع خيارات SUS304/316L لأسطح تلامس المنتج.' },
+        { icon: '06', title: 'الامتثال والوثائق', desc: 'دعم وثائق CE للتصدير عند الحاجة، مع خيارات  لأسطح تلامس المنتج.' },
       ]
     },
     th: {
@@ -130,7 +130,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'ความเชี่ยวชาญด้านการส่งออกทั่วโลก', desc: 'มีประสบการณ์ส่งออกไปกว่า 50 ประเทศ พร้อมเอกสารครบถ้วน การปรับแรงดันไฟฟ้า และสนับสนุนการขนส่งระหว่างประเทศ' },
         { icon: '04', title: 'บริการหลังการขายและการฝึกอบรม', desc: 'แนะนำการติดตั้งผ่านวิดีโอทางไกล ฝึกอบรมผู้ปฏิบัติงาน จัดหาอะไหล่ และสนับสนุนทางเทคนิค 24/7 สำหรับอุปกรณ์ทั้งหมด' },
         { icon: '05', title: 'วิศวกรรมตามสั่ง', desc: 'ทีมของเราสามารถปรับแต่งขนาด วัสดุ เป้าหมาย throughput และระดับอัตโนมัติให้เหมาะกับเงื่อนไขหน้างานของคุณ' },
-        { icon: '06', title: 'เอกสารและมาตรฐาน', desc: 'สนับสนุนเอกสาร CE สำหรับงานส่งออกเมื่อเหมาะสม พร้อมตัวเลือก SUS304/316L สำหรับส่วนที่สัมผัสผลิตภัณฑ์' },
+        { icon: '06', title: 'เอกสารและมาตรฐาน', desc: 'สนับสนุนเอกสาร CE สำหรับงานส่งออกเมื่อเหมาะสม พร้อมตัวเลือก  สำหรับส่วนที่สัมผัสผลิตภัณฑ์' },
       ]
     },
     vi: {
@@ -143,7 +143,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'Kinh Nghiệm Xuất Khẩu Toàn Cầu', desc: 'Có kinh nghiệm xuất khẩu đến hơn 50 quốc gia với đầy đủ chứng từ, tùy chỉnh điện áp và hỗ trợ vận chuyển quốc tế.' },
         { icon: '04', title: 'Hậu Mãi và Đào Tạo', desc: 'Hướng dẫn lắp đặt qua video từ xa, đào tạo vận hành, cung cấp phụ tùng thay thế và hỗ trợ kỹ thuật 24/7 cho tất cả thiết bị.' },
         { icon: '05', title: 'Kỹ Thuật Tùy Chỉnh', desc: 'Chúng tôi có thể tùy chỉnh kích thước, vật liệu, công suất mục tiêu và mức độ tự động hóa phù hợp với điều kiện lắp đặt của bạn.' },
-        { icon: '06', title: 'Tài liệu & tiêu chuẩn', desc: 'Hỗ trợ tài liệu CE cho dự án xuất khẩu khi phù hợp, với tùy chọn SUS304/316L cho bề mặt tiếp xúc sản phẩm.' },
+        { icon: '06', title: 'Tài liệu & tiêu chuẩn', desc: 'Hỗ trợ tài liệu CE cho dự án xuất khẩu khi phù hợp, với tùy chọn  cho bề mặt tiếp xúc sản phẩm.' },
       ]
     },
     de: {
@@ -156,7 +156,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
         { icon: '03', title: 'Globale Exportkompetenz', desc: 'Erfahrung im Export in über 50 Länder mit vollständiger Dokumentation, Spannungsanpassung und internationalem Versandsupport.' },
         { icon: '04', title: 'Kundendienst und Schulung', desc: 'Ferninstallationsanleitung per Video, Bedienerschulung, Ersatzteilversorgung und technischer Support rund um die Uhr für alle unsere Geräte.' },
         { icon: '05', title: 'Kundenspezifische Konstruktion', desc: 'Unser Team kann Abmessungen, Materialien, Zielleistung und Automatisierungsgrad an Ihre Standortbedingungen anpassen.' },
-        { icon: '06', title: 'Dokumentation & Standards', desc: 'CE-Dokumentationssupport für Exportprojekte, sofern anwendbar, mit SUS304/316L-Optionen für produktberührende Flächen.' },
+        { icon: '06', title: 'Dokumentation & Standards', desc: 'CE-Dokumentationssupport für Exportprojekte, sofern anwendbar, mit -Optionen für produktberührende Flächen.' },
       ]
     }
   }

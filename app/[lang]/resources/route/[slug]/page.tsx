@@ -130,7 +130,7 @@ const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string;
     titleSuffix: 'Configuration guides',
     intro: 'Selection notes and comparisons that help you confirm the right configuration before you request a sourcing assessment.',
     quoteTitle: 'Request sourcing assessment',
-    quoteBody: 'Send product, package format, fill range, target output, and destination voltage/frequency.',
+    quoteBody: 'Send product category, target SKU spec, reference photos, target quantity per shipment, and destination market.',
     quoteBtn: 'Open quote page',
     viewMachine: 'View configuration page',
     recommend: 'Get assessment',
