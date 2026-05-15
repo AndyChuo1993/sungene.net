@@ -143,10 +143,14 @@ export default function Footer({ lang }: { lang: Lang }) {
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="text-xs text-gray-500">{t(lang, 'footer_copyright')}</p>
-          <div className="flex items-center gap-4 text-xs text-gray-500">
-            <a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-gray-300 transition-colors">Alibaba: momas.en.alibaba.com ↗</a>
-            <span>|</span>
-            <span>LinkedIn: SunGene Co., LTD.</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500">
+            <Link href={`/${lang}/privacy`} className="hover:text-gray-300 transition-colors">{({en:'Privacy',zh:'隱私權',cn:'隐私权',fr:'Confidentialité',es:'Privacidad'} as Record<string,string>)[lang] || 'Privacy'}</Link>
+            <span>·</span>
+            <Link href={`/${lang}/terms`} className="hover:text-gray-300 transition-colors">{({en:'Terms',zh:'服務條款',cn:'服务条款',fr:'Conditions',es:'Términos'} as Record<string,string>)[lang] || 'Terms'}</Link>
+            <span>·</span>
+            <a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-gray-300 transition-colors">Alibaba ↗</a>
+            <span>·</span>
+            <a href="https://www.linkedin.com/company/sungene-co-ltd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">LinkedIn ↗</a>
           </div>
         </Container>
       </div>

@@ -8,11 +8,12 @@ export function getStableLastModified(): Date | undefined {
     if (!Number.isNaN(d.valueOf())) return d
   }
 
-  return undefined
+  // Fallback: today at UTC midnight — stable within a day, refreshed on next-day rebuild.
+  const now = new Date()
+  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()))
 }
 
 export function getStableLastModifiedISO(): string | undefined {
   const d = getStableLastModified()
   return d ? d.toISOString() : undefined
 }
-

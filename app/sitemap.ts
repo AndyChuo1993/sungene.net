@@ -51,6 +51,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}${route}`, route === '/about' ? 'yearly' : 'monthly', 0.75))
   )
 
+  // Legal pages (privacy + terms) — low priority but indexable for trust signals
+  const legalRoutes = ['/privacy', '/terms']
+  const legalSitemap = legalRoutes.flatMap((route) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}${route}`, 'yearly', 0.3))
+  )
+
   const resourceArticlesSitemap = RESOURCE_SLUGS.flatMap((slug) =>
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
@@ -67,6 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...conversionSitemap,
     ...resourcesHubSitemap,
     ...supportSitemap,
+    ...legalSitemap,
     ...routeHubSitemap,
     ...resourceArticlesSitemap,
     ...llmDocs,
