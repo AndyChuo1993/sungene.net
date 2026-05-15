@@ -509,11 +509,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-base font-bold text-gray-950">
               {({
-                en: 'Explore by machine',
-                cn: '按机型浏览',
-                zh: '依採購範圍瀏覽',
-                fr: 'Explorer par périmètre sourcing',
-                es: 'Explorar por alcance de abastecimiento',
+                en: 'Explore by category',
+                cn: '按品类浏览',
+                zh: '依品類瀏覽',
+                fr: 'Explorer par catégorie',
+                es: 'Explorar por categoría',
                 pt: 'Explorar por escopo de sourcing',
                 ko: '소싱 범위별 보기',
                 ja: '調達範囲別に見る',
@@ -524,11 +524,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
               } as Record<string, string>)[lang] || 'Explore by sourcing scope'}
             </h2>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/pouch-packaging`}>{({ en: 'Pouch packaging', cn: '袋包装', zh: '袋包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치', ja: 'パウチ', ar: 'أكياس', th: 'ถุง', vi: 'Túi', de: 'Beutel' } as Record<string, string>)[lang] || 'Pouch packaging'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/powder-dosing`}>{({ en: 'Powder dosing', cn: '粉体计量', zh: '粉體計量', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder dosing'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/liquid-filling`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/food-processing-line`}>{({ en: 'Food processing line', cn: '食品加工线', zh: '食品加工線', fr: 'Process', es: 'Proceso', pt: 'Processo', ko: '식품 라인', ja: '加工ライン', ar: 'معالجة', th: 'กระบวนการ', vi: 'Chế biến', de: 'Prozess' } as Record<string, string>)[lang] || 'Food processing line'}</a>
-              <a className="text-accent-600 hover:underline" href={`/${lang}/resources/route/conveying-automation`}>{({ en: 'Conveying & automation', cn: '输送与自动化', zh: '輸送與自動化', fr: 'Convoyage', es: 'Transporte', pt: 'Transporte', ko: '이송/자동화', ja: '搬送/自動化', ar: 'نقل/أتمتة', th: 'ลำเลียง/อัตโนมัติ', vi: 'Băng tải/TĐH', de: 'Fördertechnik/Automation' } as Record<string, string>)[lang] || 'Conveying & automation'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/sourcing/packaging`}>{({ en: 'Packaging', cn: '包装', zh: '包裝', fr: 'Emballage', es: 'Empaque' } as Record<string, string>)[lang] || 'Packaging'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/sourcing/home`}>{({ en: 'Home goods', cn: '家居用品', zh: '家居用品', fr: 'Maison', es: 'Hogar' } as Record<string, string>)[lang] || 'Home goods'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/sourcing/garden`}>{({ en: 'Garden & outdoor', cn: '园艺户外', zh: '園藝戶外', fr: 'Jardin & extérieur', es: 'Jardín y exterior' } as Record<string, string>)[lang] || 'Garden & outdoor'}</a>
+              <a className="text-accent-600 hover:underline" href={`/${lang}/sourcing/beauty`}>{({ en: 'Beauty packaging', cn: '美容包材', zh: '美容包材', fr: 'Flaconnage cosmétique', es: 'Envase cosmético' } as Record<string, string>)[lang] || 'Beauty packaging'}</a>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink href={`/${lang}/sourcing`} variant="secondary" size="md">
@@ -546,7 +545,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
       </section>
 
       {/* CTA */}
-      <section className="relative bg-brand-950 bg-industrial-grid py-20 sm:py-24">
+      <section className="relative bg-brand-950 bg-grid-pattern py-20 sm:py-24">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90 pointer-events-none" />
         <Container className="relative text-center">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">{t.ctaTitle}</h2>

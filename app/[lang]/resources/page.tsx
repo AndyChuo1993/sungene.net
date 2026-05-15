@@ -11,30 +11,7 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { RESOURCE_ARTICLES, getResourceArticleI18n } from '@/lib/resourceArticles'
 
-// Articles intentionally hidden from /resources hub UI + JSON-LD ItemList.
-// They remain indexable via direct slug URL (sitemap entry retained) but are
-// not surfaced on the hub because their titles are heavily machinery-flavored
-// and create dissonance with the trading-company positioning.
-const HUB_HIDDEN_SLUGS = new Set<string>([
-  'vffs-vs-hffs',
-  'fat-sat-acceptance-criteria-packaging-machinery',
-  'bottle-capping-options-after-filling',
-  'powder-dosing-when-to-use-auger-filler',
-  'conveyor-layout-packaging-line',
-  'auger-vs-volumetric-filler',
-  'piston-vs-pump-filler',
-  'premade-pouch-machine-vs-vffs',
-  'semi-auto-vs-full-auto-packaging-line',
-  'how-to-choose-powder-filling-machine',
-  'how-to-choose-liquid-filling-machine',
-  'how-to-choose-pouch-packing-machine',
-  'how-to-choose-conveyor-system',
-  'spice-powder-packaging-machine',
-  'flour-packaging-machine-guide',
-  'sauce-filling-machine-selection',
-  'snack-packing',
-  'detergent-powder-packaging-machine',
-])
+import { HIDDEN_RESOURCE_SLUGS } from '@/lib/hiddenSlugs'
 
 
 const titles: Record<string, string> = {
@@ -105,7 +82,7 @@ const categories: (lang: string) => Category[] = (lang) => {
   function list(catId: 'comparison' | 'selection' | 'application' | 'buying'): Article[] {
     return RESOURCE_ARTICLES
       .filter((a) => a.category === catId)
-      .filter((a) => !HUB_HIDDEN_SLUGS.has(a.slug))
+      .filter((a) => !HIDDEN_RESOURCE_SLUGS.has(a.slug))
       .map((a) => {
         const i18n = getResourceArticleI18n(a.slug, lang as Lang) || getResourceArticleI18n(a.slug, 'en')
         return {
@@ -404,14 +381,13 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         <Container>
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-base font-bold text-gray-950">
-              {({ en: 'Guides by machine', cn: '按机型浏览', zh: '依機型瀏覽', fr: 'Guides par machine', es: 'Guías por máquina', pt: 'Guias por máquina', ko: '기계별 가이드', ja: '機種別ガイド', ar: 'أدلة حسب الماكينة', th: 'คู่มือตามเครื่อง', vi: 'Hướng dẫn theo máy', de: 'Ratgeber nach Maschine' } as Record<string, string>)[lang] || 'Guides by machine'}
+              {({ en: 'Browse sourcing categories', cn: '浏览采购品类', zh: '瀏覽採購品類', fr: 'Parcourir les catégories', es: 'Explorar categorías', pt: 'Categorias', ko: '소싱 카테고리', ja: 'ソーシングカテゴリ', ar: 'تصفح فئات التوريد', th: 'หมวดหมู่การจัดหา', vi: 'Danh mục sourcing', de: 'Sourcing-Kategorien' } as Record<string, string>)[lang] || 'Browse sourcing categories'}
             </h2>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
-              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/route/pouch-packaging`}>{({ en: 'Pouch packaging', cn: '袋包装', zh: '袋包裝', fr: 'Ensachage', es: 'Empaque en bolsa', pt: 'Embalagem em saco', ko: '파우치', ja: 'パウチ', ar: 'أكياس', th: 'ถุง', vi: 'Túi', de: 'Beutel' } as Record<string, string>)[lang] || 'Pouch packaging'}</Link>
-              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/route/powder-dosing`}>{({ en: 'Powder dosing', cn: '粉体计量', zh: '粉體計量', fr: 'Poudre', es: 'Polvo', pt: 'Pó', ko: '분말', ja: '粉体', ar: 'مساحيق', th: 'ผง', vi: 'Bột', de: 'Pulver' } as Record<string, string>)[lang] || 'Powder dosing'}</Link>
-              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/route/liquid-filling`}>{({ en: 'Liquid filling', cn: '液体灌装', zh: '液體灌裝', fr: 'Liquide', es: 'Líquidos', pt: 'Líquidos', ko: '액체', ja: '液体', ar: 'سوائل', th: 'ของเหลว', vi: 'Chất lỏng', de: 'Flüssig' } as Record<string, string>)[lang] || 'Liquid filling'}</Link>
-              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/route/food-processing-line`}>{({ en: 'Food processing line', cn: '食品加工线', zh: '食品加工線', fr: 'Process', es: 'Proceso', pt: 'Processo', ko: '식품 라인', ja: '加工ライン', ar: 'معالجة', th: 'กระบวนการ', vi: 'Chế biến', de: 'Prozess' } as Record<string, string>)[lang] || 'Food processing line'}</Link>
-              <Link className="text-accent-600 hover:underline" href={`/${lang}/resources/route/conveying-automation`}>{({ en: 'Conveying & automation', cn: '输送与自动化', zh: '輸送與自動化', fr: 'Convoyage', es: 'Transporte', pt: 'Transporte', ko: '이송/자동화', ja: '搬送/自動化', ar: 'نقل/أتمتة', th: 'ลำเลียง/อัตโนมัติ', vi: 'Băng tải/TĐH', de: 'Fördertechnik/Automation' } as Record<string, string>)[lang] || 'Conveying & automation'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/sourcing/packaging`}>{({ en: 'Packaging', cn: '包装', zh: '包裝', fr: 'Emballage', es: 'Empaque' } as Record<string, string>)[lang] || 'Packaging'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/sourcing/home`}>{({ en: 'Home goods', cn: '家居用品', zh: '家居用品', fr: 'Maison', es: 'Hogar' } as Record<string, string>)[lang] || 'Home goods'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/sourcing/garden`}>{({ en: 'Garden & outdoor', cn: '园艺户外', zh: '園藝戶外', fr: 'Jardin & extérieur', es: 'Jardín y exterior' } as Record<string, string>)[lang] || 'Garden & outdoor'}</Link>
+              <Link className="text-accent-600 hover:underline" href={`/${lang}/sourcing/beauty`}>{({ en: 'Beauty packaging', cn: '美容包材', zh: '美容包材', fr: 'Flaconnage cosmétique', es: 'Envase cosmético' } as Record<string, string>)[lang] || 'Beauty packaging'}</Link>
             </div>
           </div>
         </Container>

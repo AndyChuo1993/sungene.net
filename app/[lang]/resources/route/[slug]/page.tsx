@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { ButtonLink } from '@/components/ui/Button'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { HIDDEN_ROUTE_HUBS } from '@/lib/hiddenSlugs'
 import { SITE_URL } from '@/lib/siteConfig'
 import type { Lang } from '@/lib/i18n'
 import { getResourceArticlesByMachine } from '@/lib/resourceArticles'
@@ -275,13 +276,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const m = ROUTE_TO_MACHINE[s]
   const title = `${machineLabel[l][m]} ${tx[l].titleSuffix}`
   const description = getTopicHubIntro(l, m)
-  return buildPageMetadata({
+  const meta = buildPageMetadata({
     lang: l,
     title,
     description,
     pathname: `/resources/route/${s}`,
     type: 'website',
   })
+
+  if (HIDDEN_ROUTE_HUBS.has(slug)) {
+    return { ...meta, robots: { index: false, follow: true } }
+  }
+  return meta
 }
 
 export default async function RouteHubPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {

@@ -14,7 +14,7 @@ export function PageHeader({
   className?: string
 }) {
   return (
-    <section className={cx('relative overflow-hidden bg-brand-950 bg-industrial-grid border-b-2 border-accent-600/30', className)}>
+    <section className={cx('relative overflow-hidden bg-brand-950 bg-grid-pattern border-b-2 border-accent-600/30', className)}>
       <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900/80 to-brand-950/90 pointer-events-none" />
       <Container className="relative py-14 sm:py-20">
         {kicker ? (

@@ -8,6 +8,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import CopyBlock from '@/components/CopyBlock'
 import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_DEFAULT_PUBLISHED_AT, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
 import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { HIDDEN_RESOURCE_SLUGS } from '@/lib/hiddenSlugs'
 import { LANG_META } from '@/lib/seo'
 import { getStableLastModifiedISO } from '@/lib/buildTime'
 import { getResourceBoostSections } from '@/lib/resourceBoost'
@@ -34,13 +35,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
   const metaTitle = i18n.metaTitle.replace(/\s*\|\s*SunGene\s*$/i, '').trim()
 
-  return buildPageMetadata({
+  const meta = buildPageMetadata({
     lang: l,
     title: metaTitle,
     description: i18n.metaDescription,
     pathname: `/resources/${slug}`,
     type: 'article',
   })
+
+  // Hidden machinery legacy slugs: noindex,follow so Google does not treat them
+  // as orphan pages (no internal links). Pages still resolve 200 for inbound traffic.
+  if (HIDDEN_RESOURCE_SLUGS.has(slug)) {
+    return { ...meta, robots: { index: false, follow: true } }
+  }
+  return meta
 }
 
 function renderSection(s: ResourceSection, key: number) {

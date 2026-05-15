@@ -65,11 +65,11 @@ const heroKicker: Record<string, string> = {
 }
 
 const heroTitles: Record<string, string> = {
-  en: 'Factory price + our margin, shown separately on the quote',
-  cn: '工厂价 + 我方利润,报价单分行列出',
-  zh: '工廠價 + 我方利潤,報價單分行列出',
-  fr: "Achat-revente direct — pas une commission ajoutée à un devis d'usine",
-  es: 'Compra-reventa directa — no una comisión sobre un precio de fábrica',
+  en: 'Direct sourcing from Taiwan + China factories — packaging, home, garden, beauty',
+  cn: '直接采购台湾＋中国工厂 — 包装、家居、园艺、美容',
+  zh: '直接採購台灣＋中國工廠 — 包裝、家居、園藝、美容',
+  fr: "Sourcing direct depuis usines Taïwan + Chine — emballage, maison, jardin, beauté",
+  es: 'Sourcing directo de fábricas Taiwán + China — empaque, hogar, jardín, belleza',
   pt: 'Rede Taiwan + China, com entrega controlada por critérios de aceitação',
   ko: '대만+중국 공급망, 수락 기준으로 리스크를 통제합니다',
   ja: '台湾＋中国ネットワーク。受入基準でリスクを管理',

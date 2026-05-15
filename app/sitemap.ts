@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { ALL_LANGS } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { RESOURCE_SLUGS } from '@/lib/resourceArticles'
+import { HIDDEN_RESOURCE_SLUGS, HIDDEN_ROUTE_HUBS } from '@/lib/hiddenSlugs'
 import { getStableLastModified } from '@/lib/buildTime'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -35,13 +36,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const conversionSitemap = langs.map((lang) => item(`${baseUrl}/${lang}/contact`, 'weekly', 0.9))
 
   const resourcesHubSitemap = langs.map((lang) => item(`${baseUrl}/${lang}/resources`, 'weekly', 0.8))
-  const routeHubs = [
-    'pouch-packaging',
-    'powder-dosing',
-    'liquid-filling',
-    'food-processing-line',
-    'conveying-automation',
-  ]
+  const allRouteHubs = ['pouch-packaging','powder-dosing','liquid-filling','food-processing-line','conveying-automation']
+  const routeHubs = allRouteHubs.filter((h) => !HIDDEN_ROUTE_HUBS.has(h))
   const routeHubSitemap = routeHubs.flatMap((s) =>
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/route/${s}`, 'weekly', 0.8))
   )
@@ -57,7 +53,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}${route}`, 'yearly', 0.3))
   )
 
-  const resourceArticlesSitemap = RESOURCE_SLUGS.flatMap((slug) =>
+  const visibleArticleSlugs = RESOURCE_SLUGS.filter((s) => !HIDDEN_RESOURCE_SLUGS.has(s))
+  const resourceArticlesSitemap = visibleArticleSlugs.flatMap((slug) =>
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
 
