@@ -8,7 +8,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import QuickAssessment from '@/components/QuickAssessment'
 import { PHOTO } from '@/lib/photoLibrary'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 
 export const dynamic = 'force-static'
 export const revalidate = 86400
@@ -932,7 +932,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     name: c.h1,
     description: c.intro,
     provider: { '@type': 'Organization', '@id': `${SITE_URL}#organization`, name: 'SunGene Co., LTD.' },
@@ -945,7 +945,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     mainEntity: c.faq.map((f) => ({
       '@type': 'Question',
       name: f.q,
@@ -957,7 +957,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     name: c.h1,
     description: c.intro,
     url: `${SITE_URL}/${l}/sourcing/${cat}`,

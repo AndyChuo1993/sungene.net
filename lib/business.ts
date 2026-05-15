@@ -1,5 +1,5 @@
 import { Lang } from '@/lib/i18n'
-import { LANG_META, pageUrl } from '@/lib/seo'
+import { LANG_META, pageUrl, langMeta} from '@/lib/seo'
 import { SITE_URL } from '@/lib/siteConfig'
 
 export const BRAND = {
@@ -62,7 +62,7 @@ export function buildWebsiteSchema(opts: { baseUrl?: string; lang: Lang }) {
     name: BRAND.legalName,
     alternateName: ['SunGene', BRAND.alternateName],
     url: baseUrl,
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     publisher: { '@id': `${baseUrl}/#org` },
     copyrightHolder: { '@id': `${baseUrl}/#org` },
     copyrightYear: new Date().getFullYear(),
@@ -95,7 +95,7 @@ export function buildOrganizationSchema(opts: { baseUrl?: string; lang: Lang }) 
     '@context': 'https://schema.org',
     '@type': ['Organization', 'ProfessionalService'],
     '@id': `${baseUrl}/#org`,
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     name: BRAND.legalName,
     legalName: BRAND.legalName,
     alternateName: [BRAND.alternateName, 'SunGene'],
@@ -342,7 +342,7 @@ export function buildServiceSchemas(opts: { baseUrl?: string; lang: Lang }) {
       { '@type': 'Country', name: 'Worldwide' },
     ],
     availableLanguage: ['en', 'zh-Hant', 'zh-Hans', 'fr', 'es'],
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: s.name,

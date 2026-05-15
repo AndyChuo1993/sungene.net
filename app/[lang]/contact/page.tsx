@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import { COMPANY_FAQS } from '@/lib/companyFaq'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
@@ -460,7 +460,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           url: `${SITE_URL}/${lang}/contact`,
           name: CONTACT_META_TITLES[lang] || CONTACT_META_TITLES.en,
           description: CONTACT_META_DESCRIPTIONS[lang] || CONTACT_META_DESCRIPTIONS.en,
-          inLanguage: LANG_META[lang].htmlLang,
+          inLanguage: langMeta(lang).htmlLang,
           isPartOf: { '@id': `${SITE_URL}/#website` },
           about: { '@id': `${SITE_URL}/#org` },
           mainEntity: { '@id': `${SITE_URL}/#org` },
@@ -469,7 +469,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
           '@id': `${SITE_URL}/${lang}/contact#faq`,
-          inLanguage: LANG_META[lang].htmlLang,
+          inLanguage: langMeta(lang).htmlLang,
           mainEntity: (COMPANY_FAQS[lang] || COMPANY_FAQS.en).map((f) => ({
             '@type': 'Question',
             name: f.q,

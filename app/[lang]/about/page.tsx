@@ -7,7 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { COMPANY_FAQS } from '@/lib/companyFaq'
 
@@ -370,7 +370,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${SITE_URL}/${lang}/about#faq`,
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     mainEntity: (COMPANY_FAQS[lang] || COMPANY_FAQS.en).map((f) => ({
       '@type': 'Question',
       name: f.q,

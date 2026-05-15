@@ -7,7 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
 import { SITE_URL } from '@/lib/siteConfig'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { RESOURCE_ARTICLES, getResourceArticleI18n } from '@/lib/resourceArticles'
 
@@ -299,7 +299,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     name: how.name,
     description: how.description,
     step: how.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.text })),
@@ -310,7 +310,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': `${SITE_URL}/${lang}/resources#itemlist`,
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     name: metaTitle,
     isPartOf: { '@id': `${SITE_URL}/${lang}/resources` },
     itemListElement: itemListItems.map((a, i) => ({
@@ -330,7 +330,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${SITE_URL}/${lang}/resources`,
-    inLanguage: LANG_META[lang].htmlLang,
+    inLanguage: langMeta(lang).htmlLang,
     name: metaTitle,
     description: metaDesc,
     url: `${SITE_URL}/${lang}/resources`,

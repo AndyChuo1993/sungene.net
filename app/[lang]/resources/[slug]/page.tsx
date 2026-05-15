@@ -7,7 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CopyBlock from '@/components/CopyBlock'
 import { getRelatedResourceArticles, getResourceArticle, getResourceArticleI18n, RESOURCE_DEFAULT_PUBLISHED_AT, RESOURCE_SLUGS, ResourceSection } from '@/lib/resourceArticles'
-import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, langMeta} from '@/lib/seo'
 import { HIDDEN_RESOURCE_SLUGS } from '@/lib/hiddenSlugs'
 import { LANG_META } from '@/lib/seo'
 import { getStableLastModifiedISO } from '@/lib/buildTime'
@@ -389,7 +389,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     mainEntity: i18n.faqs.map(f => ({
       '@type': 'Question',
       name: f.q,
@@ -411,7 +411,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     '@context': 'https://schema.org',
     '@type': article.category === 'selection' || article.category === 'buying' ? 'TechArticle' : 'Article',
     '@id': `${SITE_URL}/${l}/resources/${slug}#article`,
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     headline: i18n.title,
     alternativeHeadline: i18n.metaTitle,
     description: i18n.description,
@@ -482,7 +482,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
           '@context': 'https://schema.org',
           '@type': 'HowTo',
           '@id': `${SITE_URL}/${l}/resources/${slug}#howto`,
-          inLanguage: LANG_META[l].htmlLang,
+          inLanguage: langMeta(l).htmlLang,
           name: i18n.title,
           description: i18n.description,
           image: ogImageUrl,
@@ -513,7 +513,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     '@id': `${SITE_URL}/${l}/resources/${slug}#breadcrumbs`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/${l}` },

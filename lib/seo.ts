@@ -144,3 +144,11 @@ export function buildPageMetadata(opts: {
     robots: buildRobots(),
   }
 }
+
+// Safe accessor for LANG_META — falls back to 'en' when lang param is
+// missing/invalid. Prevents SSR crashes on edge-case routes (middleware bypass,
+// crawler with malformed URL, dropped lang slipping through).
+export function langMeta(lang: string | undefined | null) {
+  if (lang && LANG_META[lang as Lang]) return LANG_META[lang as Lang]
+  return LANG_META.en
+}

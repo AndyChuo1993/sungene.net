@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/Container'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import JsonLd from '@/components/JsonLd'
 import { ButtonLink } from '@/components/ui/Button'
-import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
+import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
 import { HIDDEN_ROUTE_HUBS } from '@/lib/hiddenSlugs'
 import { SITE_URL } from '@/lib/siteConfig'
 import type { Lang } from '@/lib/i18n'
@@ -314,7 +314,7 @@ export default async function RouteHubPage({ params }: { params: Promise<{ lang:
     '@type': 'CollectionPage',
     '@id': pageUrl,
     url: pageUrl,
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     name: title,
     description: intro,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
@@ -326,7 +326,7 @@ export default async function RouteHubPage({ params }: { params: Promise<{ lang:
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': itemListId,
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     name: title,
     isPartOf: { '@id': pageUrl },
     itemListElement: guides.map((g, i) => ({
@@ -346,7 +346,7 @@ export default async function RouteHubPage({ params }: { params: Promise<{ lang:
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': pageUrl,
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     name: title,
     url: pageUrl,
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.text-base.text-gray-700'] },
@@ -355,7 +355,7 @@ export default async function RouteHubPage({ params }: { params: Promise<{ lang:
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: LANG_META[l].htmlLang,
+    inLanguage: langMeta(l).htmlLang,
     mainEntity: faqs.map((f) => ({
       '@type': 'Question',
       name: f.q,
