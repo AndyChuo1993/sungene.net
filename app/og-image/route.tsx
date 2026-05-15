@@ -7,13 +7,19 @@ export const contentType = 'image/png'
  * Dynamic OG image card. Brand-styled gradient + title + tag chips.
  * Called as /og-image?lang=xx&title=...&desc=...&path=...
  */
+const ACTIVE_LANGS = new Set(['en', 'zh', 'cn', 'fr', 'es'])
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
-  const lang = (searchParams.get('lang') || 'en').slice(0, 5)
+  let lang = (searchParams.get('lang') || 'en').slice(0, 5)
+  // Force fallback for dropped langs — saves SSR crashes and gives consistent share image
+  if (!ACTIVE_LANGS.has(lang)) lang = 'en'
   const titleRaw = searchParams.get('title') || 'SunGene — Taiwan + China Sourcing Partner'
   const descRaw = searchParams.get('desc') || 'Packaging, home, garden, beauty — direct from vetted factories.'
-  const title = titleRaw.slice(0, 110)
-  const desc = descRaw.slice(0, 220)
+  // Tighter slicing prevents Node satori crashes on long RTL strings
+  const title = titleRaw.slice(0, 90)
+  const desc = descRaw.slice(0, 180)
+  try {
 
   return new ImageResponse(
     (
@@ -128,4 +134,8 @@ export async function GET(req: Request) {
     ),
     { width: 1200, height: 630 },
   )
+  } catch (e) {
+    // Fallback: return a static brand PNG redirect for any rendering failure
+    return Response.redirect(new URL('/og/og.png', req.url).toString(), 302)
+  }
 }

@@ -128,14 +128,22 @@ export default function InquiryForm({
       // Common fields: name, email, company, message.
       // Free Analysis fields: company, product -> productName, market -> targetMarket, email.
       
+      // Append reference link to message so it isn't lost (API has no referenceImage key)
+      const refSuffix = data.reference ? `\n\nReference: ${data.reference}` : ''
+      const messageBody = (data.message || '') + refSuffix
+
       const payload = {
         type,
         name: data.name || data.company || 'Anonymous',
         email: data.email,
         company: data.company,
+        phone: data.phone,
         productName: data.product,
+        quantity: data.capacity,                              // contact form sends 'capacity'
+        targetCountry: data.country || data.targetCountry,    // contact form sends 'country'
         targetMarket: data.market,
-        message: data.message,
+        budget: data.budget,
+        message: messageBody,
         source: source || 'inquiry_form',
         context: context || pathname || '',
         website: (formData.get('website') as string) || '',
@@ -144,7 +152,7 @@ export default function InquiryForm({
         utm_source: searchParams.get('utm_source') || '',
         utm_medium: searchParams.get('utm_medium') || '',
         utm_campaign: searchParams.get('utm_campaign') || '',
-        ...data // Spread other fields just in case
+        ...data // Spread other fields just in case (API will whitelist-filter anyway)
       }
 
       const res = await fetch('/api/inquiries', {

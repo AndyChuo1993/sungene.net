@@ -615,6 +615,26 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
                   <p>{f.a}</p>
                 </div>
               ))}
+
+              {/* End-of-article CTA — bridge from informational article to sourcing categories */}
+              <div className="not-prose mt-12 rounded-2xl border border-accent-200 bg-accent-50 p-6 sm:p-8">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-accent-700">
+                      {({ en: 'READY TO SOURCE?', zh: '準備採購?', cn: '准备采购?', fr: 'PRÊT À SOURCER ?', es: '¿LISTO PARA SOURCING?' } as Record<string, string>)[l] || 'READY TO SOURCE?'}
+                    </div>
+                    <h3 className="mt-1 text-lg font-bold text-brand-950">
+                      {({ en: 'Buy this category from Taiwan + China factories — direct.', zh: '從台灣與中國工廠直接採購這個品類。', cn: '从台湾与中国工厂直接采购这个品类。', fr: 'Achetez cette catégorie depuis les usines Taïwan + Chine — en direct.', es: 'Compre esta categoría desde fábricas Taiwán + China — directo.' } as Record<string, string>)[l] || 'Buy this category from Taiwan + China factories — direct.'}
+                    </h3>
+                    <p className="mt-1.5 text-sm text-gray-700">
+                      {({ en: 'Browse packaging, home, garden and beauty sourcing — MOQ from USD 1,000.', zh: '瀏覽包裝、家居、園藝、美容採購 — MOQ USD 1,000 起。', cn: '浏览包装、家居、园艺、美容采购 — MOQ USD 1,000 起。', fr: 'Parcourez sourcing emballage, maison, jardin, beauté — MOQ 1 000 USD.', es: 'Explore sourcing empaque, hogar, jardín, belleza — MOQ USD 1 000.' } as Record<string, string>)[l] || 'Browse packaging, home, garden and beauty sourcing — MOQ from USD 1,000.'}
+                    </p>
+                  </div>
+                  <ButtonLink href={`/${l}/sourcing`} variant="primary" size="md" className="shrink-0">
+                    {({ en: 'See sourcing scope →', zh: '看採購範圍 →', cn: '看采购范围 →', fr: 'Voir le scope →', es: 'Ver alcance →' } as Record<string, string>)[l] || 'See sourcing scope →'}
+                  </ButtonLink>
+                </div>
+              </div>
             </article>
 
             <aside className="space-y-6">

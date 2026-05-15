@@ -39,14 +39,17 @@ const dryRun = Boolean(args.dry || args['dry-run'])
 const priorityOnly = Boolean(args.priority)
 
 // ─── Priority URL set (18 URLs — EN/ZH/CN × 6 highest-value pages) ────────────
-const PRIORITY_LANGS = ['en', 'zh', 'cn']
+const PRIORITY_LANGS = ['en', 'zh', 'cn', 'fr', 'es']
 const PRIORITY_PATHS = [
-  '', // homepage
-  '/machines/pouch-packing-machine',
-  '/machines/powder-filling-machine',
-  '/machines/liquid-filling-machine',
-  '/machines/snack-processing-line',
-  '/machines/conveyor-system',
+  '',                       // homepage
+  '/sourcing',              // sourcing scope
+  '/sourcing/packaging',
+  '/sourcing/home',
+  '/sourcing/garden',
+  '/sourcing/beauty',
+  '/about',
+  '/contact',
+  '/resources',
 ]
 function priorityUrls() {
   return PRIORITY_LANGS.flatMap((l) => PRIORITY_PATHS.map((p) => `https://${host}/${l}${p}`))
