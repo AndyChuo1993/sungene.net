@@ -359,7 +359,12 @@ export default function QuickAssessment({ lang, context, source = 'machine' }: P
           >
             {loading ? t.submitting : t.submit}
           </button>
-          <p className="text-center text-xs text-gray-500">{t.privacy}</p>
+          <p className="text-center text-xs text-gray-500">
+            {t.privacy}{' '}
+            <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">
+              {({ en: 'Privacy Policy', zh: '隱私權政策', cn: '隐私权政策', fr: 'politique de confidentialité', es: 'política de privacidad' } as Record<string, string>)[lang] || 'Privacy Policy'}
+            </a>.
+          </p>
           {result === 'error' ? (
             <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
               <strong>{t.errorTitle}.</strong> {t.errorBody}

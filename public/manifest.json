@@ -14,16 +14,19 @@
       "src": "/logo/sungene.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/logo/sungene.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
-  "categories": ["business", "shopping"],
+  "categories": [
+    "business",
+    "shopping"
+  ],
   "shortcuts": [
     {
       "name": "Get a sourcing quote",
