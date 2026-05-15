@@ -111,7 +111,6 @@ export default function Applications({ lang }: { lang: Lang }) {
         { name: '液体・ペースト充填', examples: 'ソース、飲料、食用油、化粧品、化学薬品', icon: '⚙️' },
         { name: '食品加工', examples: '肉類、ベーカリー、調理済み食品、水産物、乳製品、野菜', icon: '🍴' },
         { name: '消費財包装', examples: '金物、電子機器、医療機器、文房具', icon: '📦' },
-        { name: '工業・化学', examples: '肥料、セメント、接着剤、塗料、樹脂', icon: '🔩' },
       ],
       cta: '全業界を見る'
     },

@@ -217,7 +217,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/sourcing',
     type: 'website',
-    keywords: ['sourcing partner', 'Taiwan sourcing', 'China sourcing', 'supplier vetting', 'FAT', 'industrial equipment procurement', 'risk control'],
+    keywords: ['Taiwan China sourcing partner', 'packaging materials sourcing', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba 5-star supplier', 'on-site QC', 'private label sourcing', 'consolidated container shipping'],
   })
 }
 
@@ -407,7 +407,6 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
     'taiwan-china-sourcing-partner-model',
     'supplier-qualification-checklist',
     'how-to-compare-quotes-apples-to-apples',
-    'incoterms-for-machinery-and-automation',
     'payment-terms-risk-control',
     'third-party-inspection-vs-fat',
     'rfq-template-industrial-equipment',
@@ -646,7 +645,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
                 <ButtonLink href={`/${lang}/resources/payment-terms-risk-control`} variant="secondary" size="sm">
                   {lang === 'zh' ? '付款條件' : lang === 'cn' ? '付款条件' : 'Payment terms'}
                 </ButtonLink>
-                <ButtonLink href={`/${lang}/resources/incoterms-for-machinery-and-automation`} variant="soft" size="sm">
+                <ButtonLink href={`/${lang}/resources/fat-sat-acceptance-criteria-packaging-machinery`} variant="soft" size="sm">
                   Incoterms
                 </ButtonLink>
                 <ButtonLink href={`/${lang}/resources/spare-parts-and-wear-parts-planning`} variant="soft" size="sm">

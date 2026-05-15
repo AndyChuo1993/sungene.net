@@ -11,6 +11,18 @@ import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { RESOURCE_ARTICLES, getResourceArticleI18n } from '@/lib/resourceArticles'
 
+// Articles intentionally hidden from /resources hub UI + JSON-LD ItemList.
+// They remain indexable via direct slug URL (sitemap entry retained) but are
+// not surfaced on the hub because their titles are heavily machinery-flavored
+// and create dissonance with the trading-company positioning.
+const HUB_HIDDEN_SLUGS = new Set<string>([
+  'vffs-vs-hffs',
+  'premade-pouch-machine-vs-vffs',
+  'snack-packing',
+  'fat-sat-acceptance-criteria-packaging-machinery',
+])
+
+
 const titles: Record<string, string> = {
   en: 'Sourcing Guides & Resources', cn: '采购指南与资源', zh: '採購指南與資源',
   fr: 'Guides sourcing & ressources', es: 'Guías de abastecimiento y recursos',
@@ -79,6 +91,7 @@ const categories: (lang: string) => Category[] = (lang) => {
   function list(catId: 'comparison' | 'selection' | 'application' | 'buying'): Article[] {
     return RESOURCE_ARTICLES
       .filter((a) => a.category === catId)
+      .filter((a) => !HUB_HIDDEN_SLUGS.has(a.slug))
       .map((a) => {
         const i18n = getResourceArticleI18n(a.slug, lang as Lang) || getResourceArticleI18n(a.slug, 'en')
         return {
@@ -169,7 +182,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       ],
     },
     cn: {
-      name: '如何选择工业机械（实用清单）',
+      name: '如何規劃台灣+中國採購專案(實用清單)',
       description: '用于选购包装、灌装或加工设备的简明步骤。',
       steps: [
         { name: '确认产品形态', text: '粉末/液体/颗粒/固体或混合，决定计量与上料方式。' },
@@ -180,7 +193,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       ],
     },
     zh: {
-      name: '如何選擇工業機械（實用清單）',
+      name: '如何規劃台灣+中國採購專案(實用清單)',
       description: '用於選購包裝、灌裝或加工設備的簡明步驟。',
       steps: [
         { name: '確認產品形態', text: '粉末/液體/顆粒/固體或混合，決定計量與上料方式。' },
@@ -191,7 +204,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       ],
     },
     fr: {
-      name: 'Choisir une machine industrielle (checklist)',
+      name: 'Planifier un projet de sourcing Taïwan + Chine (checklist)',
       description: 'Étapes pratiques pour sélectionner emballage, remplissage ou process.',
       steps: [
         { name: 'État du produit', text: 'Poudre, liquide, granulé, solide ou mixte : dosage et alimentation.' },
@@ -202,7 +215,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
       ],
     },
     es: {
-      name: 'Cómo elegir maquinaria industrial (checklist)',
+      name: 'Cómo planificar un proyecto de sourcing Taiwán + China (checklist)',
       description: 'Pasos prácticos para seleccionar empaque, llenado o proceso.',
       steps: [
         { name: 'Estado del producto', text: 'Polvo, líquido, granulado, sólido o mixto.' },
@@ -343,7 +356,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         kicker={heroKicker}
         title={heroTitles[lang] || heroTitles.en}
         desc={heroDescs[lang] || heroDescs.en}
-        image={{ src: heroPhoto, alt: 'Industrial sourcing guides', priority: true, aspectClassName: 'aspect-[16/10]' }}
+        image={{ src: heroPhoto, alt: 'SunGene buyer guides for Taiwan and China sourcing', priority: true, aspectClassName: 'aspect-[16/10]' }}
       />
 
       <section className="py-6 bg-white">

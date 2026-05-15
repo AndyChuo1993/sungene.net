@@ -75,7 +75,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     pt: {
       kicker: 'NOSSOS CLIENTES',
       title: 'Quem Atendemos',
-      desc: 'Nossa expertise em sourcing atende uma ampla variedade de compradores globais em toda a cadeia de suprimentos industrial.',
+      desc: 'Atendemos compradores de embalagem, casa, jardim e beleza em 40+ países.',
       items: [
         { title: 'Importadores e Distribuidores', desc: 'Adquira máquinas com auditoria técnica profissional para o seu mercado local, incluindo documentação e logística completas.' },
         { title: 'Fabricantes de Alimentos e Bebidas', desc: 'Garanta sua capacidade de produção com equipamentos verificados de processamento, embalagem e automação.' },
