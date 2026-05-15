@@ -107,10 +107,10 @@ export default function Footer({ lang }: { lang: Lang }) {
                   <li>
                     {({'zh':'40041 台中市中區光復路201號','cn':'台中市中区光复路201号','fr':'201 Guangfu Rd., Taichung, Taïwan','es':'201 Guangfu Rd., Taichung, Taiwán','pt':'201 Guangfu Rd., Taichung, Taiwan','ko':'201 Guangfu Rd., 타이중, 대만','ja':'台湾台中市中区光復路201号','ar':'201 Guangfu Rd.، تايتشونغ، تايوان','th':'201 Guangfu Rd., ไทจุง, ไต้หวัน','vi':'201 Đường Guangfu, Đài Trung, Đài Loan','de':'Guangfu-Str. 201, Taichung, Taiwan'} as Record<string,string>)[lang] || '201 Guangfu Rd., Central District, Taichung 40041, Taiwan'}
                   </li>
-                  <li>Tel: +886 4-3703-2705</li>
-                  <li>WhatsApp: +86 18144132078</li>
+                  <li>Tel: <a href="tel:+886437032705" className="hover:text-white transition">+886 4-3703-2705</a></li>
+                  <li>WhatsApp: <a href="https://wa.me/8618144132078" target="_blank" rel="noopener" className="hover:text-white transition">+86 18144132078</a></li>
                   <li>LINE: @sungene</li>
-                  <li>Email: contact@sungene.net</li>
+                  <li>Email: <a href="mailto:contact@sungene.net" className="hover:text-white transition">contact@sungene.net</a></li>
                 </ul>
               </div>
               {/* Xiamen Office */}

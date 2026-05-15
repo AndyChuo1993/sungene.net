@@ -30,6 +30,11 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLang} dir={dir} suppressHydrationWarning>
+      <head>
+        {/* Faster LCP — preconnect to Unsplash CDN for hero/PageHero images */}
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className={`${inter.variable} min-h-screen font-sans`}>
         {children}
         {process.env.NEXT_PUBLIC_GA4_ID && (
