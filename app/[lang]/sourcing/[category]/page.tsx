@@ -11,6 +11,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
 
 export const dynamic = 'force-static'
+export const revalidate = 86400
 
 type Category = 'packaging' | 'home' | 'garden' | 'beauty'
 const CATEGORIES: Category[] = ['packaging', 'home', 'garden', 'beauty']
@@ -1071,7 +1072,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
       {/* Inline Quick Request form — reduces friction vs navigating to /contact */}
       <section className="bg-white py-12 sm:py-16">
         <Container className="max-w-3xl">
-          <QuickAssessment lang={l} context={`sourcing-${cat}`} source={`sourcing-${cat}`} />
+          <QuickAssessment lang={l} context={`sourcing-${cat}`} source="category-page-inline" />
         </Container>
       </section>
 

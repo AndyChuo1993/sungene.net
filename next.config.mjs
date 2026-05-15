@@ -5,11 +5,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
-            {
-        protocol: 'https',
         hostname: 'lf-cdn.trae.ai',
         pathname: '/obj/**',
       },

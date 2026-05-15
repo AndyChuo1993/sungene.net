@@ -449,8 +449,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
             </span>
           </div>
           <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl max-w-2xl">
-            {({ en: 'Trust is built by what you can check, not what we claim.', zh: '信任建立在你可以查證的事情上,不是我們的單方面說法。', cn: '信任建立在你可以查证的事情上,不是我们的单方面说法。', fr: 'La confiance se construit sur ce que vous pouvez vérifier, pas sur nos affirmations.', es: 'La confianza se construye sobre lo que usted puede verificar, no sobre lo que afirmamos.' } as Record<string, string>)[lang] || 'Trust is built by what you can check, not what we claim.'}
+            {({ en: 'What you can verify', zh: '可驗證的事實', cn: '可验证的事实', fr: 'Ce que vous pouvez vérifier', es: 'Lo que usted puede verificar' } as Record<string, string>)[lang] || 'What you can verify'}
           </h2>
+          <p className="mt-3 text-lg leading-relaxed text-white/85 max-w-3xl">
+            {({ en: 'Trust is built by what you can check, not what we claim.', zh: '信任建立在你可以查證的事情上,不是我們的單方面說法。', cn: '信任建立在你可以查证的事情上,不是我们的单方面说法。', fr: 'La confiance se construit sur ce que vous pouvez vérifier, pas sur nos affirmations.', es: 'La confianza se construye sobre lo que usted puede verificar, no sobre lo que afirmamos.' } as Record<string, string>)[lang] || ''}
+          </p>
           <p className="mt-4 text-base leading-relaxed text-white/80 max-w-3xl">
             {({ en: "We are a young trading company (founded 2023). Instead of asking you to trust testimonials we wrote ourselves, here is everything about SunGene you can verify in 60 seconds — independently, before sharing any inquiry with us.", zh: '我們是 2023 年成立的年輕貿易公司。比起讀我們自己寫的客戶見證,以下是你可以在 60 秒內獨立查證 SunGene 的所有資訊 — 在分享任何詢盤之前。', cn: '我们是 2023 年成立的年轻贸易公司。比起读我们自己写的客户见证,以下是你可以在 60 秒内独立查证 SunGene 的所有信息 — 在分享任何询盘之前。', fr: 'Nous sommes une jeune société de négoce (fondée en 2023). Plutôt que des témoignages que nous aurions écrits nous-mêmes, voici tout ce que vous pouvez vérifier sur SunGene en 60 secondes — indépendamment, avant tout échange.', es: 'Somos una empresa comercial joven (fundada en 2023). En lugar de pedirle que confíe en testimonios que escribimos nosotros, aquí está todo sobre SunGene que puede verificar en 60 segundos — independientemente, antes de compartir cualquier consulta.' } as Record<string, string>)[lang] || ''}
           </p>
