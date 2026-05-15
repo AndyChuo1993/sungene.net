@@ -15,12 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params
   const l = normalizeLang(lang)
   const titles = {
-    en: 'About SunGene — Taiwan + China sourcing partner',
-    cn: '关于 SunGene｜台湾＋中国 包装・家居・园艺 贸易公司',
-    zh: '關於 SunGene｜台灣＋中國 包裝・家居・園藝 貿易公司',
-    fr: 'À propos de SunGene — sourcing Taïwan + Chine',
-    es: 'Acerca de SunGene — sourcing Taiwán + China',
-    pt: 'Sobre a SunGene | Especialistas em Sourcing Industrial e Automação',
+    en: 'About — Taiwan + China sourcing',
+    cn: '关于我们｜台湾＋中国采购',
+    zh: '關於我們｜台灣＋中國採購',
+    fr: 'À propos — sourcing Taïwan + Chine',
+    es: 'Acerca — sourcing Taiwán + China',
     ko: 'SunGene 소개 | 산업 및 자동화 소싱 전문가',
     ja: 'SunGeneについて | 産業・自動化ソーシングのエキスパート',
     ar: 'عن SunGene | خبراء توريد المعدات الصناعية والأتمتة',
@@ -49,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     pathname: '/about',
     type: 'website',
-    keywords: ['SunGene', 'industrial sourcing partner', 'China equipment sourcing', 'Taiwan automation components', 'packaging system integration', 'technical procurement'],
+    keywords: ['SunGene', 'Taiwan China sourcing agent', 'packaging supplier', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba 5-star supplier', 'on-site QC', 'Taichung Xiamen trading company'],
   })
 }
 
@@ -316,7 +315,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const gallery = [
     { src: PHOTO.pages.about.gallery[0], alt: 'Workshop line' },
     { src: PHOTO.pages.about.gallery[1], alt: 'Bottling line in operation' },
-    { src: PHOTO.pages.about.gallery[2], alt: 'Industrial filling system detail' },
+    { src: PHOTO.pages.about.gallery[2], alt: 'SunGene team coordinating factory pre-shipment inspection' },
     { src: PHOTO.pages.about.gallery[3], alt: 'Control system and automation' },
   ]
   const aboutLabel =
@@ -434,6 +433,74 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
                 <p className="mt-3 text-base leading-relaxed text-gray-600">{s.desc}</p>
               </Card>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Verifiable trust signals — every item has a direct check path */}
+      <section className="bg-gradient-to-br from-brand-950 via-brand-900 to-brand-950 py-16 sm:py-20 text-white">
+        <Container className="max-w-5xl">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-px w-8 bg-accent-500" />
+            <span className="text-accent-400 text-xs font-bold uppercase tracking-[0.2em]">
+              {({ en: 'WHAT YOU CAN VERIFY', zh: '可驗證的資訊', cn: '可验证的信息', fr: 'À VÉRIFIER', es: 'QUÉ PUEDE VERIFICAR' } as Record<string, string>)[lang] || 'WHAT YOU CAN VERIFY'}
+            </span>
+          </div>
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl max-w-2xl">
+            {({ en: 'Trust is built by what you can check, not what we claim.', zh: '信任建立在你可以查證的事情上,不是我們的單方面說法。', cn: '信任建立在你可以查证的事情上,不是我们的单方面说法。', fr: 'La confiance se construit sur ce que vous pouvez vérifier, pas sur nos affirmations.', es: 'La confianza se construye sobre lo que usted puede verificar, no sobre lo que afirmamos.' } as Record<string, string>)[lang] || 'Trust is built by what you can check, not what we claim.'}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-white/80 max-w-3xl">
+            {({ en: "We are a young trading company (founded 2023). Instead of asking you to trust testimonials we wrote ourselves, here is everything about SunGene you can verify in 60 seconds — independently, before sharing any inquiry with us.", zh: '我們是 2023 年成立的年輕貿易公司。比起讀我們自己寫的客戶見證,以下是你可以在 60 秒內獨立查證 SunGene 的所有資訊 — 在分享任何詢盤之前。', cn: '我们是 2023 年成立的年轻贸易公司。比起读我们自己写的客户见证,以下是你可以在 60 秒内独立查证 SunGene 的所有信息 — 在分享任何询盘之前。', fr: 'Nous sommes une jeune société de négoce (fondée en 2023). Plutôt que des témoignages que nous aurions écrits nous-mêmes, voici tout ce que vous pouvez vérifier sur SunGene en 60 secondes — indépendamment, avant tout échange.', es: 'Somos una empresa comercial joven (fundada en 2023). En lugar de pedirle que confíe en testimonios que escribimos nosotros, aquí está todo sobre SunGene que puede verificar en 60 segundos — independientemente, antes de compartir cualquier consulta.' } as Record<string, string>)[lang] || ''}
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <a
+              href="https://momas.en.alibaba.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="group rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:border-accent-400 hover:bg-white/10"
+            >
+              <div className="text-xs font-bold uppercase tracking-wider text-accent-400">01</div>
+              <div className="mt-2 text-base font-bold text-white">
+                {({ en: 'Real buyer ratings on our Alibaba.com store', zh: 'Alibaba.com 店鋪的真實買家評價', cn: 'Alibaba.com 店铺的真实买家评价', fr: 'Avis acheteurs réels sur notre boutique Alibaba.com', es: 'Calificaciones reales de compradores en nuestra tienda Alibaba.com' } as Record<string, string>)[lang] || 'Real buyer ratings on our Alibaba.com store'}
+              </div>
+              <div className="mt-2 text-sm text-white/70">
+                {({ en: 'momas.en.alibaba.com → check our 5-star service rating and verified-supplier status maintained by the platform.', zh: 'momas.en.alibaba.com → 查看由 Alibaba 平台維護的 5 星服務評等與認證供應商身分。', cn: 'momas.en.alibaba.com → 查看由 Alibaba 平台维护的 5 星服务评等与认证供应商身份。', fr: 'momas.en.alibaba.com → consultez notre note de service 5 étoiles et statut fournisseur vérifié, maintenus par la plateforme.', es: 'momas.en.alibaba.com → vea nuestra calificación de servicio 5 estrellas y estado de proveedor verificado, mantenidos por la plataforma.' } as Record<string, string>)[lang] || ''}
+              </div>
+              <div className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent-400 group-hover:underline">
+                {({ en: 'Open store →', zh: '打開店鋪 →', cn: '打开店铺 →', fr: 'Ouvrir la boutique →', es: 'Abrir tienda →' } as Record<string, string>)[lang] || 'Open store →'}
+              </div>
+            </a>
+
+            <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-accent-400">02</div>
+              <div className="mt-2 text-base font-bold text-white">
+                {({ en: 'Registered Taiwan company', zh: '在台灣註冊的公司', cn: '在台湾注册的公司', fr: 'Société enregistrée à Taïwan', es: 'Empresa registrada en Taiwán' } as Record<string, string>)[lang] || 'Registered Taiwan company'}
+              </div>
+              <div className="mt-2 text-sm text-white/70">
+                {({ en: 'SunGene Co., LTD. — Taichung, Taiwan. Tax ID, bank account, and customs export records available on inquiry. We invoice from a Taiwan bank account.', zh: 'SunGene Co., LTD.（上瑾錸有限公司)— 台灣台中。統一編號、銀行帳號、出口報關紀錄可應要求提供。我們由台灣銀行帳戶出帳。', cn: 'SunGene Co., LTD.（上瑾錸有限公司)— 台湾台中。统一编号、银行账号、出口报关记录可应要求提供。我们由台湾银行账户出账。', fr: 'SunGene Co., LTD. — Taichung, Taïwan. Numéro fiscal, compte bancaire et registres douaniers d\'export disponibles sur demande. Nous facturons depuis un compte bancaire taïwanais.', es: 'SunGene Co., LTD. — Taichung, Taiwán. NIF, cuenta bancaria y registros aduaneros de exportación disponibles bajo solicitud. Facturamos desde una cuenta bancaria taiwanesa.' } as Record<string, string>)[lang] || ''}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-accent-400">03</div>
+              <div className="mt-2 text-base font-bold text-white">
+                {({ en: 'Direct contact, real channels', zh: '直接聯絡,真實管道', cn: '直接联系,真实渠道', fr: 'Contact direct, canaux réels', es: 'Contacto directo, canales reales' } as Record<string, string>)[lang] || 'Direct contact, real channels'}
+              </div>
+              <div className="mt-2 text-sm text-white/70">
+                {({ en: 'WhatsApp +86 18144132078 · WeChat +86 18144132078 · Phone +886 4-3703-2705 · Email contact@sungene.net. Reply same-day during Taipei business hours.', zh: 'WhatsApp +86 18144132078 · 微信 +86 18144132078 · 電話 +886 4-3703-2705 · 信箱 contact@sungene.net。台北上班時間當日回覆。', cn: 'WhatsApp +86 18144132078 · 微信 +86 18144132078 · 电话 +886 4-3703-2705 · 邮箱 contact@sungene.net。台北上班时间当日回复。', fr: 'WhatsApp +86 18144132078 · WeChat +86 18144132078 · Téléphone +886 4-3703-2705 · Email contact@sungene.net. Réponse le jour même aux heures de bureau de Taipei.', es: 'WhatsApp +86 18144132078 · WeChat +86 18144132078 · Teléfono +886 4-3703-2705 · Email contact@sungene.net. Respuesta el mismo día en horario laboral de Taipei.' } as Record<string, string>)[lang] || ''}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-accent-400">04</div>
+              <div className="mt-2 text-base font-bold text-white">
+                {({ en: 'Sample order before commitment', zh: '先打樣再下單', cn: '先打样再下单', fr: 'Échantillon avant engagement', es: 'Muestra antes de comprometerse' } as Record<string, string>)[lang] || 'Sample order before commitment'}
+              </div>
+              <div className="mt-2 text-sm text-white/70">
+                {({ en: 'For first-time buyers we welcome a small sample order (USD 1,000–3,000) before any container commitment. You test our QC, lead time, and communication on real money before scaling.', zh: '首次合作的買家可先下小批量樣品單(USD 1,000–3,000)再決定是否進大貨。你用實際的金額測試我們的驗貨、交期與溝通。', cn: '首次合作的买家可先下小批量样品单(USD 1,000–3,000)再决定是否进大货。您用实际的金额测试我们的验货、交期与沟通。', fr: 'Pour les premiers acheteurs, nous acceptons une petite commande échantillon (1 000–3 000 USD) avant tout engagement conteneur. Vous testez notre CQ, nos délais et notre communication avec un vrai budget avant de passer à l\'échelle.', es: 'Para compradores nuevos aceptamos un pedido muestra pequeño (USD 1 000–3 000) antes de cualquier compromiso de contenedor. Usted prueba nuestro QC, plazo y comunicación con dinero real antes de escalar.' } as Record<string, string>)[lang] || ''}
+              </div>
+            </div>
           </div>
         </Container>
       </section>

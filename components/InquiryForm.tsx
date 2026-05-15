@@ -139,11 +139,7 @@ export default function InquiryForm({
         company: data.company,
         phone: data.phone,
         productName: data.product,
-        quantity: data.capacity,                              // contact form sends 'capacity'
-        targetCountry: data.country || data.targetCountry,    // contact form sends 'country'
         targetMarket: data.market,
-        budget: data.budget,
-        message: messageBody,
         source: source || 'inquiry_form',
         context: context || pathname || '',
         website: (formData.get('website') as string) || '',
@@ -152,7 +148,13 @@ export default function InquiryForm({
         utm_source: searchParams.get('utm_source') || '',
         utm_medium: searchParams.get('utm_medium') || '',
         utm_campaign: searchParams.get('utm_campaign') || '',
-        ...data // Spread other fields just in case (API will whitelist-filter anyway)
+        ...data,                                              // free-form fields; API whitelist-filters
+        // These four MUST come after ...data so they are not clobbered if data
+        // happens to contain the same key from a different form's hidden field
+        quantity: data.capacity,                              // contact form sends 'capacity'
+        targetCountry: data.country || data.targetCountry,    // contact form sends 'country'
+        budget: data.budget,
+        message: messageBody,                                 // includes reference URL appended
       }
 
       const res = await fetch('/api/inquiries', {

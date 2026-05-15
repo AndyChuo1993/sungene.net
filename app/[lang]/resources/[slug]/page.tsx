@@ -420,7 +420,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
     url: `${SITE_URL}/${l}/resources/${slug}`,
     image: [ogImageUrl],
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${l}/resources/${slug}` },
-    isPartOf: { '@type': 'CollectionPage', '@id': `${SITE_URL}/${l}/resources`, name: 'Industrial Sourcing Guides' },
+    isPartOf: { '@type': 'CollectionPage', '@id': `${SITE_URL}/${l}/resources`, name: 'Sourcing Guides' },
     about: article.relatedMachine ? {
       '@type': 'Service', '@id': `${SITE_URL}/${l}/sourcing/packaging#service`,
       name: (machineLabels[l] ?? machineLabels.en)[article.relatedMachine as MachineSlug],

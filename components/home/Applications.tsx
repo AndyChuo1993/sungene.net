@@ -84,7 +84,6 @@ export default function Applications({ lang }: { lang: Lang }) {
         { name: 'Envase de Líquidos e Pastas', examples: 'Molhos, bebidas, óleo de cozinha, cosméticos, produtos químicos', icon: '⚙️' },
         { name: 'Processamento de Alimentos', examples: 'Carnes, panificação, refeições prontas, frutos do mar, laticínios, vegetais', icon: '🍴' },
         { name: 'Embalagem de Bens de Consumo', examples: 'Ferragens, eletrônicos, dispositivos médicos, papelaria', icon: '📦' },
-        { name: 'Industrial e Químico', examples: 'Fertilizantes, cimento, adesivos, tintas, resinas', icon: '🔩' },
       ],
       cta: 'Ver Todas as Indústrias'
     },

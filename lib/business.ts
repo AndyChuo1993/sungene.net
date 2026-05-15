@@ -193,7 +193,7 @@ export function buildOrganizationSchema(opts: { baseUrl?: string; lang: Lang }) 
     knowsAbout: [...BRAND.knowsAbout],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Industrial Equipment Sourcing Scope',
+      name: 'Sourcing Scope — Packaging, Home, Garden, Beauty',
       itemListElement: [
         { '@type': 'OfferCatalog', name: 'Packaging Materials', url: pageUrl(lang, '/sourcing/packaging'), description: 'Cartons, mailer boxes, pouches, custom-print packaging, retail boxes, eco-friendly options sourced direct from Taiwan and Mainland China factories.' },
         { '@type': 'OfferCatalog', name: 'Home Goods', url: pageUrl(lang, '/sourcing/home'), description: 'Kitchen, dining, storage, organization and household goods with on-the-ground QC and consolidated shipping.' },
@@ -202,40 +202,6 @@ export function buildOrganizationSchema(opts: { baseUrl?: string; lang: Lang }) 
       ],
     },
     brand: { '@id': `${baseUrl}/#brand` },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      bestRating: '5',
-      worstRating: '4',
-      reviewCount: '12',
-      ratingExplanation: 'Aggregate rating based on Alibaba.com verified buyer transactions and platform 5-star service rating.',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'L. Hernández' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Custom-printed stand-up pouches arrived on schedule. Pre-shipment QC photos were detailed. Price + margin breakdown on the quote made comparison clean.',
-        itemReviewed: { '@id': `${baseUrl}/#org` },
-        datePublished: '2025-09-12',
-      },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'J. Patel' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Sourced cosmetic packaging (airless pumps + droppers) from China factory. Sample lead time was 9 days, full production 28 days. Two suppliers consolidated into one container.',
-        itemReviewed: { '@id': `${baseUrl}/#org` },
-        datePublished: '2025-11-04',
-      },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'M. Schmidt' },
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Garden tools sourced for our DIY retail brand. SunGene team visited factory before shipment and shared video inspection. Replaced 2% defective batch without dispute.',
-        itemReviewed: { '@id': `${baseUrl}/#org` },
-        datePublished: '2026-01-22',
-      },
-    ],
     location: [
       {
         '@type': 'Place',

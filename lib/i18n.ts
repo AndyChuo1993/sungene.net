@@ -76,7 +76,7 @@ const dict: Record<string, Record<string, string>> = {
     nav_sol_single: 'Machine individuelle', nav_sol_semi: 'Semi-automatique', nav_sol_line: 'Intégration de ligne',
     nav_sol_custom: 'Machine sur mesure',
     meta_home_title: "SunGene | Sourcing Taïwan + Chine — emballage, maison, jardin",
-    meta_home_desc: "Société de négoce avec bureaux à Taïwan et en Chine. Nous achetons auprès d'usines vérifiées puis revendons en direct — contrôle qualité sur place, aucune commission occulte, devis transparents. Trois ans sur Alibaba.com. Commande min. USD 1 000.",
+    meta_home_desc: 'Partenaire de sourcing avec équipes à Taichung et Xiamen. Usines Taïwan + Chine pour emballage, maison, jardin, beauté. CQ sur place, Alibaba 5★. MOQ 1 000 USD.',
     meta_keywords: "sourcing Taïwan, sourcing Chine, agent d'achat, marques emballage, maison et jardin, fournisseur Alibaba, contrôle qualité usine, négoce taïwanais",
     form_submitting: 'Envoi en cours...', form_success_title: 'Demande reçue',
     form_success_desc: 'Nous avons bien reçu votre demande et vous répondrons sous 24 heures.',

@@ -135,7 +135,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   } as Record<string, string>)[lang] || 'RESOURCES'
 
   const heroTitles: Record<string, string> = {
-    en: 'Industrial Sourcing Guides', cn: '工业采购指南', zh: '工業採購指南',
+    en: 'Sourcing Guides', cn: '采购指南', zh: '採購指南',
     fr: 'Guides de sourcing industriel', es: 'Guías de abastecimiento industrial',
     pt: 'Guias de sourcing industrial', ko: '산업 소싱 가이드', ja: '産業調達ガイド',
     ar: 'أدلة التوريد الصناعي', th: 'คู่มือการจัดหาอุตสาหกรรม', vi: 'Hướng Dẫn Sourcing Công Nghiệp', de: 'Industrie-Sourcing-Leitfäden',
@@ -158,7 +158,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
 
   const howToByLang: Record<string, { name: string; description: string; steps: { name: string; text: string }[] }> = {
     en: {
-      name: 'How to Plan Industrial Equipment Sourcing',
+      name: 'How to plan a Taiwan + China sourcing project',
       description: 'A practical checklist for planning packaging, filling, or processing projects.',
       steps: [
         { name: 'Confirm product state', text: 'Powder, liquid, granule, solid, or mixed. This decides dosing and feeding.' },
@@ -331,7 +331,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     description: metaDesc,
     url: `${SITE_URL}/${lang}/resources`,
     isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website` },
-    about: { '@type': 'Thing', name: 'Industrial Equipment Sourcing' },
+    about: { '@type': 'Thing', name: 'Taiwan China Sourcing' },
     numberOfItems: itemListItems.length,
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
     mainEntity: { '@id': `${SITE_URL}/${lang}/resources#itemlist` },

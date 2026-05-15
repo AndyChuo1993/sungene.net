@@ -108,7 +108,7 @@ export async function GET(req: Request) {
         {/* bottom trust chips row */}
         <div style={{ display: 'flex', gap: 14, alignItems: 'center', zIndex: 1 }}>
           {[
-            'Alibaba 5★ verified',
+            'Alibaba 5-star verified',
             'Taichung + Xiamen',
             'On-site QC',
             'MOQ USD 1,000',

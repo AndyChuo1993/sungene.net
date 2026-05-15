@@ -65,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     item(`${baseUrl}/llms.txt`, 'monthly', 0.1),
     item(`${baseUrl}/ai.txt`, 'monthly', 0.1),
   ]
-  const llmDocsByLang = langs.map((lang) => item(`${baseUrl}/${lang}/llms.txt`, 'monthly', 0.1))
+  // /[lang]/llms.txt deleted — root /llms.txt is canonical (avoids conflicting AI signals)
 
   return [
     ...homepages,
@@ -77,6 +77,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...routeHubSitemap,
     ...resourceArticlesSitemap,
     ...llmDocs,
-    ...llmDocsByLang,
   ]
 }
