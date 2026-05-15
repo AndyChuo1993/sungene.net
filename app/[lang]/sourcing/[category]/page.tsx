@@ -951,11 +951,43 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
     })),
   }
 
+  let _position = 0
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: LANG_META[l].htmlLang,
+    name: c.h1,
+    description: c.intro,
+    url: `${SITE_URL}/${l}/sourcing/${cat}`,
+    numberOfItems: c.productGroups.reduce((sum, g) => sum + g.items.length, 0),
+    itemListElement: c.productGroups.flatMap((g) =>
+      g.items.map((it) => ({
+        '@type': 'ListItem',
+        position: ++_position,
+        item: {
+          '@type': 'Product',
+          name: it,
+          category: g.title,
+          brand: { '@type': 'Brand', '@id': `${SITE_URL}/#brand`, name: 'SunGene' },
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'USD',
+            lowPrice: '1000',
+            offerCount: c.productGroups.length,
+            availability: 'https://schema.org/InStock',
+            seller: { '@type': 'Organization', '@id': `${SITE_URL}/#org` },
+          },
+        },
+      })),
+    ),
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       <PageHero
         kicker={c.kicker}
