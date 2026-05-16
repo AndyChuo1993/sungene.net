@@ -1,0 +1,40 @@
+fix: round-14 part 3 — eliminate deploy-window 5xx + App Router error boundaries
+
+Round-14 final audit caught a deploy-window 5xx burst (16 errors in one second
+during the previous round-14 follow-up reload). All static asset requests in
+that window returned 500 because pm2 fork-mode reload is essentially stop+start.
+
+#1 PM2 CLUSTER MODE — true rolling reload, zero deploy-window 5xx
+   - ecosystem.config.js (new) — 2 instances, exec_mode: 'cluster', listen_timeout:
+     10000, kill_timeout: 5000, max_memory_restart: 900M
+   - Removed fork-mode sungene PM2 entry, started from ecosystem
+   - `pm2 reload sungene` now cycles workers one at a time; the surviving instance
+     keeps serving while the other rebuilds
+   - Memory budget: 7.3GiB total, 2 × ~400MB instances comfortable
+   - Hammer-tested with 300 reqs over 10s while triggering rolling reload:
+     **0 non-200 responses**
+
+#2 deploy-atomic.sh — cluster-aware rolling reload + extended grace
+   - `pm2 reload sungene --update-env` (cluster rolling, not stop+start)
+   - `.next.previous-static` snapshot retention extended 1h → 24h so any
+     lingering CDN/browser references to old chunk hashes can still resolve
+     for a full day
+
+#3 App Router error boundaries (auditor item)
+   - app/global-error.tsx (new) — top-level boundary that replaces RootLayout
+     when a catastrophic root-component crash occurs. Branded SunGene navy bg,
+     "Try again" (calls reset()) + "Back to homepage" CTA. Reports `app_error`
+     event to GA4 with sanitized error.message + error.digest.
+   - app/error.tsx (new) — nested route boundary, keeps Header/Footer visible.
+     Reports `route_error` event to GA4.
+   - Both compiled into build output: .next/server/app/_global-error.{html,rsc,meta}
+
+Verified after deploy:
+  pm2 info sungene → exec_mode: cluster_mode, 2 instances online ✓
+  pm2 reload during 300-request hammer: 0 non-200 ✓
+  /en /en/contact still 200 ✓
+  pm2 save (cluster config survives reboot) ✓
+
+Out of scope this round (auditor item):
+  CSP header — requires testing inline-script allowlist for next/script + ld+json
+  before rollout. Deferred to a dedicated session.
