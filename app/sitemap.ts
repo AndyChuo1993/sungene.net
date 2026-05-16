@@ -58,6 +58,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
 
+  const compareSlugs = ['vs-alibaba-direct', 'vs-sourcing-agent']
+  const compareSitemap = compareSlugs.flatMap((slug) =>
+    langs.map((lang) => item(`${baseUrl}/${lang}/${slug}`, 'monthly', 0.7))
+  )
+
   const llmDocs = [
     item(`${baseUrl}/llms.txt`, 'monthly', 0.1),
     item(`${baseUrl}/ai.txt`, 'monthly', 0.1),
@@ -73,6 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...legalSitemap,
     ...routeHubSitemap,
     ...resourceArticlesSitemap,
+    ...compareSitemap,
     ...llmDocs,
   ]
 }

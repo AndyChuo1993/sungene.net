@@ -1,0 +1,58 @@
+feat: round-15 — Content-Security-Policy + buyer-side comparison pages
+
+Two strategic items shipped this round (CSP was carried over from round-14
+"out-of-scope"; comparison pages were drafted in round-11 but never deployed).
+
+#1 Content-Security-Policy header (nginx vhost)
+   Added strict CSP to /www/server/panel/vhost/nginx/node_sungene_net.conf
+   inside the location / block, alongside HSTS/X-Frame/X-Content-Type-Options:
+
+   default-src 'self';
+   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+   script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com;
+   style-src 'self' 'unsafe-inline';
+   img-src 'self' data: blob: https://www.google-analytics.com
+           https://www.googletagmanager.com;
+   font-src 'self' data:;
+   connect-src 'self' https://www.google-analytics.com
+               https://*.google-analytics.com
+               https://www.googletagmanager.com
+               https://*.googletagmanager.com
+               https://stats.g.doubleclick.net;
+   frame-ancestors 'self';
+   frame-src 'self';
+   base-uri 'self';
+   form-action 'self';
+   object-src 'none';
+   upgrade-insecure-requests
+
+   Notes:
+   - 'unsafe-inline' still needed for next/script inline blocks (gtag consent
+     default, gtag init, JSON-LD). Future tightening via nonces is a follow-up.
+   - frame-ancestors 'self' replaces X-Frame-Options for modern browsers;
+     legacy XFO header is still present in parallel.
+   - upgrade-insecure-requests auto-rewrites any accidental http://sungene.net
+     references to https.
+
+   Verified: Content-Security-Policy header present on /en, site still loads
+   GA4 + JSON-LD + Tailwind + next/font correctly. PageSpeed/Lighthouse will
+   pick this up as a security improvement.
+
+#2 /vs-alibaba-direct + /vs-sourcing-agent comparison pages
+   - app/[lang]/[compareSlug]/page.tsx (new) — strict slug whitelist via
+     SLUGS map, notFound() for everything else. SSG via generateStaticParams.
+   - 5 active langs (en/zh/cn/fr/es) with full content; dead langs get
+     minimal intro and the structured comparison sections are hidden.
+   - Content covers: when each model wins, side-by-side comparison table,
+     bottom-line CTA with link to /contact and /sourcing.
+   - app/sitemap.ts updated: 10 new sitemap entries (2 slugs × 5 langs).
+   - Verified: /en/vs-alibaba-direct, /en/vs-sourcing-agent, /zh/*, /fr/* all
+     return 200. /en/totally-random-slug returns 404 ✓.
+
+Skipped (need user input/decision):
+   - DMARC tighten (fo=1; aspf=r; adkim=r) — Squarespace asked for Google
+     re-verification; waiting on user 2FA approval in the browser
+   - 4-6 sourcing articles — content task
+   - /resources email signup — needs ESP account
+   - Multi-step form, Sample order tier, Multi-currency, D-U-N-S — UX or
+     business decisions

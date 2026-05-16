@@ -1,0 +1,518 @@
+import type { Metadata } from 'next'
+import { ALL_LANGS, Lang } from '@/lib/i18n'
+import { Container } from '@/components/ui/Container'
+import { PageHero } from '@/components/ui/PageHero'
+import { ButtonLink } from '@/components/ui/Button'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import { buildPageMetadata, normalizeLang } from '@/lib/seo'
+import { SITE_URL } from '@/lib/siteConfig'
+
+export const dynamic = 'force-static'
+export const revalidate = 86400
+
+export async function generateStaticParams() {
+  return Object.keys(SLUGS).map((compareSlug) => ({ compareSlug }))
+}
+
+type CompareKey = 'vs-alibaba-direct' | 'vs-sourcing-agent'
+
+const SLUGS: Record<CompareKey, true> = {
+  'vs-alibaba-direct': true,
+  'vs-sourcing-agent': true,
+}
+
+const META: Record<CompareKey, Record<Lang, { title: string; desc: string }>> = {
+  'vs-alibaba-direct': {
+    en: { title: 'SunGene vs buying direct on Alibaba — which is right for you?', desc: 'Honest comparison: when buying direct on Alibaba works, and when a Taiwan-based sourcing partner is worth the markup.' },
+    zh: { title: 'SunGene vs Alibaba 直接採購 — 哪個適合你?', desc: '誠實對比:何時直接在 Alibaba 採購可以,何時找台灣採購夥伴值得多付一點。' },
+    cn: { title: 'SunGene vs Alibaba 直接采购 — 哪个适合您?', desc: '诚实对比:何时直接在 Alibaba 采购可以,何时找台湾采购伙伴值得多付一点。' },
+    fr: { title: 'SunGene vs achat direct Alibaba — lequel pour vous ?', desc: 'Comparaison honnête : quand acheter direct sur Alibaba marche, quand un partenaire sourcing à Taïwan vaut la marge.' },
+    es: { title: 'SunGene vs compra directa en Alibaba — ¿cuál es para usted?', desc: 'Comparación honesta: cuándo comprar directo en Alibaba funciona, cuándo un socio de sourcing en Taiwán vale la margen.' },
+    pt: { title: 'SunGene vs Alibaba direto', desc: 'Comparação honesta.' },
+    ko: { title: 'SunGene vs Alibaba 직거래', desc: '솔직한 비교.' },
+    ja: { title: 'SunGene vs Alibaba 直接購入', desc: '正直な比較。' },
+    ar: { title: 'SunGene مقارنة الشراء المباشر', desc: 'مقارنة صادقة.' },
+    th: { title: 'SunGene vs ซื้อตรง Alibaba', desc: 'เปรียบเทียบตรงไปตรงมา' },
+    vi: { title: 'SunGene vs Mua trực tiếp Alibaba', desc: 'So sánh thẳng thắn.' },
+    de: { title: 'SunGene vs Direktkauf Alibaba', desc: 'Ehrlicher Vergleich.' },
+  },
+  'vs-sourcing-agent': {
+    en: { title: 'SunGene vs commission sourcing agents — what changes?', desc: 'Commission agents earn on factory prices you do not see. SunGene buys and resells with margin disclosed. Side-by-side comparison.' },
+    zh: { title: 'SunGene vs 抽佣採購代理 — 差別在哪?', desc: '抽佣代理按你看不到的工廠價抽成。SunGene 買斷後加上揭露利潤轉售。逐項對比。' },
+    cn: { title: 'SunGene vs 抽佣采购代理 — 差别在哪?', desc: '抽佣代理按您看不到的工厂价抽成。SunGene 买断后加上揭露利润转售。逐项对比。' },
+    fr: { title: 'SunGene vs agent à commission — la différence', desc: "L'agent à commission se rémunère sur un prix usine que vous ne voyez pas. SunGene achète puis revend avec marge déclarée." },
+    es: { title: 'SunGene vs agente a comisión — la diferencia', desc: 'El agente a comisión gana sobre un precio de fábrica que usted no ve. SunGene compra y revende con margen declarado.' },
+    pt: { title: 'SunGene vs agente comissão', desc: 'A diferença real.' },
+    ko: { title: 'SunGene vs 커미션 에이전트', desc: '실제 차이.' },
+    ja: { title: 'SunGene vs コミッション代理店', desc: '実際の違い。' },
+    ar: { title: 'SunGene مقابل وكلاء العمولة', desc: 'الفرق الحقيقي.' },
+    th: { title: 'SunGene vs ตัวแทนคอมมิชชั่น', desc: 'ความแตกต่างจริง' },
+    vi: { title: 'SunGene vs Đại lý hoa hồng', desc: 'Sự khác biệt thực sự.' },
+    de: { title: 'SunGene vs Provisionsagent', desc: 'Echter Unterschied.' },
+  },
+}
+
+const CONTENT: Record<CompareKey, Record<Lang, {
+  intro: string
+  whenAlt: { title: string; bullets: string[] }
+  whenUs: { title: string; bullets: string[] }
+  tableRows: { criterion: string; alt: string; us: string }[]
+  bottomLine: string
+}>> = {
+  'vs-alibaba-direct': {
+    en: {
+      intro: "Alibaba is the world's largest B2B marketplace. We are on it ourselves (5-star verified supplier momas.en.alibaba.com). We are not against buying direct on Alibaba — for some buyers, in some situations, it's the right call. Here is the honest version.",
+      whenAlt: {
+        title: 'Buying direct on Alibaba works when:',
+        bullets: [
+          'You have time to vet 8-15 factories yourself, request samples, and read review history carefully',
+          'Your order is small (under USD 1,000) and you can absorb a bad batch as a learning cost',
+          'You speak the supplier\'s language fluently OR are comfortable with Google Translate factory negotiations',
+          'You will fly to China to inspect goods in person, OR you have an existing inspection agency contract',
+          'You are buying a generic, well-defined SKU with no customization (color, size, branding)',
+        ],
+      },
+      whenUs: {
+        title: 'A Taiwan-based sourcing partner makes sense when:',
+        bullets: [
+          'You want to mix 2-5 product categories in one consolidated container',
+          'You need custom-print packaging, OEM/ODM branding, or Pantone color matching',
+          'You want pre-shipment QC done by your representative, not the supplier or a third-party agency you have never met',
+          'You are sending an order that, if wrong, costs more than the typical 5-15% trading margin',
+          'You want a single point of accountability with a Taiwan-registered business entity that can be sued in your jurisdiction',
+          'Your supplier list will grow over time and you want one vetted relationship instead of 30 separate ones',
+        ],
+      },
+      tableRows: [
+        { criterion: 'Factory access', alt: 'Anyone with email', us: 'Pre-vetted relationship network' },
+        { criterion: 'Pricing', alt: 'Factory price (with hidden markup risk)', us: 'Factory price + disclosed margin' },
+        { criterion: 'QC', alt: 'Self-arrange or pay 3rd-party', us: 'Included, by SunGene staff' },
+        { criterion: 'Consolidation', alt: 'Per-supplier, separate shipments', us: 'Cross-supplier into one container' },
+        { criterion: 'Dispute resolution', alt: 'Alibaba Trade Assurance, slow', us: 'Direct, Taiwan jurisdiction' },
+        { criterion: 'Customization', alt: 'You negotiate', us: 'We negotiate + verify execution' },
+        { criterion: 'Time investment', alt: 'High (40-80 hours per project)', us: 'Low (3-8 hours)' },
+        { criterion: 'Best for', alt: 'Generic small orders by experienced buyers', us: 'Multi-SKU, customized, repeat orders' },
+      ],
+      bottomLine: 'If your time is worth less than the trading margin or you enjoy supplier management as a craft, buy direct. If your time is worth more, or you need consolidation + QC + accountability, work with us. Both can be the right answer.',
+    },
+    zh: {
+      intro: 'Alibaba 是全球最大的 B2B 平台。我們自己也在上面開店(5 星驗證供應商 momas.en.alibaba.com)。我們不反對直接在 Alibaba 採購——對某些買家、在某些情境下,那就是對的選擇。以下是誠實版本。',
+      whenAlt: {
+        title: '直接在 Alibaba 採購適合,當:',
+        bullets: [
+          '你有時間自己審 8-15 家工廠、要樣品、認真讀評價歷史',
+          '訂單小(USD 1,000 以下),壞一批可以當學費吸收',
+          '你流利講供應商的語言,或習慣用 Google Translate 跟工廠談判',
+          '你會親自飛去中國驗貨,或已有合作的第三方驗貨機構',
+          '你買的是規格明確的標準品,沒有客製化(顏色、尺寸、品牌)',
+        ],
+      },
+      whenUs: {
+        title: '找台灣採購夥伴有意義,當:',
+        bullets: [
+          '你想在一個合併貨櫃中混 2-5 個品類',
+          '你需要客製印刷包裝、OEM/ODM 品牌貼牌、Pantone 色號比對',
+          '你想由代表你的人做出貨前驗貨,而不是供應商或從沒見過的第三方驗貨公司',
+          '你下的訂單如果出錯,損失大於典型 5-15% 的貿易商利潤',
+          '你想有一個單一責任窗口,而且是台灣註冊公司,可以在你的司法管轄區追訴',
+          '你的供應商清單會持續成長,你想要一段審查過的關係,而不是 30 段獨立關係',
+        ],
+      },
+      tableRows: [
+        { criterion: '工廠取得', alt: '任何人有電郵都可以', us: '預先審查過的關係網絡' },
+        { criterion: '報價', alt: '工廠價(隱性加價風險)', us: '工廠價 + 揭露利潤' },
+        { criterion: '驗貨', alt: '自己安排或付給第三方', us: '由 SunGene 員工直接做' },
+        { criterion: '貨櫃整合', alt: '單供應商單獨出貨', us: '跨供應商合併到一個貨櫃' },
+        { criterion: '爭議處理', alt: 'Alibaba 交易保障,流程慢', us: '直接,台灣司法管轄' },
+        { criterion: '客製化', alt: '你自己談', us: '我們談 + 驗證執行' },
+        { criterion: '時間投入', alt: '高(每個專案 40-80 小時)', us: '低(3-8 小時)' },
+        { criterion: '適合', alt: '有經驗的買家,規格明確的小單', us: '多 SKU、客製化、重複訂單' },
+      ],
+      bottomLine: '如果你的時間價值小於貿易商利潤,或你享受供應商管理當興趣,直接買。如果你的時間更值錢、或你需要合併出貨 + 驗貨 + 責任窗口,跟我們合作。兩個都可以是對的答案。',
+    },
+    cn: {
+      intro: 'Alibaba 是全球最大的 B2B 平台。我们自己也在上面开店(5 星认证供应商 momas.en.alibaba.com)。我们不反对直接在 Alibaba 采购——对某些买家、在某些情境下,那就是对的选择。以下是诚实版本。',
+      whenAlt: {
+        title: '直接在 Alibaba 采购适合,当:',
+        bullets: [
+          '您有时间自己审 8-15 家工厂、要样品、认真读评价历史',
+          '订单小(USD 1,000 以下),坏一批可以当学费吸收',
+          '您流利讲供应商的语言,或习惯用 Google Translate 跟工厂谈判',
+          '您会亲自飞去中国验货,或已有合作的第三方验货机构',
+          '您买的是规格明确的标准品,没有定制化(颜色、尺寸、品牌)',
+        ],
+      },
+      whenUs: {
+        title: '找台湾采购伙伴有意义,当:',
+        bullets: [
+          '您想在一个合并货柜中混 2-5 个品类',
+          '您需要定制印刷包装、OEM/ODM 品牌贴牌、Pantone 色号比对',
+          '您想由代表您的人做出货前验货',
+          '您下的订单如果出错,损失大于典型 5-15% 的贸易商利润',
+          '您想有一个单一责任窗口,而且是台湾注册公司',
+          '您的供应商清单会持续成长,您想要一段审查过的关系',
+        ],
+      },
+      tableRows: [
+        { criterion: '工厂取得', alt: '任何人有邮箱都可以', us: '预先审查过的关系网络' },
+        { criterion: '报价', alt: '工厂价(隐性加价风险)', us: '工厂价 + 揭露利润' },
+        { criterion: '验货', alt: '自己安排或付给第三方', us: '由 SunGene 员工直接做' },
+        { criterion: '货柜整合', alt: '单供应商单独出货', us: '跨供应商合并到一个货柜' },
+        { criterion: '争议处理', alt: 'Alibaba 交易保障,流程慢', us: '直接,台湾司法管辖' },
+        { criterion: '定制化', alt: '您自己谈', us: '我们谈 + 验证执行' },
+        { criterion: '时间投入', alt: '高(每个项目 40-80 小时)', us: '低(3-8 小时)' },
+        { criterion: '适合', alt: '有经验的买家,规格明确的小单', us: '多 SKU、定制化、重复订单' },
+      ],
+      bottomLine: '如果您的时间价值小于贸易商利润,或您享受供应商管理当兴趣,直接买。如果您的时间更值钱、或您需要合并出货 + 验货 + 责任窗口,跟我们合作。两个都可以是对的答案。',
+    },
+    fr: {
+      intro: "Alibaba est la plus grande plateforme B2B au monde. Nous y sommes nous-mêmes (fournisseur vérifié 5 étoiles momas.en.alibaba.com). Nous ne sommes pas contre l'achat direct sur Alibaba — pour certains acheteurs, dans certaines situations, c'est le bon choix. Voici la version honnête.",
+      whenAlt: {
+        title: "Acheter direct sur Alibaba fonctionne quand :",
+        bullets: [
+          "Vous avez le temps d'auditer 8-15 usines, demander des échantillons et lire l'historique d'avis attentivement",
+          "Votre commande est petite (moins de 1 000 USD) et vous pouvez absorber un mauvais lot comme coût d'apprentissage",
+          "Vous parlez la langue du fournisseur OU êtes à l'aise avec des négociations via Google Translate",
+          "Vous irez en Chine inspecter en personne OU vous avez un contrat existant d'inspection tierce",
+          "Vous achetez une référence générique, bien définie, sans personnalisation",
+        ],
+      },
+      whenUs: {
+        title: "Un partenaire de sourcing à Taïwan a du sens quand :",
+        bullets: [
+          "Vous voulez combiner 2-5 catégories dans un seul conteneur consolidé",
+          "Vous avez besoin d'emballage imprimé personnalisé, OEM/ODM, ou correspondance Pantone",
+          "Vous voulez un CQ pré-expédition par votre représentant, pas par le fournisseur ou un tiers inconnu",
+          "Votre commande, si erronée, coûte plus que la marge typique de 5-15% du négociant",
+          "Vous voulez un point unique de responsabilité avec une société taïwanaise enregistrée",
+          "Votre liste de fournisseurs va s'étendre et vous voulez une relation vérifiée plutôt que 30 séparées",
+        ],
+      },
+      tableRows: [
+        { criterion: 'Accès usine', alt: 'Toute personne avec email', us: 'Réseau de relations pré-vérifiées' },
+        { criterion: 'Tarification', alt: 'Prix usine (risque de surcoût caché)', us: 'Prix usine + marge déclarée' },
+        { criterion: 'CQ', alt: 'À organiser ou payer un tiers', us: 'Inclus, par personnel SunGene' },
+        { criterion: 'Consolidation', alt: 'Par fournisseur, expéditions séparées', us: 'Multi-fournisseurs en un conteneur' },
+        { criterion: 'Litiges', alt: 'Alibaba Trade Assurance, lent', us: 'Direct, juridiction Taïwan' },
+        { criterion: 'Personnalisation', alt: 'Vous négociez', us: "Nous négocions + vérifions l'exécution" },
+        { criterion: 'Temps investi', alt: 'Élevé (40-80 h par projet)', us: 'Faible (3-8 h)' },
+        { criterion: 'Idéal pour', alt: "Petites commandes génériques, acheteur expérimenté", us: 'Multi-SKU, personnalisé, récurrent' },
+      ],
+      bottomLine: "Si votre temps vaut moins que la marge du négociant, ou si vous aimez la gestion fournisseurs comme métier, achetez direct. Si votre temps vaut plus, ou si vous avez besoin de consolidation + CQ + responsabilité, travaillez avec nous. Les deux peuvent être la bonne réponse.",
+    },
+    es: {
+      intro: 'Alibaba es la plataforma B2B más grande del mundo. Estamos en ella nosotros mismos (proveedor verificado 5 estrellas momas.en.alibaba.com). No estamos en contra de comprar directo en Alibaba — para algunos compradores, en algunas situaciones, es la decisión correcta. Aquí la versión honesta.',
+      whenAlt: {
+        title: 'Comprar directo en Alibaba funciona cuando:',
+        bullets: [
+          'Tiene tiempo para auditar 8-15 fábricas, pedir muestras y leer historial de reseñas con cuidado',
+          'Su pedido es pequeño (menos de USD 1,000) y puede absorber un lote malo como costo de aprendizaje',
+          'Habla el idioma del proveedor O está cómodo con negociaciones vía Google Translate',
+          'Irá personalmente a China a inspeccionar O ya tiene contrato con agencia de inspección',
+          'Compra un SKU genérico, bien definido, sin personalización',
+        ],
+      },
+      whenUs: {
+        title: 'Un socio de sourcing en Taiwán tiene sentido cuando:',
+        bullets: [
+          'Quiere combinar 2-5 categorías en un contenedor consolidado',
+          'Necesita empaque impreso personalizado, OEM/ODM, o correspondencia Pantone',
+          'Quiere QC pre-envío hecho por su representante, no el proveedor ni un tercero desconocido',
+          'Su pedido, si sale mal, cuesta más que el margen típico 5-15% del comerciante',
+          'Quiere un único punto de responsabilidad con una empresa registrada en Taiwán',
+          'Su lista de proveedores crecerá y quiere una relación verificada en lugar de 30 separadas',
+        ],
+      },
+      tableRows: [
+        { criterion: 'Acceso a fábrica', alt: 'Cualquiera con email', us: 'Red de relaciones pre-verificadas' },
+        { criterion: 'Precio', alt: 'Precio fábrica (riesgo de sobrecargo oculto)', us: 'Precio fábrica + margen declarado' },
+        { criterion: 'QC', alt: 'Organizar usted o pagar tercero', us: 'Incluido, por personal SunGene' },
+        { criterion: 'Consolidación', alt: 'Por proveedor, envíos separados', us: 'Multi-proveedor en un contenedor' },
+        { criterion: 'Disputas', alt: 'Alibaba Trade Assurance, lento', us: 'Directo, jurisdicción Taiwán' },
+        { criterion: 'Personalización', alt: 'Usted negocia', us: 'Nosotros negociamos + verificamos' },
+        { criterion: 'Tiempo invertido', alt: 'Alto (40-80 h por proyecto)', us: 'Bajo (3-8 h)' },
+        { criterion: 'Ideal para', alt: 'Pedidos genéricos pequeños, comprador experto', us: 'Multi-SKU, personalizado, recurrente' },
+      ],
+      bottomLine: 'Si su tiempo vale menos que el margen del comerciante, o disfruta la gestión de proveedores como oficio, compre directo. Si su tiempo vale más, o necesita consolidación + QC + responsabilidad, trabaje con nosotros. Ambos pueden ser la respuesta correcta.',
+    },
+    pt: { intro: 'Comparação honesta entre comprar direto na Alibaba e usar a SunGene.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ko: { intro: 'Alibaba 직거래와 SunGene 비교.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ja: { intro: 'Alibaba直接購入とSunGeneの比較。', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ar: { intro: 'مقارنة شراء Alibaba المباشر و SunGene.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    th: { intro: 'เปรียบเทียบซื้อตรง Alibaba กับ SunGene', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    vi: { intro: 'So sánh mua trực tiếp Alibaba và SunGene.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    de: { intro: 'Vergleich Alibaba Direktkauf und SunGene.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+  },
+  'vs-sourcing-agent': {
+    en: {
+      intro: 'There are two ways a Taiwan/China sourcing intermediary makes money: (1) commission on top of a factory price you do not see, or (2) buy-low resell-with-margin where the factory price and margin are both disclosed. The difference matters more than it sounds.',
+      whenAlt: {
+        title: 'Commission sourcing agents:',
+        bullets: [
+          'Earn a percentage (typically 5-12%) of whatever factory price they quote you',
+          'Have an incentive to find a HIGHER factory price (their commission grows with it)',
+          'You never see the underlying factory invoice — you take their word for the markup',
+          'When a factory offers a kickback to use higher pricing, the agent is the financial beneficiary',
+          'No legal title to the goods — if the order goes wrong, factory and buyer must resolve directly',
+        ],
+      },
+      whenUs: {
+        title: 'SunGene (buy-and-resell trading principal):',
+        bullets: [
+          'We buy the goods from the factory at FOB or EXW. SunGene Co., LTD. is on the invoice as buyer',
+          'We resell to you with our margin shown on a separate line of your quote',
+          'You can request the underlying factory invoice before order confirmation',
+          'When goods fail QC, rejecting them is our financial decision (we are the buyer of record), not a courtesy to you',
+          'Single accountability: your dispute is with a Taiwan-registered company',
+        ],
+      },
+      tableRows: [
+        { criterion: 'Revenue model', alt: 'Commission % of factory price', us: 'Buy-low resell-with-margin' },
+        { criterion: 'Margin visibility', alt: 'Often hidden inside quoted price', us: 'Shown separately on quote' },
+        { criterion: 'Kickback incentive', alt: 'Yes (higher price = bigger commission)', us: 'No (margin is fixed, factory price drives our cost)' },
+        { criterion: 'Goods on whose balance sheet', alt: 'Factory keeps title until buyer pays', us: 'SunGene takes title at FOB/EXW' },
+        { criterion: 'QC accountability', alt: 'Best-effort', us: 'Financial self-interest to reject defects' },
+        { criterion: 'Legal recourse', alt: 'Buyer ↔ factory direct dispute', us: 'Buyer ↔ SunGene (Taiwan jurisdiction)' },
+        { criterion: 'Invoice transparency', alt: 'Single line, total only', us: 'Factory invoice + our margin shown' },
+        { criterion: 'Typical fee structure', alt: '5-12% commission, opaque', us: '5-15% margin, disclosed' },
+      ],
+      bottomLine: 'Both models can deliver good results. The structural difference is who has the financial incentive to reject sub-spec goods. With a commission agent, that incentive sits with you. With us, it sits with us. We think buyers should know the difference, which model they are working with, and demand the underlying factory invoice as evidence either way.',
+    },
+    zh: {
+      intro: '台灣/中國採購中介有兩種賺錢方式:(1) 在你看不到的工廠價之上抽佣,或 (2) 買斷後加上揭露利潤轉售,工廠價與利潤都公開。差別比聽起來重要。',
+      whenAlt: {
+        title: '抽佣型採購代理:',
+        bullets: [
+          '按工廠報價的百分比賺錢(典型 5-12%)',
+          '有動機讓工廠報「更高的價格」(他們的佣金隨價格成長)',
+          '你看不到底下的工廠發票——加價多少全憑代理的話',
+          '當工廠提供回扣給代理用高一點的報價時,代理是受益人',
+          '貨物所有權不在代理身上——出問題時,工廠與買家要直接處理',
+        ],
+      },
+      whenUs: {
+        title: 'SunGene(買斷再轉售的貿易主體):',
+        bullets: [
+          '我們以 FOB 或 EXW 從工廠買貨。SunGene Co., LTD. 作為買方出現在發票上',
+          '我們在報價單上把利潤分行列出,加在工廠價之上',
+          '下單前你可要求看到底下的工廠發票',
+          '當貨物驗貨失敗,擋下它是我們的財務決定(我們是登記買方),不是對你的人情',
+          '單一窗口:你的爭議對象是一家台灣註冊公司',
+        ],
+      },
+      tableRows: [
+        { criterion: '收入模型', alt: '工廠價的佣金 %', us: '買斷再轉售加利潤' },
+        { criterion: '利潤透明度', alt: '通常藏在報價中', us: '報價單上分行列出' },
+        { criterion: '回扣動機', alt: '有(價格越高佣金越大)', us: '無(利潤固定,工廠價是我們的成本)' },
+        { criterion: '貨物所有權', alt: '工廠持有直到買家付款', us: 'SunGene 於 FOB/EXW 取得所有權' },
+        { criterion: '驗貨責任', alt: '盡力而為', us: '財務自利驅動 — 必須擋下瑕疵品' },
+        { criterion: '法律追訴', alt: '買家 ↔ 工廠 直接爭議', us: '買家 ↔ SunGene(台灣司法)' },
+        { criterion: '發票透明度', alt: '單行,僅總價', us: '工廠發票 + 我方利潤分列' },
+        { criterion: '典型費率', alt: '5-12% 佣金,不透明', us: '5-15% 利潤,揭露' },
+      ],
+      bottomLine: '兩個模型都可以做出好結果。結構性差異在於:誰有財務動機去擋下不合規的貨。抽佣代理把這個動機放在你身上;我們把它放在我們身上。我們認為買家應該知道差別、知道自己在跟哪種模型合作,並要求看到工廠發票作為證據。',
+    },
+    cn: {
+      intro: '台湾/中国采购中介有两种赚钱方式:(1) 在您看不到的工厂价之上抽佣,或 (2) 买断后加上揭露利润转售,工厂价与利润都公开。差别比听起来重要。',
+      whenAlt: {
+        title: '抽佣型采购代理:',
+        bullets: [
+          '按工厂报价的百分比赚钱(典型 5-12%)',
+          '有动机让工厂报「更高的价格」(他们的佣金随价格成长)',
+          '您看不到底下的工厂发票——加价多少全凭代理的话',
+          '当工厂提供回扣给代理用高一点的报价时,代理是受益人',
+          '货物所有权不在代理身上——出问题时,工厂与买家要直接处理',
+        ],
+      },
+      whenUs: {
+        title: 'SunGene(买断再转售的贸易主体):',
+        bullets: [
+          '我们以 FOB 或 EXW 从工厂买货。SunGene Co., LTD. 作为买方出现在发票上',
+          '我们在报价单上把利润分行列出,加在工厂价之上',
+          '下单前您可要求看到底下的工厂发票',
+          '当货物验货失败,挡下它是我们的财务决定',
+          '单一窗口:您的争议对象是一家台湾注册公司',
+        ],
+      },
+      tableRows: [
+        { criterion: '收入模型', alt: '工厂价的佣金 %', us: '买断再转售加利润' },
+        { criterion: '利润透明度', alt: '通常藏在报价中', us: '报价单上分行列出' },
+        { criterion: '回扣动机', alt: '有(价格越高佣金越大)', us: '无(利润固定,工厂价是我们的成本)' },
+        { criterion: '货物所有权', alt: '工厂持有直到买家付款', us: 'SunGene 于 FOB/EXW 取得所有权' },
+        { criterion: '验货责任', alt: '尽力而为', us: '财务自利驱动 — 必须挡下瑕疵品' },
+        { criterion: '法律追诉', alt: '买家 ↔ 工厂 直接争议', us: '买家 ↔ SunGene(台湾司法)' },
+        { criterion: '发票透明度', alt: '单行,仅总价', us: '工厂发票 + 我方利润分列' },
+        { criterion: '典型费率', alt: '5-12% 佣金,不透明', us: '5-15% 利润,揭露' },
+      ],
+      bottomLine: '两个模型都可以做出好结果。结构性差异在于:谁有财务动机去挡下不合规的货。抽佣代理把这个动机放在您身上;我们把它放在我们身上。',
+    },
+    fr: {
+      intro: "Il y a deux façons pour un intermédiaire de sourcing Taïwan/Chine de gagner sa vie : (1) commission au-dessus d'un prix usine que vous ne voyez pas, ou (2) achat-revente avec marge déclarée. La différence compte plus qu'il n'y paraît.",
+      whenAlt: { title: "Agents à commission :", bullets: [
+        "Touchent un pourcentage (5-12%) du prix usine qu'ils vous facturent",
+        "Ont intérêt à un prix usine plus ÉLEVÉ (leur commission grandit avec)",
+        "Vous ne voyez jamais la facture usine sous-jacente",
+        "Quand l'usine offre un kickback pour un prix plus haut, l'agent en bénéficie",
+        "Pas de titre légal sur la marchandise — disputes directement entre usine et acheteur",
+      ]},
+      whenUs: { title: "SunGene (négociant achat-revente) :", bullets: [
+        "Nous achetons la marchandise FOB ou EXW. SunGene Co., LTD. apparaît comme acheteur sur la facture",
+        "Nous revendons avec notre marge affichée sur une ligne séparée du devis",
+        "Vous pouvez demander la facture usine avant confirmation",
+        "Refuser un lot défectueux est notre décision financière (nous sommes l'acheteur enregistré)",
+        "Responsabilité unique : votre litige est avec une société taïwanaise enregistrée",
+      ]},
+      tableRows: [
+        { criterion: 'Modèle de revenu', alt: '% du prix usine en commission', us: 'Achat-revente avec marge' },
+        { criterion: 'Visibilité de la marge', alt: 'Cachée dans le prix', us: 'Affichée séparément' },
+        { criterion: 'Incitation au kickback', alt: 'Oui (prix élevé = grosse commission)', us: 'Non' },
+        { criterion: 'Titre des marchandises', alt: 'Usine garde le titre', us: 'SunGene prend le titre FOB/EXW' },
+        { criterion: 'Responsabilité CQ', alt: 'Meilleurs efforts', us: 'Intérêt financier à refuser les défauts' },
+        { criterion: 'Recours juridique', alt: 'Acheteur ↔ usine direct', us: 'Acheteur ↔ SunGene (Taïwan)' },
+        { criterion: 'Transparence facture', alt: 'Une ligne, total seulement', us: 'Facture usine + marge affichées' },
+        { criterion: 'Structure tarifaire typique', alt: '5-12% commission, opaque', us: '5-15% marge, déclarée' },
+      ],
+      bottomLine: "Les deux modèles peuvent livrer de bons résultats. La différence structurelle : qui a l'intérêt financier à refuser les marchandises non-conformes. Avec un agent à commission, c'est vous. Avec nous, c'est nous.",
+    },
+    es: {
+      intro: 'Hay dos formas en que un intermediario de sourcing Taiwán/China gana dinero: (1) comisión sobre un precio de fábrica que usted no ve, o (2) compra-reventa con margen declarado. La diferencia importa más de lo que parece.',
+      whenAlt: { title: 'Agentes a comisión:', bullets: [
+        'Ganan un porcentaje (5-12%) del precio de fábrica que le cotizan',
+        'Tienen incentivo para un precio de fábrica MÁS ALTO (su comisión crece)',
+        'Usted nunca ve la factura de fábrica subyacente',
+        'Cuando la fábrica ofrece kickback por usar precio más alto, el agente lo recibe',
+        'No tienen título legal sobre la mercancía — disputas directas fábrica-comprador',
+      ]},
+      whenUs: { title: 'SunGene (comerciante compra-reventa):', bullets: [
+        'Compramos FOB o EXW. SunGene Co., LTD. aparece como comprador en la factura',
+        'Revendemos con margen mostrado en línea separada de la cotización',
+        'Puede solicitar la factura de fábrica antes de confirmar',
+        'Rechazar un lote defectuoso es nuestra decisión financiera (somos comprador registrado)',
+        'Responsabilidad única: su disputa es con una empresa registrada en Taiwán',
+      ]},
+      tableRows: [
+        { criterion: 'Modelo de ingresos', alt: '% del precio de fábrica en comisión', us: 'Compra-reventa con margen' },
+        { criterion: 'Visibilidad de margen', alt: 'Oculta en el precio', us: 'Mostrada por separado' },
+        { criterion: 'Incentivo de kickback', alt: 'Sí (precio alto = comisión grande)', us: 'No' },
+        { criterion: 'Título de mercancía', alt: 'Fábrica mantiene título', us: 'SunGene toma título FOB/EXW' },
+        { criterion: 'Responsabilidad QC', alt: 'Mejores esfuerzos', us: 'Interés financiero en rechazar defectos' },
+        { criterion: 'Recurso legal', alt: 'Comprador ↔ fábrica directo', us: 'Comprador ↔ SunGene (Taiwán)' },
+        { criterion: 'Transparencia factura', alt: 'Una línea, solo total', us: 'Factura fábrica + margen mostrados' },
+        { criterion: 'Estructura típica', alt: '5-12% comisión, opaca', us: '5-15% margen, declarado' },
+      ],
+      bottomLine: 'Ambos modelos pueden dar buenos resultados. La diferencia estructural: quién tiene el incentivo financiero para rechazar mercancía no conforme. Con un agente a comisión, lo tiene usted. Con nosotros, lo tenemos nosotros.',
+    },
+    pt: { intro: 'Comparação modelo comissão vs compra-reventa.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ko: { intro: '커미션 vs 매입재판매 모델.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ja: { intro: 'コミッション対買取再販モデル。', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    ar: { intro: 'مقارنة نموذجي العمولة والشراء وإعادة البيع.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    th: { intro: 'เปรียบเทียบโมเดลคอมมิชชั่นกับซื้อมาขายไป', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    vi: { intro: 'So sánh mô hình hoa hồng vs mua đi bán lại.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+    de: { intro: 'Vergleich Kommissions- vs Kauf-Wiederverkaufsmodell.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
+  },
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; compareSlug: string }> }): Promise<Metadata> {
+  const { lang, compareSlug: slug } = await params
+  const l = normalizeLang(lang) as Lang
+  if (!(slug in SLUGS)) return { title: 'Not found', robots: { index: false, follow: false } }
+  const m = META[slug as CompareKey][l] ?? META[slug as CompareKey].en
+  return buildPageMetadata({
+    lang: l,
+    title: m.title,
+    description: m.desc,
+    pathname: `/${slug}`,
+    type: 'article',
+  })
+}
+
+async function _unusedFullParams() {
+  const params: { lang: string; compareSlug: string }[] = []
+  for (const lang of ALL_LANGS) {
+    for (const slug of Object.keys(SLUGS)) {
+      params.push({ lang, compareSlug: slug })
+    }
+  }
+  return params
+}
+
+export default async function ComparePage({ params }: { params: Promise<{ lang: Lang; compareSlug: string }> }) {
+  const { lang, compareSlug: slug } = await params
+  const l = normalizeLang(lang) as Lang
+  if (!(slug in SLUGS)) {
+    const { notFound } = await import('next/navigation')
+    notFound()
+  }
+  const key = slug as CompareKey
+  const m = META[key][l] ?? META[key].en
+  const c = CONTENT[key][l] ?? CONTENT[key].en
+
+  return (
+    <>
+      <PageHero kicker={({ en: 'HONEST COMPARISON', zh: '誠實對比', cn: '诚实对比', fr: 'COMPARAISON HONNÊTE', es: 'COMPARACIÓN HONESTA' } as Record<string, string>)[l] || 'HONEST COMPARISON'} title={m.title} desc={c.intro} />
+
+      <section className="bg-white py-12 sm:py-16">
+        <Container className="max-w-4xl">
+          <Breadcrumbs lang={l} items={[{ label: m.title, href: `/${l}/${slug}` }]} />
+
+          {c.whenAlt.bullets.length > 0 && (
+            <>
+              <div className="mt-12 grid gap-8 md:grid-cols-2">
+                <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+                  <h2 className="text-lg font-bold text-gray-950">{c.whenAlt.title}</h2>
+                  <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                    {c.whenAlt.bullets.map((b, i) => (
+                      <li key={i} className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400" /><span>{b}</span></li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-2xl border border-accent-200 bg-accent-50 p-6">
+                  <h2 className="text-lg font-bold text-brand-950">{c.whenUs.title}</h2>
+                  <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                    {c.whenUs.bullets.map((b, i) => (
+                      <li key={i} className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500" /><span>{b}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-12 overflow-x-auto">
+                <table className="w-full border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b-2 border-gray-300">
+                      <th className="py-3 pr-4 text-left font-bold text-gray-950"></th>
+                      <th className="py-3 px-4 text-left font-bold text-gray-700">{({ en: 'Alternative', zh: '對方', cn: '对方', fr: 'Alternative', es: 'Alternativa' } as Record<string, string>)[l] || 'Alternative'}</th>
+                      <th className="py-3 pl-4 text-left font-bold text-brand-950">SunGene</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {c.tableRows.map((row, i) => (
+                      <tr key={i} className="border-b border-gray-200">
+                        <td className="py-3 pr-4 font-semibold text-gray-950">{row.criterion}</td>
+                        <td className="py-3 px-4 text-gray-700">{row.alt}</td>
+                        <td className="py-3 pl-4 text-gray-950">{row.us}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-12 rounded-2xl bg-brand-950 p-8 text-white">
+                <h2 className="text-xl font-bold">{({ en: 'Bottom line', zh: '結論', cn: '结论', fr: 'En bref', es: 'En resumen' } as Record<string, string>)[l] || 'Bottom line'}</h2>
+                <p className="mt-3 text-base leading-relaxed text-white/90">{c.bottomLine}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <ButtonLink href={`/${l}/contact`} variant="primary" size="md">
+                    {({ en: 'Start a sourcing conversation', zh: '開始採購對話', cn: '开始采购对话', fr: 'Démarrer une conversation', es: 'Iniciar conversación' } as Record<string, string>)[l] || 'Start a sourcing conversation'}
+                  </ButtonLink>
+                  <ButtonLink href={`/${l}/sourcing`} variant="secondary" size="md" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">
+                    {({ en: 'See sourcing scope', zh: '看採購範圍', cn: '看采购范围', fr: 'Voir le scope', es: 'Ver alcance' } as Record<string, string>)[l] || 'See sourcing scope'}
+                  </ButtonLink>
+                </div>
+              </div>
+            </>
+          )}
+        </Container>
+      </section>
+    </>
+  )
+}
