@@ -3,6 +3,7 @@ import { Lang } from '@/lib/i18n'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import CompareBanner from '@/components/CompareBanner'
 import { ButtonLink } from '@/components/ui/Button'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
@@ -562,6 +563,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
           </div>
         </Container>
       </section>
+      <CompareBanner lang={lang} />
     </>
   )
 }

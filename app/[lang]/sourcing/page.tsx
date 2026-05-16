@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import CompareBanner from '@/components/CompareBanner'
 import { ButtonLink } from '@/components/ui/Button'
 import JsonLd from '@/components/JsonLd'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -716,6 +717,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
         </Container>
       </section>
 
+      <CompareBanner lang={lang} />
       <section className="py-12 sm:py-16 bg-brand-950 text-white">
         <Container className="max-w-5xl">
           <div className="grid gap-6 lg:grid-cols-[1fr,auto] lg:items-center">

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
+import CompareBanner from '@/components/CompareBanner'
 import JsonLd from '@/components/JsonLd'
 import { PHOTO } from '@/lib/photoLibrary'
 import { PageHero } from '@/components/ui/PageHero'
@@ -459,6 +460,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         </Container>
       </section>
 
+      <CompareBanner lang={lang} />
       <JsonLd data={[howToSchema, itemListSchema, collectionSchema]} />
     </>
   )

@@ -1,0 +1,50 @@
+feat: round-16 — compare pages polish (titles + zh/cn depth + schema + internal links)
+
+Round-15 audit flagged 4 quality items on the new compare pages. All 4 fixed.
+
+#1 Internal links (orphan→discoverable)
+   - components/CompareBanner.tsx (new) — 2-card "Comparing your options?"
+     section, 5 langs, links to /vs-alibaba-direct + /vs-sourcing-agent.
+   - Injected into /sourcing, /about, /resources hub pages just before each
+     page's final CTA / closing block. Verified 4 links from each hub now
+     point at /vs-* (the cross-link inside compare-page also surfaces them).
+
+#2 zh/cn content depth (45% → 100% of en)
+   Rewrote intro / whenAlt / whenUs / tableRows / bottomLine for both
+   compare slugs in zh-Hant and zh-Hans. Each section now mirrors the
+   en density (6 whenAlt + 6 whenUs bullets, 8-row table, full bottomLine).
+   Verified zh HTML byte count now equals en (was ~45% before).
+
+#3 Article + ItemList JSON-LD schema (Rich Results)
+   Added two structured-data blocks emitted per compare page:
+   - Article: headline, description, inLanguage, datePublished/dateModified,
+     author/publisher → #org, mainEntityOfPage canonical URL
+   - ItemList: numbered comparison criteria (one ListItem per table row),
+     description packs alt+us values, itemListOrder ascending
+   Verified `"@type":"Article"` and `"@type":"ItemList"` present in HTML.
+
+#4 Title length (71ch → 54ch + " | SunGene" suffix = 64ch)
+   - /en META.vs-alibaba-direct.title:
+     "SunGene vs buying direct on Alibaba — which is right for you?" (62)
+     → "SunGene vs Alibaba direct — which suits your sourcing?" (54)
+     Final rendered: "SunGene vs Alibaba direct — which suits your sourcing? | SunGene" (64ch)
+   - /es title also shortened to similar length.
+   Both now fit within Google SERP ~65ch display window.
+
+Verified after deploy:
+  /en/vs-alibaba-direct: 200, 64ch title, Article + ItemList schema ✓
+  /en/vs-sourcing-agent: 200, 64ch title, Article + ItemList schema ✓
+  /en/sourcing: 4 links to /vs-* ✓
+  /en/about: 4 links to /vs-* ✓
+  /en/resources: 4 links to /vs-* ✓
+  zh HTML size = en HTML size (100% content ratio, was 45%) ✓
+  pm2 cluster rolling reload: 0 5xx ✓
+
+Out of scope (auditor item #5: H3 sub-sections inside H2s):
+  Compare structure is 3-section (whenAlt | whenUs | bottomLine). Adding H3
+  splits would dilute scannability of the bullet lists. Featured Snippets
+  prefer concise lists too, which we already have. Deferred unless data
+  shows otherwise.
+
+Out of scope (auditor item #6: brotli):
+  Requires nginx recompile, separately scheduled.
