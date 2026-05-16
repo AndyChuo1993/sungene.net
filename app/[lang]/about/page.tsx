@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Über SunGene | Experten für industrielles Sourcing und Automatisierung',
   }
   const descriptions: Record<string, string> = {
-    en: 'Sourcing partner with teams in Taichung and Xiamen. Direct buying from vetted Taiwan + China factories for packaging, home, garden, beauty. On-site QC. Alibaba 5-star.',
+    en: 'Taiwan + China sourcing partner. Direct buying from vetted factories for packaging, home, garden, beauty. On-site QC. Alibaba 5-star verified.',
     cn: 'SunGene 是贸易采购伙伴,团队分驻台中与厦门。我们直接向两地审核过的工厂采购、出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
     zh: 'SunGene 是貿易採購夥伴,團隊分駐台中與廈門。我們直接向兩地審核過的工廠採購、出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
     fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5-star vérifié.",

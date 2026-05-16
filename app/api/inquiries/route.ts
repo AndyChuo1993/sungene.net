@@ -287,7 +287,7 @@ Time: ${meta.time}`
     headers: { 'X-Request-ID': reqId || '' },
   })
   if (result.ok) {
-    console.log('[inquiries] admin email sent:', result.messageId, 'via', result.provider)
+    console.info('[inquiries] admin email sent:', result.messageId, 'via', result.provider)
     return true
   }
   console.error('[inquiries] admin email failed:', result.error, 'via', result.provider)

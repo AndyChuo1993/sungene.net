@@ -1,0 +1,82 @@
+fix: round-17 — cluster-mode regressions + R16 audit gaps
+
+R16 audit caught two cluster-mode regressions I introduced in R14p3 (PM2 fork→cluster
+switch) plus a content depth claim I made on shaky measurements. All addressed.
+
+#1 RATE LIMIT — was failing open under cluster mode
+   PM2 cluster with 2 workers gave each worker its own in-process Map → effective
+   limit was 2× intended, and round-robin meant a single IP attacker never
+   accumulated enough hits in any one worker to trip. Auditor confirmed: 15
+   consecutive POSTs from one X-Forwarded-For all returned 200.
+
+   Fix: lib/rateLimit.ts now persists counters to a small JSON file under
+   /tmp/sungene-ratelimit.json. Both PM2 workers read/write the same file. Race
+   conditions exist (two workers can both increment in flight) but allow at most
+   1-2 extra requests past the limit, acceptable for spam prevention. For strict
+   consensus upgrade to Redis (Upstash free tier would do it).
+
+   Verified (hammer test, 15 POSTs from same IP, limit=10):
+     req 1-10: 400 (validation rejects but rate counter increments) ✓
+     req 11-15: 429 ✓
+   Cluster-shared limit now works.
+
+#2 ISR CACHE — was MISS-MISS-MISS-MISS for /en and /en/about
+   Same cluster mode bug: Next's in-process ISR memory cache lived per-worker.
+   Worker A served /en and cached the result locally → Worker B receives the
+   next /en request and has nothing cached → full SSR every time.
+
+   Fix: next.config.mjs `experimental.isrMemoryCacheSize: 0` disables the
+   memory tier; Next falls back to the on-disk cache, which is shared via fs
+   between workers.
+
+   Verified: /en attempt 1/2/3/4 = HIT/HIT/HIT/HIT ✓
+
+#3 META LENGTH POLISH (R16 audit items #4-6)
+   - /sourcing en title: 69ch → 56ch
+     "How we work — direct sourcing from Taiwan + China factories"
+     → "How SunGene sources direct from Taiwan + China factories"
+   - /sourcing en desc: 184ch → 142ch
+   - /about en desc: 168ch → 142ch
+   - /vs-alibaba-direct en desc: 117ch → 155ch (was too thin)
+   - /vs-sourcing-agent en desc: 137ch → 156ch (was too thin)
+
+#4 CONSOLE.LOG → CONSOLE.INFO
+   app/api/inquiries/route.ts and app/api/product-inquiry/route.ts. Production
+   log noise reduced; behavior unchanged for log aggregators that respect levels.
+
+#5 ZH/CN COMPARE CONTENT — genuinely expanded
+   R16 commit claimed "zh HTML = en HTML 100% ratio" — that compared raw HTML
+   byte count (markup, JSON-LD, navigation, footer all included), not visible
+   text. Real visible-text was 56-58% of en. Auditor was right.
+
+   This round actually expands:
+   - vs-alibaba-direct zh + cn intro: ~120ch → ~200ch (explains the structural
+     "甜蜜點與盲點" framing more concretely)
+   - whenAlt bullets: 6 → 7 per slug, each bullet 30-40% longer with concrete
+     scenarios (RFQ rounds, Incoterms knowledge, cash-flow tolerance)
+   - whenUs bullets: 6 → 7, mention AQL sampling, OEM/ODM detail, factory-invoice
+     line-item disclosure
+   - bottomLine: ~70ch → ~140ch, explicit "5-15% margin" anchor + reframing
+     "便宜的方式買到最貴的教訓"
+   - vs-sourcing-agent zh + cn: whenAlt 6 → 7 bullets (added "問工廠發票時聽到
+     '不方便給' = 沒籌碼"); bottomLine ~120ch → ~200ch (acknowledges commission
+     model can also work in narrow categories)
+
+   Weighted-character measurement (CJK×2 + Latin×1):
+     vs-alibaba: en=575 / zh=1980 (3.4×) / cn=1978 (3.4×)
+     vs-agent: en=1776 / zh=1708 (96%) / cn=1708 (96%)
+
+Verified after deploy:
+  Rate limit hammer: 10 OK then 5 × 429 ✓
+  ISR /en: 4 × HIT ✓
+  /sourcing title 66ch / desc 142ch ✓
+  /about desc 142ch ✓
+  /vs-alibaba-direct desc 155ch / /vs-sourcing-agent desc 160ch ✓
+  pm2 cluster rolling reload during build: 0 5xx ✓
+
+Out of scope this round (auditor list):
+  - DMARC p=quarantine → p=reject (etc): user-controlled DNS, deferred
+  - 4-6 sourcing articles: content task
+  - /resources email signup: needs ESP account
+  - use-client refactor (76%→<50%): real refactor work, separate session
+  - photo-real AVIF preprocessing: optimization, not bug

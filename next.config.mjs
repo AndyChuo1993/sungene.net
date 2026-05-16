@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  experimental: {
+    // Cluster mode: per-worker memory ISR cache causes cross-worker MISS.
+    // Disabling memory tier forces the on-disk cache (shared via fs).
+    isrMemoryCacheSize: 0,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

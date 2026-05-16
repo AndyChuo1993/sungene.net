@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 const metaTitles: Record<string, string> = {
-  en: 'How we work — direct sourcing from Taiwan + China factories',
+  en: 'How SunGene sources direct from Taiwan + China factories',
   cn: '我们怎么合作｜直接从台湾+中国工厂买货转售',
   zh: '我們怎麼合作｜直接從台灣＋中國工廠買貨轉售',
   fr: 'Notre méthode — achat-revente direct, usines TW + CN',
@@ -36,7 +36,7 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Sourcing partner with teams in Taichung and Xiamen. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on every quote. Alibaba 5-star.',
+  en: 'Taiwan + China sourcing partner. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on quote.',
   cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。Alibaba 5 星认证。',
   zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。Alibaba 5 星認證。',
   fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Alibaba 5-star.",

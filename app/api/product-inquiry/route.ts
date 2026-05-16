@@ -136,7 +136,7 @@ ${photoAttachment ? `[Photo attached: ${photoAttachment.filename}]` : '[No photo
     console.error('[product-inquiry] admin email failed:', adminResult.error, 'via', adminResult.provider)
     return jsonFail(500, 'Email send failed')
   }
-  console.log('[product-inquiry] admin email sent:', adminResult.messageId, 'via', adminResult.provider)
+  console.info('[product-inquiry] admin email sent:', adminResult.messageId, 'via', adminResult.provider)
 
   // Send acknowledgement to customer (fire-and-forget)
   const ackText =
