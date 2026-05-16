@@ -34,6 +34,26 @@ export default async function RootLayout({
         {children}
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>
+            {/* Consent Mode v2 — MUST run before gtag/js so the very first hit is consent-aware. */}
+            <Script id="ga4-consent-default" strategy="beforeInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              (function(){
+                var prior = null;
+                try { prior = localStorage.getItem('cookie-consent'); } catch(_) {}
+                var granted = prior === 'granted';
+                gtag('consent', 'default', {
+                  ad_storage: 'denied',
+                  ad_user_data: 'denied',
+                  ad_personalization: 'denied',
+                  analytics_storage: granted ? 'granted' : 'denied',
+                  wait_for_update: 500,
+                });
+                gtag('set', 'ads_data_redaction', true);
+                gtag('set', 'url_passthrough', true);
+              })();
+            `}</Script>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`} strategy="afterInteractive" />
             <Script id="ga4-init" strategy="afterInteractive">{`
               window.dataLayer = window.dataLayer || [];

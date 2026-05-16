@@ -1,0 +1,63 @@
+fix: round-14 — Consent Mode v2 + CookieBanner + collapse 3-hop dead-lang redirects
+
+Round-14 auditor found one legal-risk-level issue + two engineering edge cases
+after GA4 went live. All three fixed.
+
+#1 CONSENT MODE v2 (GDPR) — denied by default, EU visitors no longer tracked
+   pre-consent
+   - app/layout.tsx: added <Script id="ga4-consent-default" strategy="beforeInteractive">
+     that runs BEFORE gtag/js to install `gtag('consent','default', {...all denied})`,
+     with `wait_for_update: 500` so the GA4 init script picks up granted state if
+     localStorage has prior choice. Also sets `ads_data_redaction: true` +
+     `url_passthrough: true` per GA4 Consent Mode v2 spec.
+   - On returning visitors with localStorage `cookie-consent === 'granted'`, the
+     default is `analytics_storage: 'granted'` (no banner re-prompt needed).
+
+#2 COOKIE BANNER — components/CookieBanner.tsx (client component)
+   - 5 langs (en/zh/cn/fr/es) copy: title/body/accept/decline + privacy-policy link.
+   - On mount: reads localStorage `cookie-consent`. If empty → render fixed-bottom
+     banner. If present → stay hidden.
+   - Accept → localStorage 'granted' + `gtag('consent','update', { analytics_storage:
+     'granted' })`. Decline → localStorage 'denied'.
+   - Listens for `open-cookie-settings` window event so the footer link can
+     re-open it.
+   - Mounted in `app/[lang]/layout.tsx` after StickyContactFAB.
+
+#3 FOOTER cookie-settings link — components/CookieSettingsLink.tsx
+   - Small client-only <button> that dispatches `open-cookie-settings` to reopen
+     the banner. 5 langs.
+   - Inserted into Footer.tsx bottom-bar between Terms and Alibaba (so it appears
+     in every page footer × 5 active locales).
+
+#4 3-HOP REDIRECT CHAIN COLLAPSED — proxy.ts dead-lang branch
+   Auditor caught Googlebot hitting 3-hop chains:
+     /ar/industries/tea-herbal → /en/industries/tea-herbal → /en/sourcing
+     /pt/industries/protein-supp → /en/industries/... → /en/sourcing
+     /ar/resources/voltage-... → /ar/resources → /en/resources
+   Root cause: middleware does dead-lang -> en blind rewrite, then next.config
+   does dead-page collapse. Fix: inlined the dead-page mapping into the dead-lang
+   branch so the final destination is computed in one shot.
+   Patterns collapsed in one hop:
+     /:dead/industries/* + /:dead/machinery/* + /:dead/solutions/* +
+     /:dead/markets/* + /:dead/case-studies/* → /en/sourcing
+     /:dead/quote/* → /en/contact
+     /:dead/machines → /en/sourcing#packaging
+     /:dead/machines/* → /en/sourcing/packaging
+     /:dead/resources/:slug → /en/resources
+
+Verified after deploy:
+  Consent Mode v2 in HTML before gtag/js script: ✓
+  cookie-consent localStorage key read in inline script: ✓
+  /ar/industries/tea-herbal: 308 → /en/sourcing (1 hop, was 3) ✓
+  /pt/industries/protein-supp: 308 → /en/sourcing (1 hop, was 3) ✓
+  /ar/resources/voltage-thing: 308 → /en/resources (1 hop, was 3) ✓
+  Existing /en GA4 + PageViewTracker chain still works ✓
+
+Skipped (round-14 strategic list still pending user input/decision):
+  - DMARC tighten (fo=1; aspf=r; adkim=r) — current DMARC works, low ROI
+  - 4-6 buyer-side sourcing articles — content task, user-time
+  - /resources email signup — needs ESP account
+  - /vs-alibaba-direct + /vs-sourcing-agent comparison pages — drafted but
+    deployment paused (compare-page.tsx in _server_edit/)
+  - Multi-step form / multi-currency / Sample order tier — UX/business decisions
+  - D-U-N-S Number — needs registration

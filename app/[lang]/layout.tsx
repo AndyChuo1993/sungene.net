@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StickyContactFAB from '@/components/StickyContactFAB'
 import PageViewTracker from '@/components/PageViewTracker'
+import CookieBanner from '@/components/CookieBanner'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildAlternates, buildOpenGraph, buildRobots, buildTwitter, normalizeLang } from '@/lib/seo'
 import { buildBrandSchema, buildLocalBusinessSchemas, buildOrganizationSchema, buildServiceSchemas, buildWebsiteSchema } from '@/lib/business'
@@ -60,6 +61,7 @@ export default async function RootLayout({ children, params }: { children: React
       <main id="page-content" className="break-words">{children}</main>
       <Footer lang={lang} />
       <StickyContactFAB lang={lang} />
+      <CookieBanner lang={lang} />
     </>
   )
 }

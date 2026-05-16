@@ -198,7 +198,19 @@ export default function proxy(request: NextRequest) {
   const droppedLangMatch = pathname.match(/^\/(pt|ko|ja|ar|th|vi|de)(\/.*)?$/)
   if (droppedLangMatch) {
     const rest = droppedLangMatch[2] || ''
-    return NextResponse.redirect(new URL(`/en${rest}`, request.url), 308)
+    // Collapse known dead paths into their final destination in ONE hop
+    // (avoids /ar/industries/foo -> /en/industries/foo -> /en/sourcing 3-hop chain).
+    let target = rest
+    if (/^\/industries(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/machinery(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/solutions(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/markets(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/case-studies(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/quote(\/|$)/.test(rest)) target = '/contact'
+    else if (rest === '/machines') target = '/sourcing#packaging'
+    else if (/^\/machines\//.test(rest)) target = '/sourcing/packaging'
+    else if (/^\/resources\/[^/]+$/.test(rest)) target = '/resources'
+    return NextResponse.redirect(new URL(`/en${target}`, request.url), 308)
   }
 
   const matchLang = pathname.match(/^\/(en|zh|cn|fr|es)(?:\/|$)/)

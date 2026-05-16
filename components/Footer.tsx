@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CookieSettingsLink from '@/components/CookieSettingsLink'
 import Image from 'next/image'
 import { t, Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
@@ -148,7 +149,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <span>·</span>
             <Link href={`/${lang}/terms`} className="hover:text-gray-300 transition-colors">{({en:'Terms',zh:'服務條款',cn:'服务条款',fr:'Conditions',es:'Términos'} as Record<string,string>)[lang] || 'Terms'}</Link>
             <span>·</span>
-            <a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-gray-300 transition-colors">Alibaba ↗</a>
+            <CookieSettingsLink lang={lang} /><span>·</span><a href="https://momas.en.alibaba.com/" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-gray-300 transition-colors">Alibaba ↗</a>
             <span>·</span>
             <a href="https://www.linkedin.com/company/sungene-co-ltd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">LinkedIn ↗</a>
           </div>
