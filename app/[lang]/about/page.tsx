@@ -317,10 +317,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const t = content[lang] || content['en']
 
   const gallery = [
-    { src: PHOTO.pages.about.gallery[0], alt: 'Workshop line' },
-    { src: PHOTO.pages.about.gallery[1], alt: 'Bottling line in operation' },
+    { src: PHOTO.pages.about.gallery[0], alt: 'SunGene pre-shipment inspection at partner factory' },
+    { src: PHOTO.pages.about.gallery[1], alt: 'Packaged products on pallet ready for export' },
     { src: PHOTO.pages.about.gallery[2], alt: 'SunGene team coordinating factory pre-shipment inspection' },
-    { src: PHOTO.pages.about.gallery[3], alt: 'Control system and automation' },
+    { src: PHOTO.pages.about.gallery[3], alt: 'SunGene team reviewing supplier quality documentation' },
   ]
   const aboutLabel =
     ({
@@ -505,7 +505,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
                 {({ en: 'Sample order before commitment', zh: '先打樣再下單', cn: '先打样再下单', fr: 'Échantillon avant engagement', es: 'Muestra antes de comprometerse' } as Record<string, string>)[lang] || 'Sample order before commitment'}
               </div>
               <div className="mt-2 text-sm text-white/70">
-                {({ en: 'For first-time buyers we welcome a small sample order (USD 1,000–3,000) before any container commitment. You test our QC, lead time, and communication on real money before scaling.', zh: '首次合作的買家可先下小批量樣品單(USD 1,000–3,000)再決定是否進大貨。你用實際的金額測試我們的驗貨、交期與溝通。', cn: '首次合作的买家可先下小批量样品单(USD 1,000–3,000)再决定是否进大货。您用实际的金额测试我们的验货、交期与沟通。', fr: 'Pour les premiers acheteurs, nous acceptons une petite commande échantillon (1 000–3 000 USD) avant tout engagement conteneur. Vous testez notre CQ, nos délais et notre communication avec un vrai budget avant de passer à l\'échelle.', es: 'Para compradores nuevos aceptamos un pedido muestra pequeño (USD 1 000–3 000) antes de cualquier compromiso de contenedor. Usted prueba nuestro QC, plazo y comunicación con dinero real antes de escalar.' } as Record<string, string>)[lang] || ''}
+                {({ en: 'Your MOQ stays at USD 1,000 — but we suggest first-time buyers use the USD 1,000–3,000 range as a test order before scaling to a full container. You verify our QC, lead time, and communication on real money before any larger commitment.', zh: '你的 MOQ 仍然是 USD 1,000 —— 但我們建議首次合作的買家把 USD 1,000–3,000 當測試單跑一輪,再決定是否進整櫃。你用實際金額驗證我們的驗貨、交期與溝通,沒問題再放大。', cn: '您的 MOQ 仍然是 USD 1,000 —— 但我们建议首次合作的买家把 USD 1,000–3,000 当测试单跑一轮,再决定是否进整柜。您用实际金额验证我们的验货、交期与沟通,没问题再放大。', fr: 'Votre MOQ reste à 1 000 USD — mais nous recommandons aux premiers acheteurs de traiter 1 000–3 000 USD comme une commande test avant un conteneur complet. Vous vérifiez notre CQ, nos délais et notre communication avec un vrai budget avant tout engagement plus large.', es: 'Su MOQ permanece en USD 1 000 — pero recomendamos que los compradores nuevos usen el rango USD 1 000–3 000 como pedido de prueba antes de escalar a un contenedor completo. Verifica nuestro QC, plazo y comunicación con dinero real antes de cualquier compromiso mayor.' } as Record<string, string>)[lang] || ''}
               </div>
             </div>
           </div>

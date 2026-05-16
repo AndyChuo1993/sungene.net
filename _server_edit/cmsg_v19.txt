@@ -1,0 +1,77 @@
+fix: round-19 — 5 audit items: html lang, dead button, alts, MOQ bridge, zombie
+
+R18 verified clean on 4/4 items. R19 audit caught 5 deeper issues that 18
+prior rounds had missed (auditor used WebFetch + server-side inspection
+instead of curl/HTML pattern checks). All addressed.
+
+#1 <html lang> baked as "en" for every language variant — WCAG 3.1.1 violation
+   Root cause: app/layout.tsx reads `headers().get('x-lang')` set by middleware.
+   With generateStaticParams + force-static (added in R18), pages prerender
+   at BUILD time when middleware does not run. The result: `<html lang="en">`
+   is baked into all 5 × N static variants, so /zh /cn /fr /es all ship lang="en".
+
+   Pragmatic fix (not a full structural refactor): inline synchronous <script>
+   in app/[lang]/layout.tsx that sets `document.documentElement.lang/dir`
+   from the build-time-known lang param. Runs before paint, so:
+     - Screen readers re-read lang on DOM observation (WCAG compliant)
+     - Googlebot full-render picks up the corrected lang
+     - JS-aware crawlers index pages with correct language signal
+
+   Verified (curl per lang):
+     /zh script sets documentElement.lang="zh-Hant" ✓
+     /cn → "zh-Hans" ✓  /fr → "fr" ✓  /es → "es" ✓  /en → "en" ✓
+   Trade-off: non-JS crawlers still see lang="en" in initial HTML. Full
+   structural fix requires moving <html> from app/layout.tsx to [lang]/layout.tsx
+   which breaks non-[lang] routes (e.g. /api). Deferred to dedicated session.
+
+#2 Dead "Incoterms" button on /sourcing pointed to noindex FAT/SAT machinery
+   article — semantic mismatch + bounce-rate hit. Button removed entirely
+   (no real Incoterms article exists yet). 2 buttons remain (Payment terms,
+   Spares) which still match their link targets.
+
+#3 About image alts had stale machinery captions
+   3 alts referenced "Workshop line", "Bottling line in operation",
+   "Control system and automation" — leftover from when the site sold
+   machinery. Updated to SunGene-relevant descriptions:
+     - "SunGene pre-shipment inspection at partner factory"
+     - "Packaged products on pallet ready for export"
+     - "SunGene team reviewing supplier quality documentation"
+   Fixes Google Image Search misattribution + screen-reader announcements
+   on About page.
+
+#4 MOQ↔Sample tier copy contradiction
+   Header says "USD 1,000 Order entry", Footer "Minimum order USD 1,000",
+   About card 04 says "Sample order USD 1,000-3,000". Buyer reading these
+   together gets confused: "Is MOQ 1k or 3k? Is sample bigger than MOQ?"
+
+   Bridge sentence prepended to About card 04 in 5 langs:
+   "Your MOQ stays at USD 1,000 — but we suggest first-time buyers use
+   the USD 1,000–3,000 range as a test order before scaling to a full
+   container. You verify our QC, lead time, and communication on real
+   money before any larger commitment."
+
+   Now buyer reads MOQ + Sample as the same minimum framed differently:
+   MOQ is the floor; "sample tier" is the first-purchase framing for
+   test-before-scale buyers (next step = container, ~USD 30k+).
+
+#5 Zombie next-server on :3000 (PID 3542613, 318MB RAM)
+   Leftover from R17 atomic-deploy transition. Not in PM2 cluster, not
+   routed by nginx, just consuming memory for 24+ hours.
+   `kill 3542613` → 330MB RAM reclaimed. Verified `free -h` post-kill:
+   available 3.2Gi → 4.2Gi.
+
+Verified after deploy:
+  ISR /en: 4 × HIT ✓
+  /sourcing: 0 fat-sat-* references (Incoterms button removed) ✓
+  /about: 3 new alts present, 0 "workshop|bottling|control system" ✓
+  /about: bridge sentence "Your MOQ stays at USD 1,000" present ✓
+  per-lang documentElement.lang JS injection: en/zh-Hant/zh-Hans/fr/es ✓
+  pm2 cluster rolling reload: 0 5xx ✓
+
+Out of scope this round (auditor list):
+  #6 Deploy-window static asset 5xx race (CSS/JS chunks 500 in ~1s window
+     during atomic deploy) — needs nginx try_files fallback to
+     .next.previous-static OR longer grace window. Separate session.
+  #7 trader-ui-v2/*.bak cleanup — unrelated to sungene.net.
+  Structural root-layout refactor for non-JS-crawler lang correctness —
+     larger session, current pragmatic fix covers screen readers + Googlebot.

@@ -646,9 +646,6 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
                 <ButtonLink href={`/${lang}/resources/payment-terms-risk-control`} variant="secondary" size="sm">
                   {lang === 'zh' ? '付款條件' : lang === 'cn' ? '付款条件' : 'Payment terms'}
                 </ButtonLink>
-                <ButtonLink href={`/${lang}/resources/fat-sat-acceptance-criteria-packaging-machinery`} variant="soft" size="sm">
-                  Incoterms
-                </ButtonLink>
                 <ButtonLink href={`/${lang}/resources/spare-parts-and-wear-parts-planning`} variant="soft" size="sm">
                   {lang === 'zh' ? '備品策略' : lang === 'cn' ? '备品策略' : 'Spares'}
                 </ButtonLink>

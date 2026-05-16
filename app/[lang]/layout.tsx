@@ -53,8 +53,28 @@ export default async function RootLayout({ children, params }: { children: React
   const localBusinesses = buildLocalBusinessSchemas({ baseUrl })
   const services = buildServiceSchemas({ baseUrl, lang })
 
+  // Fix <html lang> for static-built pages: middleware-set headers do not
+  // run at build time, so the root layout bakes lang="en" into every pre-rendered
+  // variant. This inline script updates documentElement.lang/dir synchronously
+  // before paint — screen readers and JS-aware crawlers (Googlebot) pick it up.
+  const _htmlLangMap: Record<string, { lang: string; dir: string }> = {
+    en: { lang: 'en', dir: 'ltr' },
+    zh: { lang: 'zh-Hant', dir: 'ltr' },
+    cn: { lang: 'zh-Hans', dir: 'ltr' },
+    fr: { lang: 'fr', dir: 'ltr' },
+    es: { lang: 'es', dir: 'ltr' },
+    ar: { lang: 'ar', dir: 'rtl' },
+  }
+  const _htmlLang = _htmlLangMap[lang] || _htmlLangMap.en
+
   return (
     <>
+      {/* WCAG 3.1.1 / SEO lang fix — runs synchronously before paint */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang=${JSON.stringify(_htmlLang.lang)};document.documentElement.dir=${JSON.stringify(_htmlLang.dir)};`
+        }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brand) }} />
