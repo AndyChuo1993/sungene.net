@@ -210,6 +210,13 @@ export default function proxy(request: NextRequest) {
     else if (rest === '/machines') target = '/sourcing#packaging'
     else if (/^\/machines\//.test(rest)) target = '/sourcing/packaging'
     else if (/^\/resources\/[^/]+$/.test(rest)) target = '/resources'
+    else if (/^\/services(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/service(\/|$)/.test(rest)) target = '/sourcing'
+    else if (/^\/blog(\/|$)/.test(rest)) target = '/sourcing'
+    else if (rest === '/recommend' || /^\/recommend\//.test(rest)) target = '/contact'
+    else if (rest === '/assessment' || /^\/assessment\//.test(rest)) target = '/contact'
+    else if (rest === '/about-us' || rest === '/company') target = '/about'
+    else if (rest === '/contact-us') target = '/contact'
     return NextResponse.redirect(new URL(`/en${target}`, request.url), 308)
   }
 

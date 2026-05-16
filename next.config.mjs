@@ -83,10 +83,10 @@ const nextConfig = {
       // Until refreshed for the new positioning, route everything to /sourcing.
       { source: '/:lang(en|zh|cn|fr|es)/markets', destination: '/:lang/sourcing', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/markets/:path*', destination: '/:lang/sourcing', permanent: true },
-      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/case-studies', destination: '/:lang/sourcing', permanent: true },
       { source: '/case-studies', destination: '/en/sourcing', permanent: true },
       { source: '/case-studies/:slug', destination: '/en/sourcing', permanent: true },
-      { source: '/:lang(zh|en|cn|fr|es|pt|ko|ja|ar|th|vi|de)/case-studies/:slug', destination: '/:lang/sourcing', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/case-studies/:slug', destination: '/:lang/sourcing', permanent: true },
       // Legacy machine SEO pages are handled by proxy.ts (308 redirects with lang detection)
     ]
   },
