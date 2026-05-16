@@ -57,7 +57,7 @@ const dict: Record<string, Record<string, string>> = {
     nav_sol_single: 'Single Machine', nav_sol_semi: 'Semi-Automatic Setup', nav_sol_line: 'Line Integration',
     nav_sol_custom: 'Custom Machinery',
     meta_home_title: 'SunGene | Taiwan + China sourcing — packaging, home, garden',
-    meta_home_desc: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories for packaging, home, garden, beauty brands. On-site QC, Alibaba 5-star verified, MOQ USD 1,000.',
+    meta_home_desc: 'Taiwan + China sourcing partner. We buy from vetted factories for packaging, home, garden, beauty brands. On-site QC, Alibaba 5-star. MOQ USD 1,000.',
     meta_keywords: 'Taiwan sourcing partner, China sourcing agent, packaging sourcing, home goods sourcing, garden products sourcing, beauty packaging sourcing, Alibaba 5-star supplier, factory inspection, private label sourcing, consolidated shipping',
     form_submitting: 'Submitting...', form_success_title: 'Request Received',
     form_success_desc: 'We have received your inquiry and will respond within 24 hours.',

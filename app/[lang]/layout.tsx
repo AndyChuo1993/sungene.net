@@ -14,13 +14,21 @@ export const viewport = {
   initialScale: 1,
 }
 
+// Pre-render all 5 active language variants at build time. With PM2 cluster
+// mode the in-process ISR memory cache cannot be shared across workers, so
+// fully-static pages (every leaf page below uses force-static) must declare
+// their params explicitly to land on disk during the build.
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'zh' }, { lang: 'cn' }, { lang: 'fr' }, { lang: 'es' }]
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
   const lang = normalizeLang(rawLang)
 
   const baseUrl = SITE_URL
   const title = 'SunGene | Taiwan + China sourcing — packaging, home, garden'
-  const description = 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories for packaging, home, garden and beauty brands. Transparent quotes, on-site QC, Alibaba 5-star verified.'
+  const description = 'Taiwan + China sourcing partner. We buy from vetted factories for packaging, home, garden and beauty brands. Transparent quotes, on-site QC, Alibaba 5-star.'
 
   return {
     metadataBase: new URL(baseUrl),

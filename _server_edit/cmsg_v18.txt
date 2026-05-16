@@ -1,0 +1,62 @@
+fix: round-18 — generateStaticParams unblocks ISR for non-list pages
+
+R17 added `experimental.isrMemoryCacheSize: 0` which forces the on-disk cache
+tier. That helps pages that have generateStaticParams (their HTML lands on
+disk at build). But pages WITHOUT generateStaticParams still go SSR-on-demand
+in cluster mode (in-memory cache disabled, no on-disk variant produced) — so
+/en homepage, /en/about, /en/contact, /[lang]/[compareSlug], and all non-en
+langs were still MISS-MISS-MISS-MISS after R17.
+
+Auditor caught it: "8 pages × 4 hits each, /en was 4 × MISS."
+
+#1 generateStaticParams declared in app/[lang]/layout.tsx
+   Returns [{lang:'en'},{lang:'zh'},{lang:'cn'},{lang:'fr'},{lang:'es'}].
+   Because every leaf page below uses `export const dynamic = 'force-static'`,
+   declaring lang params at the parent layout makes Next prerender 5
+   variants of every page at build time. They land on disk and are served
+   directly by both PM2 workers.
+
+   Verified after deploy:
+     /en: HIT HIT HIT HIT ✓
+     /en/about, /en/contact, /en/vs-alibaba-direct, /zh, /fr, /es:
+        MISS HIT HIT HIT — cold first request after fresh deploy
+        (expected ISR warm-up), then HIT for every subsequent request
+   Build output confirmed `● /[lang] (SSG)` + per-lang segments produced.
+
+#2 /en homepage meta_desc 191 → 148ch
+   Source was lib/i18n.ts meta_home_desc (en), not layout.tsx generateMetadata.
+   Trimmed the redundant "Sourcing partner with teams in Taichung and
+   Xiamen." prefix and "verified" qualifier; kept the key signal phrases
+   (Taiwan + China sourcing, vetted factories, on-site QC, Alibaba 5-star,
+   MOQ USD 1,000). Now within Google SERP display window.
+
+#3 /sourcing en title 66 → 53ch
+   "How SunGene sources direct from Taiwan + China factories" (56ch +
+   " | SunGene" = 66ch — at SERP cutoff boundary)
+   → "SunGene direct sourcing from Taiwan + China" (43ch +
+   " | SunGene" = 53ch — well inside window)
+
+#4 vs-sourcing-agent zh + cn whenUs deepened (was lighter than vs-alibaba)
+   Auditor: zh/cn vs-agent at 62% of en while vs-alibaba at 73%. Rebalanced.
+   6 bullets → 7 bullets per lang, each ~2× original length. Added explicit
+   reasoning about:
+   - 「法律意義的所有權轉移」(FOB/EXW invoice naming SunGene as buyer)
+   - 「為什麼我們不會說對方不方便給發票」(invoices ARE in our hands)
+   - 「微信號 vs 台灣司法」(jurisdiction contrast)
+   - 「margin 揭露的驗證方式」(buyer can cross-check factory invoice
+     vs our quote-line "factory price")
+
+Verified after deploy:
+  /en HIT 4× ✓
+  /en desc 148ch ✓
+  /sourcing title 53ch ✓
+  /en/vs-sourcing-agent zh/cn whenUs has 7 bullets ✓
+  pm2 cluster rolling reload during 2 successive builds: 0 5xx ✓
+
+Out of scope (auditor "this week" list — separate sessions):
+  - Upstash Redis-backed rate limit (file-based works, Redis is upgrade)
+  - DMARC p=quarantine → p=reject (user DNS task)
+  - use-client refactor 76%→<50%
+  - photo-real AVIF preprocessing
+  - nginx brotli module recompile
+  - API reCAPTCHA client widget

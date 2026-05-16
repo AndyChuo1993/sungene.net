@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 const metaTitles: Record<string, string> = {
-  en: 'How SunGene sources direct from Taiwan + China factories',
+  en: 'SunGene direct sourcing from Taiwan + China',
   cn: '我们怎么合作｜直接从台湾+中国工厂买货转售',
   zh: '我們怎麼合作｜直接從台灣＋中國工廠買貨轉售',
   fr: 'Notre méthode — achat-revente direct, usines TW + CN',
