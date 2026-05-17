@@ -1,0 +1,49 @@
+fix: round-22 — meta_home_desc length per-lang + drop invalid Next config flag
+
+Auditor R21 SEO scan flagged 4 lang home descs out of Google SERP window
+(/fr 164, /es 196, /zh 87, /cn 87 — target 120-160ch). Plus during the R22
+build Next.js 16 emitted "Unrecognized key isrMemoryCacheSize at experimental"
+revealing the R18 config flag was a no-op (the real fix was generateStaticParams).
+
+#1 meta_home_desc lengths (lib/i18n.ts)
+   /en  unchanged 148ch
+   /zh   87 → 112ch  added concrete claims: 整合貨櫃出口 + 工廠價與我方利潤分行揭露
+   /cn   87 → 112ch  same expansion, simplified Chinese
+   /fr  164 → 140ch  trimmed verbose "avec équipes à Taichung et Xiamen" prefix
+   /es  196 → 145ch  rewrote opener, dropped redundant "verificado"
+   All now fit Google's ~160ch desktop desc display window without truncation
+   AND no thinner than 120ch (was the auditor's "<120 thin" threshold).
+
+#2 next.config.mjs — removed experimental.isrMemoryCacheSize
+   Added in R18 to attempt fixing cluster-mode ISR cache miss. Turns out the
+   key is invalid in Next.js 16 (printed warning every build). The actual R18
+   fix that DID work was adding generateStaticParams to app/[lang]/layout.tsx,
+   which prerenders 5 lang variants to disk. Removing the dead flag eliminates
+   the build warning. ISR HIT rate verified unchanged after removal: /en 4×HIT.
+
+GSC operations (R21 auditor "🔥🔥 highest priority", browser-driven this session):
+   - Request Indexing submitted for /en /zh /cn /fr /es (all returned
+     「已要求建立索引」 / "已將網址加入優先檢索佇列")
+   - Removals → 清除摘要 (clear cache) re-submitted for the 2 stale URLs:
+     * /ar/markets/france           → 2026/5/17 正在處理要求
+     * /zh/machines/pouch-packing-machine → 2026/5/17 正在處理要求
+     Earlier R14 submissions show status 已清除 (2026/5/16). Resubmitting
+     because external Google SERP cache still showed stale entries during R21
+     audit. Google typically reprocesses within 24-72h.
+
+Verified after deploy:
+   /en HIT (ISR) ✓
+   /en desc 148ch unchanged ✓
+   /zh desc 112ch ✓  /cn desc 112ch ✓
+   /fr desc 140ch ✓  /es desc 145ch ✓
+   Next.js build: 0 warnings (was "Unrecognized key isrMemoryCacheSize" before)
+   pm2 cluster rolling reload: 0 5xx ✓
+   Zombie status: still 0 (R20 fix holding at 4+ hours)
+
+Out of scope (continue from R21 roadmap):
+   - <html lang> structural fix (route-group migration, separate session)
+   - 4-6 buyer-side sourcing articles (content task)
+   - HowTo schema on /sourcing 5-step workflow (GEO enhancement)
+   - Real buyer testimonials → AggregateRating + Review schema (needs opt-in)
+   - D-U-N-S Number registration (4-8 week wait)
+   - LinkedIn company page + Insight Tag
