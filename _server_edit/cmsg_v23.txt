@@ -1,0 +1,64 @@
+feat: round-23 wave 1A — 2 buyer-side articles + manualRelated cross-link
+
+First two of six planned buyer-side resource articles, deployed as Wave 1A
+per the auditor's phased rollout plan (1A buyer-flow agnostic first; 1B
+category-specific Thursday; 1C consolidation Saturday). EN-only this round;
+zh/cn translation in Phase 2, fr/es selectively in Phase 3 based on GA4 data.
+
+Articles added (slug → category):
+  private-label-sourcing-checklist     → buying
+  sample-order-before-container        → buying
+
+Each article: ~6-8 H2 sections + bulleted phases + 5 FAQs + sidebar CTA.
+Built on industry-standard references (AQL 2.5 / ISO 2859-1 Level II;
+REACH SVHC; EU 10/2011; Pantone ΔE ≤ 2.0; Madrid System; design rights;
+1881 PCO finish background).
+
+#1 manualRelated cross-link (auditor: "every article must point at 2 related")
+   - lib/resourceArticles.ts: ResourceArticle type adds `manualRelated?: string[]`
+   - getRelatedResourceArticles() extended: explicit manualRelated slugs first,
+     then machine-based slugs, deduped. Behavior unchanged for existing
+     articles (they have no manualRelated → falls back to relatedMachine path).
+   - Wave 1A wiring: private-label-checklist ↔ sample-order-before-container
+   - Future waves will extend each article's manualRelated list when Wave 1B/1C land
+
+#2 Phase 1 EN-only strategy (auditor approved)
+   - 12 lang slots populated; non-EN slots use the same EN content body
+   - This avoids TypeScript strict-Record fight while keeping all hreflang URLs
+     resolvable. Non-EN URLs still have correct hreflang signals.
+   - Phase 2 (next week): replace 11 lang bodies with native translations.
+     Specifically zh/cn first (SunGene core markets), then fr/es selectively
+     based on Wave 1A traffic data from GA4.
+
+#3 Auditor-approved content fixes applied to article 6 (already in this round):
+   - Sample floor USD 500 → 1,000 (aligns with About page MOQ framing)
+   - "30-40% of containers fail" softened to "commonly arrive with at least
+     one issue worth disputing — in our experience"
+
+Article 1 / 2 / 3 / 4 NOT in this commit. They land in Wave 1B (Thursday) with:
+   - HS code formatting fix (3923 30 90 standardized)
+   - US HTSUS safer wording ("refer to current 10-digit statistical breakout")
+   - PCO 1810/1881 height diff corrected to 2.0-2.5 mm
+   - Yiwu "over 75,000" booths (not "~75,000")
+   - Powder coat thickness softened to "typically thinner/thicker, verify
+     spec sheet"
+   - SVHC count "240+ at time of writing (check ECHA)"
+   - "5-15% trading margin" → "typically single-digit to mid-teens, depending
+     on category and customization"
+
+Verified after deploy:
+  /en/resources/private-label-sourcing-checklist  200 + title 51ch + desc 156ch ✓
+  /en/resources/sample-order-before-container    200 + title 49ch + desc 160ch ✓
+  Schema present: TechArticle + FAQPage + BreadcrumbList + Speakable ✓
+  Sitemap auto-includes 10 lang variants per article (5 active × 2 articles) ✓
+  /en still HIT (ISR cache unbroken) ✓
+  pm2 cluster rolling reload: 0 5xx ✓
+  GSC Request Indexing submitted for both EN URLs ✓
+  Zombie status: still 0 (R20 fix at 5+ hours uptime since last respawn attempt)
+
+Out of scope this commit:
+  - Wave 1B (Articles 1, 2, 3) — Thursday rollout per auditor's wave plan
+  - Wave 1C (Article 4) — Saturday rollout
+  - Phase 2 translations (zh/cn next week)
+  - HowTo schema specifically (current TechArticle + FAQPage already strong;
+    HowTo can layer in Wave 1B for the checklist-pattern articles)
