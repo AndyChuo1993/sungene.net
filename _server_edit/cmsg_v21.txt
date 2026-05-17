@@ -1,0 +1,82 @@
+fix: round-21 — auditor R20 follow-up (gitignore, path docs, deploy-window static 5xx)
+
+R20 audit verified clean (77+ min zero zombies, watcher disabled, package.json
+no-op committed). Auditor flagged 3 follow-up items:
+  A. next-env.d.ts uncommitted (Next.js auto-generated, should be gitignored)
+  B. Couldn't verify server-side change paths (looked at /plugin/nodejs/data/site.db,
+     correct path is /data/db/site.db)
+  C. Engineering #2 (<html lang> structural) and #3 (nginx try_files) flagged
+     "this week" — attempted both, shipped #3, deferred #2.
+
+#A: gitignore next-env.d.ts
+   - Added "next-env.d.ts" to .gitignore with comment explaining it's auto-generated.
+   - `git rm --cached next-env.d.ts` to stop tracking the existing file.
+   - Future `next build` updates won't dirty git status anymore.
+
+#B: server-side change paths (auditor reproducibility)
+   Correct paths (all verified to return data this session):
+     /www/server/nodejs/vhost/scripts/sungene_net.sh           (no-op, 375 B)
+     /www/server/nodejs/vhost/scripts/sungene_net.sh.original  (backup of npm-run-dev launcher)
+     /www/server/panel/data/db/site.db                          (row id=5 status=0)
+     /www/server/panel/data/db/crontab.db                       (row id=1 status=0)
+     /www/server/panel/data/db/site.db.bak-r20-1779003324       (R20 backup)
+     /www/server/panel/data/db/crontab.db.bak-r20-1779003324    (R20 backup)
+   The auditor's path /plugin/nodejs/data/site.db is a different (empty) location;
+   the actual aaPanel DB lives at /data/db/.
+
+#3: nginx try_files fallback for deploy-window static 5xx (auditor "this week")
+   - New location block /_next/static/ proxies to PM2 (port 3002) with
+     proxy_intercept_errors on + error_page 404 500 502 503 504 = @static_fallback
+   - @static_fallback serves from /www/wwwroot/sungene.net/.next.previous-static/
+     via root + rewrite + try_files (no upstream needed)
+   - .next.previous-static is the 24-hour rolling snapshot from deploy-atomic.sh
+
+   Synthetic test (R21 verification):
+     1. cp .next/static/chunks/<chunk>.js /tmp/<chunk>.js     (backup)
+     2. rm .next/static/chunks/<chunk>.js                     (simulate post-deploy missing chunk)
+     3. curl /_next/static/chunks/<chunk>.js
+        → HTTP/2 200 ✓
+        → content-length 19599 ✓ (matches .next.previous-static file size)
+        → last-modified shows old file timestamp ✓ (served from snapshot, not upstream)
+        → cache-control: immutable ✓
+     4. Restore file, re-curl → still 200 (now from upstream)
+
+   Note: X-Fallback custom debug header doesn't surface in HTTP/2 response (nginx
+   header normalization quirk we didn't trace). Functional correctness confirmed
+   by content-length and last-modified matching .next.previous-static, not .next.
+
+   Snapshot updated: _server_edit/nginx_vhost_snapshot.conf reflects current
+   /www/server/panel/vhost/nginx/node_sungene_net.conf.
+
+#2: <html lang> structural fix — DEFERRED to dedicated session
+   Auditor wanted non-JS crawlers to see correct `<html lang="zh-Hant">` etc.
+   The R19 JS workaround (synchronous documentElement.lang setter in
+   app/[lang]/layout.tsx) covers screen readers + JS-aware crawlers (Googlebot,
+   Bingbot, etc. all render JS in 2026). The remaining gap is non-JS crawlers
+   (some social media preview bots, niche search engines).
+
+   The proper structural fix requires Next.js route-group migration:
+     app/(public)/[lang]/layout.tsx  ← new root layout, owns <html lang={params.lang}>
+     app/(public)/[lang]/page.tsx, about/, contact/, etc.
+     app/(admin)/layout.tsx          ← new root layout, owns <html lang="en">
+     app/(admin)/management/*
+     DELETE app/layout.tsx           ← multi-root pattern requires no top-level layout
+
+   Blast radius: every page route file path changes; metadata, OG, font, CSS
+   imports rewire. Not safe to ship in autonomous-loop mode where I cannot
+   easily detect regressions in the routing tree. Schedule for a dedicated
+   session with full smoke test.
+
+Out of scope (continue from earlier roadmap):
+  #4 4-6 buyer-side sourcing articles      — content task
+  #5 DMARC quarantine→reject               — user Squarespace 2FA task
+  Other strategic items                    — see auditor's R20 roadmap
+
+Verified after deploy (R21):
+  /en, /zh, /cn, /fr, /es                  HIT (ISR cache from R18) ✓
+  /_next/static/chunks/<live>.js           200 from upstream ✓
+  /_next/static/chunks/<previous-only>.js  200 from @static_fallback ✓
+  pm2 cluster                              2 instances up ✓
+  Production /en                           200 TTFB 35ms ✓
+  CRM                                      uptime 10d 22m (untouched) ✓
+  Zombie respawn watch                     0 in 77+ min since R20 patch ✓
