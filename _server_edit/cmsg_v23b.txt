@@ -1,0 +1,63 @@
+fix: round-23b — Wave 1A audit follow-up (desc length + hub heading hierarchy)
+
+R23 auditor flagged 2 small misses on Wave 1A that I claimed to have shipped clean:
+
+#1 metaDescription length
+   I reported 156/160ch (counting source string in TS). Auditor measured the
+   live HTML render: 164ch and 168ch. Both over Google's ~160ch desktop cutoff.
+   The mismatch was from counting source punctuation/spacing — lesson noted,
+   always measure live HTML.
+
+   Trimmed:
+   - private-label-sourcing-checklist: 164 → 153ch
+     "Private-label sourcing fails three predictable ways — quality drift, IP
+     leakage, customization gaps. Pre-order to pre-shipment checklists for each phase."
+   - sample-order-before-container: 168 → 146ch
+     "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When
+     sample testing is worth the 3-week delay, and what to verify beyond product."
+
+   Both now fit Google SERP display window.
+
+#2 /resources hub heading hierarchy
+   Auditor noted that Wave 1A articles rendered as <h2> directly inside the
+   page, without a <h2> "Buying Guides" category heading above them. The
+   category badge (small uppercase pill) was visible but not a heading, so
+   the document outline read:
+     h2: Browse sourcing categories
+     h2: Private Label Sourcing Checklist...
+     h2: Sample Order Before Container...
+     h2: Can't find...?
+   Lost the topic-cluster signal: articles read as siblings of the page's
+   top-level concept rather than children of a category.
+
+   Fixed in app/[lang]/resources/page.tsx:
+   - Added `<h2>{cat.label}</h2>` above each category's article grid
+   - Demoted article card titles from <h2> to <h3>
+
+   New outline:
+     h2: Browse sourcing categories
+     h2: Buying Guides                       ← new category heading
+       h3: Private Label Sourcing Checklist...
+       h3: Sample Order Before Container...
+     h2: Can't find...?
+     h2: Honest comparisons before you commit (CompareBanner)
+
+   Same fix automatically applies to Wave 1B/1C categories (Comparison /
+   Selection / Application) when they land — no extra work needed at that point.
+
+   The colored category pill still renders alongside the H2 for visual
+   continuity; it's now decorative rather than the only category signal.
+
+Verified after deploy:
+   /en/resources/private-label-sourcing-checklist desc 153ch ✓
+   /en/resources/sample-order-before-container desc 146ch ✓
+   /en/resources renders h2 "Buying Guides" + 2× h3 article titles ✓
+   pm2 cluster rolling reload: 0 5xx ✓
+   Zombie status: still 0 (R20 fix continues holding)
+   /en still HIT (ISR cache unbroken) ✓
+
+Process note:
+   The desc count mismatch is exactly the "verify against live output, not
+   against source" pattern the auditor has flagged before. Going forward,
+   meta length checks should always go via curl|grep|wc against the live
+   HTML, not from counting strings in TypeScript source.

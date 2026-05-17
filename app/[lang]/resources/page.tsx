@@ -420,6 +420,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
                 {cat.label}
               </span>
             </div>
+            <h2 className="mb-6 text-2xl font-bold text-gray-950 sm:text-3xl">{cat.label}</h2>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {cat.articles.map((article) => (
                 <Link
@@ -430,9 +431,9 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
                   <span className={`mb-3 inline-flex self-start rounded-full px-2.5 py-0.5 text-xs font-semibold ${categoryBadgeColors[cat.id] || 'bg-gray-100 text-gray-700'}`}>
                     {cat.label}
                   </span>
-                  <h2 className="text-base font-bold leading-snug text-gray-950 group-hover:text-accent-700">
+                  <h3 className="text-base font-bold leading-snug text-gray-950 group-hover:text-accent-700">
                     {article.title}
-                  </h2>
+                  </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
                     {article.desc}
                   </p>

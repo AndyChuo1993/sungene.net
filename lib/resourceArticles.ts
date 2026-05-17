@@ -6336,7 +6336,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6382,7 +6382,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6428,7 +6428,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6474,7 +6474,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6520,7 +6520,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6566,7 +6566,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6612,7 +6612,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6658,7 +6658,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6704,7 +6704,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6750,7 +6750,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6796,7 +6796,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6842,7 +6842,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Private Label Sourcing Checklist: Quality, IP, and Customization",
         description: "Private-label sourcing has three failure modes: quality drift, IP leakage, and customization gaps. A pre-order, in-production, and pre-shipment checklist to prevent all three.",
         metaTitle: "Private Label Sourcing Checklist | SunGene",
-        metaDescription: "Private-label sourcing has three failure modes: quality drift, IP leakage, customization gaps. Pre-order, in-production, and pre-shipment checklists for each phase.",
+        metaDescription: "Private-label sourcing fails three predictable ways — quality drift, IP leakage, customization gaps. Pre-order to pre-shipment checklists for each phase.",
         lead: "Bottom line: private label fails in three predictable ways — quality drift, IP leakage, customization gaps. Each has a different prevention point in the project timeline; treat them as separate checklists.",
         sections: [
           { type: 'h2', text: "The three failure modes" },
@@ -6896,7 +6896,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -6945,7 +6945,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -6994,7 +6994,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7043,7 +7043,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7092,7 +7092,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7141,7 +7141,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7190,7 +7190,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7239,7 +7239,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7288,7 +7288,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7337,7 +7337,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7386,7 +7386,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
@@ -7435,7 +7435,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         title: "Sample Order Before Container: When It Pays for Itself",
         description: "A USD 1,000-3,000 sample order can save a USD 30,000+ container from going wrong. When sample orders are worth it, when they are not, and what to test.",
         metaTitle: "Sample Order Before Container | SunGene",
-        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When samples are worth the 3-week delay, when they are not, and what to test beyond the product itself.",
+        metaDescription: "A USD 1,000-3,000 sample order de-risks a USD 30,000+ container. When sample testing is worth the 3-week delay, and what to verify beyond product.",
         lead: "Bottom line: a USD 1,000-3,000 sample order is 2.5-7.5% of a typical container exposure. For any new factory or custom-mold project, that is cheap insurance — and what you test should go far beyond the product itself.",
         sections: [
           { type: 'h2', text: "What a sample order tests" },
