@@ -1,0 +1,66 @@
+fix: round-20 — neuter `npm run dev` to stop unknown supervisor respawning zombies
+
+R19 watcher caught a zombie every 5-7 minutes. R20 traced the chain:
+  unknown supervisor → bash /www/server/nodejs/vhost/scripts/sungene_net.sh
+                     → nohup npm run dev &
+                     → next-server :3000 (~330MB RAM each)
+
+aaPanel "Node project" entry for sungene_net was the original source. Tried
+flag-based disable first — did not work:
+  1. sites.status = 0 in /www/server/panel/data/db/site.db  (no effect)
+  2. project_config.is_power_on = false  (no effect)
+  3. crontab row 1 status = 0 (was the daily 8 AM restart, still no effect)
+  4. /www/server/nodejs/vhost/scripts/sungene_net.sh → no-op  (supervisor
+     bypassed this — strace showed it but new respawns used a different
+     code path I never fully traced)
+
+Surgical fix that actually works: neuter `npm run dev` itself.
+
+  package.json scripts now:
+    "dev":      "echo 'dev disabled on production server; use dev-real for actual local development' && exit 0",
+    "dev-real": "next dev",
+
+  Whatever supervisor calls `npm run dev` gets exit-0 immediately and no
+  long-running process. Manual local development still works via
+  `npm run dev-real`. Production (PM2 cluster on :3002 via
+  ecosystem.config.js) was never touched by this script.
+
+Verified after patch:
+  Baseline: 16:54:25, watcher log 129 lines.
+  T+15min check at 17:10:16:
+    - watcher new kills since baseline: 0  (was 5 in previous 30-min window)
+    - watcher log lines: 129 (unchanged)
+    - supervisor evidence captured in /www/wwwlogs/nodejs/sungene_net.log:
+        > ai-trade-web@0.1.0 dev
+        > echo 'dev disabled on production server; ...' && exit 0
+      proves supervisor still calling npm run dev BUT bouncing harmlessly
+    - free RAM: 946 MB → 1.7 GiB (was bleeding ~330 MB per zombie)
+    - production /en: 200 (TTFB 31ms)
+    - CRM uptime 9d 23h (untouched)
+
+Belt-and-suspenders kept in place (until 24-48h zero-zombie window confirmed):
+  - /etc/systemd/system/sungene-zombie-killer.{service,timer} — kills any
+    npm run dev/next dev process whose cwd is /www/wwwroot/sungene.net.
+    Filters by cwd path so CRM (/root/openclaw_followup_mvp) never touched.
+  - /etc/iptables/rules.{v4,v6} blocks external :3000.
+  - /etc/systemd/system/iptables-restore.service restores at boot.
+  - /www/server/nodejs/vhost/scripts/sungene_net.sh no-op (with .original
+    backup at /www/server/nodejs/vhost/scripts/sungene_net.sh.original).
+  - aaPanel site.db row id=5 status=0, project_config.is_power_on=false.
+  - aaPanel crontab.db row id=1 status=0 (daily 8 AM restart job).
+
+Server-side state (not in git, documented here for audit trail):
+  - sites table backup: /www/server/panel/data/db/site.db.bak-r20-*
+  - crontab table backup: /www/server/panel/data/db/crontab.db.bak-r20-*
+
+Honest accounting:
+  R19 claimed "Zombie permanently fixed" after a 90-second check. That was
+  wrong — auditor saw the zombie back within minutes from the unknown
+  aaPanel supervisor. R20 corrects with longer windows (15 min initial,
+  30+ min planned) and unambiguous evidence (watcher log + supervisor log).
+
+Out of scope:
+  - Identifying the EXACT aaPanel code path that invokes `npm run dev` —
+    not needed once `npm run dev` is harmless.
+  - Full removal of aaPanel sungene Node project entry — risk of breaking
+    aaPanel UI consistency; flag-based disable + script no-op covers it.
