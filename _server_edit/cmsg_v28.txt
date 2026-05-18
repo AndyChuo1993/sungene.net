@@ -1,0 +1,59 @@
+feat: round-28 — reCAPTCHA v3 end-to-end (#12)
+
+User opted in to drive browser-based reCAPTCHA admin site registration this
+session. Site registered under existing Google account (not a new account)
+at https://www.google.com/recaptcha/admin/site/753965931/setup:
+   label: SunGene contact form
+   type:  v3 (score-based)
+   domain: sungene.net
+   GCP project: Default Gemini Project (existing)
+   monthly free tier: 10,000 evaluations
+   site key (public, NEXT_PUBLIC_RECAPTCHA_SITEKEY): in client HTML
+   secret key: in server .env, never logged
+
+Code integration:
+  1. lib/recaptcha.ts (new) — getRecaptchaToken(action) helper. Wraps
+     window.grecaptcha.execute with type declarations + graceful undefined
+     fallback when SDK not loaded.
+  2. app/layout.tsx — conditional Script loader for
+     https://www.google.com/recaptcha/api.js?render=<SITEKEY>
+     Only renders when NEXT_PUBLIC_RECAPTCHA_SITEKEY env var set, so dev
+     environments without the env stay clean.
+  3. components/InquiryForm.tsx — getRecaptchaToken('inquiry') called
+     before fetch, attaches token to JSON payload as recaptchaToken.
+  4. components/SendProductForm.tsx — getRecaptchaToken('product_inquiry'),
+     attaches via formData.append() (this route uses FormData not JSON).
+  5. app/api/inquiries/route.ts — server-side siteverify was already
+     wired (rounds back). With RECAPTCHA_SECRET now actually set, the
+     `if (process.env.RECAPTCHA_SECRET && body.recaptchaToken)` block
+     fires for every real submission.
+
+End-to-end verification:
+  curl https://sungene.net/en/contact → HTML contains
+    src="https://www.google.com/recaptcha/api.js?render=6Ldrm_..."   ✓
+  POST /api/inquiries with fake recaptchaToken=INVALID_xxx →
+    {"ok":false,"error":"Captcha Failed"}   ✓ (Google rejects → server 400)
+  POST /api/inquiries without recaptchaToken → siteverify skipped,
+    request flows to business validation (backward compat preserved)
+  Production /en /en/contact: 200, TTFB <40ms ✓
+  pm2 cluster rolling reload: 0 5xx ✓ (with the InvariantError caveat
+    from R26 — next deploy in dedicated session covers it)
+
+Deferred — /api/product-inquiry server-side siteverify:
+  This route parses body via FormData (not JSON), so the pattern from
+  /api/inquiries doesn't transplant. Client now sends recaptchaToken via
+  formData.append, but server still doesn't read it. Token isn't verified
+  for product enquiries until a follow-up refactor reads
+  `formData.get('recaptchaToken')` and runs siteverify. Risk impact: low
+  (this route has lower traffic + already uses honeypot + rate limit).
+  Tagged for next-session work.
+
+Process notes (continuing the misdiagnosis log):
+  - Patch script broke twice during this round:
+    1. Inserted siteverify block inside an existing try/catch in
+       product-inquiry/route.ts, splitting it across the catch. Reverted.
+    2. Used `payload as any` in SendProductForm.tsx but that route uses
+       FormData, not a JSON payload object. Fixed with formData.append.
+  - Lesson: when patching across multiple files, must read the actual
+    body-parsing pattern of each route + form pair before writing the
+    integration. Cross-file string-replace patches need that context.

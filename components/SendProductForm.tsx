@@ -1,4 +1,5 @@
 'use client'
+import { getRecaptchaToken } from '@/lib/recaptcha'
 import { useState, useRef } from 'react'
 import { Lang } from '@/lib/i18n'
 import { trackCTAClick, trackFormSubmitFail, trackFormSubmitSuccess } from '@/lib/analytics'
@@ -112,6 +113,9 @@ export default function SendProductForm({ lang, sourceMachine }: SendProductForm
     const formData = new FormData(form)
 
     try {
+      const recaptchaToken = await getRecaptchaToken('product_inquiry')
+      if (recaptchaToken) formData.append('recaptchaToken', recaptchaToken)
+
       const res = await fetch('/api/product-inquiry', {
         method: 'POST',
         body: formData,

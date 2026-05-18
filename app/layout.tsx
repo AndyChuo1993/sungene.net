@@ -32,6 +32,12 @@ export default async function RootLayout({
     <html lang={htmlLang} dir={dir} suppressHydrationWarning>
       <body className={`${inter.variable} min-h-screen font-sans`}>
         {children}
+        {process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY && (
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`}
+            strategy="afterInteractive"
+          />
+        )}
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>
             {/* Consent Mode v2 — MUST run before gtag/js so the very first hit is consent-aware. */}

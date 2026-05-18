@@ -1,4 +1,5 @@
 'use client'
+import { getRecaptchaToken } from '@/lib/recaptcha'
 import { useState } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { t, Lang } from '@/lib/i18n'
@@ -156,6 +157,9 @@ export default function InquiryForm({
         budget: data.budget,
         message: messageBody,                                 // includes reference URL appended
       }
+
+      const recaptchaToken = await getRecaptchaToken('inquiry')
+      if (recaptchaToken) (payload as any).recaptchaToken = recaptchaToken
 
       const res = await fetch('/api/inquiries', {
         method: 'POST',
