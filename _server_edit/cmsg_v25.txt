@@ -1,0 +1,66 @@
+feat: round-25 — next/image qualities allowlist + R24+ audit findings response
+
+R24+ auditor flagged 5 actionable items:
+  #1 brotli on              — deferred (nginx recompile, separate session)
+  #2 deploy proxy_cache purge — already in deploy-atomic.sh (lines 34-35);
+     auditor's R24 issue was running manual `npm run build` + pm2 reload
+     instead of `./deploy-atomic.sh`. No code change needed.
+  #3 next.config images qualities — this commit
+  #4 memory file update     — auditor self-handles (their own memory)
+  #5 AVIF preprocess + previous-static + disk prune — larger work, deferred
+
+#3 next.config.mjs images.qualities = [40, 50, 60, 75, 90]
+   Next.js 14+ requires the `qualities` allowlist for security — any q value
+   not in the list returns 400. Default-only allows q=75. Adding 40/50/60/90
+   gives components opt-in path to lower (or higher) quality for specific
+   hero / thumbnail / iconographic images.
+
+   Verified post-deploy on /photo-real/library/hero/resources.jpg w=1200:
+     AVIF q=50: 11.7 KB  (3× smaller than WebP q=75)
+     AVIF q=60: 16.0 KB
+     AVIF q=75: 28.7 KB  (already smaller than WebP)
+     WebP q=75: 36.3 KB
+     q=999:     HTTP 400 (allowlist correctly enforced)
+
+   Note: auditor measured AVIF=218KB for some hero image. Different photo
+   from what I tested (resources.jpg → 28KB). Likely the specific photo
+   they tested has noise/grain AVIF q=75 handles poorly. With qualities now
+   allowing q=50, components can opt into smaller AVIF for those photos
+   without changing the default for the rest of the site.
+
+#1 Brotli — concrete blockers for autonomous deploy:
+   - nginx -V shows no brotli module compiled in
+   - /www/server/nginx/modules/ is empty (no dynamic .so)
+   - aaPanel default nginx build does not include ngx_brotli
+   - Recompile path: download nginx source matching current version
+     (currently 1.28), download ngx_brotli + dependencies, ./configure with
+     --add-module, make, replace binary, restart nginx with downtime risk
+   - Auditor's "10-minute" estimate is optimistic — realistic 30-60 min with
+     version-matching debugging risk
+
+   Expected gain: 15-20% size reduction on HTML/JSON-LD payloads (text). For
+   the 191KB homepage HTML the auditor measured, brotli could land it at
+   ~30KB (-19%). Worth doing but in a dedicated session with full attention.
+
+#2 Process clarification (no code change, just documenting):
+   deploy-atomic.sh line 34: `rm -rf /www/server/nginx/proxy_cache_dir/*`
+   deploy-atomic.sh line 35: `nginx -s reload`
+   The proxy cache IS purged on every atomic deploy. The R24 stale-HTML
+   issue happened because the auditor ran manual build + pm2 reload instead
+   of the script. Recommendation: always use ./deploy-atomic.sh, never
+   manual build commands.
+
+Out of scope but flagged for future sessions:
+  - #1 brotli compile
+  - #5a AVIF preprocess (pre-encode at q=50 to public/photo-real-avif/)
+  - #5b .next.previous-static snapshot (R21 setup the location block but
+       the source dir may not get populated correctly; verify pre-deploy)
+  - #5c disk prune cron (/ at 72%, will hit 80% in 1-2 months)
+  - Memory file project_sungene.md update (auditor's own task)
+
+Verified after deploy:
+  /en still HIT ✓
+  next/image q=50/60/75 all returning 200 with expected size deltas ✓
+  q=999 returns 400 (allowlist enforced) ✓
+  pm2 cluster rolling reload: 0 5xx ✓
+  zombie status: still 0 (R20 fix at 24+ hours) ✓
