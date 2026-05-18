@@ -1,0 +1,78 @@
+feat: round-24 — Wave 1A translations (zh/cn/fr/es) + R23 auditor follow-up
+
+The auditor patched zh/cn/fr/es translations of Wave 1A onto the running server
+(lib/resourceArticles.ts modified, build deployed, but uncommitted). This commit:
+  1. Captures the 8 lang × 2 article translations into git
+  2. Removes the 717KB .bak.wave1a backup left in the working tree
+  3. Fixes 5 desc lengths the auditor missed (same "verify against live HTML,
+     not source" pattern they caught me on in R23)
+
+#1 metaDescription length pass over all 8 translated descs
+   Auditor measured these from the live HTML render against Google's ~160ch
+   SERP window:
+      zh/private-label  50ch (thin)
+      cn/private-label  51ch (thin)
+      fr/private-label  163ch (over)
+      es/private-label  129ch (ok)
+      zh/sample-order   63ch (thin)
+      cn/sample-order   63ch (thin)
+      fr/sample-order   185ch (over)
+      es/sample-order   163ch (over)
+
+   Patched (verified live after rebuild + proxy_cache purge):
+      zh/private-label   85ch  — added concrete checklist phases (NDA, AQL)
+      cn/private-label   86ch  — mirror zh
+      fr/private-label  147ch  — trimmed "pré-commande à pré-expédition" → "phase par phase"
+      es/private-label  129ch  — already in range, untouched
+      zh/sample-order    89ch  — added "包裝、文件、溝通" + "何時可略過"
+      cn/sample-order    89ch  — mirror zh
+      fr/sample-order   142ch  — restructured to drop apostrophe; trimmed verbiage
+      es/sample-order   156ch  — tightened to fit
+
+   French quirk discovered: HTML entity expansion. Each apostrophe (') in
+   French source becomes &#x27; in HTML (+5 chars per occurrence). So a
+   source-length-158 fr desc renders as 163 in HTML. Future fr/it/de descs
+   must budget for entity expansion or avoid apostrophes via restructuring.
+
+#2 Repo hygiene
+   - rm lib/resourceArticles.ts.bak.wave1a  (717KB, the auditor's pre-translation
+     backup; local cmsg + git history are enough rollback paths)
+   - Confirmed via `git diff bb61121` only lib/resourceArticles.ts touched —
+     no hidden side-edits in app/, next.config.mjs, or anywhere else
+
+#3 Translation quality notes (from the auditor's deploy session)
+   Preserved as-is in all 8 translations:
+   - Technical terms in English: Pantone ΔE, AQL 2.5, ISO 2859-1, REACH,
+     EU 10/2011, HS code, PCO, B/L, MOQ, NDA, USPTO/EUIPO/IPOS/WIPO
+   - zh uses Taiwan terminology (採購 / 品檢 / 貨櫃 / 智財)
+   - cn uses Mainland terminology (采购 / 品检 / 货柜 / 知识产权)
+   - fr uses French «» quotes, non-breaking spaces, comma decimals
+   - es uses Castilian conventions
+
+Verified after final rebuild + cache purge:
+   8/8 lang URLs return 200 + ISR HIT ✓
+   All 8 desc lengths within Google SERP window ✓
+   Schema preserved on translated pages (FAQPage + BreadcrumbList + Speakable + 20 types) ✓
+   en versions untouched (153 / 146ch) ✓
+   pm2 cluster rolling reload: 0 5xx ✓
+   zombie status: still 0 (R20 fix continuing) ✓
+   CRM uptime: 10d 21h+ (untouched) ✓
+   /en still HIT ✓
+
+Process note (auditor's R23 lesson recurring in R24):
+   The auditor caught me in R23 for measuring source-string char count
+   instead of live HTML render. The auditor then made the same mistake when
+   they deployed translations in this round. Now we both know: meta length
+   checks must always go through `curl ... | grep '<meta description' | wc`
+   against the live HTML, never against the TypeScript literal.
+
+   Also discovered: HTML entity encoding (&#x27; for fr apostrophe) adds 5
+   chars per occurrence. Source string budget must subtract entity expansion
+   for any non-ASCII punctuation.
+
+Out of scope this round:
+   - Wave 1B (Articles 1, 2, 3) — still waiting on auditor's 24h GSC follow-up
+     for Wave 1A SERP appearance before triggering Wave 1B
+   - Wave 1C (Article 4 consolidation) — Saturday per auditor's wave plan
+   - GSC Request Indexing for 8 new lang URLs — would daily-quota out;
+     deferred to when GSC quota resets
