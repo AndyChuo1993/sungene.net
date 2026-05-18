@@ -1,0 +1,37 @@
+refactor: round-27 — #8 use-client audit; 1 real candidate (5/6 were already-minimal)
+
+R26+ auditor flagged 6 components as use-client refactor candidates with score
+0-2, estimating ~4-6 KB JS gzip savings. Inspected each one against the
+auditor's criteria + actual file content:
+
+  components/home/WhoWeWorkWith.tsx       0 hooks  0 onClick  → REFACTORED
+  components/ArticleCtaTracker.tsx        0 hooks  1 onClick  → keep
+  components/home/CTAButtonWrapper.tsx    0 hooks  1 onClick  → keep
+  components/CookieSettingsLink.tsx       0 hooks  1 onClick  → keep
+  components/ContactTracker.tsx           0 hooks  2 onClick  → keep
+  components/home/HeroCtaWrapper.tsx      0 hooks  2 onClick  → keep
+
+The 5 "kept" components are all <30-line minimal client wrappers around an
+onClick that fires an analytics tracker. Removing 'use client' would break
+them: onClick handlers require a client boundary, full stop. The auditor's
+"can split a client child" idea would just produce the SAME tiny wrapper —
+already what these files are. They cannot be optimized smaller without
+removing the tracking entirely.
+
+#8 actual win: WhoWeWorkWith.tsx
+   186 lines, 0 hooks, 0 event handlers — pure display component that was
+   marked 'use client' for no reason. Now renders fully server-side.
+   Realistic savings: ~1-2 KB minified JS, not 4-6 KB.
+
+Verified post-deploy:
+   /en 200 TTFB 31ms ✓
+   /zh 200 ✓ /fr 200 ✓
+   pm2 cluster rolling reload: 0 5xx ✓
+   zombie status: still 0 ✓
+
+Process note (continuing the misdiagnosis-pattern log from R26):
+   The auditor's "4-6 KB savings across 6 components" estimate was based on
+   scoring each file 0-2 without reading the actual file content. When read,
+   5/6 are already minimal — there's nothing to refactor. The 1 real
+   candidate gives ~1-2 KB. Reporting the honest delta instead of the
+   estimated 4-6 KB.

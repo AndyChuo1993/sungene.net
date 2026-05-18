@@ -1,4 +1,3 @@
-'use client'
 import { Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
