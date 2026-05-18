@@ -39,9 +39,9 @@ echo "[atomic] /en returns: $HTTP"
 
 if [ "$HTTP" = "200" ]; then
   echo "[atomic] ✓ deploy verified"
-  # Keep the previous-static snapshot for 24h so any lingering CDN/browser
-  # references to old chunk hashes can still resolve.
-  ( sleep 86400 && rm -rf /www/wwwroot/sungene.net/.next.previous-static ) &
+  # .next.previous-static is cleaned at the start of the NEXT deploy (line 18),
+  # which is the only sensible TTL boundary. The previous 24h background-sleep
+  # cleanup was redundant + spawned a sleep process that lingered on SIGHUP.
 else
   echo "[atomic] ✗ deploy failed — investigate"
   exit 1

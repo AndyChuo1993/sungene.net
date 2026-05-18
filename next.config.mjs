@@ -4,6 +4,10 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     qualities: [40, 50, 60, 75, 90],
+    // Transcoded AVIF/WebP cached on nginx for 1y. Photo URLs are content-hashed
+    // so a stale cache cannot serve the wrong image. Reduces /_next/image
+    // CPU burn from re-encoding cold photos.
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',

@@ -1,0 +1,80 @@
+fix: round-26 — #7 misdiagnosis correction + #5.2 + #5.1 phase 1
+
+R25+ auditor diagnosed proxy.ts → middleware.ts rename as P0 SEO fix. Tested
+the rename in this session — Next.js 16 returns:
+
+  ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+  https://nextjs.org/docs/messages/middleware-to-proxy
+
+The 2026-03-18 commit 2f734d2 was the OFFICIAL Next.js 16 upgrade convention,
+NOT dead code. proxy.ts has been running correctly the whole time. Auditor
+self-corrected and accepts the finding. Working tree restored to proxy.ts
+(both renames cancel; no commit).
+
+Real reason <html lang> stays "en" across all langs (R21 deferred):
+  - app/layout.tsx uses headers().get('x-lang')
+  - Pages are force-static + generateStaticParams (R18)
+  - Build-time render has no request context → headers() empty → fallback en
+  - Middleware/proxy DOES set x-lang at REQUEST time, but the prerendered HTML
+    served from disk doesn't re-render
+  - R19 JS injection in [lang]/layout.tsx sets documentElement.lang client-side
+    → Googlebot full-render + screen readers see correct lang
+  - Non-JS crawlers (Yandex, Baidu, social bots, IndexNow) see "en"
+  - Full structural fix = route-group migration to put <html> under [lang]
+    (HIGH RISK, dedicated session, not autonomous-loop safe)
+
+#5.2 deploy-atomic.sh bug #1 fix — drop sleep 86400 BG cleanup
+   Lines 42-49 had `( sleep 86400 && rm -rf .next.previous-static ) &` which:
+   - Lingered as orphan sleep process per deploy
+   - Was vulnerable to SIGHUP if shell session ended
+   - Was redundant with line 18's `rm -rf .next.previous-static` at the start
+     of each subsequent deploy (which is the actual sensible TTL boundary)
+   Fixed: drop the BG subshell, replace with clarifying comment.
+
+#5.2 bug #2 (snapshot scope: only .next/static not .next/server/app) — defer
+   Auditor flagged that the fallback only covers static chunks, not prerendered
+   HTML. But PM2 cluster rolling reload (R14p3, verified hammer 0/300 5xx)
+   already keeps one worker serving HTML at all times during deploy. Expanding
+   snapshot to server/app is over-engineering. Defer.
+
+#5.1 phase 1: images.minimumCacheTTL = 31536000 (1y)
+   Default Next.js TTL is 60s. The previous serving stack cached transcoded
+   AVIF/WebP for ~4h then re-encoded. Now nginx proxy_cache holds 1y.
+   Safe because /_next/image URLs encode all parameters; a stale cache cannot
+   serve the wrong image.
+
+   Verified post-deploy:
+     cache-control: public, max-age=31536000, must-revalidate  (was 14400)
+     x-cache: HIT  (test image served from nginx cache, no CPU re-encode)
+   CPU savings expected on cold-photo first hits.
+
+Verified after deploy:
+  All 5 active lang URLs return 200 + HIT ✓
+  Image cache TTL 31536000 confirmed live ✓
+  No sleep 86400 in deploy-atomic.sh anymore ✓
+  pm2 cluster rolling reload: 0 5xx ✓
+  Zombie status: still 0 (R20 fix at 24+ hours) ✓
+  CRM uptime: 11d 2h+ (untouched) ✓
+
+#5.3 (done in same session, server-side only — not in repo):
+  - pm2-logrotate installed: max_size 50M / retain 7 / compress true
+  - crontab added: weekly `find .next/cache -mtime +30 -delete` Sunday 3 AM
+  - pm2 save → /root/.pm2/dump.pm2 (survives reboot)
+
+Out of scope (continued):
+  #5.1 phase 2: pre-encode AVIF to public/photo-real-avif/ — evaluate after
+     observing minimumCacheTTL impact for 1 week
+  #5.2 bug #2: snapshot server/app — PM2 cluster already covers; revisit if
+     deploy 5xx ever returns
+  #1 brotli: still needs nginx recompile + maintenance window
+  #7 structural html lang: route-group migration, dedicated session
+  #8 use-client refactor 6 components: low ROI (~4-6 KB gzip), defer
+  #9 #12: blocked on user accounts (Upstash / reCAPTCHA)
+
+Process note on R25+ misdiagnosis:
+  Auditor diagnosed `git mv` as the fix after seeing commit 2f734d2 was
+  "0 ins / 0 del" with the title-only rationale. The mistake was assuming
+  a refactor commit = dead code without checking Next.js 16 changelog.
+  Pattern to add to future audits: any "renamed only" framework convention
+  commit should be cross-referenced against upstream framework deprecation
+  notices before assuming behavioral regression.
