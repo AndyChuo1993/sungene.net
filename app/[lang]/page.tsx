@@ -173,7 +173,7 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
       { q: 'How is pricing structured?', a: 'Every quote breaks out the factory price (FOB or EXW), our margin, and the landed cost. The underlying factory invoice is available on request before order confirmation. One number on the quote, full breakdown when you want it.' },
       { q: 'How do you handle factory inspection?', a: 'We inspect personally. For factories in Taiwan, our team drives to the site. For factories in China, the goods ship to our forwarder’s warehouse where we inspect before export. We have walked away from factories that offered envelopes to pass goods we judged sub-spec. Inspection videos and photos are included with every shipment.' },
       { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
-      { q: 'Can I see your Alibaba.com track record?', a: 'Yes — our storefront is at momas.en.alibaba.com. We have been a verified supplier there for three years. Star rating fluctuates between 3 and 5 stars depending on the period; check the live page for current standing.' },
+      { q: 'Can I see your Alibaba.com track record?', a: 'Yes — our storefront is at momas.en.alibaba.com. Our storefront has been publicly active there for 3+ years. Rating ranges from 3 to 5 over time depending on the period; check the live page for current standing.' },
       { q: 'How fast do you reply?', a: 'Same day during Taipei business hours (UTC+8, Mon–Fri 09:00–18:00). Outside hours, within 12 hours.' },
     ],
   },
