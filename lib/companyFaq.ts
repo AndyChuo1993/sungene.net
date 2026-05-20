@@ -14,7 +14,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   en: [
     { q: 'Where is SunGene located?', a: 'SunGene Co., LTD. is headquartered in Taichung, Taiwan, with a team on the ground in Xiamen, Mainland China. Two offices means we can buy direct from factories on either side of the strait and consolidate everything into a single container.' },
     { q: 'What does SunGene source?', a: 'Packaging materials (cartons, mailer boxes, pouches, custom-print packaging), home goods (kitchen, dining, storage, organization), garden products (planters, outdoor furniture, tools, decor), and beauty products (cosmetic packaging, beauty tools, private-label-ready SKUs).' },
-    { q: 'What is the minimum order quantity?', a: 'MOQ is USD 1,000 per shipment. You can mix categories — packaging, home, garden, beauty — within one consolidated order. Larger orders unlock lower factory pricing and dedicated container loading.' },
+    { q: 'What is the minimum order quantity?', a: 'MOQ is USD 1,000 per shipment. You can mix categories — paper gift packaging, blankets, drinkware, branded merchandise — within one consolidated order. Larger orders unlock lower factory pricing and dedicated container loading.' },
     { q: 'What is the typical lead time?', a: 'Stock SKUs: 7–14 days to ship. Custom-print packaging: 25–35 days. Private-label home/garden/beauty: 35–55 days. Sea freight to most ports: 18–35 days.' },
     { q: 'What payment and shipping terms do you offer?', a: 'Payment: T/T (30% deposit, 70% before shipment) or L/C at sight. Shipping: FOB Xiamen / Taichung, or CIF / DDP to any world port. Consolidated container loading available.' },
     { q: 'How fast does SunGene reply to inquiries?', a: 'Same-day reply during Taipei business hours (Mon–Fri, UTC+8). WhatsApp/WeChat at +86 18144132078 and email contact@sungene.net are the fastest channels.' },
@@ -26,7 +26,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   zh: [
     { q: 'SunGene 在哪裡？', a: 'SunGene Co., LTD.(上瑾錸有限公司)總部在台灣台中,中國大陸廈門設有團隊。兩地都有人可以直接到工廠採購,並把多個供應商合併到一個貨櫃出口。' },
     { q: 'SunGene 做什麼採購？', a: '包裝材料（紙箱、郵寄盒、軟包、客製印刷包裝）、家居用品（廚房、餐具、收納）、園藝戶外（盆器、戶外家具、工具、裝飾）、美容包材（化妝品包裝、美容工具、可貼牌成品）。' },
-    { q: '最小訂購量是多少？', a: '單批訂單 MOQ USD 1,000。可在一次合併出貨中混搭品類——包裝、家居、園藝、美容。訂單越大,工廠價格越優、貨櫃裝載也越專屬。' },
+    { q: '最小訂購量是多少？', a: '單批訂單 MOQ USD 1,000。可在一次合併出貨中混搭品類——紙盒禮品包裝、毛毯、馬克杯、印製商品。訂單越大,工廠價格越優、貨櫃裝載也越專屬。' },
     { q: '一般交期多久？', a: '現貨 SKU:7–14 天可出。客製印刷包裝:25–35 天。家居/園藝/美容貼牌:35–55 天。海運到多數港口:18–35 天。' },
     { q: '付款與出貨條件？', a: '付款:T/T(30% 訂金、70% 出貨前)或即期 L/C。出貨:FOB 廈門/台中、CIF/DDP 至任一世界港口。提供合併貨櫃裝載。' },
     { q: 'SunGene 多久回覆詢盤？', a: '台北上班時間（一至五,UTC+8）當日回覆。WhatsApp/微信 +86 18144132078 與電郵 contact@sungene.net 為最快管道。' },
@@ -38,7 +38,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   cn: [
     { q: 'SunGene 在哪里？', a: 'SunGene Co., LTD.(上瑾錸有限公司)总部在台湾台中,中国大陆厦门设有团队。两地都有人可以直接到工厂采购,并把多个供应商合并到一个货柜出口。' },
     { q: 'SunGene 做什么采购？', a: '包装材料（纸箱、邮寄盒、软包、定制印刷包装）、家居用品（厨房、餐具、收纳）、园艺户外（盆器、户外家具、工具、装饰）、美容包材（化妆品包装、美容工具、可贴牌成品）。' },
-    { q: '最小订购量是多少？', a: '单批订单 MOQ USD 1,000。可在一次合并出货中混搭品类——包装、家居、园艺、美容。订单越大,工厂价格越优、货柜装载也越专属。' },
+    { q: '最小订购量是多少？', a: '单批订单 MOQ USD 1,000。可在一次合并出货中混搭品类——纸盒礼品包装、毛毯、马克杯、印制商品。订单越大,工厂价格越优、货柜装载也越专属。' },
     { q: '一般交期多久？', a: '现货 SKU:7–14 天可出。定制印刷包装:25–35 天。家居/园艺/美容贴牌:35–55 天。海运到多数港口:18–35 天。' },
     { q: '付款与出货条件？', a: '付款:T/T（30% 订金、70% 出货前）或即期 L/C。出货:FOB 厦门/台中、CIF/DDP 至任一世界港口。提供合并货柜装载。' },
     { q: 'SunGene 多久回复询盘？', a: '台北上班时间（一至五,UTC+8）当日回复。WhatsApp/微信 +86 18144132078 与邮箱 contact@sungene.net 为最快渠道。' },
@@ -50,7 +50,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   fr: [
     { q: 'Où se trouve SunGene ?', a: 'SunGene Co., LTD. est une société de négoce à double entité — siège à Taichung (Taïwan) et bureau enregistré à Xiamen (Chine continentale). Ce dispositif nous permet d’acheter en direct des deux côtés du détroit et de regrouper en un seul conteneur.' },
     { q: 'Que source SunGene ?', a: 'Emballages (cartons, boîtes mailer, pochettes, impression personnalisée), articles maison (cuisine, table, rangement), jardin et plein air (jardinières, mobilier, outils, décoration), beauté (flaconnage cosmétique, accessoires, marque blanche).' },
-    { q: 'Quel est le MOQ ?', a: 'MOQ : 1 000 USD par expédition. Vous pouvez combiner les catégories — emballage, maison, jardin, beauté — dans une seule commande consolidée. Des volumes plus élevés débloquent de meilleurs prix usine.' },
+    { q: 'Quel est le MOQ ?', a: 'MOQ : 1 000 USD par expédition. Vous pouvez combiner les catégories — emballage cadeau papier, plaids, mugs, articles brandés — dans une seule commande consolidée. Des volumes plus élevés débloquent de meilleurs prix usine.' },
     { q: 'Quels sont les délais ?', a: 'SKU en stock : 7–14 jours pour expédition. Emballage personnalisé : 25–35 jours. Marque blanche maison/jardin/beauté : 35–55 jours. Fret maritime : 18–35 jours selon le port.' },
     { q: 'Conditions de paiement et d’expédition ?', a: 'Paiement : T/T (30 % d’acompte, 70 % avant expédition) ou L/C à vue. Expédition : FOB Xiamen/Taichung, ou CIF/DDP vers tout port mondial. Conteneur consolidé disponible.' },
     { q: 'Quel est le délai de réponse ?', a: 'Réponse le jour même pendant les heures ouvrées de Taipei (lun–ven, UTC+8). WhatsApp/WeChat +86 18144132078 et email contact@sungene.net sont les canaux les plus rapides.' },
@@ -62,7 +62,7 @@ export const COMPANY_FAQS: Record<Lang, Faq[]> = {
   es: [
     { q: '¿Dónde está SunGene?', a: 'SunGene Co., LTD. es una empresa comercial de doble entidad — sede en Taichung (Taiwán) y oficina registrada en Xiamen (China continental). Esto nos permite comprar directo en ambos lados del estrecho y consolidar en un solo contenedor.' },
     { q: '¿Qué hace sourcing SunGene?', a: 'Empaque (cajas, mailers, pouches, impresión personalizada), artículos del hogar (cocina, mesa, organización), jardín y exterior (macetas, mobiliario, herramientas, decoración), belleza (envases cosméticos, herramientas, marca blanca).' },
-    { q: '¿Cuál es el MOQ?', a: 'MOQ: USD 1 000 por envío. Puede mezclar categorías — empaque, hogar, jardín, belleza — en una orden consolidada. Volúmenes mayores desbloquean mejores precios de fábrica.' },
+    { q: '¿Cuál es el MOQ?', a: 'MOQ: USD 1 000 por envío. Puede mezclar categorías — embalaje regalo papel, mantas, tazas, mercancía marca — en una orden consolidada. Volúmenes mayores desbloquean mejores precios de fábrica.' },
     { q: '¿Cuáles son los tiempos de entrega?', a: 'SKU en stock: 7–14 días para envío. Empaque impreso personalizado: 25–35 días. Marca blanca hogar/jardín/belleza: 35–55 días. Flete marítimo: 18–35 días según puerto.' },
     { q: '¿Condiciones de pago y envío?', a: 'Pago: T/T (30 % anticipo, 70 % antes del envío) o L/C a la vista. Envío: FOB Xiamen/Taichung, o CIF/DDP a cualquier puerto. Contenedor consolidado disponible.' },
     { q: '¿Tiempo de respuesta?', a: 'Respuesta el mismo día en horario laboral de Taipéi (lun–vie, UTC+8). WhatsApp/WeChat +86 18144132078 y email contact@sungene.net son los canales más rápidos.' },

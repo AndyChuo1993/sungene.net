@@ -36,11 +36,11 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Taiwan + China sourcing partner. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on quote.',
+  en: 'Taiwan + China dual-entity sourcing partner. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes, retail packaging). Other corporate gifts via factory network. On-site QC, factory price + margin shown on quote.',
   cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。已验证 Alibaba.com 商家。',
   zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。已驗證 Alibaba.com 商家。',
-  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Boutique vérifiée Alibaba.com.",
-  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Tienda verificada Alibaba.com.',
+  fr: "Partenaire sourcing bi-entité Taïwan + Chine avec équipes à Taichung et Xiamen. Spécialité : emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux, emballage retail). Autres cadeaux corporate via réseau d'usines vérifiées. CQ sur place. Boutique vérifiée Alibaba.com.",
+  es: 'Partner sourcing bi-entidad Taiwán + China con equipos en Taichung y Xiamen. Especialidad: embalaje regalo papel personalizado (cajas mooncake, cajas regalo, embalaje retail). Otros regalos corporativos vía red de fábricas verificadas. QC en sitio. Tienda verificada Alibaba.com.',
   pt: 'Sourcing de embalagem, lar, jardim e beleza via Taiwan e China: avaliação de fornecedores, critérios de aceitação, inspeção pré-envio, documentação e logística de exportação.',
   ko: '대만·중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, 출하 전 검사, 문서, 수출 물류로 리스크 관리.',
   ja: '台湾と中国の供給網で調達:サプライヤー審査、受入基準、出荷前検査、書類、輸出物流まで支援。',
@@ -66,11 +66,11 @@ const heroKicker: Record<string, string> = {
 }
 
 const heroTitles: Record<string, string> = {
-  en: 'Direct sourcing from Taiwan + China factories — packaging, home, garden, beauty',
-  cn: '直接采购台湾＋中国工厂 — 包装、家居、园艺、美容',
-  zh: '直接採購台灣＋中國工廠 — 包裝、家居、園藝、美容',
-  fr: "Sourcing direct depuis usines Taïwan + Chine — emballage, maison, jardin, beauté",
-  es: 'Sourcing directo de fábricas Taiwán + China — empaque, hogar, jardín, belleza',
+  en: 'Direct sourcing from Taiwan + China factories — paper gift packaging + corporate gifts',
+  cn: '直接采购台湾 + 中国工厂 — 纸盒礼品包装 + 企业礼赠品',
+  zh: '直接採購台灣 + 中國工廠 — 紙盒禮品包裝 + 企業禮贈品',
+  fr: "Sourcing direct depuis usines Taïwan + Chine — emballage cadeau papier + cadeaux corporate",
+  es: 'Sourcing directo de fábricas Taiwán + China — embalaje regalo papel + regalos corporativos',
   pt: 'Rede Taiwan + China, com entrega controlada por critérios de aceitação',
   ko: '대만+중국 공급망, 수락 기준으로 리스크를 통제합니다',
   ja: '台湾＋中国ネットワーク。受入基準でリスクを管理',

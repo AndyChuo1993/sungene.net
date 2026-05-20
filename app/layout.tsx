@@ -12,8 +12,8 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'SunGene | Taiwan + China sourcing partner for packaging, home & garden brands',
-  description: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories for packaging, home, garden and beauty brands. On-site QC. Verified Alibaba.com storefront. MOQ USD 1,000.',
+  title: 'SunGene | Taiwan + China Paper Gift Packaging Sourcing — Mooncake Boxes, Corporate Gifts',
+  description: 'Taiwan + China dual-entity sourcing partner. Alibaba-verifiable specialty: custom paper gift packaging (mooncake boxes, gift boxes, retail packaging). Other corporate gifts via vetted factory network. Dedicated in-house QC. Taiwan-registered invoicing. MOQ USD 1,000.',
   keywords: ['Taiwan sourcing partner', 'China sourcing agent', 'packaging sourcing', 'home goods sourcing', 'garden products sourcing', 'Alibaba supplier', 'factory inspection'],
 }
 

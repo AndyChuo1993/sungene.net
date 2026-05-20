@@ -35,12 +35,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {({
-                en: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Verified Alibaba.com storefront.',
-                cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。向两岸审核过的工厂采购,出货给海外买家——包装、家居、园艺、美容品类。亲自验货。已验证 Alibaba.com 商家。',
-                zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。向兩岸審核過的工廠採購,出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。已驗證 Alibaba.com 商家。',
-                fr: "SunGene est un partenaire de sourcing avec des équipes à Taichung et Xiamen. Nous achetons auprès d'usines vérifiées Taïwan + Chine en emballage, maison, jardin et beauté. CQ sur place. Boutique vérifiée Alibaba.com.",
-                es: 'SunGene es un socio de sourcing con equipos en Taichung y Xiamen. Compramos a fábricas verificadas Taiwán + China en empaque, hogar, jardín y belleza. QC en sitio. Tienda verificada Alibaba.com.',
-              } as Record<string, string>)[lang] || 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Verified Alibaba.com storefront.'}
+                en: 'Taiwan + China dual-entity sourcing partner with teams in Taichung and Xiamen. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes). Other corporate gifts via factory network. On-site QC. Verified Alibaba.com storefront.',
+                cn: 'SunGene 是台湾+中国双公司采购伙伴,台中与厦门两地都有团队。专长:客制纸盒礼品包装(月饼礼盒、品牌礼盒)。其他企业礼赠品通过合作工厂网络采购。亲自验货。已验证 Alibaba.com 商家。',
+                zh: 'SunGene 是台灣+中國雙公司採購夥伴,台中與廈門兩地都有團隊。專長:客製紙盒禮品包裝(月餅禮盒、品牌禮盒)。其他企業禮贈品透過合作工廠網絡採購。親自驗貨。已驗證 Alibaba.com 商家。',
+                fr: "SunGene est un partenaire sourcing bi-entité Taïwan + Chine avec équipes à Taichung et Xiamen. Spécialité : emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux). Autres cadeaux corporate via réseau d'usines vérifiées. CQ sur place. Boutique vérifiée Alibaba.com.",
+                es: 'SunGene es un partner sourcing bi-entidad Taiwán + China con equipos en Taichung y Xiamen. Especialidad: embalaje regalo papel personalizado (cajas mooncake, cajas regalo). Otros regalos corporativos vía red de fábricas verificadas. QC en sitio. Tienda verificada Alibaba.com.',
+              } as Record<string, string>)[lang] || 'Taiwan + China dual-entity sourcing partner with teams in Taichung and Xiamen. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes). Other corporate gifts via factory network. On-site QC. Verified Alibaba.com storefront.'}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

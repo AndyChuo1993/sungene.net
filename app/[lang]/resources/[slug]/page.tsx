@@ -635,7 +635,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
                       {({ en: 'Buy this category from Taiwan + China factories — direct.', zh: '從台灣與中國工廠直接採購這個品類。', cn: '从台湾与中国工厂直接采购这个品类。', fr: 'Achetez cette catégorie depuis les usines Taïwan + Chine — en direct.', es: 'Compre esta categoría desde fábricas Taiwán + China — directo.' } as Record<string, string>)[l] || 'Buy this category from Taiwan + China factories — direct.'}
                     </h3>
                     <p className="mt-1.5 text-sm text-gray-700">
-                      {({ en: 'Browse packaging, home, garden and beauty sourcing — MOQ from USD 1,000.', zh: '瀏覽包裝、家居、園藝、美容採購 — MOQ USD 1,000 起。', cn: '浏览包装、家居、园艺、美容采购 — MOQ USD 1,000 起。', fr: 'Parcourez sourcing emballage, maison, jardin, beauté — MOQ 1 000 USD.', es: 'Explore sourcing empaque, hogar, jardín, belleza — MOQ USD 1 000.' } as Record<string, string>)[l] || 'Browse packaging, home, garden and beauty sourcing — MOQ from USD 1,000.'}
+                      {({ en: 'Browse paper gift packaging + corporate gifts sourcing — MOQ from USD 1,000.', zh: '瀏覽紙盒禮品包裝 + 企業禮贈品採購 — MOQ USD 1,000 起。', cn: '浏览纸盒礼品包装 + 企业礼赠品采购 — MOQ USD 1,000 起。', fr: 'Parcourez sourcing emballage cadeau papier + cadeaux corporate — MOQ 1 000 USD.', es: 'Explore sourcing embalaje regalo papel + regalos corporativos — MOQ USD 1 000.' } as Record<string, string>)[l] || 'Browse paper gift packaging + corporate gifts sourcing — MOQ from USD 1,000.'}
                     </p>
                   </div>
                   <ButtonLink href={`/${l}/sourcing`} variant="primary" size="md" className="shrink-0">
