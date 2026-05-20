@@ -9,7 +9,7 @@ const ALIBABA_URL = 'https://momas.en.alibaba.com/'
 // Defaults used when a locale doesn't override the new trust fields.
 // (Older locales scheduled for removal will fall back to these.)
 const defaultExtras = {
-  badges: ['Alibaba 5-star verified', 'Taichung + Xiamen', 'On-site QC', 'Transparent quotes'],
+  badges: ['Verified Alibaba storefront', 'Taichung + Xiamen', 'On-site QC', 'Transparent quotes'],
   certLabel: 'Verified',
   certChips: ['Alibaba.com', 'TW Co.', 'CN Co.'],
 }
@@ -20,7 +20,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       kicker: 'TAIWAN + CHINA SOURCING',
       h1: 'Sourcing partner for packaging, home & garden brands',
       sub: 'We buy across Taiwan and Mainland China factories and ship to you. Our own team handles QC on the ground in Taichung and Xiamen. One contact for both markets.',
-      subSecondary: 'Verified Alibaba 5-star supplier. Factory price and our margin shown separately on every quote. Same-day reply. MOQ USD 1,000.',
+      subSecondary: 'Verified Alibaba.com storefront. Factory price and our margin shown separately on every quote. Same-day reply. MOQ USD 1,000.',
       btnQuote: 'Request a quote',
       btnCatalog: 'How we work',
       stats: [
@@ -29,7 +29,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
         { value: 'Direct', label: 'Factory pricing' },
         { value: 'Same day', label: 'Quote turnaround' },
       ],
-      badges: ['Alibaba 5-star verified', 'Taichung + Xiamen', 'On-site QC', 'Transparent quotes'],
+      badges: ['Verified Alibaba storefront', 'Taichung + Xiamen', 'On-site QC', 'Transparent quotes'],
       certLabel: 'Verified',
       certChips: ['Alibaba.com', 'TW Co.', 'CN Co.'],
     },
@@ -37,7 +37,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       kicker: '台灣 ＋ 中國  採購',
       h1: '包裝、家居與園藝品牌的台灣・中國採購夥伴',
       sub: '我們替你跨足台灣與中國大陸兩地採購,並由台中、廈門兩地團隊親自到工廠驗貨——一個窗口、兩個市場。',
-      subSecondary: 'Alibaba 5 星認證供應商。工廠價與我方利潤分開列在報價單上。當日回覆。最低訂單 USD 1,000。',
+      subSecondary: '已驗證 Alibaba.com 商家。工廠價與我方利潤分開列在報價單上。當日回覆。最低訂單 USD 1,000。',
       btnQuote: '索取報價',
       btnCatalog: '我們怎麼合作',
       stats: [
@@ -46,7 +46,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
         { value: '直供', label: '工廠價格' },
         { value: '當日', label: '報價回覆' },
       ],
-      badges: ['Alibaba 5 星認證', '台中＋廈門', '親自到場驗貨', '報價透明'],
+      badges: ['已驗證 Alibaba 商家', '台中＋廈門', '親自到場驗貨', '報價透明'],
       certLabel: '已驗證',
       certChips: ['Alibaba.com', '台灣公司', '中國公司'],
     },
@@ -54,7 +54,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       kicker: '台湾 ＋ 中国  采购',
       h1: '包装、家居与园艺品牌的台湾・中国采购伙伴',
       sub: '我们替您跨足台湾与中国大陆两地采购,并由台中、厦门两地团队亲自到工厂验货——一个窗口、两个市场。',
-      subSecondary: 'Alibaba 5 星认证供应商。工厂价与我方利润分开列在报价单上。当日回复。最低订单 USD 1,000。',
+      subSecondary: '已验证 Alibaba.com 商家。工厂价与我方利润分开列在报价单上。当日回复。最低订单 USD 1,000。',
       btnQuote: '索取报价',
       btnCatalog: '我们怎么合作',
       stats: [
@@ -63,7 +63,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
         { value: '直供', label: '工厂价格' },
         { value: '当日', label: '报价回复' },
       ],
-      badges: ['Alibaba 5 星认证', '台中＋厦门', '亲自到场验货', '报价透明'],
+      badges: ['已验证 Alibaba 商家', '台中＋厦门', '亲自到场验货', '报价透明'],
       certLabel: '已认证',
       certChips: ['Alibaba.com', '台湾公司', '中国公司'],
     },

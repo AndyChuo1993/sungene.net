@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: CONTACT_META_DESCRIPTIONS[l] || CONTACT_META_DESCRIPTIONS.en,
     pathname: '/contact',
     type: 'website',
-    keywords: ['SunGene contact', 'sourcing quote', 'Taiwan China sourcing inquiry', 'packaging supplier contact', 'home goods sourcing inquiry', 'garden products supplier', 'beauty packaging quote', 'Alibaba 5-star supplier contact', 'WhatsApp sourcing'],
+    keywords: ['SunGene contact', 'sourcing quote', 'Taiwan China sourcing inquiry', 'packaging supplier contact', 'home goods sourcing inquiry', 'garden products supplier', 'beauty packaging quote', 'Alibaba verified storefront contact', 'WhatsApp sourcing'],
   })
 }
 

@@ -204,7 +204,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {(t.trustBadges || ['Alibaba 5-star verified', 'Taichung + Xiamen', 'On-site QC']).map((badge: string) => (
+              {(t.trustBadges || ['Verified Alibaba storefront', 'Taichung + Xiamen', 'On-site QC']).map((badge: string) => (
                 <span key={badge} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
                   <svg className="h-3.5 w-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
                   {badge}

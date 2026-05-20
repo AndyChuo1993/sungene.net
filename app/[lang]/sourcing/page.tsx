@@ -37,10 +37,10 @@ const metaTitles: Record<string, string> = {
 
 const metaDescs: Record<string, string> = {
   en: 'Taiwan + China sourcing partner. Direct factory buying for packaging, home, garden, beauty. On-site QC, factory price + margin shown on quote.',
-  cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。Alibaba 5 星认证。',
-  zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。Alibaba 5 星認證。',
-  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Alibaba 5-star.",
-  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Alibaba 5-star.',
+  cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。已验证 Alibaba.com 商家。',
+  zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。已驗證 Alibaba.com 商家。',
+  fr: "Sourcing avec équipes à Taichung et Xiamen. Achat direct usine pour emballage, maison, jardin, beauté. CQ sur place, prix usine + marge sur chaque devis. Boutique vérifiée Alibaba.com.",
+  es: 'Sourcing con equipos en Taichung y Xiamen. Compra directa de fábrica para empaque, hogar, jardín, belleza. QC en sitio, precio de fábrica + margen en cada cotización. Tienda verificada Alibaba.com.',
   pt: 'Sourcing de embalagem, lar, jardim e beleza via Taiwan e China: avaliação de fornecedores, critérios de aceitação, inspeção pré-envio, documentação e logística de exportação.',
   ko: '대만·중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, 출하 전 검사, 문서, 수출 물류로 리스크 관리.',
   ja: '台湾と中国の供給網で調達:サプライヤー審査、受入基準、出荷前検査、書類、輸出物流まで支援。',
@@ -218,7 +218,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/sourcing',
     type: 'website',
-    keywords: ['Taiwan China sourcing partner', 'packaging materials sourcing', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba 5-star supplier', 'on-site QC', 'private label sourcing', 'consolidated container shipping'],
+    keywords: ['Taiwan China sourcing partner', 'packaging materials sourcing', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba verified storefront', 'on-site QC', 'private label sourcing', 'consolidated container shipping'],
   })
 }
 

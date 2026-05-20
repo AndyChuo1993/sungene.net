@@ -35,12 +35,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {({
-                en: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Alibaba 5-star verified.',
-                cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。向两岸审核过的工厂采购,出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
-                zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。向兩岸審核過的工廠採購,出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
-                fr: "SunGene est un partenaire de sourcing avec des équipes à Taichung et Xiamen. Nous achetons auprès d'usines vérifiées Taïwan + Chine en emballage, maison, jardin et beauté. CQ sur place. Alibaba 5-star.",
-                es: 'SunGene es un socio de sourcing con equipos en Taichung y Xiamen. Compramos a fábricas verificadas Taiwán + China en empaque, hogar, jardín y belleza. QC en sitio. Alibaba 5-star.',
-              } as Record<string, string>)[lang] || 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Alibaba 5-star verified.'}
+                en: 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Verified Alibaba.com storefront.',
+                cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。向两岸审核过的工厂采购,出货给海外买家——包装、家居、园艺、美容品类。亲自验货。已验证 Alibaba.com 商家。',
+                zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。向兩岸審核過的工廠採購,出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。已驗證 Alibaba.com 商家。',
+                fr: "SunGene est un partenaire de sourcing avec des équipes à Taichung et Xiamen. Nous achetons auprès d'usines vérifiées Taïwan + Chine en emballage, maison, jardin et beauté. CQ sur place. Boutique vérifiée Alibaba.com.",
+                es: 'SunGene es un socio de sourcing con equipos en Taichung y Xiamen. Compramos a fábricas verificadas Taiwán + China en empaque, hogar, jardín y belleza. QC en sitio. Tienda verificada Alibaba.com.',
+              } as Record<string, string>)[lang] || 'Sourcing partner with teams in Taichung and Xiamen. We buy from vetted Taiwan + China factories in packaging, home, garden and beauty categories. On-site QC. Verified Alibaba.com storefront.'}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

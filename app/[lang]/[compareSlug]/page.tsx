@@ -61,7 +61,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
 }>> = {
   'vs-alibaba-direct': {
     en: {
-      intro: "Alibaba is the world's largest B2B marketplace. We are on it ourselves (5-star verified supplier momas.en.alibaba.com). We are not against buying direct on Alibaba — for some buyers, in some situations, it's the right call. Here is the honest version.",
+      intro: "Alibaba is the world's largest B2B marketplace. We are on it ourselves (verified storefront at momas.en.alibaba.com). We are not against buying direct on Alibaba — for some buyers, in some situations, it's the right call. Here is the honest version.",
       whenAlt: {
         title: 'Buying direct on Alibaba works when:',
         bullets: [
@@ -96,7 +96,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: "If your time is worth less than the trader's margin, or you enjoy supplier management as a craft, buy direct. If your time is worth more, or you need consolidation + QC + accountability, work with us. Both can be the right answer.",
     },
     zh: {
-      intro: 'Alibaba 是全球最大的 B2B 採購平台,我們自己就是上面的 5 星認證供應商(momas.en.alibaba.com),所以這篇寫的不是「Alibaba 不好」。對某些買家、某些品類、某些訂單規模,直接在 Alibaba 採購就是對的選擇。這份對比寫給已經評估過 Alibaba、想知道「何時多付 5-15% 找台灣代理夥伴是划算的」的買家 —— 我們會把彼此各自的甜蜜點與盲點都攤開來。',
+      intro: 'Alibaba 是全球最大的 B2B 採購平台,我們自己就是上面的認證商家(momas.en.alibaba.com,3+ 年經營),所以這篇寫的不是「Alibaba 不好」。對某些買家、某些品類、某些訂單規模,直接在 Alibaba 採購就是對的選擇。這份對比寫給已經評估過 Alibaba、想知道「何時多付 5-15% 找台灣代理夥伴是划算的」的買家 —— 我們會把彼此各自的甜蜜點與盲點都攤開來。',
       whenAlt: {
         title: '直接在 Alibaba 採購適合你,當:',
         bullets: [
@@ -134,7 +134,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: '如果你的時間成本低於貿易商利潤(5-15%),或者你享受供應商管理這門手藝、想累積自己的工廠網絡,就直接買吧 —— 這是合理的選擇。如果你的時間值更多、或者你的訂單一旦出錯成本高於 15%,或者你需要整合、驗貨、有人負責,那就找我們。兩個都可以是對的答案 —— 重點是知道自己付的錢買的是什麼,而不是用最便宜的方式買到最貴的教訓。',
     },
     cn: {
-      intro: 'Alibaba 是全球最大的 B2B 采购平台,我们自己就是上面的 5 星认证供应商(momas.en.alibaba.com),所以这篇写的不是「Alibaba 不好」。对某些买家、某些品类、某些订单规模,直接在 Alibaba 采购就是对的选择。这份对比写给已经评估过 Alibaba、想知道「何时多付 5-15% 找台湾代理伙伴是划算的」的买家 —— 我们会把彼此各自的甜蜜点与盲点都摊开来。',
+      intro: 'Alibaba 是全球最大的 B2B 采购平台,我们自己就是上面的认证商家(momas.en.alibaba.com,3+ 年经营),所以这篇写的不是「Alibaba 不好」。对某些买家、某些品类、某些订单规模,直接在 Alibaba 采购就是对的选择。这份对比写给已经评估过 Alibaba、想知道「何时多付 5-15% 找台湾代理伙伴是划算的」的买家 —— 我们会把彼此各自的甜蜜点与盲点都摊开来。',
       whenAlt: {
         title: '直接在 Alibaba 采购适合您,当:',
         bullets: [
@@ -172,7 +172,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: '如果您的时间成本低于贸易商利润(5-15%),或者您享受供应商管理这门手艺、想累积自己的工厂网络,就直接买吧 —— 这是合理的选择。如果您的时间值更多、或者您的订单一旦出错成本高于 15%,或者您需要整合、验货、有人负责,那就找我们。两个都可以是对的答案 —— 重点是知道自己付的钱买的是什么,而不是用最便宜的方式买到最贵的教训。',
     },
     fr: {
-      intro: "Alibaba est la plus grande place de marché B2B au monde. Nous y sommes nous-mêmes (fournisseur vérifié 5 étoiles momas.en.alibaba.com). Nous ne sommes pas contre l'achat direct sur Alibaba — pour certains acheteurs, dans certaines situations, c'est le bon choix. Voici la version honnête.",
+      intro: "Alibaba est la plus grande place de marché B2B au monde. Nous y sommes nous-mêmes (boutique vérifiée sur momas.en.alibaba.com). Nous ne sommes pas contre l'achat direct sur Alibaba — pour certains acheteurs, dans certaines situations, c'est le bon choix. Voici la version honnête.",
       whenAlt: { title: 'Acheter direct sur Alibaba fonctionne quand :', bullets: [
         'Vous avez le temps de vérifier 8-15 usines vous-même, demander des échantillons et lire historique des avis',
         'Votre commande est petite (moins de USD 1 000) et vous pouvez absorber un mauvais lot comme coût d\'apprentissage',
@@ -201,7 +201,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: "Si votre temps vaut moins que la marge du négociant, ou si vous aimez la gestion fournisseurs comme métier, achetez direct. Si votre temps vaut plus, ou si vous avez besoin de consolidation + CQ + responsabilité, travaillez avec nous. Les deux peuvent être la bonne réponse.",
     },
     es: {
-      intro: 'Alibaba es la plataforma B2B más grande del mundo. Estamos en ella nosotros mismos (proveedor verificado 5 estrellas momas.en.alibaba.com). No estamos en contra de comprar directo en Alibaba — para algunos compradores, en algunas situaciones, es la decisión correcta. Aquí la versión honesta.',
+      intro: 'Alibaba es la plataforma B2B más grande del mundo. Estamos en ella nosotros mismos (tienda verificada en momas.en.alibaba.com). No estamos en contra de comprar directo en Alibaba — para algunos compradores, en algunas situaciones, es la decisión correcta. Aquí la versión honesta.',
       whenAlt: { title: 'Comprar directo en Alibaba funciona cuando:', bullets: [
         'Tiene tiempo para auditar 8-15 fábricas, pedir muestras y leer historial de reseñas con cuidado',
         'Su pedido es pequeño (menos de USD 1,000) y puede absorber un lote malo como costo de aprendizaje',
