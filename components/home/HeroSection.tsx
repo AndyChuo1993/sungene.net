@@ -18,8 +18,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
       kicker: 'TAIWAN + CHINA SOURCING',
-      h1: 'Sourcing partner for packaging, home & garden brands',
-      sub: 'We buy across Taiwan and Mainland China factories and ship to you. Our own team handles QC on the ground in Taichung and Xiamen. One contact for both markets.',
+      h1: 'Custom paper gift packaging — Taiwan + China sourcing',
+      sub: 'Mooncake boxes, brand gift boxes, retail packaging — sourced from vetted Taiwan + China factories. Other corporate gifts (blankets, drinkware, branded merchandise) sourced through our vetted factory network. Taiwan-registered invoicing entity.',
       subSecondary: 'Verified Alibaba.com storefront. Factory price and our margin shown separately on every quote. Same-day reply. MOQ USD 1,000.',
       btnQuote: 'Request a quote',
       btnCatalog: 'How we work',
@@ -35,8 +35,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     zh: {
       kicker: '台灣 ＋ 中國  採購',
-      h1: '包裝、家居與園藝品牌的台灣・中國採購夥伴',
-      sub: '我們替你跨足台灣與中國大陸兩地採購,並由台中、廈門兩地團隊親自到工廠驗貨——一個窗口、兩個市場。',
+      h1: '客製紙盒禮品包裝 — 台灣 + 中國採購',
+      sub: '月餅禮盒、品牌禮盒、零售包裝 — 從審核過的台灣與中國工廠採購。其他企業禮贈品(毛毯、馬克杯、印製商品)透過合作工廠網絡採購。台灣公司開立發票。',
       subSecondary: '已驗證 Alibaba.com 商家。工廠價與我方利潤分開列在報價單上。當日回覆。最低訂單 USD 1,000。',
       btnQuote: '索取報價',
       btnCatalog: '我們怎麼合作',
@@ -52,13 +52,13 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     cn: {
       kicker: '台湾 ＋ 中国  采购',
-      h1: '包装、家居与园艺品牌的台湾・中国采购伙伴',
-      sub: '我们替您跨足台湾与中国大陆两地采购,并由台中、厦门两地团队亲自到工厂验货——一个窗口、两个市场。',
+      h1: '定制纸盒礼品包装 — 台湾 + 中国采购',
+      sub: '月饼礼盒、品牌礼盒、零售包装 — 从审核过的台湾与中国工厂采购。其他企业礼赠品(毛毯、马克杯、印制商品)通过合作工厂网络采购。台湾公司开立发票。',
       subSecondary: '已验证 Alibaba.com 商家。工厂价与我方利润分开列在报价单上。当日回复。最低订单 USD 1,000。',
       btnQuote: '索取报价',
       btnCatalog: '我们怎么合作',
       stats: [
-        { value: '台湾＋中国', label: '两岸都有人' },
+        { value: '台湾＋中国', label: '台湾大陆都有人' },
         { value: '已认证', label: 'Alibaba.com 供应商' },
         { value: '直供', label: '工厂价格' },
         { value: '当日', label: '报价回复' },
@@ -69,8 +69,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     fr: {
       kicker: 'SOURCING TAÏWAN + CHINE',
-      h1: "Partenaire de sourcing pour marques d'emballage, maison & jardin",
-      sub: "Nous achetons pour vous dans des usines à Taïwan et en Chine continentale, avec contrôle qualité sur place par nos équipes à Taichung et Xiamen — un seul interlocuteur, deux marchés.",
+      h1: "Sourcing emballage cadeau papier — Taïwan + Chine",
+      sub: "Boîtes mooncake, boîtes-cadeaux de marque, emballage retail — sourcés directement chez des usines Taïwan + Chine vérifiées. Autres cadeaux corporate (plaids, mugs, articles brandés) via notre réseau d'usines. Facturation par l'entité Taïwan.",
       subSecondary: "Fournisseur vérifié Alibaba.com. Prix usine direct, logistique export de bout en bout, devis le jour même. Commandes à partir de USD 1 000.",
       btnQuote: 'Demander un devis',
       btnCatalog: 'Notre méthode',
@@ -86,8 +86,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     },
     es: {
       kicker: 'SOURCING TAIWÁN + CHINA',
-      h1: 'Socio de abastecimiento para marcas de empaque, hogar y jardín',
-      sub: 'Compramos para usted en fábricas de Taiwán y China continental, con control de calidad en sitio por nuestros equipos en Taichung y Xiamen — un solo interlocutor, dos mercados.',
+      h1: 'Sourcing embalaje regalo papel — Taiwán + China',
+      sub: 'Cajas mooncake, cajas regalo de marca, embalaje retail — abastecidos directamente de fábricas Taiwán + China verificadas. Otros regalos corporativos (mantas, tazas, mercancía marca) vía nuestra red de fábricas. Facturación por la entidad Taiwán.',
       subSecondary: 'Proveedor verificado Alibaba.com. Precio directo de fábrica, logística integral de exportación, cotizaciones el mismo día. Pedidos desde USD 1 000.',
       btnQuote: 'Solicitar cotización',
       btnCatalog: 'Cómo trabajamos',
