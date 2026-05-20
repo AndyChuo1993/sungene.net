@@ -70,7 +70,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     fr: {
       kicker: 'SOURCING TAÏWAN + CHINE',
       h1: "Sourcing emballage cadeau papier — Taïwan + Chine",
-      sub: "Boîtes mooncake, boîtes-cadeaux de marque, emballage retail — sourcés directement chez des usines Taïwan + Chine vérifiées. Autres cadeaux corporate (plaids, mugs, articles brandés) via notre réseau d'usines. Facturation par l'entité Taïwan.",
+      sub: "Boîtes mooncake, boîtes-cadeaux de marque, emballage retail — sourcés directement chez des usines Taïwan + Chine vérifiées. Autres cadeaux corporate (plaids, mugs, articles brandés) via notre réseau d'usines partenaires. Facturation par l'entité Taïwan.",
       subSecondary: "Fournisseur vérifié Alibaba.com. Prix usine direct, logistique export de bout en bout, devis le jour même. Commandes à partir de USD 1 000.",
       btnQuote: 'Demander un devis',
       btnCatalog: 'Notre méthode',
@@ -87,7 +87,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
     es: {
       kicker: 'SOURCING TAIWÁN + CHINA',
       h1: 'Sourcing embalaje regalo papel — Taiwán + China',
-      sub: 'Cajas mooncake, cajas regalo de marca, embalaje retail — abastecidos directamente de fábricas Taiwán + China verificadas. Otros regalos corporativos (mantas, tazas, mercancía marca) vía nuestra red de fábricas. Facturación por la entidad Taiwán.',
+      sub: 'Cajas mooncake, cajas regalo de marca, embalaje retail — abastecidos directamente de fábricas Taiwán + China verificadas. Otros regalos corporativos (mantas, tazas, mercancía marca) vía nuestra red de fábricas asociadas. Facturación por la entidad Taiwán.',
       subSecondary: 'Proveedor verificado Alibaba.com. Precio directo de fábrica, logística integral de exportación, cotizaciones el mismo día. Pedidos desde USD 1 000.',
       btnQuote: 'Solicitar cotización',
       btnCatalog: 'Cómo trabajamos',
