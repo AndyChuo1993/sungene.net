@@ -5,7 +5,7 @@
 # but lost on fresh clone — `cp _server_edit/pre-commit-hook.sh .git/hooks/
 # pre-commit && chmod +x .git/hooks/pre-commit` after cloning).
 #
-# Last update: 2026-05-20 (Wave 5 — multilingual extension + path exclusion)
+# Last update: 2026-05-20 (Wave 7 — n-gram cardinality variants added)
 # Token list source: docs/factual-claims.md v1.2 ❌ section
 #
 # Purpose: structural guardrail against re-introducing upstream supplier
@@ -79,6 +79,14 @@ forbidden_tokens=(
   'Alibaba 5 星认证'
   'fournisseur vérifié 5 étoiles'
   'proveedor verificado 5 estrellas'
+  # Wave 7 — n-gram cardinality variants (3-cat without beauté/belleza,
+  # short forms, and EN no-ampersand variant)
+  'emballage, maison et jardin'
+  'empaque, hogar y jardín'
+  'packaging, home and garden'
+  'maison et jardin'
+  'hogar y jardín'
+  'home and garden'
 )
 
 exit_code=0
