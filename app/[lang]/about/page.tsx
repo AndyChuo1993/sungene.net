@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params
   const l = normalizeLang(lang)
   const titles = {
-    en: 'About — Taiwan + China sourcing',
-    cn: '关于我们 | 台湾+中国采购',
-    zh: '關於我們 | 台灣+中國採購',
-    fr: 'À propos — sourcing Taïwan + Chine',
-    es: 'Acerca — sourcing Taiwán + China',
+    en: 'About SunGene — Taiwan + China paper gift packaging sourcing',
+    cn: '关于 SunGene | 台湾+中国客制纸盒礼品包装采购',
+    zh: '關於 SunGene | 台灣+中國客製紙盒禮品包裝採購',
+    fr: 'À propos SunGene — sourcing emballage cadeau papier Taïwan + Chine',
+    es: 'Acerca de SunGene — sourcing embalaje regalo papel Taiwán + China',
     ko: 'SunGene 소개 | 산업 및 자동화 소싱 전문가',
     ja: 'SunGeneについて | 産業・自動化ソーシングのエキスパート',
     ar: 'عن SunGene | خبراء توريد المعدات الصناعية والأتمتة',
@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     de: 'Über SunGene | Experten für industrielles Sourcing und Automatisierung',
   }
   const descriptions: Record<string, string> = {
-    en: 'Taiwan + China sourcing partner. Direct buying from vetted factories for packaging, home, garden, beauty. On-site QC. Alibaba 5-star verified.',
-    cn: 'SunGene 是贸易采购伙伴,团队分驻台中与厦门。我们直接向两地审核过的工厂采购、出货给海外买家——包装、家居、园艺、美容品类。亲自验货。Alibaba 5 星认证。',
-    zh: 'SunGene 是貿易採購夥伴,團隊分駐台中與廈門。我們直接向兩地審核過的工廠採購、出貨給海外買家——包裝、家居、園藝、美容品類。親自驗貨。Alibaba 5 星認證。',
-    fr: "Société de négoce Taïwan-Chine. Achat direct usine, CQ sur place, revente directe — emballage, maison, jardin, beauté. Alibaba 5-star vérifié.",
-    es: 'Empresa comercial Taiwán-China. Compra directa de fábrica, QC en sitio, reventa directa — empaque, hogar, jardín, belleza. Alibaba 5-star verificado.',
+    en: 'Taiwan + China dual-entity sourcing partner. Alibaba-verifiable specialty: custom paper gift packaging (mooncake boxes, gift boxes, retail packaging). Other corporate gifts via vetted factory network. Dedicated in-house QC on-site at partner factories.',
+    cn: 'SunGene 是台湾+中国双公司采购伙伴。Alibaba 公开可验证的专长是定制纸盒礼品包装(月饼礼盒、品牌礼盒、零售包装)。其他企业礼赠品通过合作工厂网络采购。自有员工亲自到合作工厂做 AQL 品检。',
+    zh: 'SunGene 是台灣+中國雙公司採購夥伴。Alibaba 公開可驗證的專長是客製紙盒禮品包裝(月餅禮盒、品牌禮盒、零售包裝)。其他企業禮贈品透過合作工廠網絡採購。自有員工親自到合作工廠做 AQL 品檢。',
+    fr: "Partenaire sourcing bi-entité Taïwan + Chine. Spécialité vérifiable sur Alibaba : emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux, emballage retail). Autres cadeaux corporate via réseau d'usines vérifiées. Personnel QC dédié sur site chez usines partenaires.",
+    es: 'Partner sourcing bi-entidad Taiwán + China. Especialidad verificable en Alibaba: embalaje regalo papel personalizado (cajas mooncake, cajas regalo, embalaje retail). Otros regalos corporativos vía red de fábricas verificadas. Personal QC dedicado en sitio en fábricas partner.',
     ko: 'SunGene은 대만과 중국 전역에서 산업 장비, 포장 시스템 및 자동화 부품에 대한 전문적인 소싱 지원을 제공합니다.',
     ja: 'SunGeneは、台湾と中国全域で産業機器、包装システム、自動化コンポーネントの専門的なソーシング・サポートを提供しています。',
     ar: 'توفر SunGene دعماً مهنياً في توريد المعدات الصناعية وأنظمة التعبئة والتغليف ومكونات الأتمتة عبر تايوان والصين.',
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: descriptions[l] || descriptions.en,
     pathname: '/about',
     type: 'website',
-    keywords: ['SunGene', 'Taiwan China sourcing agent', 'packaging supplier', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba 5-star supplier', 'on-site QC', 'Taichung Xiamen trading company'],
+    keywords: ['SunGene', 'Taiwan China dual-entity sourcing', 'custom paper gift packaging', 'mooncake gift box manufacturer', 'corporate gifts sourcing partner', 'branded merchandise OEM', 'Alibaba verifiable supplier', 'on-site AQL inspection', 'principal trader model', 'dedicated in-house QC'],
   })
 }
 
@@ -62,20 +62,20 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
   const content: Record<string, any> = {
     en: {
       kicker: 'ABOUT SUNGENE',
-      title: 'Trading company built for quality',
-      intro: 'SunGene is a sourcing partner with teams in Taichung (Taiwan) and Xiamen (Mainland China). We buy from vetted factories across both markets and ship to international buyers in packaging, home goods, garden and beauty categories. Our team combines B2B export sales, factory operations, and supply chain logistics experience across Greater China.',
-      mission: 'We act as principal — we buy the goods, then resell — which puts the goods on our balance sheet. That single accounting fact means rejecting a sub-spec batch is our own financial decision, not a courtesy we extend to you. Quality moves from "we will try" to "we have to".',
+      title: 'Sourcing built for verifiable quality, not promises',
+      intro: 'SunGene is a Taiwan + China dual-entity sourcing partner. Our Alibaba-verifiable specialty is custom paper gift packaging — mooncake boxes, brand gift boxes, retail packaging, corrugated cartons, paper bags and tubes. For everything else corporate buyers need (blankets, apparel, drinkware, accessories, stationery, branded merchandise), we source through our vetted Taiwan + China factory network. Our team combines B2B export sales, factory liaison, and dedicated in-house QC operations.',
+      mission: 'We act as principal — we buy the goods, then resell — which puts the goods on our balance sheet. That single accounting fact means rejecting a sub-spec batch is our own financial decision, not a courtesy we extend to you. Quality moves from "we will try" to "we have to" — backed by dedicated SunGene QC staff on-site at partner factories.',
       stats: [
-        { value: 'TW + CN', label: 'Dual operations' },
-        { value: 'Verified', label: 'Alibaba.com supplier' },
+        { value: 'TW + CN', label: 'Dual-entity registration' },
+        { value: '3+ years', label: 'Alibaba.com storefront' },
         { value: 'USD 1,000', label: 'Order entry' },
         { value: 'On every quote', label: 'Margin shown separately' },
       ],
       strengthsTitle: 'What sets SunGene apart',
       strengths: [
         { title: 'Factory price + our margin, shown separately', desc: 'Every quote lists the factory invoice line (FOB or EXW) and our margin on a second line. The underlying factory price is available on request before order confirmation. One number to compare, full breakdown when you need it.' },
-        { title: 'On-site QC by our own team', desc: 'Inspection is performed by SunGene staff — not subcontracted to third-party agents who never set foot in the factory. We visit Taiwan factories directly and route China-origin goods through our forwarder warehouse for pre-export inspection. Photo and video documentation with every shipment.' },
-        { title: 'Focused expertise across packaging, home and garden', desc: 'We invest depth into supplier relationships within packaging products, home goods, and garden categories rather than spreading thin across unrelated sectors. Adjacent categories are quoted on request when our supplier network reaches.' },
+        { title: 'Dedicated in-house QC, not subcontracted', desc: 'Inspection is performed by full-time SunGene QC staff based at our China office — not subcontracted to third-party agents (QIMA / Bureau Veritas / TÜV etc.) who never set foot in the factory. AQL 2.5 sampling pre-shipment with photo + video documentation for every order.' },
+        { title: 'Paper gift packaging specialist + corporate gifts factory network', desc: 'Custom paper gift packaging (mooncake boxes, brand gift boxes, retail packaging, corrugated cartons, paper bags) is our Alibaba-verifiable specialty. For other corporate gifts categories — blankets, apparel, drinkware, stationery, branded merchandise — we source through long-term partner factories rather than re-discovering suppliers each order.' },
       ],
       ctaTitle: 'Start the conversation',
       ctaDesc: 'Orders from USD 1,000 per shipment. Send us a reference image, target quantity, and destination market. You\'ll get a same-day reply with two or three shortlisted factories and the price band to expect.',
@@ -83,11 +83,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     },
     cn: {
       kicker: '关于 SunGene',
-      title: '一家把品质当成自己问题、不让您操心的贸易公司',
-      intro: 'SunGene 是贸易采购伙伴,台中与厦门两地都有团队。我们向两岸审核过的工厂采购、出货给海外买家,专精包装、家居、园艺、美容四大品类。团队结合 B2B 出口业务、工厂端运营、与大中华区供应链物流的实战经验。',
-      mission: '我们以 principal 身分买断再转售,货走我们自己的帐。这一个会计事实就改变了诱因结构——挡下不合规的货,是我们自己的财务决定。品质从「我们尽量」变成「我们不得不」。',
+      title: '建立在可验证品质上的采购,不靠承诺',
+      intro: 'SunGene 是台湾+中国双公司结构的采购伙伴。Alibaba 公开可验证的专长是定制纸盒礼品包装——月饼礼盒、品牌礼盒、零售包装、瓦楞纸箱、纸袋与纸管。其他企业礼赠品(毛毯、印制服饰、马克杯、配件、文具、品牌商品),通过我们合作的台湾+中国工厂网络采购。团队结合 B2B 出口业务、工厂联络、与自有员工品检的实战经验。',
+      mission: '我们以 principal 身分买断再转售,货走我们自己的帐。这一个会计事实就改变了诱因结构——挡下不合规的货,是我们自己的财务决定。品质从「我们尽量」变成「我们不得不」——背后有 SunGene 自有员工亲自到合作工厂做出货前 AQL 品检。',
       stats: [
-        { value: '台湾＋中国', label: '两岸都有人' },
+        { value: '台湾＋中国', label: '双公司登记' },
         { value: '已认证', label: 'Alibaba.com 供应商' },
         { value: 'USD 1,000', label: '订单起接' },
         { value: '報價內', label: '利润分行列出' },
@@ -104,11 +104,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     },
     zh: {
       kicker: '關於 SunGene',
-      title: '一家把品質當成自己問題、不讓你操心的貿易公司',
-      intro: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有團隊。我們向兩岸審核過的工廠採購、出貨給海外買家,專精包裝、家居、園藝、美容四大品類。團隊結合 B2B 出口業務、工廠端運營、與大中華區供應鏈物流的實戰經驗。',
-      mission: '我們以 principal 身分買斷再轉售,貨走我們自己的帳。這一個會計事實就改變了誘因結構——擋下不合規的貨,是我們自己的財務決定。品質從「我們盡量」變成「我們不得不」。',
+      title: '建立在可驗證品質上的採購,不靠承諾',
+      intro: 'SunGene 是台灣+中國雙公司結構的採購夥伴。Alibaba 公開可驗證的專長是客製紙盒禮品包裝——月餅禮盒、品牌禮盒、零售包裝、瓦楞紙箱、紙袋與紙管。其他企業禮贈品(毛毯、印製服飾、馬克杯、配件、文具、品牌商品),透過我們合作的台灣+中國工廠網絡採購。團隊結合 B2B 出口業務、工廠聯絡、與自有員工品檢的實戰經驗。',
+      mission: '我們以 principal 身分買斷再轉售,貨走我們自己的帳。這一個會計事實就改變了誘因結構——擋下不合規的貨,是我們自己的財務決定。品質從「我們盡量」變成「我們不得不」——背後有 SunGene 自有員工親自到合作工廠做出貨前 AQL 品檢。',
       stats: [
-        { value: '台灣＋中國', label: '兩岸都有人' },
+        { value: '台灣＋中國', label: '雙公司登記' },
         { value: '已認證', label: 'Alibaba.com 供應商' },
         { value: 'USD 1,000', label: '訂單起接' },
         { value: '報價內', label: '利潤分行列出' },
@@ -472,7 +472,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
                 {({ en: 'Real buyer ratings on our Alibaba.com store', zh: 'Alibaba.com 店鋪的真實買家評價', cn: 'Alibaba.com 店铺的真实买家评价', fr: 'Avis acheteurs réels sur notre boutique Alibaba.com', es: 'Calificaciones reales de compradores en nuestra tienda Alibaba.com' } as Record<string, string>)[lang] || 'Real buyer ratings on our Alibaba.com store'}
               </div>
               <div className="mt-2 text-sm text-white/70">
-                {({ en: 'momas.en.alibaba.com → check our 5-star service rating and verified-supplier status maintained by the platform.', zh: 'momas.en.alibaba.com → 查看由 Alibaba 平台維護的 5 星服務評等與認證供應商身分。', cn: 'momas.en.alibaba.com → 查看由 Alibaba 平台维护的 5 星服务评等与认证供应商身份。', fr: 'momas.en.alibaba.com → consultez notre note de service 5 étoiles et statut fournisseur vérifié, maintenus par la plateforme.', es: 'momas.en.alibaba.com → vea nuestra calificación de servicio 5 estrellas y estado de proveedor verificado, mantenidos por la plataforma.' } as Record<string, string>)[lang] || ''}
+                {({ en: 'momas.en.alibaba.com → check our public Alibaba storefront active 3+ years; star rating and verification badges visible directly on the page (we do not paraphrase Alibaba tiers in our own copy).', zh: 'momas.en.alibaba.com → 我們在 Alibaba 公開營運 3+ 年的店鋪;星等與 badge 直接在頁面可查(我們不在自己文案裡描述 Alibaba 等級)。', cn: 'momas.en.alibaba.com → 我们在 Alibaba 公开运营 3+ 年的店铺;星等与 badge 直接在页面可查(我们不在自己文案里描述 Alibaba 等级)。', fr: 'momas.en.alibaba.com → notre boutique Alibaba publique active 3+ ans ; note et badges directement consultables sur la page (nous ne paraphrasons pas les niveaux Alibaba dans notre copie).', es: 'momas.en.alibaba.com → nuestra tienda Alibaba pública activa 3+ años; calificación e insignias directamente visibles en la página (no parafraseamos los niveles Alibaba en nuestra copia).' } as Record<string, string>)[lang] || ''}
               </div>
               <div className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent-400 group-hover:underline">
                 {({ en: 'Open store →', zh: '打開店鋪 →', cn: '打开店铺 →', fr: 'Ouvrir la boutique →', es: 'Abrir tienda →' } as Record<string, string>)[lang] || 'Open store →'}
