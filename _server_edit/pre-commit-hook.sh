@@ -87,6 +87,16 @@ forbidden_tokens=(
   'maison et jardin'
   'hogar y jardín'
   'home and garden'
+  # --- Wave 8 additions: zh n-gram cardinality variants ---
+  # Wave 7 caught fr/es 3-cat but missed zh equivalents in same file.
+  '包裝、家居與園藝'
+  '包装、家居与园艺'
+  '家居與園藝'
+  '家居与园艺'
+  '包裝、家居、園藝'
+  '包装、家居、园艺'
+  '家居、園藝'
+  '家居、园艺'
 )
 
 exit_code=0
