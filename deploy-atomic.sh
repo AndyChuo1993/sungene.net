@@ -16,7 +16,10 @@ if [ "$1" != "--skip-build" ]; then
   echo "[atomic] running next build"
   if [ -d ".next" ]; then
     rm -rf .next.previous-static
-    cp -r .next/static .next.previous-static 2>/dev/null || true
+    mkdir -p .next.previous-static
+    cp -r .next/static .next.previous-static/static 2>/dev/null || true
+    cp -r .next/server .next.previous-static/server 2>/dev/null || true
+    cp -r .next/standalone .next.previous-static/standalone 2>/dev/null || true
   fi
 
   npm run build

@@ -37,6 +37,21 @@ export async function POST(req: Request) {
     return Response.json({ ok: true })
   }
 
+  // reCAPTCHA v3 siteverify (R29 §1.4) — only when secret configured
+  if (process.env.RECAPTCHA_SECRET) {
+    const token = formData.get('recaptchaToken')
+    if (typeof token === 'string' && token.length > 0) {
+      const vr = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ secret: process.env.RECAPTCHA_SECRET, response: token }),
+      }).then(r => r.json()).catch(() => null)
+      if (!vr || !vr.success) {
+        return jsonFail(400, 'Captcha Failed')
+      }
+    }
+  }
+
   // Extract fields
   const name = getText(formData.get('name'), 120)
   const email = getText(formData.get('email'), 200)?.toLowerCase()

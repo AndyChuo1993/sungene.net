@@ -27,15 +27,6 @@ PROJECT="${SUNGENE_PROJECT_ROOT:-/www/wwwroot/sungene.net}"
   echo "[$(date -Is)] npm ci"
   npm ci
 
-  echo "[$(date -Is)] npm run build"
-  npm run build
-
-  echo "[$(date -Is)] prepare standalone"
-  node scripts/prepare-standalone.mjs
-
-  echo "[$(date -Is)] pm2 restart sungene"
-  pm2 restart sungene --update-env
-
-  echo "[$(date -Is)] Deploy complete at $(git rev-parse --short HEAD)"
-  echo "========================================"
+  echo "[$(date -Is)] Delegating build + rolling reload + cache purge to deploy-atomic.sh"
+  exec bash ./deploy-atomic.sh
 } >>"$LOG" 2>&1
