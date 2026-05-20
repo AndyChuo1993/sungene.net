@@ -126,7 +126,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     fr: {
       kicker: 'À PROPOS DE SUNGENE',
       title: 'Société de négoce Taïwan + Chine',
-      intro: "SunGene est un partenaire de sourcing avec des équipes à Taichung (Taïwan) et Xiamen (Chine continentale). Nous achetons auprès d'usines vérifiées des deux côtés et revendons aux acheteurs internationaux dans les catégories emballage, maison, jardin et beauté. Notre équipe combine vente export B2B, opérations usine et logistique chaîne d'approvisionnement à travers la Grande Chine.",
+      intro: "SunGene est un partenaire de sourcing avec des équipes à Taichung (Taïwan) et Xiamen (Chine continentale). Notre spécialité vérifiable sur Alibaba est l'emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux, emballage retail). Pour les autres cadeaux corporate (plaids, mugs, articles brandés), nous sourçons via notre réseau d'usines partenaires. Notre équipe combine vente export B2B, opérations usine et logistique chaîne d'approvisionnement à travers la Grande Chine.",
       mission: "Nous opérons en société de négoce — non en agent à la commission — pour une raison structurelle précise : la marchandise apparaît à notre bilan. Ce simple fait comptable change la structure des incitations. Refuser un lot hors spécification devient notre propre décision financière, pas une courtoisie que nous vous accordons. La qualité passe de « nous essaierons » à « nous devons ».",
       stats: [
         { value: 'TW + CN', label: 'Double opération' },
@@ -147,7 +147,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: La
     es: {
       kicker: 'SOBRE SUNGENE',
       title: 'Empresa comercial Taiwán + China',
-      intro: 'SunGene es un socio de sourcing con equipos en Taichung (Taiwán) y Xiamen (China continental). Compramos a fábricas verificadas de ambos lados y revendemos a compradores internacionales en categorías de empaque, hogar, jardín y belleza. Nuestro equipo combina ventas export B2B, operaciones de fábrica y logística de cadena de suministro en toda la Gran China.',
+      intro: 'SunGene es un socio de sourcing con equipos en Taichung (Taiwán) y Xiamen (China continental). Nuestra especialidad verificable en Alibaba es el embalaje regalo papel personalizado (cajas mooncake, cajas regalo, embalaje retail). Para otros regalos corporativos (mantas, tazas, mercancía marca), abastecemos vía nuestra red de fábricas asociadas. Nuestro equipo combina ventas export B2B, operaciones de fábrica y logística de cadena de suministro en toda la Gran China.',
       mission: 'Operamos como empresa comercial — no como agente a comisión — por una razón estructural concreta: la mercancía aparece en nuestro balance. Ese único hecho contable cambia la estructura de incentivos. Rechazar un lote fuera de especificación pasa a ser nuestra propia decisión financiera, no una cortesía hacia usted. La calidad cambia de "lo intentaremos" a "tenemos que".',
       stats: [
         { value: 'TW + CN', label: 'Operación dual' },

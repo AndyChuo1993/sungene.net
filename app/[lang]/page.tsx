@@ -164,8 +164,8 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
   faq: { q: string; a: string }[]
 }>> = {
   en: {
-    listName: 'SunGene — Taiwan & China sourcing for packaging, home & garden',
-    listDesc: 'Sourcing for packaging, home goods, and garden products from vetted Taiwan and Mainland China factories. On-site QC, factory price + margin shown separately on every quote.',
+    listName: 'SunGene — Taiwan + China paper gift packaging sourcing, corporate gifts via factory network',
+    listDesc: 'Custom paper gift packaging (mooncake boxes, brand gift boxes, retail packaging) sourced direct from vetted Taiwan + Mainland China factories. Other corporate gifts via our vetted factory network. On-site QC, factory price + margin shown separately on every quote.',
     categories: { packaging: 'Packaging Sourcing', food: 'Home & Kitchen Sourcing', filling: 'Beauty & Container Sourcing', conveying: 'Garden & Outdoor Sourcing', custom: 'Custom Sourcing Requests' },
     faq: [
       { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
@@ -178,8 +178,8 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
     ],
   },
   zh: {
-    listName: 'SunGene｜台灣＋中國 採購夥伴｜包裝、家居、園藝',
-    listDesc: '從台灣與中國大陸審查過的工廠採購包裝、家居、園藝品類。團隊親自驗貨,報價單上工廠價與我方利潤分開列出。',
+    listName: 'SunGene｜台灣 + 中國 紙盒禮品包裝採購｜企業禮贈品透過合作工廠網絡',
+    listDesc: '客製紙盒禮品包裝(月餅禮盒、品牌禮盒、零售包裝)直接從台灣與中國大陸審查過的工廠採購。其他企業禮贈品透過合作工廠網絡採購。團隊親自驗貨,報價單上工廠價與我方利潤分開列出。',
     categories: { packaging: '包裝產品採購', food: '家居廚房採購', filling: '美容容器採購', conveying: '園藝戶外採購', custom: '客製品採購' },
     faq: [
       { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
@@ -192,8 +192,8 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
     ],
   },
   cn: {
-    listName: 'SunGene｜台湾＋中国 采购伙伴｜包装、家居、园艺',
-    listDesc: '从台湾与中国大陆核查过的工厂采购包装、家居、园艺品类。团队亲自验货,报价单上工厂价与我方利润分开列出。',
+    listName: 'SunGene｜台湾 + 中国 纸盒礼品包装采购｜企业礼赠品通过合作工厂网络',
+    listDesc: '定制纸盒礼品包装(月饼礼盒、品牌礼盒、零售包装)直接从台湾与中国大陆核查过的工厂采购。其他企业礼赠品通过合作工厂网络采购。团队亲自验货,报价单上工厂价与我方利润分开列出。',
     categories: { packaging: '包装产品采购', food: '家居厨房采购', filling: '美容容器采购', conveying: '园艺户外采购', custom: '定制品采购' },
     faq: [
       { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
@@ -206,8 +206,8 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
     ],
   },
   fr: {
-    listName: "SunGene | Sourcing Taïwan & Chine pour marques d'emballage, maison & jardin",
-    listDesc: "Sourcing chez des usines vérifiées à Taïwan et en Chine continentale — emballage, maison, jardin. Contrôle qualité sur place, prix usine et marge affichés séparément sur chaque devis.",
+    listName: "SunGene | Sourcing emballage cadeau papier Taïwan + Chine, cadeaux corporate via réseau d'usines partenaires",
+    listDesc: "Emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux de marque, emballage retail) sourcé directement chez des usines Taïwan + Chine continentale vérifiées. Autres cadeaux corporate via notre réseau d'usines partenaires. Contrôle qualité sur place, prix usine et marge affichés séparément sur chaque devis.",
     categories: { packaging: 'Sourcing emballage', food: 'Sourcing maison & cuisine', filling: 'Sourcing beauté & flaconnage', conveying: 'Sourcing jardin & extérieur', custom: 'Demandes sur mesure' },
     faq: [
       { q: 'Quels produits sourcez-vous ?', a: "Principalement de l'emballage (sachets, boîtes, flacons, pompes, fermetures), des articles de maison (cuisine, décoration, rangement) et des outils et accessoires de jardin. Catégories voisines (cosmétiques, bougies, verre, petite quincaillerie) acceptées pour les partenariats de long terme." },
@@ -220,8 +220,8 @@ const SCHEMA_TEXT: Partial<Record<Lang, {
     ],
   },
   es: {
-    listName: 'SunGene | Sourcing Taiwán & China para marcas de empaque, hogar y jardín',
-    listDesc: 'Sourcing en fábricas verificadas en Taiwán y China continental — empaque, hogar, jardín. QC en sitio, precio de fábrica y nuestra margen mostrados por separado en cada cotización.',
+    listName: 'SunGene | Sourcing embalaje regalo papel Taiwán + China, regalos corporativos vía red de fábricas asociadas',
+    listDesc: 'Embalaje regalo papel personalizado (cajas mooncake, cajas regalo de marca, embalaje retail) abastecido directamente de fábricas Taiwán + China continental verificadas. Otros regalos corporativos vía nuestra red de fábricas asociadas. QC en sitio, precio de fábrica y nuestra margen mostrados por separado en cada cotización.',
     categories: { packaging: 'Sourcing de empaque', food: 'Sourcing hogar y cocina', filling: 'Sourcing belleza y envase', conveying: 'Sourcing jardín y exterior', custom: 'Solicitudes a medida' },
     faq: [
       { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
