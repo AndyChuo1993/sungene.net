@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
   const baseUrl = SITE_URL
   const title = 'SunGene | Taiwan + China Paper Gift Packaging Sourcing — Mooncake Boxes, Corporate Gifts'
-  const description = 'Taiwan + China dual-entity sourcing partner. Alibaba-verifiable specialty: custom paper gift packaging (mooncake boxes, gift boxes, retail packaging). Other corporate gifts via vetted factory network. Dedicated in-house QC. Taiwan-registered invoicing. MOQ USD 1,000.'
+  const description = 'Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Custom packaging, home & living, outdoor. Pre-shipment AQL by in-house staff. MOQ USD 1,000.'
 
   return {
     metadataBase: new URL(baseUrl),

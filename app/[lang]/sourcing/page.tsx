@@ -36,11 +36,11 @@ const metaTitles: Record<string, string> = {
 }
 
 const metaDescs: Record<string, string> = {
-  en: 'Taiwan + China dual-entity sourcing partner. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes, retail packaging). Other corporate gifts via factory network. On-site QC, factory price + margin shown on quote.',
-  cn: 'SunGene 是贸易采购伙伴,台中与厦门两地都有人。以 FOB 或 EXW 直接向工厂采购,团队亲自验货,报价单上工厂价与我方利润分开列出。已验证 Alibaba.com 商家。',
-  zh: 'SunGene 是貿易採購夥伴,台中與廈門兩地都有人。以 FOB 或 EXW 直接向工廠採購,團隊親自驗貨,報價單上工廠價與我方利潤分開列出。已驗證 Alibaba.com 商家。',
-  fr: "Partenaire sourcing bi-entité Taïwan + Chine avec équipes à Taichung et Xiamen. Spécialité : emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux, emballage retail). Autres cadeaux corporate via réseau d'usines vérifiées. CQ sur place. Boutique vérifiée Alibaba.com.",
-  es: 'Partner sourcing bi-entidad Taiwán + China con equipos en Taichung y Xiamen. Especialidad: embalaje regalo papel personalizado (cajas mooncake, cajas regalo, embalaje retail). Otros regalos corporativos vía red de fábricas verificadas. QC en sitio. Tienda verificada Alibaba.com.',
+  en: 'Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Custom packaging, home & living, outdoor. Pre-shipment AQL by in-house staff. MOQ USD 1,000.',
+  cn: 'SunGene 是台湾登记贸易公司,通过台湾与中国的制造协调与出口管理,供应精选产品。三大类:定制包装、居家生活、户外。SunGene 自有员工出口前 AQL 品检。最低订单 USD 1,000。',
+  zh: 'SunGene 是台灣登記貿易公司,透過台灣與中國的製造協調與出口管理,供應精選產品。三大類:客製包裝、居家生活、戶外。SunGene 自有員工出口前 AQL 品檢。最低訂單 USD 1,000。',
+  fr: "Société de négoce basée à Taïwan, fournissant des produits sélectionnés par coordination manufacturière et gestion des exports entre Taïwan et la Chine. Trois domaines : emballage personnalisé, maison & vie quotidienne, extérieur. Contrôle AQL pré-expédition en interne. MOQ 1 000 USD.",
+  es: 'Empresa comercial con sede en Taiwán que suministra productos seleccionados mediante coordinación de fabricación y gestión de exportación entre Taiwán y China. Tres áreas: embalaje personalizado, hogar y vida cotidiana, exterior. Inspección AQL pre-envío en interno. MOQ USD 1.000.',
   pt: 'Sourcing de embalagem, lar, jardim e beleza via Taiwan e China: avaliação de fornecedores, critérios de aceitação, inspeção pré-envio, documentação e logística de exportação.',
   ko: '대만·중국 공급망 기반 소싱: 공급업체 심사, 수락 기준, 출하 전 검사, 문서, 수출 물류로 리스크 관리.',
   ja: '台湾と中国の供給網で調達:サプライヤー審査、受入基準、出荷前検査、書類、輸出物流まで支援。',
@@ -218,7 +218,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: metaDescs[l] || metaDescs.en,
     pathname: '/sourcing',
     type: 'website',
-    keywords: ['Taiwan China sourcing partner', 'packaging materials sourcing', 'home goods sourcing', 'garden products sourcing', 'beauty packaging sourcing', 'Alibaba verified storefront', 'on-site QC', 'private label sourcing', 'consolidated container shipping'],
+    keywords: ['Taiwan-based trading company', 'Asia product supply', 'manufacturing coordination', 'export management', 'custom packaging Taiwan China', 'home and living products', 'outdoor products supply', 'Alibaba.com supplier', 'pre-shipment AQL inspection'],
   })
 }
 
@@ -449,8 +449,8 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               {
                 label: ({
                   en: 'Sourcing',
-                  cn: '采购伙伴',
-                  zh: '採購夥伴',
+                  cn: '产品',
+                  zh: '產品',
                   fr: 'Sourcing',
                   es: 'Sourcing',
                   pt: 'Sourcing',
