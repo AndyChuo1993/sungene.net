@@ -35,12 +35,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {({
-                en: 'Taiwan + China dual-entity sourcing partner with teams in Taichung and Xiamen. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes). Other corporate gifts via factory network. On-site QC. Verified Alibaba.com storefront.',
-                cn: 'SunGene 是台湾+中国双公司采购伙伴,台中与厦门两地都有团队。专长:客制纸盒礼品包装(月饼礼盒、品牌礼盒)。其他企业礼赠品通过合作工厂网络采购。亲自验货。已验证 Alibaba.com 商家。',
-                zh: 'SunGene 是台灣+中國雙公司採購夥伴,台中與廈門兩地都有團隊。專長:客製紙盒禮品包裝(月餅禮盒、品牌禮盒)。其他企業禮贈品透過合作工廠網絡採購。親自驗貨。已驗證 Alibaba.com 商家。',
-                fr: "SunGene est un partenaire sourcing bi-entité Taïwan + Chine avec équipes à Taichung et Xiamen. Spécialité : emballage cadeau papier sur mesure (boîtes mooncake, boîtes-cadeaux). Autres cadeaux corporate via réseau d'usines vérifiées. CQ sur place. Boutique vérifiée Alibaba.com.",
-                es: 'SunGene es un partner sourcing bi-entidad Taiwán + China con equipos en Taichung y Xiamen. Especialidad: embalaje regalo papel personalizado (cajas mooncake, cajas regalo). Otros regalos corporativos vía red de fábricas verificadas. QC en sitio. Tienda verificada Alibaba.com.',
-              } as Record<string, string>)[lang] || 'Taiwan + China dual-entity sourcing partner with teams in Taichung and Xiamen. Specialty: custom paper gift packaging (mooncake boxes, brand gift boxes). Other corporate gifts via factory network. On-site QC. Verified Alibaba.com storefront.'}
+                en: 'Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Three capability areas: custom packaging, home & living, outdoor.',
+                cn: '台湾登记贸易公司,通过台湾与中国的制造协调与出口管理,供应精选产品。三大类产品:定制包装、居家生活、户外。',
+                zh: '台灣登記貿易公司,透過台灣與中國的製造協調與出口管理,供應精選產品。三大類產品:客製包裝、居家生活、戶外。',
+                fr: "Société de négoce basée à Taïwan, fournissant des produits sélectionnés par coordination manufacturière et gestion des exports entre Taïwan et la Chine. Trois domaines : emballage personnalisé, maison & vie quotidienne, extérieur.",
+                es: 'Empresa comercial con sede en Taiwán que suministra productos seleccionados mediante coordinación de fabricación y gestión de exportación entre Taiwán y China. Tres áreas: embalaje personalizado, hogar y vida cotidiana, exterior.',
+              } as Record<string, string>)[lang] || 'Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Three capability areas: custom packaging, home & living, outdoor.'}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

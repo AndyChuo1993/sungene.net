@@ -11,10 +11,10 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: 'What products do you source?', a: 'Packaging products (bags, boxes, jars, pumps, closures), home goods (kitchenware, decor, organisation), and garden tools and accessories. For long-term partners we also take adjacent categories — cosmetics, candles, glass, light hardware.' },
         { q: 'What is your minimum order?', a: 'Orders start at USD 1,000 per shipment. This entry tier ensures every order receives dedicated sourcing, on-site QC, and full export documentation — whether you ship a pallet or a full container.' },
-        { q: 'How is pricing structured?', a: 'We act as principal — we buy from the factory and resell. Every quote breaks out the factory price (FOB or EXW) and our margin on separate lines. The underlying factory invoice is available on request before order confirmation.' },
-        { q: 'How do you handle factory inspection?', a: 'We inspect personally. Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. We have walked away from factories that offered envelopes to pass sub-spec goods. Inspection videos and photos with every shipment.' },
+        { q: 'How is pricing structured?', a: 'We supply products from selected manufacturing partners in Taiwan and China. The quote you receive is a single buyer-facing price covering production, AQL inspection, and export documentation. Internal cost breakdown is handled case-by-case in commercial conversations.' },
+        { q: 'How do you handle factory inspection?', a: 'In-house SunGene staff inspect personally. Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. AQL 2.5 sampling, photo and video documentation with every shipment.' },
         { q: 'Where are you based?', a: 'Two registered companies — one in Taichung, Taiwan; one in mainland China. The Taiwan entity invoices and receives payment; the China entity handles factory relationships and pre-shipment logistics.' },
-        { q: 'Can I see your Alibaba.com track record?', a: 'Yes — verified supplier storefront at momas.en.alibaba.com. Public, third-party-hosted, and updated in real time. We encourage every prospective partner to verify it before any commitment.' },
+        { q: 'Can I see your Alibaba.com track record?', a: 'Yes — public Alibaba.com supplier storefront at momas.en.alibaba.com, active 3+ years. Star rating and verification badges are visible directly on the page; we do not paraphrase Alibaba tiers in our own copy. Verify it before any commitment.' },
         { q: 'How fast do you reply?', a: 'Same day during Taipei business hours (UTC+8, Mon–Fri 09:00–18:00). Outside hours, within 12 hours.' },
         { q: 'What language do you communicate in?', a: 'English, French, Spanish, Traditional Chinese, and Simplified Chinese. Daily channels: WhatsApp, WeChat, LINE, and email. Written documentation in the buyer\'s language for every shipment.' },
       ]
@@ -25,10 +25,10 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '你们采购哪些产品？', a: '主要是包装产品（袋、盒、瓶、泵头、封口）、家居用品（厨房、布置、收纳）、园艺工具与配件。长期合作客户的相邻品类——化妆品、蜡烛、玻璃、轻五金——也可以接。' },
         { q: '最低订单是多少？', a: '订单 USD 1,000 起接。这个起接金额能让每一笔订单都享有专属的采购、现场验货与完整出口文件——不管您是出一个棧板还是一整个货柜。' },
-        { q: '报价怎么结构？', a: '我们以本身名义(principal)从工厂买货,加上我方利润后转卖给您。报价单上工厂价与我方利润分两行列出,下单前可索取工厂发票对照。' },
+        { q: '报价怎么结构？', a: '我们从台湾与中国的精选制造伙伴供应产品。您看到的报价是一份买家报价,涵盖生产、AQL 品检与出口文件。内部成本拆解视需要在商务对话中个案处理。' },
         { q: '验货怎么做？', a: '团队亲自到厂验货。台湾工厂直接开车去现场;中国工厂出货先进我们合作货代仓库,我们验货后才放行出口。每批附验货视频与照片,依 AQL 抽样。' },
         { q: '你们在哪？', a: '两家公司——一家在台湾台中，一家在中国大陆。台湾公司开发票、收款；中国公司管工厂关系与出口前的物流。' },
-        { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——momas.en.alibaba.com 认证店面。公开、由第三方维护、即时更新。建议任何潜在合作方在签约前先去查看。' },
+        { q: '能查得到你们的 Alibaba.com 记录吗？', a: '可以——momas.en.alibaba.com 是 SunGene 公开的 Alibaba.com 商家店面,已经 3 年以上。星等与认证徽章直接显示在页面上;我们不在自己文案里描述 Alibaba 等级。签约前建议直接去查。' },
         { q: '回复多快？', a: '台北上班时间（UTC+8，周一至五 09:00–18:00）当日回复。下班时段 12 小时内。' },
         { q: '你们用什么语言沟通？', a: '英语、法语、西语、繁体中文、简体中文。日常对话工具：WhatsApp、WeChat、LINE、Email。每批出货都附买方语言版的书面文件。' },
       ]
@@ -39,10 +39,10 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '你們採購哪些產品？', a: '主要是包裝產品（袋、盒、瓶、泵頭、封口）、家居用品（廚房、佈置、收納）、園藝工具與配件。長期合作客戶的相鄰品類——化妝品、蠟燭、玻璃、輕五金——也可以接。' },
         { q: '最低訂單是多少？', a: '訂單 USD 1,000 起接。這個起接金額能讓每一筆訂單都享有專屬的採購、現場驗貨與完整出口文件——不管你是出一個棧板還是一整個貨櫃。' },
-        { q: '報價怎麼結構？', a: '我們以本身名義(principal)從工廠買貨,加上我方利潤後轉賣給你。報價單上工廠價與我方利潤分兩行列出,下單前可索取工廠發票對照。' },
+        { q: '報價怎麼結構？', a: '我們從台灣與中國的精選製造夥伴供應產品。您看到的報價是一份買家報價,涵蓋生產、AQL 品檢與出口文件。內部成本拆解視需要在商務對話中個案處理。' },
         { q: '驗貨怎麼做？', a: '團隊親自到廠驗貨。台灣工廠直接開車去現場;中國工廠出貨先進我們合作貨代倉庫,我們驗貨後才放行出口。每批附驗貨影片與照片,依 AQL 抽樣。' },
         { q: '你們在哪？', a: '兩家公司——一家在台灣台中，一家在中國大陸。台灣公司開發票、收款；中國公司管工廠關係與出口前的物流。' },
-        { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——momas.en.alibaba.com 認證店面。公開、由第三方維護、即時更新。建議任何潛在合作方在簽約前先去查看。' },
+        { q: '能查得到你們的 Alibaba.com 紀錄嗎？', a: '可以——momas.en.alibaba.com 是 SunGene 公開的 Alibaba.com 商家店面,已經 3 年以上。星等與認證徽章直接顯示在頁面上;我們不在自己文案裡描述 Alibaba 等級。簽約前建議直接去查。' },
         { q: '回覆多快？', a: '台灣上班時間（UTC+8，週一至五 09:00–18:00）當日回。下班時段 12 小時內。' },
         { q: '你們用什麼語言溝通？', a: '英語、法語、西語、繁體中文、簡體中文。日常對話工具：WhatsApp、WeChat、LINE、Email。每批出貨都附買方語言版的書面文件。' },
       ]
@@ -53,10 +53,10 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: 'Quels produits sourcez-vous ?', a: "Principalement de l'emballage (sachets, boîtes, flacons, pompes, fermetures), des articles de maison (cuisine, décoration, rangement) et des outils et accessoires de jardin. Catégories voisines (cosmétiques, bougies, verre, petite quincaillerie) acceptées pour les partenariats de long terme." },
         { q: 'Quelle est la commande minimum ?', a: 'Les commandes démarrent à USD 1 000 par expédition. Ce seuil garantit que chaque commande bénéficie d\'un sourcing dédié, d\'un contrôle qualité sur site et d\'une documentation export complète — qu\'il s\'agisse d\'une palette ou d\'un conteneur entier.' },
-        { q: 'Comment est calculé le prix ? Y a-t-il une commission ?', a: "Nous sommes une société de négoce, pas un agent à la commission. Nous achetons la marchandise à l'usine et vous la revendons. Le prix affiché est le coût final livré — pas de pourboire d'usine, pas de commission par expédition. Le prix FOB ou EXW usine est communiqué sur demande." },
-        { q: "Comment se passe l'inspection en usine ?", a: "Nous inspectons en personne. Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise arrive à l'entrepôt de notre transitaire et nous inspectons avant export. Nous avons refusé des usines qui proposaient une enveloppe pour faire passer de la marchandise hors spécification. Vidéos et photos d'inspection à chaque expédition." },
+        { q: 'Comment est calculé le prix ?', a: "Nous fournissons des produits depuis nos partenaires manufacturiers sélectionnés à Taïwan et en Chine. Le devis que vous recevez est un prix unique pour l'acheteur couvrant production, contrôle AQL et documentation export. La ventilation interne des coûts est traitée au cas par cas en conversation commerciale." },
+        { q: "Comment se passe l'inspection en usine ?", a: "Le personnel SunGene en interne inspecte en personne. Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise arrive à l'entrepôt de notre transitaire et nous inspectons avant export. Échantillonnage AQL 2,5, photos et vidéo à chaque expédition." },
         { q: 'Où êtes-vous basés ?', a: "Deux sociétés enregistrées — une à Taichung, Taïwan ; une en Chine continentale. L'entité taïwanaise facture et reçoit les paiements ; l'entité chinoise gère les relations usines et la logistique pré-export." },
-        { q: "Peut-on vérifier votre historique sur Alibaba.com ?", a: "Oui — boutique fournisseur vérifié sur momas.en.alibaba.com. Publique, hébergée par un tiers, mise à jour en temps réel. Nous encourageons toute vérification avant engagement." },
+        { q: "Peut-on vérifier votre historique sur Alibaba.com ?", a: "Oui — boutique publique Alibaba.com sur momas.en.alibaba.com, active 3+ ans. La note et les badges de vérification sont visibles directement sur la page ; nous ne paraphrasons pas les niveaux Alibaba dans notre propre copie. Vérifiez avant tout engagement." },
         { q: 'Délai de réponse ?', a: "Le jour même pendant les heures de bureau de Taipei (UTC+8, lun.–ven. 09:00–18:00). Hors horaires, sous 12 heures." },
         { q: 'En quelle langue communiquez-vous ?', a: "Anglais, français, espagnol, chinois traditionnel et simplifié. Canaux quotidiens : WhatsApp, WeChat, LINE, e-mail. Documentation écrite dans la langue de l'acheteur pour chaque expédition." },
       ]
@@ -67,10 +67,10 @@ export default function FAQ({ lang }: { lang: Lang }) {
       items: [
         { q: '¿Qué productos abastecen?', a: 'Principalmente productos de empaque (bolsas, cajas, frascos, bombas, cierres), artículos del hogar (cocina, decoración, organización) y herramientas y accesorios de jardín. Para socios de largo plazo, también categorías cercanas: cosmética, velas, vidrio, ferretería ligera.' },
         { q: '¿Cuál es el pedido mínimo?', a: 'Los pedidos parten de USD 1 000 por envío. Este umbral garantiza que cada pedido reciba sourcing dedicado, control de calidad en sitio y documentación de exportación completa — sea un pallet o un contenedor entero.' },
-        { q: '¿Cómo se estructura el precio?', a: 'Actuamos como principal — compramos a la fábrica y revendemos. Cada cotización desglosa el precio de fábrica (FOB o EXW) y nuestra margen en líneas separadas. La factura de fábrica subyacente está disponible bajo solicitud antes de confirmar.' },
-        { q: '¿Cómo realizan la inspección en fábrica?', a: 'Inspeccionamos en persona. Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Hemos rechazado fábricas que ofrecían sobres para aprobar mercancía fuera de especificación. Video y fotos de inspección con cada envío.' },
+        { q: '¿Cómo se estructura el precio?', a: 'Suministramos productos desde nuestros socios manufactureros seleccionados en Taiwán y China. La cotización que recibe es un precio único para el comprador que cubre producción, inspección AQL y documentación de exportación. El desglose interno de costos se maneja caso por caso en la conversación comercial.' },
+        { q: '¿Cómo realizan la inspección en fábrica?', a: 'Personal interno de SunGene inspecciona en persona. Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Muestreo AQL 2.5, fotos y video con cada envío.' },
         { q: '¿Dónde están ubicados?', a: 'Dos empresas registradas — una en Taichung, Taiwán; otra en China continental. La entidad taiwanesa factura y recibe pagos; la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
-        { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — tienda de proveedor verificado en momas.en.alibaba.com. Pública, alojada por terceros, actualizada en tiempo real. Recomendamos verificarla antes de cualquier compromiso.' },
+        { q: '¿Puedo verificar su historial en Alibaba.com?', a: 'Sí — tienda pública Alibaba.com en momas.en.alibaba.com, activa 3+ años. La calificación y los distintivos de verificación están visibles directamente en la página; no parafraseamos los niveles Alibaba en nuestra propia copia. Verifíquela antes de cualquier compromiso.' },
         { q: '¿Qué tan rápido responden?', a: 'Mismo día en horario laboral de Taipéi (UTC+8, lun–vie 09:00–18:00). Fuera de horario, en 12 horas.' },
         { q: '¿En qué idioma se comunican?', a: 'Inglés, francés, español, chino tradicional y simplificado. Canales diarios: WhatsApp, WeChat, LINE, correo. Documentación escrita en el idioma del comprador para cada envío.' },
       ]
