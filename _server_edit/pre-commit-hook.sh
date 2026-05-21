@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Pinion Phase 1 pre-commit hook v2 — forbidden token guard
+# Pinion Phase 1+2 pre-commit hook v3 — forbidden token guard
 # Source of truth: _server_edit/pre-commit-hook.sh (this file, tracked in repo)
 # Live install path: .git/hooks/pre-commit (NOT tracked; survives `git pull`
 # but lost on fresh clone — `cp _server_edit/pre-commit-hook.sh .git/hooks/
 # pre-commit && chmod +x .git/hooks/pre-commit` after cloning).
 #
-# Last update: 2026-05-20 (Wave 7 — n-gram cardinality variants added)
-# Token list source: docs/factual-claims.md v1.2 ❌ section
+# Last update: 2026-05-21 (Wave 9 — Phase 2 supplier-voice tokens + soft-WARN block)
+# Token list source: docs/factual-claims.md v2.0 ❌ section (Phase 1 + Phase 2)
 #
 # Purpose: structural guardrail against re-introducing upstream supplier
 # claims (OEM factory / 14 years / 15,000 m² etc.) as if they were SunGene's.
@@ -97,6 +97,45 @@ forbidden_tokens=(
   '包装、家居、园艺'
   '家居、園藝'
   '家居、园艺'
+  # === Wave 9: Phase 2 supplier-voice hard-blocks ===
+  # factual-claims.md v2.0 ❌ Phase 2 section. These break the "Taiwan-based
+  # trading company" brand voice if they regress into marketing copy.
+  # Margin-disclosure family (Pinion v1.2 招牌句, Phase 2 retired)
+  'factory price and our margin'
+  'prix usine et notre marge'
+  'precio de fábrica y nuestra margen'
+  '工廠價與我方利潤'
+  '工厂价与我方利润'
+  'transparent margin'
+  # Factory-direct family (broker voice)
+  'factory-direct pricing'
+  'factory direct pricing'
+  'factory-direct price'
+  'direct from manufacturer'
+  'prix usine direct'
+  'precio de fábrica directo'
+  '工廠直供價'
+  '工廠直接價'
+  '工厂直供价'
+  '工厂直接价'
+  # Dual-entity procurement family (sourcing-service voice)
+  'dual-entity procurement'
+  'dual-entity sourcing'
+  'procurement sourcing'
+  '雙公司採購'
+  '双公司采购'
+  # Specific city names in brand surfaces (Hero / sub / meta / schema only —
+  # operational surfaces like Footer/Contact/About use full street addresses
+  # which do not match these +/&/and conjunctions)
+  'Taichung + Xiamen'
+  'Taichung & Xiamen'
+  'Taichung and Xiamen'
+  '台中＋廈門'
+  '台中＋厦门'
+  '台中 + 廈門'
+  '台中 + 厦门'
+  '台中、廈門兩地'
+  '台中、厦门两地'
 )
 
 exit_code=0
@@ -113,6 +152,24 @@ for token in "${forbidden_tokens[@]}"; do
     exit_code=1
   fi
 done
+
+# Phase 2 supplier-voice soft warnings (factual-claims.md v2.0 Phase 2 ❌
+# section: terms that are allowed in blog/article context discussing
+# the concept itself, but should not appear as SunGene's own brand
+# positioning in marketing copy). WARN-only, does not block commit.
+for token in 'sourcing partner' 'sourcing agent' '採購夥伴' '採購代理' '採購顧問' \
+             'partenaire de sourcing' 'socio de sourcing' 'socio de abastecimiento' \
+             '采购伙伴' '采购代理' '采购顾问' \
+             'principal trader' 'balance sheet' 'agency model'; do
+  matches=$(echo "$staged_files" | xargs -I{} grep -lF "$token" "{}" 2>/dev/null)
+  if [ -n "$matches" ]; then
+    echo "WARN Phase 2 supplier-voice: '$token' in staged files:"
+    echo "$matches" | sed 's/^/  /'
+    echo "  → OK in blog/article discussing the concept; NOT OK as SunGene's"
+    echo "    own brand positioning (Hero / sub / meta / schema / about intro)."
+  fi
+done
+
 
 # zh-Hans geopolitical check (warn-only; allows zh-Hant occurrence)
 for token in '中華民國' 'ROC' '兩岸' '两岸'; do
