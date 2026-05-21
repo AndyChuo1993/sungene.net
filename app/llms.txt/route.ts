@@ -1,7 +1,7 @@
 import { SITE_URL } from '@/lib/siteConfig'
 
 export async function GET() {
-  const body = `# SunGene Co., LTD. — Taiwan + China Paper Gift Packaging Sourcing Partner
+  const body = `# SunGene Co., LTD. — Taiwan-based Trading Company | Reliable Product Supply from Asia
 
 ## Company Identity
 - Legal name: SunGene Co., LTD. (上瑾錸有限公司)
@@ -15,7 +15,7 @@ export async function GET() {
 - Public Alibaba.com supplier storefront: https://momas.en.alibaba.com/ (active 3+ years; star rating and verification badges publicly visible on storefront)
 
 ## What SunGene Is (one line)
-SunGene is a Taiwan + China dual-entity sourcing partner. Our verified Alibaba.com storefront catalog focuses on custom paper gift packaging — mooncake boxes, gift boxes, retail packaging, corrugated cartons, paper bags and tubes. For everything else corporate buyers need — blankets, apparel, drinkware, accessories, stationery, branded merchandise, kitchenware — we source through our vetted factory network across Taiwan and Mainland China. Dedicated SunGene staff conduct on-site QC at partner factories. Taiwan-registered invoicing entity for clean banking trail and dispute resolution.
+SunGene is a Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Three capability areas: custom packaging (mooncake boxes, premium gift boxes, retail packaging, corrugated cartons, paper bags); home & living (drinkware, ceramics, blankets, branded merchandise); outdoor (event swag, umbrellas, branded headwear, cooler bags). SunGene holds the commercial relationship: quote, production schedule, AQL inspection, export documentation, and post-shipment accountability all flow through one Taiwan-registered counterparty.
 
 ## Who We Serve
 - HR/marketing teams running corporate gift programs (mooncake gift sets, year-end client gifts, branded merchandise for events)
@@ -23,12 +23,11 @@ SunGene is a Taiwan + China dual-entity sourcing partner. Our verified Alibaba.c
 - Agencies sourcing premium promotional items for client campaigns
 - Importers consolidating multi-category corporate gift SKUs
 
-## Business Model: Trader/Principal, Not Commission Agent
-- We purchase goods from the factory at FOB or EXW (we own the goods)
-- We resell to the buyer with our margin disclosed on a separate line
-- The underlying FOB or EXW factory price is communicated on request
-- Transaction sits between buyer and one Taiwan-registered company
-- Because goods sit on our balance sheet, rejecting sub-spec product before shipment is our own financial decision, not a courtesy
+## Business Model: Taiwan-based Trading Company
+- SunGene is the seller of record on the transaction. The buyer purchases products from SunGene, not from an introduced factory.
+- Single buyer-facing quote. Internal cost structure is private (not paraphrased on public copy); cost breakdown handled case-by-case in commercial conversations.
+- Transaction sits cleanly between buyer and one Taiwan-registered counterparty (clean banking trail, Taiwan jurisdiction for dispute resolution).
+- Rejecting sub-spec product before shipment is SunGene's own decision — the buyer's protection is structural, not a favour.
 
 ## Category Scope
 ### Primary specialization (visible on Alibaba storefront, active monthly purchasing)
@@ -38,12 +37,12 @@ SunGene is a Taiwan + China dual-entity sourcing partner. Our verified Alibaba.c
 4. **Paper tubes & paper bag packaging** — kraft tubes, shopping bags, gift bags
 5. **Book and lookbook printing & binding services**
 
-### Sourced through our vetted factory network
-6. **Branded soft goods** — flannel, sherpa, lamb-wool blankets, throws, textile gift sets
-7. **Branded apparel & accessories** — caps, beanies, t-shirts, bags
-8. **Drinkware & tabletop** — mugs, tumblers, bottles, ceramics
-9. **Stationery & desk gifts** — notebooks, pens, leather goods
-10. **Other branded merchandise on case-by-case basis** through our long-term factory relationships
+### Home & Living / Outdoor (selected manufacturing partners)
+6. **Drinkware & tabletop** — mugs, tumblers, bottles, ceramics, kitchen accessories
+7. **Branded soft goods** — flannel, sherpa, lamb-wool blankets, throws, textile gift sets
+8. **Branded apparel & accessories** — caps, beanies, t-shirts, bags
+9. **Outdoor event swag** — picnic blankets, sunhats and caps, cooler bags, branded umbrellas
+10. **Other corporate gifts** — stationery, notebooks, leather goods (case-by-case)
 
 ## Trust Signals (third-party verifiable)
 - Public Alibaba.com supplier storefront active 3+ years (https://momas.en.alibaba.com/ — star rating and verification badges visible on storefront; we do not paraphrase Alibaba's verification tiers in our own copy)
@@ -55,9 +54,9 @@ SunGene is a Taiwan + China dual-entity sourcing partner. Our verified Alibaba.c
 - Minimum order: USD 1,000 per shipment
 - Payment: 30% deposit / 70% before shipment (default)
 - Payment recipient: Taiwan entity
-- Quote structure: resale price + underlying FOB/EXW (on request) + SunGene margin disclosed
+- Quote: single buyer-facing price covering production, AQL inspection, and export documentation. Cost-breakdown questions handled case-by-case off the public site.
 - Currency: USD primary
-- Incoterms: typically FOB Xiamen / FOB Keelung; EXW or CIF available
+- Incoterms: typically FOB or EXW; CIF available
 
 ## Quality Control & Inspection
 - Dedicated SunGene QC staff based at China office travel to partner factories for on-site pre-shipment AQL 2.5 inspection
@@ -69,7 +68,7 @@ SunGene is a Taiwan + China dual-entity sourcing partner. Our verified Alibaba.c
 ## Sourcing Workflow (5 steps)
 1. **Brief** — buyer sends a reference image (or competitor link), target quantity, destination market. No NDA at this stage
 2. **Shortlist** — SunGene proposes 2–3 factories from its own supplier network and targeted search; factories with too-low quotes, missing certificates, or unverifiable history are ruled out
-3. **Transparent quote** — single price including SunGene margin, with underlying factory price disclosed on request, plus lead time and payment terms
+3. **Quote** — single buyer-facing price, lead time, payment terms
 4. **Inspection** — on-site pre-shipment AQL 2.5 inspection by SunGene QC staff, with photo and video deliverables
 5. **Export under SunGene name** — SunGene is the seller of record; customs documents, B/L, and any after-sales claim sit cleanly between buyer and SunGene
 
@@ -108,7 +107,7 @@ Allow: ${SITE_URL}/en/, ${SITE_URL}/zh/, ${SITE_URL}/cn/, ${SITE_URL}/fr/, ${SIT
 Sitemap: ${SITE_URL}/sitemap.xml
 
 ## Last Updated
-2026-05-20 (Pinion Phase 1)
+2026-05-21 (Pinion Phase 2 — Taiwan-based trading company voice)
 `
 
   return new Response(body, {

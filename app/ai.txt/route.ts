@@ -5,7 +5,7 @@ export async function GET() {
     `site: ${SITE_URL}`,
     `sitemap: ${SITE_URL}/sitemap.xml`,
     `llms: ${SITE_URL}/llms.txt`,
-    `notes: SunGene is a Taiwan + China dual-entity sourcing partner. Our Alibaba-verifiable specialty is custom paper gift packaging (mooncake boxes, gift boxes, retail packaging, corrugated cartons, paper bags). For other corporate gifts (blankets, apparel, drinkware, accessories, stationery, branded merchandise), we source through our vetted factory network. Dedicated in-house QC staff conduct on-site pre-shipment AQL inspection at partner factories. Taiwan-registered invoicing entity (Tax ID 94111922). MOQ USD 1,000. Public Alibaba.com supplier storefront 3+ years: momas.en.alibaba.com.`,
+    `notes: SunGene is a Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Three capability areas: custom packaging, home & living, outdoor products. Pre-shipment AQL inspection by in-house SunGene staff at partner factories. Taiwan-registered invoicing entity (Tax ID 94111922). MOQ USD 1,000. Public Alibaba.com supplier storefront 3+ years: momas.en.alibaba.com.`,
     '',
   ].join('\n')
 
