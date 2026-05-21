@@ -5,67 +5,67 @@ export default function WhyUs({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
       kicker: 'WHY WORK WITH US',
-      title: 'A trading company built so quality is our problem, not yours',
-      desc: 'We act as principal: we buy the goods, then resell to you. Rejecting defective product before shipment is in our own financial interest — your protection is structural, not a favour.',
+      title: 'A Taiwan-based trading company built around delivery reliability',
+      desc: 'We supply products from selected manufacturing partners in Taiwan and China. The quote, the shipment, the QC, and the documentation all come from us — one accountable counterparty across both markets.',
       items: [
-        { icon: '01', title: 'We act as principal', desc: 'We take ownership of the goods at the factory. Our margin is on the resale, shown separately on every quote.' },
-        { icon: '02', title: 'On-site QC by our team', desc: 'Taiwan factories: we drive to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. Photos and video with every shipment.' },
-        { icon: '03', title: 'Transparent margin disclosure', desc: 'Every quote shows the factory price and our margin on separate lines. The underlying factory invoice is available on request before order confirmation.' },
-        { icon: '04', title: 'Verified Alibaba.com supplier', desc: 'Three years operating momas.en.alibaba.com. Rating fluctuates between 3 and 5 stars by period. Storefront is public — verify it before you commit.' },
-        { icon: '05', title: 'Teams in Taichung + Xiamen', desc: 'On-the-ground presence on both sides of the strait. Taiwan handles banking and contracts; Xiamen team handles factory relationships and pre-export inspection.' },
-        { icon: '06', title: 'Built for serious buyers', desc: 'Orders from USD 1,000 per shipment. Every order gets dedicated sourcing, on-site QC, and pre-shipment documentation — the same level of care whether you ship one pallet or a full container.' },
+        { icon: '01', title: 'Product supply', desc: 'You buy products from us — not a factory introduction service. We hold the commercial relationship; the quote you see is the price you pay.' },
+        { icon: '02', title: 'Coordinated production', desc: 'We coordinate production schedules, material specifications, and lead times with selected manufacturing partners across Taiwan and China.' },
+        { icon: '03', title: 'On-site quality consistency', desc: 'SunGene staff visit partner factories for pre-shipment AQL inspection. Photo and video documentation with every shipment.' },
+        { icon: '04', title: 'Export management', desc: 'Documentation, Incoterms, voltage compliance, and forwarder coordination handled by our Taiwan and China teams.' },
+        { icon: '05', title: 'Alibaba.com supplier', desc: 'Operating momas.en.alibaba.com for 3+ years. Star rating fluctuates 3-5 stars by period; storefront is public — verify it directly.' },
+        { icon: '06', title: 'Built for serious buyers', desc: 'Orders from USD 1,000 per shipment. Every order gets dedicated coordination and pre-shipment documentation — one pallet or one full container, same level of care.' },
       ]
     },
     cn: {
       kicker: '为什么找我们',
-      title: '我们是把品质当成自己问题的贸易商',
-      desc: '我们以 principal 身分买下货物,再转卖给您。挡下瑕疵品是我们自己的财务利益,您的保护是结构性的,不是人情。',
+      title: '一家以准时交货为核心的台湾贸易公司',
+      desc: 'SunGene 与台湾及中国精选制造伙伴合作,把产品供应给海外买家。报价、出货、品质、文件全部由我们一个窗口负责 —— 跨两地市场,一个对口。',
       items: [
-        { icon: '01', title: '直接买进卖出', desc: '我们在工厂端把货买下，转手卖给您。利润来自转售差价，不是藏在工厂报价里的回扣。' },
-        { icon: '02', title: '亲自到场验货', desc: '台湾工厂：团队直接开车到现场。中国工厂：货进我们合作货代的仓库由我们验货后才放行出口。每批附验货影片与照片。' },
-        { icon: '03', title: '利润分行列出', desc: '每份报价单工厂价与我方利润分两行列出。下单前可索取工厂发票对照,完全透明。' },
-        { icon: '04', title: 'Alibaba.com 认证供应商', desc: '经营 momas.en.alibaba.com 三年。星等会随期间在 3 到 5 星之间波动。店面公开——签约前可以先去查。' },
-        { icon: '05', title: '台中＋厦门两地团队', desc: '台湾与大陆都有人。台湾团队负责银行往来与合约;厦门团队负责工厂关系与出口前验货。' },
-        { icon: '06', title: '为认真的买家而设计', desc: '订单 USD 1,000 起。每一笔订单都享有专属的采购、现场验货与出口前文件准备——不管是一个棧板还是整个货柜，服务水准一致。' },
+        { icon: '01', title: '产品直接供应', desc: '您跟我们买产品,不是付介绍费。商务关系由我们承担,您看到的是一份买家报价,不是工厂的拆账明细。' },
+        { icon: '02', title: '生产协调', desc: '我们与台湾与中国精选制造伙伴协调生产排程、规格与交期。' },
+        { icon: '03', title: '亲自到场品检', desc: 'SunGene 员工亲自到合作工厂执行 AQL 出口前品检。每批附验货影片与照片。' },
+        { icon: '04', title: '出口管理', desc: '文件、Incoterms、电压相容、货代协调由我们台湾与中国团队处理。' },
+        { icon: '05', title: 'Alibaba.com 商家', desc: '经营 momas.en.alibaba.com 三年以上。星等随期间在 3 到 5 星之间波动;店面公开——签约前可以先去看。' },
+        { icon: '06', title: '为认真的买家而设计', desc: '订单 USD 1,000 起。每一笔订单都享有专属协调与出口前文件 —— 一个棧板或一整个货柜,服务一致。' },
       ]
     },
     zh: {
       kicker: '為什麼找我們',
-      title: '我們是把品質當成自己問題的貿易商',
-      desc: '我們以 principal 身分買下貨物,再轉賣給你。擋下瑕疵品是我們自己的財務利益,你的保護是結構性的,不是人情。',
+      title: '一間以準時交貨為核心的台灣貿易公司',
+      desc: 'SunGene 與台灣及中國精選製造夥伴合作,把產品供應給海外買家。報價、出貨、品質、文件全部由我們一個窗口負責 —— 跨兩地市場,一個對口。',
       items: [
-        { icon: '01', title: '直接買進賣出', desc: '我們在工廠端把貨買下，轉手賣給你。利潤來自轉售差價，不是藏在工廠報價裡的回扣。' },
-        { icon: '02', title: '親自到場驗貨', desc: '台灣工廠：團隊直接開車到現場。中國工廠：貨進我們合作貨代的倉庫，由我們驗貨後才放行出口。每批附驗貨影片與照片。' },
-        { icon: '03', title: '利潤分行列出', desc: '每份報價單工廠價與我方利潤分兩行列出。下單前可索取工廠發票對照,完全透明。' },
-        { icon: '04', title: 'Alibaba.com 認證供應商', desc: '經營 momas.en.alibaba.com 三年。星等會隨期間在 3 到 5 星之間波動。店面公開——簽約前可以先去查。' },
-        { icon: '05', title: '台中＋廈門兩地團隊', desc: '海峽兩岸都有人。台灣團隊負責銀行往來與合約;廈門團隊負責工廠關係與出口前驗貨。' },
-        { icon: '06', title: '為認真的買家而設計', desc: '訂單 USD 1,000 起。每一筆訂單都享有專屬的採購、現場驗貨與出口前文件準備——不管是一個棧板還是整個貨櫃，服務水準一致。' },
+        { icon: '01', title: '產品直接供應', desc: '您跟我們買產品,不是付介紹費。商務關係由我們承擔,您看到的是一份買家報價,不是工廠的拆帳明細。' },
+        { icon: '02', title: '生產協調', desc: '我們與台灣與中國精選製造夥伴協調生產排程、規格與交期。' },
+        { icon: '03', title: '親自到場品檢', desc: 'SunGene 員工親自到合作工廠執行 AQL 出口前品檢。每批附驗貨影片與照片。' },
+        { icon: '04', title: '出口管理', desc: '文件、Incoterms、電壓相容、貨代協調由我們台灣與中國團隊處理。' },
+        { icon: '05', title: 'Alibaba.com 商家', desc: '經營 momas.en.alibaba.com 三年以上。星等隨期間在 3 到 5 星之間波動;店面公開——簽約前可以先去看。' },
+        { icon: '06', title: '為認真的買家而設計', desc: '訂單 USD 1,000 起。每一筆訂單都享有專屬協調與出口前文件 —— 一個棧板或一整個貨櫃,服務一致。' },
       ]
     },
     fr: {
       kicker: 'POURQUOI TRAVAILLER AVEC NOUS',
-      title: "Une société de négoce conçue pour que la qualité soit notre problème, pas le vôtre",
-      desc: "Nous ne sommes pas un agent à la commission : nous achetons la marchandise, puis nous vous la revendons. Écarter les défauts avant expédition est donc dans notre propre intérêt financier — pas une faveur que nous vous faisons.",
+      title: "Une société de négoce basée à Taïwan, conçue autour de la fiabilité des livraisons",
+      desc: "SunGene fournit des produits depuis des partenaires manufacturiers sélectionnés à Taïwan et en Chine. Devis, expédition, contrôle qualité et documentation : un seul interlocuteur, deux marchés.",
       items: [
-        { icon: '01', title: 'Achat-revente direct', desc: "Nous prenons possession de la marchandise à l'usine. Notre marge porte sur la revente, pas sur une commission cachée dans le prix usine." },
-        { icon: '02', title: 'Contrôle qualité sur place', desc: "Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise entre à l'entrepôt de notre transitaire et nous l'inspectons avant export. Photos et vidéo à chaque expédition." },
-        { icon: '03', title: "Pas de pourboire d'usine", desc: "Nous avons refusé des fournisseurs proposant une enveloppe pour faire passer de la marchandise hors spécification. Le résultat d'inspection est ce que nous avons vu — pas ce qui a été payé pour." },
-        { icon: '04', title: 'Fournisseur Alibaba.com vérifié', desc: "Trois ans d'activité sur momas.en.alibaba.com. La note fluctue entre 3 et 5 étoiles selon la période. Boutique publique — à vérifier avant tout engagement." },
-        { icon: '05', title: 'Entités Taïwan + Chine', desc: "Deux sociétés enregistrées. Paiement vers l'entité taïwanaise (relations bancaires et gestion des litiges plus claires) ; l'entité chinoise gère les relations usines et la logistique pré-export." },
-        { icon: '06', title: 'Conçu pour des acheteurs sérieux', desc: "Commandes à partir de USD 1 000 par expédition. Chaque commande bénéficie d'un sourcing dédié, d'un contrôle qualité sur place et d'une préparation documentaire complète — qu'il s'agisse d'une palette ou d'un conteneur entier." },
+        { icon: '01', title: 'Fourniture de produits', desc: "Vous achetez des produits chez nous — pas un service d'introduction d'usines. Nous portons la relation commerciale ; le devis que vous voyez est le prix que vous payez." },
+        { icon: '02', title: 'Coordination de production', desc: "Nous coordonnons les plannings, les spécifications matières et les délais avec nos partenaires manufacturiers à Taïwan et en Chine." },
+        { icon: '03', title: 'Contrôle qualité sur place', desc: "Le personnel SunGene se rend chez les usines partenaires pour le contrôle AQL pré-expédition. Photos et vidéo à chaque expédition." },
+        { icon: '04', title: 'Gestion des exports', desc: "Documentation, Incoterms, conformité voltage et coordination du transitaire gérés par nos équipes à Taïwan et en Chine." },
+        { icon: '05', title: 'Boutique Alibaba.com', desc: "Trois ans d'activité sur momas.en.alibaba.com. La note fluctue entre 3 et 5 étoiles selon la période ; boutique publique — à vérifier avant tout engagement." },
+        { icon: '06', title: 'Conçu pour acheteurs sérieux', desc: "Commandes à partir de USD 1 000 par expédition. Chaque commande bénéficie d'une coordination dédiée et d'une documentation complète — palette ou conteneur entier, même niveau de service." },
       ]
     },
     es: {
       kicker: 'POR QUÉ TRABAJAR CON NOSOTROS',
-      title: 'Una empresa comercial diseñada para que la calidad sea nuestro problema, no el suyo',
-      desc: 'No somos un agente a comisión: compramos la mercancía y se la revendemos. Rechazar defectos antes del envío está en nuestro propio interés financiero — no es un favor que le hacemos.',
+      title: 'Una empresa comercial con sede en Taiwán, construida en torno a la fiabilidad de entrega',
+      desc: 'SunGene suministra productos desde socios manufactureros seleccionados en Taiwán y China. Cotización, envío, control de calidad y documentación: un solo interlocutor, dos mercados.',
       items: [
-        { icon: '01', title: 'Compra-reventa directa', desc: 'Tomamos posesión de la mercancía en la fábrica. Nuestro margen está en la reventa, no en una comisión oculta dentro del precio de fábrica.' },
-        { icon: '02', title: 'Control de calidad en sitio', desc: 'Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Fotos y video con cada envío.' },
-        { icon: '03', title: 'Sin sobres a la fábrica', desc: 'Hemos rechazado proveedores que ofrecían sobres para aprobar mercancía fuera de especificación. El resultado de la inspección es lo que vimos — no lo que se pagó por aprobar.' },
-        { icon: '04', title: 'Proveedor Alibaba.com verificado', desc: 'Tres años operando momas.en.alibaba.com. La calificación fluctúa entre 3 y 5 estrellas según el período. Tienda pública — verifíquela antes de comprometerse.' },
-        { icon: '05', title: 'Entidades Taiwán + China', desc: 'Dos empresas registradas. Pago a la entidad taiwanesa (relaciones bancarias y manejo de disputas más claros); la entidad china gestiona relaciones con fábricas y logística pre-exportación.' },
-        { icon: '06', title: 'Diseñado para compradores serios', desc: 'Pedidos desde USD 1 000 por envío. Cada pedido recibe sourcing dedicado, control de calidad en sitio y preparación documental completa — sea un pallet o un contenedor entero.' },
+        { icon: '01', title: 'Suministro de producto', desc: 'Usted compra productos a nosotros — no un servicio de introducción a fábricas. Asumimos la relación comercial; la cotización que ve es el precio que paga.' },
+        { icon: '02', title: 'Coordinación de producción', desc: 'Coordinamos calendarios, especificaciones de materiales y plazos con nuestros socios manufactureros en Taiwán y China.' },
+        { icon: '03', title: 'Control de calidad en sitio', desc: 'Personal de SunGene visita las fábricas asociadas para inspección AQL pre-exportación. Fotos y video con cada envío.' },
+        { icon: '04', title: 'Gestión de exportación', desc: 'Documentación, Incoterms, cumplimiento de voltaje y coordinación con agente de carga gestionados por nuestros equipos en Taiwán y China.' },
+        { icon: '05', title: 'Tienda Alibaba.com', desc: 'Tres años operando momas.en.alibaba.com. La calificación fluctúa entre 3 y 5 estrellas según el período; tienda pública — verifíquela antes de comprometerse.' },
+        { icon: '06', title: 'Diseñado para compradores serios', desc: 'Pedidos desde USD 1 000 por envío. Cada pedido recibe coordinación dedicada y documentación completa — un pallet o un contenedor entero, mismo nivel de servicio.' },
       ]
     },
     pt: {
@@ -204,7 +204,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {(t.trustBadges || ['Verified Alibaba storefront', 'Taichung + Xiamen', 'On-site QC']).map((badge: string) => (
+              {(t.trustBadges || ['Taiwan-based trading company', 'Coordinated production', 'On-site QC']).map((badge: string) => (
                 <span key={badge} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm">
                   <svg className="h-3.5 w-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
                   {badge}
