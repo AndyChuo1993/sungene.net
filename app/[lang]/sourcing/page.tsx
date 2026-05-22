@@ -248,10 +248,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           '@type': 'Answer',
           text:
             lang === 'zh'
-              ? '我們的定位是採購夥伴。我們依專案需求媒合台灣與中國供應商,並用供應商資格審查與出貨前驗貨控制風險。'
+              ? '不是。SunGene 是台灣登記貿易公司,不是純採購夥伴 —— 我們透過台灣與中國的精選製造夥伴供應產品。您是跟我們買產品,不是跟某個工廠介紹單。風險透過供應商審查 + SunGene 自有員工出口前 AQL 品檢控管。'
               : lang === 'cn'
-                ? '我们的定位是采购伙伴。我们依项目需求匹配台湾与中国供应商,并用供应商资格审查与出货前验货控制风险。'
-                : 'We are a sourcing partner. We match suppliers across Taiwan and Mainland China and control risk via supplier vetting and pre-shipment inspection.',
+                ? '不是。SunGene 是台湾登记贸易公司,不是纯采购伙伴 —— 我们通过台湾与中国的精选制造伙伴供应产品。您是跟我们买产品,不是跟某个工厂介绍单。风险通过供应商审查 + SunGene 自有员工出口前 AQL 品检管控。'
+                : 'No. SunGene is a Taiwan-based trading company — not a pure sourcing partner. We supply selected products through coordinated manufacturing with our partners in Taiwan and China. You buy from us, not from an introduced factory. Risk is controlled via supplier vetting AND pre-shipment AQL inspection by in-house SunGene staff.',
         },
       },
       {
@@ -261,10 +261,10 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
           '@type': 'Answer',
           text:
             lang === 'zh'
-              ? '信任來自可驗證的證據:一致的 RFQ 範圍、文件化驗收標準、出貨前驗貨影片與偏差清單、以及完整交付文件包。'
+              ? '信任不來自「採購夥伴」這個 label,而來自證據。SunGene 的定位是台灣登記貿易公司供應精選產品 —— 您是跟我們買、不是跟介紹的工廠買。信任訊號:一致的 RFQ 範圍、文件化驗收標準、SunGene 自有員工出口前 AQL 品檢影片與偏差清單、完整交付文件包。'
               : lang === 'cn'
-                ? '信任来自可验证的证据:一致的 RFQ 范围、文件化验收标准、出货前验货视频与偏差清单,以及完整交付文件包。'
-                : 'Trust comes from evidence: normalized RFQ scope, documented acceptance criteria, pre-shipment inspection video + deviation log, and a complete handover package.',
+                ? '信任不来自「采购伙伴」这个 label,而来自证据。SunGene 的定位是台湾登记贸易公司供应精选产品 —— 您是跟我们买、不是跟介绍的工厂买。信任信号:一致的 RFQ 范围、文件化验收标准、SunGene 自有员工出口前 AQL 品检视频与偏差清单、完整交付文件包。'
+                : "Trust comes from evidence, not from the label 'sourcing partner'. SunGene is positioned as a Taiwan-based trading company supplying selected products — you buy from us, not from an introduced factory. Trust signals: normalized RFQ scope, documented acceptance criteria, pre-shipment AQL inspection video by in-house SunGene staff + deviation log, and a complete handover package.",
         },
       },
       {
