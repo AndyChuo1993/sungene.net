@@ -13,8 +13,8 @@ const inter = Inter({
 
 export const metadata = {
   title: 'SunGene | Taiwan + China Paper Gift Packaging Sourcing — Mooncake Boxes, Corporate Gifts',
-  description: 'Taiwan + China dual-entity sourcing partner. Alibaba-verifiable specialty: custom paper gift packaging (mooncake boxes, gift boxes, retail packaging). Other corporate gifts via vetted factory network. Dedicated in-house QC. Taiwan-registered invoicing. MOQ USD 1,000.',
-  keywords: ['Taiwan sourcing partner', 'China sourcing agent', 'packaging sourcing', 'home goods sourcing', 'garden products sourcing', 'Alibaba supplier', 'factory inspection'],
+  description: 'Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Custom packaging, home & living, outdoor. Pre-shipment AQL by in-house staff. MOQ USD 1,000.',
+  keywords: ['Taiwan trading company', 'reliable product supply from Asia', 'manufacturing coordination Taiwan China', 'custom packaging supplier', 'mooncake gift box supplier', 'home and living products supply', 'outdoor products supply', 'pre-shipment AQL inspection'],
 }
 
 export default async function RootLayout({

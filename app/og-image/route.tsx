@@ -14,8 +14,8 @@ export async function GET(req: Request) {
   let lang = (searchParams.get('lang') || 'en').slice(0, 5)
   // Force fallback for dropped langs — saves SSR crashes and gives consistent share image
   if (!ACTIVE_LANGS.has(lang)) lang = 'en'
-  const titleRaw = (searchParams.get('title') || 'SunGene — Taiwan + China Sourcing Partner').replace(/★/g, '')
-  const descRaw = (searchParams.get('desc') || 'Packaging, home, garden, beauty — direct from vetted factories.').replace(/★/g, '')
+  const titleRaw = (searchParams.get('title') || 'SunGene — Taiwan-based Trading Company').replace(/★/g, '')
+  const descRaw = (searchParams.get('desc') || 'Custom packaging, home & living, outdoor — pre-shipment AQL by in-house staff.').replace(/★/g, '')
   // Tighter slicing prevents Node satori crashes on long RTL strings
   const title = titleRaw.slice(0, 90)
   const desc = descRaw.slice(0, 180)
@@ -109,7 +109,7 @@ export async function GET(req: Request) {
         <div style={{ display: 'flex', gap: 14, alignItems: 'center', zIndex: 1 }}>
           {[
             'Verified Alibaba storefront',
-            'Taichung + Xiamen',
+            'In-house staff AQL',
             'On-site QC',
             'MOQ USD 1,000',
             `sungene.net/${lang}`,
