@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     langs.map((lang) => item(`${baseUrl}/${lang}/resources/${slug}`, 'monthly', 0.65))
   )
 
-  const compareSlugs = ['vs-alibaba-direct', 'vs-sourcing-agent']
+  const compareSlugs = ['vs-alibaba-direct', 'vs-direct-factory']
   const compareSitemap = compareSlugs.flatMap((slug) =>
     langs.map((lang) => item(`${baseUrl}/${lang}/${slug}`, 'monthly', 0.7))
   )
