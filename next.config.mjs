@@ -24,6 +24,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // ── Phase 2 Wave 14: compareSlug rename vs-sourcing-agent → vs-direct-factory ─
+      { source: '/:lang(en|zh|cn|fr|es)/vs-sourcing-agent', destination: '/:lang/vs-direct-factory', permanent: true },
       // ── Deduplicated resource articles: old slugs → canonical new slugs ───────
       { source: '/:lang(en|zh|cn|fr|es)/resources/spice-powder-packaging', destination: '/:lang/resources/spice-powder-packaging-machine', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/flour-packaging', destination: '/:lang/resources/flour-packaging-machine-guide', permanent: true },
