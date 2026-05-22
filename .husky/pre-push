@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# Husky v9 dispatcher invokes hooks via `sh -e` (which on this box is bash
+# in POSIX-ish -e mode). Disable -e immediately so manual error handling
+# below works (we depend on `cmd | grep` returning 1 on no-match without
+# aborting, etc.).
+set +e
+# Pinion Phase 1+2 pre-push hook (NEW, husky era)
+# Companion to .husky/pre-commit. Defends against antipattern #16b / #19-supp:
+# "working tree had pre-existing leak in unmodified files, pre-commit only
+# checked staged diff so it slipped through". This hook sweeps the FULL
+# working tree before push.
+
+set -u
+cd "$(git rev-parse --show-toplevel)" || exit 0
+
+source ".husky/_forbidden-tokens.sh"
+
+# Always-exclude pathspec (definitional locations + scratch + own data)
+base_excludes=(
+  ":(exclude)docs/factual-claims.md"
+  ":(exclude)_server_edit"
+  ":(exclude).husky"
+  ":(exclude)node_modules"
+  ":(exclude)package-lock.json"
+)
+
+# Per-token allowlist: files where the token has documented legitimate usage
+# (industry-generic discussion / negation framing). Add entries with comment
+# WHY each path is exempt.
+declare -A token_path_excludes=(
+  # sourcing/page.tsx uses 'sourcing partner' in negation framing
+  # ("not a pure sourcing partner"); resourceArticles.ts uses it as
+  # industry-generic QA advice. Both are intentional, see Wave 14e audit.
+  ["sourcing partner"]=$'app/[lang]/sourcing/page.tsx\nlib/resourceArticles.ts'
+  ["sourcing agent"]=$'app/[lang]/sourcing/page.tsx\nlib/resourceArticles.ts'
+)
+
+violations=0
+for token in "${forbidden_tokens[@]}"; do
+  excludes=("${base_excludes[@]}")
+  if [ -n "${token_path_excludes[$token]+x}" ]; then
+    while IFS= read -r p; do
+      [ -n "$p" ] && excludes+=(":(exclude)$p")
+    done <<< "${token_path_excludes[$token]}"
+  fi
+  hits=$(git grep -nF "$token" -- "${excludes[@]}" 2>/dev/null)
+  if [ -n "$hits" ]; then
+    if [ "$violations" -eq 0 ]; then
+      echo "❌ pre-push BLOCKED: forbidden tokens in tracked working tree" >&2
+      echo "(antipattern #16b/#19-supp guard: catches leaks in unmodified files" >&2
+      echo " that pre-commit missed because they weren't in the staged diff.)" >&2
+      echo "" >&2
+    fi
+    echo "Token: '$token'" >&2
+    echo "$hits" | sed "s|^|    |" >&2
+    echo "" >&2
+    violations=$((violations + 1))
+  fi
+done
+
+if [ "$violations" -gt 0 ]; then
+  echo "Violation token count: $violations" >&2
+  echo "Fix: rewrite, OR if usage is legitimate add path to token_path_excludes" >&2
+  echo "in .husky/pre-push." >&2
+  exit 1
+fi
+exit 0

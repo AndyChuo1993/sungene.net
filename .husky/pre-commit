@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Husky v9 dispatcher invokes hooks via `sh -e` (which on this box is bash
+# in POSIX-ish -e mode). Disable -e immediately so manual error handling
+# below works (we depend on `cmd | grep` returning 1 on no-match without
+# aborting, etc.).
+set +e
+# Pinion Phase 1+2 pre-commit hook v4 (husky era)
+# Canonical source: .husky/pre-commit (tracked in repo)
+# Path exclusion rationale: docs/factual-claims.md = SoT enumerating forbidden
+# tokens; _server_edit/ = engineer scratch (commit drafts, patcher scripts);
+# .husky/ = the hook scripts themselves (they literally contain the tokens as
+# data). None ship to production.
+
+set -u
+cd "$(git rev-parse --show-toplevel)" || exit 0
+
+staged_files=$(git diff --cached --name-only --diff-filter=AM \
+  | grep -vE "^(docs/factual-claims\.md|_server_edit/|\.husky/)")
+[ -z "$staged_files" ] && exit 0
+
+# shellcheck source=./_forbidden-tokens.sh
+source ".husky/_forbidden-tokens.sh"
+
+violations=0
+for token in "${forbidden_tokens[@]}"; do
+  matches=$(echo "$staged_files" | xargs -I{} grep -lF "$token" "{}" 2>/dev/null)
+  if [ -n "$matches" ]; then
+    [ "$violations" -eq 0 ] && echo "❌ pre-commit BLOCKED: forbidden tokens in staged files" >&2
+    echo "  '$token':" >&2
+    echo "$matches" | sed "s|^|    |" >&2
+    violations=$((violations + 1))
+  fi
+done
+
+if [ "$violations" -gt 0 ]; then
+  echo "" >&2
+  echo "Fix: rewrite or unstage. See docs/factual-claims.md v2.0 for canonical voice." >&2
+  exit 1
+fi
+exit 0

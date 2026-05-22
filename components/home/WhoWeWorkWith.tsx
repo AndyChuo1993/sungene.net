@@ -19,7 +19,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     en: {
       kicker: 'WHO WE SERVE',
       title: 'Buyers we partner with',
-      desc: 'We work across four buyer profiles. Each one gets the same direct factory pricing, our own team handling QC, and a partner who answers same-day.',
+      desc: 'We work across four buyer profiles. Each one gets the same supplier vetting up front, our own team handling QC, and a partner who answers same-day.',
       items: [
         { title: 'Online retailers & Amazon FBA sellers', desc: 'You need consistent, photo-faithful product from China and want someone in Asia to check the goods before they go in your container.' },
         { title: 'Private-label brand owners', desc: 'You sell home, kitchen, garden, or packaging products under your own brand and need quality control that survives more than two re-orders.' },
@@ -30,7 +30,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     cn: {
       kicker: '我们服务谁',
       title: '我们合作的买家类型',
-      desc: '我们服务四类买家。每一类都享有相同的直接工厂价、由我们自己团队亲自验货、以及当日回应的合作夥伴。',
+      desc: '我们服务四类买家。每一类都享有相同的供应商审核、由我们自己团队亲自验货、以及当日回应的合作夥伴。',
       items: [
         { title: '电商卖家与亚马逊 FBA 卖家', desc: '您需要从中国稳定拿到与图片一致的产品，希望有人在亚洲帮您验货后再装柜。' },
         { title: '自有品牌商', desc: '您在家居、厨房、园艺或包装领域做自有品牌，需要的是补单两次以上还稳得住品质的供应商。' },
@@ -41,7 +41,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     zh: {
       kicker: '我們服務誰',
       title: '我們合作的買家類型',
-      desc: '我們服務四類買家。每一類都享有相同的直接工廠價、由我們自己團隊親自驗貨、以及當日回應的合作夥伴。',
+      desc: '我們服務四類買家。每一類都享有相同的供應商審核、由我們自己團隊親自驗貨、以及當日回應的合作夥伴。',
       items: [
         { title: '電商賣家與亞馬遜 FBA 賣家', desc: '你需要從中國穩定拿到與圖片一致的產品，希望有人在亞洲幫你驗貨後再裝櫃。' },
         { title: '自有品牌商', desc: '你在家居、廚房、園藝或包裝領域做自有品牌，需要的是補單兩次以上還穩得住品質的供應商。' },
@@ -52,7 +52,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     fr: {
       kicker: 'À QUI NOUS NOUS ADRESSONS',
       title: 'Les acheteurs avec qui nous travaillons',
-      desc: "Nous travaillons avec quatre profils d'acheteurs. Chacun bénéficie du même prix usine direct, du contrôle qualité par notre propre équipe et d'un partenaire qui répond le jour même.",
+      desc: "Nous travaillons avec quatre profils d'acheteurs. Chacun bénéficie du même filtrage des fournisseurs, du contrôle qualité par notre propre équipe et d'un partenaire qui répond le jour même.",
       items: [
         { title: 'E-commerçants & vendeurs Amazon FBA', desc: 'Vous voulez des produits chinois conformes aux photos, et un partenaire en Asie qui inspecte avant la mise en conteneur.' },
         { title: 'Marques en private label', desc: 'Vous vendez maison, cuisine, jardin ou emballage sous votre marque et avez besoin d’une qualité qui tient plus de deux réassorts.' },
@@ -63,7 +63,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
     es: {
       kicker: 'A QUIÉN SERVIMOS',
       title: 'Compradores con quienes trabajamos',
-      desc: 'Trabajamos con cuatro perfiles de comprador. Cada uno recibe el mismo precio directo de fábrica, control de calidad por nuestro propio equipo, y un socio que responde el mismo día.',
+      desc: 'Trabajamos con cuatro perfiles de comprador. Cada uno recibe la misma selección de proveedores, control de calidad por nuestro propio equipo, y un socio que responde el mismo día.',
       items: [
         { title: 'E-commerce y vendedores de Amazon FBA', desc: 'Necesita producto chino fiel a las fotos y quiere alguien en Asia que revise antes de cargar el contenedor.' },
         { title: 'Marcas de private label', desc: 'Vende hogar, cocina, jardín o empaque bajo su marca y necesita una calidad que aguante más de dos rondas de reabastecimiento.' },
