@@ -16,7 +16,7 @@ import { HIDDEN_RESOURCE_SLUGS } from '@/lib/hiddenSlugs'
 
 
 const titles: Record<string, string> = {
-  en: 'Sourcing Guides & Resources', cn: '采购指南与资源', zh: '採購指南與資源',
+  en: 'Buying Guides & Resources', cn: '采购指南与资源', zh: '採購指南與資源',
   fr: 'Guides sourcing & ressources', es: 'Guías de abastecimiento y recursos',
   pt: 'Guias de sourcing e recursos', ko: '소싱 가이드 및 자료', ja: '調達ガイド・リソース',
   ar: 'أدلة التوريد والموارد', th: 'คู่มือการจัดหาและแหล่งข้อมูล', vi: 'Hướng Dẫn Sourcing & Tài Nguyên',
@@ -140,8 +140,8 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   } as Record<string, string>)[lang] || 'RESOURCES'
 
   const heroTitles: Record<string, string> = {
-    en: 'Sourcing Guides', cn: '采购指南', zh: '採購指南',
-    fr: 'Guides de sourcing industriel', es: 'Guías de abastecimiento industrial',
+    en: 'Buying Guides', cn: '采购指南', zh: '採購指南',
+    fr: "Guides d'achat", es: 'Guías de compras',
     pt: 'Guias de sourcing industrial', ko: '산업 소싱 가이드', ja: '産業調達ガイド',
     ar: 'أدلة التوريد الصناعي', th: 'คู่มือการจัดหาอุตสาหกรรม', vi: 'Hướng Dẫn Sourcing Công Nghiệp', de: 'Industrie-Sourcing-Leitfäden',
   }

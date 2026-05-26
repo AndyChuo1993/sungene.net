@@ -30,7 +30,7 @@ const labels: Record<
   }
 > = {
   en: {
-    title: 'Get a sourcing quote in 1 business day',
+    title: 'Request a quotation in 1 business day',
     subtitle: '5 fields. Our team replies the same day with 2–3 factory directions, lead time, and the price band you should expect.',
     name: 'Your name *',
     email: 'Work email *',
@@ -44,10 +44,10 @@ const labels: Record<
     successBody: 'Our team will reply with 2–3 factory directions and a price band within 1 business day.',
     errorTitle: 'Something went wrong',
     errorBody: 'Please email contact@sungene.net or use WhatsApp.',
-    privacy: 'No spam. Your details are used only to prepare your sourcing quote.',
+    privacy: 'No spam. Your details are used only to prepare your quotation.',
   },
   zh: {
-    title: '1 個工作日取得採購報價',
+    title: '1 個工作日取得報價',
     subtitle: '5 個欄位,當日回覆 2–3 個工廠方向、交期與預期價格區間。',
     name: '姓名 *',
     email: '公司電郵 *',

@@ -290,9 +290,9 @@ export default function InquiryForm({
       
       <p className="text-xs text-center text-gray-500 mt-4">
         {({
-          en: <>By submitting this form you agree to our <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">Privacy Policy</a>. Your data is used solely to prepare your sourcing quote.</>,
-          zh: <>提交表單即代表你同意我們的 <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">隱私權政策</a>。你的資料僅用於準備採購報價。</>,
-          cn: <>提交表单即代表您同意我们的 <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">隐私权政策</a>。您的数据仅用于准备采购报价。</>,
+          en: <>By submitting this form you agree to our <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">Privacy Policy</a>. Your data is used solely to prepare your quotation.</>,
+          zh: <>提交表單即代表你同意我們的 <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">隱私權政策</a>。你的資料僅用於準備報價。</>,
+          cn: <>提交表单即代表您同意我们的 <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">隐私权政策</a>。您的数据仅用于准备报价。</>,
           fr: <>En soumettant ce formulaire vous acceptez notre <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">politique de confidentialité</a>. Vos données servent uniquement à préparer votre devis.</>,
           es: <>Al enviar este formulario, acepta nuestra <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">política de privacidad</a>. Sus datos solo se usan para preparar su cotización.</>,
         } as Record<string, React.ReactNode>)[lang] || <>By submitting this form you agree to our <a href={`/${lang}/privacy`} className="underline hover:text-accent-600">Privacy Policy</a>.</>}

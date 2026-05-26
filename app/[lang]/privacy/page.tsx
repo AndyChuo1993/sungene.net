@@ -31,7 +31,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
     sections: [
       { h: 'Who we are', p: 'SunGene Co., LTD. is a Taiwan-registered trading company with offices in Taichung (Taiwan) and Xiamen (Mainland China). We operate sungene.net as a Taiwan-based trading company supplying selected products through manufacturing coordination and export management across Taiwan and China. Three capability areas: custom packaging, home & living, and outdoor products.' },
       { h: 'Information we collect', p: 'When you submit an inquiry form, request a quote, or contact us via WhatsApp/WeChat/email, we collect: name, work email, phone or messaging-app ID, company name, destination market, product category interest, and the content of your message. We do not require payment information through this website.' },
-      { h: 'How we use your data', p: 'Your information is used solely to prepare and deliver a sourcing quote, coordinate factory inspections, and follow up on your order. We do not sell, rent, or share your data with unrelated third parties. We share data with a factory only after you confirm interest in that specific supplier.' },
+      { h: 'How we use your data', p: 'Your information is used solely to prepare and deliver a quotation, coordinate factory inspections, and follow up on your order. We do not sell, rent, or share your data with unrelated third parties. We share data with a factory only after you confirm interest in that specific supplier.' },
       { h: 'Cookies and analytics', p: 'sungene.net uses essential cookies for language selection and form state. We use Google Analytics 4 (anonymized) to understand which pages buyers find useful. You can opt out by enabling browser Do Not Track or using a privacy extension.' },
       { h: 'Data retention', p: 'Inquiry records are retained for 3 years to support warranty, repeat orders, and after-sales correspondence. You can request deletion at any time by emailing contact@sungene.net.' },
       { h: 'Your rights', p: 'You can request access to, correction of, or deletion of your personal data at any time. For EU/UK buyers we honor GDPR rights including data portability. Email contact@sungene.net with subject "Privacy Request".' },
@@ -43,7 +43,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
     sections: [
       { h: '關於我們', p: 'SunGene Co., LTD.(上瑾錸有限公司)是註冊於台灣的貿易公司,在台灣台中與中國大陸廈門設有辦公室。我們經營 sungene.net,作為台灣登記貿易公司,透過台灣與中國的製造協調與出口管理供應精選產品。三大類產品:客製包裝、居家生活、戶外。' },
       { h: '我們收集的資料', p: '當你提交詢問表單、索取報價或透過 WhatsApp/微信/電子郵件聯絡時,我們會收集:姓名、公司郵箱、電話或通訊軟體 ID、公司名稱、目的地市場、有興趣的品類、訊息內容。本網站不要求你提供付款資訊。' },
-      { h: '我們如何使用你的資料', p: '你的資料僅用於準備與遞交採購報價、安排工廠驗貨、追蹤訂單。我們不會將你的資料出售、出租或分享給無關第三方。只有在你確認對某個特定供應商有興趣後,我們才會與該工廠分享相關資料。' },
+      { h: '我們如何使用你的資料', p: '你的資料僅用於準備與遞交報價、安排工廠驗貨、追蹤訂單。我們不會將你的資料出售、出租或分享給無關第三方。只有在你確認對某個特定供應商有興趣後,我們才會與該工廠分享相關資料。' },
       { h: 'Cookie 與分析', p: 'sungene.net 使用必要的 Cookie 處理語言選擇與表單狀態。我們使用 Google Analytics 4(已匿名)瞭解哪些頁面對買家有用。你可透過瀏覽器的 Do Not Track 或隱私擴充功能選擇不被追蹤。' },
       { h: '資料保留', p: '詢盤紀錄保留 3 年以利保固、重複下單與售後通訊。你隨時可寄信至 contact@sungene.net 要求刪除。' },
       { h: '你的權利', p: '你隨時可要求查閱、更正或刪除個人資料。對於歐盟/英國買家,我們遵守 GDPR 規定,包含資料可攜權。請寄信至 contact@sungene.net 主旨註明「隱私權請求」。' },
@@ -55,7 +55,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
     sections: [
       { h: '关于我们', p: 'SunGene Co., LTD.(上瑾錸有限公司)是注册于台湾的贸易公司,在台湾台中与中国大陆厦门设有办公室。我们经营 sungene.net,作为台湾登记贸易公司,通过台湾与中国的制造协调与出口管理供应精选产品。三大类产品:定制包装、居家生活、户外。' },
       { h: '我们收集的数据', p: '当你提交询问表单、索取报价或通过 WhatsApp/微信/电子邮件联系时,我们会收集:姓名、公司邮箱、电话或通讯软件 ID、公司名称、目的地市场、有兴趣的品类、信息内容。本网站不要求你提供付款信息。' },
-      { h: '我们如何使用你的数据', p: '你的数据仅用于准备与递交采购报价、安排工厂验货、跟进订单。我们不会出售、出租或与无关第三方分享你的数据。只有在你确认对某个特定供应商有兴趣后,我们才会与该工厂分享相关数据。' },
+      { h: '我们如何使用你的数据', p: '你的数据仅用于准备与递交报价、安排工厂验货、跟进订单。我们不会出售、出租或与无关第三方分享你的数据。只有在你确认对某个特定供应商有兴趣后,我们才会与该工厂分享相关数据。' },
       { h: 'Cookie 与分析', p: 'sungene.net 使用必要的 Cookie 处理语言选择与表单状态。我们使用 Google Analytics 4(已匿名)了解哪些页面对买家有用。你可通过浏览器的 Do Not Track 或隐私扩展选择不被追踪。' },
       { h: '数据保留', p: '询盘记录保留 3 年以利保修、重复下单与售后通讯。你随时可寄信至 contact@sungene.net 要求删除。' },
       { h: '你的权利', p: '你随时可要求查阅、更正或删除个人数据。对于欧盟/英国买家,我们遵守 GDPR 规定,包含数据可携权。请寄信至 contact@sungene.net 主旨注明「隐私权请求」。' },
@@ -67,7 +67,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
     sections: [
       { h: 'Qui nous sommes', p: 'SunGene Co., LTD. est une société de négoce basée à Taïwan, avec des bureaux à Taichung (Taïwan) et Xiamen (Chine continentale). Nous exploitons sungene.net en tant que société de négoce fournissant des produits sélectionnés par coordination manufacturière et gestion des exports entre Taïwan et la Chine. Trois domaines : emballage personnalisé, maison & vie quotidienne, extérieur.' },
       { h: 'Informations collectées', p: 'Lorsque vous soumettez un formulaire, demandez un devis ou nous contactez par WhatsApp/WeChat/email, nous collectons : nom, email professionnel, téléphone ou ID de messagerie, nom de société, marché cible, catégorie d\'intérêt et contenu de votre message. Aucune information de paiement n\'est demandée sur ce site.' },
-      { h: 'Utilisation des données', p: 'Vos informations servent uniquement à préparer et remettre un devis de sourcing, coordonner les inspections d\'usine et assurer le suivi de commande. Nous ne vendons, louons ni partageons vos données avec des tiers non concernés. Nous transmettons des données à une usine uniquement après votre accord sur ce fournisseur précis.' },
+      { h: 'Utilisation des données', p: 'Vos informations servent uniquement à préparer et remettre un devis, coordonner les inspections d\'usine et assurer le suivi de commande. Nous ne vendons, louons ni partageons vos données avec des tiers non concernés. Nous transmettons des données à une usine uniquement après votre accord sur ce fournisseur précis.' },
       { h: 'Cookies et analytique', p: 'sungene.net utilise des cookies essentiels pour la sélection de langue et l\'état des formulaires. Nous utilisons Google Analytics 4 (anonymisé) pour comprendre les pages utiles aux acheteurs. Vous pouvez désactiver via Do Not Track ou une extension de confidentialité.' },
       { h: 'Conservation', p: 'Les demandes sont conservées 3 ans pour garantie, réassorts et SAV. Vous pouvez demander la suppression à tout moment via contact@sungene.net.' },
       { h: 'Vos droits', p: 'Vous pouvez demander l\'accès, la correction ou la suppression de vos données à tout moment. Pour les acheteurs UE/Royaume-Uni, nous respectons le RGPD, y compris la portabilité. Email : contact@sungene.net, objet « Demande RGPD ».' },
@@ -79,7 +79,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
     sections: [
       { h: 'Quiénes somos', p: 'SunGene Co., LTD. es una empresa comercial con sede en Taiwán, con oficinas en Taichung (Taiwán) y Xiamen (China continental). Operamos sungene.net como empresa comercial que suministra productos seleccionados mediante coordinación de fabricación y gestión de exportación entre Taiwán y China. Tres áreas: embalaje personalizado, hogar y vida cotidiana, exterior.' },
       { h: 'Información que recopilamos', p: 'Al enviar un formulario, solicitar una cotización o contactarnos por WhatsApp/WeChat/email, recopilamos: nombre, email laboral, teléfono o ID de mensajería, nombre de empresa, mercado destino, categoría de interés y contenido del mensaje. No solicitamos información de pago a través de este sitio.' },
-      { h: 'Uso de tus datos', p: 'Tus datos se usan únicamente para preparar y entregar una cotización de sourcing, coordinar inspecciones de fábrica y dar seguimiento a tu pedido. No vendemos, alquilamos ni compartimos tus datos con terceros no relacionados. Solo compartimos datos con una fábrica tras tu confirmación con ese proveedor específico.' },
+      { h: 'Uso de tus datos', p: 'Tus datos se usan únicamente para preparar y entregar una cotización, coordinar inspecciones de fábrica y dar seguimiento a tu pedido. No vendemos, alquilamos ni compartimos tus datos con terceros no relacionados. Solo compartimos datos con una fábrica tras tu confirmación con ese proveedor específico.' },
       { h: 'Cookies y analítica', p: 'sungene.net usa cookies esenciales para selección de idioma y estado del formulario. Usamos Google Analytics 4 (anonimizado) para entender qué páginas resultan útiles. Puedes desactivar con Do Not Track o una extensión de privacidad.' },
       { h: 'Retención', p: 'Los registros de consulta se conservan 3 años para garantía, repeticiones y postventa. Puedes solicitar la eliminación en cualquier momento escribiendo a contact@sungene.net.' },
       { h: 'Tus derechos', p: 'Puedes solicitar acceso, corrección o eliminación de tus datos personales en cualquier momento. Para compradores UE/Reino Unido respetamos el RGPD, incluida la portabilidad. Email: contact@sungene.net, asunto «Solicitud de privacidad».' },

@@ -84,7 +84,7 @@ export function buildWebsiteSchema(opts: { baseUrl?: string; lang: Lang }) {
       { '@type': 'WebPage', url: pageUrl(lang, '/sourcing/garden'), name: 'Outdoor Products' },
       { '@type': 'WebPage', url: pageUrl(lang, '/sourcing/beauty'), name: 'Beauty & Wellness' },
       { '@type': 'WebPage', url: pageUrl(lang, '/about'), name: 'About SunGene' },
-      { '@type': 'WebPage', url: pageUrl(lang, '/resources'), name: 'Sourcing Guides' },
+      { '@type': 'WebPage', url: pageUrl(lang, '/resources'), name: 'Buying Guides' },
       { '@type': 'WebPage', url: pageUrl(lang, '/contact'), name: 'Contact' },
     ],
   }
