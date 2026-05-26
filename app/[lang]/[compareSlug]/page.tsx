@@ -37,11 +37,11 @@ const META: Record<CompareKey, Record<Lang, { title: string; desc: string }>> = 
     de: { title: 'SunGene vs Direktkauf Alibaba', desc: 'Ehrlicher Vergleich.' },
   },
   'vs-direct-factory': {
-    en: { title: 'SunGene vs direct factory order — what changes?', desc: 'Going direct to a Chinese factory saves the trading-company margin but transfers QC, export documentation, dispute handling, and timeline risk to you. Comparison of who handles what.' },
-    zh: { title: 'SunGene vs 直接向工廠下單 — 差別在哪?', desc: '直接向中國工廠下單可以省掉貿易公司的利潤,但 QC、出口文件、爭議處理、時程風險全部轉到您身上。逐項對比誰負責什麼。' },
-    cn: { title: 'SunGene vs 直接向工厂下单 — 差别在哪?', desc: '直接向中国工厂下单可以省掉贸易公司的利润,但 QC、出口文件、争议处理、时程风险全部转到您身上。逐项对比谁负责什么。' },
-    fr: { title: "SunGene vs commande directe usine — ce qui change", desc: "Aller directement chez une usine chinoise économise la marge de la société de négoce, mais transfère le contrôle qualité, les documents d'export, la gestion des litiges et le risque de délai à vous. Comparaison de qui gère quoi." },
-    es: { title: 'SunGene vs pedido directo a fábrica — la diferencia', desc: 'Ir directo a una fábrica china ahorra la margen de la empresa comercial, pero transfiere el control de calidad, la documentación de exportación, la gestión de disputas y el riesgo de plazo a usted. Comparación de quién gestiona qué.' },
+    en: { title: 'SunGene vs direct factory order — what changes?', desc: 'Going direct to a Chinese factory shifts QC, export documentation, dispute handling, and timeline risk to you. Comparison of who handles what.' },
+    zh: { title: 'SunGene vs 直接向工廠下單 — 差別在哪?', desc: '直接向中國工廠下單會把 QC、出口文件、爭議處理、時程風險全部轉到您身上。逐項對比誰負責什麼。' },
+    cn: { title: 'SunGene vs 直接向工厂下单 — 差别在哪?', desc: '直接向中国工厂下单会把 QC、出口文件、争议处理、时程风险全部转到您身上。逐项对比谁负责什么。' },
+    fr: { title: "SunGene vs commande directe usine — ce qui change", desc: "Aller directement chez une usine chinoise transfère le contrôle qualité, les documents d'export, la gestion des litiges et le risque de délai à vous. Comparaison de qui gère quoi." },
+    es: { title: 'SunGene vs pedido directo a fábrica — la diferencia', desc: 'Ir directo a una fábrica china transfiere el control de calidad, la documentación de exportación, la gestión de disputas y el riesgo de plazo a usted. Comparación de quién gestiona qué.' },
     pt: { title: 'SunGene vs pedido direto à fábrica', desc: 'Comparação honesta.' },
     ko: { title: 'SunGene vs 공장 직거래', desc: '솔직한 비교.' },
     ja: { title: 'SunGene vs 工場直接発注', desc: '正直な比較。' },
@@ -78,14 +78,14 @@ const CONTENT: Record<CompareKey, Record<Lang, {
           'You want to mix 2-5 product categories in one consolidated container',
           'You need custom-print packaging, OEM/ODM branding, or Pantone color matching',
           'You want pre-shipment QC done by your representative, not the supplier or a third-party agency you have never met',
-          'Your order, if it goes wrong, costs more than the typical 5-15% trading-house margin',
+          'Your order, if it goes wrong, costs more than the production coordination, QC, and export handling our quotation covers',
           'You want a single accountability point with a Taiwan-registered company',
           'Your supplier list will grow and you want one vetted relationship instead of 30 separate ones',
         ],
       },
       tableRows: [
         { criterion: 'Factory access', alt: 'Anyone with email', us: 'Pre-vetted relationship network' },
-        { criterion: 'Price', alt: 'Factory price (risk of hidden surcharge)', us: 'Factory price + declared margin' },
+        { criterion: 'Price', alt: 'Factory price (risk of hidden surcharge)', us: 'All-inclusive (coordination + QC + export + documentation)' },
         { criterion: 'QC', alt: 'Arrange yourself or pay third party', us: 'Included, by SunGene staff' },
         { criterion: 'Consolidation', alt: 'Per supplier, separate shipments', us: 'Multi-supplier in one container' },
         { criterion: 'Disputes', alt: 'Alibaba Trade Assurance, slow', us: 'Direct, Taiwan jurisdiction' },
@@ -93,10 +93,10 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         { criterion: 'Time invested', alt: 'High (40-80 h per project)', us: 'Low (3-8 h)' },
         { criterion: 'Ideal for', alt: 'Small generic orders, expert buyer', us: 'Multi-SKU, customized, recurring' },
       ],
-      bottomLine: "If your time is worth less than the trader's margin, or you enjoy supplier management as a craft, buy direct. If your time is worth more, or you need consolidation + QC + accountability, work with us. Both can be the right answer.",
+      bottomLine: "If your time is worth less than the coordination, QC, and export handling we provide, or you enjoy supplier management as a craft, buy direct. If your time is worth more, or you need consolidation + QC + accountability, work with us. Both can be the right answer.",
     },
     zh: {
-      intro: 'Alibaba 是全球最大的 B2B 採購平台,我們自己就是上面的認證商家(momas.en.alibaba.com,3+ 年經營),所以這篇寫的不是「Alibaba 不好」。對某些買家、某些品類、某些訂單規模,直接在 Alibaba 採購就是對的選擇。這份對比寫給已經評估過 Alibaba、想知道「何時多付 5-15% 找台灣代理夥伴是划算的」的買家 —— 我們會把彼此各自的甜蜜點與盲點都攤開來。',
+      intro: 'Alibaba 是全球最大的 B2B 採購平台,我們自己就是上面的認證商家(momas.en.alibaba.com,3+ 年經營),所以這篇寫的不是「Alibaba 不好」。對某些買家、某些品類、某些訂單規模,直接在 Alibaba 採購就是對的選擇。這份對比寫給已經評估過 Alibaba、想知道「何時值得多付一份報價、找台灣供應夥伴接管協調與驗貨」的買家 —— 我們會把彼此各自的甜蜜點與盲點都攤開來。',
       whenAlt: {
         title: '直接在 Alibaba 採購適合你,當:',
         bullets: [
@@ -115,7 +115,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
           '你想把 2-5 種品類混在同一個櫃裡寄出,需要有人在源頭幫忙整合多家工廠的出貨時序',
           '你需要客製印刷包裝、OEM/ODM 品牌標示、或精準 Pantone 對色 —— 這些細節在 Alibaba 自助流程裡常出錯',
           '你希望由「你的代理」做出貨前驗貨(由我們員工執行 AQL 抽樣),而不是工廠自己驗、或一家你從沒見過的第三方驗貨公司',
-          '訂單一旦出錯,損失大於一般 5-15% 的貿易商利潤 —— 這時值得用利潤買來「有人負責」',
+          '訂單一旦出錯,損失大於我們報價涵蓋的協調、QC 與出口處理 —— 這時值得用一份報價買來「有人負責」',
           '你想要單一窗口、單一台灣註冊公司負責 —— 出問題的對象是我們,不是某個工廠老闆的手機號',
           '你的供應商清單會持續成長,寧可一個審核過的關係持續加品項,也不要每換一個品項就 onboard 一家陌生工廠',
           '你需要報價單上「工廠價」與「我方利潤」分行列出,而不是一個總價沒有細節',
@@ -123,7 +123,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       },
       tableRows: [
         { criterion: '工廠接觸', alt: '任何有 email 的人都可以', us: '預先審核過的關係網絡' },
-        { criterion: '價格', alt: '工廠報價(隱藏附加費用風險)', us: '工廠價 + 揭露的利潤' },
+        { criterion: '價格', alt: '工廠報價(隱藏附加費用風險)', us: '一份報價,涵蓋協調、QC、出口、文件' },
         { criterion: '驗貨', alt: '自己安排或另找第三方', us: '已含,由 SunGene 員工執行' },
         { criterion: '併櫃', alt: '每家供應商各自出貨', us: '多家供應商整合一個櫃' },
         { criterion: '爭議處理', alt: 'Alibaba Trade Assurance,流程慢', us: '直接對接,台灣司法管轄' },
@@ -131,10 +131,10 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         { criterion: '時間投入', alt: '高(每案 40-80 小時)', us: '低(3-8 小時)' },
         { criterion: '適合', alt: '小單、通用品、老手買家', us: '多品項、客製、長期採購' },
       ],
-      bottomLine: '如果你的時間成本低於貿易商利潤(5-15%),或者你享受供應商管理這門手藝、想累積自己的工廠網絡,就直接買吧 —— 這是合理的選擇。如果你的時間值更多、或者你的訂單一旦出錯成本高於 15%,或者你需要整合、驗貨、有人負責,那就找我們。兩個都可以是對的答案 —— 重點是知道自己付的錢買的是什麼,而不是用最便宜的方式買到最貴的教訓。',
+      bottomLine: '如果你的時間成本低於我們報價涵蓋的協調、QC 與出口處理,或者你享受供應商管理這門手藝、想累積自己的工廠網絡,就直接買吧 —— 這是合理的選擇。如果你的時間值更多、或者你的訂單一旦出錯成本高過我們的報價、或者你需要整合、驗貨、有人負責,那就找我們。兩個都可以是對的答案 —— 重點是知道自己付的錢買的是什麼,而不是用最便宜的方式買到最貴的教訓。',
     },
     cn: {
-      intro: 'Alibaba 是全球最大的 B2B 采购平台,我们自己就是上面的认证商家(momas.en.alibaba.com,3+ 年经营),所以这篇写的不是「Alibaba 不好」。对某些买家、某些品类、某些订单规模,直接在 Alibaba 采购就是对的选择。这份对比写给已经评估过 Alibaba、想知道「何时多付 5-15% 找台湾代理伙伴是划算的」的买家 —— 我们会把彼此各自的甜蜜点与盲点都摊开来。',
+      intro: 'Alibaba 是全球最大的 B2B 采购平台,我们自己就是上面的认证商家(momas.en.alibaba.com,3+ 年经营),所以这篇写的不是「Alibaba 不好」。对某些买家、某些品类、某些订单规模,直接在 Alibaba 采购就是对的选择。这份对比写给已经评估过 Alibaba、想知道「何时值得多付一份报价、找台湾供应伙伴接管协调与验货」的买家 —— 我们会把彼此各自的甜蜜点与盲点都摊开来。',
       whenAlt: {
         title: '直接在 Alibaba 采购适合您,当:',
         bullets: [
@@ -153,7 +153,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
           '您想把 2-5 种品类混在同一个柜里寄出,需要有人在源头帮忙整合多家工厂的出货时序',
           '您需要定制印刷包装、OEM/ODM 品牌标示、或精准 Pantone 对色 —— 这些细节在 Alibaba 自助流程里常出错',
           '您希望由「您的代理」做出货前验货(由我们员工执行 AQL 抽样),而不是工厂自己验、或一家您从没见过的第三方验货公司',
-          '订单一旦出错,损失大于一般 5-15% 的贸易商利润 —— 这时值得用利润买来「有人负责」',
+          '订单一旦出错,损失大于我们报价涵盖的协调、QC 与出口处理 —— 这时值得用一份报价买来「有人负责」',
           '您想要单一窗口、单一台湾注册公司负责 —— 出问题的对象是我们,不是某个工厂老板的手机号',
           '您的供应商清单会持续成长,宁可一个审核过的关系持续加品项,也不要每换一个品项就 onboard 一家陌生工厂',
           '您需要报价单上「工厂价」与「我方利润」分行列出,而不是一个总价没有细节',
@@ -161,7 +161,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       },
       tableRows: [
         { criterion: '工厂接触', alt: '任何有 email 的人都可以', us: '预先审核过的关系网络' },
-        { criterion: '价格', alt: '工厂报价(隐藏附加费用风险)', us: '工厂价 + 揭露的利润' },
+        { criterion: '价格', alt: '工厂报价(隐藏附加费用风险)', us: '一份报价,涵盖协调、QC、出口、文件' },
         { criterion: '验货', alt: '自己安排或另找第三方', us: '已含,由 SunGene 员工执行' },
         { criterion: '并柜', alt: '每家供应商各自出货', us: '多家供应商整合一个柜' },
         { criterion: '争议处理', alt: 'Alibaba Trade Assurance,流程慢', us: '直接对接,台湾司法管辖' },
@@ -169,7 +169,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         { criterion: '时间投入', alt: '高(每案 40-80 小时)', us: '低(3-8 小时)' },
         { criterion: '适合', alt: '小单、通用品、老手买家', us: '多品项、定制、长期采购' },
       ],
-      bottomLine: '如果您的时间成本低于贸易商利润(5-15%),或者您享受供应商管理这门手艺、想累积自己的工厂网络,就直接买吧 —— 这是合理的选择。如果您的时间值更多、或者您的订单一旦出错成本高于 15%,或者您需要整合、验货、有人负责,那就找我们。两个都可以是对的答案 —— 重点是知道自己付的钱买的是什么,而不是用最便宜的方式买到最贵的教训。',
+      bottomLine: '如果您的时间成本低于我们报价涵盖的协调、QC 与出口处理,或者您享受供应商管理这门手艺、想累积自己的工厂网络,就直接买吧 —— 这是合理的选择。如果您的时间值更多、或者您的订单一旦出错成本高过我们的报价、或者您需要整合、验货、有人负责,那就找我们。两个都可以是对的答案 —— 重点是知道自己付的钱买的是什么,而不是用最便宜的方式买到最贵的教训。',
     },
     fr: {
       intro: "Alibaba est la plus grande place de marché B2B au monde. Nous y sommes nous-mêmes (boutique vérifiée sur momas.en.alibaba.com). Nous ne sommes pas contre l'achat direct sur Alibaba — pour certains acheteurs, dans certaines situations, c'est le bon choix. Voici la version honnête.",
@@ -184,13 +184,13 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         'Vous voulez combiner 2-5 catégories dans un conteneur consolidé',
         "Vous avez besoin d'emballage imprimé personnalisé, OEM/ODM, ou correspondance Pantone",
         'Vous voulez le CQ pré-expédition fait par votre représentant',
-        'Votre commande, si elle tourne mal, coûte plus que la marge typique 5-15% du négociant',
+        'Votre commande, si elle tourne mal, coûte plus que la coordination de production, le QC et la gestion d\'export que couvre notre devis',
         'Vous voulez un point de responsabilité unique avec une société taïwanaise enregistrée',
         'Votre liste de fournisseurs grandira et vous préférez une relation vérifiée',
       ] },
       tableRows: [
         { criterion: 'Accès usine', alt: 'Tout le monde avec email', us: 'Réseau de relations pré-vérifiées' },
-        { criterion: 'Prix', alt: 'Prix usine (risque de surcoût caché)', us: 'Prix usine + marge déclarée' },
+        { criterion: 'Prix', alt: 'Prix usine (risque de surcoût caché)', us: 'Tout inclus (coordination + QC + export + documentation)' },
         { criterion: 'CQ', alt: 'À organiser ou tiers payant', us: 'Inclus, par personnel SunGene' },
         { criterion: 'Consolidation', alt: 'Par fournisseur, expéditions séparées', us: 'Multi-fournisseurs en un conteneur' },
         { criterion: 'Litiges', alt: 'Alibaba Trade Assurance, lent', us: 'Direct, juridiction Taïwan' },
@@ -198,7 +198,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         { criterion: 'Temps investi', alt: 'Élevé (40-80 h par projet)', us: 'Faible (3-8 h)' },
         { criterion: 'Idéal pour', alt: 'Commandes génériques, acheteur expert', us: 'Multi-SKU, personnalisé, récurrent' },
       ],
-      bottomLine: "Si votre temps vaut moins que la marge du négociant, ou si vous aimez la gestion fournisseurs comme métier, achetez direct. Si votre temps vaut plus, ou si vous avez besoin de consolidation + CQ + responsabilité, travaillez avec nous. Les deux peuvent être la bonne réponse.",
+      bottomLine: "Si votre temps vaut moins que la coordination, le QC et la gestion d'export que nous fournissons, ou si vous aimez la gestion fournisseurs comme métier, achetez direct. Si votre temps vaut plus, ou si vous avez besoin de consolidation + CQ + responsabilité, travaillez avec nous. Les deux peuvent être la bonne réponse.",
     },
     es: {
       intro: 'Alibaba es la plataforma B2B más grande del mundo. Estamos en ella nosotros mismos (tienda verificada en momas.en.alibaba.com). No estamos en contra de comprar directo en Alibaba — para algunos compradores, en algunas situaciones, es la decisión correcta. Aquí la versión honesta.',
@@ -213,13 +213,13 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         'Quiere combinar 2-5 categorías en un contenedor consolidado',
         'Necesita empaque impreso personalizado, OEM/ODM, o correspondencia Pantone',
         'Quiere QC pre-envío hecho por su representante, no el proveedor ni un tercero desconocido',
-        'Su pedido, si sale mal, cuesta más que el margen típico 5-15% del comerciante',
+        'Su pedido, si sale mal, cuesta más que la coordinación de producción, QC y gestión de exportación que cubre nuestra cotización',
         'Quiere un único punto de responsabilidad con una empresa registrada en Taiwán',
         'Su lista de proveedores crecerá y quiere una relación verificada en lugar de 30 separadas',
       ] },
       tableRows: [
         { criterion: 'Acceso a fábrica', alt: 'Cualquiera con email', us: 'Red de relaciones pre-verificadas' },
-        { criterion: 'Precio', alt: 'Precio fábrica (riesgo de sobrecargo oculto)', us: 'Precio fábrica + margen declarado' },
+        { criterion: 'Precio', alt: 'Precio fábrica (riesgo de sobrecargo oculto)', us: 'Todo incluido (coordinación + QC + exportación + documentación)' },
         { criterion: 'QC', alt: 'Organizar usted o pagar tercero', us: 'Incluido, por personal SunGene' },
         { criterion: 'Consolidación', alt: 'Por proveedor, envíos separados', us: 'Multi-proveedor en un contenedor' },
         { criterion: 'Disputas', alt: 'Alibaba Trade Assurance, lento', us: 'Directo, jurisdicción Taiwán' },
@@ -227,7 +227,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
         { criterion: 'Tiempo invertido', alt: 'Alto (40-80 h por proyecto)', us: 'Bajo (3-8 h)' },
         { criterion: 'Ideal para', alt: 'Pedidos genéricos pequeños, comprador experto', us: 'Multi-SKU, personalizado, recurrente' },
       ],
-      bottomLine: 'Si su tiempo vale menos que el margen del comerciante, o disfruta la gestión de proveedores como oficio, compre directo. Si su tiempo vale más, o necesita consolidación + QC + responsabilidad, trabaje con nosotros. Ambos pueden ser la respuesta correcta.',
+      bottomLine: 'Si su tiempo vale menos que la coordinación, QC y gestión de exportación que proporcionamos, o disfruta la gestión de proveedores como oficio, compre directo. Si su tiempo vale más, o necesita consolidación + QC + responsabilidad, trabaje con nosotros. Ambos pueden ser la respuesta correcta.',
     },
     pt: { intro: 'Comparação honesta entre comprar direto na Alibaba e usar a SunGene.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
     ko: { intro: 'Alibaba 직거래와 SunGene 비교.', whenAlt: { title: '', bullets: [] }, whenUs: { title: '', bullets: [] }, tableRows: [], bottomLine: '' },
@@ -239,7 +239,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
   },
   'vs-direct-factory': {
     en: {
-      intro: "Going direct to a Chinese factory is the lowest-cost path on paper. We're not pretending our margin is invisible — SunGene is a Taiwan-based trading company and you do pay for what we add. The honest question is: what do you take on yourself when you go direct, and is it actually cheaper after that?",
+      intro: "Going direct to a Chinese factory is the lowest-cost path on paper. SunGene is a Taiwan-based trading company; our quotation includes production coordination, quality control, export documentation, and post-shipment support — managed through one supplier relationship. The honest question is: what do you take on yourself when you go direct, and is it actually cheaper after that?",
       whenAlt: {
         title: 'Going direct to a factory works when:',
         bullets: [
@@ -275,7 +275,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: "Direct factory order works for buyers with mature QC and export operations who only buy a known SKU from a known partner. SunGene works for buyers who want one accountable counterparty across both markets, in-house QC, consolidated shipping, and a Taiwan-jurisdiction dispute path. Both can be the right answer — the difference is what you take on yourself.",
     },
     zh: {
-      intro: "直接向中國工廠下單,在帳面上是成本最低的路。我們不會假裝我們的利潤不存在 —— SunGene 是台灣登記貿易公司,您確實有付一份貿易公司的成本。誠實的問題是:直接走,有哪些東西轉到您身上、加上之後真的比較便宜嗎?",
+      intro: "直接向中國工廠下單,在帳面上是成本最低的路。SunGene 是台灣登記貿易公司;我們的報價涵蓋生產協調、品質控管、出口文件與發運後支援 —— 統合於單一供應關係之中。誠實的問題是:直接走,有哪些事情轉到您身上、加上之後真的比較便宜嗎?",
       whenAlt: {
         title: '直接向工廠下單適合你,當:',
         bullets: [
@@ -311,7 +311,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: '直接向工廠下單適合有成熟 QC 與出口營運能力、且只跟熟悉工廠買固定 SKU 的買家。SunGene 適合想要單一對口、自有 QC、合併出貨、台灣司法管轄爭議路徑的買家。兩個都可以是對的答案 —— 差別在於哪些東西你願意自己扛。',
     },
     cn: {
-      intro: '直接向中国工厂下单,在帐面上是成本最低的路。我们不会假装我们的利润不存在 —— SunGene 是台湾登记贸易公司,您确实有付一份贸易公司的成本。诚实的问题是:直接走,有哪些东西转到您身上、加上之后真的比较便宜吗?',
+      intro: '直接向中国工厂下单,在帐面上是成本最低的路。SunGene 是台湾登记贸易公司;我们的报价涵盖生产协调、品质控管、出口文件与发运后支援 —— 统合于单一供应关系之中。诚实的问题是:直接走,有哪些事情转到您身上、加上之后真的比较便宜吗?',
       whenAlt: {
         title: '直接向工厂下单适合您,当:',
         bullets: [
@@ -347,7 +347,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: '直接向工厂下单适合有成熟 QC 与出口营运能力、且只跟熟悉工厂买固定 SKU 的买家。SunGene 适合想要单一对口、自有 QC、合并出货、台湾司法管辖争议路径的买家。两个都可以是对的答案 —— 差别在于哪些东西您愿意自己扛。',
     },
     fr: {
-      intro: "Aller directement chez une usine chinoise est, sur le papier, le chemin au coût le plus bas. Nous ne prétendons pas que notre marge n'existe pas — SunGene est une société de négoce basée à Taïwan et vous payez bien un coût de société de négoce. La vraie question : qu'est-ce qui vous revient sur les épaules quand vous allez en direct, et au total est-ce moins cher après ?",
+      intro: "Aller directement chez une usine chinoise est, sur le papier, le chemin au coût le plus bas. SunGene est une société de négoce basée à Taïwan ; notre devis couvre la coordination de production, le contrôle qualité, la documentation d'export et le support post-expédition — gérés au sein d'une seule relation fournisseur. La vraie question : qu'est-ce qui vous revient sur les épaules quand vous allez en direct, et au total est-ce moins cher après ?",
       whenAlt: {
         title: 'Commander directement à une usine fonctionne quand :',
         bullets: [
@@ -383,7 +383,7 @@ const CONTENT: Record<CompareKey, Record<Lang, {
       bottomLine: "La commande directe à l'usine fonctionne pour les acheteurs avec une opération QC + export mature, qui n'achètent qu'un SKU connu chez une usine connue. SunGene fonctionne pour les acheteurs qui veulent un seul interlocuteur responsable sur les deux marchés, QC en interne, expédition consolidée et un parcours de litige sous juridiction Taïwan. Les deux peuvent être la bonne réponse — la différence est ce que vous prenez en charge vous-même.",
     },
     es: {
-      intro: 'Ir directo a una fábrica china es, sobre el papel, el camino al costo más bajo. No fingimos que nuestra margen no existe — SunGene es una empresa comercial con sede en Taiwán y usted sí paga un costo de empresa comercial. La pregunta honesta: ¿qué le toca a usted cuando va directo, y al sumar todo realmente sale más barato?',
+      intro: 'Ir directo a una fábrica china es, sobre el papel, el camino al costo más bajo. SunGene es una empresa comercial con sede en Taiwán; nuestra cotización cubre coordinación de producción, control de calidad, documentación de exportación y soporte post-envío — gestionados a través de una sola relación de proveedor. La pregunta honesta: ¿qué le toca a usted cuando va directo, y al sumar todo realmente sale más barato?',
       whenAlt: {
         title: 'Pedir directo a una fábrica funciona cuando:',
         bullets: [
