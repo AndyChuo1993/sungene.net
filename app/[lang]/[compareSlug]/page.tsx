@@ -557,7 +557,7 @@ export default async function ComparePage({ params }: { params: Promise<{ lang: 
                 <p className="mt-3 text-base leading-relaxed text-white/90">{c.bottomLine}</p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <ButtonLink href={`/${l}/contact`} variant="primary" size="md">
-                    {({ en: 'Start a sourcing conversation', zh: '開始採購對話', cn: '开始采购对话', fr: 'Démarrer une conversation', es: 'Iniciar conversación' } as Record<string, string>)[l] || 'Start a sourcing conversation'}
+                    {({ en: 'Request a quotation', zh: '索取報價', cn: '索取报价', fr: 'Demander un devis', es: 'Solicitar una cotización' } as Record<string, string>)[l] || 'Request a quotation'}
                   </ButtonLink>
                   <ButtonLink href={`/${l}/sourcing`} variant="secondary" size="md" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">
                     {({ en: 'See sourcing scope', zh: '看採購範圍', cn: '看采购范围', fr: 'Voir le scope', es: 'Ver alcance' } as Record<string, string>)[l] || 'See sourcing scope'}

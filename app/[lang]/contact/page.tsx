@@ -16,11 +16,11 @@ export const revalidate = 86400
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CONTACT_META_TITLES: Record<string, string> = {
-  en: 'Start a sourcing conversation',
-  cn: '聯絡我們 | 開始一次採購對話',
-  zh: '聯絡我們 | 開始一次採購對話',
-  fr: 'Démarrer une conversation sourcing',
-  es: 'Iniciar una conversación de sourcing',
+  en: 'Request a quotation',
+  cn: '联系我们 | 索取报价',
+  zh: '聯絡我們 | 索取報價',
+  fr: 'Demander un devis',
+  es: 'Solicitar una cotización',
   pt: 'Avaliação de sourcing | Contato',
   ko: '소싱 평가 요청 | 문의',
   ja: '調達評価の依頼 | お問い合わせ',
@@ -153,9 +153,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   const content: Record<string, any> = {
     en: {
-      kicker: 'START A SOURCING CONVERSATION',
+      kicker: 'REQUEST A QUOTATION',
       title: 'Tell us what you need',
-      desc: 'Send a reference image or competitor link, target quantity, and the market you sell into. We reply the same day during Taipei business hours (Mon–Fri, UTC+8) with 2–3 factory directions and the price band you should expect. MOQ USD 1,000 per shipment.',
+      desc: 'Send a reference image or competitor link, target quantity, and the market you sell into. We reply the same day during Taipei business hours (Mon–Fri, UTC+8) with a buyer-facing quotation, lead time, and the price band you should expect. MOQ USD 1,000 per shipment.',
       infoTitle: 'What to Include',
       formList: [
         'Product or category you need sourced',
@@ -170,9 +170,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Average response time: within 24 hours',
     },
     cn: {
-      kicker: '开始一次采购对话',
+      kicker: '索取报价',
       title: '告诉我们您的需求',
-      desc: '给我们一张参考图或竞品连结、目标数量、销往的市场。台北上班时间（周一至五，UTC+8）当天回讯——附上我们会筛出来的 2–3 家工厂方向，以及您可以预期的价格区间。最低订单 USD 1,000 起接。',
+      desc: '给我们一张参考图或竞品连结、目标数量、销往的市场。台北上班时间（周一至五，UTC+8）当天回讯——附上买方视角的报价、交期与您可以预期的价格区间。最低订单 USD 1,000 起接。',
       infoTitle: '请提供以下信息',
       formList: [
         '您加工或包装什么产品？',
@@ -187,9 +187,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ 平均回复时间：24小时内',
     },
     zh: {
-      kicker: '開始一次採購對話',
+      kicker: '索取報價',
       title: '告訴我們你的需求',
-      desc: '給我們一張參考圖或競品連結、目標數量、銷往的市場。台北上班時間（週一至五，UTC+8）當天回訊——附上我們會篩出來的 2–3 家工廠方向，以及你可以預期的價格區間。最低訂單 USD 1,000 起接。',
+      desc: '給我們一張參考圖或競品連結、目標數量、銷往的市場。台北上班時間（週一至五，UTC+8）當天回訊——附上買方視角的報價、交期與你可以預期的價格區間。最低訂單 USD 1,000 起接。',
       infoTitle: '請提供以下資訊',
       formList: [
         '您加工或包裝什麼產品？',
@@ -204,9 +204,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ 平均回覆時間：24小時內',
     },
     fr: {
-      kicker: 'DÉMARRER UNE CONVERSATION SOURCING',
+      kicker: 'DEMANDER UN DEVIS',
       title: 'Dites-nous ce dont vous avez besoin',
-      desc: "Envoyez une photo de référence ou un lien concurrent, la quantité cible et le marché visé. Réponse le jour même pendant les heures de bureau de Taipei (lun–ven, UTC+8) avec 2–3 directions usines et la fourchette de prix attendue. Commande minimum USD 1 000 par expédition.",
+      desc: "Envoyez une photo de référence ou un lien concurrent, la quantité cible et le marché visé. Réponse le jour même pendant les heures de bureau de Taipei (lun–ven, UTC+8) avec un devis côté acheteur, le délai et la fourchette de prix attendue. Commande minimum USD 1 000 par expédition.",
       infoTitle: 'Informations à fournir',
       formList: ['Quel produit transformez-vous ou emballez-vous ?', 'Production cible par heure ou par jour', 'Format d\'emballage (sachets, bouteilles, poches, etc.)', 'Niveau d\'automatisation souhaité', 'Pays de destination et tension', 'Fourchette budgétaire (optionnel)'],
       methodsTitle: 'Contact rapide',
@@ -214,9 +214,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       responseNote: '⚡ Temps de réponse moyen : moins de 24 heures',
     },
     es: {
-      kicker: 'INICIAR UNA CONVERSACIÓN DE SOURCING',
+      kicker: 'SOLICITAR UNA COTIZACIÓN',
       title: 'Cuéntenos qué necesita',
-      desc: 'Envíe una foto de referencia o enlace de competencia, cantidad objetivo y el mercado al que vende. Respondemos el mismo día en horario laboral de Taipéi (lun–vie, UTC+8) con 2–3 direcciones de fábrica y el rango de precios esperado. Pedido mínimo USD 1 000 por envío.',
+      desc: 'Envíe una foto de referencia o enlace de competencia, cantidad objetivo y el mercado al que vende. Respondemos el mismo día en horario laboral de Taipéi (lun–vie, UTC+8) con una cotización del lado comprador, plazo de entrega y el rango de precios esperado. Pedido mínimo USD 1 000 por envío.',
       infoTitle: 'Información a incluir',
       formList: ['¿Qué producto procesa o empaca?', 'Cantidad objetivo por envío (ej. 5.000 pzs, 1×20ft)', 'Formato de empaque (bolsas, botellas, pouches, etc.)', 'Personalización / marca / empaque', 'Mercado de destino / país de envío', 'Rango de presupuesto (opcional)'],
       methodsTitle: 'Contacto rápido',

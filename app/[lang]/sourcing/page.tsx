@@ -81,11 +81,11 @@ const heroTitles: Record<string, string> = {
 }
 
 const heroDescs: Record<string, string> = {
-  en: 'We buy the goods from the factory and resell to you. Our margin sits on top, fully disclosed. We inspect the goods ourselves before they leave the factory or the forwarder warehouse. The whole transaction sits between you and one Taiwan-registered company — not a three-way thread with an unreachable factory.',
-  cn: '我们把货从工厂买下，再转卖给您。我们的转售利润揭露在外面。出货前由我们亲自把关——台湾的工厂直接到场、中国的货进我们合作货代仓库由我们验货。整笔交易落在您和一家台湾注册公司之间，而不是「写信给工厂等三天没回应」的三方信件。',
-  zh: '我們把貨從工廠買下，再轉賣給你。我們的轉售利潤揭露在外面。出貨前由我們親自把關——台灣的工廠直接到場、中國的貨進我們合作貨代倉庫由我們驗貨。整筆交易落在你和一家台灣註冊公司之間，而不是「寫信給工廠等三天沒回應」的三方信件。',
-  fr: "Nous achetons la marchandise à l'usine et vous la revendons. Notre marge est clairement affichée. Nous inspectons nous-mêmes avant que la marchandise ne quitte l'usine ou l'entrepôt du transitaire. Toute la transaction passe entre vous et une société taïwanaise enregistrée — pas une chaîne d'e-mails à trois avec une usine injoignable.",
-  es: 'Compramos la mercancía a la fábrica y se la revendemos. Nuestro margen está claramente mostrado. Inspeccionamos nosotros mismos antes de que la mercancía salga de la fábrica o del almacén del agente de carga. Toda la transacción está entre usted y una empresa registrada en Taiwán — no una cadena de correos a tres con una fábrica que no responde.',
+  en: 'We buy the goods from the factory and resell to you. Our quotation covers production coordination, quality control, export handling, and post-shipment support. We inspect the goods ourselves before they leave the factory or the forwarder warehouse. The whole transaction sits between you and one Taiwan-registered company — not a three-way thread with an unreachable factory.',
+  cn: '我们把货从工厂买下，再转卖给您。我们的报价涵盖生产协调、品质控管、出口处理与发运后支援。出货前由我们亲自把关——台湾的工厂直接到场、中国的货进我们合作货代仓库由我们验货。整笔交易落在您和一家台湾注册公司之间，而不是「写信给工厂等三天没回应」的三方信件。',
+  zh: '我們把貨從工廠買下，再轉賣給你。我們的報價涵蓋生產協調、品質控管、出口處理與發運後支援。出貨前由我們親自把關——台灣的工廠直接到場、中國的貨進我們合作貨代倉庫由我們驗貨。整筆交易落在你和一家台灣註冊公司之間，而不是「寫信給工廠等三天沒回應」的三方信件。',
+  fr: "Nous achetons la marchandise à l'usine et vous la revendons. Notre devis couvre la coordination de production, le contrôle qualité, la gestion des exports et le support post-expédition. Nous inspectons nous-mêmes avant que la marchandise ne quitte l'usine ou l'entrepôt du transitaire. Toute la transaction passe entre vous et une société taïwanaise enregistrée — pas une chaîne d'e-mails à trois avec une usine injoignable.",
+  es: 'Compramos la mercancía a la fábrica y se la revendemos. Nuestra cotización cubre coordinación de producción, control de calidad, gestión de exportación y soporte post-envío. Inspeccionamos nosotros mismos antes de que la mercancía salga de la fábrica o del almacén del agente de carga. Toda la transacción está entre usted y una empresa registrada en Taiwán — no una cadena de correos a tres con una fábrica que no responde.',
   pt: 'Não afirmamos fabricar tudo. Convertimos requisitos em critérios de aceitação verificáveis, auditamos fornecedores, realizamos inspeção pré-envio e entregamos documentação completa.',
   ko: '우리는 모든 것을 제조한다고 주장하지 않습니다. 요구사항을 검증 가능한 수락 기준으로 바꾸고, 공급업체를 심사하며, 출하 전 검사와 문서 패키지를 제공합니다.',
   ja: 'すべてを製造すると主張しません。要件を検証可能な受入基準に落とし込み、サプライヤー審査、出荷前検査、文書パッケージまで提供します。',
@@ -106,7 +106,7 @@ const sectionTitles: Record<
     scorecard: 'How we shortlist factories',
     trust: 'How we earn trust the first time',
     guides: 'Helpful reading',
-    start: 'Start a sourcing conversation',
+    start: 'Request a quotation',
   },
   zh: {
     process: '我們的 5 步流程',
@@ -115,7 +115,7 @@ const sectionTitles: Record<
     scorecard: '我們怎麼篩工廠',
     trust: '我們怎麼贏得第一次信任',
     guides: '可以順便看的資料',
-    start: '開始一次採購對話',
+    start: '索取報價',
   },
   cn: {
     process: '我们的 5 步流程',
@@ -124,7 +124,7 @@ const sectionTitles: Record<
     scorecard: '我们怎么筛工厂',
     trust: '我们怎么赢得第一次信任',
     guides: '可以顺便看的资料',
-    start: '开始一次采购对话',
+    start: '索取报价',
   },
   fr: {
     process: 'Notre processus en 5 étapes',
@@ -133,7 +133,7 @@ const sectionTitles: Record<
     scorecard: 'Comment nous présélectionnons les usines',
     trust: 'Comment nous gagnons la première confiance',
     guides: 'Lectures utiles',
-    start: 'Démarrer une conversation sourcing',
+    start: 'Demander un devis',
   },
   es: {
     process: 'Nuestro proceso en 5 pasos',
@@ -142,7 +142,7 @@ const sectionTitles: Record<
     scorecard: 'Cómo preseleccionamos fábricas',
     trust: 'Cómo nos ganamos la primera confianza',
     guides: 'Lecturas útiles',
-    start: 'Iniciar una conversación de sourcing',
+    start: 'Solicitar una cotización',
   },
   pt: {
     process: 'Como funciona',

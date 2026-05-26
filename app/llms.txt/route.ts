@@ -94,7 +94,7 @@ SunGene is a Taiwan-based trading company supplying selected products through ma
 - Drinkware & tabletop gifts category: ${SITE_URL}/en/sourcing/home
 - Outdoor event swag category: ${SITE_URL}/en/sourcing/garden
 - Beauty & wellness gift sets category: ${SITE_URL}/en/sourcing/beauty
-- Contact (start a sourcing conversation): ${SITE_URL}/en/contact
+- Contact (request a quotation): ${SITE_URL}/en/contact
 - Resources (background sourcing guides): ${SITE_URL}/en/resources
 - Alibaba.com storefront (third-party verification): https://momas.en.alibaba.com/
 

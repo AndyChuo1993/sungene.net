@@ -8,9 +8,9 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       kicker: 'HOW WE WORK',
       title: 'From your first message to your container, in 5 steps',
       items: [
-        { step: '01', title: 'Send us your brief', desc: 'A reference photo or competitor link is enough to start. Tell us target quantity, the price you have in mind, and your destination market. No NDA at this stage — just a sourcing conversation.' },
-        { step: '02', title: 'We shortlist 2–3 factories', desc: 'From our established Taiwan + China supplier network plus targeted vetting. Factories that quote suspiciously low, refuse to share certificates, or have unverifiable history are ruled out before they reach you.' },
-        { step: '03', title: 'You get one transparent quote', desc: 'Our resale price, the underlying FOB or EXW (on request), the lead time, and the payment terms. No surprise commission added at the end.' },
+        { step: '01', title: 'Send us your brief', desc: 'A reference photo or competitor link is enough to start. Tell us target quantity, the price you have in mind, and your destination market. No NDA at this stage — just an initial discussion of your requirements.' },
+        { step: '02', title: 'We coordinate production', desc: 'We coordinate with selected manufacturing partners across Taiwan and China based on your product requirements, target quantity, and delivery timeline. You see the partner only when production is confirmed.' },
+        { step: '03', title: 'You receive a buyer-facing quotation', desc: 'The quotation covers production coordination, quality control, export handling, and the delivery schedule — plus payment terms. One quotation, one supplier relationship.' },
         { step: '04', title: 'We inspect before it ships', desc: 'Taiwan factories: our team drives to the site. China factories: goods enter our forwarder’s warehouse and we inspect before export. You get photos and video of the actual goods — not stock images.' },
         { step: '05', title: 'Goods ship under our name', desc: 'Because we are the seller of record, customs documents, B/L, and any after-sales claim sit cleanly between you and us. No three-way email chains with a factory that doesn’t reply.' }
       ]
@@ -19,9 +19,9 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       kicker: '合作流程',
       title: '从您第一封讯息到您的货柜，5 步搞定',
       items: [
-        { step: '01', title: '给我们一份简单的 brief', desc: '一张参考图、一个竞品连结就够。再告诉我们目标数量、心目中的价格、销往哪个市场。这阶段不签 NDA——就是单纯的采购对话。' },
-        { step: '02', title: '我们筛 2–3 家工厂出来', desc: '从我们成熟的台湾与中国供应商网络出发，加上针对性查证。报价异常低、不肯提供认证、来历查不到的工厂在抵达您面前之前就已经被刷掉。' },
-        { step: '03', title: '一份透明报价给您', desc: '我们的转售价、底下的 FOB 或 EXW（您问就给）、交期、付款条件。最后不会再冒出额外抽佣。' },
+        { step: '01', title: '给我们一份简单的 brief', desc: '一张参考图、一个竞品连结就够。再告诉我们目标数量、心目中的价格、销往哪个市场。这阶段不签 NDA——就是初步的需求讨论。' },
+        { step: '02', title: '我们协调生产', desc: '我们与台湾和中国的精选制造伙伴协调生产，依据您的产品需求、目标数量与交期时程安排。生产确认后您才会看到合作伙伴。' },
+        { step: '03', title: '您收到买方视角的报价', desc: '报价涵盖生产协调、质量控管、出口处理与交期安排——加上付款条件。一份报价，一段供应关系。' },
         { step: '04', title: '出货前我们亲自验货', desc: '台湾的工厂团队直接开车去。中国的工厂出货先进我们合作货代的仓库，验货后才放行出口。给您看的是实拍照片与影片，不是工厂样照。' },
         { step: '05', title: '以我们名义出货', desc: '因为我们才是卖方，报关单、提单、售后索赔都干净落在您和我们之间。不会出现「写信给工厂三天没人回」的状况。' }
       ]
@@ -30,9 +30,9 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       kicker: '合作流程',
       title: '從你第一封訊息到你的貨櫃，5 步搞定',
       items: [
-        { step: '01', title: '給我們一份簡單的 brief', desc: '一張參考圖、一個競品連結就夠。再告訴我們目標數量、心目中的價格、銷往哪個市場。這階段不簽 NDA——就是單純的採購對話。' },
-        { step: '02', title: '我們篩 2–3 家工廠出來', desc: '從我們成熟的台灣與中國供應商網絡出發，加上針對性查證。報價異常低、不肯提供認證、來歷查不到的工廠在抵達你面前之前就已經被刷掉。' },
-        { step: '03', title: '一份透明報價給你', desc: '我們的轉售價、底下的 FOB 或 EXW（你問就給）、交期、付款條件。最後不會再冒出額外抽佣。' },
+        { step: '01', title: '給我們一份簡單的 brief', desc: '一張參考圖、一個競品連結就夠。再告訴我們目標數量、心目中的價格、銷往哪個市場。這階段不簽 NDA——就是初步的需求討論。' },
+        { step: '02', title: '我們協調生產', desc: '我們與台灣和中國的精選製造夥伴協調生產，依據你的產品需求、目標數量與交期時程安排。生產確認後你才會看到合作夥伴。' },
+        { step: '03', title: '你收到買方視角的報價', desc: '報價涵蓋生產協調、品質控管、出口處理與交期安排——加上付款條件。一份報價，一段供應關係。' },
         { step: '04', title: '出貨前我們親自驗貨', desc: '台灣的工廠團隊直接開車去。中國的工廠出貨先進我們合作貨代的倉庫，驗貨後才放行出口。給你看的是實拍照片與影片，不是工廠樣照。' },
         { step: '05', title: '以我們名義出貨', desc: '因為我們才是賣方，報關單、提單、售後索賠都乾淨落在你和我們之間。不會出現「寫信給工廠三天沒人回」的狀況。' }
       ]
@@ -41,9 +41,9 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       kicker: 'NOTRE PROCESSUS',
       title: 'De votre premier message à votre conteneur, en 5 étapes',
       items: [
-        { step: '01', title: 'Envoyez-nous un brief simple', desc: "Une photo de référence ou un lien concurrent suffit. Indiquez quantité cible, prix visé et marché de destination. Pas de NDA à ce stade — juste une conversation sourcing." },
-        { step: '02', title: 'Nous présélectionnons 2–3 usines', desc: "Depuis notre réseau fournisseurs établi à Taïwan et en Chine, complété par une vérification ciblée. Les usines aux prix suspicieusement bas, qui refusent de partager leurs certificats ou dont l'historique est invérifiable sont écartées avant de vous être présentées." },
-        { step: '03', title: 'Un devis transparent', desc: "Notre prix de revente, le FOB ou EXW sous-jacent (sur demande), le délai et les conditions de paiement. Pas de commission surprise ajoutée à la fin." },
+        { step: '01', title: 'Envoyez-nous un brief simple', desc: "Une photo de référence ou un lien concurrent suffit. Indiquez quantité cible, prix visé et marché de destination. Pas de NDA à ce stade — juste un échange initial sur vos besoins." },
+        { step: '02', title: 'Nous coordonnons la production', desc: "Nous coordonnons la production avec des partenaires manufacturiers sélectionnés à Taïwan et en Chine, en fonction de vos exigences produit, quantité cible et délai de livraison. Vous voyez le partenaire une fois la production confirmée." },
+        { step: '03', title: 'Vous recevez un devis côté acheteur', desc: "Le devis couvre la coordination de production, le contrôle qualité, la gestion des exports et le calendrier de livraison — ainsi que les conditions de paiement. Un devis, une relation fournisseur." },
         { step: '04', title: 'Inspection avant expédition', desc: "Usines à Taïwan : notre équipe se déplace. Usines en Chine : la marchandise arrive à l'entrepôt de notre transitaire et nous inspectons avant export. Photos et vidéo de la marchandise réelle — pas de visuel d'usine." },
         { step: '05', title: 'Expédition à notre nom', desc: "Comme nous sommes le vendeur enregistré, documents douaniers, B/L et réclamations après-vente passent proprement entre vous et nous. Pas de chaînes d'e-mails à trois avec une usine qui ne répond pas." }
       ]
@@ -52,9 +52,9 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       kicker: 'NUESTRO PROCESO',
       title: 'Desde su primer mensaje hasta su contenedor, en 5 pasos',
       items: [
-        { step: '01', title: 'Envíenos un brief simple', desc: 'Una foto de referencia o un enlace de la competencia basta. Díganos cantidad objetivo, precio que tiene en mente y mercado de destino. Sin NDA en esta etapa — solo conversación de sourcing.' },
-        { step: '02', title: 'Preseleccionamos 2–3 fábricas', desc: 'Desde nuestra red establecida de proveedores en Taiwán y China, más verificación dirigida. Fábricas con precios sospechosamente bajos, que se niegan a compartir certificados o con historial no verificable son descartadas antes de llegar a usted.' },
-        { step: '03', title: 'Una cotización transparente', desc: 'Nuestro precio de reventa, el FOB o EXW subyacente (bajo petición), tiempo de entrega y condiciones de pago. Sin comisión sorpresa al final.' },
+        { step: '01', title: 'Envíenos un brief simple', desc: 'Una foto de referencia o un enlace de la competencia basta. Díganos cantidad objetivo, precio que tiene en mente y mercado de destino. Sin NDA en esta etapa — solo una discusión inicial de sus requisitos.' },
+        { step: '02', title: 'Coordinamos la producción', desc: 'Coordinamos la producción con socios manufactureros seleccionados en Taiwán y China, según sus requisitos de producto, cantidad objetivo y plazo de entrega. Verá al socio una vez confirmada la producción.' },
+        { step: '03', title: 'Recibe una cotización del lado comprador', desc: 'La cotización cubre coordinación de producción, control de calidad, gestión de exportación y plazo de entrega — más condiciones de pago. Una cotización, una relación de proveedor.' },
         { step: '04', title: 'Inspección antes del envío', desc: 'Fábricas en Taiwán: nuestro equipo se desplaza. Fábricas en China: la mercancía entra al almacén de nuestro agente de carga y la inspeccionamos antes de exportar. Fotos y video de la mercancía real — no imágenes de fábrica.' },
         { step: '05', title: 'La mercancía se exporta a nuestro nombre', desc: 'Como somos el vendedor registrado, los documentos aduaneros, B/L y cualquier reclamo post-venta quedan limpios entre usted y nosotros. Sin cadenas de correos a tres con una fábrica que no responde.' }
       ]

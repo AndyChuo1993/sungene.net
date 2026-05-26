@@ -31,7 +31,7 @@ const labels: Record<
 > = {
   en: {
     title: 'Request a quotation in 1 business day',
-    subtitle: '5 fields. Our team replies the same day with 2–3 factory directions, lead time, and the price band you should expect.',
+    subtitle: '5 fields. Our team replies the same day with a buyer-facing quotation, lead time, and the price band you should expect.',
     name: 'Your name *',
     email: 'Work email *',
     whatsapp: 'WhatsApp or phone',
@@ -41,14 +41,14 @@ const labels: Record<
     submit: 'Get Quote',
     submitting: 'Sending…',
     successTitle: 'Received — preparing your quote',
-    successBody: 'Our team will reply with 2–3 factory directions and a price band within 1 business day.',
+    successBody: 'Our team will reply with a buyer-facing quotation and price band within 1 business day.',
     errorTitle: 'Something went wrong',
     errorBody: 'Please email contact@sungene.net or use WhatsApp.',
     privacy: 'No spam. Your details are used only to prepare your quotation.',
   },
   zh: {
     title: '1 個工作日取得報價',
-    subtitle: '5 個欄位,當日回覆 2–3 個工廠方向、交期與預期價格區間。',
+    subtitle: '5 個欄位,當日回覆買方視角的報價、交期與預期價格區間。',
     name: '姓名 *',
     email: '公司電郵 *',
     whatsapp: 'WhatsApp 或電話',
