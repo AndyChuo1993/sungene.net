@@ -5,9 +5,9 @@ import { t, Lang } from '@/lib/i18n'
 import { Container } from '@/components/ui/Container'
 
 export default function Footer({ lang }: { lang: Lang }) {
-  const sourcingScopeLabel = ({ en: 'Sourcing Scope', cn: '采购范围', zh: '採購範圍', fr: 'Périmètre sourcing', es: 'Alcance de abastecimiento', pt: 'Escopo de sourcing', ko: '소싱 범위', ja: '調達範囲', ar: 'نطاق التوريد', th: 'ขอบเขตการจัดหา', vi: 'Phạm vi sourcing', de: 'Sourcing-Bereich' } as Record<string, string>)[lang] || 'Sourcing Scope'
+  const sourcingScopeLabel = ({ en: 'Product Scope', cn: '产品范围', zh: '產品範圍', fr: 'Périmètre produits', es: 'Alcance de productos', pt: 'Escopo de produtos', ko: '제품 범위', ja: '製品範囲', ar: 'نطاق المنتجات', th: 'ขอบเขตผลิตภัณฑ์', vi: 'Phạm vi sản phẩm', de: 'Produktbereich' } as Record<string, string>)[lang] || 'Product Scope'
   const commonNeedsLabel = ({ en: 'Common Needs', cn: '常见需求', zh: '常見需求', fr: 'Besoins courants', es: 'Necesidades comunes', pt: 'Necessidades comuns', ko: '주요 요구', ja: 'よくある要件', ar: 'الاحتياجات الشائعة', th: 'ความต้องการทั่วไป', vi: 'Nhu cầu phổ biến', de: 'Typische Bedarfe' } as Record<string, string>)[lang] || 'Common Needs'
-  const toolsLabel = ({ en: 'Sourcing Tools', cn: '采购工具', zh: '採購工具', fr: 'Outils sourcing', es: 'Herramientas de abastecimiento', pt: 'Ferramentas de sourcing', ko: '소싱 도구', ja: '調達ツール', ar: 'أدوات التوريد', th: 'เครื่องมือจัดหา', vi: 'Công cụ sourcing', de: 'Sourcing-Tools' } as Record<string, string>)[lang] || 'Sourcing Tools'
+  const toolsLabel = ({ en: 'Buyer Tools', cn: '买家工具', zh: '買家工具', fr: 'Outils acheteur', es: 'Herramientas para el comprador', pt: 'Ferramentas para compradores', ko: '구매자 도구', ja: 'バイヤーツール', ar: 'أدوات المشتري', th: 'เครื่องมือผู้ซื้อ', vi: 'Công cụ người mua', de: 'Käufer-Tools' } as Record<string, string>)[lang] || 'Buyer Tools'
 
   // Footer category links.
   // The labels reflect the new positioning: packaging, home, garden categories.

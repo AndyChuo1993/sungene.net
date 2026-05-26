@@ -23,7 +23,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
       items: [
         { title: 'Online retailers & Amazon FBA sellers', desc: 'You need consistent, photo-faithful product from China and want someone in Asia to check the goods before they go in your container.' },
         { title: 'Private-label brand owners', desc: 'You sell home, kitchen, garden, or packaging products under your own brand and need quality control that survives more than two re-orders.' },
-        { title: 'Importers & distributors', desc: 'You sell into your local market and want a partner who replies same-day, sends inspection videos, and disclosed FOB prices when you ask.' },
+        { title: 'Importers & distributors', desc: 'You sell into your local market and want a partner who replies same-day, sends inspection videos, and gives clear unit pricing.' },
         { title: 'Boutique buyers & specialty stores', desc: 'You order small batches, you care about how the product actually looks in hand, and you would rather pay a fair markup than chase factories yourself.' },
       ]
     },
@@ -34,7 +34,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
       items: [
         { title: '电商卖家与亚马逊 FBA 卖家', desc: '您需要从中国稳定拿到与图片一致的产品，希望有人在亚洲帮您验货后再装柜。' },
         { title: '自有品牌商', desc: '您在家居、厨房、园艺或包装领域做自有品牌，需要的是补单两次以上还稳得住品质的供应商。' },
-        { title: '进口商与经销商', desc: '您卖到本地市场，想要的是当天回讯、附验货视频、被问就告诉您 FOB 价的合作伙伴。' },
+        { title: '进口商与经销商', desc: '您卖到本地市场，想要的是当天回讯、附验货视频、有清楚单价的合作伙伴。' },
         { title: '精品采购与特色店家', desc: '您下小批次单，在意产品上手实际质感，宁愿付合理加价也不想自己天天追工厂。' },
       ]
     },
@@ -45,7 +45,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
       items: [
         { title: '電商賣家與亞馬遜 FBA 賣家', desc: '你需要從中國穩定拿到與圖片一致的產品，希望有人在亞洲幫你驗貨後再裝櫃。' },
         { title: '自有品牌商', desc: '你在家居、廚房、園藝或包裝領域做自有品牌，需要的是補單兩次以上還穩得住品質的供應商。' },
-        { title: '進口商與經銷商', desc: '你賣到本地市場，想要的是當天回訊、附驗貨影片、被問就告訴你 FOB 價的合作夥伴。' },
+        { title: '進口商與經銷商', desc: '你賣到本地市場，想要的是當天回訊、附驗貨影片、有清楚單價的合作夥伴。' },
         { title: '精品採購與特色店家', desc: '你下小批次單，在意產品上手實際質感，寧願付合理加價也不想自己天天追工廠。' },
       ]
     },
@@ -56,7 +56,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
       items: [
         { title: 'E-commerçants & vendeurs Amazon FBA', desc: 'Vous voulez des produits chinois conformes aux photos, et un partenaire en Asie qui inspecte avant la mise en conteneur.' },
         { title: 'Marques en private label', desc: 'Vous vendez maison, cuisine, jardin ou emballage sous votre marque et avez besoin d’une qualité qui tient plus de deux réassorts.' },
-        { title: 'Importateurs & distributeurs', desc: 'Vous vendez sur votre marché local et cherchez un partenaire qui répond le jour même, fournit les vidéos d’inspection et divulgue les prix FOB sur demande.' },
+        { title: 'Importateurs & distributeurs', desc: 'Vous vendez sur votre marché local et cherchez un partenaire qui répond le jour même, fournit les vidéos d’inspection et donne un prix unitaire clair.' },
         { title: 'Acheteurs boutique & magasins spécialisés', desc: "Vous commandez en petite série, vous tenez à l'aspect réel du produit en main, et vous préférez payer une marge correcte plutôt que poursuivre les usines vous-même." },
       ]
     },
@@ -67,7 +67,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
       items: [
         { title: 'E-commerce y vendedores de Amazon FBA', desc: 'Necesita producto chino fiel a las fotos y quiere alguien en Asia que revise antes de cargar el contenedor.' },
         { title: 'Marcas de private label', desc: 'Vende hogar, cocina, jardín o empaque bajo su marca y necesita una calidad que aguante más de dos rondas de reabastecimiento.' },
-        { title: 'Importadores y distribuidores', desc: 'Vende en su mercado local y busca un socio que responda el mismo día, envíe videos de inspección y revele precios FOB cuando pregunta.' },
+        { title: 'Importadores y distribuidores', desc: 'Vende en su mercado local y busca un socio que responda el mismo día, envíe videos de inspección y dé precios unitarios claros.' },
         { title: 'Compradores boutique y tiendas especializadas', desc: 'Pide lotes pequeños, le importa cómo se ve el producto en la mano, y prefiere pagar un margen justo antes que perseguir fábricas usted mismo.' },
       ]
     },
@@ -176,7 +176,7 @@ export default function WhoWeWorkWith({ lang }: { lang: Lang }) {
             {({ en: 'How we work with these buyers →', zh: '我們怎麼跟這些買家合作 →', cn: '我们怎么跟这些买家合作 →', fr: 'Comment nous travaillons avec eux →', es: 'Cómo trabajamos con ellos →' } as Record<string, string>)[lang] || 'How we work with these buyers →'}
           </Link>
           <Link href={`/${lang}/contact`} className="text-sm font-semibold text-accent-600 hover:underline">
-            {({ en: 'Get sourcing assessment →', cn: '获取采购评估 →', zh: '取得採購評估 →', fr: 'Obtenir une évaluation →', es: 'Obtener evaluación →', pt: 'Obter avaliação →', ko: '소싱 평가 받기 →', ja: 'ソーシング評価を受ける →', ar: 'احصل على تقييم التوريد ←', th: 'รับการประเมินการจัดหา →', vi: 'Nhận đánh giá sourcing →', de: 'Sourcing-Bewertung erhalten →' } as Record<string, string>)[lang] || 'Get sourcing assessment →'}
+            {({ en: 'Request a quotation →', cn: '索取报价 →', zh: '索取報價 →', fr: 'Demander un devis →', es: 'Solicitar una cotización →', pt: 'Solicitar uma cotação →', ko: '견적 요청하기 →', ja: '見積もりを依頼 →', ar: 'اطلب عرض سعر ←', th: 'ขอใบเสนอราคา →', vi: 'Yêu cầu báo giá →', de: 'Angebot anfordern →' } as Record<string, string>)[lang] || 'Request a quotation →'}
           </Link>
         </div>
       </Container>

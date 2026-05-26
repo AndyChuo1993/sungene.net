@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { headers } from 'next/headers'
 
 const tx: Record<string, { title: string; desc: string; machinery: string; recommend: string; resources: string; home: string }> = {
-  en: { title: 'Page not found', desc: 'The page may have moved or the URL is incorrect.', machinery: 'Sourcing Scope', recommend: 'Get assessment', resources: 'Resources', home: 'Home' },
+  en: { title: 'Page not found', desc: 'The page may have moved or the URL is incorrect.', machinery: 'Product Scope', recommend: 'Get assessment', resources: 'Resources', home: 'Home' },
   zh: { title: '找不到頁面', desc: '頁面可能已移動或網址不正確。', machinery: '採購範圍', recommend: '取得評估', resources: '資源中心', home: '首頁' },
   cn: { title: '找不到页面', desc: '页面可能已移动或网址不正确。', machinery: '采购范围', recommend: '获取评估', resources: '资源中心', home: '首页' },
   fr: { title: 'Page introuvable', desc: 'La page a peut-être été déplacée ou l’URL est incorrecte.', machinery: 'Périmètre sourcing', recommend: 'Obtenir une évaluation', resources: 'Ressources', home: 'Accueil' },

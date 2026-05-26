@@ -30,7 +30,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
   en: {
     sections: [
       { h: 'Acceptance of terms', p: 'By submitting an inquiry, accepting a quotation, or placing an order through sungene.net or our team, you accept these terms. SunGene Co., LTD. is the contracting entity, registered in Taichung, Taiwan, with a registered office in Xiamen, Mainland China.' },
-      { h: 'Nature of service', p: 'SunGene acts as a buy-and-resell trading principal. We purchase goods from vetted factories at FOB or EXW terms and resell to you with our margin shown separately on the quote. Underlying factory pricing is shared on request before order confirmation.' },
+      { h: 'Nature of service', p: 'SunGene is a Taiwan-registered trading company. We supply selected products to you through coordinated manufacturing with our partners in Taiwan and China. Our quotation is all-inclusive: it covers production coordination, quality control (including pre-shipment AQL inspection by in-house SunGene staff), export documentation, and delivery scheduling. We act as the contracting counterparty for the sale.' },
       { h: 'Quotations', p: 'Quotations are valid for 14 days from issuance unless otherwise stated. Prices are denominated in USD by default. Quotations include factory cost, our margin, agreed Incoterms (FOB / CIF / DDP), packaging spec, lead time, and payment terms.' },
       { h: 'Orders and payment', p: 'Standard payment terms are T/T 30% deposit upon order confirmation, 70% balance before shipment. L/C at sight is supported for orders above USD 30,000. Wire transfers are settled in USD; bank fees on the sender side. Mould tooling, samples, and custom-print plates are paid before production starts.' },
       { h: 'Lead time and shipping', p: 'Stock SKUs ship within 7–14 days. Custom-print packaging: 25–35 days. Private-label home/garden/beauty: 35–55 days. Lead times start from receipt of cleared deposit and approved artwork/samples. Sea freight transit varies 18–35 days depending on port.' },
@@ -44,7 +44,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
   zh: {
     sections: [
       { h: '條款接受', p: '當你透過 sungene.net 或我方團隊提交詢問、接受報價或下單,即代表你接受本條款。SunGene Co., LTD.(上瑾錸有限公司)為簽約主體,登記於台灣台中,並在中國大陸廈門設有辦公室。' },
-      { h: '服務性質', p: 'SunGene 為買斷再轉售的貿易主體(principal)。我們以 FOB 或 EXW 向審核過的工廠採購,在報價單上把我方利潤與工廠價分開列出。底下的工廠報價在訂單確認前可應要求分享。' },
+      { h: '服務性質', p: 'SunGene 為台灣登記的貿易公司。我們透過與台灣及中國精選製造夥伴的協調生產,向你供應產品。報價為一份統合:涵蓋生產協調、品質控管(含 SunGene 自有員工出口前 AQL 品檢)、出口文件與交期安排。SunGene 為交易合約對口方。' },
       { h: '報價', p: '報價自開立日起 14 日內有效,另有約定者除外。價格預設以 USD 計價。報價含工廠成本、我方利潤、約定的 Incoterms(FOB / CIF / DDP)、包裝規格、交期與付款條件。' },
       { h: '訂單與付款', p: '標準付款條件為 T/T 30% 訂金於訂單確認時、70% 尾款於出貨前。即期 L/C 適用於 USD 30,000 以上之訂單。電匯以 USD 結算,銀行手續費由匯款方負擔。模具費、樣品費、客製印版費於量產前支付。' },
       { h: '交期與出貨', p: '現貨 SKU 7–14 日出貨。客製印刷包裝 25–35 日。家居/園藝/美容貼牌 35–55 日。交期自訂金到帳且確認稿/樣品後起算。海運運期視港口 18–35 日。' },
@@ -58,7 +58,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
   cn: {
     sections: [
       { h: '条款接受', p: '当你通过 sungene.net 或我方团队提交询问、接受报价或下单,即代表你接受本条款。SunGene Co., LTD.(上瑾錸有限公司)为签约主体,注册于台湾台中,并在中国大陆厦门设有办公室。' },
-      { h: '服务性质', p: 'SunGene 为买断再转售的贸易主体。我们以 FOB 或 EXW 向核查过的工厂采购,在报价单上把我方利润与工厂价分开列出。底下的工厂报价在订单确认前可应要求分享。' },
+      { h: '服务性质', p: 'SunGene 为台湾登记的贸易公司。我们通过与台湾及中国精选制造伙伴的协调生产,向您供应产品。报价为一份统合:涵盖生产协调、质量控管(含 SunGene 自有员工出口前 AQL 品检)、出口文件与交期安排。SunGene 为交易合约对口方。' },
       { h: '报价', p: '报价自开立日起 14 日内有效,另有约定者除外。价格默认以 USD 计价。报价含工厂成本、我方利润、约定的 Incoterms(FOB / CIF / DDP)、包装规格、交期与付款条件。' },
       { h: '订单与付款', p: '标准付款条件为 T/T 30% 订金于订单确认时、70% 尾款于发货前。即期 L/C 适用于 USD 30,000 以上之订单。电汇以 USD 结算,银行手续费由汇款方负担。模具费、样品费、定制印版费于量产前支付。' },
       { h: '交期与发货', p: '现货 SKU 7–14 日发货。定制印刷包装 25–35 日。家居/园艺/美容贴牌 35–55 日。交期自订金到账且确认稿/样品后起算。海运运期视港口 18–35 日。' },
@@ -72,7 +72,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
   fr: {
     sections: [
       { h: 'Acceptation', p: 'En soumettant une demande, acceptant un devis ou passant commande via sungene.net ou notre équipe, vous acceptez ces conditions. SunGene Co., LTD. est l\'entité contractante, enregistrée à Taichung (Taïwan) avec un bureau à Xiamen (Chine continentale).' },
-      { h: 'Nature du service', p: 'SunGene agit comme négociant achat-revente principal. Nous achetons FOB ou EXW à des usines vérifiées et revendons avec notre marge affichée séparément sur le devis. Le prix usine sous-jacent est partagé sur demande avant confirmation de commande.' },
+      { h: 'Nature du service', p: 'SunGene est une société de négoce enregistrée à Taïwan. Nous vous fournissons des produits sélectionnés via une coordination manufacturière avec nos partenaires à Taïwan et en Chine. Notre devis est tout inclus : il couvre la coordination de production, le contrôle qualité (y compris l\'inspection AQL avant expédition par notre équipe interne SunGene), la documentation d\'export et le calendrier de livraison. SunGene est la partie contractante de la vente.' },
       { h: 'Devis', p: 'Les devis sont valables 14 jours sauf mention contraire. Prix en USD par défaut. Le devis inclut coût usine, notre marge, Incoterms convenus (FOB / CIF / DDP), spec emballage, délai et conditions de paiement.' },
       { h: 'Commandes et paiement', p: 'Paiement standard : T/T 30 % d\'acompte à la confirmation, 70 % avant expédition. L/C à vue accepté au-dessus de 30 000 USD. Virements en USD, frais bancaires côté émetteur. Outillages, échantillons et plaques d\'impression personnalisées sont payés avant production.' },
       { h: 'Délais et expédition', p: 'SKU stock : 7–14 jours. Emballage imprimé personnalisé : 25–35 jours. Marque blanche maison/jardin/beauté : 35–55 jours. Délais à compter de l\'acompte reçu et de l\'approbation graphique. Transit maritime : 18–35 jours selon port.' },
@@ -86,7 +86,7 @@ const CONTENT: Record<Lang, { sections: { h: string; p: string }[] }> = {
   es: {
     sections: [
       { h: 'Aceptación', p: 'Al enviar una consulta, aceptar una cotización o realizar un pedido a través de sungene.net o nuestro equipo, usted acepta estos términos. SunGene Co., LTD. es la entidad contratante, registrada en Taichung (Taiwán) con oficina en Xiamen (China continental).' },
-      { h: 'Naturaleza del servicio', p: 'SunGene actúa como comerciante de compra-reventa principal. Compramos FOB o EXW a fábricas verificadas y revendemos con nuestra margen mostrada por separado en la cotización. El precio de fábrica subyacente se comparte bajo solicitud antes de la confirmación.' },
+      { h: 'Naturaleza del servicio', p: 'SunGene es una empresa comercial registrada en Taiwán. Le suministramos productos seleccionados mediante coordinación manufacturera con nuestros socios en Taiwán y China. Nuestra cotización es todo incluido: cubre coordinación de producción, control de calidad (incluyendo inspección AQL pre-envío por nuestro equipo interno SunGene), documentación de exportación y calendario de entrega. SunGene es la parte contratante de la venta.' },
       { h: 'Cotizaciones', p: 'Las cotizaciones son válidas 14 días salvo mención en contrario. Precios en USD por defecto. Incluyen costo de fábrica, margen, Incoterms acordados (FOB / CIF / DDP), spec de empaque, plazo y términos de pago.' },
       { h: 'Pedidos y pago', p: 'Pago estándar: T/T 30 % anticipo en confirmación, 70 % antes del envío. L/C a la vista para pedidos sobre USD 30,000. Transferencias en USD, comisiones bancarias del remitente. Moldes, muestras y placas de impresión se pagan antes de producción.' },
       { h: 'Plazos y envío', p: 'SKU en stock: 7–14 días. Empaque impreso personalizado: 25–35 días. Marca blanca hogar/jardín/belleza: 35–55 días. Plazos desde recepción de anticipo y aprobación gráfica. Tránsito marítimo 18–35 días según puerto.' },

@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 const metaTitles: Record<string, string> = {
-  en: 'SunGene direct sourcing from Taiwan + China',
+  en: 'SunGene product supply from Taiwan + China',
   cn: '我们怎么合作｜直接从台湾+中国工厂买货转售',
   zh: '我們怎麼合作｜直接從台灣＋中國工廠買貨轉售',
   fr: 'Notre méthode — achat-revente direct, usines TW + CN',
@@ -66,11 +66,11 @@ const heroKicker: Record<string, string> = {
 }
 
 const heroTitles: Record<string, string> = {
-  en: 'Direct sourcing from Taiwan + China factories — paper gift packaging + corporate gifts',
-  cn: '直接采购台湾 + 中国工厂 — 纸盒礼品包装 + 企业礼赠品',
-  zh: '直接採購台灣 + 中國工廠 — 紙盒禮品包裝 + 企業禮贈品',
-  fr: "Sourcing direct depuis usines Taïwan + Chine — emballage cadeau papier + cadeaux corporate",
-  es: 'Sourcing directo de fábricas Taiwán + China — embalaje regalo papel + regalos corporativos',
+  en: 'Product supply from Taiwan + China — custom packaging + corporate gifts',
+  cn: '来自台湾与中国的产品供应 — 客制包装 + 企业礼赠品',
+  zh: '來自台灣與中國的產品供應 — 客製包裝 + 企業禮贈品',
+  fr: "Approvisionnement produits depuis Taïwan + Chine — emballage sur mesure + cadeaux corporate",
+  es: 'Suministro de productos desde Taiwán + China — empaque personalizado + regalos corporativos',
   pt: 'Rede Taiwan + China, com entrega controlada por critérios de aceitação',
   ko: '대만+중국 공급망, 수락 기준으로 리스크를 통제합니다',
   ja: '台湾＋中国ネットワーク。受入基準でリスクを管理',

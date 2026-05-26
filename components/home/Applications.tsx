@@ -5,9 +5,9 @@ import { Container } from '@/components/ui/Container'
 export default function Applications({ lang }: { lang: Lang }) {
   const content: Record<string, any> = {
     en: {
-      kicker: 'WHAT WE SOURCE',
-      title: 'Sourcing categories',
-      desc: 'Active monthly purchasing across these six categories with established Taiwan and China supplier networks. Adjacent categories are quoted on request.',
+      kicker: 'WHAT WE SUPPLY',
+      title: 'Product categories',
+      desc: 'Active monthly supply across these six categories through established manufacturing partners in Taiwan and China. Adjacent categories quoted on request.',
       categories: [
         { name: 'Flexible packaging', examples: 'Stand-up pouches, ziplock bags, kraft bags, films, sachets, vacuum bags', icon: '🛍️' },
         { name: 'Rigid packaging', examples: 'Glass jars, plastic bottles, tin containers, gift boxes, pumps & closures', icon: '🫙' },
@@ -19,9 +19,9 @@ export default function Applications({ lang }: { lang: Lang }) {
       cta: 'Talk to us about your category'
     },
     cn: {
-      kicker: '我们的采购品类',
-      title: '采购品类',
-      desc: '以下六大品类我们每月持续采购，在台湾与中国均有成熟的供应商网络。相邻品类可依需求询价。',
+      kicker: '我们供应的品类',
+      title: '产品品类',
+      desc: '以下六大品类我们每月持续供应，透过台湾与中国成熟的制造伙伴网络。相邻品类可依需求询价。',
       categories: [
         { name: '软包装', examples: '立袋、夹链袋、牛皮纸袋、薄膜、随身包、真空袋', icon: '🛍️' },
         { name: '硬包装', examples: '玻璃罐、塑胶瓶、马口铁罐、礼盒、泵头与封口', icon: '🫙' },
@@ -33,9 +33,9 @@ export default function Applications({ lang }: { lang: Lang }) {
       cta: '聊聊您的品类'
     },
     zh: {
-      kicker: '我們的採購品類',
-      title: '採購品類',
-      desc: '以下六大品類我們每月持續採購，在台灣與中國均有成熟的供應商網絡。相鄰品類可依需求詢價。',
+      kicker: '我們供應的品類',
+      title: '產品品類',
+      desc: '以下六大品類我們每月持續供應，透過台灣與中國成熟的製造夥伴網絡。相鄰品類可依需求詢價。',
       categories: [
         { name: '軟包裝', examples: '立袋、夾鏈袋、牛皮紙袋、薄膜、隨身包、真空袋', icon: '🛍️' },
         { name: '硬包裝', examples: '玻璃罐、塑膠瓶、馬口鐵罐、禮盒、泵頭與封口', icon: '🫙' },
@@ -47,9 +47,9 @@ export default function Applications({ lang }: { lang: Lang }) {
       cta: '聊聊你的品類'
     },
     fr: {
-      kicker: 'CE QUE NOUS SOURÇONS',
-      title: 'Catégories de sourcing',
-      desc: "Achats mensuels actifs sur six catégories, avec des réseaux fournisseurs établis à Taïwan et en Chine. Catégories voisines sur demande.",
+      kicker: 'CE QUE NOUS FOURNISSONS',
+      title: 'Catégories de produits',
+      desc: "Approvisionnement mensuel actif sur six catégories via des partenaires manufacturiers établis à Taïwan et en Chine. Catégories voisines sur demande.",
       categories: [
         { name: 'Emballage souple', examples: 'Pochettes stand-up, sachets zip, sacs kraft, films, sachets, sacs sous vide', icon: '🛍️' },
         { name: 'Emballage rigide', examples: 'Bocaux verre, flacons plastique, boîtes métal, coffrets cadeaux, pompes & fermetures', icon: '🫙' },
@@ -61,9 +61,9 @@ export default function Applications({ lang }: { lang: Lang }) {
       cta: 'Parlez-nous de votre catégorie'
     },
     es: {
-      kicker: 'LO QUE ABASTECEMOS',
-      title: 'Categorías de sourcing',
-      desc: 'Compras mensuales activas en seis categorías con redes de proveedores establecidas en Taiwán y China. Categorías vecinas bajo petición.',
+      kicker: 'LO QUE SUMINISTRAMOS',
+      title: 'Categorías de productos',
+      desc: 'Suministro mensual activo en seis categorías a través de socios manufactureros establecidos en Taiwán y China. Categorías vecinas bajo petición.',
       categories: [
         { name: 'Empaque flexible', examples: 'Bolsas stand-up, bolsas con cierre, bolsas kraft, films, sobres, bolsas al vacío', icon: '🛍️' },
         { name: 'Empaque rígido', examples: 'Frascos de vidrio, botellas plásticas, latas, cajas regalo, bombas y cierres', icon: '🫙' },
