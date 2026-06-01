@@ -1,0 +1,19 @@
+# SunGene nginx access log rotation (manual install, NOT BT-Panel managed)
+# Source mirror tracked in repo: _server_edit/logrotate.d-nginx-sungene
+# Created 2026-06-01 to fix antipattern #7 recurrence (logrotate without
+# SIGUSR1 to nginx caused 5-day blackout from 5/27 to 6/01).
+/www/wwwlogs/sungene_net.log
+/www/wwwlogs/sungene_net.error.log
+{
+    daily
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    dateext
+    sharedscripts
+    postrotate
+        [ -f /var/run/nginx.pid ] && kill -USR1 $(cat /var/run/nginx.pid)
+    endscript
+}
