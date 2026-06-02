@@ -13,7 +13,7 @@
  *  - Pre-filled WhatsApp message includes the page URL so the sales team
  *    knows which machine/market/industry the buyer was looking at.
  */
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import type { Lang } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/siteConfig'
 import { trackEvent } from '@/lib/analytics'
@@ -21,6 +21,13 @@ import { trackEvent } from '@/lib/analytics'
 const PHONE_TW = '+886437032705'
 const WHATSAPP_NUMBER = '8618144132078' // +86 18144132078, digits only for wa.me
 const EMAIL = 'contact@sungene.net'
+
+const SOURCING_CATEGORIES: Record<'packaging' | 'home' | 'garden' | 'beauty', Partial<Record<Lang, string>> & { en: string }> = {
+  packaging: { en: 'Custom Packaging', zh: '客製包裝', cn: '定制包装', fr: 'Emballage personnalisé', es: 'Embalaje personalizado' },
+  home: { en: 'Home & Living', zh: '居家生活', cn: '居家生活', fr: 'Maison & vie quotidienne', es: 'Hogar y estilo de vida' },
+  garden: { en: 'Outdoor', zh: '戶外', cn: '户外', fr: 'Plein air', es: 'Aire libre' },
+  beauty: { en: 'Beauty', zh: '美容', cn: '美容', fr: 'Beauté', es: 'Belleza' },
+}
 
 const labels: Record<
   Lang,
@@ -131,9 +138,18 @@ export default function StickyContactFAB({ lang }: { lang: Lang }) {
     return () => window.clearTimeout(id)
   }, [])
 
-  const waMsg = encodeURIComponent(`${t.whatsappMsg}${currentUrl || SITE_URL}`)
+  const categoryHint = useMemo(() => {
+    if (!currentUrl) return ''
+    const m = currentUrl.match(/\/sourcing\/(packaging|home|garden|beauty)(?:[?#/]|$)/)
+    if (!m) return ''
+    const cat = m[1] as keyof typeof SOURCING_CATEGORIES
+    const dict = SOURCING_CATEGORIES[cat]
+    return dict[lang] || dict.en
+  }, [currentUrl, lang])
+
+  const waMsg = encodeURIComponent(`${t.whatsappMsg}${currentUrl || SITE_URL}${categoryHint ? ` [${categoryHint}]` : ''}`)
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`
-  const mailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent('Sourcing assessment inquiry — SunGene')}&body=${encodeURIComponent(`Hi SunGene,\n\nI'm interested in your equipment and would like a technical sourcing assessment.\n\nCurrent page: ${currentUrl}\n\nBest regards,`)}`
+  const mailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent('Quotation inquiry — SunGene')}&body=${encodeURIComponent(`Hi SunGene,\n\nI'd like a quotation for your products.\n\nCurrent page: ${currentUrl}\n\nBest regards,`)}`
   const telUrl = `tel:${PHONE_TW}`
 
   const trackClick = (channel: 'whatsapp' | 'email' | 'phone') => {
