@@ -12,7 +12,7 @@ const dict: Record<string, Record<string, string>> = {
   'cn': {
     nav_home: '首页', nav_machinery: '机械设备', nav_industries: '应用行业', nav_solutions: '解决方案',
     nav_sourcing: '产品',
-    nav_resources: '资源中心', nav_recommend: '采购评估', nav_about: '关于我们', nav_contact: '联系我们', nav_free_analysis: '免费采购评估',
+    nav_resources: '资源中心', nav_recommend: '报价', nav_about: '关于我们', nav_contact: '联系我们', nav_free_analysis: '索取报价',
     nav_machinery_packaging: '包装机械', nav_machinery_food: '食品加工设备',
     nav_machinery_filling: '灌装与封口系统', nav_machinery_conveying: '输送与自动化', nav_machinery_custom: '定制机械',
     nav_ind_powder: '粉末产品', nav_ind_liquid: '液体产品', nav_ind_granule: '颗粒产品',
@@ -30,7 +30,7 @@ const dict: Record<string, Record<string, string>> = {
   'zh': {
     nav_home: '首頁', nav_machinery: '機械設備', nav_industries: '應用產業', nav_solutions: '解決方案',
     nav_sourcing: '產品',
-    nav_resources: '資源中心', nav_recommend: '採購評估', nav_about: '關於我們', nav_contact: '聯絡我們', nav_free_analysis: '免費採購評估',
+    nav_resources: '資源中心', nav_recommend: '報價', nav_about: '關於我們', nav_contact: '聯絡我們', nav_free_analysis: '索取報價',
     nav_machinery_packaging: '包裝機械', nav_machinery_food: '食品加工設備',
     nav_machinery_filling: '灌裝與封口系統', nav_machinery_conveying: '輸送與自動化', nav_machinery_custom: '客製機械',
     nav_ind_powder: '粉末產品', nav_ind_liquid: '液體產品', nav_ind_granule: '顆粒產品',
@@ -48,7 +48,7 @@ const dict: Record<string, Record<string, string>> = {
   'en': {
     nav_home: 'Home', nav_machinery: 'Machinery', nav_industries: 'Industries', nav_solutions: 'Solutions',
     nav_sourcing: 'Products',
-    nav_resources: 'Resources', nav_recommend: 'Assessment', nav_about: 'About Us', nav_contact: 'Contact', nav_free_analysis: 'Get Assessment',
+    nav_resources: 'Resources', nav_recommend: 'Quotation', nav_about: 'About Us', nav_contact: 'Contact', nav_free_analysis: 'Request a quotation',
     nav_machinery_packaging: 'Packaging Machinery', nav_machinery_food: 'Food Processing Equipment',
     nav_machinery_filling: 'Filling & Sealing Systems', nav_machinery_conveying: 'Conveying & Automation',
     nav_machinery_custom: 'Customized Machinery',
@@ -67,7 +67,7 @@ const dict: Record<string, Record<string, string>> = {
   'fr': {
     nav_home: 'Accueil', nav_machinery: 'Machines', nav_industries: 'Industries', nav_solutions: 'Solutions',
     nav_sourcing: 'Produits',
-    nav_resources: 'Ressources', nav_recommend: 'Évaluation', nav_about: 'À propos', nav_contact: 'Contact', nav_free_analysis: 'Évaluation gratuite',
+    nav_resources: 'Ressources', nav_recommend: 'Devis', nav_about: 'À propos', nav_contact: 'Contact', nav_free_analysis: 'Demander un devis',
     nav_machinery_packaging: 'Machines d\'emballage', nav_machinery_food: 'Équipements agroalimentaires',
     nav_machinery_filling: 'Remplissage et scellage', nav_machinery_conveying: 'Convoyage et automatisation',
     nav_machinery_custom: 'Machines sur mesure',
@@ -86,7 +86,7 @@ const dict: Record<string, Record<string, string>> = {
   'es': {
     nav_home: 'Inicio', nav_machinery: 'Maquinaria', nav_industries: 'Industrias', nav_solutions: 'Soluciones',
     nav_sourcing: 'Productos',
-    nav_resources: 'Recursos', nav_recommend: 'Evaluación', nav_about: 'Nosotros', nav_contact: 'Contacto', nav_free_analysis: 'Evaluación gratuita',
+    nav_resources: 'Recursos', nav_recommend: 'Cotización', nav_about: 'Nosotros', nav_contact: 'Contacto', nav_free_analysis: 'Solicitar una cotización',
     nav_machinery_packaging: 'Maquinaria de empaque', nav_machinery_food: 'Equipos de procesamiento de alimentos',
     nav_machinery_filling: 'Llenado y sellado', nav_machinery_conveying: 'Transporte y automatización',
     nav_machinery_custom: 'Maquinaria personalizada',

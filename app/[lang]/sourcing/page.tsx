@@ -426,7 +426,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
   })
 
   const startTitle = sectionTitles[lang]?.start || sectionTitles.en.start
-  const primaryCta = lang === 'zh' ? '取得採購評估' : lang === 'cn' ? '获取采购评估' : 'Request assessment'
+  const primaryCta = lang === 'zh' ? '索取報價' : lang === 'cn' ? '索取报价' : 'Request a quotation'
   const secondaryCta = lang === 'zh' ? '先看報價入口' : lang === 'cn' ? '先看报价入口' : 'Explore quote pages'
   const contactCta = lang === 'zh' ? '聯絡我們' : lang === 'cn' ? '联系我们' : 'Contact'
 

@@ -592,7 +592,7 @@ export default async function Page({ params }: PageParams) {
                 {({ en: 'Get Assessment', cn: '获取评估', zh: '取得評估', fr: 'Obtenir une évaluation', es: 'Obtener evaluación', pt: 'Obter avaliação', ko: '평가 받기', ja: '評価を受ける', ar: 'احصل على تقييم', th: 'รับการประเมิน', vi: 'Nhận đánh giá', de: 'Bewertung erhalten' } as Record<string, string>)[safeLang] || 'Get Assessment'}
               </ButtonLink>
               <ButtonLink href={`/${safeLang}/contact`} variant="secondary" size="md">
-                {({ en: 'Request Assessment', cn: '获取采购评估', zh: '取得採購評估', fr: 'Demander évaluation', es: 'Solicitar evaluación', pt: 'Solicitar avaliação', ko: '평가 요청', ja: '評価依頼', ar: 'طلب تقييم', th: 'ขอการประเมิน', vi: 'Yêu cầu đánh giá', de: 'Bewertung anfordern' } as Record<string, string>)[safeLang] || 'Request Assessment'}
+                {({ en: 'Request a quotation', cn: '索取报价', zh: '索取報價', fr: 'Demander un devis', es: 'Solicitar una cotización', pt: 'Solicitar uma cotação', ko: '견적 요청하기', ja: '見積もりを依頼', ar: 'اطلب عرض سعر', th: 'ขอใบเสนอราคา', vi: 'Yêu cầu báo giá', de: 'Angebot anfordern' } as Record<string, string>)[safeLang] || 'Request a quotation'}
               </ButtonLink>
             </div>
           </div>
