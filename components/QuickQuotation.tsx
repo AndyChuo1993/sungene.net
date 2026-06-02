@@ -9,7 +9,7 @@ type Props = {
   source?: string
 }
 
-const labels: Record<
+const labels: Partial<Record<
   Lang,
   {
     title: string
@@ -28,7 +28,7 @@ const labels: Record<
     errorBody: string
     privacy: string
   }
-> = {
+>> = {
   en: {
     title: 'Request a quotation in 1 business day',
     subtitle: '5 fields. Our team replies the same day with a buyer-facing quotation, lead time, and the price band you should expect.',
@@ -114,129 +114,10 @@ const labels: Record<
     errorBody: 'Envíe un correo a contact@sungene.net o use WhatsApp.',
     privacy: 'Sin spam. Sus datos solo se usan para preparar su cotización.',
   },
-  pt: {
-    title: 'Avaliação de sourcing em 1 dia útil',
-    subtitle: 'Preencha 5 campos. Nossos engenheiros fornecem uma avaliação profissional de suprimentos adaptada às suas necessidades técnicas.',
-    name: 'Seu nome *',
-    email: 'E-mail corporativo *',
-    whatsapp: 'WhatsApp ou telefone',
-    output: 'Velocidade-alvo / formato',
-    outputPlaceholder: 'ex. 5.000 caixas mailer personalizadas, 1×20ft',
-    country: 'País de destino *',
-    submit: 'Obter avaliação',
-    submitting: 'Enviando…',
-    successTitle: 'Pedido recebido — avaliação em andamento',
-    successBody: 'Nossa equipe em Taichung retornará com uma avaliação técnica em 1 dia útil.',
-    errorTitle: 'Algo deu errado',
-    errorBody: 'Envie e-mail para contact@sungene.net ou use WhatsApp.',
-    privacy: 'Sem spam. Seus dados são usados apenas para avaliação técnica.',
-  },
-  ko: {
-    title: '1영업일 내 소싱 평가 받기',
-    subtitle: '5개 항목만 입력하세요. 당사 엔지니어가 귀하의 기술적 요구에 맞춘 전문 구매 평가를 제공합니다.',
-    name: '이름 *',
-    email: '업무 이메일 *',
-    whatsapp: 'WhatsApp 또는 전화',
-    output: '목표 처리량 / 용량',
-    outputPlaceholder: '예: 맞춤 메일러 박스 5,000개, 1×20ft',
-    country: '목적지 국가 *',
-    submit: '평가 받기',
-    submitting: '전송 중…',
-    successTitle: '평가 요청 수신 완료',
-    successBody: '엔지니어링팀이 1영업일 내에 기술 소싱 평가를 회신합니다.',
-    errorTitle: '오류 발생',
-    errorBody: 'contact@sungene.net으로 이메일 또는 WhatsApp을 이용해 주세요.',
-    privacy: '스팸 없음. 데이터는 기술 평가 목적으로만 사용됩니다.',
-  },
-  ja: {
-    title: '1営業日以内にソーシング評価を提示',
-    subtitle: '5項目ご記入ください。当社のエンジニアがお客様の技術的ニーズに合わせた専門的な調達評価を提供します。',
-    name: 'お名前 *',
-    email: '会社メール *',
-    whatsapp: 'WhatsAppまたは電話',
-    output: '目標能力・仕様',
-    outputPlaceholder: '例: カスタムメーラーボックス 5,000個、1×20ft',
-    country: '仕向国 *',
-    submit: '評価を依頼',
-    submitting: '送信中…',
-    successTitle: '評価依頼を受領しました',
-    successBody: 'エンジニアチームが1営業日以内に技術的なソーシング評価を回答します。',
-    errorTitle: 'エラーが発生しました',
-    errorBody: 'contact@sungene.net までメール、またはWhatsAppをご利用ください。',
-    privacy: 'スパムは送りません。技術評価の目的のみに使用します。',
-  },
-  ar: {
-    title: 'احصل على تقييم توريد خلال يوم عمل واحد',
-    subtitle: 'املأ 5 حقول فقط. يقدم مهندسونا تقييماً مهنياً للمشتريات يتوافق مع احتياجاتك التقنية.',
-    name: 'الاسم *',
-    email: 'البريد الإلكتروني للعمل *',
-    whatsapp: 'WhatsApp أو هاتف',
-    output: 'السرعة المستهدفة / الحجم',
-    outputPlaceholder: 'مثال: 5000 صندوق ميلر مخصص، حاوية 1×20 قدم',
-    country: 'دولة الوجهة *',
-    submit: 'طلب تقييم',
-    submitting: 'جارٍ الإرسال…',
-    successTitle: 'تم استلام طلب التقييم',
-    successBody: 'سيرد فريق الهندسة بتقييم تقني للتوريد خلال يوم عمل واحد.',
-    errorTitle: 'حدث خطأ',
-    errorBody: 'يرجى المراسلة على contact@sungene.net أو استخدام WhatsApp.',
-    privacy: 'لا رسائل مزعجة. تُستخدم بياناتك للتقييم التقني فقط.',
-  },
-  th: {
-    title: 'ขอรับการประเมินการจัดหาภายใน 1 วันทำการ',
-    subtitle: 'กรอกเพียง 5 ช่อง ทีมวิศวกรของเราจะให้การประเมินการจัดซื้อระดับมืออาชีพที่ตรงกับความต้องการทางเทคนิคของคุณ',
-    name: 'ชื่อของคุณ *',
-    email: 'อีเมลบริษัท *',
-    whatsapp: 'WhatsApp หรือโทรศัพท์',
-    output: 'ความเร็วเป้าหมาย / ขนาดบรรจุ',
-    outputPlaceholder: 'เช่น กล่องเมลเลอร์กำหนดเอง 5,000 ชิ้น, ตู้ 1×20ft',
-    country: 'ประเทศปลายทาง *',
-    submit: 'ขอรับการประเมิน',
-    submitting: 'กำลังส่ง…',
-    successTitle: 'รับคำขอการประเมินแล้ว',
-    successBody: 'ทีมวิศวกรจะตอบกลับพร้อมการประเมินการจัดหาทางเทคนิคภายใน 1 วันทำการ',
-    errorTitle: 'เกิดข้อผิดพลาด',
-    errorBody: 'โปรดส่งอีเมลไปที่ contact@sungene.net หรือใช้ WhatsApp',
-    privacy: 'ไม่มีสแปม ข้อมูลของคุณใช้เพื่อการประเมินทางเทคนิคเท่านั้น',
-  },
-  vi: {
-    title: 'Nhận đánh giá nguồn cung trong 1 ngày làm việc',
-    subtitle: 'Điền 5 trường. Các kỹ sư của chúng tôi sẽ cung cấp đánh giá mua hàng chuyên nghiệp phù hợp với nhu cầu kỹ thuật của bạn.',
-    name: 'Tên của bạn *',
-    email: 'Email công ty *',
-    whatsapp: 'WhatsApp hoặc điện thoại',
-    output: 'Công suất mục tiêu / định lượng',
-    outputPlaceholder: 'VD: 5.000 hộp mailer tùy chỉnh, 1×20ft',
-    country: 'Quốc gia đến *',
-    submit: 'Nhận đánh giá',
-    submitting: 'Đang gửi…',
-    successTitle: 'Đã nhận yêu cầu',
-    successBody: 'Đội ngũ kỹ sư sẽ phản hồi đánh giá nguồn cung trong 1 ngày làm việc.',
-    errorTitle: 'Có lỗi xảy ra',
-    errorBody: 'Vui lòng email contact@sungene.net hoặc dùng WhatsApp.',
-    privacy: 'Không spam. Dữ liệu chỉ dùng cho đánh giá kỹ thuật.',
-  },
-  de: {
-    title: 'Sourcing-Bewertung innerhalb von 1 Werktag',
-    subtitle: '5 Felder ausfüllen. Unsere Ingenieure erstellen eine professionelle Beschaffungsbewertung, die auf Ihre technischen Anforderungen zugeschnitten ist.',
-    name: 'Ihr Name *',
-    email: 'Geschäftliche E-Mail *',
-    whatsapp: 'WhatsApp oder Telefon',
-    output: 'Ziel-Leistung / Format',
-    outputPlaceholder: 'z.B. 5.000 individuell bedruckte Mailer-Boxen, 1×20ft',
-    country: 'Bestimmungsland *',
-    submit: 'Bewertung anfordern',
-    submitting: 'Senden…',
-    successTitle: 'Anfrage erhalten — Bewertung läuft',
-    successBody: 'Unser Team in Taichung antwortet mit einer technischen Sourcing-Bewertung innerhalb von 1 Werktag.',
-    errorTitle: 'Ein Fehler ist aufgetreten',
-    errorBody: 'Bitte per E-Mail an contact@sungene.net oder WhatsApp.',
-    privacy: 'Kein Spam. Daten werden nur zur technischen Bewertung verwendet.',
-  },
 }
 
 export default function QuickQuotation({ lang, context, source = 'machine' }: Props) {
-  const t = labels[lang] || labels.en
+  const t = labels[lang] || labels.en!
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<'idle' | 'success' | 'error'>('idle')
 

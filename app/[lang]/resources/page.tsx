@@ -123,13 +123,6 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
     zh: { heading: '找不到你要的品類？', body: '告訴我們你的需求——我們將回覆品類建議、參考交期與驗收清單。', btn: '索取報價' },
     fr: { heading: "Vous ne trouvez pas ce dont vous avez besoin ?", body: "Décrivez vos besoins — nous répondrons avec des recommandations de catégories, un délai indicatif et une liste de vérification d'acceptation.", btn: "Demander un devis" },
     es: { heading: '¿No encuentra lo que necesita?', body: 'Cuéntenos sus requisitos — responderemos con recomendaciones de categorías, un plazo indicativo y una lista de verificación de aceptación.', btn: 'Solicitar una cotización' },
-    pt: { heading: 'Não encontrou o ângulo de sourcing que precisa?', body: 'Conte-nos seus requisitos — responderemos com o caminho de sourcing, a direção de configuração e os pontos de aceitação.', btn: 'Solicitar avaliação' },
-    ko: { heading: '원하는 소싱 관점을 찾지 못하셨나요?', body: '요구 사항을 알려주시면 소싱 경로, 구성 방향, 검수 포인트를 안내해드립니다.', btn: '평가 요청' },
-    ja: { heading: '必要な調達の切り口が見つかりませんか？', body: '要件を送っていただければ、調達ルート、構成方針、受入ポイントを返信します。', btn: '評価を依頼' },
-    ar: { heading: 'ألا تجد زاوية التوريد التي تحتاجها؟', body: 'أخبرنا بمتطلباتك وسنرد بمسار التوريد واتجاه التهيئة ونقاط القبول.', btn: 'اطلب تقييمًا' },
-    th: { heading: 'ยังไม่พบมุมการจัดหาที่ต้องการ?', body: 'บอกความต้องการของคุณ แล้วเราจะตอบกลับด้วยเส้นทางการจัดหา ทิศทางการจัดวาง และจุดตรวจรับ', btn: 'ขอการประเมิน' },
-    vi: { heading: 'Chưa thấy đúng góc nhìn sourcing bạn cần?', body: 'Hãy cho chúng tôi biết yêu cầu của bạn — chúng tôi sẽ phản hồi với lộ trình sourcing, hướng cấu hình và các điểm nghiệm thu.', btn: 'Yêu cầu đánh giá' },
-    de: { heading: 'Finden Sie den gewünschten Sourcing-Blickwinkel nicht?', body: 'Teilen Sie uns Ihre Anforderungen mit — wir antworten mit Sourcing-Pfad, Konfigurationsrichtung und Abnahmepunkten.', btn: 'Bewertung anfordern' },
   }
 
   const cta = ctaLabels[lang] || ctaLabels['en']
