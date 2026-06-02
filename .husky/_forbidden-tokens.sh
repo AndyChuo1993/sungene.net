@@ -140,4 +140,12 @@ forbidden_tokens=(
   'Obtenir une évaluation'
   'Obtener evaluación'
   'Obter avaliação'
+  # Wave 14j-10 added after root-cause sweep: W14h-retired margin-transparency family + Phase 0 mechanical residual
+  'Démarrer une conversation sourcing'
+  'Factory invoice transparent'
+  '工廠發票透明'
+  '工厂发票透明'
+  'Facture usine transparente'
+  'Factura de fábrica transparente'
+  '機械路線'
 )
