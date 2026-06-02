@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/siteConfig'
 import { Container } from '@/components/ui/Container'
 import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
-import QuickAssessment from '@/components/QuickAssessment'
+import QuickQuotation from '@/components/QuickQuotation'
 import { PHOTO } from '@/lib/photoLibrary'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { buildPageMetadata, normalizeLang, LANG_META, langMeta} from '@/lib/seo'
@@ -1077,7 +1077,7 @@ export default async function SourcingCategoryPage({ params }: { params: Promise
       {/* Inline Quick Request form — reduces friction vs navigating to /contact */}
       <section className="bg-white py-12 sm:py-16">
         <Container className="max-w-3xl">
-          <QuickAssessment lang={l} context={`sourcing-${cat}`} source="category-page-inline" />
+          <QuickQuotation lang={l} context={`sourcing-${cat}`} source="category-page-inline" />
         </Container>
       </section>
 

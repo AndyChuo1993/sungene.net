@@ -7,7 +7,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import JsonLd from '@/components/JsonLd'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { PageHero } from '@/components/ui/PageHero'
-import QuickAssessment from '@/components/QuickAssessment'
+import QuickQuotation from '@/components/QuickQuotation'
 import { PHOTO } from '@/lib/photoLibrary'
 import { SITE_URL } from '@/lib/siteConfig'
 import { buildPageMetadata, normalizeLang, LANG_META } from '@/lib/seo'
@@ -484,7 +484,7 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
             </div>
 
             <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
-              <QuickAssessment lang={lang} context="sourcing" source="sourcing" />
+              <QuickQuotation lang={lang} context="sourcing" source="sourcing" />
             </div>
           </div>
         </Container>
