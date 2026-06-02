@@ -729,9 +729,9 @@ export default async function SourcingPage({ params }: { params: Promise<{ lang:
               </h2>
               <p className="mt-3 text-sm text-white/70">
                 {lang === 'zh'
-                  ? '先用快速評估送出產品、產能、目的地電壓/頻率與限制條件。我們會回覆配置方向與驗收清單。'
+                  ? '先告訴我們產品、數量、目的地與限制條件。我們會回覆配置選項與驗收清單。'
                   : lang === 'cn'
-                    ? '先用快速评估提交产品、产能、目的地电压/频率与限制条件。我们会回复配置方向与验收清单。'
+                    ? '先告诉我们产品、数量、目的地与限制条件。我们会回复配置选项与验收清单。'
                     : 'Start with a quick assessment (product, output target, utilities, constraints). We reply with a configuration path and acceptance checklist.'}
               </p>
             </div>

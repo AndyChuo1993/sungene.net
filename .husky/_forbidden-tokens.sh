@@ -125,4 +125,11 @@ forbidden_tokens=(
   # Wave 14j-3 added 2026-06-01 after Groups B+C+D+F+G+J broker family cleanup
   'sourcing assessment'
   'technical sourcing assessment'
+  # Wave 14j-4 added after resources/page.tsx ctaLabels broker leak escaped 14j-3
+  'Request an Assessment'
+  'configuration direction'
+  'acceptance checkpoints'
+  '配置方向'
+  '验收重点'
+  '驗收重點'
 )

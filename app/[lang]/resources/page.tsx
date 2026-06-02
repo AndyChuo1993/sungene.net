@@ -118,11 +118,11 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   const cats = categories(lang)
 
   const ctaLabels: Record<string, { heading: string; body: string; btn: string }> = {
-    en: { heading: "Can't find what you need?", body: "Tell us your requirements — we'll reply with category options, configuration direction, and acceptance checkpoints.", btn: 'Request an Assessment' },
-    cn: { heading: '找不到您要的品类？', body: '告诉我们您的需求——我们将回复品类选项、配置方向与验收重点。', btn: '申请评估' },
-    zh: { heading: '找不到你要的品類？', body: '告訴我們你的需求——我們將回覆品類選項、配置方向與驗收重點。', btn: '申請評估' },
-    fr: { heading: 'Vous ne trouvez pas ce dont vous avez besoin ?', body: 'Décrivez vos besoins — nous répondrons avec des options de catégories, une direction de configuration et des points d’acceptation.', btn: 'Demander une évaluation' },
-    es: { heading: '¿No encuentra lo que necesita?', body: 'Cuéntenos sus requisitos — responderemos con opciones de categorías, dirección de configuración y puntos de aceptación.', btn: 'Solicitar evaluación' },
+    en: { heading: "Can't find what you need?", body: "Tell us your requirements — we'll reply with category recommendations, indicative lead time, and an acceptance checklist.", btn: 'Request a quotation' },
+    cn: { heading: '找不到您要的品类？', body: '告诉我们您的需求——我们将回复品类建议、参考交期与验收清单。', btn: '索取报价' },
+    zh: { heading: '找不到你要的品類？', body: '告訴我們你的需求——我們將回覆品類建議、參考交期與驗收清單。', btn: '索取報價' },
+    fr: { heading: "Vous ne trouvez pas ce dont vous avez besoin ?", body: "Décrivez vos besoins — nous répondrons avec des recommandations de catégories, un délai indicatif et une liste de vérification d'acceptation.", btn: "Demander un devis" },
+    es: { heading: '¿No encuentra lo que necesita?', body: 'Cuéntenos sus requisitos — responderemos con recomendaciones de categorías, un plazo indicativo y una lista de verificación de aceptación.', btn: 'Solicitar una cotización' },
     pt: { heading: 'Não encontrou o ângulo de sourcing que precisa?', body: 'Conte-nos seus requisitos — responderemos com o caminho de sourcing, a direção de configuração e os pontos de aceitação.', btn: 'Solicitar avaliação' },
     ko: { heading: '원하는 소싱 관점을 찾지 못하셨나요?', body: '요구 사항을 알려주시면 소싱 경로, 구성 방향, 검수 포인트를 안내해드립니다.', btn: '평가 요청' },
     ja: { heading: '必要な調達の切り口が見つかりませんか？', body: '要件を送っていただければ、調達ルート、構成方針、受入ポイントを返信します。', btn: '評価を依頼' },

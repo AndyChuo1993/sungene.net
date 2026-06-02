@@ -140,7 +140,7 @@ const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string;
   },
   zh: {
     titleSuffix: '配置指南',
-    intro: '整理選型重點與比較，讓你在申請報價前先把配置方向確認清楚。',
+    intro: '整理選型重點與比較，讓你在申請報價前先把配置選項確認清楚。',
     quoteTitle: '索取報價',
     quoteBody: '請提供產品、包材形式、灌裝範圍、目標產速，以及目的地電壓/頻率。',
     quoteBtn: '前往報價頁',
@@ -151,7 +151,7 @@ const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string;
   },
   cn: {
     titleSuffix: '配置指南',
-    intro: '整理选型要点与比较内容，方便在申请报价前先把配置方向确认清楚。',
+    intro: '整理选型要点与比较内容，方便在申请报价前先把配置选项确认清楚。',
     quoteTitle: '索取报价',
     quoteBody: '请提供产品、包装形式、灌装范围、目标产速，以及目的地电压/频率。',
     quoteBtn: '进入报价页',

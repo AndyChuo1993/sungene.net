@@ -6036,7 +6036,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sections: [
           { type: 'h2', text: '洗衣粉的關鍵難點' },
           { type: 'ul', items: ['粉塵大、易飛散', '磨耗性造成零件耗損', '粉末污染封口導致漏包'] },
-          { type: 'h2', text: '常見配置方向' },
+          { type: 'h2', text: '常見配置選項' },
           { type: 'ul', items: ['VFFS + 螺旋或容積計量（視精度需求）', '封閉料斗 + 集塵', '封口區除粉與封口控制更強'] },
           { type: 'h2', text: '快速清單' },
           { type: 'ul', items: ['粉體特性', '袋尺寸與膜材結構', '重量與允差', '目標產能', '電壓/頻率'] },
@@ -6063,7 +6063,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sections: [
           { type: 'h2', text: '洗衣粉的关键难点' },
           { type: 'ul', items: ['粉尘大、易飞散', '磨耗性导致部件磨损', '粉末污染封口导致漏包'] },
-          { type: 'h2', text: '常见配置方向' },
+          { type: 'h2', text: '常见配置选项' },
           { type: 'ul', items: ['VFFS + 螺旋或容积计量（按精度需求）', '封闭料斗 + 集尘', '封口区除粉与更强封口控制'] },
           { type: 'h2', text: '快速清单' },
           { type: 'ul', items: ['粉体特性', '袋尺寸与膜材结构', '重量与允差', '目标产能', '电压/频率'] },
