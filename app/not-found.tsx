@@ -10,18 +10,18 @@ import Link from 'next/link'
 import { headers } from 'next/headers'
 
 const tx: Record<string, { title: string; desc: string; machinery: string; recommend: string; resources: string; home: string }> = {
-  en: { title: 'Page not found', desc: 'The page may have moved or the URL is incorrect.', machinery: 'Product Scope', recommend: 'Get assessment', resources: 'Resources', home: 'Home' },
-  zh: { title: '找不到頁面', desc: '頁面可能已移動或網址不正確。', machinery: '採購範圍', recommend: '取得評估', resources: '資源中心', home: '首頁' },
-  cn: { title: '找不到页面', desc: '页面可能已移动或网址不正确。', machinery: '采购范围', recommend: '获取评估', resources: '资源中心', home: '首页' },
-  fr: { title: 'Page introuvable', desc: 'La page a peut-être été déplacée ou l’URL est incorrecte.', machinery: 'Périmètre sourcing', recommend: 'Obtenir une évaluation', resources: 'Ressources', home: 'Accueil' },
-  es: { title: 'Página no encontrada', desc: 'Es posible que la página se haya movido o que la URL sea incorrecta.', machinery: 'Alcance de abastecimiento', recommend: 'Obtener evaluación', resources: 'Recursos', home: 'Inicio' },
-  pt: { title: 'Página não encontrada', desc: 'A página pode ter sido movida ou o URL está incorreto.', machinery: 'Escopo de sourcing', recommend: 'Obter avaliação', resources: 'Recursos', home: 'Início' },
-  ko: { title: '페이지를 찾을 수 없습니다', desc: '페이지가 이동했거나 주소가 올바르지 않을 수 있습니다.', machinery: '소싱 범위', recommend: '평가 받기', resources: '리소스', home: '홈' },
-  ja: { title: 'ページが見つかりません', desc: 'ページが移動したか、URL が正しくない可能性があります。', machinery: '調達範囲', recommend: '評価を受ける', resources: 'リソース', home: 'ホーム' },
-  ar: { title: 'الصفحة غير موجودة', desc: 'قد تكون الصفحة قد نُقلت أو أن الرابط غير صحيح.', machinery: 'نطاق التوريد', recommend: 'احصل على تقييم', resources: 'الموارد', home: 'الرئيسية' },
-  th: { title: 'ไม่พบหน้าเว็บ', desc: 'หน้าเว็บอาจถูกย้ายหรือ URL ไม่ถูกต้อง', machinery: 'ขอบเขตการจัดหา', recommend: 'รับการประเมิน', resources: 'แหล่งข้อมูล', home: 'หน้าแรก' },
-  vi: { title: 'Không tìm thấy trang', desc: 'Trang có thể đã được chuyển hoặc URL không đúng.', machinery: 'Phạm vi sourcing', recommend: 'Nhận đánh giá', resources: 'Tài nguyên', home: 'Trang chủ' },
-  de: { title: 'Seite nicht gefunden', desc: 'Die Seite wurde möglicherweise verschoben oder die URL ist falsch.', machinery: 'Sourcing-Bereich', recommend: 'Bewertung erhalten', resources: 'Ressourcen', home: 'Startseite' },
+  en: { title: 'Page not found', desc: 'The page may have moved or the URL is incorrect.', machinery: 'Product Scope', recommend: 'Request a quotation', resources: 'Resources', home: 'Home' },
+  zh: { title: '找不到頁面', desc: '頁面可能已移動或網址不正確。', machinery: '採購範圍', recommend: '索取報價', resources: '資源中心', home: '首頁' },
+  cn: { title: '找不到页面', desc: '页面可能已移动或网址不正确。', machinery: '采购范围', recommend: '索取报价', resources: '资源中心', home: '首页' },
+  fr: { title: 'Page introuvable', desc: 'La page a peut-être été déplacée ou l’URL est incorrecte.', machinery: 'Périmètre sourcing', recommend: 'Demander un devis', resources: 'Ressources', home: 'Accueil' },
+  es: { title: 'Página no encontrada', desc: 'Es posible que la página se haya movido o que la URL sea incorrecta.', machinery: 'Alcance de abastecimiento', recommend: 'Solicitar una cotización', resources: 'Recursos', home: 'Inicio' },
+  pt: { title: 'Página não encontrada', desc: 'A página pode ter sido movida ou o URL está incorreto.', machinery: 'Escopo de sourcing', recommend: 'Solicitar uma cotação', resources: 'Recursos', home: 'Início' },
+  ko: { title: '페이지를 찾을 수 없습니다', desc: '페이지가 이동했거나 주소가 올바르지 않을 수 있습니다.', machinery: '소싱 범위', recommend: '견적 요청하기', resources: '리소스', home: '홈' },
+  ja: { title: 'ページが見つかりません', desc: 'ページが移動したか、URL が正しくない可能性があります。', machinery: '調達範囲', recommend: '見積もりを依頼', resources: 'リソース', home: 'ホーム' },
+  ar: { title: 'الصفحة غير موجودة', desc: 'قد تكون الصفحة قد نُقلت أو أن الرابط غير صحيح.', machinery: 'نطاق التوريد', recommend: 'اطلب عرض سعر', resources: 'الموارد', home: 'الرئيسية' },
+  th: { title: 'ไม่พบหน้าเว็บ', desc: 'หน้าเว็บอาจถูกย้ายหรือ URL ไม่ถูกต้อง', machinery: 'ขอบเขตการจัดหา', recommend: 'ขอใบเสนอราคา', resources: 'แหล่งข้อมูล', home: 'หน้าแรก' },
+  vi: { title: 'Không tìm thấy trang', desc: 'Trang có thể đã được chuyển hoặc URL không đúng.', machinery: 'Phạm vi sourcing', recommend: 'Yêu cầu báo giá', resources: 'Tài nguyên', home: 'Trang chủ' },
+  de: { title: 'Seite nicht gefunden', desc: 'Die Seite wurde möglicherweise verschoben oder die URL ist falsch.', machinery: 'Sourcing-Bereich', recommend: 'Angebot anfordern', resources: 'Ressourcen', home: 'Startseite' },
 }
 
 export default async function NotFound() {

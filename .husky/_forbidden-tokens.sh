@@ -132,4 +132,12 @@ forbidden_tokens=(
   '配置方向'
   '验收重点'
   '驗收重點'
+  # Wave 14j-9 added after 148-string Get Assessment family cleanup (resourceArticles+not-found+route-hub)
+  'Get Assessment'
+  'Get assessment'
+  '获取评估'
+  '取得評估'
+  'Obtenir une évaluation'
+  'Obtener evaluación'
+  'Obter avaliação'
 )
