@@ -85,8 +85,8 @@ function renderSection(s: ResourceSection, key: number) {
 
 const ui: Record<Lang, { faqTitle: string; speakTitle: string; speakBody: string; speakLink: string; viewAll: string }> = {
   en: { faqTitle: 'Frequently Asked Questions', speakTitle: 'Speak to a Supply Engineer', speakBody: 'Our team can advise on category fit, packaging compatibility, supplier match, and acceptance criteria.', speakLink: 'Contact Us →', viewAll: 'View Product Scope' },
-  zh: { faqTitle: '常見問題', speakTitle: '與採購工程師聊聊', speakBody: '團隊可協助採購路徑、包裝相容性、供應商適配與線體風險建議。', speakLink: '聯絡我們 →', viewAll: '查看採購範圍' },
-  cn: { faqTitle: '常见问题', speakTitle: '联系采购工程师', speakBody: '团队可协助采购路径、包装兼容性、供应商适配与线体风险建议。', speakLink: '联系我们 →', viewAll: '查看采购范围' },
+  zh: { faqTitle: '常見問題', speakTitle: '與採購工程師聊聊', speakBody: '團隊可協助產品選擇、包裝相容性、供應商適配與線體風險建議。', speakLink: '聯絡我們 →', viewAll: '查看採購範圍' },
+  cn: { faqTitle: '常见问题', speakTitle: '联系采购工程师', speakBody: '团队可协助产品选择、包装兼容性、供应商适配与线体风险建议。', speakLink: '联系我们 →', viewAll: '查看采购范围' },
   fr: { faqTitle: 'FAQ', speakTitle: 'Parler à un ingénieur sourcing', speakBody: 'Notre équipe conseille sur le parcours sourcing, la compatibilité emballage, l’adéquation fournisseur et le risque d’intégration.', speakLink: 'Nous contacter →', viewAll: 'Voir le périmètre sourcing' },
   es: { faqTitle: 'Preguntas frecuentes', speakTitle: 'Hable con un ingeniero de abastecimiento', speakBody: 'Nuestro equipo puede orientar sobre ruta de abastecimiento, compatibilidad de empaque, encaje del proveedor y riesgo de integración.', speakLink: 'Contáctenos →', viewAll: 'Ver alcance de abastecimiento' },
   pt: { faqTitle: 'Perguntas frequentes', speakTitle: 'Fale com um engenheiro de sourcing', speakBody: 'Nossa equipe orienta sobre caminho de sourcing, compatibilidade de embalagem, aderência do fornecedor e risco de integração.', speakLink: 'Fale conosco →', viewAll: 'Ver escopo de sourcing' },
@@ -494,7 +494,7 @@ export default async function ResourceArticlePage({ params }: { params: Promise<
             { '@type': 'HowToSupply', name: 'Destination port / incoterm preference' },
           ],
           tool: [
-            { '@type': 'HowToTool', name: 'SunGene sourcing assessment form' },
+            { '@type': 'HowToTool', name: 'SunGene quotation form' },
           ],
           step: steps,
           about: article.relatedMachine

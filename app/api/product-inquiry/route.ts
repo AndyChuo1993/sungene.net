@@ -161,7 +161,7 @@ Thank you for reaching out to SunGene!
 
 We've received your product inquiry for "${productType}" (Ref: ${id}).
 
-Our technical team will review your requirements and send you a personalized sourcing assessment within 24 hours.
+Our team will review your requirements and send you a personalized quotation within 24 hours.
 
 Here's what we received:
 - Product: ${productType}

@@ -129,8 +129,8 @@ const machineLabel: Record<Lang, Record<TopicMachine, string>> = {
 const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string; quoteBody: string; quoteBtn: string; viewMachine: string; recommend: string; contact: string; empty: string }> = {
   en: {
     titleSuffix: 'Configuration guides',
-    intro: 'Selection notes and comparisons that help you confirm the right configuration before you request a sourcing assessment.',
-    quoteTitle: 'Request sourcing assessment',
+    intro: 'Selection notes and comparisons that help you confirm the right configuration before you request a quotation.',
+    quoteTitle: 'Request a quotation',
     quoteBody: 'Send product category, target SKU spec, reference photos, target quantity per shipment, and destination market.',
     quoteBtn: 'Open quote page',
     viewMachine: 'View configuration page',
@@ -140,8 +140,8 @@ const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string;
   },
   zh: {
     titleSuffix: '配置指南',
-    intro: '整理選型重點與比較，讓你在申請採購評估前先把配置方向確認清楚。',
-    quoteTitle: '取得採購評估',
+    intro: '整理選型重點與比較，讓你在申請報價前先把配置方向確認清楚。',
+    quoteTitle: '索取報價',
     quoteBody: '請提供產品、包材形式、灌裝範圍、目標產速，以及目的地電壓/頻率。',
     quoteBtn: '前往報價頁',
     viewMachine: '查看配置頁',
@@ -151,8 +151,8 @@ const tx: Record<Lang, { titleSuffix: string; intro: string; quoteTitle: string;
   },
   cn: {
     titleSuffix: '配置指南',
-    intro: '整理选型要点与比较内容，方便在申请采购评估前先把配置方向确认清楚。',
-    quoteTitle: '获取采购评估',
+    intro: '整理选型要点与比较内容，方便在申请报价前先把配置方向确认清楚。',
+    quoteTitle: '索取报价',
     quoteBody: '请提供产品、包装形式、灌装范围、目标产速，以及目的地电压/频率。',
     quoteBtn: '进入报价页',
     viewMachine: '查看配置页',

@@ -122,4 +122,7 @@ forbidden_tokens=(
   '直接工廠價'
   '直接工厂价'
   'precio directo de fábrica'
+  # Wave 14j-3 added 2026-06-01 after Groups B+C+D+F+G+J broker family cleanup
+  'sourcing assessment'
+  'technical sourcing assessment'
 )

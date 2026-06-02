@@ -147,9 +147,9 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
   }
 
   const heroDescs: Record<string, string> = {
-    en: 'Practical guides to help you define the right sourcing path, evaluate suppliers, prepare pre-shipment inspection criteria, and control quality risk before you commit.',
-    cn: '帮助您定义合适采购路径、评估供应商、准备出货前验货条件并控制品质风险的实用指南。',
-    zh: '幫助你定義合適採購路徑、評估供應商、準備出貨前驗貨條件並控管品質風險的實用指南。',
+    en: 'Practical guides to help you define the right product recommendation, evaluate suppliers, prepare pre-shipment inspection criteria, and control quality risk before you commit.',
+    cn: '帮助您定义合适产品推荐、评估供应商、准备出货前验货条件并控制品质风险的实用指南。',
+    zh: '幫助你定義合適產品推薦、評估供應商、準備出貨前驗貨條件並控管品質風險的實用指南。',
     fr: 'Guides pratiques pour vous aider à choisir la bonne machine, planifier votre intégration de ligne et naviguer le processus d\'exportation.',
     es: 'Guías prácticas para ayudarle a elegir la maquinaria adecuada, planificar su línea de producción y navegar el proceso de exportación.',
     pt: 'Guias práticos para ajudá-lo a escolher o maquinário certo, planejar sua linha de produção e navegar pelo processo de exportação.',
@@ -181,7 +181,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         { name: '确认包装形式', text: '袋/瓶/罐/条包等，并提供尺寸与材质。' },
         { name: '设定产能目标', text: '每分钟/每小时产量与预期稼动率。' },
         { name: '确认公用工程', text: '电压/相数/频率、压缩空气，以及卫生等级需求。' },
-        { name: '提交规格以评估', text: '提供样品或技术资料，我们将基于已确认条件给出采购评估与建议。' },
+        { name: '提交规格以评估', text: '提供样品或技术资料，我们将基于已确认条件给出报价与建议。' },
       ],
     },
     zh: {
@@ -192,7 +192,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ lang
         { name: '確認包材形式', text: '袋/瓶/罐/條包等，並提供尺寸與材質。' },
         { name: '設定產能目標', text: '每分鐘/每小時產量與預期稼動率。' },
         { name: '確認公用工程', text: '電壓/相數/頻率、壓縮空氣，以及衛生等級需求。' },
-        { name: '提交規格以評估', text: '提供樣品或技術資料，我們將基於已確認條件給出採購評估與建議。' },
+        { name: '提交規格以評估', text: '提供樣品或技術資料，我們將基於已確認條件給出報價與建議。' },
       ],
     },
     fr: {

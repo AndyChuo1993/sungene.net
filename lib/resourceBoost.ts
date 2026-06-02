@@ -13,7 +13,7 @@ type Pack = {
 
 const pack: Record<Lang, Pack> = {
   en: {
-    headingInputs: 'Inputs we need for an accurate sourcing assessment',
+    headingInputs: 'Inputs we need for an accurate quotation',
     headingPitfalls: 'Common failure points (what usually goes wrong)',
     headingFAT: 'FAT acceptance test checklist',
     inputs: [
@@ -40,7 +40,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   zh: {
-    headingInputs: '快速、準確採購評估需要的資料',
+    headingInputs: '快速、準確報價需要的資料',
     headingPitfalls: '常見失敗點（通常卡在哪裡）',
     headingFAT: '出廠測試（FAT）檢查項目',
     inputs: [
@@ -67,7 +67,7 @@ const pack: Record<Lang, Pack> = {
     ],
   },
   cn: {
-    headingInputs: '快速、准确采购评估需要的资料',
+    headingInputs: '快速、准确报价需要的资料',
     headingPitfalls: '常见失败点（通常卡在哪里）',
     headingFAT: '出厂测试（FAT）检查项',
     inputs: [
