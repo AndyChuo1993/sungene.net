@@ -97,7 +97,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Not sure which machine path fits?',
         sidebarCtaBody: 'Tell us your product, packaging format, and target output. We\u2019ll provide an assessment and propose the right configuration\.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -133,7 +133,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不確定該選哪一種？',
         sidebarCtaBody: '提供產品、包裝形式與產能目標，我們會回覆適合的產品建議與配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -169,7 +169,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不确定该选哪一种？',
         sidebarCtaBody: '提供产品、包装形式与产能目标，我们会回复适合的机械路线与配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -203,7 +203,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Vous hésitez ?',
         sidebarCtaBody: 'Décrivez produit, format, cadence cible : nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -235,7 +235,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿No está seguro?',
         sidebarCtaBody: 'Comparta producto, formato y producción objetivo; recomendaremos la configuración.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -260,7 +260,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Em dúvida?',
         sidebarCtaBody: 'Informe produto, formato e meta de produção para recomendarmos a configuração.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -451,7 +451,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Want a ready-to-use FAT/SAT checklist?',
         sidebarCtaBody: 'Share your product, packaging format, and output target. We’ll draft testable acceptance criteria and a handover checklist.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -484,7 +484,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '想要可直接使用的 FAT/SAT 清單？',
         sidebarCtaBody: '提供產品、包裝形式與產能目標，我們可協助整理可測試的驗收標準與交付清單。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -517,7 +517,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '想要可直接使用的 FAT/SAT 清单？',
         sidebarCtaBody: '提供产品、包装形式与产能目标，我们可协助整理可测试的验收标准与交付清单。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -548,7 +548,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une checklist FAT/SAT prête ?',
         sidebarCtaBody: 'Partagez produit, format et cadence cible : nous rédigeons des critères testables et une checklist de remise.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -577,7 +577,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Quiere una checklist FAT/SAT lista para usar?',
         sidebarCtaBody: 'Comparta producto, formato y producción objetivo. Redactamos criterios medibles y checklist de entrega.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -604,7 +604,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Quer uma checklist FAT/SAT pronta?',
         sidebarCtaBody: 'Envie produto, formato e produção alvo. Redigimos critérios testáveis e checklist de entrega.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -789,7 +789,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Not sure which capper fits your bottle?',
         sidebarCtaBody: 'Send bottle + cap specs and target output. We’ll propose a stable capping configuration and integration plan.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -814,7 +814,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不確定該選哪一種旋蓋？',
         sidebarCtaBody: '提供瓶型/瓶口與蓋子規格、產能目標，我們會建議穩定的旋蓋配置與整線方案。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -839,7 +839,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不确定该选哪一种旋盖？',
         sidebarCtaBody: '提供瓶型/瓶口与盖子规格、产能目标，我们会建议稳定的旋盖配置与整线方案。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -862,7 +862,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Quelle capsuleuse pour votre bouchon ?',
         sidebarCtaBody: 'Envoyez specs bouteille + bouchon et cadence. Nous proposons une configuration stable.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -885,7 +885,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Qué taponadora conviene?',
         sidebarCtaBody: 'Envíe specs de botella y tapa + producción objetivo. Proponemos una configuración estable.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -908,7 +908,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Qual tampadora é ideal?',
         sidebarCtaBody: 'Envie specs de frasco e tampa + produção alvo. Propomos uma configuração estável.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -1081,7 +1081,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a stable powder dosing setup?',
         sidebarCtaBody: 'Share powder behavior and target weight/tolerance. We’ll recommend a dosing + dust control configuration.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -1106,7 +1106,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要穩定的粉末計量方案？',
         sidebarCtaBody: '提供粉體特性與目標重量/誤差，我們會建議計量 + 粉塵控制配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -1131,7 +1131,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要稳定的粉末计量方案？',
         sidebarCtaBody: '提供粉体特性与目标重量/误差，我们会建议计量 + 粉尘控制配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -1156,7 +1156,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’un dosage stable ?',
         sidebarCtaBody: 'Type de poudre + tolérance : nous recommandons dosage + gestion poussière.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -1181,7 +1181,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita dosificación estable?',
         sidebarCtaBody: 'Envíe tipo de polvo y tolerancia. Recomendamos dosificación y control de polvo.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -1206,7 +1206,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de dosagem estável?',
         sidebarCtaBody: 'Envie tipo de pó e tolerância. Recomendamos dosagem e controle de poeira.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -1381,7 +1381,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a conveyor layout proposal?',
         sidebarCtaBody: 'Send your station list, target output, and floor layout. We’ll propose a stable conveyor + accumulation design.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -1410,7 +1410,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要輸送帶布局提案？',
         sidebarCtaBody: '提供站點清單、產能目標與場地圖，我們可提出穩定的輸送 + 緩衝設計。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -1435,7 +1435,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要输送带布局提案？',
         sidebarCtaBody: '提供站点清单、产能目标与场地图，我们可提出稳定的输送 + 缓冲设计。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -1460,7 +1460,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une proposition convoyeurs ?',
         sidebarCtaBody: 'Envoyez postes, cadence et plan. Nous proposons un design convoyeurs + accumulation stable.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -1483,7 +1483,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita un layout de transportadores?',
         sidebarCtaBody: 'Envíe estaciones, producción objetivo y plano. Proponemos un diseño estable.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -1506,7 +1506,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de proposta de layout?',
         sidebarCtaBody: 'Envie estações, produção alvo e planta. Propomos um design estável.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -1689,7 +1689,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need the right dosing method?',
         sidebarCtaBody: 'Share your powder type, target weight, and accuracy requirement. We’ll recommend the best filler setup.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -1723,7 +1723,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要選對計量方式？',
         sidebarCtaBody: '提供粉體種類、重量與精度要求，我們會推薦最適合的配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -1757,7 +1757,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要选对计量方式？',
         sidebarCtaBody: '提供粉体种类、重量与精度要求，我们会推荐最合适的配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -1782,7 +1782,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’aide pour choisir ?',
         sidebarCtaBody: 'Envoyez produit, poids cible et tolérance : nous recommandons le bon doseur.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -1807,7 +1807,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita ayuda para elegir?',
         sidebarCtaBody: 'Envíenos su polvo, peso objetivo y tolerancia; recomendaremos el dosificador.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -1830,7 +1830,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa decidir a dosagem?',
         sidebarCtaBody: 'Envie seu pó, peso alvo e tolerância para recomendarmos a configuração.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -2007,7 +2007,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a filling recommendation?',
         sidebarCtaBody: 'Tell us your product viscosity, container type, and target output. We’ll recommend piston or pump configurations.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -2032,7 +2032,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要充填方案建議？',
         sidebarCtaBody: '提供黏度、容器與產能目標，我們會建議活塞或泵浦配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -2057,7 +2057,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要充填方案建议？',
         sidebarCtaBody: '提供黏度、容器与产能目标，我们会建议活塞或泵浦配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -2082,7 +2082,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une recommandation ?',
         sidebarCtaBody: 'Partagez viscosité, contenant et cadence : nous recommandons piston ou pompe.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -2107,7 +2107,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita recomendación?',
         sidebarCtaBody: 'Comparta viscosidad, envase y producción objetivo; recomendaremos pistón o bomba.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -2132,7 +2132,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de recomendação?',
         sidebarCtaBody: 'Informe viscosidade, recipiente e meta de produção para recomendarmos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -2314,7 +2314,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need help choosing the packaging path?',
         sidebarCtaBody: 'Share your pouch style and production target. We’ll recommend VFFS or premade pouch configurations.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -2339,7 +2339,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要選擇包裝路線？',
         sidebarCtaBody: '提供袋型與產能目標，我們會建議 VFFS 或預製袋配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -2364,7 +2364,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要选择包装路线？',
         sidebarCtaBody: '提供袋型与产能目标，我们会建议 VFFS 或预制袋配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -2389,7 +2389,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Choisir la bonne voie ?',
         sidebarCtaBody: 'Envoyez format et objectif de production : nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -2414,7 +2414,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Elegir ruta de empaque?',
         sidebarCtaBody: 'Comparta estilo y producción objetivo; recomendaremos VFFS o preformado.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -2439,7 +2439,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa escolher o caminho?',
         sidebarCtaBody: 'Informe estilo e meta de produção para recomendarmos a configuração.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -2622,7 +2622,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need the right automation level?',
         sidebarCtaBody: 'Tell us your output target and packaging format. We’ll recommend a semi-auto setup or a full line.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -2647,7 +2647,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要決定自動化等級？',
         sidebarCtaBody: '提供包裝形式與產能目標，我們會建議半自動或整線方案。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -2672,7 +2672,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要决定自动化等级？',
         sidebarCtaBody: '提供包装形式与产能目标，我们会建议半自动或整线方案。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -2695,7 +2695,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Choisir le bon niveau ?',
         sidebarCtaBody: 'Envoyez format et cadence : nous recommandons semi-auto ou ligne complète.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -2718,7 +2718,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Nivel de automatización?',
         sidebarCtaBody: 'Comparta formato y output para recomendar semiauto o línea completa.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -2741,7 +2741,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Escolher automação?',
         sidebarCtaBody: 'Envie formato e meta de produção para recomendarmos a melhor abordagem.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -2917,7 +2917,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Want the right powder filling setup?',
         sidebarCtaBody: 'Share powder type, bag format, and target output. We’ll recommend the best configuration.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -2948,7 +2948,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '想選到適合的粉體配置？',
         sidebarCtaBody: '提供粉體、袋型與產能目標，我們會推薦最適合的方案。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -2979,7 +2979,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '想选到适合的粉体配置？',
         sidebarCtaBody: '提供粉体、袋型与产能目标，我们会推荐最适合的方案。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -3002,7 +3002,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’un choix rapide ?',
         sidebarCtaBody: 'Envoyez poudre, format et cadence : nous proposons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -3025,7 +3025,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita elegir rápido?',
         sidebarCtaBody: 'Envíe polvo, formato y output para recomendar configuración.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -3048,7 +3048,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa escolher rápido?',
         sidebarCtaBody: 'Envie pó, formato e output para recomendarmos a configuração.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -3228,7 +3228,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need the right liquid filling setup?',
         sidebarCtaBody: 'Share your product viscosity, container type, and output target. We’ll recommend the best configuration.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -3263,7 +3263,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要液體充填配置建議？',
         sidebarCtaBody: '提供黏度、容器形式與產能目標，我們會推薦最適合的配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -3298,7 +3298,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要液体灌装配置建议？',
         sidebarCtaBody: '提供黏度、容器形式与产能目标，我们会推荐合适配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -3333,7 +3333,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin de la bonne configuration ?',
         sidebarCtaBody: 'Décrivez viscosité, contenant et cadence cible. Nous recommandons la solution.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -3368,7 +3368,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita la configuración correcta?',
         sidebarCtaBody: 'Comparta viscosidad, envase y producción objetivo. Recomendaremos la solución.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -3403,7 +3403,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa da configuração certa?',
         sidebarCtaBody: 'Informe viscosidade, embalagem e produção alvo. Recomendaremos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -3652,7 +3652,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need help choosing the right pouch system?',
         sidebarCtaBody: 'Send your pouch spec, product, and speed target. We’ll recommend the best setup.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -3684,7 +3684,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不確定該選哪種袋裝方案？',
         sidebarCtaBody: '提供袋型規格、產品與速度目標，我們會推薦合適配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -3716,7 +3716,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '不确定该选哪种袋装方案？',
         sidebarCtaBody: '提供袋型规格、产品与速度目标，我们会推荐合适配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -3748,7 +3748,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’aide pour choisir ?',
         sidebarCtaBody: 'Envoyez specs pouch, produit et cadence. Nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -3780,7 +3780,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita ayuda para elegir?',
         sidebarCtaBody: 'Envíe especificación de bolsa, producto y velocidad objetivo. Recomendaremos la solución.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -3812,7 +3812,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de ajuda para escolher?',
         sidebarCtaBody: 'Envie especificação do pouch, produto e velocidade alvo. Recomendaremos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -4047,7 +4047,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a conveyor layout recommendation?',
         sidebarCtaBody: 'Send your line layout and target throughput. We’ll propose the right conveyor system.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -4083,7 +4083,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要輸送線佈局建議？',
         sidebarCtaBody: '提供產線佈局與產能目標，我們會提出合適的輸送方案。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -4119,7 +4119,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要输送线布局建议？',
         sidebarCtaBody: '提供产线布局与产能目标，我们会提出合适的输送方案。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -4155,7 +4155,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une proposition de layout ?',
         sidebarCtaBody: 'Envoyez votre plan et cadence cible. Nous proposerons le convoyage.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -4191,7 +4191,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita recomendación de layout?',
         sidebarCtaBody: 'Envíe su layout y caudal objetivo. Propondremos el sistema adecuado.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -4227,7 +4227,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de recomendação de layout?',
         sidebarCtaBody: 'Envie seu layout e vazão alvo. Propomos o sistema adequado.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -4483,7 +4483,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a spice packaging recommendation?',
         sidebarCtaBody: 'Share your spice type, bag format, and target output. We’ll recommend the right setup.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -4516,7 +4516,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要香料粉包裝建議？',
         sidebarCtaBody: '提供香料種類、袋型與產能目標，我們會推薦合適配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -4549,7 +4549,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要香料粉包装建议？',
         sidebarCtaBody: '提供香料种类、袋型与产能目标，我们会推荐合适配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -4582,7 +4582,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une recommandation épices ?',
         sidebarCtaBody: 'Type d’épice, format et cadence : nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -4615,7 +4615,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita recomendación para especias?',
         sidebarCtaBody: 'Comparta tipo, formato y producción. Recomendaremos la configuración.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -4648,7 +4648,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de recomendação para temperos?',
         sidebarCtaBody: 'Informe tipo, formato e produção. Recomendaremos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -4886,7 +4886,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a flour packaging recommendation?',
         sidebarCtaBody: 'Share your bag size, material, and throughput target. We’ll recommend the right setup.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -4919,7 +4919,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要麵粉包裝建議？',
         sidebarCtaBody: '提供袋重、包材與產能目標，我們會推薦合適配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -4952,7 +4952,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要面粉包装建议？',
         sidebarCtaBody: '提供袋重、包材与产能目标，我们会推荐合适配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -4985,7 +4985,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une recommandation farine ?',
         sidebarCtaBody: 'Taille de sac, matériau et cadence : nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -5018,7 +5018,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita recomendación para harina?',
         sidebarCtaBody: 'Comparta tamaño, material y producción. Recomendaremos la configuración.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -5051,7 +5051,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de recomendação para farinha?',
         sidebarCtaBody: 'Informe tamanho, material e produção. Recomendaremos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -5289,7 +5289,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need the right sauce filling configuration?',
         sidebarCtaBody: 'Share your sauce viscosity, particles, and packaging format. We’ll recommend the best setup.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -5322,7 +5322,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要醬料充填配置建議？',
         sidebarCtaBody: '提供黏度、顆粒與包裝形式，我們會推薦最合適的方案。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -5355,7 +5355,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要酱料灌装配置建议？',
         sidebarCtaBody: '提供黏度、颗粒与包装形式，我们会推荐合适方案。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -5388,7 +5388,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une configuration sauce ?',
         sidebarCtaBody: 'Viscosité, particules et format : nous recommandons la solution.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -5421,7 +5421,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita configuración para salsas?',
         sidebarCtaBody: 'Viscosidad, partículas y formato: recomendaremos la solución.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -5454,7 +5454,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de configuração para molhos?',
         sidebarCtaBody: 'Viscosidade, partículas e formato: recomendaremos a solução.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -5688,7 +5688,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a snack packing line recommendation?',
         sidebarCtaBody: 'Share snack type, bag spec, and target output. We’ll recommend the right line configuration.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -5717,7 +5717,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要零食包裝線建議？',
         sidebarCtaBody: '提供零食種類、袋型規格與產能目標，我們會推薦合適的整線配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -5746,7 +5746,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要零食包装线建议？',
         sidebarCtaBody: '提供零食类型、袋型规格与产能目标，我们会推荐合适配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -5773,7 +5773,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une ligne snacks ?',
         sidebarCtaBody: 'Type produit, film et cadence : nous recommandons la configuration.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -5800,7 +5800,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Necesita una línea de snacks?',
         sidebarCtaBody: 'Envíe producto, film y producción. Recomendaremos la configuración.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -5827,7 +5827,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Precisa de uma linha de snacks?',
         sidebarCtaBody: 'Envie produto, filme e produção. Recomendaremos a configuração.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {
@@ -6023,7 +6023,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Need a detergent powder packaging recommendation?',
         sidebarCtaBody: 'Share your bag format, weight, and output target. We’ll recommend a stable configuration.',
         sidebarCtaBtn: 'Request a quotation',
-        sidebarRelatedTitle: 'Related Machines',
+        sidebarRelatedTitle: 'Related guides',
         ...commonUi.en,
       },
       zh: {
@@ -6050,7 +6050,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要洗衣粉包裝建議？',
         sidebarCtaBody: '提供袋型、重量與產能目標，我們會推薦穩定可靠的配置。',
         sidebarCtaBtn: '索取報價',
-        sidebarRelatedTitle: '相關機種',
+        sidebarRelatedTitle: '相關指南',
         ...commonUi.zh,
       },
       cn: {
@@ -6077,7 +6077,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '需要洗衣粉包装建议？',
         sidebarCtaBody: '提供袋型、重量与产能目标，我们会推荐稳定可靠的配置。',
         sidebarCtaBtn: '索取报价',
-        sidebarRelatedTitle: '相关机种',
+        sidebarRelatedTitle: '相关指南',
         ...commonUi.cn,
       },
       fr: {
@@ -6104,7 +6104,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Besoin d’une recommandation lessive ?',
         sidebarCtaBody: 'Format, poids et cadence : nous recommandons une configuration stable.',
         sidebarCtaBtn: 'Demander un devis',
-        sidebarRelatedTitle: 'Machines associées',
+        sidebarRelatedTitle: 'Guides associés',
         ...commonUi.fr,
       },
       es: {
@@ -6131,7 +6131,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: '¿Recomendación para detergente?',
         sidebarCtaBody: 'Envíe formato, peso y producción. Recomendaremos configuración estable.',
         sidebarCtaBtn: 'Solicitar una cotización',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.es,
       },
       pt: {
@@ -6158,7 +6158,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
         sidebarCtaTitle: 'Recomendação para detergente em pó?',
         sidebarCtaBody: 'Envie formato, peso e produção. Recomendaremos configuração estável.',
         sidebarCtaBtn: 'Solicitar uma cotação',
-        sidebarRelatedTitle: 'Máquinas relacionadas',
+        sidebarRelatedTitle: 'Guías relacionadas',
         ...commonUi.pt,
       },
       ko: {

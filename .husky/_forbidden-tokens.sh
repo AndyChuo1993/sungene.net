@@ -148,4 +148,10 @@ forbidden_tokens=(
   'Facture usine transparente'
   'Factura de fábrica transparente'
   '機械路線'
+  # Wave 14j-11 added: Phase 0 mechanical sidebar labels (label-only hygiene; content unchanged pending owner decision)
+  'Related Machines'
+  '相關機種'
+  '相关机种'
+  'Machines associées'
+  'Máquinas relacionadas'
 )
