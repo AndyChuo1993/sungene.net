@@ -22,7 +22,6 @@ export const HIDDEN_RESOURCE_SLUGS = new Set<string>([
   'auger-vs-volumetric-filler',
   'piston-vs-pump-filler',
   'premade-pouch-machine-vs-vffs',
-  'semi-auto-vs-full-auto-packaging-line',
   'how-to-choose-powder-filling-machine',
   'how-to-choose-liquid-filling-machine',
   'how-to-choose-pouch-packing-machine',

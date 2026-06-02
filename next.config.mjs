@@ -43,6 +43,7 @@ const nextConfig = {
       { source: '/:lang(en|zh|cn|fr|es)/resources/third-party-inspection-vs-fat', destination: '/:lang/resources/fat-sat-acceptance-criteria-packaging-machinery', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/fat-acceptance-checklist-template', destination: '/:lang/resources/fat-sat-acceptance-criteria-packaging-machinery', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/voltage-customization-for-export', destination: '/:lang/resources', permanent: true },
+      { source: '/:lang(en|zh|cn|fr|es)/resources/semi-auto-vs-full-auto-packaging-line', destination: '/:lang/resources', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/japan-market-guide', destination: '/:lang/resources', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/quote-comparison-sheet-template', destination: '/:lang/resources', permanent: true },
       { source: '/:lang(en|zh|cn|fr|es)/resources/taiwan-china-sourcing-partner-model', destination: '/:lang/sourcing', permanent: true },

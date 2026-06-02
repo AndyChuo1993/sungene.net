@@ -17,7 +17,6 @@ export const ARTICLES: ArticleData[] = [
   { slug: 'auger-vs-volumetric-filler',            category: 'comparison',   relatedMachine: 'powder-filling-machine' },
   { slug: 'piston-vs-pump-filler',                 category: 'comparison',   relatedMachine: 'liquid-filling-machine' },
   { slug: 'premade-pouch-machine-vs-vffs',         category: 'comparison',   relatedMachine: 'pouch-packing-machine' },
-  { slug: 'semi-auto-vs-full-auto-packaging-line', category: 'comparison',   relatedMachine: 'pouch-packing-machine' },
   // Selection guides
   { slug: 'how-to-choose-powder-filling-machine',  category: 'selection',    relatedMachine: 'powder-filling-machine' },
   { slug: 'how-to-choose-liquid-filling-machine',  category: 'selection',    relatedMachine: 'liquid-filling-machine' },
