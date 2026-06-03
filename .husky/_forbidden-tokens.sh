@@ -154,4 +154,9 @@ forbidden_tokens=(
   '相关机种'
   'Machines associées'
   'Máquinas relacionadas'
+  # Wave 14j-13 added after bridge box Phase 1 → Phase 2 rewrite (LIVE article footer CTA)
+  'READY TO SOURCE?'
+  'Buy this category from Taiwan + China factories'
+  'paper gift packaging + corporate gifts'
+  'See sourcing scope'
 )

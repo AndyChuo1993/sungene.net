@@ -560,7 +560,7 @@ export default async function ComparePage({ params }: { params: Promise<{ lang: 
                     {({ en: 'Request a quotation', zh: '索取報價', cn: '索取报价', fr: 'Demander un devis', es: 'Solicitar una cotización' } as Record<string, string>)[l] || 'Request a quotation'}
                   </ButtonLink>
                   <ButtonLink href={`/${l}/sourcing`} variant="secondary" size="md" className="!bg-white/10 !text-white !ring-white/20 hover:!bg-white/20">
-                    {({ en: 'See sourcing scope', zh: '看採購範圍', cn: '看采购范围', fr: 'Voir le scope', es: 'Ver alcance' } as Record<string, string>)[l] || 'See sourcing scope'}
+                    {({ en: 'Browse product range', zh: '瀏覽產品範圍', cn: '浏览产品范围', fr: 'Parcourir nos produits', es: 'Explorar productos' } as Record<string, string>)[l] || 'Browse product range'}
                   </ButtonLink>
                 </div>
               </div>
