@@ -42,6 +42,13 @@ echo "[atomic] /en returns: $HTTP"
 
 if [ "$HTTP" = "200" ]; then
   echo "[atomic] ✓ deploy verified"
+
+  # IndexNow ping — accelerate Bing/Yandex/Seznam/Naver/Yep re-index after every deploy.
+  # Skip on --skip-build (PM2 reload only, no content change).
+  if [ "$1" != "--skip-build" ]; then
+    echo "[atomic] pinging IndexNow (priority URLs)"
+    npm run indexnow:priority 2>&1 | tail -3 || echo "[atomic] IndexNow ping failed (non-fatal)"
+  fi
   # .next.previous-static is cleaned at the start of the NEXT deploy (line 18),
   # which is the only sensible TTL boundary. The previous 24h background-sleep
   # cleanup was redundant + spawned a sleep process that lingered on SIGHUP.
