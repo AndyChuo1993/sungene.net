@@ -189,6 +189,14 @@ function collectMeta(req: Request) {
   return { ref, lang, ip, utm, time: new Date().toISOString() }
 }
 
+// Stable absolute path for ndjson fallback that survives Next.js standalone
+// rebuilds (process.cwd() in standalone is .next/standalone/ which gets wiped
+// every deploy). Override via env INQUIRY_NDJSON_PATH if needed.
+function inquiryNdjsonPath(): string {
+  if (process.env.INQUIRY_NDJSON_PATH) return process.env.INQUIRY_NDJSON_PATH
+  return path.join('/www/wwwroot/sungene.net', 'data', 'inquiries.ndjson')
+}
+
 async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; rawBody: any; meta: any }) {
   const { id, reqId, item, rawBody, meta } = args
   const record = {
@@ -219,7 +227,7 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
         if (v != null && v !== '') extra[k] = v
       }
 
-      await supabaseAdmin.from('inquiries').insert({
+      const { error: supaErr } = await supabaseAdmin.from('inquiries').insert({
         type: item.type,
         source: source || null,
         context: context || null,
@@ -238,9 +246,15 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
         language: meta.lang || null,
         status: 'new',
       })
+      // supabase-js does NOT throw on network/auth/DB errors by default — it
+      // returns { error, data }. Without this re-throw, the catch block below
+      // (ndjson fallback) is unreachable. Critical: Supabase project DNS went
+      // NXDOMAIN ~5/24 and inquiries silently fell through (10-day blackout
+      // before this fix). See memory `project_sungene.md` Wave 14j-15.
+      if (supaErr) throw supaErr
     } catch (err) {
       console.error('[inquiries] supabase insert failed, falling back to ndjson:', err)
-      const ndjsonPath = path.join(process.cwd(), 'data', 'inquiries.ndjson')
+      const ndjsonPath = inquiryNdjsonPath()
       await fs.mkdir(path.dirname(ndjsonPath), { recursive: true })
       await fs.appendFile(ndjsonPath, `${JSON.stringify(record)}\n`, 'utf8')
     }
@@ -248,7 +262,7 @@ async function persistInquiry(args: { id: string; reqId: string; item: Inquiry; 
   }
 
   // Fallback: ephemeral ndjson (only if Supabase not configured)
-  const ndjsonPath = path.join(process.cwd(), 'data', 'inquiries.ndjson')
+  const ndjsonPath = inquiryNdjsonPath()
   await fs.mkdir(path.dirname(ndjsonPath), { recursive: true })
   await fs.appendFile(ndjsonPath, `${JSON.stringify(record)}\n`, 'utf8')
 }
